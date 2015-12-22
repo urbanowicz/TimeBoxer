@@ -1,0 +1,506 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		F125D7D21C28496700B94849 /* CirclePathWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F125D7D11C28496700B94849 /* CirclePathWrapper.swift */; };
+		F134520D1BEE63D400AB9F67 /* InvertedStopButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F134520C1BEE63D400AB9F67 /* InvertedStopButton.swift */; };
+		F134520F1BEE658200AB9F67 /* InvertedStartButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F134520E1BEE658200AB9F67 /* InvertedStartButton.swift */; };
+		F13452111BEE672300AB9F67 /* InvertedCancelButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13452101BEE672300AB9F67 /* InvertedCancelButton.swift */; };
+		F135A8361BE4C9F50079C9BB /* StartButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F135A8351BE4C9F50079C9BB /* StartButton.swift */; };
+		F1462A631BDC0A440004239A /* TimeSliderBodyLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1462A621BDC0A440004239A /* TimeSliderBodyLayer.swift */; };
+		F14F13051BEA83660045936F /* AbstractOvalButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F14F13041BEA83660045936F /* AbstractOvalButton.swift */; };
+		F14F13071BEA87160045936F /* StopButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F14F13061BEA87160045936F /* StopButton.swift */; };
+		F14F13091BEA88FA0045936F /* CancelButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F14F13081BEA88FA0045936F /* CancelButton.swift */; };
+		F15F9C501BCCF376008733A3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F15F9C4F1BCCF376008733A3 /* AppDelegate.swift */; };
+		F15F9C551BCCF376008733A3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F15F9C531BCCF376008733A3 /* Main.storyboard */; };
+		F15F9C571BCCF376008733A3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F15F9C561BCCF376008733A3 /* Assets.xcassets */; };
+		F15F9C5A1BCCF376008733A3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F15F9C581BCCF376008733A3 /* LaunchScreen.storyboard */; };
+		F15F9C651BCCF376008733A3 /* TimeBoxer_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F15F9C641BCCF376008733A3 /* TimeBoxer_Tests.swift */; };
+		F189A1B21BD8C0D3000FFC5F /* TimeSliderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F189A1B11BD8C0D3000FFC5F /* TimeSliderViewController.swift */; };
+		F18D6B7A1BEB4BFE0003CBD4 /* TimerPausedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F18D6B791BEB4BFE0003CBD4 /* TimerPausedViewController.swift */; };
+		F1AF3A101BFBAE3900D40AE8 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F1AF3A0F1BFBAE3900D40AE8 /* Default-568h@2x.png */; };
+		F1B920551BE7D7CC004A8CDB /* PauseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1B920541BE7D7CC004A8CDB /* PauseButton.swift */; };
+		F1D2444C1BDFF8320023B994 /* TimerRunningViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D2444B1BDFF8320023B994 /* TimerRunningViewController.swift */; };
+		F1FD158A1BDBD3F60044BE4B /* SimpleTimeSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FD15891BDBD3F60044BE4B /* SimpleTimeSlider.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		F15F9C611BCCF376008733A3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F15F9C441BCCF376008733A3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F15F9C4B1BCCF376008733A3;
+			remoteInfo = TimeBoxer_v0;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		F125D7D11C28496700B94849 /* CirclePathWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CirclePathWrapper.swift; sourceTree = "<group>"; };
+		F134520C1BEE63D400AB9F67 /* InvertedStopButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InvertedStopButton.swift; sourceTree = "<group>"; };
+		F134520E1BEE658200AB9F67 /* InvertedStartButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InvertedStartButton.swift; sourceTree = "<group>"; };
+		F13452101BEE672300AB9F67 /* InvertedCancelButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InvertedCancelButton.swift; sourceTree = "<group>"; };
+		F135A8351BE4C9F50079C9BB /* StartButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartButton.swift; sourceTree = "<group>"; };
+		F1462A621BDC0A440004239A /* TimeSliderBodyLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeSliderBodyLayer.swift; sourceTree = "<group>"; };
+		F14F13041BEA83660045936F /* AbstractOvalButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AbstractOvalButton.swift; sourceTree = "<group>"; };
+		F14F13061BEA87160045936F /* StopButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StopButton.swift; sourceTree = "<group>"; };
+		F14F13081BEA88FA0045936F /* CancelButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CancelButton.swift; sourceTree = "<group>"; };
+		F15F9C4C1BCCF376008733A3 /* TimeBoxer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TimeBoxer.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F15F9C4F1BCCF376008733A3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		F15F9C541BCCF376008733A3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		F15F9C561BCCF376008733A3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F15F9C591BCCF376008733A3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		F15F9C5B1BCCF376008733A3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F15F9C601BCCF376008733A3 /* TimeBoxer.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TimeBoxer.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F15F9C641BCCF376008733A3 /* TimeBoxer_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeBoxer_Tests.swift; sourceTree = "<group>"; };
+		F15F9C661BCCF376008733A3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F189A1B11BD8C0D3000FFC5F /* TimeSliderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeSliderViewController.swift; sourceTree = "<group>"; };
+		F18D6B791BEB4BFE0003CBD4 /* TimerPausedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerPausedViewController.swift; sourceTree = "<group>"; };
+		F1AF3A0F1BFBAE3900D40AE8 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		F1B920541BE7D7CC004A8CDB /* PauseButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PauseButton.swift; sourceTree = "<group>"; };
+		F1D2444B1BDFF8320023B994 /* TimerRunningViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerRunningViewController.swift; sourceTree = "<group>"; };
+		F1FD15891BDBD3F60044BE4B /* SimpleTimeSlider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleTimeSlider.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F15F9C491BCCF376008733A3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F15F9C5D1BCCF376008733A3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		F125D7D01C28491900B94849 /* AnimationShapes */ = {
+			isa = PBXGroup;
+			children = (
+				F125D7D11C28496700B94849 /* CirclePathWrapper.swift */,
+			);
+			name = AnimationShapes;
+			sourceTree = "<group>";
+		};
+		F14F13021BEA82A20045936F /* TimerPausedVC */ = {
+			isa = PBXGroup;
+			children = (
+				F18D6B791BEB4BFE0003CBD4 /* TimerPausedViewController.swift */,
+			);
+			name = TimerPausedVC;
+			sourceTree = "<group>";
+		};
+		F14F13031BEA82C50045936F /* Buttons */ = {
+			isa = PBXGroup;
+			children = (
+				F135A8351BE4C9F50079C9BB /* StartButton.swift */,
+				F1B920541BE7D7CC004A8CDB /* PauseButton.swift */,
+				F14F13041BEA83660045936F /* AbstractOvalButton.swift */,
+				F14F13061BEA87160045936F /* StopButton.swift */,
+				F14F13081BEA88FA0045936F /* CancelButton.swift */,
+				F13452101BEE672300AB9F67 /* InvertedCancelButton.swift */,
+				F134520C1BEE63D400AB9F67 /* InvertedStopButton.swift */,
+				F134520E1BEE658200AB9F67 /* InvertedStartButton.swift */,
+			);
+			name = Buttons;
+			sourceTree = "<group>";
+		};
+		F15F9C431BCCF376008733A3 = {
+			isa = PBXGroup;
+			children = (
+				F1AF3A0F1BFBAE3900D40AE8 /* Default-568h@2x.png */,
+				F15F9C4E1BCCF376008733A3 /* TimeBoxer */,
+				F15F9C631BCCF376008733A3 /* TimeBoxer_Tests */,
+				F15F9C4D1BCCF376008733A3 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		F15F9C4D1BCCF376008733A3 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F15F9C4C1BCCF376008733A3 /* TimeBoxer.app */,
+				F15F9C601BCCF376008733A3 /* TimeBoxer.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F15F9C4E1BCCF376008733A3 /* TimeBoxer */ = {
+			isa = PBXGroup;
+			children = (
+				F125D7D01C28491900B94849 /* AnimationShapes */,
+				F14F13031BEA82C50045936F /* Buttons */,
+				F14F13021BEA82A20045936F /* TimerPausedVC */,
+				F1D2444A1BDFF7C90023B994 /* TimerRunningVC */,
+				F1D244491BDFF4810023B994 /* TimeSliderVC */,
+				F15F9C4F1BCCF376008733A3 /* AppDelegate.swift */,
+				F15F9C531BCCF376008733A3 /* Main.storyboard */,
+				F15F9C561BCCF376008733A3 /* Assets.xcassets */,
+				F15F9C581BCCF376008733A3 /* LaunchScreen.storyboard */,
+				F15F9C5B1BCCF376008733A3 /* Info.plist */,
+			);
+			path = TimeBoxer;
+			sourceTree = "<group>";
+		};
+		F15F9C631BCCF376008733A3 /* TimeBoxer_Tests */ = {
+			isa = PBXGroup;
+			children = (
+				F15F9C641BCCF376008733A3 /* TimeBoxer_Tests.swift */,
+				F15F9C661BCCF376008733A3 /* Info.plist */,
+			);
+			path = TimeBoxer_Tests;
+			sourceTree = "<group>";
+		};
+		F16979C81C29A25800420242 /* customControls */ = {
+			isa = PBXGroup;
+			children = (
+				F1FD15891BDBD3F60044BE4B /* SimpleTimeSlider.swift */,
+				F1462A621BDC0A440004239A /* TimeSliderBodyLayer.swift */,
+			);
+			name = customControls;
+			sourceTree = "<group>";
+		};
+		F1D244491BDFF4810023B994 /* TimeSliderVC */ = {
+			isa = PBXGroup;
+			children = (
+				F16979C81C29A25800420242 /* customControls */,
+				F189A1B11BD8C0D3000FFC5F /* TimeSliderViewController.swift */,
+			);
+			name = TimeSliderVC;
+			sourceTree = "<group>";
+		};
+		F1D2444A1BDFF7C90023B994 /* TimerRunningVC */ = {
+			isa = PBXGroup;
+			children = (
+				F1D2444B1BDFF8320023B994 /* TimerRunningViewController.swift */,
+			);
+			name = TimerRunningVC;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		F15F9C4B1BCCF376008733A3 /* TimeBoxer */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F15F9C691BCCF376008733A3 /* Build configuration list for PBXNativeTarget "TimeBoxer" */;
+			buildPhases = (
+				F15F9C481BCCF376008733A3 /* Sources */,
+				F15F9C491BCCF376008733A3 /* Frameworks */,
+				F15F9C4A1BCCF376008733A3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TimeBoxer;
+			productName = TimeBoxer_v0;
+			productReference = F15F9C4C1BCCF376008733A3 /* TimeBoxer.app */;
+			productType = "com.apple.product-type.application";
+		};
+		F15F9C5F1BCCF376008733A3 /* TimeBoxerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F15F9C6C1BCCF376008733A3 /* Build configuration list for PBXNativeTarget "TimeBoxerTests" */;
+			buildPhases = (
+				F15F9C5C1BCCF376008733A3 /* Sources */,
+				F15F9C5D1BCCF376008733A3 /* Frameworks */,
+				F15F9C5E1BCCF376008733A3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F15F9C621BCCF376008733A3 /* PBXTargetDependency */,
+			);
+			name = TimeBoxerTests;
+			productName = TimeBoxer_v0Tests;
+			productReference = F15F9C601BCCF376008733A3 /* TimeBoxer.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F15F9C441BCCF376008733A3 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0700;
+				ORGANIZATIONNAME = Tomasz;
+				TargetAttributes = {
+					F15F9C4B1BCCF376008733A3 = {
+						CreatedOnToolsVersion = 7.0;
+					};
+					F15F9C5F1BCCF376008733A3 = {
+						CreatedOnToolsVersion = 7.0;
+						TestTargetID = F15F9C4B1BCCF376008733A3;
+					};
+				};
+			};
+			buildConfigurationList = F15F9C471BCCF376008733A3 /* Build configuration list for PBXProject "TimeBoxer" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = F15F9C431BCCF376008733A3;
+			productRefGroup = F15F9C4D1BCCF376008733A3 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F15F9C4B1BCCF376008733A3 /* TimeBoxer */,
+				F15F9C5F1BCCF376008733A3 /* TimeBoxerTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F15F9C4A1BCCF376008733A3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F15F9C5A1BCCF376008733A3 /* LaunchScreen.storyboard in Resources */,
+				F1AF3A101BFBAE3900D40AE8 /* Default-568h@2x.png in Resources */,
+				F15F9C571BCCF376008733A3 /* Assets.xcassets in Resources */,
+				F15F9C551BCCF376008733A3 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F15F9C5E1BCCF376008733A3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F15F9C481BCCF376008733A3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F13452111BEE672300AB9F67 /* InvertedCancelButton.swift in Sources */,
+				F1B920551BE7D7CC004A8CDB /* PauseButton.swift in Sources */,
+				F18D6B7A1BEB4BFE0003CBD4 /* TimerPausedViewController.swift in Sources */,
+				F15F9C501BCCF376008733A3 /* AppDelegate.swift in Sources */,
+				F189A1B21BD8C0D3000FFC5F /* TimeSliderViewController.swift in Sources */,
+				F134520F1BEE658200AB9F67 /* InvertedStartButton.swift in Sources */,
+				F135A8361BE4C9F50079C9BB /* StartButton.swift in Sources */,
+				F1462A631BDC0A440004239A /* TimeSliderBodyLayer.swift in Sources */,
+				F125D7D21C28496700B94849 /* CirclePathWrapper.swift in Sources */,
+				F134520D1BEE63D400AB9F67 /* InvertedStopButton.swift in Sources */,
+				F14F13071BEA87160045936F /* StopButton.swift in Sources */,
+				F1D2444C1BDFF8320023B994 /* TimerRunningViewController.swift in Sources */,
+				F1FD158A1BDBD3F60044BE4B /* SimpleTimeSlider.swift in Sources */,
+				F14F13051BEA83660045936F /* AbstractOvalButton.swift in Sources */,
+				F14F13091BEA88FA0045936F /* CancelButton.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F15F9C5C1BCCF376008733A3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F15F9C651BCCF376008733A3 /* TimeBoxer_Tests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		F15F9C621BCCF376008733A3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F15F9C4B1BCCF376008733A3 /* TimeBoxer */;
+			targetProxy = F15F9C611BCCF376008733A3 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		F15F9C531BCCF376008733A3 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F15F9C541BCCF376008733A3 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		F15F9C581BCCF376008733A3 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F15F9C591BCCF376008733A3 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		F15F9C671BCCF376008733A3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		F15F9C681BCCF376008733A3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		F15F9C6A1BCCF376008733A3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "$(SRCROOT)/TimeBoxer/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.TimeBoxer;
+				PRODUCT_NAME = TimeBoxer;
+			};
+			name = Debug;
+		};
+		F15F9C6B1BCCF376008733A3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "$(SRCROOT)/TimeBoxer/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.TimeBoxer;
+				PRODUCT_NAME = TimeBoxer;
+			};
+			name = Release;
+		};
+		F15F9C6D1BCCF376008733A3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = TimeBoxer_v0Tests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.example.TimeBoxer-v0Tests";
+				PRODUCT_NAME = TimeBoxer;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TimeBoxer.app/TimeBoxer";
+			};
+			name = Debug;
+		};
+		F15F9C6E1BCCF376008733A3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = TimeBoxer_v0Tests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.example.TimeBoxer-v0Tests";
+				PRODUCT_NAME = TimeBoxer;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TimeBoxer.app/TimeBoxer";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F15F9C471BCCF376008733A3 /* Build configuration list for PBXProject "TimeBoxer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F15F9C671BCCF376008733A3 /* Debug */,
+				F15F9C681BCCF376008733A3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F15F9C691BCCF376008733A3 /* Build configuration list for PBXNativeTarget "TimeBoxer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F15F9C6A1BCCF376008733A3 /* Debug */,
+				F15F9C6B1BCCF376008733A3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F15F9C6C1BCCF376008733A3 /* Build configuration list for PBXNativeTarget "TimeBoxerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F15F9C6D1BCCF376008733A3 /* Debug */,
+				F15F9C6E1BCCF376008733A3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = F15F9C441BCCF376008733A3 /* Project object */;
+}
