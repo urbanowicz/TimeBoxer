@@ -17,31 +17,34 @@ class TimerRunningViewController: UIViewController {
     var timer = NSTimer()
     var counter = 0 //number of seconds
     
-    override func viewDidLoad() {
+//----------------------------------------------------------------------------------------------------------------------
+    override func viewDidLoad()
+    {
         super.viewDidLoad()
         view.backgroundColor = UIColor(red:1.0, green:0.945, blue: 0.902, alpha:1.0)
         toolbarFiller.backgroundColor = view.backgroundColor
         topContainer.backgroundColor = view.backgroundColor
     }
     
+//----------------------------------------------------------------------------------------------------------------------
     override func viewWillAppear(animated: Bool) {
         updateTimeLabel()
         timer = NSTimer.scheduledTimerWithTimeInterval(1.0, target:self, selector: "countDown",
             userInfo: nil, repeats: true)
     }
 
+//----------------------------------------------------------------------------------------------------------------------
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-
-    
+//----------------------------------------------------------------------------------------------------------------------
     @IBAction func pauseButtonPressed(sender: UIButton) {
         timer.invalidate()
     }
     
-    
+//----------------------------------------------------------------------------------------------------------------------
     func countDown() {
         counter--
         updateTimeLabel()
@@ -51,6 +54,7 @@ class TimerRunningViewController: UIViewController {
         }
     }
     
+//----------------------------------------------------------------------------------------------------------------------
     private func updateTimeLabel() {
         var counterCopy = counter
         let hours = counterCopy / 3600
@@ -82,13 +86,11 @@ class TimerRunningViewController: UIViewController {
     }
     
     //MARK: - Navigation
-    
+//----------------------------------------------------------------------------------------------------------------------
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if let segueIdentifier = segue.identifier {
             if segueIdentifier == "timerRunningVCToTimerPausedVC" {
-                let timerPausedViewController:TimerPausedViewController =
-                    segue.destinationViewController as! TimerPausedViewController
-                timerPausedViewController.timeText = timeLabel.text!
+
             }
             print(segueIdentifier)
         } else {
@@ -96,6 +98,7 @@ class TimerRunningViewController: UIViewController {
         }
     }
     
+//----------------------------------------------------------------------------------------------------------------------
     @IBAction func unwindToTimerRunningVC (segue: UIStoryboardSegue) {
         if let segueIdentifier = segue.identifier {
             print(segueIdentifier)

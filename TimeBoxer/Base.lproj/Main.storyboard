@@ -9,9 +9,6 @@
     <customFonts key="customFonts">
         <mutableArray key="HelveticaNeue.ttc">
             <string>HelveticaNeue</string>
-            <string>HelveticaNeue</string>
-            <string>HelveticaNeue</string>
-            <string>HelveticaNeue</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -169,103 +166,60 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dIb-4A-ila" userLabel="ResumeButtonContainer">
-                                <rect key="frame" x="200" y="246" width="200" height="108"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mi0-G2-1cU" userLabel="TopContainer">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="492"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lJL-RU-1Zi" userLabel="ResumeButton" customClass="InvertedStartButton" customModule="TimeBoxer" customModuleProvider="target">
-                                        <rect key="frame" x="60" y="14" width="81" height="81"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" secondItem="lJL-RU-1Zi" secondAttribute="height" multiplier="1:1" id="267-4l-t5n"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
-                                        <connections>
-                                            <action selector="resumeButtonPressed:" destination="lqK-VX-oTB" eventType="touchUpInside" id="CYc-tW-sLI"/>
-                                            <segue destination="X5d-M9-CFg" kind="unwind" identifier="unwindTimerPausedVCToTimerRunningVC" unwindAction="unwindToTimerRunningVC:" id="JZm-Wk-P6Y"/>
-                                        </connections>
-                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Paused" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YtN-0l-MeS" userLabel="PausedLabel">
+                                        <rect key="frame" x="197" y="213" width="206" height="67"/>
+                                        <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="57"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstItem="lJL-RU-1Zi" firstAttribute="centerX" secondItem="dIb-4A-ila" secondAttribute="centerX" id="4T0-Iw-LsU"/>
-                                    <constraint firstItem="lJL-RU-1Zi" firstAttribute="centerY" secondItem="dIb-4A-ila" secondAttribute="centerY" id="TTx-u1-Hhn"/>
-                                    <constraint firstItem="lJL-RU-1Zi" firstAttribute="height" secondItem="dIb-4A-ila" secondAttribute="height" multiplier="0.75" id="gYi-Cc-9qv"/>
+                                    <constraint firstItem="YtN-0l-MeS" firstAttribute="centerX" secondItem="mi0-G2-1cU" secondAttribute="centerX" id="5zD-T0-knY"/>
+                                    <constraint firstItem="YtN-0l-MeS" firstAttribute="centerY" secondItem="mi0-G2-1cU" secondAttribute="centerY" id="KHz-4H-gJi"/>
                                 </constraints>
                             </view>
-                            <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BFP-Gl-g2h" userLabel="CancelButtonContainer">
-                                <rect key="frame" x="20" y="246" width="180" height="108"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="v2e-Ik-q5g" userLabel="ToolbarFiller">
+                                <rect key="frame" x="0.0" y="492" width="613" height="108"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EdD-b1-01u" userLabel="CancelButton" customClass="InvertedCancelButton" customModule="TimeBoxer" customModuleProvider="target">
-                                        <rect key="frame" x="49" y="14" width="81" height="81"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rLq-of-Jlt" customClass="StartButton" customModule="TimeBoxer" customModuleProvider="target">
+                                        <rect key="frame" x="266" y="14" width="81" height="81"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" secondItem="EdD-b1-01u" secondAttribute="height" multiplier="1:1" id="f3a-fz-Aer"/>
+                                            <constraint firstAttribute="width" secondItem="rLq-of-Jlt" secondAttribute="height" multiplier="1:1" id="7go-iz-mUF"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
-                                        <connections>
-                                            <action selector="cancelButtonPressed:" destination="lqK-VX-oTB" eventType="touchUpInside" id="SGu-qc-yEg"/>
-                                            <segue destination="X5d-M9-CFg" kind="unwind" identifier="unwindTimerPausedVCToTimeSliderVC" unwindAction="unwindToTimeSliderVC:" id="m7o-4u-TMp"/>
-                                        </connections>
+                                        <state key="normal" title="Button"/>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstItem="EdD-b1-01u" firstAttribute="centerX" secondItem="BFP-Gl-g2h" secondAttribute="centerX" id="TO9-1Y-A9C"/>
-                                    <constraint firstItem="EdD-b1-01u" firstAttribute="height" secondItem="BFP-Gl-g2h" secondAttribute="height" multiplier="0.75" id="bjG-ku-3CM"/>
-                                    <constraint firstItem="EdD-b1-01u" firstAttribute="centerY" secondItem="BFP-Gl-g2h" secondAttribute="centerY" id="dDT-BT-7d9"/>
+                                    <constraint firstItem="rLq-of-Jlt" firstAttribute="height" secondItem="v2e-Ik-q5g" secondAttribute="height" multiplier="0.75" id="2II-xq-K2C"/>
+                                    <constraint firstItem="rLq-of-Jlt" firstAttribute="centerY" secondItem="v2e-Ik-q5g" secondAttribute="centerY" id="M2N-Fb-mRu"/>
+                                    <constraint firstItem="rLq-of-Jlt" firstAttribute="centerX" secondItem="v2e-Ik-q5g" secondAttribute="centerX" id="ek4-B1-GVA"/>
                                 </constraints>
                             </view>
-                            <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gpu-Az-6sq" userLabel="StopButtonContainer">
-                                <rect key="frame" x="400" y="246" width="180" height="108"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zl7-2u-WZd" userLabel="StopButton" customClass="InvertedStopButton" customModule="TimeBoxer" customModuleProvider="target">
-                                        <rect key="frame" x="50" y="13" width="81" height="81"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" secondItem="zl7-2u-WZd" secondAttribute="height" multiplier="1:1" id="aHk-cD-xs6"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
-                                        <connections>
-                                            <action selector="stopButtonPressed:" destination="lqK-VX-oTB" eventType="touchUpInside" id="nb6-Sn-9zn"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                                <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstItem="zl7-2u-WZd" firstAttribute="centerX" secondItem="gpu-Az-6sq" secondAttribute="centerX" id="9Ry-5Q-izT"/>
-                                    <constraint firstItem="zl7-2u-WZd" firstAttribute="height" secondItem="gpu-Az-6sq" secondAttribute="height" multiplier="0.75" id="QUM-5U-XwY"/>
-                                    <constraint firstItem="zl7-2u-WZd" firstAttribute="centerY" secondItem="gpu-Az-6sq" secondAttribute="centerY" id="x2i-I3-3mR"/>
-                                </constraints>
-                            </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0:00:00" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eyh-Ki-DIb" userLabel="TimeLabel">
-                                <rect key="frame" x="180" y="184" width="240" height="62"/>
-                                <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="53"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
-                        <color key="backgroundColor" red="0.15294117647058825" green="0.15294117647058825" blue="0.15294117647058825" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="dIb-4A-ila" firstAttribute="centerX" secondItem="dUO-wX-w9S" secondAttribute="centerX" id="5oS-Rs-OvD"/>
-                            <constraint firstItem="eyh-Ki-DIb" firstAttribute="centerX" secondItem="dUO-wX-w9S" secondAttribute="centerX" id="67p-am-KUH"/>
-                            <constraint firstItem="dIb-4A-ila" firstAttribute="height" secondItem="dUO-wX-w9S" secondAttribute="height" multiplier="0.18" id="6Ej-gC-mwg"/>
-                            <constraint firstItem="BFP-Gl-g2h" firstAttribute="height" secondItem="dIb-4A-ila" secondAttribute="height" id="JmP-OI-5sr"/>
-                            <constraint firstItem="gpu-Az-6sq" firstAttribute="height" secondItem="dIb-4A-ila" secondAttribute="height" id="MhG-SV-lCh"/>
-                            <constraint firstItem="dIb-4A-ila" firstAttribute="top" secondItem="eyh-Ki-DIb" secondAttribute="bottom" id="PLv-f9-auA"/>
-                            <constraint firstItem="BFP-Gl-g2h" firstAttribute="leading" secondItem="dUO-wX-w9S" secondAttribute="leadingMargin" id="Ug2-rY-6Gq"/>
-                            <constraint firstItem="dIb-4A-ila" firstAttribute="leading" secondItem="BFP-Gl-g2h" secondAttribute="trailing" id="Zb3-Nf-2el"/>
-                            <constraint firstItem="dIb-4A-ila" firstAttribute="width" secondItem="dUO-wX-w9S" secondAttribute="width" multiplier="0.33333" id="bnh-XC-I5o"/>
-                            <constraint firstItem="gpu-Az-6sq" firstAttribute="leading" secondItem="dIb-4A-ila" secondAttribute="trailing" id="dNa-lr-xuT"/>
-                            <constraint firstItem="gpu-Az-6sq" firstAttribute="centerY" secondItem="dUO-wX-w9S" secondAttribute="centerY" id="fcB-7m-Qks"/>
-                            <constraint firstItem="dIb-4A-ila" firstAttribute="centerY" secondItem="dUO-wX-w9S" secondAttribute="centerY" id="fjp-Lj-lLS"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="gpu-Az-6sq" secondAttribute="trailing" id="lz0-ha-jFE"/>
-                            <constraint firstItem="eyh-Ki-DIb" firstAttribute="width" secondItem="dUO-wX-w9S" secondAttribute="width" multiplier="0.4" id="spz-th-fFS"/>
-                            <constraint firstItem="BFP-Gl-g2h" firstAttribute="centerY" secondItem="dUO-wX-w9S" secondAttribute="centerY" id="tEj-Yn-5Lo"/>
+                            <constraint firstItem="v2e-Ik-q5g" firstAttribute="top" secondItem="mi0-G2-1cU" secondAttribute="bottom" id="46Z-Ae-YkW"/>
+                            <constraint firstItem="tlZ-wA-v9z" firstAttribute="top" secondItem="v2e-Ik-q5g" secondAttribute="bottom" id="6UM-At-KVK"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="v2e-Ik-q5g" secondAttribute="trailing" constant="-33" id="Bgb-VB-y80"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="mi0-G2-1cU" secondAttribute="trailing" constant="-20" id="OaT-MO-Br1"/>
+                            <constraint firstItem="mi0-G2-1cU" firstAttribute="top" secondItem="dUO-wX-w9S" secondAttribute="topMargin" id="a7c-in-cna"/>
+                            <constraint firstItem="v2e-Ik-q5g" firstAttribute="height" secondItem="dUO-wX-w9S" secondAttribute="height" multiplier="0.18" id="dKD-HC-aDT"/>
+                            <constraint firstItem="mi0-G2-1cU" firstAttribute="leading" secondItem="dUO-wX-w9S" secondAttribute="leadingMargin" constant="-20" id="ktG-zz-QKc"/>
+                            <constraint firstItem="v2e-Ik-q5g" firstAttribute="leading" secondItem="dUO-wX-w9S" secondAttribute="leadingMargin" constant="-20" id="rOq-Je-DWN"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="timeLabel" destination="eyh-Ki-DIb" id="XAC-pN-y40"/>
+                        <outlet property="pausedLabel" destination="YtN-0l-MeS" id="JBm-Y5-AZW"/>
+                        <outlet property="resumeButton" destination="rLq-of-Jlt" id="teV-GM-xyV"/>
+                        <outlet property="toolbarFiller" destination="v2e-Ik-q5g" id="DOj-As-zMa"/>
+                        <outlet property="topContainer" destination="mi0-G2-1cU" id="1ew-uu-YX4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8jm-Af-MkM" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="X5d-M9-CFg" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1954" y="140"/>
         </scene>
