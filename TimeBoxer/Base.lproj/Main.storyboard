@@ -185,19 +185,36 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="v2e-Ik-q5g" userLabel="ToolbarFiller">
                                 <rect key="frame" x="0.0" y="492" width="613" height="108"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rLq-of-Jlt" customClass="StartButton" customModule="TimeBoxer" customModuleProvider="target">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rLq-of-Jlt" userLabel="ResumeButton" customClass="StartButton" customModule="TimeBoxer" customModuleProvider="target">
                                         <rect key="frame" x="266" y="14" width="81" height="81"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="rLq-of-Jlt" secondAttribute="height" multiplier="1:1" id="7go-iz-mUF"/>
                                         </constraints>
-                                        <state key="normal" title="Button"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jOK-ZR-U6L" userLabel="CancelButton" customClass="CancelButton" customModule="TimeBoxer" customModuleProvider="target">
+                                        <rect key="frame" x="196" y="29" width="50" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="jOK-ZR-U6L" secondAttribute="height" multiplier="1:1" id="OUm-OT-Jbf"/>
+                                        </constraints>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Irb-Cg-bll" customClass="StopButton" customModule="TimeBoxer" customModuleProvider="target">
+                                        <rect key="frame" x="367" y="29" width="50" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="Irb-Cg-bll" secondAttribute="height" multiplier="1:1" id="uIu-Pi-V8D"/>
+                                        </constraints>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="rLq-of-Jlt" firstAttribute="height" secondItem="v2e-Ik-q5g" secondAttribute="height" multiplier="0.75" id="2II-xq-K2C"/>
-                                    <constraint firstItem="rLq-of-Jlt" firstAttribute="centerY" secondItem="v2e-Ik-q5g" secondAttribute="centerY" id="M2N-Fb-mRu"/>
-                                    <constraint firstItem="rLq-of-Jlt" firstAttribute="centerX" secondItem="v2e-Ik-q5g" secondAttribute="centerX" id="ek4-B1-GVA"/>
+                                    <constraint firstItem="jOK-ZR-U6L" firstAttribute="centerY" secondItem="v2e-Ik-q5g" secondAttribute="centerY" id="6Pq-Ls-pNA"/>
+                                    <constraint firstItem="rLq-of-Jlt" firstAttribute="centerX" secondItem="v2e-Ik-q5g" secondAttribute="centerX" id="7WD-aq-zAl"/>
+                                    <constraint firstItem="Irb-Cg-bll" firstAttribute="leading" secondItem="rLq-of-Jlt" secondAttribute="trailing" constant="20" id="Ap6-Eu-eZu"/>
+                                    <constraint firstItem="jOK-ZR-U6L" firstAttribute="width" secondItem="rLq-of-Jlt" secondAttribute="width" multiplier="0.618" id="cCS-3L-vME"/>
+                                    <constraint firstItem="Irb-Cg-bll" firstAttribute="width" secondItem="rLq-of-Jlt" secondAttribute="width" multiplier="0.618" id="lqq-Qz-uPp"/>
+                                    <constraint firstItem="Irb-Cg-bll" firstAttribute="centerY" secondItem="v2e-Ik-q5g" secondAttribute="centerY" id="rqH-3q-aFf"/>
+                                    <constraint firstItem="rLq-of-Jlt" firstAttribute="centerY" secondItem="v2e-Ik-q5g" secondAttribute="centerY" id="tgL-WP-HmU"/>
+                                    <constraint firstItem="rLq-of-Jlt" firstAttribute="leading" secondItem="jOK-ZR-U6L" secondAttribute="trailing" constant="20" id="xp4-vP-w3v"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -213,8 +230,10 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="cancelButton" destination="jOK-ZR-U6L" id="xdF-XJ-hz7"/>
                         <outlet property="pausedLabel" destination="YtN-0l-MeS" id="JBm-Y5-AZW"/>
                         <outlet property="resumeButton" destination="rLq-of-Jlt" id="teV-GM-xyV"/>
+                        <outlet property="stopButton" destination="Irb-Cg-bll" id="diM-0Q-ghx"/>
                         <outlet property="toolbarFiller" destination="v2e-Ik-q5g" id="DOj-As-zMa"/>
                         <outlet property="topContainer" destination="mi0-G2-1cU" id="1ew-uu-YX4"/>
                     </connections>

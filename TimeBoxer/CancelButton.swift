@@ -1,9 +1,9 @@
 //
 //  CancelButton.swift
-//  TimeBoxer_v0
+//  TimeBoxer
 //
-//  Created by Tomasz on 04.11.2015.
-//  Copyright © 2015 Tomasz. All rights reserved.
+//  Created by Tomasz Urbanowicz on 04.11.2015.
+//  Copyright © 2015 Tomasz Urbanowicz. All rights reserved.
 //
 
 import UIKit

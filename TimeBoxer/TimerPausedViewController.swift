@@ -13,7 +13,10 @@ class TimerPausedViewController: UIViewController {
     @IBOutlet weak var topContainer: UIView!
     @IBOutlet weak var toolbarFiller: UIView!
     @IBOutlet weak var resumeButton: StartButton!
+    @IBOutlet weak var cancelButton: CancelButton!
+    @IBOutlet weak var stopButton: StopButton!
 //----------------------------------------------------------------------------------------------------------------------
+
     override func viewDidLoad()
     {
         super.viewDidLoad()
@@ -25,6 +28,14 @@ class TimerPausedViewController: UIViewController {
         resumeButton.ovalLayerColor = UIColor(red:1.0, green:0.945, blue: 0.902, alpha:1.0)
         resumeButton.frontLayerColor = UIColor(red:0.15, green:0.15, blue:0.15, alpha:1.0)
         resumeButton.borderWidth = 0.0
+        
+        cancelButton.ovalLayerColor = resumeButton.ovalLayerColor
+        cancelButton.frontLayerColor = resumeButton.frontLayerColor
+        cancelButton.borderWidth = 0.0
+        
+        stopButton.ovalLayerColor = cancelButton.ovalLayerColor
+        stopButton.frontLayerColor = cancelButton.frontLayerColor
+        stopButton.borderWidth = 0.0
     }
 
 //----------------------------------------------------------------------------------------------------------------------
@@ -53,14 +64,16 @@ class TimerPausedViewController: UIViewController {
     }
     
 //----------------------------------------------------------------------------------------------------------------------
-    @IBAction func resumeButtonPressed(sender: InvertedStartButton) {
+    @IBAction func resumeButtonPressed(sender: InvertedStartButton)
+    {
 
     }
     
     
 // MARK: - Navigation
 //----------------------------------------------------------------------------------------------------------------------
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)
+    {
         if let segueIdentifier = segue.identifier {
             print(segueIdentifier)
         } else {
