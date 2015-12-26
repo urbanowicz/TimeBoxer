@@ -14,6 +14,8 @@ class TimerRunningViewController: UIViewController {
     @IBOutlet weak var toolbarFiller: UIView!
     @IBOutlet weak var topContainer: UIView!
     
+    private let transitionManager = TransitionManager()
+    
     var timer = NSTimer()
     var counter = 0 //number of seconds
     
@@ -90,7 +92,7 @@ class TimerRunningViewController: UIViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if let segueIdentifier = segue.identifier {
             if segueIdentifier == "timerRunningVCToTimerPausedVC" {
-
+                segue.destinationViewController.transitioningDelegate = self.transitionManager
             }
             print(segueIdentifier)
         } else {
@@ -107,4 +109,103 @@ class TimerRunningViewController: UIViewController {
         }
     }
 
+}
+
+
+//
+// MARK - TransitionManager
+//
+private class TransitionManager: NSObject, UIViewControllerTransitioningDelegate {
+    let animator = Animator()
+    let dismissAnimator = DismissAnimator()
+    
+    //----------------------------------------------------------------------------------------------------------------------
+    @objc func animationControllerForPresentedController(presented: UIViewController,
+        presentingController presenting: UIViewController,
+        sourceController source: UIViewController) -> UIViewControllerAnimatedTransitioning?
+    {
+        return animator
+    }
+    
+    //----------------------------------------------------------------------------------------------------------------------
+    @objc func animationControllerForDismissedController(dismissed: UIViewController)
+        -> UIViewControllerAnimatedTransitioning?
+    {
+        return dismissAnimator
+    }
+    
+}
+
+//
+// MARK - Animator
+//
+
+private class Animator: NSObject, UIViewControllerAnimatedTransitioning {
+    var context:UIViewControllerContextTransitioning?
+    var container: UIView?
+    var timerRunningVC: TimerRunningViewController?
+    var timerPausedVC: TimerPausedViewController?
+    var animationCounter = 0
+    var animationLayers = [CALayer]()
+    
+//----------------------------------------------------------------------------------------------------------------------
+    @objc func transitionDuration(transitionContext: UIViewControllerContextTransitioning?) -> NSTimeInterval
+    {
+        return 1.0
+    }
+    
+//----------------------------------------------------------------------------------------------------------------------
+    @objc func animateTransition(transitionContext: UIViewControllerContextTransitioning)
+    {
+        animationCounter = 0
+        self.context = transitionContext
+        self.container = transitionContext.containerView()
+        self.timerRunningVC = transitionContext.viewControllerForKey(UITransitionContextFromViewControllerKey)
+            as? TimerRunningViewController
+        self.timerPausedVC = transitionContext.viewControllerForKey(UITransitionContextToViewControllerKey)
+            as? TimerPausedViewController
+        
+        //temporary code:
+        container!.addSubview(self.timerPausedVC!.view)
+        timerRunningVC!.view.removeFromSuperview()
+        context!.completeTransition(true)
+
+    }
+    
+//----------------------------------------------------------------------------------------------------------------------
+    override func animationDidStop(anim: CAAnimation, finished flag: Bool)
+    {
+
+    }
+}
+
+//
+// MARK - DismissAnimator
+//
+
+private class DismissAnimator: NSObject, UIViewControllerAnimatedTransitioning {
+    var context: UIViewControllerContextTransitioning?
+    var container: UIView?
+    var timeSliderVC: TimeSliderViewController?
+    var timerRunningVC: TimerRunningViewController?
+    
+//----------------------------------------------------------------------------------------------------------------------
+    @objc func transitionDuration(transitionContext: UIViewControllerContextTransitioning?)
+        -> NSTimeInterval
+    {
+        return 0.5
+    }
+    
+//----------------------------------------------------------------------------------------------------------------------
+    @objc func animateTransition(transitionContext: UIViewControllerContextTransitioning)
+    {
+        
+    }
+    
+//----------------------------------------------------------------------------------------------------------------------
+    override func animationDidStop(anim: CAAnimation, finished flag: Bool)
+    {
+        
+    }
+    
 }
