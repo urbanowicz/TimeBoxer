@@ -1,40 +1,17 @@
 //
 //  PauseButton.swift
-//  TimeBoxer_v0
+//  TimeBoxer
 //
-//  Created by Tomasz on 02.11.2015.
-//  Copyright © 2015 Tomasz. All rights reserved.
+//  Created by Tomasz Urbanowicz on 02.11.2015.
+//  Copyright © 2015 Tomasz Urbanowicz. All rights reserved.
 //
 
 import UIKit
 
-class PauseButton: UIButton {
+class PauseButton: AbstractOvalButton {
     
-    var pauseLayerColor = UIColor.whiteColor()
-    var ovalLayerColor = UIColor(red:0.15, green:0.15, blue:0.15, alpha:1.0)
-    var pauseLayerHighlightedColor = UIColor.whiteColor()
-    var ovalLayerHighlightedColor = UIColor(red:0.58, green:0.58, blue:0.58, alpha:1.0)
-    
-    override var highlighted:Bool {
-        didSet {
-            setNeedsDisplay()
-        }
-    }
-    override func drawRect(rect: CGRect) {
+    override func drawFrontLayer(rect: CGRect) {
         
-        let ovalPath = UIBezierPath(ovalInRect: rect)
-        if !highlighted {
-            ovalLayerColor.setFill()
-        } else {
-            ovalLayerHighlightedColor.setFill()
-        }
-        ovalPath.fill()
-        
-        if !highlighted {
-            pauseLayerColor.setFill()
-        } else {
-            pauseLayerHighlightedColor.setFill()
-        }
         let currentContext = UIGraphicsGetCurrentContext()
         let a = rect.width
         let rx:CGFloat = 0.3333

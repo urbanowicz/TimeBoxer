@@ -145,6 +145,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="pauseButton" destination="FpE-Td-kzr" id="q9K-BD-e5G"/>
                         <outlet property="timeLabel" destination="4dv-nH-N0g" id="T7Y-Cx-Kjd"/>
                         <outlet property="toolbarFiller" destination="BTw-im-1hi" id="Ojr-40-XHV"/>
                         <outlet property="topContainer" destination="Hvt-Eh-bge" id="VS4-o5-mmr"/>

@@ -9,7 +9,7 @@
 import UIKit
 
 class TimerRunningViewController: UIViewController {
-    @IBOutlet weak var stopButton: UIButton!
+    @IBOutlet weak var pauseButton: PauseButton!
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var toolbarFiller: UIView!
     @IBOutlet weak var topContainer: UIView!
@@ -26,6 +26,10 @@ class TimerRunningViewController: UIViewController {
         view.backgroundColor = UIColor(red:1.0, green:0.945, blue: 0.902, alpha:1.0)
         toolbarFiller.backgroundColor = view.backgroundColor
         topContainer.backgroundColor = view.backgroundColor
+        
+        pauseButton.frontLayerColor = UIColor(red:1.0, green:0.945, blue: 0.902, alpha:1.0)
+        pauseButton.ovalLayerHighlightedColor = pauseButton.ovalLayerColor
+        pauseButton.frontLayerHighlightedColor = pauseButton.frontLayerColor
     }
     
 //----------------------------------------------------------------------------------------------------------------------
@@ -151,7 +155,7 @@ private class Animator: NSObject, UIViewControllerAnimatedTransitioning {
 //----------------------------------------------------------------------------------------------------------------------
     @objc func transitionDuration(transitionContext: UIViewControllerContextTransitioning?) -> NSTimeInterval
     {
-        return 1.0
+        return 0.3
     }
     
 //----------------------------------------------------------------------------------------------------------------------
@@ -166,16 +170,49 @@ private class Animator: NSObject, UIViewControllerAnimatedTransitioning {
             as? TimerPausedViewController
         
         //temporary code:
+        timerPausedVC!.view.layer.mask = prepareExpandingCircleAnimationLayer()
         container!.addSubview(self.timerPausedVC!.view)
-        timerRunningVC!.view.removeFromSuperview()
-        context!.completeTransition(true)
+
 
     }
     
 //----------------------------------------------------------------------------------------------------------------------
     override func animationDidStop(anim: CAAnimation, finished flag: Bool)
     {
-
+        timerRunningVC!.view.removeFromSuperview()
+        context!.completeTransition(true)
+    }
+//----------------------------------------------------------------------------------------------------------------------
+    private func prepareExpandingCircleAnimationLayer() -> CALayer
+    {
+        let animationLayer = CAShapeLayer()
+        //Create the small circle path and the large circle path
+        let pauseButton = timerRunningVC!.pauseButton
+        let pauseButtonCenter:CGPoint = container!.convertPoint(pauseButton.center, fromView: pauseButton.superview)
+        let smallCirclePath = CirclePathWrapper(centerX: pauseButtonCenter.x, centerY: pauseButtonCenter.y,
+            radius: pauseButton.radius).path
+        let largeCirclePath = createLargeCircleForButton(pauseButton).path
+        animationLayer.path = largeCirclePath
+        
+        //Create the animation
+        let animation = CABasicAnimation(keyPath: "path")
+        animation.delegate = self
+        animation.duration = transitionDuration((context!))
+        animation.fromValue = smallCirclePath
+        animation.toValue = largeCirclePath
+        animationLayer.addAnimation(animation, forKey: "path")
+        return animationLayer
+    }
+//----------------------------------------------------------------------------------------------------------------------
+    private func createLargeCircleForButton(button:AbstractOvalButton) -> CirclePathWrapper
+    {
+        let circleCenter:CGPoint = container!.convertPoint(button.center, fromView: button.superview)
+        let xs = circleCenter.x
+        let ys = circleCenter.y
+        let x0 = container!.frame.origin.x
+        let y0 = container!.frame.origin.y
+        let  largeRadius = sqrt(pow((xs - x0),2) + pow((ys - y0),2))
+        return CirclePathWrapper(centerX: xs, centerY: ys, radius: largeRadius)
     }
 }
 
