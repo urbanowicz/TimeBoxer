@@ -109,7 +109,7 @@ private class Animator: NSObject, UIViewControllerAnimatedTransitioning {
 //----------------------------------------------------------------------------------------------------------------------
     @objc func transitionDuration(transitionContext: UIViewControllerContextTransitioning?) -> NSTimeInterval
     {
-        return 1.0
+        return 0.5
     }
     
 //----------------------------------------------------------------------------------------------------------------------

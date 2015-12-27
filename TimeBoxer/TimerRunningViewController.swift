@@ -223,26 +223,66 @@ private class Animator: NSObject, UIViewControllerAnimatedTransitioning {
 private class DismissAnimator: NSObject, UIViewControllerAnimatedTransitioning {
     var context: UIViewControllerContextTransitioning?
     var container: UIView?
-    var timeSliderVC: TimeSliderViewController?
+    var timerPausedVC: TimerPausedViewController?
     var timerRunningVC: TimerRunningViewController?
     
 //----------------------------------------------------------------------------------------------------------------------
     @objc func transitionDuration(transitionContext: UIViewControllerContextTransitioning?)
         -> NSTimeInterval
     {
-        return 0.5
+        return 0.3
     }
     
 //----------------------------------------------------------------------------------------------------------------------
     @objc func animateTransition(transitionContext: UIViewControllerContextTransitioning)
     {
+        self.context = transitionContext
+        self.container = transitionContext.containerView()
+        self.timerPausedVC = transitionContext.viewControllerForKey(UITransitionContextFromViewControllerKey)
+            as? TimerPausedViewController
+        self.timerRunningVC = transitionContext.viewControllerForKey(UITransitionContextToViewControllerKey)
+            as? TimerRunningViewController
         
+        container!.insertSubview(timerRunningVC!.view, belowSubview: timerPausedVC!.view)
+        timerPausedVC!.view.layer.mask = prepareShrinkingCircleAnimationLayer()
     }
     
 //----------------------------------------------------------------------------------------------------------------------
     override func animationDidStop(anim: CAAnimation, finished flag: Bool)
     {
-        
+        timerPausedVC!.view.removeFromSuperview()
+        context!.completeTransition(true)
     }
     
+//----------------------------------------------------------------------------------------------------------------------
+    private func prepareShrinkingCircleAnimationLayer() -> CALayer
+    {
+        let animationLayer = CAShapeLayer()
+        let resumeButton = timerPausedVC!.resumeButton
+        let resumeButtonCenter = container!.convertPoint(resumeButton.center, fromView: resumeButton.superview)
+        let smallCirclePath = CirclePathWrapper(centerX: resumeButtonCenter.x, centerY: resumeButtonCenter.y,
+            radius: 0.0).path
+        let largeCirclePath = createLargeCircleForButton(resumeButton).path
+        animationLayer.path = smallCirclePath
+        
+        let animation = CABasicAnimation(keyPath: "path")
+        animation.delegate = self
+        animation.duration = transitionDuration((context!))
+        animation.fromValue = largeCirclePath
+        animation.toValue = smallCirclePath
+        animationLayer.addAnimation(animation, forKey: "path")
+        return animationLayer
+    }
+
+//----------------------------------------------------------------------------------------------------------------------
+    private func createLargeCircleForButton(button:AbstractOvalButton) -> CirclePathWrapper
+    {
+        let circleCenter:CGPoint = container!.convertPoint(button.center, fromView: button.superview)
+        let xs = circleCenter.x
+        let ys = circleCenter.y
+        let x0 = container!.frame.origin.x
+        let y0 = container!.frame.origin.y
+        let  largeRadius = sqrt(pow((xs - x0),2) + pow((ys - y0),2))
+        return CirclePathWrapper(centerX: xs, centerY: ys, radius: largeRadius)
+    }
 }
