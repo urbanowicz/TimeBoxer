@@ -52,8 +52,6 @@ class TimeSliderViewController: UIViewController {
         
         if let segueIdentifier = segue.identifier {
             print(segueIdentifier)
-        } else {
-            print("unknown segue")
         }
         
         let timerRunningViewController = segue.destinationViewController as! TimerRunningViewController
@@ -63,9 +61,10 @@ class TimeSliderViewController: UIViewController {
     
     @IBAction func unwindToTimeSliderVC(sender: UIStoryboardSegue) {
         if let segueIdentifier = sender.identifier {
-            print(segueIdentifier)
-        } else {
-            print("unknown segue")
+            print("unwind \(segueIdentifier)")
+            if segueIdentifier == "TimerPausedVCToTimeSliderVC" {
+                sender.sourceViewController.transitioningDelegate = nil
+            }
         }
     }
 }

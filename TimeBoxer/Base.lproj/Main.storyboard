@@ -104,7 +104,7 @@
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
                                         <connections>
                                             <action selector="pauseButtonPressed:" destination="WVv-Cz-hWv" eventType="touchUpInside" id="Lxg-0b-djw"/>
-                                            <segue destination="lqK-VX-oTB" kind="presentation" identifier="timerRunningVCToTimerPausedVC" id="Sjr-xE-zgp"/>
+                                            <segue destination="lqK-VX-oTB" kind="presentation" identifier="TimerRunningVCToTimerPausedVC" id="Sjr-xE-zgp"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -192,7 +192,7 @@
                                             <constraint firstAttribute="width" secondItem="rLq-of-Jlt" secondAttribute="height" multiplier="1:1" id="7go-iz-mUF"/>
                                         </constraints>
                                         <connections>
-                                            <segue destination="Lra-Rs-gx8" kind="unwind" identifier="timerPausedVCtoTimerRunningVC" unwindAction="unwindToTimerRunningVC:" id="kCQ-D0-YmL"/>
+                                            <segue destination="Lra-Rs-gx8" kind="unwind" identifier="TimerPausedVCToTimerRunningVC" unwindAction="unwindToTimerRunningVC:" id="kCQ-D0-YmL"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jOK-ZR-U6L" userLabel="CancelButton" customClass="CancelButton" customModule="TimeBoxer" customModuleProvider="target">

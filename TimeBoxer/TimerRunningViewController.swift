@@ -95,7 +95,7 @@ class TimerRunningViewController: UIViewController {
 //----------------------------------------------------------------------------------------------------------------------
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if let segueIdentifier = segue.identifier {
-            if segueIdentifier == "timerRunningVCToTimerPausedVC" {
+            if segueIdentifier == "TimerRunningVCToTimerPausedVC" {
                 segue.destinationViewController.transitioningDelegate = self.transitionManager
             }
             print(segueIdentifier)
@@ -107,9 +107,10 @@ class TimerRunningViewController: UIViewController {
 //----------------------------------------------------------------------------------------------------------------------
     @IBAction func unwindToTimerRunningVC (segue: UIStoryboardSegue) {
         if let segueIdentifier = segue.identifier {
-            print(segueIdentifier)
-        } else {
-            print ("unknown segue")
+            if segueIdentifier == "TimerPausedVCToTimerRunningVC" {
+                print("unwind \(segueIdentifier)")
+                segue.sourceViewController.transitioningDelegate = self.transitionManager
+            }
         }
     }
 
