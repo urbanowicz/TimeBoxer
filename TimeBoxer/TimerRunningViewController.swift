@@ -14,7 +14,7 @@ class TimerRunningViewController: UIViewController {
     @IBOutlet weak var toolbarFiller: UIView!
     @IBOutlet weak var topContainer: UIView!
     
-    private let transitionManager = TransitionManager()
+    private let transitionManager = TransitionManager(animator: Animator(), dismissAnimator: DismissAnimator())
     
     var timer = NSTimer()
     var counter = 0 //number of seconds
@@ -115,30 +115,6 @@ class TimerRunningViewController: UIViewController {
 
 }
 
-
-//
-// MARK - TransitionManager
-//
-private class TransitionManager: NSObject, UIViewControllerTransitioningDelegate {
-    let animator = Animator()
-    let dismissAnimator = DismissAnimator()
-    
-    //----------------------------------------------------------------------------------------------------------------------
-    @objc func animationControllerForPresentedController(presented: UIViewController,
-        presentingController presenting: UIViewController,
-        sourceController source: UIViewController) -> UIViewControllerAnimatedTransitioning?
-    {
-        return animator
-    }
-    
-    //----------------------------------------------------------------------------------------------------------------------
-    @objc func animationControllerForDismissedController(dismissed: UIViewController)
-        -> UIViewControllerAnimatedTransitioning?
-    {
-        return dismissAnimator
-    }
-    
-}
 
 //
 // MARK - Animator

@@ -16,7 +16,7 @@ class TimeSliderViewController: UIViewController {
     let startButtonBackgroundColor = UIColor(red:1.0, green:0.945, blue: 0.902, alpha:1.0)
     let startButtonFrontLayerColor = UIColor(white:0.15, alpha:1.0)
     
-    private let transitionManager = TransitionManager()
+    private let transitionManager = TransitionManager(animator: Animator(), dismissAnimator: DismissAnimator())
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -70,29 +70,6 @@ class TimeSliderViewController: UIViewController {
     }
 }
 
-//
-// MARK - TransitionManager
-//
-private class TransitionManager: NSObject, UIViewControllerTransitioningDelegate {
-    let animator = Animator()
-    let dismissAnimator = DismissAnimator()
-    
-//----------------------------------------------------------------------------------------------------------------------
-    @objc func animationControllerForPresentedController(presented: UIViewController,
-        presentingController presenting: UIViewController,
-        sourceController source: UIViewController) -> UIViewControllerAnimatedTransitioning?
-    {
-        return animator
-    }
-    
-//----------------------------------------------------------------------------------------------------------------------
-    @objc func animationControllerForDismissedController(dismissed: UIViewController)
-        -> UIViewControllerAnimatedTransitioning?
-    {
-        return dismissAnimator
-    }
-    
-}
 
 //
 // MARK - Animator

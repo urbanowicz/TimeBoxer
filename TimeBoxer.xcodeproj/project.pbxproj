@@ -24,6 +24,7 @@
 		F189A1B21BD8C0D3000FFC5F /* TimeSliderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F189A1B11BD8C0D3000FFC5F /* TimeSliderViewController.swift */; };
 		F18D6B7A1BEB4BFE0003CBD4 /* TimerPausedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F18D6B791BEB4BFE0003CBD4 /* TimerPausedViewController.swift */; };
 		F1AF3A101BFBAE3900D40AE8 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F1AF3A0F1BFBAE3900D40AE8 /* Default-568h@2x.png */; };
+		F1B5FE6D1C31AF73003A5C65 /* TransitionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1B5FE6C1C31AF73003A5C65 /* TransitionManager.swift */; };
 		F1B920551BE7D7CC004A8CDB /* PauseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1B920541BE7D7CC004A8CDB /* PauseButton.swift */; };
 		F1D2444C1BDFF8320023B994 /* TimerRunningViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D2444B1BDFF8320023B994 /* TimerRunningViewController.swift */; };
 		F1FD158A1BDBD3F60044BE4B /* SimpleTimeSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FD15891BDBD3F60044BE4B /* SimpleTimeSlider.swift */; };
@@ -61,6 +62,7 @@
 		F189A1B11BD8C0D3000FFC5F /* TimeSliderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeSliderViewController.swift; sourceTree = "<group>"; };
 		F18D6B791BEB4BFE0003CBD4 /* TimerPausedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerPausedViewController.swift; sourceTree = "<group>"; };
 		F1AF3A0F1BFBAE3900D40AE8 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		F1B5FE6C1C31AF73003A5C65 /* TransitionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionManager.swift; sourceTree = "<group>"; };
 		F1B920541BE7D7CC004A8CDB /* PauseButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PauseButton.swift; sourceTree = "<group>"; };
 		F1D2444B1BDFF8320023B994 /* TimerRunningViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerRunningViewController.swift; sourceTree = "<group>"; };
 		F1FD15891BDBD3F60044BE4B /* SimpleTimeSlider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleTimeSlider.swift; sourceTree = "<group>"; };
@@ -137,6 +139,7 @@
 		F15F9C4E1BCCF376008733A3 /* TimeBoxer */ = {
 			isa = PBXGroup;
 			children = (
+				F1B5FE6B1C31AF45003A5C65 /* Segues */,
 				F125D7D01C28491900B94849 /* AnimationShapes */,
 				F14F13031BEA82C50045936F /* Buttons */,
 				F14F13021BEA82A20045936F /* TimerPausedVC */,
@@ -167,6 +170,14 @@
 				F1462A621BDC0A440004239A /* TimeSliderBodyLayer.swift */,
 			);
 			name = customControls;
+			sourceTree = "<group>";
+		};
+		F1B5FE6B1C31AF45003A5C65 /* Segues */ = {
+			isa = PBXGroup;
+			children = (
+				F1B5FE6C1C31AF73003A5C65 /* TransitionManager.swift */,
+			);
+			name = Segues;
 			sourceTree = "<group>";
 		};
 		F1D244491BDFF4810023B994 /* TimeSliderVC */ = {
@@ -295,6 +306,7 @@
 				F134520F1BEE658200AB9F67 /* InvertedStartButton.swift in Sources */,
 				F135A8361BE4C9F50079C9BB /* StartButton.swift in Sources */,
 				F1462A631BDC0A440004239A /* TimeSliderBodyLayer.swift in Sources */,
+				F1B5FE6D1C31AF73003A5C65 /* TransitionManager.swift in Sources */,
 				F125D7D21C28496700B94849 /* CirclePathWrapper.swift in Sources */,
 				F134520D1BEE63D400AB9F67 /* InvertedStopButton.swift in Sources */,
 				F14F13071BEA87160045936F /* StopButton.swift in Sources */,
