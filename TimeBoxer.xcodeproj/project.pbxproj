@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F10B85181C38346D002C66F2 /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10B85171C38346D002C66F2 /* ContainerViewController.swift */; };
 		F125D7D21C28496700B94849 /* CirclePathWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F125D7D11C28496700B94849 /* CirclePathWrapper.swift */; };
 		F134520D1BEE63D400AB9F67 /* InvertedStopButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F134520C1BEE63D400AB9F67 /* InvertedStopButton.swift */; };
 		F134520F1BEE658200AB9F67 /* InvertedStartButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F134520E1BEE658200AB9F67 /* InvertedStartButton.swift */; };
@@ -41,6 +42,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F10B85171C38346D002C66F2 /* ContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContainerViewController.swift; sourceTree = "<group>"; };
 		F125D7D11C28496700B94849 /* CirclePathWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CirclePathWrapper.swift; sourceTree = "<group>"; };
 		F134520C1BEE63D400AB9F67 /* InvertedStopButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InvertedStopButton.swift; sourceTree = "<group>"; };
 		F134520E1BEE658200AB9F67 /* InvertedStartButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InvertedStartButton.swift; sourceTree = "<group>"; };
@@ -89,6 +91,7 @@
 		F10B85161C383349002C66F2 /* ContainerVC */ = {
 			isa = PBXGroup;
 			children = (
+				F10B85171C38346D002C66F2 /* ContainerViewController.swift */,
 			);
 			name = ContainerVC;
 			sourceTree = "<group>";
@@ -317,6 +320,7 @@
 				F1B5FE6D1C31AF73003A5C65 /* TransitionManager.swift in Sources */,
 				F125D7D21C28496700B94849 /* CirclePathWrapper.swift in Sources */,
 				F134520D1BEE63D400AB9F67 /* InvertedStopButton.swift in Sources */,
+				F10B85181C38346D002C66F2 /* ContainerViewController.swift in Sources */,
 				F14F13071BEA87160045936F /* StopButton.swift in Sources */,
 				F1D2444C1BDFF8320023B994 /* TimerRunningViewController.swift in Sources */,
 				F1FD158A1BDBD3F60044BE4B /* SimpleTimeSlider.swift in Sources */,
