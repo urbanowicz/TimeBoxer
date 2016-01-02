@@ -19,7 +19,7 @@ class ContainerViewController: UIViewController {
     {
         super.viewDidLoad()
         
-        timesliderVC =
+        timeSliderVC =
             storyboard!.instantiateViewControllerWithIdentifier("timeSliderViewController") as?
             TimeSliderViewController
         
@@ -42,6 +42,13 @@ class ContainerViewController: UIViewController {
         vc.didMoveToParentViewController(self)
     }
 
+//----------------------------------------------------------------------------------------------------------------------
+    private func hideViewController(vc: UIViewController)
+    {
+        vc.willMoveToParentViewController(nil)
+        vc.view.removeFromSuperview()
+        vc.removeFromParentViewController()
+    }
 
 //----------------------------------------------------------------------------------------------------------------------
     override func didReceiveMemoryWarning() {
