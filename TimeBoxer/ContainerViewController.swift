@@ -19,6 +19,7 @@ class ContainerViewController: UIViewController {
     {
         super.viewDidLoad()
         
+        //1. Instantiate the view controllers
         timeSliderVC =
             storyboard!.instantiateViewControllerWithIdentifier("timeSliderViewController") as?
             TimeSliderViewController
@@ -30,6 +31,9 @@ class ContainerViewController: UIViewController {
         timerPausedVC =
             storyboard!.instantiateViewControllerWithIdentifier("timerPausedViewController") as?
             TimerPausedViewController
+        
+        //2. Display the first screen
+        displayViewController(timeSliderVC!)
 
     }
     
