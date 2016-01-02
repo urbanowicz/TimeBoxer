@@ -16,8 +16,9 @@ class TimeSliderViewController: UIViewController {
     let startButtonBackgroundColor = UIColor(red:1.0, green:0.945, blue: 0.902, alpha:1.0)
     let startButtonFrontLayerColor = UIColor(white:0.15, alpha:1.0)
     
-    private let transitionManager = TransitionManager(animator: Animator(), dismissAnimator: DismissAnimator())
-    
+    private let transitionManager = TransitionManager(animator: Animator(), dismissAnimator: nil)
+
+//----------------------------------------------------------------------------------------------------------------------
     override func viewDidLoad() {
         super.viewDidLoad()
         startButton.ovalLayerColor = startButtonBackgroundColor
@@ -30,24 +31,29 @@ class TimeSliderViewController: UIViewController {
 
     }
     
+//----------------------------------------------------------------------------------------------------------------------
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
+
+//----------------------------------------------------------------------------------------------------------------------
     override func viewWillAppear(animated: Bool) {
         timeSlider.frameIsReady()
     }
     
+//----------------------------------------------------------------------------------------------------------------------
     override func viewDidLayoutSubviews() {
         timeSlider.frameIsReady()
     }
 
+//----------------------------------------------------------------------------------------------------------------------
     @IBAction func timeSliderValueChanged(sender: SimpleTimeSlider) {
         
     }
     
-    //MARK - Navigation
+//MARK: - Navigation
+//----------------------------------------------------------------------------------------------------------------------
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
         if let segueIdentifier = segue.identifier {
@@ -58,20 +64,18 @@ class TimeSliderViewController: UIViewController {
         timerRunningViewController.counter = timeSlider.value * 60
         timerRunningViewController.transitioningDelegate = transitionManager
     }
-    
+
+//----------------------------------------------------------------------------------------------------------------------
     @IBAction func unwindToTimeSliderVC(sender: UIStoryboardSegue) {
         if let segueIdentifier = sender.identifier {
             print("unwind \(segueIdentifier)")
-            if segueIdentifier == "TimerPausedVCToTimeSliderVC" {
-                sender.sourceViewController.transitioningDelegate = nil
-            }
         }
     }
 }
 
 
 //
-// MARK - Animator
+// MARK: - Animator
 //
 
 private class Animator: NSObject, UIViewControllerAnimatedTransitioning {
@@ -168,7 +172,7 @@ private class Animator: NSObject, UIViewControllerAnimatedTransitioning {
 }
 
 //
-// MARK -DismissAnimator
+// MARK: - DismissAnimator
 //
 
 private class DismissAnimator: NSObject, UIViewControllerAnimatedTransitioning {
@@ -187,7 +191,7 @@ private class DismissAnimator: NSObject, UIViewControllerAnimatedTransitioning {
 //----------------------------------------------------------------------------------------------------------------------
     @objc func animateTransition(transitionContext: UIViewControllerContextTransitioning)
     {
-        
+        print("kiki")
     }
     
 //----------------------------------------------------------------------------------------------------------------------

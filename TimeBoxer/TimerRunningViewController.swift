@@ -118,7 +118,7 @@ class TimerRunningViewController: UIViewController {
 
 
 //
-// MARK - Animator
+// MARK: - Animator
 //
 
 private class Animator: NSObject, UIViewControllerAnimatedTransitioning {
@@ -194,7 +194,7 @@ private class Animator: NSObject, UIViewControllerAnimatedTransitioning {
 }
 
 //
-// MARK - DismissAnimator
+// MARK: - DismissAnimator
 //
 
 private class DismissAnimator: NSObject, UIViewControllerAnimatedTransitioning {

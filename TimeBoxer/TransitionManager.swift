@@ -9,10 +9,10 @@
 import UIKit
 
 class TransitionManager: NSObject, UIViewControllerTransitioningDelegate {
-    var animator: UIViewControllerAnimatedTransitioning
-    var dismissAnimator: UIViewControllerAnimatedTransitioning
+    var animator: UIViewControllerAnimatedTransitioning?
+    var dismissAnimator: UIViewControllerAnimatedTransitioning?
     
-    init(animator: UIViewControllerAnimatedTransitioning, dismissAnimator: UIViewControllerAnimatedTransitioning)
+    init(animator: UIViewControllerAnimatedTransitioning?, dismissAnimator: UIViewControllerAnimatedTransitioning?)
     {
         self.animator = animator
         self.dismissAnimator = dismissAnimator
