@@ -14,7 +14,7 @@ class TimerRunningViewController: UIViewController {
     @IBOutlet weak var toolbarFiller: UIView!
     @IBOutlet weak var topContainer: UIView!
     
-    private let transitionManager = TransitionManager(animator: Animator(), dismissAnimator: DismissAnimator())
+    private let transitionManager = TransitionManager(animator: CustomAnimator(), dismissAnimator: DismissAnimator())
     
     var timer = NSTimer()
     var counter = 0 //number of seconds
@@ -118,10 +118,10 @@ class TimerRunningViewController: UIViewController {
 
 
 //
-// MARK: - Animator
+// MARK: - CustomAnimator
 //
 
-private class Animator: NSObject, UIViewControllerAnimatedTransitioning {
+private class CustomAnimator: NSObject, UIViewControllerAnimatedTransitioning {
     var context:UIViewControllerContextTransitioning?
     var container: UIView?
     var timerRunningVC: TimerRunningViewController?

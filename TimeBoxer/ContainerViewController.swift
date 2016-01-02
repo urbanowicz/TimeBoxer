@@ -36,6 +36,18 @@ class ContainerViewController: UIViewController {
         displayViewController(timeSliderVC!)
 
     }
+//----------------------------------------------------------------------------------------------------------------------
+    func switchViewControllers(fromVC:UIViewController, toVC:UIViewController, animator:Animator) {
+        self.addChildViewController(toVC)
+        fromVC.willMoveToParentViewController(nil)
+        toVC.view.frame = self.view.frame
+        animator.animateTransition(fromVC, toVC: toVC, container: self.view, completion:
+        {
+            fromVC.removeFromParentViewController()
+            toVC.didMoveToParentViewController(self)
+            fromVC.removeFromParentViewController()
+        })
+    }
     
 //----------------------------------------------------------------------------------------------------------------------
     private func displayViewController(vc: UIViewController)

@@ -16,7 +16,7 @@ class TimeSliderViewController: UIViewController {
     let startButtonBackgroundColor = UIColor(red:1.0, green:0.945, blue: 0.902, alpha:1.0)
     let startButtonFrontLayerColor = UIColor(white:0.15, alpha:1.0)
     
-    private let transitionManager = TransitionManager(animator: Animator(), dismissAnimator: nil)
+    private let transitionManager = TransitionManager(animator: CustomAnimator(), dismissAnimator: nil)
 
 //----------------------------------------------------------------------------------------------------------------------
     override func viewDidLoad() {
@@ -75,10 +75,10 @@ class TimeSliderViewController: UIViewController {
 
 
 //
-// MARK: - Animator
+// MARK: - CustomAnimator
 //
 
-private class Animator: NSObject, UIViewControllerAnimatedTransitioning {
+private class CustomAnimator: NSObject, UIViewControllerAnimatedTransitioning {
     var context:UIViewControllerContextTransitioning?
     var container: UIView?
     var timeSliderVC: TimeSliderViewController?
@@ -172,10 +172,10 @@ private class Animator: NSObject, UIViewControllerAnimatedTransitioning {
 }
 
 //
-// MARK: - DismissAnimator
+// MARK: - DismissCustomAnimator
 //
 
-private class DismissAnimator: NSObject, UIViewControllerAnimatedTransitioning {
+private class DismissCustomAnimator: NSObject, UIViewControllerAnimatedTransitioning {
     var context: UIViewControllerContextTransitioning?
     var container: UIView?
     var timeSliderVC: TimeSliderViewController?
