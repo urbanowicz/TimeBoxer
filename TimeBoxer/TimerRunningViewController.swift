@@ -14,8 +14,7 @@ class TimerRunningViewController: UIViewController {
     @IBOutlet weak var toolbarFiller: UIView!
     @IBOutlet weak var topContainer: UIView!
     
-    private let transitionManager = TransitionManager(animator: CustomAnimator(), dismissAnimator: DismissAnimator())
-    
+    private let toTimerPausedAnimator = ToTimerPausedAnimator()
     var timer = NSTimer()
     var counter = 0 //number of seconds
     
@@ -95,70 +94,61 @@ class TimerRunningViewController: UIViewController {
 //----------------------------------------------------------------------------------------------------------------------
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if let segueIdentifier = segue.identifier {
-            if segueIdentifier == "TimerRunningVCToTimerPausedVC" {
-                segue.destinationViewController.transitioningDelegate = self.transitionManager
-            }
             print(segueIdentifier)
         } else {
             print ("unknown segue")
         }
     }
-    
 //----------------------------------------------------------------------------------------------------------------------
-    @IBAction func unwindToTimerRunningVC (segue: UIStoryboardSegue) {
-        if let segueIdentifier = segue.identifier {
-            if segueIdentifier == "TimerPausedVCToTimerRunningVC" {
-                print("unwind \(segueIdentifier)")
-                segue.sourceViewController.transitioningDelegate = self.transitionManager
-            }
-        }
+    override func showViewController(vc: UIViewController, sender: AnyObject?) {
+        let containerVC = parentViewController as! ContainerViewController
+        containerVC.switchViewControllers(self, toVC: vc, animator: toTimerPausedAnimator)
     }
 
 }
 
 
 //
-// MARK: - CustomAnimator
+// MARK: - ToTimerPausedAnimator
 //
+private class ToTimerPausedAnimator: NSObject, Animator {
+    let transitionDuration = 0.25
+    var timerRunningVC:TimerRunningViewController?
+    var timerPausedVC:TimerPausedViewController?
+    var container:UIView?
+    var completionBlock:(()->Void)?
 
-private class CustomAnimator: NSObject, UIViewControllerAnimatedTransitioning {
-    var context:UIViewControllerContextTransitioning?
-    var container: UIView?
-    var timerRunningVC: TimerRunningViewController?
-    var timerPausedVC: TimerPausedViewController?
-    var animationCounter = 0
-    var animationLayers = [CALayer]()
-    
 //----------------------------------------------------------------------------------------------------------------------
-    @objc func transitionDuration(transitionContext: UIViewControllerContextTransitioning?) -> NSTimeInterval
+    func animateTransition(fromVC: UIViewController, toVC: UIViewController, container: UIView, completion: (() -> Void)?)
     {
-        return 0.3
-    }
-    
-//----------------------------------------------------------------------------------------------------------------------
-    @objc func animateTransition(transitionContext: UIViewControllerContextTransitioning)
-    {
-        animationCounter = 0
-        self.context = transitionContext
-        self.container = transitionContext.containerView()
-        self.timerRunningVC = transitionContext.viewControllerForKey(UITransitionContextFromViewControllerKey)
-            as? TimerRunningViewController
-        self.timerPausedVC = transitionContext.viewControllerForKey(UITransitionContextToViewControllerKey)
-            as? TimerPausedViewController
+        //Remember: container is the view of the parent controller. It already contains the
+        //fromVC.view
+        //It is the animator's responsibility to remove the fromVC.view from the container and
+        //add the toVC.view to the container
         
-        //temporary code:
-        timerPausedVC!.view.layer.mask = prepareExpandingCircleAnimationLayer()
-        container!.addSubview(self.timerPausedVC!.view)
-
-
+        //1. Store the function parameters as instance variables
+        self.timerRunningVC = fromVC as? TimerRunningViewController
+        self.timerPausedVC = toVC as? TimerPausedViewController
+        self.container = container
+        self.completionBlock = completion
+        
+        //2. Crete the expanding circle animation layer and set it as a mask layer of the toVC.view
+        let expandingCircleAnimationLayer = prepareExpandingCircleAnimationLayer()
+        toVC.view.layer.mask = expandingCircleAnimationLayer
+        container.addSubview(toVC.view)
     }
-    
+
 //----------------------------------------------------------------------------------------------------------------------
     override func animationDidStop(anim: CAAnimation, finished flag: Bool)
     {
+        //Done with the animation, do the final cleanup
+        timerPausedVC!.view.layer.mask = nil
         timerRunningVC!.view.removeFromSuperview()
-        context!.completeTransition(true)
+        if let executeCompletionBlock = completionBlock {
+            executeCompletionBlock()
+        }
     }
+    
 //----------------------------------------------------------------------------------------------------------------------
     private func prepareExpandingCircleAnimationLayer() -> CALayer
     {
@@ -174,7 +164,7 @@ private class CustomAnimator: NSObject, UIViewControllerAnimatedTransitioning {
         //Create the animation
         let animation = CABasicAnimation(keyPath: "path")
         animation.delegate = self
-        animation.duration = transitionDuration((context!))
+        animation.duration = transitionDuration
         animation.fromValue = smallCirclePath
         animation.toValue = largeCirclePath
         animationLayer.addAnimation(animation, forKey: "path")
@@ -192,6 +182,7 @@ private class CustomAnimator: NSObject, UIViewControllerAnimatedTransitioning {
         return CirclePathWrapper(centerX: xs, centerY: ys, radius: largeRadius)
     }
 }
+
 
 //
 // MARK: - DismissAnimator

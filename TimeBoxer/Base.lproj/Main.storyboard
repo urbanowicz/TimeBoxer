@@ -122,7 +122,7 @@
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
                                         <connections>
                                             <action selector="pauseButtonPressed:" destination="WVv-Cz-hWv" eventType="touchUpInside" id="Lxg-0b-djw"/>
-                                            <segue destination="lqK-VX-oTB" kind="presentation" identifier="TimerRunningVCToTimerPausedVC" id="Sjr-xE-zgp"/>
+                                            <segue destination="lqK-VX-oTB" kind="show" identifier="TimerRunningVCToTimerPausedVC" id="Sjr-xE-zgp"/>
                                         </connections>
                                     </button>
                                 </subviews>

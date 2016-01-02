@@ -87,8 +87,8 @@ private class ToTimerRunningAnimator:NSObject, Animator {
 //----------------------------------------------------------------------------------------------------------------------
     func animateTransition(fromVC: UIViewController, toVC: UIViewController, container: UIView, completion: (() -> Void)?)
     {
-        //Remember: container is the view of the parent controller. It already containes the fromVC.view
-        //It is the animators responsibility to remove the fromVC.view from the container 
+        //Remember: container is the view of the parent controller. It already contains the fromVC.view
+        //It is the animator's responsibility to remove the fromVC.view from the container 
         //and add the toVC.view to the container.
         
         
