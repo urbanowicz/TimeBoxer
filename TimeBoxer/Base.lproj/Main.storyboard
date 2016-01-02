@@ -209,18 +209,12 @@
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="rLq-of-Jlt" secondAttribute="height" multiplier="1:1" id="7go-iz-mUF"/>
                                         </constraints>
-                                        <connections>
-                                            <segue destination="Lra-Rs-gx8" kind="unwind" identifier="TimerPausedVCToTimerRunningVC" unwindAction="unwindToTimerRunningVC:" id="kCQ-D0-YmL"/>
-                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jOK-ZR-U6L" userLabel="CancelButton" customClass="CancelButton" customModule="TimeBoxer" customModuleProvider="target">
                                         <rect key="frame" x="196" y="29" width="50" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="jOK-ZR-U6L" secondAttribute="height" multiplier="1:1" id="OUm-OT-Jbf"/>
                                         </constraints>
-                                        <connections>
-                                            <segue destination="Lra-Rs-gx8" kind="unwind" identifier="TimerPausedVCToTimeSliderVC" unwindAction="unwindToTimeSliderVC:" id="e4a-3A-7VQ"/>
-                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Irb-Cg-bll" customClass="StopButton" customModule="TimeBoxer" customModuleProvider="target">
                                         <rect key="frame" x="367" y="29" width="50" height="50"/>
@@ -264,7 +258,6 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8jm-Af-MkM" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="Lra-Rs-gx8" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1954" y="140"/>
         </scene>
