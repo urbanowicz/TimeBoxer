@@ -84,6 +84,39 @@ class TimerPausedViewController: UIViewController {
     override func showViewController(vc: UIViewController, sender: AnyObject?) {
         print("STAGE 3")
     }
+}
 
+//
+//MARK: - ToTimerRunningAnimator
+//
+private class ToTimerRunningAnimator:NSObject, Animator {
+    let transitionDuration = 0.25
+    var timerPausedVC:TimerPausedViewController?
+    var timerRunningVC:TimerRunningViewController?
+    var container:UIView?
+    var completionBlock: (() -> Void)?
+    
+//----------------------------------------------------------------------------------------------------------------------
+    func animateTransition(fromVC: UIViewController, toVC: UIViewController, container: UIView, completion: (() -> Void)?)
+    {
+        //Remember: Container is the actual view of the parent controller.
+        //It already contains the fromVC.view.
+        //It is the animator's responsibility to remove the fromVC.view and insert the toVC.view
+        
+        //1. Store the parameters as instance variables
+        self.timerPausedVC = fromVC as? TimerPausedViewController
+        self.timerRunningVC = toVC as? TimerRunningViewController
+        self.container = container
+        self.completionBlock = completion
+        
+        //2. Insert the toVC.view under the fromVC.view so that we can uncover it during the animation
+        container.insertSubview(toVC.view, belowSubview: fromVC.view)
+        //3. Prepare the shrinking circle layer and set it as fromVC mask layer
+    }
 
+//----------------------------------------------------------------------------------------------------------------------
+    override func animationDidStop(anim: CAAnimation, finished flag: Bool)
+    {
+        
+    }
 }
