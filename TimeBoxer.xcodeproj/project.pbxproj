@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		F10B85181C38346D002C66F2 /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10B85171C38346D002C66F2 /* ContainerViewController.swift */; };
+		F10B851A1C384E23002C66F2 /* Animator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10B85191C384E23002C66F2 /* Animator.swift */; };
 		F125D7D21C28496700B94849 /* CirclePathWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F125D7D11C28496700B94849 /* CirclePathWrapper.swift */; };
 		F134520D1BEE63D400AB9F67 /* InvertedStopButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F134520C1BEE63D400AB9F67 /* InvertedStopButton.swift */; };
 		F134520F1BEE658200AB9F67 /* InvertedStartButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F134520E1BEE658200AB9F67 /* InvertedStartButton.swift */; };
@@ -43,6 +44,7 @@
 
 /* Begin PBXFileReference section */
 		F10B85171C38346D002C66F2 /* ContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContainerViewController.swift; sourceTree = "<group>"; };
+		F10B85191C384E23002C66F2 /* Animator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Animator.swift; sourceTree = "<group>"; };
 		F125D7D11C28496700B94849 /* CirclePathWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CirclePathWrapper.swift; sourceTree = "<group>"; };
 		F134520C1BEE63D400AB9F67 /* InvertedStopButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InvertedStopButton.swift; sourceTree = "<group>"; };
 		F134520E1BEE658200AB9F67 /* InvertedStartButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InvertedStartButton.swift; sourceTree = "<group>"; };
@@ -187,6 +189,7 @@
 			isa = PBXGroup;
 			children = (
 				F1B5FE6C1C31AF73003A5C65 /* TransitionManager.swift */,
+				F10B85191C384E23002C66F2 /* Animator.swift */,
 			);
 			name = Segues;
 			sourceTree = "<group>";
@@ -315,6 +318,7 @@
 				F15F9C501BCCF376008733A3 /* AppDelegate.swift in Sources */,
 				F189A1B21BD8C0D3000FFC5F /* TimeSliderViewController.swift in Sources */,
 				F134520F1BEE658200AB9F67 /* InvertedStartButton.swift in Sources */,
+				F10B851A1C384E23002C66F2 /* Animator.swift in Sources */,
 				F135A8361BE4C9F50079C9BB /* StartButton.swift in Sources */,
 				F1462A631BDC0A440004239A /* TimeSliderBodyLayer.swift in Sources */,
 				F1B5FE6D1C31AF73003A5C65 /* TransitionManager.swift in Sources */,
