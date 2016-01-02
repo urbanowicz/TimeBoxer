@@ -66,7 +66,7 @@
                                             </mask>
                                         </variation>
                                         <connections>
-                                            <segue destination="WVv-Cz-hWv" kind="show" identifier="timeSliderVCtoTimerRunningVC" id="wBF-tW-ajR"/>
+                                            <segue destination="WVv-Cz-hWv" kind="show" identifier="TimeSliderToTimerRunning" id="wBF-tW-ajR"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -122,7 +122,7 @@
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
                                         <connections>
                                             <action selector="pauseButtonPressed:" destination="WVv-Cz-hWv" eventType="touchUpInside" id="Lxg-0b-djw"/>
-                                            <segue destination="lqK-VX-oTB" kind="show" identifier="TimerRunningVCToTimerPausedVC" id="Sjr-xE-zgp"/>
+                                            <segue destination="lqK-VX-oTB" kind="show" identifier="TimerRunningToTimerPaused" id="Sjr-xE-zgp"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -209,6 +209,9 @@
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="rLq-of-Jlt" secondAttribute="height" multiplier="1:1" id="7go-iz-mUF"/>
                                         </constraints>
+                                        <connections>
+                                            <segue destination="WVv-Cz-hWv" kind="show" identifier="TimerPausedToTimerRunning" id="ggb-T6-yvq"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jOK-ZR-U6L" userLabel="CancelButton" customClass="CancelButton" customModule="TimeBoxer" customModuleProvider="target">
                                         <rect key="frame" x="196" y="29" width="50" height="50"/>
@@ -259,7 +262,10 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8jm-Af-MkM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1954" y="140"/>
+            <point key="canvasLocation" x="1970" y="140"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="wBF-tW-ajR"/>
+    </inferredMetricsTieBreakers>
 </document>

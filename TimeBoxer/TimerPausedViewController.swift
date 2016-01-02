@@ -75,18 +75,15 @@ class TimerPausedViewController: UIViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)
     {
         if let segueIdentifier = segue.identifier {
-            if segueIdentifier == "TimerPausedVCToTimerRunningVC" {
-                
-            }
-            if segueIdentifier == "TimerPausedVCToTimeSliderVC" {
-                
-            }
+            print(segueIdentifier)
         } else {
             print("unknown Segue ")
         }
     }
 //----------------------------------------------------------------------------------------------------------------------
-    
+    override func showViewController(vc: UIViewController, sender: AnyObject?) {
+        print("STAGE 3")
+    }
 
 
 }
