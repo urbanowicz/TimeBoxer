@@ -11,18 +11,42 @@ import UIKit
 class ContainerViewController: UIViewController {
     
     var timeSliderVC:TimeSliderViewController?
-    var tmerRunningVC:TimerRunningViewController?
+    var timerRunningVC:TimerRunningViewController?
     var timerPausedVC:TimerPausedViewController?
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+//----------------------------------------------------------------------------------------------------------------------
+    override func viewDidLoad()
+    {
+        super.viewDidLoad()
+        
+        timesliderVC =
+            storyboard!.instantiateViewControllerWithIdentifier("timeSliderViewController") as?
+            TimeSliderViewController
+        
+        timerRunningVC =
+            storyboard!.instantiateViewControllerWithIdentifier("timerRunningViewController") as?
+            TimerRunningViewController
+        
+        timerPausedVC =
+            storyboard!.instantiateViewControllerWithIdentifier("timerPausedViewController") as?
+            TimerPausedViewController
+
+    }
+    
+//----------------------------------------------------------------------------------------------------------------------
+    private func displayViewController(vc: UIViewController)
+    {
+        self.addChildViewController(vc)
+        vc.view.frame = self.view.frame
+        self.view.addSubview(vc.view)
+        vc.didMoveToParentViewController(self)
     }
 
+
+//----------------------------------------------------------------------------------------------------------------------
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+
     }
 
 }
