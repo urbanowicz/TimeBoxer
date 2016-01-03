@@ -97,7 +97,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0S7-9R-1fW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="598" y="140"/>
+            <point key="canvasLocation" x="587" y="222"/>
         </scene>
         <!--Timer Running View Controller-->
         <scene sceneID="st3-lv-2It">
@@ -171,7 +171,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="D5S-Un-hAw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1282" y="140"/>
+            <point key="canvasLocation" x="1294" y="222"/>
         </scene>
         <!--Timer Paused View Controller-->
         <scene sceneID="Fjf-fp-nvg">
@@ -218,6 +218,9 @@
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="jOK-ZR-U6L" secondAttribute="height" multiplier="1:1" id="OUm-OT-Jbf"/>
                                         </constraints>
+                                        <connections>
+                                            <segue destination="CN5-20-aaQ" kind="show" identifier="TimerPausedToTimeSlider" id="QeQ-7a-kVa"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Irb-Cg-bll" customClass="StopButton" customModule="TimeBoxer" customModuleProvider="target">
                                         <rect key="frame" x="367" y="29" width="50" height="50"/>
@@ -262,10 +265,10 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8jm-Af-MkM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1970" y="140"/>
+            <point key="canvasLocation" x="2057" y="222"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="wBF-tW-ajR"/>
+        <segue reference="ggb-T6-yvq"/>
     </inferredMetricsTieBreakers>
 </document>
