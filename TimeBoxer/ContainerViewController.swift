@@ -10,30 +10,19 @@ import UIKit
 
 class ContainerViewController: UIViewController {
     
-    var timeSliderVC:TimeSliderViewController?
-    var timerRunningVC:TimerRunningViewController?
-    var timerPausedVC:TimerPausedViewController?
 
 //----------------------------------------------------------------------------------------------------------------------
     override func viewDidLoad()
     {
         super.viewDidLoad()
         
-        //1. Instantiate the view controllers
-        timeSliderVC =
-            storyboard!.instantiateViewControllerWithIdentifier("timeSliderViewController") as?
+        //1. Instantiate the opening view controller
+        let timeSliderVC =
+            storyboard!.instantiateViewControllerWithIdentifier("timeSliderViewController") as!
             TimeSliderViewController
         
-        timerRunningVC =
-            storyboard!.instantiateViewControllerWithIdentifier("timerRunningViewController") as?
-            TimerRunningViewController
-        
-        timerPausedVC =
-            storyboard!.instantiateViewControllerWithIdentifier("timerPausedViewController") as?
-            TimerPausedViewController
-        
         //2. Display the first screen
-        displayViewController(timeSliderVC!)
+        displayViewController(timeSliderVC)
 
     }
 //----------------------------------------------------------------------------------------------------------------------

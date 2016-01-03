@@ -15,6 +15,8 @@ class TimerPausedViewController: UIViewController {
     @IBOutlet weak var resumeButton: StartButton!
     @IBOutlet weak var cancelButton: CancelButton!
     @IBOutlet weak var stopButton: StopButton!
+    private let toTimerRunningAnimator = ToTimerRunningAnimator()
+    var counter = 0
 //----------------------------------------------------------------------------------------------------------------------
 
     override func viewDidLoad()
@@ -76,13 +78,18 @@ class TimerPausedViewController: UIViewController {
     {
         if let segueIdentifier = segue.identifier {
             print(segueIdentifier)
+            if segueIdentifier == "TimerPausedToTimerRunning" {
+                let timerRunningVC = segue.destinationViewController as! TimerRunningViewController
+                timerRunningVC.counter = counter
+            }
         } else {
             print("unknown Segue ")
         }
     }
 //----------------------------------------------------------------------------------------------------------------------
     override func showViewController(vc: UIViewController, sender: AnyObject?) {
-        print("STAGE 3")
+        let containerVC = parentViewController as! ContainerViewController
+        containerVC.switchViewControllers(self, toVC: vc, animator: toTimerRunningAnimator)
     }
 }
 
@@ -112,11 +119,50 @@ private class ToTimerRunningAnimator:NSObject, Animator {
         //2. Insert the toVC.view under the fromVC.view so that we can uncover it during the animation
         container.insertSubview(toVC.view, belowSubview: fromVC.view)
         //3. Prepare the shrinking circle layer and set it as fromVC mask layer
+        let shrinkingCircleLayer = prepareShrinkingCircleAnimationLayer()
+        fromVC.view.layer.mask = shrinkingCircleLayer
     }
 
 //----------------------------------------------------------------------------------------------------------------------
     override func animationDidStop(anim: CAAnimation, finished flag: Bool)
     {
+        //Done with the animation. Do the cleanup.
+        timerPausedVC!.view.removeFromSuperview()
+        timerPausedVC!.view.layer.mask = nil
+        if let executeCompletionBlock = completionBlock {
+            executeCompletionBlock()
+        }
+    }
+
+//----------------------------------------------------------------------------------------------------------------------
+    private func prepareShrinkingCircleAnimationLayer() -> CALayer
+    {
+        let animationLayer = CAShapeLayer()
+        let resumeButton = timerPausedVC!.resumeButton
+        let resumeButtonCenter = container!.convertPoint(resumeButton.center, fromView: resumeButton.superview)
+        let smallCirclePath = CirclePathWrapper(centerX: resumeButtonCenter.x, centerY: resumeButtonCenter.y,
+            radius: 0.0).path
+        let largeCirclePath = createLargeCircleForButton(resumeButton).path
+        animationLayer.path = smallCirclePath
         
+        let animation = CABasicAnimation(keyPath: "path")
+        animation.delegate = self
+        animation.duration = transitionDuration
+        animation.fromValue = largeCirclePath
+        animation.toValue = smallCirclePath
+        animationLayer.addAnimation(animation, forKey: "path")
+        return animationLayer
+    }
+    
+    //----------------------------------------------------------------------------------------------------------------------
+    private func createLargeCircleForButton(button:AbstractOvalButton) -> CirclePathWrapper
+    {
+        let circleCenter:CGPoint = container!.convertPoint(button.center, fromView: button.superview)
+        let xs = circleCenter.x
+        let ys = circleCenter.y
+        let x0 = container!.frame.origin.x
+        let y0 = container!.frame.origin.y
+        let  largeRadius = sqrt(pow((xs - x0),2) + pow((ys - y0),2))
+        return CirclePathWrapper(centerX: xs, centerY: ys, radius: largeRadius)
     }
 }
