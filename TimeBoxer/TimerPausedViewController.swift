@@ -16,7 +16,7 @@ class TimerPausedViewController: UIViewController {
     @IBOutlet weak var cancelButton: CancelButton!
     @IBOutlet weak var stopButton: StopButton!
     private let toTimerRunningAnimator = ToTimerRunningAnimator()
-    private let toTimeSliderAnimator = ToTimeSliderAnimator()
+    private let toTimeSliderAnimator = ToTimeSliderAnimator2()
     var counter = 0
 //----------------------------------------------------------------------------------------------------------------------
 
@@ -248,4 +248,60 @@ private class ToTimeSliderAnimator:NSObject, Animator {
         return CirclePathWrapper(centerX: xs, centerY: ys, radius: largeRadius)
     }
     
+}
+
+//
+//MARK: - ToTimeSliderAnimator2
+//
+private class ToTimeSliderAnimator2:NSObject, Animator {
+    let transitionDuration = 0.3
+    var timerPausedVC:TimerPausedViewController?
+    var timeSliderVC:TimeSliderViewController?
+    var container:UIView?
+    var completionBlock: (() -> Void)?
+    
+    //----------------------------------------------------------------------------------------------------------------------
+    func animateTransition(fromVC: UIViewController, toVC: UIViewController, container: UIView, completion: (() -> Void)?)
+    {
+        //Remember: Container is the actual view of the parent controller.
+        //It already contains the fromVC.view.
+        //It is the animator's responsibility to remove the fromVC.view and insert the toVC.view
+        
+        //1. Store the parameters as instance variables
+        self.timerPausedVC = fromVC as? TimerPausedViewController
+        self.timeSliderVC = toVC as? TimeSliderViewController
+        self.container = container
+        self.completionBlock = completion
+        
+        //2. Setup a white background 
+        let whiteLayer = CALayer()
+        whiteLayer.backgroundColor = UIColor.whiteColor().CGColor
+        whiteLayer.opacity = 0.0
+        //whiteLayer.frame = fromVC.view.layer.frame
+        fromVC.view.layer.addSublayer(whiteLayer)
+        
+        //3. Prepare the toVC.view to be faded in
+        toVC.view.alpha = 0.0
+        container.addSubview(toVC.view)
+        
+        UIView.animateKeyframesWithDuration(transitionDuration, delay: 0.0, options: UIViewKeyframeAnimationOptions.CalculationModeLinear,
+            animations: {
+                UIView.addKeyframeWithRelativeStartTime(0, relativeDuration: 0.25,
+                    animations: {
+                        whiteLayer.opacity = 1.0
+                    })
+                UIView.addKeyframeWithRelativeStartTime(0.25, relativeDuration: 0.75,
+                    animations : {
+                        toVC.view.alpha = 1.0
+                    })
+            },
+            completion: {
+                finished in
+                self.timerPausedVC!.view.removeFromSuperview()
+                whiteLayer.removeFromSuperlayer()
+                if let executeCompletionBlock = self.completionBlock {
+                    executeCompletionBlock()
+                }
+        })
+    }
 }
