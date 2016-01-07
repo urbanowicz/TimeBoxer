@@ -31,6 +31,7 @@
 		F1D2444C1BDFF8320023B994 /* TimerRunningViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D2444B1BDFF8320023B994 /* TimerRunningViewController.swift */; };
 		F1FC9AD31C3ED73B002A9F31 /* EditProjectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FC9AD21C3ED73B002A9F31 /* EditProjectViewController.swift */; };
 		F1FC9AD61C3ED86F002A9F31 /* AddProjectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FC9AD51C3ED86F002A9F31 /* AddProjectViewController.swift */; };
+		F1FC9AD91C3EE0CC002A9F31 /* ProjectsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FC9AD81C3EE0CC002A9F31 /* ProjectsTableViewController.swift */; };
 		F1FD158A1BDBD3F60044BE4B /* SimpleTimeSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FD15891BDBD3F60044BE4B /* SimpleTimeSlider.swift */; };
 /* End PBXBuildFile section */
 
@@ -73,6 +74,7 @@
 		F1D2444B1BDFF8320023B994 /* TimerRunningViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerRunningViewController.swift; sourceTree = "<group>"; };
 		F1FC9AD21C3ED73B002A9F31 /* EditProjectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditProjectViewController.swift; sourceTree = "<group>"; };
 		F1FC9AD51C3ED86F002A9F31 /* AddProjectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddProjectViewController.swift; sourceTree = "<group>"; };
+		F1FC9AD81C3EE0CC002A9F31 /* ProjectsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectsTableViewController.swift; sourceTree = "<group>"; };
 		F1FD15891BDBD3F60044BE4B /* SimpleTimeSlider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleTimeSlider.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -155,6 +157,7 @@
 		F15F9C4E1BCCF376008733A3 /* TimeBoxer */ = {
 			isa = PBXGroup;
 			children = (
+				F1FC9AD71C3EE000002A9F31 /* ProjectsTableVC */,
 				F1FC9AD41C3ED853002A9F31 /* AddProjectVC */,
 				F1FC9AD11C3ED70E002A9F31 /* EditProjectVC */,
 				F10B85161C383349002C66F2 /* ContainerVC */,
@@ -231,6 +234,14 @@
 				F1FC9AD51C3ED86F002A9F31 /* AddProjectViewController.swift */,
 			);
 			name = AddProjectVC;
+			sourceTree = "<group>";
+		};
+		F1FC9AD71C3EE000002A9F31 /* ProjectsTableVC */ = {
+			isa = PBXGroup;
+			children = (
+				F1FC9AD81C3EE0CC002A9F31 /* ProjectsTableViewController.swift */,
+			);
+			name = ProjectsTableVC;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -354,6 +365,7 @@
 				F1FD158A1BDBD3F60044BE4B /* SimpleTimeSlider.swift in Sources */,
 				F14F13051BEA83660045936F /* AbstractOvalButton.swift in Sources */,
 				F14F13091BEA88FA0045936F /* CancelButton.swift in Sources */,
+				F1FC9AD91C3EE0CC002A9F31 /* ProjectsTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
