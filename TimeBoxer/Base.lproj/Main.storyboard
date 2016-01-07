@@ -12,6 +12,24 @@
         </mutableArray>
     </customFonts>
     <scenes>
+        <!--Edit Project View Controller-->
+        <scene sceneID="ZEB-ee-be4">
+            <objects>
+                <viewController id="jvt-N1-OsS" customClass="EditProjectViewController" customModule="TimeBoxer" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="om9-dy-SQy"/>
+                        <viewControllerLayoutGuide type="bottom" id="30k-rV-2yN"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="y0t-tH-WgZ">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="b87-oe-Uch" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1294" y="-477"/>
+        </scene>
         <!--Container View Controller-->
         <scene sceneID="SNI-pH-kmp">
             <objects>
@@ -28,7 +46,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BcR-rm-wfo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-145" y="140"/>
+            <point key="canvasLocation" x="-133" y="222"/>
         </scene>
         <!--Time Slider View Controller-->
         <scene sceneID="ofa-gv-sJw">
@@ -191,7 +209,7 @@
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Paused" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YtN-0l-MeS" userLabel="PausedLabel">
                                         <rect key="frame" x="197" y="213" width="206" height="67"/>
                                         <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="57"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
