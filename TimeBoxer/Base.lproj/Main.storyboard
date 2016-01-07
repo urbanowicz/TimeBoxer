@@ -48,6 +48,24 @@
             </objects>
             <point key="canvasLocation" x="-133" y="222"/>
         </scene>
+        <!--Add Project View Controller-->
+        <scene sceneID="dZG-L9-nPN">
+            <objects>
+                <viewController id="vfH-4J-4Nz" customClass="AddProjectViewController" customModule="TimeBoxer" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="JJF-Le-5nA"/>
+                        <viewControllerLayoutGuide type="bottom" id="0zA-2d-K3v"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ImF-7u-4lo">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uuO-At-bhA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="593" y="-478"/>
+        </scene>
         <!--Time Slider View Controller-->
         <scene sceneID="ofa-gv-sJw">
             <objects>
