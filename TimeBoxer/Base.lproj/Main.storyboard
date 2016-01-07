@@ -64,11 +64,20 @@
                                 <rect key="frame" x="20" y="20" width="560" height="480"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eGy-rW-UYM">
+                                <rect key="frame" x="277" y="550" width="46" height="30"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <segue destination="vfH-4J-4Nz" kind="presentation" id="khV-Nn-hk6"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="P0n-w1-o3y" firstAttribute="top" secondItem="3oU-0d-xxl" secondAttribute="topMargin" constant="20" id="B7S-d2-xt6"/>
                             <constraint firstItem="P0n-w1-o3y" firstAttribute="leading" secondItem="3oU-0d-xxl" secondAttribute="leadingMargin" id="ZFn-vc-HQp"/>
+                            <constraint firstItem="eGy-rW-UYM" firstAttribute="centerX" secondItem="3oU-0d-xxl" secondAttribute="centerX" id="g8C-TM-OTn"/>
+                            <constraint firstItem="upn-os-BC1" firstAttribute="top" secondItem="eGy-rW-UYM" secondAttribute="bottom" constant="20" id="hyN-Xq-tOY"/>
                             <constraint firstItem="upn-os-BC1" firstAttribute="top" secondItem="P0n-w1-o3y" secondAttribute="bottom" constant="100" id="p3c-bI-HrQ"/>
                             <constraint firstAttribute="trailingMargin" secondItem="P0n-w1-o3y" secondAttribute="trailing" id="s7i-59-Trr"/>
                         </constraints>
@@ -98,6 +107,9 @@
                                 <color key="textColor" red="0.15294117647058825" green="0.15294117647058825" blue="0.15294117647058825" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" name="Baskerville" family="Baskerville" pointSize="30"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                                <connections>
+                                    <segue destination="dIy-m2-ZKe" kind="unwind" unwindAction="unwindToProjectsTableVC:" id="JX7-30-t64"/>
+                                </connections>
                             </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -112,6 +124,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uuO-At-bhA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="dIy-m2-ZKe" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="612" y="-477"/>
         </scene>

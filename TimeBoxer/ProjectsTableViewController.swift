@@ -11,8 +11,9 @@ import UIKit
 class ProjectsTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var projectsTableView: UITableView!
-    private let projects = ["project1", "project2"]
+    private var projects = ["project1", "project2"]
     let projectsTableId = "projects"
+    private var newProjectAdded:Bool = false
 
 //----------------------------------------------------------------------------------------------------------------------
     override func viewDidLoad() {
@@ -25,6 +26,17 @@ class ProjectsTableViewController: UIViewController, UITableViewDelegate, UITabl
 //----------------------------------------------------------------------------------------------------------------------
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+    }
+//----------------------------------------------------------------------------------------------------------------------
+    override func viewDidAppear(animated: Bool) {
+        if newProjectAdded {
+            let index = NSIndexPath(forItem:0, inSection: 0)
+            projectsTableView.beginUpdates()
+            projectsTableView.insertRowsAtIndexPaths([index],
+                withRowAnimation: UITableViewRowAnimation.Top)
+            projectsTableView.endUpdates()
+            newProjectAdded = false
+        }
     }
 
 //----------------------------------------------------------------------------------------------------------------------
@@ -49,6 +61,15 @@ class ProjectsTableViewController: UIViewController, UITableViewDelegate, UITabl
 //----------------------------------------------------------------------------------------------------------------------
     func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath) {
         
+    }
+
+
+//----------------------------------------------------------------------------------------------------------------------
+//MARK: Navigation
+    @IBAction func unwindToProjectsTableVC(unwindSegue: UIStoryboardSegue) {
+        let addProjectVC:AddProjectViewController = unwindSegue.sourceViewController as! AddProjectViewController
+        projects.insert(addProjectVC.projectNameTextField.text!, atIndex: 0)
+        newProjectAdded = true
     }
     
 }

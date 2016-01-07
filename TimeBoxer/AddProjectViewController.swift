@@ -11,6 +11,7 @@ import UIKit
 class AddProjectViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var projectNameTextField: UITextField!
+    var projectName:String?
 //----------------------------------------------------------------------------------------------------------------------
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,7 +33,7 @@ class AddProjectViewController: UIViewController, UITextFieldDelegate {
 
 //----------------------------------------------------------------------------------------------------------------------
     func textFieldDidEndEditing(textField: UITextField) {
-        
+        projectName = projectNameTextField!.text
     }
     
 }
