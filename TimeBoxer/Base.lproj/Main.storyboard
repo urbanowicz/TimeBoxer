@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8121.20" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="6mA-bS-VWc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8121.20" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vfH-4J-4Nz">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8101.16"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
@@ -59,12 +59,28 @@
                     <view key="view" contentMode="scaleToFill" id="ImF-7u-4lo">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="type in the project's name here" textAlignment="center" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Lwh-CH-BOO">
+                                <rect key="frame" x="20" y="283" width="560" height="35"/>
+                                <color key="textColor" red="0.15294117647058825" green="0.15294117647058825" blue="0.15294117647058825" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="Baskerville" family="Baskerville" pointSize="30"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                            </textField>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Lwh-CH-BOO" firstAttribute="leading" secondItem="ImF-7u-4lo" secondAttribute="leadingMargin" id="gfQ-Hy-MSD"/>
+                            <constraint firstItem="Lwh-CH-BOO" firstAttribute="centerY" secondItem="ImF-7u-4lo" secondAttribute="centerY" id="syH-eV-b7j"/>
+                            <constraint firstItem="Lwh-CH-BOO" firstAttribute="trailing" secondItem="ImF-7u-4lo" secondAttribute="trailingMargin" id="uss-kX-aps"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="projectNameTextField" destination="Lwh-CH-BOO" id="X3M-Id-u0r"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uuO-At-bhA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="593" y="-478"/>
+            <point key="canvasLocation" x="612" y="-477"/>
         </scene>
         <!--Time Slider View Controller-->
         <scene sceneID="ofa-gv-sJw">

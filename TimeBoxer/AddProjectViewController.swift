@@ -8,16 +8,31 @@
 
 import UIKit
 
-class AddProjectViewController: UIViewController {
+class AddProjectViewController: UIViewController, UITextFieldDelegate {
 
+    @IBOutlet weak var projectNameTextField: UITextField!
 //----------------------------------------------------------------------------------------------------------------------
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        projectNameTextField.delegate = self
     }
 
 //----------------------------------------------------------------------------------------------------------------------
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
+
+//----------------------------------------------------------------------------------------------------------------------
+//MARK: UITextFieldDelegate
+
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+
+//----------------------------------------------------------------------------------------------------------------------
+    func textFieldDidEndEditing(textField: UITextField) {
+        
+    }
+    
 }
