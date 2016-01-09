@@ -14,6 +14,8 @@
 		F134520F1BEE658200AB9F67 /* InvertedStartButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F134520E1BEE658200AB9F67 /* InvertedStartButton.swift */; };
 		F13452111BEE672300AB9F67 /* InvertedCancelButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13452101BEE672300AB9F67 /* InvertedCancelButton.swift */; };
 		F135A8361BE4C9F50079C9BB /* StartButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F135A8351BE4C9F50079C9BB /* StartButton.swift */; };
+		F137E96E1C41994A0064E15F /* ColorName.swift in Sources */ = {isa = PBXBuildFile; fileRef = F137E96D1C41994A0064E15F /* ColorName.swift */; };
+		F137E9701C419A200064E15F /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = F137E96F1C419A200064E15F /* Colors.swift */; };
 		F1462A631BDC0A440004239A /* TimeSliderBodyLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1462A621BDC0A440004239A /* TimeSliderBodyLayer.swift */; };
 		F14F13051BEA83660045936F /* AbstractOvalButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F14F13041BEA83660045936F /* AbstractOvalButton.swift */; };
 		F14F13071BEA87160045936F /* StopButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F14F13061BEA87160045936F /* StopButton.swift */; };
@@ -53,6 +55,8 @@
 		F134520E1BEE658200AB9F67 /* InvertedStartButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InvertedStartButton.swift; sourceTree = "<group>"; };
 		F13452101BEE672300AB9F67 /* InvertedCancelButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InvertedCancelButton.swift; sourceTree = "<group>"; };
 		F135A8351BE4C9F50079C9BB /* StartButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartButton.swift; sourceTree = "<group>"; };
+		F137E96D1C41994A0064E15F /* ColorName.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorName.swift; sourceTree = "<group>"; };
+		F137E96F1C419A200064E15F /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		F1462A621BDC0A440004239A /* TimeSliderBodyLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeSliderBodyLayer.swift; sourceTree = "<group>"; };
 		F14F13041BEA83660045936F /* AbstractOvalButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AbstractOvalButton.swift; sourceTree = "<group>"; };
 		F14F13061BEA87160045936F /* StopButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StopButton.swift; sourceTree = "<group>"; };
@@ -112,6 +116,15 @@
 			name = AnimationShapes;
 			sourceTree = "<group>";
 		};
+		F137E96C1C4199130064E15F /* Colors */ = {
+			isa = PBXGroup;
+			children = (
+				F137E96D1C41994A0064E15F /* ColorName.swift */,
+				F137E96F1C419A200064E15F /* Colors.swift */,
+			);
+			name = Colors;
+			sourceTree = "<group>";
+		};
 		F14F13021BEA82A20045936F /* TimerPausedVC */ = {
 			isa = PBXGroup;
 			children = (
@@ -157,6 +170,7 @@
 		F15F9C4E1BCCF376008733A3 /* TimeBoxer */ = {
 			isa = PBXGroup;
 			children = (
+				F137E96C1C4199130064E15F /* Colors */,
 				F1FC9AD71C3EE000002A9F31 /* ProjectsTableVC */,
 				F1FC9AD41C3ED853002A9F31 /* AddProjectVC */,
 				F1FC9AD11C3ED70E002A9F31 /* EditProjectVC */,
@@ -358,7 +372,9 @@
 				F1462A631BDC0A440004239A /* TimeSliderBodyLayer.swift in Sources */,
 				F1B5FE6D1C31AF73003A5C65 /* TransitionManager.swift in Sources */,
 				F125D7D21C28496700B94849 /* CirclePathWrapper.swift in Sources */,
+				F137E9701C419A200064E15F /* Colors.swift in Sources */,
 				F134520D1BEE63D400AB9F67 /* InvertedStopButton.swift in Sources */,
+				F137E96E1C41994A0064E15F /* ColorName.swift in Sources */,
 				F10B85181C38346D002C66F2 /* ContainerViewController.swift in Sources */,
 				F14F13071BEA87160045936F /* StopButton.swift in Sources */,
 				F1D2444C1BDFF8320023B994 /* TimerRunningViewController.swift in Sources */,

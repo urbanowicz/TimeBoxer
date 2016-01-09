@@ -2,8 +2,8 @@
 //  Animator.swift
 //  TimeBoxer
 //
-//  Created by Tomasz on 02.01.2016.
-//  Copyright © 2016 Tomasz. All rights reserved.
+//  Created by Tomasz Urbanowicz on 02.01.2016.
+//  Copyright © 2016 Tomasz Urbanowicz. All rights reserved.
 //
 
 import UIKit
