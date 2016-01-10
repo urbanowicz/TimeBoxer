@@ -13,7 +13,7 @@ class ProjectsTableViewController: UIViewController, UITableViewDelegate, UITabl
     @IBOutlet weak var headerView: UIView!
     @IBOutlet weak var timeBoxerLabel: UILabel!
     @IBOutlet weak var projectsTableView: UITableView!
-    private var projects = ["project1", "project2"]
+    private var projects = ["Coursera, Graphic Design", "project2"]
     let projectsTableId = "projects"
     private var newProjectAdded:Bool = false
 
@@ -57,8 +57,16 @@ class ProjectsTableViewController: UIViewController, UITableViewDelegate, UITabl
         if cell == nil {
             cell = UITableViewCell(style:UITableViewCellStyle.Value1, reuseIdentifier:projectsTableId)
         }
+        
+        //1. configure the main text of the cell
         cell!.textLabel!.text = projects[indexPath.row]
+        cell!.textLabel!.font = UIFont(name:"Baskerville", size:20)
+        cell!.textLabel!.textColor = Colors.toUIColor(ColorName.ALMOST_BLACK)
+        
+        //3. configure the detail text
         cell!.detailTextLabel?.text = "2 days ago"
+        cell!.detailTextLabel?.font = UIFont(name:"Baskerville", size: 16)
+        cell!.detailTextLabel?.textColor = Colors.toUIColor(ColorName.LIGHT_GRAY)
         return cell!
     }
     
@@ -80,5 +88,9 @@ class ProjectsTableViewController: UIViewController, UITableViewDelegate, UITabl
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
         return UIStatusBarStyle.LightContent
     }
+    
+//    override func prefersStatusBarHidden() -> Bool {
+//        return true
+//    }
     
 }
