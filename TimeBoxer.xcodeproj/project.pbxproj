@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		F10B85181C38346D002C66F2 /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10B85171C38346D002C66F2 /* ContainerViewController.swift */; };
 		F10B851A1C384E23002C66F2 /* Animator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10B85191C384E23002C66F2 /* Animator.swift */; };
+		F11D5B9F1C42AD32007F2622 /* AddButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11D5B9E1C42AD32007F2622 /* AddButton.swift */; };
 		F125D7D21C28496700B94849 /* CirclePathWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F125D7D11C28496700B94849 /* CirclePathWrapper.swift */; };
 		F134520D1BEE63D400AB9F67 /* InvertedStopButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F134520C1BEE63D400AB9F67 /* InvertedStopButton.swift */; };
 		F134520F1BEE658200AB9F67 /* InvertedStartButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F134520E1BEE658200AB9F67 /* InvertedStartButton.swift */; };
@@ -50,6 +51,7 @@
 /* Begin PBXFileReference section */
 		F10B85171C38346D002C66F2 /* ContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContainerViewController.swift; sourceTree = "<group>"; };
 		F10B85191C384E23002C66F2 /* Animator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Animator.swift; sourceTree = "<group>"; };
+		F11D5B9E1C42AD32007F2622 /* AddButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddButton.swift; sourceTree = "<group>"; };
 		F125D7D11C28496700B94849 /* CirclePathWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CirclePathWrapper.swift; sourceTree = "<group>"; };
 		F134520C1BEE63D400AB9F67 /* InvertedStopButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InvertedStopButton.swift; sourceTree = "<group>"; };
 		F134520E1BEE658200AB9F67 /* InvertedStartButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InvertedStartButton.swift; sourceTree = "<group>"; };
@@ -144,6 +146,7 @@
 				F13452101BEE672300AB9F67 /* InvertedCancelButton.swift */,
 				F134520C1BEE63D400AB9F67 /* InvertedStopButton.swift */,
 				F134520E1BEE658200AB9F67 /* InvertedStartButton.swift */,
+				F11D5B9E1C42AD32007F2622 /* AddButton.swift */,
 			);
 			name = Buttons;
 			sourceTree = "<group>";
@@ -374,6 +377,7 @@
 				F125D7D21C28496700B94849 /* CirclePathWrapper.swift in Sources */,
 				F137E9701C419A200064E15F /* Colors.swift in Sources */,
 				F134520D1BEE63D400AB9F67 /* InvertedStopButton.swift in Sources */,
+				F11D5B9F1C42AD32007F2622 /* AddButton.swift in Sources */,
 				F137E96E1C41994A0064E15F /* ColorName.swift in Sources */,
 				F10B85181C38346D002C66F2 /* ContainerViewController.swift in Sources */,
 				F14F13071BEA87160045936F /* StopButton.swift in Sources */,

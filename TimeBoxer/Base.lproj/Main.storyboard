@@ -64,9 +64,12 @@
                                 <rect key="frame" x="0.0" y="65" width="600" height="535"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eGy-rW-UYM">
-                                <rect key="frame" x="277" y="550" width="46" height="30"/>
-                                <state key="normal" title="Button"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eGy-rW-UYM" userLabel="Add Project Button" customClass="AddButton" customModule="TimeBoxer" customModuleProvider="target">
+                                <rect key="frame" x="265" y="510" width="70" height="70"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="70" id="2wB-If-lZp"/>
+                                    <constraint firstAttribute="width" secondItem="eGy-rW-UYM" secondAttribute="height" multiplier="1:1" id="shT-3v-0yX"/>
+                                </constraints>
                                 <connections>
                                     <segue destination="vfH-4J-4Nz" kind="presentation" id="khV-Nn-hk6"/>
                                 </connections>
@@ -103,6 +106,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="addProjectButton" destination="eGy-rW-UYM" id="jA0-DI-DN1"/>
                         <outlet property="headerView" destination="2i6-bD-FtY" id="obg-a5-bUA"/>
                         <outlet property="projectsTableView" destination="P0n-w1-o3y" id="Smk-7W-4II"/>
                         <outlet property="timeBoxerLabel" destination="rVO-On-1e2" id="fbK-b8-DXi"/>

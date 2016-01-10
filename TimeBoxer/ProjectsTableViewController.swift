@@ -13,6 +13,7 @@ class ProjectsTableViewController: UIViewController, UITableViewDelegate, UITabl
     @IBOutlet weak var headerView: UIView!
     @IBOutlet weak var timeBoxerLabel: UILabel!
     @IBOutlet weak var projectsTableView: UITableView!
+    @IBOutlet weak var addProjectButton: AddButton!
     private var projects = ["Coursera, Graphic Design", "project2"]
     let projectsTableId = "projects"
     private var newProjectAdded:Bool = false
@@ -25,6 +26,11 @@ class ProjectsTableViewController: UIViewController, UITableViewDelegate, UITabl
         timeBoxerLabel.textColor = Colors.toUIColor(ColorName.OFF_WHITE)
         headerView.backgroundColor = Colors.toUIColor(ColorName.ALMOST_BLACK)
         
+        addProjectButton.frontLayerColor = Colors.toUIColor(ColorName.WHITE)!
+        addProjectButton.ovalLayerColor = Colors.toUIColor(ColorName.ALMOST_BLACK)!
+        addProjectButton.ovalLayerHighlightedColor = addProjectButton.ovalLayerColor
+        addProjectButton.frontLayerHighlightedColor = addProjectButton.frontLayerColor
+
     }
 
 //----------------------------------------------------------------------------------------------------------------------
