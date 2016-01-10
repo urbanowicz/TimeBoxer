@@ -80,7 +80,7 @@
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time Boxer" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rVO-On-1e2" userLabel="Time Boxer Label">
                                         <rect key="frame" x="240" y="26" width="121" height="29"/>
                                         <fontDescription key="fontDescription" name="Baskerville" family="Baskerville" pointSize="25"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
@@ -137,15 +137,37 @@
                                     <segue destination="dIy-m2-ZKe" kind="unwind" unwindAction="unwindToProjectsTableVC:" id="JX7-30-t64"/>
                                 </connections>
                             </textField>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GbI-Eo-n4Y">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="65"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="New Project" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cxo-OS-dTQ">
+                                        <rect key="frame" x="238" y="26" width="124" height="29"/>
+                                        <fontDescription key="fontDescription" name="Baskerville" family="Baskerville" pointSize="25"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="Cxo-OS-dTQ" secondAttribute="bottom" constant="10" id="DqO-Tc-17w"/>
+                                    <constraint firstItem="Cxo-OS-dTQ" firstAttribute="centerX" secondItem="GbI-Eo-n4Y" secondAttribute="centerX" id="atC-gy-2hj"/>
+                                    <constraint firstAttribute="height" constant="65" id="ref-Lf-tUi"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="GbI-Eo-n4Y" firstAttribute="top" secondItem="ImF-7u-4lo" secondAttribute="topMargin" id="KXD-P9-IWp"/>
+                            <constraint firstItem="GbI-Eo-n4Y" firstAttribute="leading" secondItem="ImF-7u-4lo" secondAttribute="leadingMargin" constant="-20" id="P2L-9g-Wxe"/>
                             <constraint firstItem="Lwh-CH-BOO" firstAttribute="leading" secondItem="ImF-7u-4lo" secondAttribute="leadingMargin" id="gfQ-Hy-MSD"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="GbI-Eo-n4Y" secondAttribute="trailing" constant="-20" id="ngN-Na-QWj"/>
                             <constraint firstItem="Lwh-CH-BOO" firstAttribute="centerY" secondItem="ImF-7u-4lo" secondAttribute="centerY" id="syH-eV-b7j"/>
                             <constraint firstItem="Lwh-CH-BOO" firstAttribute="trailing" secondItem="ImF-7u-4lo" secondAttribute="trailingMargin" id="uss-kX-aps"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="headerView" destination="GbI-Eo-n4Y" id="Dio-Cf-Z7i"/>
+                        <outlet property="newProjectLabel" destination="Cxo-OS-dTQ" id="J9S-gs-vjR"/>
                         <outlet property="projectNameTextField" destination="Lwh-CH-BOO" id="X3M-Id-u0r"/>
                     </connections>
                 </viewController>

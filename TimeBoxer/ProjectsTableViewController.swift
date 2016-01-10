@@ -24,6 +24,8 @@ class ProjectsTableViewController: UIViewController, UITableViewDelegate, UITabl
         projectsTableView.delegate = self
         projectsTableView.dataSource = self
         projectsTableView.separatorColor = Colors.toUIColor(ColorName.VERY_LIGHT_GRAY)
+        projectsTableView.rowHeight = 55
+        
         timeBoxerLabel.textColor = Colors.toUIColor(ColorName.OFF_WHITE)
         headerView.backgroundColor = Colors.toUIColor(ColorName.ALMOST_BLACK)
         

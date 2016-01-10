@@ -10,30 +10,47 @@ import UIKit
 
 class AddProjectViewController: UIViewController, UITextFieldDelegate {
 
+    @IBOutlet weak var newProjectLabel: UILabel!
+    @IBOutlet weak var headerView: UIView!
     @IBOutlet weak var projectNameTextField: UITextField!
     var projectName:String?
 //----------------------------------------------------------------------------------------------------------------------
-    override func viewDidLoad() {
+    override func viewDidLoad()
+    {
         super.viewDidLoad()
         projectNameTextField.delegate = self
+        projectNameTextField.textColor = Colors.toUIColor(.ALMOST_BLACK)
+        
+        newProjectLabel.textColor = Colors.toUIColor(.OFF_WHITE)
+        headerView.backgroundColor = Colors.toUIColor(.ALMOST_BLACK)
     }
 
 //----------------------------------------------------------------------------------------------------------------------
-    override func didReceiveMemoryWarning() {
+    override func didReceiveMemoryWarning()
+    {
         super.didReceiveMemoryWarning()
     }
 
 //----------------------------------------------------------------------------------------------------------------------
 //MARK: UITextFieldDelegate
 
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
+    func textFieldShouldReturn(textField: UITextField) -> Bool
+    {
         textField.resignFirstResponder()
         return true
     }
 
 //----------------------------------------------------------------------------------------------------------------------
-    func textFieldDidEndEditing(textField: UITextField) {
+    func textFieldDidEndEditing(textField: UITextField)
+    {
         projectName = projectNameTextField!.text
+    }
+
+//----------------------------------------------------------------------------------------------------------------------
+//MARK: Status Bar
+    override func preferredStatusBarStyle() -> UIStatusBarStyle
+    {
+        return UIStatusBarStyle.LightContent
     }
     
 }
