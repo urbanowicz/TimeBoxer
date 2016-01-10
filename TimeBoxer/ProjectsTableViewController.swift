@@ -10,6 +10,8 @@ import UIKit
 
 class ProjectsTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
+    @IBOutlet weak var headerView: UIView!
+    @IBOutlet weak var timeBoxerLabel: UILabel!
     @IBOutlet weak var projectsTableView: UITableView!
     private var projects = ["project1", "project2"]
     let projectsTableId = "projects"
@@ -20,6 +22,8 @@ class ProjectsTableViewController: UIViewController, UITableViewDelegate, UITabl
         super.viewDidLoad()
         projectsTableView.delegate = self
         projectsTableView.dataSource = self
+        timeBoxerLabel.textColor = Colors.toUIColor(ColorName.OFF_WHITE)
+        headerView.backgroundColor = Colors.toUIColor(ColorName.ALMOST_BLACK)
         
     }
 
@@ -70,6 +74,11 @@ class ProjectsTableViewController: UIViewController, UITableViewDelegate, UITabl
         let addProjectVC:AddProjectViewController = unwindSegue.sourceViewController as! AddProjectViewController
         projects.insert(addProjectVC.projectNameTextField.text!, atIndex: 0)
         newProjectAdded = true
+    }
+//MARK: Status Bar
+//----------------------------------------------------------------------------------------------------------------------
+    override func preferredStatusBarStyle() -> UIStatusBarStyle {
+        return UIStatusBarStyle.LightContent
     }
     
 }
