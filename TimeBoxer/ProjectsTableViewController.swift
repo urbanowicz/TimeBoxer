@@ -92,6 +92,10 @@ class ProjectsTableViewController: UIViewController, UITableViewDelegate, UITabl
         projects.insert(addProjectVC.projectNameTextField.text!, atIndex: 0)
         newProjectAdded = true
     }
+    
+    @IBAction func cancelAddProjectUnwind(unwindSegue: UIStoryboardSegue) {
+        
+    }
 //MARK: Status Bar
 //----------------------------------------------------------------------------------------------------------------------
     override func preferredStatusBarStyle() -> UIStatusBarStyle {

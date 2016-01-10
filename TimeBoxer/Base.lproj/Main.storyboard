@@ -146,11 +146,20 @@
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mms-d2-Mvw">
+                                        <rect key="frame" x="20" y="26" width="30" height="29"/>
+                                        <state key="normal" title="X"/>
+                                        <connections>
+                                            <segue destination="dIy-m2-ZKe" kind="unwind" unwindAction="cancelAddProjectUnwind:" id="5hm-ab-YTs"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="Cxo-OS-dTQ" secondAttribute="bottom" constant="10" id="DqO-Tc-17w"/>
+                                    <constraint firstItem="Mms-d2-Mvw" firstAttribute="leading" secondItem="GbI-Eo-n4Y" secondAttribute="leading" constant="20" id="Rfy-Be-joD"/>
                                     <constraint firstItem="Cxo-OS-dTQ" firstAttribute="centerX" secondItem="GbI-Eo-n4Y" secondAttribute="centerX" id="atC-gy-2hj"/>
+                                    <constraint firstAttribute="bottom" secondItem="Mms-d2-Mvw" secondAttribute="bottom" constant="10" id="mQZ-2x-0md"/>
                                     <constraint firstAttribute="height" constant="65" id="ref-Lf-tUi"/>
                                 </constraints>
                             </view>
