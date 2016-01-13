@@ -133,9 +133,6 @@
                                 <color key="textColor" red="0.15294117647058825" green="0.15294117647058825" blue="0.15294117647058825" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" name="Baskerville" family="Baskerville" pointSize="30"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
-                                <connections>
-                                    <segue destination="dIy-m2-ZKe" kind="unwind" unwindAction="unwindToProjectsTableVC:" id="JX7-30-t64"/>
-                                </connections>
                             </textField>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GbI-Eo-n4Y">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="65"/>
@@ -150,7 +147,7 @@
                                         <rect key="frame" x="20" y="26" width="30" height="29"/>
                                         <state key="normal" title="X"/>
                                         <connections>
-                                            <segue destination="dIy-m2-ZKe" kind="unwind" unwindAction="cancelAddProjectUnwind:" id="5hm-ab-YTs"/>
+                                            <segue destination="dIy-m2-ZKe" kind="unwind" identifier="AddProjectCancelledUnwind" unwindAction="cancelAddProjectUnwind:" id="5hm-ab-YTs"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -178,6 +175,7 @@
                         <outlet property="headerView" destination="GbI-Eo-n4Y" id="Dio-Cf-Z7i"/>
                         <outlet property="newProjectLabel" destination="Cxo-OS-dTQ" id="J9S-gs-vjR"/>
                         <outlet property="projectNameTextField" destination="Lwh-CH-BOO" id="X3M-Id-u0r"/>
+                        <segue destination="dIy-m2-ZKe" kind="unwind" identifier="ProjectAddedUnwind" unwindAction="unwindToProjectsTableVC:" id="CEZ-l4-9fV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uuO-At-bhA" userLabel="First Responder" sceneMemberID="firstResponder"/>

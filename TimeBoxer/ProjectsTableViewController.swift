@@ -17,6 +17,7 @@ class ProjectsTableViewController: UIViewController, UITableViewDelegate, UITabl
     private var projects = ["Coursera, Graphic Design", "project2"]
     let projectsTableId = "projects"
     private var newProjectAdded:Bool = false
+    private let transitionManager = TransitionManager(animator: MyAnimator(), dismissAnimator:nil)
 
 //----------------------------------------------------------------------------------------------------------------------
     override func viewDidLoad() {
@@ -87,11 +88,15 @@ class ProjectsTableViewController: UIViewController, UITableViewDelegate, UITabl
 
 //----------------------------------------------------------------------------------------------------------------------
 //MARK: Navigation
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        segue.destinationViewController.transitioningDelegate = transitionManager
+    }
     @IBAction func unwindToProjectsTableVC(unwindSegue: UIStoryboardSegue) {
         let addProjectVC:AddProjectViewController = unwindSegue.sourceViewController as! AddProjectViewController
         projects.insert(addProjectVC.projectNameTextField.text!, atIndex: 0)
         newProjectAdded = true
     }
+    
     
     @IBAction func cancelAddProjectUnwind(unwindSegue: UIStoryboardSegue) {
         
@@ -107,3 +112,71 @@ class ProjectsTableViewController: UIViewController, UITableViewDelegate, UITabl
 //    }
     
 }
+
+
+
+private class MyAnimator: NSObject, UIViewControllerAnimatedTransitioning {
+    private var fromVC: ProjectsTableViewController?
+    private var toVC: AddProjectViewController?
+    private var container: UIView?
+    private var transitionContext:UIViewControllerContextTransitioning?
+    
+    
+    //--------------------------------------------------------------------------------------------------------
+    @objc func transitionDuration(transitionContext: UIViewControllerContextTransitioning?) -> NSTimeInterval
+    {
+        return 0.3
+    }
+    
+    //---------------------------------------------------------------------------------------------------------
+   @objc func animateTransition(transitionContext: UIViewControllerContextTransitioning)
+    {
+        initFields(transitionContext)
+        //registerForKeyboardNotifications()
+        toVC!.view.transform = CGAffineTransformMakeTranslation(0, fromVC!.view.frame.height)
+        container!.addSubview(toVC!.view)
+        toVC!.projectNameTextField.becomeFirstResponder()
+         let options = UIViewAnimationOptions(rawValue: 458752)
+        UIView.animateWithDuration(transitionDuration(transitionContext), delay:0.0, options: options,
+            animations:
+            {
+                self.toVC!.view.transform = CGAffineTransformIdentity
+            },
+            completion:
+            {
+                (finished:Bool) -> Void in
+                transitionContext.completeTransition(true)
+            }
+        )
+    }
+    //--------------------------------------------------------------------------------------------------------
+
+    //--------------------------------------------------------------------------------------------------------
+    func registerForKeyboardNotifications() {
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "kb:", name: UIKeyboardWillShowNotification, object: nil)
+    }
+    
+    @objc func kb(notification: NSNotification)    {
+        let keyboardNotification = KeyboardNotification(notification)
+        let duration  =  transitionDuration(transitionContext!)
+        print(keyboardNotification.animationDuration)
+        print(UInt(keyboardNotification.animationCurve << 16))
+        let options = UIViewAnimationOptions (rawValue: UInt(keyboardNotification.animationCurve << 16))
+        
+        UIView.animateWithDuration(duration, delay:0.0, options: options, animations: {
+            self.toVC!.view.transform = CGAffineTransformIdentity
+            }, completion: {
+                (finished: Bool) -> Void in
+                self.fromVC!.view.removeFromSuperview()
+                self.transitionContext!.completeTransition(true)
+        })
+    }
+    //--------------------------------------------------------------------------------------------------------
+    private func initFields(transitionContext: UIViewControllerContextTransitioning) {
+        fromVC = transitionContext.viewControllerForKey(UITransitionContextFromViewControllerKey) as? ProjectsTableViewController
+        toVC = transitionContext.viewControllerForKey(UITransitionContextToViewControllerKey) as? AddProjectViewController
+        container = transitionContext.containerView()
+        self.transitionContext = transitionContext
+    } 
+}
+

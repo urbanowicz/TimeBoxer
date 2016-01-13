@@ -23,6 +23,11 @@ class AddProjectViewController: UIViewController, UITextFieldDelegate {
         
         newProjectLabel.textColor = Colors.toUIColor(.OFF_WHITE)
         headerView.backgroundColor = Colors.toUIColor(.ALMOST_BLACK)
+       
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        projectNameTextField.becomeFirstResponder()
     }
 
 //----------------------------------------------------------------------------------------------------------------------
@@ -36,6 +41,7 @@ class AddProjectViewController: UIViewController, UITextFieldDelegate {
 
     func textFieldShouldReturn(textField: UITextField) -> Bool
     {
+        
         textField.resignFirstResponder()
         return true
     }
