@@ -89,8 +89,12 @@ class ProjectsTableViewController: UIViewController, UITableViewDelegate, UITabl
 //----------------------------------------------------------------------------------------------------------------------
 //MARK: Navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        segue.destinationViewController.transitioningDelegate = transitionManager
+        if segue.identifier! == "ProjectsTableToAddProject" {
+            segue.destinationViewController.transitioningDelegate = transitionManager
+    
+        }
     }
+    
     @IBAction func unwindToProjectsTableVC(unwindSegue: UIStoryboardSegue) {
         let addProjectVC:AddProjectViewController = unwindSegue.sourceViewController as! AddProjectViewController
         projects.insert(addProjectVC.projectNameTextField.text!, atIndex: 0)
@@ -107,10 +111,6 @@ class ProjectsTableViewController: UIViewController, UITableViewDelegate, UITabl
         return UIStatusBarStyle.LightContent
     }
     
-//    override func prefersStatusBarHidden() -> Bool {
-//        return true
-//    }
-    
 }
 
 
@@ -120,47 +120,41 @@ private class MyAnimator: NSObject, UIViewControllerAnimatedTransitioning {
     private var toVC: AddProjectViewController?
     private var container: UIView?
     private var transitionContext:UIViewControllerContextTransitioning?
+    private var duration:NSTimeInterval
     
+    
+    override init() {
+        self.duration = 0.3
+        super.init()
+        registerForKeyboardNotifications()
+    }
     
     //--------------------------------------------------------------------------------------------------------
     @objc func transitionDuration(transitionContext: UIViewControllerContextTransitioning?) -> NSTimeInterval
     {
-        return 0.3
+        return duration
     }
     
     //---------------------------------------------------------------------------------------------------------
    @objc func animateTransition(transitionContext: UIViewControllerContextTransitioning)
     {
         initFields(transitionContext)
-        //registerForKeyboardNotifications()
         toVC!.view.transform = CGAffineTransformMakeTranslation(0, fromVC!.view.frame.height)
         container!.addSubview(toVC!.view)
         toVC!.projectNameTextField.becomeFirstResponder()
-         let options = UIViewAnimationOptions(rawValue: 458752)
-        UIView.animateWithDuration(transitionDuration(transitionContext), delay:0.0, options: options,
-            animations:
-            {
-                self.toVC!.view.transform = CGAffineTransformIdentity
-            },
-            completion:
-            {
-                (finished:Bool) -> Void in
-                transitionContext.completeTransition(true)
-            }
-        )
     }
-    //--------------------------------------------------------------------------------------------------------
+    
 
     //--------------------------------------------------------------------------------------------------------
     func registerForKeyboardNotifications() {
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "kb:", name: UIKeyboardWillShowNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillShow:",
+            name: UIKeyboardWillShowNotification, object: nil)
     }
     
-    @objc func kb(notification: NSNotification)    {
+    //--------------------------------------------------------------------------------------------------------
+    @objc func keyboardWillShow(notification: NSNotification)    {
         let keyboardNotification = KeyboardNotification(notification)
-        let duration  =  transitionDuration(transitionContext!)
-        print(keyboardNotification.animationDuration)
-        print(UInt(keyboardNotification.animationCurve << 16))
+        self.duration  =  keyboardNotification.animationDuration
         let options = UIViewAnimationOptions (rawValue: UInt(keyboardNotification.animationCurve << 16))
         
         UIView.animateWithDuration(duration, delay:0.0, options: options, animations: {
@@ -171,6 +165,7 @@ private class MyAnimator: NSObject, UIViewControllerAnimatedTransitioning {
                 self.transitionContext!.completeTransition(true)
         })
     }
+    
     //--------------------------------------------------------------------------------------------------------
     private func initFields(transitionContext: UIViewControllerContextTransitioning) {
         fromVC = transitionContext.viewControllerForKey(UITransitionContextFromViewControllerKey) as? ProjectsTableViewController
