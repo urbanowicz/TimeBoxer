@@ -17,7 +17,7 @@ class ProjectsTableViewController: UIViewController, UITableViewDelegate, UITabl
     private var projects = ["Coursera, Graphic Design", "project2"]
     let projectsTableId = "projects"
     private var newProjectAdded:Bool = false
-    private let transitionManager = TransitionManager(animator: MyAnimator(), dismissAnimator:nil)
+    private let transitionManager = TransitionManager(animator: MyAnimator(), dismissAnimator:MyDismissAnimator())
 
 //----------------------------------------------------------------------------------------------------------------------
     override func viewDidLoad() {
@@ -113,7 +113,7 @@ class ProjectsTableViewController: UIViewController, UITableViewDelegate, UITabl
     
 }
 
-
+//----------------------------------------------------------------------------------------------------------------------
 
 private class MyAnimator: NSObject, UIViewControllerAnimatedTransitioning {
     private var fromVC: ProjectsTableViewController?

@@ -43,6 +43,7 @@ class AddProjectViewController: UIViewController, UITextFieldDelegate {
     {
         
         //textField.resignFirstResponder()
+        performSegueWithIdentifier("ProjectAddedUnwind", sender: self)
         return true
     }
 
@@ -50,6 +51,7 @@ class AddProjectViewController: UIViewController, UITextFieldDelegate {
     func textFieldDidEndEditing(textField: UITextField)
     {
         projectName = projectNameTextField!.text
+        
     }
 
 //----------------------------------------------------------------------------------------------------------------------
