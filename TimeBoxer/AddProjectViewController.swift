@@ -42,7 +42,7 @@ class AddProjectViewController: UIViewController, UITextFieldDelegate {
     func textFieldShouldReturn(textField: UITextField) -> Bool
     {
         
-        textField.resignFirstResponder()
+        //textField.resignFirstResponder()
         return true
     }
 

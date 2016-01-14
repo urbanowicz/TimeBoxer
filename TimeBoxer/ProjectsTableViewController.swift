@@ -152,7 +152,7 @@ private class MyAnimator: NSObject, UIViewControllerAnimatedTransitioning {
     }
     
     //--------------------------------------------------------------------------------------------------------
-    @objc func keyboardWillShow(notification: NSNotification)    {
+    @objc func keyboardWillShow(notification: NSNotification) {
         let keyboardNotification = KeyboardNotification(notification)
         self.duration  =  keyboardNotification.animationDuration
         let options = UIViewAnimationOptions (rawValue: UInt(keyboardNotification.animationCurve << 16))
@@ -168,10 +168,70 @@ private class MyAnimator: NSObject, UIViewControllerAnimatedTransitioning {
     
     //--------------------------------------------------------------------------------------------------------
     private func initFields(transitionContext: UIViewControllerContextTransitioning) {
-        fromVC = transitionContext.viewControllerForKey(UITransitionContextFromViewControllerKey) as? ProjectsTableViewController
-        toVC = transitionContext.viewControllerForKey(UITransitionContextToViewControllerKey) as? AddProjectViewController
+        fromVC = transitionContext.viewControllerForKey(UITransitionContextFromViewControllerKey)
+            as? ProjectsTableViewController
+        toVC = transitionContext.viewControllerForKey(UITransitionContextToViewControllerKey)
+            as? AddProjectViewController
         container = transitionContext.containerView()
         self.transitionContext = transitionContext
     } 
 }
 
+    //-------------------------------------------------------------------------------------------------------------
+
+private class MyDismissAnimator: NSObject, UIViewControllerAnimatedTransitioning {
+    private var fromVC: AddProjectViewController?
+    private var toVC: ProjectsTableViewController?
+    private var container: UIView?
+    private var transitionContext:UIViewControllerContextTransitioning?
+    private var duration:NSTimeInterval
+    
+    
+    override init() {
+        self.duration = 0.3
+        super.init()
+        registerForKeyboardNotifications()
+    }
+    
+    //--------------------------------------------------------------------------------------------------------
+    func registerForKeyboardNotifications() {
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillHide:",
+            name: UIKeyboardWillHideNotification, object: nil)
+    }
+    
+    @objc func keyboardWillHide(notification: NSNotification) {
+        let keyboardNotification = KeyboardNotification(notification)
+        self.duration = keyboardNotification.animationDuration
+        let options = UIViewAnimationOptions(rawValue: UInt(keyboardNotification.animationCurve << 16))
+        UIView.animateWithDuration(duration, delay: 0.0, options: options,
+        animations: {
+            self.fromVC!.view.transform = CGAffineTransformMakeTranslation(0, self.fromVC!.view.frame.height)
+        },
+        completion: {
+            (finished:Bool)->Void in
+            self.fromVC!.view.removeFromSuperview()
+            self.transitionContext!.completeTransition(true)
+        })
+    }
+    //------------------------------------------------------------------------------------------------------------------
+    private func initFields(context: UIViewControllerContextTransitioning) {
+        fromVC = context.viewControllerForKey(UITransitionContextFromViewControllerKey)
+            as? AddProjectViewController
+        toVC = context.viewControllerForKey(UITransitionContextToViewControllerKey)
+            as? ProjectsTableViewController
+        container = context.containerView()
+        transitionContext = context
+    }
+    
+    //------------------------------------------------------------------------------------------------------------------
+    //MARK: UIViewControllerAnimatedTransitioning
+    @objc func transitionDuration(transitionContext: UIViewControllerContextTransitioning?) -> NSTimeInterval {
+        return duration
+    }
+    
+    @objc func animateTransition(transitionContext: UIViewControllerContextTransitioning) {
+        initFields(transitionContext)
+        container!.insertSubview(toVC!.view, belowSubview: fromVC!.view)
+        fromVC!.projectNameTextField.resignFirstResponder()
+    }
+}
