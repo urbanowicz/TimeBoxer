@@ -18,6 +18,7 @@ class ProjectsTableViewController: UIViewController, UITableViewDelegate, UITabl
     let projectsTableId = "projects"
     private var newProjectAdded:Bool = false
     private let transitionManager = TransitionManager(animator: MyAnimator(), dismissAnimator:MyDismissAnimator())
+    private let toEditProjectTransitionManager = TransitionManager(animator: ProjectsTableToEditProjectAnimator(), dismissAnimator: nil)
 
 //----------------------------------------------------------------------------------------------------------------------
     override func viewDidLoad() {
@@ -81,17 +82,18 @@ class ProjectsTableViewController: UIViewController, UITableViewDelegate, UITabl
     }
     
 //----------------------------------------------------------------------------------------------------------------------
-    func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath) {
-        
+
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        performSegueWithIdentifier("ProjectsTableToEditProject", sender: self)
     }
-
-
 //----------------------------------------------------------------------------------------------------------------------
 //MARK: Navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier! == "ProjectsTableToAddProject" {
             segue.destinationViewController.transitioningDelegate = transitionManager
-    
+        }
+        if segue.identifier! == "ProjectsTableToEditProject" {
+            segue.destinationViewController.transitioningDelegate = toEditProjectTransitionManager
         }
     }
     
@@ -235,6 +237,26 @@ private class MyDismissAnimator: NSObject, UIViewControllerAnimatedTransitioning
     }
 }
 
+//MARK: ProjectsTableToEditProjectAnimator
 private class ProjectsTableToEditProjectAnimator: AbstractAnimator {
-    
+    override init() {
+        super.init()
+        self.duration = 0.5
+    }
+    override func doAnimate() {
+        let projectsTableView = fromVC!.view
+        let addProjectView = toVC!.view
+        
+        addProjectView.transform = CGAffineTransformMakeTranslation(-projectsTableView.frame.width, 0)
+        container!.addSubview(addProjectView)
+        UIView.animateWithDuration(transitionDuration(context!),
+            animations: {
+                addProjectView.transform = CGAffineTransformIdentity
+        },
+            completion: {
+                (finished:Bool)->Void in
+                projectsTableView.removeFromSuperview()
+                self.context!.completeTransition(true)
+        })
+    }
 }
