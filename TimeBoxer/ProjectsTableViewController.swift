@@ -241,7 +241,7 @@ private class MyDismissAnimator: NSObject, UIViewControllerAnimatedTransitioning
 private class ProjectsTableToEditProjectAnimator: AbstractAnimator {
     override init() {
         super.init()
-        self.duration = 0.5
+        self.duration = 0.3
     }
     override func doAnimate() {
         let projectsTableView = fromVC!.view
@@ -252,6 +252,7 @@ private class ProjectsTableToEditProjectAnimator: AbstractAnimator {
         UIView.animateWithDuration(transitionDuration(context!),
             animations: {
                 addProjectView.transform = CGAffineTransformIdentity
+                projectsTableView.transform = CGAffineTransformMakeTranslation(projectsTableView.frame.width, 0)
         },
             completion: {
                 (finished:Bool)->Void in
