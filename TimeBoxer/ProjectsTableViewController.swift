@@ -114,7 +114,7 @@ class ProjectsTableViewController: UIViewController, UITableViewDelegate, UITabl
 }
 
 //----------------------------------------------------------------------------------------------------------------------
-
+//MARK: ProjectsTableToAddProject animator
 private class MyAnimator: NSObject, UIViewControllerAnimatedTransitioning {
     private var fromVC: ProjectsTableViewController?
     private var toVC: AddProjectViewController?
@@ -129,13 +129,13 @@ private class MyAnimator: NSObject, UIViewControllerAnimatedTransitioning {
         registerForKeyboardNotifications()
     }
     
-    //--------------------------------------------------------------------------------------------------------
+//--------------------------------------------------------------------------------------------------------
     @objc func transitionDuration(transitionContext: UIViewControllerContextTransitioning?) -> NSTimeInterval
     {
         return duration
     }
-    
-    //---------------------------------------------------------------------------------------------------------
+
+//---------------------------------------------------------------------------------------------------------
    @objc func animateTransition(transitionContext: UIViewControllerContextTransitioning)
     {
         initFields(transitionContext)
@@ -145,13 +145,13 @@ private class MyAnimator: NSObject, UIViewControllerAnimatedTransitioning {
     }
     
 
-    //--------------------------------------------------------------------------------------------------------
+//--------------------------------------------------------------------------------------------------------
     func registerForKeyboardNotifications() {
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillShow:",
             name: UIKeyboardWillShowNotification, object: nil)
     }
     
-    //--------------------------------------------------------------------------------------------------------
+//--------------------------------------------------------------------------------------------------------
     @objc func keyboardWillShow(notification: NSNotification) {
         let keyboardNotification = KeyboardNotification(notification)
         self.duration  =  keyboardNotification.animationDuration
@@ -166,7 +166,7 @@ private class MyAnimator: NSObject, UIViewControllerAnimatedTransitioning {
         })
     }
     
-    //--------------------------------------------------------------------------------------------------------
+//--------------------------------------------------------------------------------------------------------
     private func initFields(transitionContext: UIViewControllerContextTransitioning) {
         fromVC = transitionContext.viewControllerForKey(UITransitionContextFromViewControllerKey)
             as? ProjectsTableViewController
@@ -177,8 +177,8 @@ private class MyAnimator: NSObject, UIViewControllerAnimatedTransitioning {
     } 
 }
 
-    //-------------------------------------------------------------------------------------------------------------
-
+//-------------------------------------------------------------------------------------------------------------
+//MARK: AddProjectToProjectsTable dismiss animator
 private class MyDismissAnimator: NSObject, UIViewControllerAnimatedTransitioning {
     private var fromVC: AddProjectViewController?
     private var toVC: ProjectsTableViewController?
@@ -193,7 +193,7 @@ private class MyDismissAnimator: NSObject, UIViewControllerAnimatedTransitioning
         registerForKeyboardNotifications()
     }
     
-    //--------------------------------------------------------------------------------------------------------
+//--------------------------------------------------------------------------------------------------------
     func registerForKeyboardNotifications() {
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillHide:",
             name: UIKeyboardWillHideNotification, object: nil)
@@ -213,7 +213,7 @@ private class MyDismissAnimator: NSObject, UIViewControllerAnimatedTransitioning
             self.transitionContext!.completeTransition(true)
         })
     }
-    //------------------------------------------------------------------------------------------------------------------
+//------------------------------------------------------------------------------------------------------------------
     private func initFields(context: UIViewControllerContextTransitioning) {
         fromVC = context.viewControllerForKey(UITransitionContextFromViewControllerKey)
             as? AddProjectViewController
@@ -223,8 +223,7 @@ private class MyDismissAnimator: NSObject, UIViewControllerAnimatedTransitioning
         transitionContext = context
     }
     
-    //------------------------------------------------------------------------------------------------------------------
-    //MARK: UIViewControllerAnimatedTransitioning
+//------------------------------------------------------------------------------------------------------------------
     @objc func transitionDuration(transitionContext: UIViewControllerContextTransitioning?) -> NSTimeInterval {
         return duration
     }
@@ -234,4 +233,8 @@ private class MyDismissAnimator: NSObject, UIViewControllerAnimatedTransitioning
         container!.insertSubview(toVC!.view, belowSubview: fromVC!.view)
         fromVC!.projectNameTextField.resignFirstResponder()
     }
+}
+
+private class ProjectsTableToEditProjectAnimator: AbstractAnimator {
+    
 }

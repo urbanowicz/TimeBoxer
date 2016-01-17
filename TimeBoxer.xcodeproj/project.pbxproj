@@ -33,6 +33,7 @@
 		F1B5FE6D1C31AF73003A5C65 /* TransitionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1B5FE6C1C31AF73003A5C65 /* TransitionManager.swift */; };
 		F1B920551BE7D7CC004A8CDB /* PauseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1B920541BE7D7CC004A8CDB /* PauseButton.swift */; };
 		F1D2444C1BDFF8320023B994 /* TimerRunningViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D2444B1BDFF8320023B994 /* TimerRunningViewController.swift */; };
+		F1F736B51C4BFFF000E9AC31 /* AbstractAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F736B41C4BFFF000E9AC31 /* AbstractAnimator.swift */; };
 		F1FC9AD31C3ED73B002A9F31 /* EditProjectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FC9AD21C3ED73B002A9F31 /* EditProjectViewController.swift */; };
 		F1FC9AD61C3ED86F002A9F31 /* AddProjectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FC9AD51C3ED86F002A9F31 /* AddProjectViewController.swift */; };
 		F1FC9AD91C3EE0CC002A9F31 /* ProjectsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FC9AD81C3EE0CC002A9F31 /* ProjectsTableViewController.swift */; };
@@ -80,6 +81,7 @@
 		F1B5FE6C1C31AF73003A5C65 /* TransitionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionManager.swift; sourceTree = "<group>"; };
 		F1B920541BE7D7CC004A8CDB /* PauseButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PauseButton.swift; sourceTree = "<group>"; };
 		F1D2444B1BDFF8320023B994 /* TimerRunningViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerRunningViewController.swift; sourceTree = "<group>"; };
+		F1F736B41C4BFFF000E9AC31 /* AbstractAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AbstractAnimator.swift; sourceTree = "<group>"; };
 		F1FC9AD21C3ED73B002A9F31 /* EditProjectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditProjectViewController.swift; sourceTree = "<group>"; };
 		F1FC9AD51C3ED86F002A9F31 /* AddProjectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddProjectViewController.swift; sourceTree = "<group>"; };
 		F1FC9AD81C3EE0CC002A9F31 /* ProjectsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectsTableViewController.swift; sourceTree = "<group>"; };
@@ -219,6 +221,7 @@
 				F1B5FE6C1C31AF73003A5C65 /* TransitionManager.swift */,
 				F10B85191C384E23002C66F2 /* Animator.swift */,
 				F12C5D8B1C46FA450040969F /* KeyboardNotification.swift */,
+				F1F736B41C4BFFF000E9AC31 /* AbstractAnimator.swift */,
 			);
 			name = Segues;
 			sourceTree = "<group>";
@@ -367,6 +370,7 @@
 			files = (
 				F13452111BEE672300AB9F67 /* InvertedCancelButton.swift in Sources */,
 				F1FC9AD31C3ED73B002A9F31 /* EditProjectViewController.swift in Sources */,
+				F1F736B51C4BFFF000E9AC31 /* AbstractAnimator.swift in Sources */,
 				F1B920551BE7D7CC004A8CDB /* PauseButton.swift in Sources */,
 				F18D6B7A1BEB4BFE0003CBD4 /* TimerPausedViewController.swift in Sources */,
 				F15F9C501BCCF376008733A3 /* AppDelegate.swift in Sources */,
