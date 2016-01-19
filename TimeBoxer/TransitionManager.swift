@@ -11,8 +11,8 @@ import UIKit
 class TransitionManager: NSObject, UIViewControllerTransitioningDelegate {
     var animator: UIViewControllerAnimatedTransitioning?
     var dismissAnimator: UIViewControllerAnimatedTransitioning?
-    var interactiveAnimator:UIViewControllerInteractiveTransitioning?
-    var interactiveDismissAnimator:UIViewControllerInteractiveTransitioning?
+    var interactiveAnimator:UIPercentDrivenInteractiveTransition?
+    var interactiveDismissAnimator:UIPercentDrivenInteractiveTransition?
     
     init(animator: UIViewControllerAnimatedTransitioning?, dismissAnimator: UIViewControllerAnimatedTransitioning?)
     {
@@ -24,8 +24,8 @@ class TransitionManager: NSObject, UIViewControllerTransitioningDelegate {
     }
     
     init(animator: UIViewControllerAnimatedTransitioning?, dismissAnimator: UIViewControllerAnimatedTransitioning?,
-        interactiveAnimator: UIViewControllerInteractiveTransitioning?,
-        interactiveDismissAnimator: UIViewControllerInteractiveTransitioning?)
+        interactiveAnimator: UIPercentDrivenInteractiveTransition?,
+        interactiveDismissAnimator: UIPercentDrivenInteractiveTransition?)
     {
         self.animator = animator
         self.dismissAnimator = dismissAnimator

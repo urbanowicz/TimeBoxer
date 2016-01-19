@@ -18,7 +18,9 @@ class ProjectsTableViewController: UIViewController, UITableViewDelegate, UITabl
     let projectsTableId = "projects"
     private var newProjectAdded:Bool = false
     private let transitionManager = TransitionManager(animator: MyAnimator(), dismissAnimator:MyDismissAnimator())
-    private let toEditProjectTransitionManager = TransitionManager(animator: ProjectsTableToEditProjectAnimator(), dismissAnimator: nil)
+    private let toEditProjectTransitionManager =
+    TransitionManager(animator: ProjectsTableToEditProjectAnimator(), dismissAnimator: nil,
+        interactiveAnimator: UIPercentDrivenInteractiveTransition(), interactiveDismissAnimator: nil)
 
 //----------------------------------------------------------------------------------------------------------------------
     override func viewDidLoad() {
@@ -70,7 +72,11 @@ class ProjectsTableViewController: UIViewController, UITableViewDelegate, UITabl
             cell = MyTableViewCell(style:UITableViewCellStyle.Value1, reuseIdentifier:projectsTableId)
         }
         
-        //1. configure the main text of the cell
+        //1. Pass the transition manager to the cell
+        cell!.interactiveTransitionManager = toEditProjectTransitionManager
+        cell!.parentVC = self
+        
+        //2. configure the main text of the cell
         cell!.textLabel!.text = projects[indexPath.row]
         cell!.textLabel!.font = UIFont(name:"Baskerville", size:20)
         cell!.textLabel!.textColor = Colors.toUIColor(ColorName.ALMOST_BLACK)
@@ -85,7 +91,7 @@ class ProjectsTableViewController: UIViewController, UITableViewDelegate, UITabl
 //----------------------------------------------------------------------------------------------------------------------
 
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        performSegueWithIdentifier("ProjectsTableToEditProject", sender: self)
+        //performSegueWithIdentifier("ProjectsTableToEditProject", sender: self)
     }
 //----------------------------------------------------------------------------------------------------------------------
 //MARK: Navigation

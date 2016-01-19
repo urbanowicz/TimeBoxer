@@ -9,6 +9,9 @@
 import UIKit
 
 class MyTableViewCell: UITableViewCell {
+    var interactiveTransitionManager:TransitionManager?
+    var parentVC:UIViewController?
+    
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style:style, reuseIdentifier:reuseIdentifier)
         
@@ -36,20 +39,25 @@ class MyTableViewCell: UITableViewCell {
     func handlePan(recognizer: UIPanGestureRecognizer) {
         if recognizer.state == .Began {
             print("PAN BEGAN")
+             parentVC!.performSegueWithIdentifier("ProjectsTableToEditProject", sender: parentVC!)
         }
         if recognizer.state == .Changed {
             print("PAN CHANGED")
+            let translation = recognizer.translationInView(self.superview!)
+            let dx:CGFloat = translation.x / self.superview!.frame.width
+            interactiveTransitionManager!.interactiveAnimator?.updateInteractiveTransition(dx)
         }
         
         if recognizer.state == .Ended {
             print("PAN ENDED")
+            interactiveTransitionManager!.interactiveAnimator!.finishInteractiveTransition()
         }
     }
     
     override func gestureRecognizerShouldBegin(gestureRecognizer: UIGestureRecognizer) -> Bool {
         if let panGestureRecognizer = gestureRecognizer as? UIPanGestureRecognizer {
             let translation = panGestureRecognizer.translationInView(self.superview!)
-            if fabs(translation.x) > fabs(translation.y) {
+            if fabs(translation.x) > fabs(translation.y) && translation.x > 0 {
                 return true
             }
             return false
