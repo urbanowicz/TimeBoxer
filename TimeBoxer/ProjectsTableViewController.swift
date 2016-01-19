@@ -27,6 +27,7 @@ class ProjectsTableViewController: UIViewController, UITableViewDelegate, UITabl
         projectsTableView.dataSource = self
         projectsTableView.separatorColor = Colors.toUIColor(ColorName.VERY_LIGHT_GRAY)
         projectsTableView.rowHeight = 55
+        projectsTableView.registerClass(MyTableViewCell.self, forCellReuseIdentifier: projectsTableId)
         
         timeBoxerLabel.textColor = Colors.toUIColor(ColorName.OFF_WHITE)
         headerView.backgroundColor = Colors.toUIColor(ColorName.ALMOST_BLACK)
@@ -64,9 +65,9 @@ class ProjectsTableViewController: UIViewController, UITableViewDelegate, UITabl
 //----------------------------------------------------------------------------------------------------------------------
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) ->UITableViewCell {
         
-        var cell:UITableViewCell? = tableView.dequeueReusableCellWithIdentifier(projectsTableId)
+        var cell:MyTableViewCell? = tableView.dequeueReusableCellWithIdentifier(projectsTableId) as? MyTableViewCell
         if cell == nil {
-            cell = UITableViewCell(style:UITableViewCellStyle.Value1, reuseIdentifier:projectsTableId)
+            cell = MyTableViewCell(style:UITableViewCellStyle.Value1, reuseIdentifier:projectsTableId)
         }
         
         //1. configure the main text of the cell
