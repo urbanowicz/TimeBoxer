@@ -11,6 +11,7 @@ import UIKit
 class MyTableViewCell: UITableViewCell {
     var interactiveTransitionManager:TransitionManager?
     var parentVC:UIViewController?
+    var originalCenter:CGPoint?
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style:style, reuseIdentifier:reuseIdentifier)
@@ -39,18 +40,26 @@ class MyTableViewCell: UITableViewCell {
     func handlePan(recognizer: UIPanGestureRecognizer) {
         if recognizer.state == .Began {
             print("PAN BEGAN")
-             parentVC!.performSegueWithIdentifier("ProjectsTableToEditProject", sender: parentVC!)
+            print(center.x)
+             originalCenter = center
+             //parentVC!.performSegueWithIdentifier("ProjectsTableToEditProject", sender: parentVC!)
         }
         if recognizer.state == .Changed {
-            print("PAN CHANGED")
             let translation = recognizer.translationInView(self.superview!)
-            let dx:CGFloat = translation.x / self.superview!.frame.width
-            interactiveTransitionManager!.interactiveAnimator?.updateInteractiveTransition(dx)
+            
+            if (translation.x < 50) {
+                center.x = originalCenter!.x + translation.x
+                print(center.x)
+            } else {
+                let dx:CGFloat = translation.x / self.superview!.frame.width
+            }
+            //interactiveTransitionManager!.interactiveAnimator?.updateInteractiveTransition(dx)
         }
         
         if recognizer.state == .Ended {
             print("PAN ENDED")
-            interactiveTransitionManager!.interactiveAnimator!.finishInteractiveTransition()
+            //interactiveTransitionManager!.interactiveAnimator!.finishInteractiveTransition()
+            UIView.animateWithDuration(0.3, animations: {self.center.x = self.originalCenter!.x})
         }
     }
     
