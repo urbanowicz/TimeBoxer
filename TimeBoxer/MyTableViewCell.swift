@@ -38,6 +38,7 @@ class MyTableViewCell: UITableViewCell {
     //MARK: pan gesture recognizer
     
     func handlePan(recognizer: UIPanGestureRecognizer) {
+        let drawerSize = CGFloat(50)
         if recognizer.state == .Began {
             print("PAN BEGAN")
             originalCenter = center
@@ -45,8 +46,7 @@ class MyTableViewCell: UITableViewCell {
         }
         if recognizer.state == .Changed {
             let translation = recognizer.translationInView(self.superview!)
-            
-            if (translation.x < 50) {
+            if translation.x < drawerSize {
                 if segueStarted {
                     interactiveTransitionManager!.interactiveAnimator!.cancelInteractiveTransition()
                     segueStarted = false
@@ -57,7 +57,7 @@ class MyTableViewCell: UITableViewCell {
                     parentVC!.performSegueWithIdentifier("ProjectsTableToEditProject", sender: parentVC!)
                     segueStarted = true
                 }
-                let dx:CGFloat = (translation.x - 50) / self.superview!.frame.width
+                let dx:CGFloat = (translation.x - drawerSize) / self.superview!.frame.width
                 interactiveTransitionManager!.interactiveAnimator!.updateInteractiveTransition(dx)
             }
         }
@@ -65,7 +65,7 @@ class MyTableViewCell: UITableViewCell {
         if recognizer.state == .Ended {
             print("PAN ENDED")
             let translation = recognizer.translationInView(self.superview!)
-            if translation.x - 50 > (self.superview!.frame.width/2.0) {
+            if translation.x - drawerSize > (self.superview!.frame.width/2.0) {
                 interactiveTransitionManager!.interactiveAnimator!.finishInteractiveTransition()
             } else {
                 UIView.animateWithDuration(0.3, animations: {self.center.x = self.originalCenter!.x})
