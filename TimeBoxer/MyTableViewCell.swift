@@ -12,6 +12,7 @@ class MyTableViewCell: UITableViewCell {
     var interactiveTransitionManager:TransitionManager?
     var parentVC:UIViewController?
     var originalCenter:CGPoint?
+    var segueStarted:Bool = false
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style:style, reuseIdentifier:reuseIdentifier)
@@ -26,13 +27,12 @@ class MyTableViewCell: UITableViewCell {
     }
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+    
     }
 
     override func setSelected(selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
-        // Configure the view for the selected state
     }
     
     //MARK: pan gesture recognizer
@@ -40,26 +40,38 @@ class MyTableViewCell: UITableViewCell {
     func handlePan(recognizer: UIPanGestureRecognizer) {
         if recognizer.state == .Began {
             print("PAN BEGAN")
-            print(center.x)
-             originalCenter = center
-             //parentVC!.performSegueWithIdentifier("ProjectsTableToEditProject", sender: parentVC!)
+            originalCenter = center
+            segueStarted = false
         }
         if recognizer.state == .Changed {
             let translation = recognizer.translationInView(self.superview!)
             
             if (translation.x < 50) {
+                if segueStarted {
+                    interactiveTransitionManager!.interactiveAnimator!.cancelInteractiveTransition()
+                    segueStarted = false
+                }
                 center.x = originalCenter!.x + translation.x
-                print(center.x)
             } else {
-                let dx:CGFloat = translation.x / self.superview!.frame.width
+                if !segueStarted {
+                    parentVC!.performSegueWithIdentifier("ProjectsTableToEditProject", sender: parentVC!)
+                    segueStarted = true
+                }
+                let dx:CGFloat = (translation.x - 50) / self.superview!.frame.width
+                interactiveTransitionManager!.interactiveAnimator!.updateInteractiveTransition(dx)
             }
-            //interactiveTransitionManager!.interactiveAnimator?.updateInteractiveTransition(dx)
         }
         
         if recognizer.state == .Ended {
             print("PAN ENDED")
-            //interactiveTransitionManager!.interactiveAnimator!.finishInteractiveTransition()
-            UIView.animateWithDuration(0.3, animations: {self.center.x = self.originalCenter!.x})
+            let translation = recognizer.translationInView(self.superview!)
+            if translation.x - 50 > (self.superview!.frame.width/2.0) {
+                interactiveTransitionManager!.interactiveAnimator!.finishInteractiveTransition()
+            } else {
+                UIView.animateWithDuration(0.3, animations: {self.center.x = self.originalCenter!.x})
+                interactiveTransitionManager!.interactiveAnimator!.cancelInteractiveTransition()
+            }
+            segueStarted = false
         }
     }
     

@@ -75,6 +75,7 @@ class ProjectsTableViewController: UIViewController, UITableViewDelegate, UITabl
         //1. Pass the transition manager to the cell
         cell!.interactiveTransitionManager = toEditProjectTransitionManager
         cell!.parentVC = self
+        cell!.selectionStyle = .None
         
         //2. configure the main text of the cell
         cell!.textLabel!.text = projects[indexPath.row]
