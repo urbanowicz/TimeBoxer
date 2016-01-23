@@ -9,6 +9,7 @@
 import UIKit
 
 class EditProjectViewController: UIViewController, UIGestureRecognizerDelegate {
+    var segueStarted:Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,27 +25,30 @@ class EditProjectViewController: UIViewController, UIGestureRecognizerDelegate {
     //MARK: pan gesture recognizer
     func handlePan(recognizer: UIPanGestureRecognizer) {
         let translation = recognizer.translationInView(self.view)
-        let dx:CGFloat = (-translation.x) / (self.view.superview!.frame.width)
+        let dx:CGFloat = (-translation.x) / (self.view.frame.width)
         let transitionManager = self.transitioningDelegate as! TransitionManager
         
         switch(recognizer.state) {
         case .Began:
-            print("BEGIN")
+            print("BEGIN Gesture")
+            segueStarted = true
             performSegueWithIdentifier("EditProjectUnwind", sender:self)
             break
         
         case .Changed:
-            print("CHANGE")
             transitionManager.interactiveDismissAnimator!.updateInteractiveTransition(dx)
+            print("translation.x =  \(translation.x), dx = \(dx)")
             break
         
         default:
-            print(recognizer.state.rawValue)
+            
             let interactiveDismissAnimator = transitionManager.interactiveDismissAnimator!
-            if -translation.x > view.superview!.frame.width/2.0 {
+            if -translation.x > self.view.frame.width/2.0 {
                 interactiveDismissAnimator.finishInteractiveTransition()
+                print("END Gesture finish")
             } else {
                 interactiveDismissAnimator.cancelInteractiveTransition()
+                print("END Gesture cancel")
             }
         }
     }
@@ -52,12 +56,16 @@ class EditProjectViewController: UIViewController, UIGestureRecognizerDelegate {
     func gestureRecognizerShouldBegin(gestureRecognizer: UIGestureRecognizer) -> Bool {
         if let panGeustureRecognizer = gestureRecognizer as? UIPanGestureRecognizer {
             let translation = panGeustureRecognizer.translationInView(self.view)
-            if fabs(translation.x) > fabs(translation.y) && translation.x < 0 {
+            if fabs(translation.x) > fabs(translation.y) && translation.x < 0 && !segueStarted {
                 return true
             } else {
                 return false
             }
         }
         return false
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        print("BEGIN Segue")
     }
 }

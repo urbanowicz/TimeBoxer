@@ -122,7 +122,7 @@ class ProjectsTableViewController: UIViewController, UITableViewDelegate, UITabl
     }
     
     @IBAction func editProjectUnwind(unwindSegue: UIStoryboardSegue) {
-        
+       
     }
 
 //MARK: Status Bar
@@ -230,6 +230,7 @@ private class ProjectsTableToEditProjectAnimator: AbstractAnimator {
             completion: {
                 (finished:Bool)->Void in
                 if self.context!.transitionWasCancelled() {
+                    editProjectView.removeFromSuperview()
                     self.context!.completeTransition(false)
                 } else {
                     projectsTableView.removeFromSuperview()
@@ -243,27 +244,37 @@ private class ProjectsTableToEditProjectAnimator: AbstractAnimator {
 private class EditProjectToProjectsTableDismissAnimator: AbstractAnimator {
     override init() {
         super.init()
-        self.duration = 0.3
+        self.duration = 2.0
     }
     
     override func doAnimate() {
-        let editProjectView = fromVC!.view
+        print("BEGIN doAnimate")
+        let editProjectVC = fromVC! as! EditProjectViewController
         let projectsTableView = toVC!.view
-        projectsTableView.transform = CGAffineTransformMakeTranslation(editProjectView.frame.width,0)
+        projectsTableView.transform = CGAffineTransformMakeTranslation(editProjectVC.view.frame.width,0)
         container!.addSubview(projectsTableView)
         UIView.animateWithDuration(transitionDuration(context!),
             animations: {
+                print("BEGIN animations")
                 projectsTableView.transform = CGAffineTransformIdentity
-                editProjectView.transform = CGAffineTransformMakeTranslation(-editProjectView.frame.width, 0)
+                editProjectVC.view.transform = CGAffineTransformMakeTranslation(-editProjectVC.view.frame.width, 0)
         },
             completion: {
                 (finished:Bool) -> Void in
+               
                 if self.context!.transitionWasCancelled() {
+                    projectsTableView.removeFromSuperview()
                     self.context!.completeTransition(false)
                 } else {
-                    editProjectView.removeFromSuperview()
+                    editProjectVC.view.removeFromSuperview()
                     self.context!.completeTransition(true)
                 }
+                editProjectVC.segueStarted = false
+                print("END Segue")
         })
+    }
+    
+    func animationEnded(transitionCompleted: Bool) {
+        print("END animation")
     }
 }
