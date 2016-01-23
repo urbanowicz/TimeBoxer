@@ -17,7 +17,11 @@ class ProjectsTableViewController: UIViewController, UITableViewDelegate, UITabl
     private var projects = ["Coursera, Graphic Design", "project2"]
     let projectsTableId = "projects"
     private var newProjectAdded:Bool = false
-    private let transitionManager = TransitionManager(animator: MyAnimator(), dismissAnimator:MyDismissAnimator())
+    
+    private let transitionManager =
+    TransitionManager(animator: MyAnimator(),
+        dismissAnimator:AddProjectToProjectsTableDismissAnimator())
+    
     private let toEditProjectTransitionManager =
     TransitionManager(animator: ProjectsTableToEditProjectAnimator(),
         dismissAnimator: EditProjectToProjectsTableDismissAnimator(),
@@ -189,23 +193,18 @@ private class MyAnimator: NSObject, UIViewControllerAnimatedTransitioning {
     } 
 }
 
-//-------------------------------------------------------------------------------------------------------------
+
 //MARK: AddProjectToProjectsTable dismiss animator
-private class MyDismissAnimator: NSObject, UIViewControllerAnimatedTransitioning {
-    private var fromVC: AddProjectViewController?
-    private var toVC: ProjectsTableViewController?
-    private var container: UIView?
-    private var transitionContext:UIViewControllerContextTransitioning?
-    private var duration:NSTimeInterval
+private class AddProjectToProjectsTableDismissAnimator: AbstractAnimator {
     
     
     override init() {
-        self.duration = 0.3
         super.init()
+        self.duration = 0.3
         registerForKeyboardNotifications()
     }
     
-//--------------------------------------------------------------------------------------------------------
+
     func registerForKeyboardNotifications() {
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillHide:",
             name: UIKeyboardWillHideNotification, object: nil)
@@ -222,32 +221,19 @@ private class MyDismissAnimator: NSObject, UIViewControllerAnimatedTransitioning
         completion: {
             (finished:Bool)->Void in
             self.fromVC!.view.removeFromSuperview()
-            self.transitionContext!.completeTransition(true)
+            self.context!.completeTransition(true)
         })
     }
-//------------------------------------------------------------------------------------------------------------------
-    private func initFields(context: UIViewControllerContextTransitioning) {
-        fromVC = context.viewControllerForKey(UITransitionContextFromViewControllerKey)
-            as? AddProjectViewController
-        toVC = context.viewControllerForKey(UITransitionContextToViewControllerKey)
-            as? ProjectsTableViewController
-        container = context.containerView()
-        transitionContext = context
-    }
     
-//------------------------------------------------------------------------------------------------------------------
-    @objc func transitionDuration(transitionContext: UIViewControllerContextTransitioning?) -> NSTimeInterval {
-        return duration
-    }
-    
-    @objc func animateTransition(transitionContext: UIViewControllerContextTransitioning) {
-        initFields(transitionContext)
-        container!.insertSubview(toVC!.view, belowSubview: fromVC!.view)
-        fromVC!.projectNameTextField.resignFirstResponder()
+    override func doAnimate() {
+        let projectsTableView = toVC!.view
+        let addProjectVC = fromVC! as! AddProjectViewController
+        container!.insertSubview(projectsTableView, belowSubview: addProjectVC.view)
+        addProjectVC.projectNameTextField.resignFirstResponder()
     }
 }
 
-//-------------------------------------------------------------------------------------------------------------------
+
 //MARK: ProjectsTableToEditProjectAnimator
 private class ProjectsTableToEditProjectAnimator: AbstractAnimator {
     override init() {
@@ -277,7 +263,7 @@ private class ProjectsTableToEditProjectAnimator: AbstractAnimator {
     }
 }
 
-//----------------------------------------------------------------------------------------------------------------------
+
 //MARK: EditProjectToProjectsTableDismissAnimator
 private class EditProjectToProjectsTableDismissAnimator: AbstractAnimator {
     override init() {
