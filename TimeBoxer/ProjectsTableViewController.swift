@@ -19,8 +19,10 @@ class ProjectsTableViewController: UIViewController, UITableViewDelegate, UITabl
     private var newProjectAdded:Bool = false
     private let transitionManager = TransitionManager(animator: MyAnimator(), dismissAnimator:MyDismissAnimator())
     private let toEditProjectTransitionManager =
-    TransitionManager(animator: ProjectsTableToEditProjectAnimator(), dismissAnimator: nil,
-        interactiveAnimator: UIPercentDrivenInteractiveTransition(), interactiveDismissAnimator: nil)
+    TransitionManager(animator: ProjectsTableToEditProjectAnimator(),
+        dismissAnimator: EditProjectToProjectsTableDismissAnimator(),
+        interactiveAnimator: UIPercentDrivenInteractiveTransition(),
+        interactiveDismissAnimator: nil)
 
 //----------------------------------------------------------------------------------------------------------------------
     override func viewDidLoad() {
@@ -73,7 +75,7 @@ class ProjectsTableViewController: UIViewController, UITableViewDelegate, UITabl
         }
         
         //1. Pass the transition manager to the cell
-        cell!.interactiveTransitionManager = toEditProjectTransitionManager
+        cell!.transitionManager = toEditProjectTransitionManager
         cell!.parentVC = self
         cell!.selectionStyle = .None
         
@@ -254,18 +256,47 @@ private class ProjectsTableToEditProjectAnimator: AbstractAnimator {
     }
     override func doAnimate() {
         let projectsTableView = fromVC!.view
-        let addProjectView = toVC!.view
+        let editProjectView = toVC!.view
         
-        addProjectView.transform = CGAffineTransformMakeTranslation(-projectsTableView.frame.width, 0)
-        container!.addSubview(addProjectView)
+        editProjectView.transform = CGAffineTransformMakeTranslation(-projectsTableView.frame.width, 0)
+        container!.addSubview(editProjectView)
         UIView.animateWithDuration(transitionDuration(context!),
             animations: {
-                addProjectView.transform = CGAffineTransformIdentity
+                editProjectView.transform = CGAffineTransformIdentity
                 projectsTableView.transform = CGAffineTransformMakeTranslation(projectsTableView.frame.width, 0)
         },
             completion: {
                 (finished:Bool)->Void in
-                projectsTableView.removeFromSuperview()
+                if self.context!.transitionWasCancelled() {
+                    self.context!.completeTransition(false)
+                } else {
+                    projectsTableView.removeFromSuperview()
+                    self.context!.completeTransition(true)
+                }
+        })
+    }
+}
+
+//----------------------------------------------------------------------------------------------------------------------
+//MARK: EditProjectToProjectsTableDismissAnimator
+private class EditProjectToProjectsTableDismissAnimator: AbstractAnimator {
+    override init() {
+        super.init()
+        self.duration = 0.3
+    }
+    override func doAnimate() {
+        let editProjectView = fromVC!.view
+        let projectsTableView = toVC!.view
+        projectsTableView.transform = CGAffineTransformMakeTranslation(editProjectView.frame.width,0)
+        container!.addSubview(projectsTableView)
+        UIView.animateWithDuration(transitionDuration(context!),
+            animations: {
+                projectsTableView.transform = CGAffineTransformIdentity
+                editProjectView.transform = CGAffineTransformMakeTranslation(-editProjectView.frame.width, 0)
+        },
+            completion: {
+                (finished:Bool) -> Void in
+                editProjectView.removeFromSuperview()
                 self.context!.completeTransition(true)
         })
     }

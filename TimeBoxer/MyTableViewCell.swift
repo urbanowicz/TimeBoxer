@@ -9,7 +9,7 @@
 import UIKit
 
 class MyTableViewCell: UITableViewCell {
-    var interactiveTransitionManager:TransitionManager?
+    var transitionManager:TransitionManager?
     var parentVC:UIViewController?
     var originalCenter:CGPoint?
     var segueStarted:Bool = false
@@ -40,7 +40,6 @@ class MyTableViewCell: UITableViewCell {
     func handlePan(recognizer: UIPanGestureRecognizer) {
         let drawerSize = CGFloat(50)
         if recognizer.state == .Began {
-            print("PAN BEGAN")
             originalCenter = center
             segueStarted = false
         }
@@ -48,7 +47,7 @@ class MyTableViewCell: UITableViewCell {
             let translation = recognizer.translationInView(self.superview!)
             if translation.x < drawerSize {
                 if segueStarted {
-                    interactiveTransitionManager!.interactiveAnimator!.cancelInteractiveTransition()
+                    transitionManager!.interactiveAnimator!.cancelInteractiveTransition()
                     segueStarted = false
                 }
                 center.x = originalCenter!.x + translation.x
@@ -58,20 +57,23 @@ class MyTableViewCell: UITableViewCell {
                     segueStarted = true
                 }
                 let dx:CGFloat = (translation.x - drawerSize) / self.superview!.frame.width
-                interactiveTransitionManager!.interactiveAnimator!.updateInteractiveTransition(dx)
+                transitionManager!.interactiveAnimator!.updateInteractiveTransition(dx)
             }
         }
-        
         if recognizer.state == .Ended {
-            print("PAN ENDED")
-            let translation = recognizer.translationInView(self.superview!)
-            if translation.x - drawerSize > (self.superview!.frame.width/2.0) {
-                interactiveTransitionManager!.interactiveAnimator!.finishInteractiveTransition()
+            if !segueStarted {
+                UIView.animateWithDuration(0.2, animations: {self.center.x = self.originalCenter!.x})
             } else {
-                UIView.animateWithDuration(0.3, animations: {self.center.x = self.originalCenter!.x})
-                interactiveTransitionManager!.interactiveAnimator!.cancelInteractiveTransition()
+                let translation = recognizer.translationInView(self.superview!)
+                if translation.x - drawerSize > (self.superview!.frame.width/2.0) {
+                    transitionManager!.interactiveAnimator!.finishInteractiveTransition()
+                } else {
+                    transitionManager!.interactiveAnimator!.cancelInteractiveTransition()
+                    UIView.animateWithDuration(0.1, animations: {self.center.x = self.originalCenter!.x})
+                    
+                }
+                segueStarted = false
             }
-            segueStarted = false
         }
     }
     
