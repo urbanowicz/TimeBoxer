@@ -25,8 +25,12 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.4169567823" green="0.81341290470000005" blue="0.51673305030000005" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
+                    <connections>
+                        <segue destination="gEt-rm-jX2" kind="unwind" identifier="EditProjectUnwind" unwindAction="editProjectUnwind:" id="mIW-4q-2Wz"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="b87-oe-Uch" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="gEt-rm-jX2" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="612" y="-1156"/>
         </scene>

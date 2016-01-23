@@ -26,7 +26,7 @@ class ProjectsTableViewController: UIViewController, UITableViewDelegate, UITabl
     TransitionManager(animator: ProjectsTableToEditProjectAnimator(),
         dismissAnimator: EditProjectToProjectsTableDismissAnimator(),
         interactiveAnimator: UIPercentDrivenInteractiveTransition(),
-        interactiveDismissAnimator: nil)
+        interactiveDismissAnimator: UIPercentDrivenInteractiveTransition())
 
 
     override func viewDidLoad() {
@@ -118,6 +118,10 @@ class ProjectsTableViewController: UIViewController, UITableViewDelegate, UITabl
     
     
     @IBAction func cancelAddProjectUnwind(unwindSegue: UIStoryboardSegue) {
+        
+    }
+    
+    @IBAction func editProjectUnwind(unwindSegue: UIStoryboardSegue) {
         
     }
 
@@ -235,13 +239,13 @@ private class ProjectsTableToEditProjectAnimator: AbstractAnimator {
     }
 }
 
-
 //MARK: EditProjectToProjectsTableDismissAnimator
 private class EditProjectToProjectsTableDismissAnimator: AbstractAnimator {
     override init() {
         super.init()
         self.duration = 0.3
     }
+    
     override func doAnimate() {
         let editProjectView = fromVC!.view
         let projectsTableView = toVC!.view
@@ -254,8 +258,12 @@ private class EditProjectToProjectsTableDismissAnimator: AbstractAnimator {
         },
             completion: {
                 (finished:Bool) -> Void in
-                editProjectView.removeFromSuperview()
-                self.context!.completeTransition(true)
+                if self.context!.transitionWasCancelled() {
+                    self.context!.completeTransition(false)
+                } else {
+                    editProjectView.removeFromSuperview()
+                    self.context!.completeTransition(true)
+                }
         })
     }
 }

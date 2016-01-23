@@ -69,9 +69,10 @@ class MyTableViewCell: UITableViewCell {
                     transitionManager!.interactiveAnimator!.finishInteractiveTransition()
                 } else {
                     transitionManager!.interactiveAnimator!.cancelInteractiveTransition()
-                    UIView.animateWithDuration(0.1, animations: {self.center.x = self.originalCenter!.x})
+                    
                     
                 }
+                UIView.animateWithDuration(0.1, animations: {self.center.x = self.originalCenter!.x})
                 segueStarted = false
             }
         }
