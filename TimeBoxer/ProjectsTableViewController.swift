@@ -19,7 +19,7 @@ class ProjectsTableViewController: UIViewController, UITableViewDelegate, UITabl
     private var newProjectAdded:Bool = false
     
     private let transitionManager =
-    TransitionManager(animator: MyAnimator(),
+    TransitionManager(animator: ProjectsTableToAddProjectAnimator(),
         dismissAnimator:AddProjectToProjectsTableDismissAnimator())
     
     private let toEditProjectTransitionManager =
@@ -28,7 +28,7 @@ class ProjectsTableViewController: UIViewController, UITableViewDelegate, UITabl
         interactiveAnimator: UIPercentDrivenInteractiveTransition(),
         interactiveDismissAnimator: nil)
 
-//----------------------------------------------------------------------------------------------------------------------
+
     override func viewDidLoad() {
         super.viewDidLoad()
         projectsTableView.delegate = self
@@ -47,11 +47,11 @@ class ProjectsTableViewController: UIViewController, UITableViewDelegate, UITabl
 
     }
 
-//----------------------------------------------------------------------------------------------------------------------
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
-//----------------------------------------------------------------------------------------------------------------------
+
+    
     override func viewDidAppear(animated: Bool) {
         if newProjectAdded {
             let index = NSIndexPath(forItem:0, inSection: 0)
@@ -63,14 +63,12 @@ class ProjectsTableViewController: UIViewController, UITableViewDelegate, UITabl
         }
     }
 
-//----------------------------------------------------------------------------------------------------------------------
+
 //MARK: UITableViewDataSource
-    
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return projects.count
     }
 
-//----------------------------------------------------------------------------------------------------------------------
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) ->UITableViewCell {
         
         var cell:MyTableViewCell? = tableView.dequeueReusableCellWithIdentifier(projectsTableId) as? MyTableViewCell
@@ -95,12 +93,13 @@ class ProjectsTableViewController: UIViewController, UITableViewDelegate, UITabl
         return cell!
     }
     
-//----------------------------------------------------------------------------------------------------------------------
+
 
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         //performSegueWithIdentifier("ProjectsTableToEditProject", sender: self)
     }
-//----------------------------------------------------------------------------------------------------------------------
+
+    
 //MARK: Navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier! == "ProjectsTableToAddProject" {
@@ -121,76 +120,50 @@ class ProjectsTableViewController: UIViewController, UITableViewDelegate, UITabl
     @IBAction func cancelAddProjectUnwind(unwindSegue: UIStoryboardSegue) {
         
     }
+
 //MARK: Status Bar
-//----------------------------------------------------------------------------------------------------------------------
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
         return UIStatusBarStyle.LightContent
     }
     
 }
 
-//----------------------------------------------------------------------------------------------------------------------
+
 //MARK: ProjectsTableToAddProject animator
-private class MyAnimator: NSObject, UIViewControllerAnimatedTransitioning {
-    private var fromVC: ProjectsTableViewController?
-    private var toVC: AddProjectViewController?
-    private var container: UIView?
-    private var transitionContext:UIViewControllerContextTransitioning?
-    private var duration:NSTimeInterval
-    
+private class ProjectsTableToAddProjectAnimator: AbstractAnimator {
     
     override init() {
-        self.duration = 0.3
         super.init()
+        self.duration = 0.3
         registerForKeyboardNotifications()
     }
     
-//--------------------------------------------------------------------------------------------------------
-    @objc func transitionDuration(transitionContext: UIViewControllerContextTransitioning?) -> NSTimeInterval
-    {
-        return duration
+    override func doAnimate() {
+        let projectsTableView = fromVC!.view
+        let addProjectVC = toVC! as! AddProjectViewController
+        addProjectVC.view.transform = CGAffineTransformMakeTranslation(0, projectsTableView.frame.height)
+        container!.addSubview(addProjectVC.view)
+        addProjectVC.projectNameTextField.becomeFirstResponder()
     }
 
-//---------------------------------------------------------------------------------------------------------
-   @objc func animateTransition(transitionContext: UIViewControllerContextTransitioning)
-    {
-        initFields(transitionContext)
-        toVC!.view.transform = CGAffineTransformMakeTranslation(0, fromVC!.view.frame.height)
-        container!.addSubview(toVC!.view)
-        toVC!.projectNameTextField.becomeFirstResponder()
-    }
-    
-
-//--------------------------------------------------------------------------------------------------------
     func registerForKeyboardNotifications() {
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillShow:",
             name: UIKeyboardWillShowNotification, object: nil)
     }
     
-//--------------------------------------------------------------------------------------------------------
     @objc func keyboardWillShow(notification: NSNotification) {
         let keyboardNotification = KeyboardNotification(notification)
         self.duration  =  keyboardNotification.animationDuration
-        let options = UIViewAnimationOptions (rawValue: UInt(keyboardNotification.animationCurve << 16))
+        let options = UIViewAnimationOptions(rawValue: UInt(keyboardNotification.animationCurve << 16))
         
         UIView.animateWithDuration(duration, delay:0.0, options: options, animations: {
             self.toVC!.view.transform = CGAffineTransformIdentity
             }, completion: {
                 (finished: Bool) -> Void in
                 self.fromVC!.view.removeFromSuperview()
-                self.transitionContext!.completeTransition(true)
+                self.context!.completeTransition(true)
         })
     }
-    
-//--------------------------------------------------------------------------------------------------------
-    private func initFields(transitionContext: UIViewControllerContextTransitioning) {
-        fromVC = transitionContext.viewControllerForKey(UITransitionContextFromViewControllerKey)
-            as? ProjectsTableViewController
-        toVC = transitionContext.viewControllerForKey(UITransitionContextToViewControllerKey)
-            as? AddProjectViewController
-        container = transitionContext.containerView()
-        self.transitionContext = transitionContext
-    } 
 }
 
 
@@ -204,6 +177,12 @@ private class AddProjectToProjectsTableDismissAnimator: AbstractAnimator {
         registerForKeyboardNotifications()
     }
     
+    override func doAnimate() {
+        let projectsTableView = toVC!.view
+        let addProjectVC = fromVC! as! AddProjectViewController
+        container!.insertSubview(projectsTableView, belowSubview: addProjectVC.view)
+        addProjectVC.projectNameTextField.resignFirstResponder()
+    }
 
     func registerForKeyboardNotifications() {
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillHide:",
@@ -223,13 +202,6 @@ private class AddProjectToProjectsTableDismissAnimator: AbstractAnimator {
             self.fromVC!.view.removeFromSuperview()
             self.context!.completeTransition(true)
         })
-    }
-    
-    override func doAnimate() {
-        let projectsTableView = toVC!.view
-        let addProjectVC = fromVC! as! AddProjectViewController
-        container!.insertSubview(projectsTableView, belowSubview: addProjectVC.view)
-        addProjectVC.projectNameTextField.resignFirstResponder()
     }
 }
 
