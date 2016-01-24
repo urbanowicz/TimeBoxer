@@ -1,8 +1,8 @@
 //
-//  AbstractAnimator.swift
+//  AbstractAnimator2.swift
 //  TimeBoxer
 //
-//  Created by Tomasz Urbanowicz on 17/01/16.
+//  Created by Tomasz Urbanowicz on 24/01/16.
 //  Copyright © 2016 Tomasz Urbanowicz. All rights reserved.
 //
 
@@ -11,14 +11,17 @@ import UIKit
 class AbstractAnimator: NSObject, UIViewControllerAnimatedTransitioning {
     var fromVC: UIViewController?
     var toVC: UIViewController?
+    var fromView: UIView?
+    var toView: UIView?
     var container: UIView?
     var context: UIViewControllerContextTransitioning?
-    var duration:NSTimeInterval
-    
-    let defaultDuration = 0.3
+    var duration:NSTimeInterval = 0.3
+    var fromViewControllerInitialFrame:CGRect?
+    var toViewControllerInitialFrame:CGRect?
+    var fromViewControllerFinalFrame:CGRect?
+    var toViewControllerFinalFrame:CGRect?
     
     override init() {
-        self.duration = defaultDuration
         super.init()
     }
     
@@ -33,13 +36,25 @@ class AbstractAnimator: NSObject, UIViewControllerAnimatedTransitioning {
     
     private func initFields(context: UIViewControllerContextTransitioning) {
         self.context = context
-        self.fromVC = context.viewControllerForKey(UITransitionContextFromViewControllerKey)
-        self.toVC = context.viewControllerForKey(UITransitionContextToViewControllerKey)
-        self.container = context.containerView()
+        fromVC = context.viewControllerForKey(UITransitionContextFromViewControllerKey)
+        toVC = context.viewControllerForKey(UITransitionContextToViewControllerKey)
+        fromView = context.viewForKey(UITransitionContextFromViewKey)
+        if fromView == nil {
+            fromView = fromVC!.view
+        }
+        toView = context.viewForKey(UITransitionContextToViewKey)
+        if toView == nil {
+            toView = toVC!.view
+        }
+        container = context.containerView()
+        fromViewControllerInitialFrame = context.initialFrameForViewController(fromVC!)
+        fromViewControllerFinalFrame = context.finalFrameForViewController(fromVC!)
+        toViewControllerInitialFrame = context.initialFrameForViewController(toVC!)
+        toViewControllerFinalFrame = context.finalFrameForViewController(toVC!)
+        
     }
     
     func doAnimate() {
         //implemented in subclasses
     }
-
 }

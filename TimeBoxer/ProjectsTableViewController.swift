@@ -134,7 +134,7 @@ class ProjectsTableViewController: UIViewController, UITableViewDelegate, UITabl
 
 
 //MARK: ProjectsTableToAddProject animator
-private class ProjectsTableToAddProjectAnimator: AbstractAnimator2 {
+private class ProjectsTableToAddProjectAnimator: AbstractAnimator {
     
     override init() {
         super.init()
@@ -171,7 +171,7 @@ private class ProjectsTableToAddProjectAnimator: AbstractAnimator2 {
 
 
 //MARK: AddProjectToProjectsTable dismiss animator
-private class AddProjectToProjectsTableDismissAnimator: AbstractAnimator2 {
+private class AddProjectToProjectsTableDismissAnimator: AbstractAnimator {
     
     
     override init() {
@@ -209,7 +209,7 @@ private class AddProjectToProjectsTableDismissAnimator: AbstractAnimator2 {
 
 
 //MARK: ProjectsTableToEditProjectAnimator
-private class ProjectsTableToEditProjectAnimator: AbstractAnimator2 {
+private class ProjectsTableToEditProjectAnimator: AbstractAnimator {
     override init() {
         super.init()
         self.duration = 0.3
@@ -241,7 +241,7 @@ private class ProjectsTableToEditProjectAnimator: AbstractAnimator2 {
 }
 
 //MARK: EditProjectToProjectsTableDismissAnimator
-private class EditProjectToProjectsTableDismissAnimator: AbstractAnimator2 {
+private class EditProjectToProjectsTableDismissAnimator: AbstractAnimator {
     override init() {
         super.init()
         self.duration = 0.3
