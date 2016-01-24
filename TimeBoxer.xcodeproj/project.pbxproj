@@ -31,6 +31,7 @@
 		F18D6B7A1BEB4BFE0003CBD4 /* TimerPausedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F18D6B791BEB4BFE0003CBD4 /* TimerPausedViewController.swift */; };
 		F1A0BC701C4E63FC0075ACCF /* MyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A0BC6F1C4E63FC0075ACCF /* MyTableViewCell.swift */; };
 		F1AF3A101BFBAE3900D40AE8 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F1AF3A0F1BFBAE3900D40AE8 /* Default-568h@2x.png */; };
+		F1B3B41F1C5540D80009FCF0 /* AbstractAnimator2.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1B3B41E1C5540D80009FCF0 /* AbstractAnimator2.swift */; };
 		F1B5FE6D1C31AF73003A5C65 /* TransitionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1B5FE6C1C31AF73003A5C65 /* TransitionManager.swift */; };
 		F1B920551BE7D7CC004A8CDB /* PauseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1B920541BE7D7CC004A8CDB /* PauseButton.swift */; };
 		F1D2444C1BDFF8320023B994 /* TimerRunningViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D2444B1BDFF8320023B994 /* TimerRunningViewController.swift */; };
@@ -80,6 +81,7 @@
 		F18D6B791BEB4BFE0003CBD4 /* TimerPausedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerPausedViewController.swift; sourceTree = "<group>"; };
 		F1A0BC6F1C4E63FC0075ACCF /* MyTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyTableViewCell.swift; sourceTree = "<group>"; };
 		F1AF3A0F1BFBAE3900D40AE8 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		F1B3B41E1C5540D80009FCF0 /* AbstractAnimator2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AbstractAnimator2.swift; sourceTree = "<group>"; };
 		F1B5FE6C1C31AF73003A5C65 /* TransitionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionManager.swift; sourceTree = "<group>"; };
 		F1B920541BE7D7CC004A8CDB /* PauseButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PauseButton.swift; sourceTree = "<group>"; };
 		F1D2444B1BDFF8320023B994 /* TimerRunningViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerRunningViewController.swift; sourceTree = "<group>"; };
@@ -224,6 +226,7 @@
 				F10B85191C384E23002C66F2 /* Animator.swift */,
 				F12C5D8B1C46FA450040969F /* KeyboardNotification.swift */,
 				F1F736B41C4BFFF000E9AC31 /* AbstractAnimator.swift */,
+				F1B3B41E1C5540D80009FCF0 /* AbstractAnimator2.swift */,
 			);
 			name = Segues;
 			sourceTree = "<group>";
@@ -374,6 +377,7 @@
 				F13452111BEE672300AB9F67 /* InvertedCancelButton.swift in Sources */,
 				F1FC9AD31C3ED73B002A9F31 /* EditProjectViewController.swift in Sources */,
 				F1F736B51C4BFFF000E9AC31 /* AbstractAnimator.swift in Sources */,
+				F1B3B41F1C5540D80009FCF0 /* AbstractAnimator2.swift in Sources */,
 				F1B920551BE7D7CC004A8CDB /* PauseButton.swift in Sources */,
 				F18D6B7A1BEB4BFE0003CBD4 /* TimerPausedViewController.swift in Sources */,
 				F15F9C501BCCF376008733A3 /* AppDelegate.swift in Sources */,

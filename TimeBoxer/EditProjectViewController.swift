@@ -49,6 +49,7 @@ class EditProjectViewController: UIViewController, UIGestureRecognizerDelegate {
                 interactiveDismissAnimator.cancelInteractiveTransition()
                 print("END Gesture cancel")
             }
+            segueStarted = false
         }
     }
     

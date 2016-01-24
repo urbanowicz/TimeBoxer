@@ -134,7 +134,7 @@ class ProjectsTableViewController: UIViewController, UITableViewDelegate, UITabl
 
 
 //MARK: ProjectsTableToAddProject animator
-private class ProjectsTableToAddProjectAnimator: AbstractAnimator {
+private class ProjectsTableToAddProjectAnimator: AbstractAnimator2 {
     
     override init() {
         super.init()
@@ -143,10 +143,9 @@ private class ProjectsTableToAddProjectAnimator: AbstractAnimator {
     }
     
     override func doAnimate() {
-        let projectsTableView = fromVC!.view
         let addProjectVC = toVC! as! AddProjectViewController
-        addProjectVC.view.transform = CGAffineTransformMakeTranslation(0, projectsTableView.frame.height)
-        container!.addSubview(addProjectVC.view)
+        toView!.transform = CGAffineTransformMakeTranslation(0, container!.frame.size.height)
+        container!.addSubview(toView!)
         addProjectVC.projectNameTextField.becomeFirstResponder()
     }
 
@@ -161,10 +160,10 @@ private class ProjectsTableToAddProjectAnimator: AbstractAnimator {
         let options = UIViewAnimationOptions(rawValue: UInt(keyboardNotification.animationCurve << 16))
         
         UIView.animateWithDuration(duration, delay:0.0, options: options, animations: {
-            self.toVC!.view.transform = CGAffineTransformIdentity
+            self.toView!.transform = CGAffineTransformIdentity
             }, completion: {
                 (finished: Bool) -> Void in
-                self.fromVC!.view.removeFromSuperview()
+                //self.fromVC!.view.removeFromSuperview()
                 self.context!.completeTransition(true)
         })
     }
@@ -172,7 +171,7 @@ private class ProjectsTableToAddProjectAnimator: AbstractAnimator {
 
 
 //MARK: AddProjectToProjectsTable dismiss animator
-private class AddProjectToProjectsTableDismissAnimator: AbstractAnimator {
+private class AddProjectToProjectsTableDismissAnimator: AbstractAnimator2 {
     
     
     override init() {
@@ -182,9 +181,8 @@ private class AddProjectToProjectsTableDismissAnimator: AbstractAnimator {
     }
     
     override func doAnimate() {
-        let projectsTableView = toVC!.view
         let addProjectVC = fromVC! as! AddProjectViewController
-        container!.insertSubview(projectsTableView, belowSubview: addProjectVC.view)
+        container!.insertSubview(toView!, belowSubview: fromView!)
         addProjectVC.projectNameTextField.resignFirstResponder()
     }
 
@@ -199,11 +197,11 @@ private class AddProjectToProjectsTableDismissAnimator: AbstractAnimator {
         let options = UIViewAnimationOptions(rawValue: UInt(keyboardNotification.animationCurve << 16))
         UIView.animateWithDuration(duration, delay: 0.0, options: options,
         animations: {
-            self.fromVC!.view.transform = CGAffineTransformMakeTranslation(0, self.fromVC!.view.frame.height)
+            self.fromView!.transform = CGAffineTransformMakeTranslation(0, self.container!.frame.size.height)
         },
         completion: {
             (finished:Bool)->Void in
-            self.fromVC!.view.removeFromSuperview()
+            self.fromView!.removeFromSuperview()
             self.context!.completeTransition(true)
         })
     }
@@ -211,14 +209,14 @@ private class AddProjectToProjectsTableDismissAnimator: AbstractAnimator {
 
 
 //MARK: ProjectsTableToEditProjectAnimator
-private class ProjectsTableToEditProjectAnimator: AbstractAnimator {
+private class ProjectsTableToEditProjectAnimator: AbstractAnimator2 {
     override init() {
         super.init()
         self.duration = 0.3
     }
     override func doAnimate() {
-        let projectsTableView = fromVC!.view
-        let editProjectView = toVC!.view
+        let projectsTableView = fromView!
+        let editProjectView = toView!
         
         editProjectView.transform = CGAffineTransformMakeTranslation(-container!.frame.size.width, 0)
         container!.addSubview(projectsTableView)
@@ -243,7 +241,7 @@ private class ProjectsTableToEditProjectAnimator: AbstractAnimator {
 }
 
 //MARK: EditProjectToProjectsTableDismissAnimator
-private class EditProjectToProjectsTableDismissAnimator: AbstractAnimator {
+private class EditProjectToProjectsTableDismissAnimator: AbstractAnimator2 {
     override init() {
         super.init()
         self.duration = 0.3
@@ -251,8 +249,8 @@ private class EditProjectToProjectsTableDismissAnimator: AbstractAnimator {
     
     override func doAnimate() {
         print("BEGIN doAnimate")
-        let editProjectVC = fromVC! as! EditProjectViewController
-        let projectsTableView = toVC!.view
+        let editProjectView = fromView!
+        let projectsTableView = toView!
         let containerFrame = container!.frame
         
         projectsTableView.transform = CGAffineTransformMakeTranslation(containerFrame.size.width,0)
@@ -262,7 +260,7 @@ private class EditProjectToProjectsTableDismissAnimator: AbstractAnimator {
             animations: {
                 print("BEGIN animations")
                 projectsTableView.transform = CGAffineTransformIdentity
-                editProjectVC.view.transform = CGAffineTransformMakeTranslation(-self.container!.frame.size.width, 0)
+                editProjectView.transform = CGAffineTransformMakeTranslation(-self.container!.frame.size.width, 0)
         },
             completion: {
                 (finished:Bool) -> Void in
@@ -271,12 +269,10 @@ private class EditProjectToProjectsTableDismissAnimator: AbstractAnimator {
                     //projectsTableView.removeFromSuperview()
                     self.context!.completeTransition(false)
                 } else {
-                    editProjectVC.view.removeFromSuperview()
+                    editProjectView.removeFromSuperview()
                     self.context!.completeTransition(true)
                     UIApplication.sharedApplication().keyWindow!.addSubview(projectsTableView)
                 }
-                editProjectVC.segueStarted = false
-                
         })
     }
     
