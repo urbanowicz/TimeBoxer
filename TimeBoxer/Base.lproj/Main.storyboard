@@ -114,7 +114,7 @@
                         <outlet property="headerView" destination="2i6-bD-FtY" id="obg-a5-bUA"/>
                         <outlet property="projectsTableView" destination="P0n-w1-o3y" id="Smk-7W-4II"/>
                         <outlet property="timeBoxerLabel" destination="rVO-On-1e2" id="fbK-b8-DXi"/>
-                        <segue destination="jvt-N1-OsS" kind="show" identifier="ProjectsTableToEditProject" id="0on-dg-3dk"/>
+                        <segue destination="jvt-N1-OsS" kind="presentation" identifier="ProjectsTableToEditProject" modalPresentationStyle="overFullScreen" id="0on-dg-3dk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QKb-ic-GTJ" userLabel="First Responder" sceneMemberID="firstResponder"/>

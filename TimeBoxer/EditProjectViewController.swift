@@ -37,7 +37,6 @@ class EditProjectViewController: UIViewController, UIGestureRecognizerDelegate {
         
         case .Changed:
             transitionManager.interactiveDismissAnimator!.updateInteractiveTransition(dx)
-            print("translation.x =  \(translation.x), dx = \(dx)")
             break
         
         default:
