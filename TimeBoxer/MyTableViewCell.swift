@@ -15,7 +15,7 @@ class MyTableViewCell: UITableViewCell {
     var segueStarted:Bool = false
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
-        super.init(style:style, reuseIdentifier:reuseIdentifier)
+        super.init(style:UITableViewCellStyle.Value1, reuseIdentifier:reuseIdentifier)
         
         let recognizer = UIPanGestureRecognizer(target:self, action:"handlePan:")
         recognizer.delegate = self
