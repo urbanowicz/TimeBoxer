@@ -22,6 +22,7 @@
 		F14F13051BEA83660045936F /* AbstractOvalButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F14F13041BEA83660045936F /* AbstractOvalButton.swift */; };
 		F14F13071BEA87160045936F /* StopButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F14F13061BEA87160045936F /* StopButton.swift */; };
 		F14F13091BEA88FA0045936F /* CancelButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F14F13081BEA88FA0045936F /* CancelButton.swift */; };
+		F152EE901C5968D00090BECC /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = F152EE8F1C5968D00090BECC /* Project.swift */; };
 		F15F9C501BCCF376008733A3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F15F9C4F1BCCF376008733A3 /* AppDelegate.swift */; };
 		F15F9C551BCCF376008733A3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F15F9C531BCCF376008733A3 /* Main.storyboard */; };
 		F15F9C571BCCF376008733A3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F15F9C561BCCF376008733A3 /* Assets.xcassets */; };
@@ -35,6 +36,7 @@
 		F1B5FE6D1C31AF73003A5C65 /* TransitionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1B5FE6C1C31AF73003A5C65 /* TransitionManager.swift */; };
 		F1B920551BE7D7CC004A8CDB /* PauseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1B920541BE7D7CC004A8CDB /* PauseButton.swift */; };
 		F1D2444C1BDFF8320023B994 /* TimerRunningViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D2444B1BDFF8320023B994 /* TimerRunningViewController.swift */; };
+		F1EBB3E31C5AB93C005A36CE /* WorkChunk.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1EBB3E21C5AB93C005A36CE /* WorkChunk.swift */; };
 		F1FC9AD31C3ED73B002A9F31 /* EditProjectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FC9AD21C3ED73B002A9F31 /* EditProjectViewController.swift */; };
 		F1FC9AD61C3ED86F002A9F31 /* AddProjectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FC9AD51C3ED86F002A9F31 /* AddProjectViewController.swift */; };
 		F1FC9AD91C3EE0CC002A9F31 /* ProjectsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FC9AD81C3EE0CC002A9F31 /* ProjectsTableViewController.swift */; };
@@ -67,6 +69,7 @@
 		F14F13041BEA83660045936F /* AbstractOvalButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AbstractOvalButton.swift; sourceTree = "<group>"; };
 		F14F13061BEA87160045936F /* StopButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StopButton.swift; sourceTree = "<group>"; };
 		F14F13081BEA88FA0045936F /* CancelButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CancelButton.swift; sourceTree = "<group>"; };
+		F152EE8F1C5968D00090BECC /* Project.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Project.swift; sourceTree = "<group>"; };
 		F15F9C4C1BCCF376008733A3 /* TimeBoxer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TimeBoxer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F15F9C4F1BCCF376008733A3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F15F9C541BCCF376008733A3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -84,6 +87,7 @@
 		F1B5FE6C1C31AF73003A5C65 /* TransitionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionManager.swift; sourceTree = "<group>"; };
 		F1B920541BE7D7CC004A8CDB /* PauseButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PauseButton.swift; sourceTree = "<group>"; };
 		F1D2444B1BDFF8320023B994 /* TimerRunningViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerRunningViewController.swift; sourceTree = "<group>"; };
+		F1EBB3E21C5AB93C005A36CE /* WorkChunk.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkChunk.swift; sourceTree = "<group>"; };
 		F1FC9AD21C3ED73B002A9F31 /* EditProjectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditProjectViewController.swift; sourceTree = "<group>"; };
 		F1FC9AD51C3ED86F002A9F31 /* AddProjectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddProjectViewController.swift; sourceTree = "<group>"; };
 		F1FC9AD81C3EE0CC002A9F31 /* ProjectsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectsTableViewController.swift; sourceTree = "<group>"; };
@@ -157,6 +161,15 @@
 			name = Buttons;
 			sourceTree = "<group>";
 		};
+		F152EE8E1C5968B30090BECC /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				F152EE8F1C5968D00090BECC /* Project.swift */,
+				F1EBB3E21C5AB93C005A36CE /* WorkChunk.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
 		F15F9C431BCCF376008733A3 = {
 			isa = PBXGroup;
 			children = (
@@ -179,6 +192,7 @@
 		F15F9C4E1BCCF376008733A3 /* TimeBoxer */ = {
 			isa = PBXGroup;
 			children = (
+				F152EE8E1C5968B30090BECC /* Model */,
 				F137E96C1C4199130064E15F /* Colors */,
 				F1FC9AD71C3EE000002A9F31 /* ProjectsTableVC */,
 				F1FC9AD41C3ED853002A9F31 /* AddProjectVC */,
@@ -374,6 +388,7 @@
 				F13452111BEE672300AB9F67 /* InvertedCancelButton.swift in Sources */,
 				F1FC9AD31C3ED73B002A9F31 /* EditProjectViewController.swift in Sources */,
 				F1B3B41F1C5540D80009FCF0 /* AbstractAnimator.swift in Sources */,
+				F1EBB3E31C5AB93C005A36CE /* WorkChunk.swift in Sources */,
 				F1B920551BE7D7CC004A8CDB /* PauseButton.swift in Sources */,
 				F18D6B7A1BEB4BFE0003CBD4 /* TimerPausedViewController.swift in Sources */,
 				F15F9C501BCCF376008733A3 /* AppDelegate.swift in Sources */,
@@ -390,6 +405,7 @@
 				F134520D1BEE63D400AB9F67 /* InvertedStopButton.swift in Sources */,
 				F11D5B9F1C42AD32007F2622 /* AddButton.swift in Sources */,
 				F137E96E1C41994A0064E15F /* ColorName.swift in Sources */,
+				F152EE901C5968D00090BECC /* Project.swift in Sources */,
 				F10B85181C38346D002C66F2 /* ContainerViewController.swift in Sources */,
 				F14F13071BEA87160045936F /* StopButton.swift in Sources */,
 				F1D2444C1BDFF8320023B994 /* TimerRunningViewController.swift in Sources */,

@@ -129,6 +129,14 @@ class ProjectsTableViewController: UIViewController, UITableViewDelegate, UITabl
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
         return UIStatusBarStyle.LightContent
     }
+
+//MARK: Persistence
+    func dataFilePath() -> String {
+        let paths = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.DocumentDirectory,
+            NSSearchPathDomainMask.UserDomainMask,true)
+        let documentsDirectory = paths[0] as NSString
+        return documentsDirectory.stringByAppendingPathComponent("data.plist") as String
+    }
     
 }
 
