@@ -8,10 +8,16 @@
 
 import UIKit
 
-class Project: NSObject {
+class Project: NSObject, NSCoding {
+    let projectNameKey = "projectNameKey"
+    let startDateKey = "startDateKey"
+    //let projectStateKey = "projectStateKey"
+    let endDateKey = "endDateKey"
+    let workChunksKey = "workChunksKey"
+    
     var name:String
     var startDate:NSDate
-    var state:ProjectState
+    //var state:ProjectState
     var endDate:NSDate?
     var workChunks = [WorkChunk]()
     
@@ -19,15 +25,31 @@ class Project: NSObject {
         self.name = projectName
         self.startDate = startDate
         self.endDate = nil
-        self.state = ProjectState.ACTIVE
+    }
+    
+    required init(coder aDecoder: NSCoder) {
+        name = aDecoder.decodeObjectForKey(projectNameKey) as! String
+        startDate = aDecoder.decodeObjectForKey(startDateKey) as! NSDate
+        endDate = aDecoder.decodeObjectForKey(endDateKey) as? NSDate
+        workChunks = aDecoder.decodeObjectForKey(workChunksKey) as! [WorkChunk]
+    }
+    
+    func encodeWithCoder(aCoder: NSCoder) {
+        aCoder.encodeObject(name, forKey: projectNameKey)
+        aCoder.encodeObject(startDate, forKey: startDateKey)
+        //aCoder.encodeObject(state, forKey: projectStateKey)
+        aCoder.encodeObject(endDate, forKey: endDateKey)
+        aCoder.encodeObject(workChunks, forKey:workChunksKey)
     }
 }
 
-enum ProjectState{
+//MARK: ProjectState
+enum ProjectState {
+    
     case ACTIVE, FINISHED
 }
 
-
+//MARK: NSDate extension
 extension NSDate
 {
     convenience
