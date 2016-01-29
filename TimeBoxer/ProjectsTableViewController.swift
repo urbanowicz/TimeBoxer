@@ -14,8 +14,11 @@ class ProjectsTableViewController: UIViewController, UITableViewDelegate, UITabl
     @IBOutlet weak var timeBoxerLabel: UILabel!
     @IBOutlet weak var projectsTableView: UITableView!
     @IBOutlet weak var addProjectButton: AddButton!
+    
     private var projects = ["Coursera, Graphic Design", "project2"]
     let projectsTableId = "projects"
+    let persistenceKey = "persistenceKey"
+    
     private var newProjectAdded:Bool = false
     
     private let transitionManager =
@@ -31,6 +34,20 @@ class ProjectsTableViewController: UIViewController, UITableViewDelegate, UITabl
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        //Read the data from file
+        let filePath = self.dataFilePath()
+        if (NSFileManager.defaultManager().fileExistsAtPath(filePath)) {
+            let data = NSMutableData(contentsOfFile: filePath)!
+            let unarchiver = NSKeyedUnarchiver(forReadingWithData: data)
+            let project = unarchiver.decodeObjectForKey(persistenceKey) as? Project
+            unarchiver.finishDecoding()
+        }
+        
+        //Add observer
+        let app = UIApplication.sharedApplication()
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "applicationWillResignActive:",
+            name: UIApplicationWillResignActiveNotification, object: app)
+        
         projectsTableView.delegate = self
         projectsTableView.dataSource = self
         projectsTableView.separatorColor = Colors.toUIColor(ColorName.VERY_LIGHT_GRAY)
@@ -45,6 +62,17 @@ class ProjectsTableViewController: UIViewController, UITableViewDelegate, UITabl
         addProjectButton.ovalLayerHighlightedColor = addProjectButton.ovalLayerColor
         addProjectButton.frontLayerHighlightedColor = addProjectButton.frontLayerColor
 
+    }
+    
+    func applicationWillResignActive(notification:NSNotification) {
+        let filePath = self.dataFilePath()
+        let startDate = NSDate(dateString: "2016-01-01")
+        let Project = Project(projectName: "Persist", startDate: startDate)
+        let data = NSMutableData()
+        let archiver = NSKeyedArchiver(forWritingWithMutableData: data)
+        archiver.encodeObject(project, forKey: persistenceKey)
+        archiver.finishEncoding()
+        data.writeToFile(filePath, atomically: true)
     }
 
     override func didReceiveMemoryWarning() {
