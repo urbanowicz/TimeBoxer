@@ -8,7 +8,7 @@
 
 import UIKit
 
-class Project: NSObject, NSCoding {
+class Project: NSObject, NSCoding, NSCopying {
     let projectNameKey = "projectNameKey"
     let startDateKey = "startDateKey"
     //let projectStateKey = "projectStateKey"
@@ -40,6 +40,16 @@ class Project: NSObject, NSCoding {
         //aCoder.encodeObject(state, forKey: projectStateKey)
         aCoder.encodeObject(endDate, forKey: endDateKey)
         aCoder.encodeObject(workChunks, forKey:workChunksKey)
+    }
+    
+    func copyWithZone(zone: NSZone) -> AnyObject {
+        let copy = Project(projectName: name, startDate: startDate)
+        copy.endDate = endDate
+        var newWorkChunks = Array<WorkChunk>()
+        for workChunk in workChunks {
+            newWorkChunks.append(workChunk.copyWithZone(nil) as! WorkChunk)
+        }
+        return newWorkChunks
     }
 }
 
