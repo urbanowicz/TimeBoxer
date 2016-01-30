@@ -15,7 +15,7 @@ class ProjectsTableViewController: UIViewController, UITableViewDelegate, UITabl
     @IBOutlet weak var projectsTableView: UITableView!
     @IBOutlet weak var addProjectButton: AddButton!
     
-    private var projects = ["Coursera, Graphic Design", "project2"]
+    private var projects = Array<Project>()
     let projectsTableId = "projects"
     let persistenceKey = "persistenceKey"
     
@@ -39,7 +39,10 @@ class ProjectsTableViewController: UIViewController, UITableViewDelegate, UITabl
         if (NSFileManager.defaultManager().fileExistsAtPath(filePath)) {
             let data = NSMutableData(contentsOfFile: filePath)!
             let unarchiver = NSKeyedUnarchiver(forReadingWithData: data)
-            let project = unarchiver.decodeObjectForKey(persistenceKey) as? Project
+            let restoredProjects = unarchiver.decodeObjectForKey(persistenceKey) as? Array<Project>
+            if restoredProjects != nil {
+                projects = restoredProjects!
+            }
             unarchiver.finishDecoding()
         }
         
@@ -65,12 +68,18 @@ class ProjectsTableViewController: UIViewController, UITableViewDelegate, UITabl
     }
     
     func applicationWillResignActive(notification:NSNotification) {
+        
+        //TODO
+        
         let filePath = self.dataFilePath()
         let startDate = NSDate(dateString: "2016-01-01")
-        let Project = Project(projectName: "Persist", startDate: startDate)
+        let project1 = Project(projectName: "Persist", startDate: startDate)
+        let project2 = Project(projectName: "Tracker", startDate: startDate)
+        let projectsToSave:Array<Project> = [project1, project2]
+        
         let data = NSMutableData()
         let archiver = NSKeyedArchiver(forWritingWithMutableData: data)
-        archiver.encodeObject(project, forKey: persistenceKey)
+        archiver.encodeObject(projectsToSave, forKey: persistenceKey)
         archiver.finishEncoding()
         data.writeToFile(filePath, atomically: true)
     }
@@ -110,11 +119,12 @@ class ProjectsTableViewController: UIViewController, UITableViewDelegate, UITabl
         cell!.selectionStyle = .None
         
         //2. configure the main text of the cell
-        cell!.textLabel!.text = projects[indexPath.row]
+        cell!.textLabel!.text = projects[indexPath.row].name
         cell!.textLabel!.font = UIFont(name:"Baskerville", size:20)
         cell!.textLabel!.textColor = Colors.toUIColor(ColorName.ALMOST_BLACK)
         
-        //3. configure the detail text
+        //3. configure the detail text 
+        //TODO
         cell!.detailTextLabel?.text = "2 days ago"
         cell!.detailTextLabel?.font = UIFont(name:"Baskerville", size: 16)
         cell!.detailTextLabel?.textColor = Colors.toUIColor(ColorName.LIGHT_GRAY)
@@ -140,7 +150,10 @@ class ProjectsTableViewController: UIViewController, UITableViewDelegate, UITabl
     
     @IBAction func unwindToProjectsTableVC(unwindSegue: UIStoryboardSegue) {
         let addProjectVC:AddProjectViewController = unwindSegue.sourceViewController as! AddProjectViewController
-        projects.insert(addProjectVC.projectNameTextField.text!, atIndex: 0)
+        let newProjectName = addProjectVC.projectNameTextField!.text!
+        //TODO
+        let newProject = Project(projectName: newProjectName, startDate: NSDate(dateString: "2016-01-01"))
+        projects.insert(newProject, atIndex: 0)
         newProjectAdded = true
     }
     
