@@ -16,6 +16,7 @@
 		F134520F1BEE658200AB9F67 /* InvertedStartButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F134520E1BEE658200AB9F67 /* InvertedStartButton.swift */; };
 		F13452111BEE672300AB9F67 /* InvertedCancelButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13452101BEE672300AB9F67 /* InvertedCancelButton.swift */; };
 		F135A8361BE4C9F50079C9BB /* StartButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F135A8351BE4C9F50079C9BB /* StartButton.swift */; };
+		F137CD561C5D361B0005B51C /* ProjectsDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = F137CD551C5D361B0005B51C /* ProjectsDAO.swift */; };
 		F137E96E1C41994A0064E15F /* ColorName.swift in Sources */ = {isa = PBXBuildFile; fileRef = F137E96D1C41994A0064E15F /* ColorName.swift */; };
 		F137E9701C419A200064E15F /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = F137E96F1C419A200064E15F /* Colors.swift */; };
 		F1462A631BDC0A440004239A /* TimeSliderBodyLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1462A621BDC0A440004239A /* TimeSliderBodyLayer.swift */; };
@@ -63,6 +64,7 @@
 		F134520E1BEE658200AB9F67 /* InvertedStartButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InvertedStartButton.swift; sourceTree = "<group>"; };
 		F13452101BEE672300AB9F67 /* InvertedCancelButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InvertedCancelButton.swift; sourceTree = "<group>"; };
 		F135A8351BE4C9F50079C9BB /* StartButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartButton.swift; sourceTree = "<group>"; };
+		F137CD551C5D361B0005B51C /* ProjectsDAO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectsDAO.swift; sourceTree = "<group>"; };
 		F137E96D1C41994A0064E15F /* ColorName.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorName.swift; sourceTree = "<group>"; };
 		F137E96F1C419A200064E15F /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		F1462A621BDC0A440004239A /* TimeSliderBodyLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeSliderBodyLayer.swift; sourceTree = "<group>"; };
@@ -280,6 +282,7 @@
 			children = (
 				F1FC9AD81C3EE0CC002A9F31 /* ProjectsTableViewController.swift */,
 				F1A0BC6F1C4E63FC0075ACCF /* MyTableViewCell.swift */,
+				F137CD551C5D361B0005B51C /* ProjectsDAO.swift */,
 			);
 			name = ProjectsTableVC;
 			sourceTree = "<group>";
@@ -393,6 +396,7 @@
 				F18D6B7A1BEB4BFE0003CBD4 /* TimerPausedViewController.swift in Sources */,
 				F15F9C501BCCF376008733A3 /* AppDelegate.swift in Sources */,
 				F189A1B21BD8C0D3000FFC5F /* TimeSliderViewController.swift in Sources */,
+				F137CD561C5D361B0005B51C /* ProjectsDAO.swift in Sources */,
 				F134520F1BEE658200AB9F67 /* InvertedStartButton.swift in Sources */,
 				F10B851A1C384E23002C66F2 /* Animator.swift in Sources */,
 				F1FC9AD61C3ED86F002A9F31 /* AddProjectViewController.swift in Sources */,

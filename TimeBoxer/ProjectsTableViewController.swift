@@ -17,7 +17,7 @@ class ProjectsTableViewController: UIViewController, UITableViewDelegate, UITabl
     
     private var projects = Array<Project>()
     let projectsTableId = "projects"
-    let persistenceKey = "persistenceKey"
+    let projectsDAO = ProjectsDAO()
     
     private var newProjectAdded:Bool = false
     
@@ -34,19 +34,13 @@ class ProjectsTableViewController: UIViewController, UITableViewDelegate, UITabl
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        //Read the data from file
-        let filePath = self.dataFilePath()
-        if (NSFileManager.defaultManager().fileExistsAtPath(filePath)) {
-            let data = NSMutableData(contentsOfFile: filePath)!
-            let unarchiver = NSKeyedUnarchiver(forReadingWithData: data)
-            let restoredProjects = unarchiver.decodeObjectForKey(persistenceKey) as? Array<Project>
-            if restoredProjects != nil {
-                projects = restoredProjects!
-            }
-            unarchiver.finishDecoding()
+        //Load saved projects
+        let savedProjects = projectsDAO.loadProjects()
+        if savedProjects != nil {
+            projects = savedProjects!
         }
         
-        //Add observer
+        //Add self as applicationWillResignActive observer
         let app = UIApplication.sharedApplication()
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "applicationWillResignActive:",
             name: UIApplicationWillResignActiveNotification, object: app)
@@ -68,20 +62,8 @@ class ProjectsTableViewController: UIViewController, UITableViewDelegate, UITabl
     }
     
     func applicationWillResignActive(notification:NSNotification) {
-        
-        //TODO
-        
-        let filePath = self.dataFilePath()
-        let startDate = NSDate(dateString: "2016-01-01")
-        let project1 = Project(projectName: "Persist", startDate: startDate)
-        let project2 = Project(projectName: "Tracker", startDate: startDate)
-        let projectsToSave:Array<Project> = [project1, project2]
-        
-        let data = NSMutableData()
-        let archiver = NSKeyedArchiver(forWritingWithMutableData: data)
-        archiver.encodeObject(projectsToSave, forKey: persistenceKey)
-        archiver.finishEncoding()
-        data.writeToFile(filePath, atomically: true)
+        //save projects to storage
+        projectsDAO.saveProjects(projects)
     }
 
     override func didReceiveMemoryWarning() {
@@ -169,14 +151,6 @@ class ProjectsTableViewController: UIViewController, UITableViewDelegate, UITabl
 //MARK: Status Bar
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
         return UIStatusBarStyle.LightContent
-    }
-
-//MARK: Persistence
-    func dataFilePath() -> String {
-        let paths = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.DocumentDirectory,
-            NSSearchPathDomainMask.UserDomainMask,true)
-        let documentsDirectory = paths[0] as NSString
-        return documentsDirectory.stringByAppendingPathComponent("data.plist") as String
     }
     
 }
