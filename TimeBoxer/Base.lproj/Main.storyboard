@@ -23,7 +23,51 @@
                     <view key="view" contentMode="scaleToFill" id="y0t-tH-WgZ">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.4169567823" green="0.81341290470000005" blue="0.51673305030000005" alpha="1" colorSpace="calibratedRGB"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Read &quot;On Intelligence&quot;" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kFF-4N-b20" userLabel="ProjectName">
+                                <rect key="frame" x="221" y="80" width="159" height="23"/>
+                                <fontDescription key="fontDescription" name="Baskerville-Italic" family="Baskerville" pointSize="20"/>
+                                <color key="textColor" red="0.31372549019607843" green="0.31372549019607843" blue="0.31372549019607843" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Started on: October 12, 2015" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CuO-aD-8dx" userLabel="StartedOn">
+                                <rect key="frame" x="60" y="193" width="237" height="23"/>
+                                <fontDescription key="fontDescription" name="Baskerville" family="Baskerville" pointSize="20"/>
+                                <color key="textColor" red="0.15294117647058825" green="0.15294117647058825" blue="0.15294117647058825" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="30 days since start" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nwj-Tg-tLq" userLabel="DaysSinceStart">
+                                <rect key="frame" x="60" y="256" width="146" height="23"/>
+                                <fontDescription key="fontDescription" name="Baskerville" family="Baskerville" pointSize="20"/>
+                                <color key="textColor" red="0.15294117647058825" green="0.15294117647058825" blue="0.15294117647058825" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="pace this week: 3h/day" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="45i-pE-846" userLabel="PaceThisWeek">
+                                <rect key="frame" x="60" y="382" width="186" height="23"/>
+                                <fontDescription key="fontDescription" name="Baskerville" family="Baskerville" pointSize="20"/>
+                                <color key="textColor" red="0.15294117647058825" green="0.15294117647058825" blue="0.15294117647058825" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="27 hours total" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BcY-Rg-x0Y" userLabel="TotalHours">
+                                <rect key="frame" x="60" y="319" width="112" height="23"/>
+                                <fontDescription key="fontDescription" name="Baskerville" family="Baskerville" pointSize="20"/>
+                                <color key="textColor" red="0.15294117647058825" green="0.15294117647058825" blue="0.15294117647058825" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="BcY-Rg-x0Y" firstAttribute="leading" secondItem="y0t-tH-WgZ" secondAttribute="leadingMargin" constant="40" id="4aF-pq-fal"/>
+                            <constraint firstItem="Nwj-Tg-tLq" firstAttribute="leading" secondItem="y0t-tH-WgZ" secondAttribute="leadingMargin" constant="40" id="K5o-DK-UUK"/>
+                            <constraint firstItem="CuO-aD-8dx" firstAttribute="top" secondItem="kFF-4N-b20" secondAttribute="bottom" constant="90" id="Tco-aX-BY0"/>
+                            <constraint firstItem="45i-pE-846" firstAttribute="leading" secondItem="y0t-tH-WgZ" secondAttribute="leadingMargin" constant="40" id="awp-TN-9Md"/>
+                            <constraint firstItem="BcY-Rg-x0Y" firstAttribute="top" secondItem="Nwj-Tg-tLq" secondAttribute="bottom" constant="40" id="bDF-y6-s6c"/>
+                            <constraint firstItem="Nwj-Tg-tLq" firstAttribute="top" secondItem="CuO-aD-8dx" secondAttribute="bottom" constant="40" id="dZO-Gn-xH7"/>
+                            <constraint firstItem="45i-pE-846" firstAttribute="top" secondItem="BcY-Rg-x0Y" secondAttribute="bottom" constant="40" id="fNN-GR-v0m"/>
+                            <constraint firstItem="kFF-4N-b20" firstAttribute="top" secondItem="om9-dy-SQy" secondAttribute="bottom" constant="60" id="iKQ-fQ-B4a"/>
+                            <constraint firstItem="CuO-aD-8dx" firstAttribute="leading" secondItem="y0t-tH-WgZ" secondAttribute="leadingMargin" constant="40" id="mAB-kC-rwF"/>
+                            <constraint firstItem="kFF-4N-b20" firstAttribute="centerX" secondItem="y0t-tH-WgZ" secondAttribute="centerX" id="sQS-YI-yvN"/>
+                        </constraints>
                     </view>
                     <connections>
                         <segue destination="gEt-rm-jX2" kind="unwind" identifier="EditProjectUnwind" unwindAction="editProjectUnwind:" id="mIW-4q-2Wz"/>
