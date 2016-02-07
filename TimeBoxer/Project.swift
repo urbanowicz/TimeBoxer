@@ -74,12 +74,45 @@ class Project: NSObject, NSCoding, NSCopying {
         return totalHours.roundToPlaces(1)
     }
     
-    func averagePaceThisWeek() -> Double {
-        return 0.0
+    
+    func averagePaceLastSevenDays() -> Int {
+        ///Returns an average number of seconds worked last seven days
+        if workChunks.isEmpty {
+            return 0
+        }
+        
+        let calendar = NSCalendar.currentCalendar()
+        let now = NSDate()
+        let sevenDaysAgo:NSDate =
+            calendar.dateByAddingUnit(NSCalendarUnit.Day, value: -7, toDate:now , options: NSCalendarOptions())!
+        
+        //helper inner funcion
+        func isSevenDaysOrLessOld(workChunk: WorkChunk) -> Bool {
+            let result = calendar.compareDate(sevenDaysAgo, toDate: workChunk.date, toUnitGranularity: NSCalendarUnit.Day)
+            if result == NSComparisonResult.OrderedAscending ||
+                result == NSComparisonResult.OrderedSame {
+                    return true
+            }
+            return false
+        }
+        
+        var totalSecondsLastSevenDays = 0
+        var chunkIndex = workChunks.count - 1
+        var lastDate = NSDate()
+        while isSevenDaysOrLessOld(workChunks[chunkIndex]) {
+            totalSecondsLastSevenDays += workChunks[chunkIndex].duration
+            lastDate = workChunks[chunkIndex].date
+            chunkIndex--
+        }
+        
+        let daysSinceLastDate = Int(now.timeIntervalSinceDate(lastDate) / (3600 * 24))
+        let average = Int(totalSecondsLastSevenDays / (daysSinceLastDate + 1))
+        return average
     }
     
-    func lastWrokedOn() -> NSDate {
-        return startDate
+    func lastWrokedOn() -> NSDate? {
+        let mostRecentWorkChunk = workChunks.last
+        return mostRecentWorkChunk?.date
     }
 }
 
