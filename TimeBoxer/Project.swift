@@ -51,9 +51,13 @@ class Project: NSObject, NSCoding, NSCopying {
         }
         return newWorkChunks
     }
+//MARK:Recording work time
+    func recordWork(duration:Int) {
+        let workChunk = WorkChunk(date:NSDate(), duration: duration)
+        workChunks.append(workChunk)
+    }
     
-    //MARK: Stats about the project
-    
+//MARK: Stats about the project
     func startedOn() -> NSDate {
         return startDate
     }
@@ -65,13 +69,12 @@ class Project: NSObject, NSCoding, NSCopying {
         return daysSincesStart
     }
     
-    func totalHours() -> Double {
+    func totalSeconds() -> Int {
         var totalSeconds = 0
         for chunk in workChunks {
             totalSeconds += chunk.duration
         }
-        let totalHours = Double(totalSeconds) / 3600.0
-        return totalHours.roundToPlaces(1)
+        return totalSeconds
     }
     
     
@@ -89,9 +92,8 @@ class Project: NSObject, NSCoding, NSCopying {
         //helper inner funcion
         func isSevenDaysOrLessOld(workChunk: WorkChunk) -> Bool {
             let result = calendar.compareDate(sevenDaysAgo, toDate: workChunk.date, toUnitGranularity: NSCalendarUnit.Day)
-            if result == NSComparisonResult.OrderedAscending ||
-                result == NSComparisonResult.OrderedSame {
-                    return true
+            if result == NSComparisonResult.OrderedAscending {
+                return true
             }
             return false
         }
@@ -99,7 +101,7 @@ class Project: NSObject, NSCoding, NSCopying {
         var totalSecondsLastSevenDays = 0
         var chunkIndex = workChunks.count - 1
         var lastDate = NSDate()
-        while isSevenDaysOrLessOld(workChunks[chunkIndex]) {
+        while chunkIndex >= 0 && isSevenDaysOrLessOld(workChunks[chunkIndex]) {
             totalSecondsLastSevenDays += workChunks[chunkIndex].duration
             lastDate = workChunks[chunkIndex].date
             chunkIndex--

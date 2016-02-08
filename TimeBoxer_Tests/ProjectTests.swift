@@ -2,27 +2,59 @@
 //  ProjectTests.swift
 //  TimeBoxer
 //
-//  Created by Tomasz on 07/02/16.
-//  Copyright © 2016 Tomasz. All rights reserved.
+//  Created by Tomasz Urbanowicz on 07/02/16.
+//  Copyright © 2016 Tomasz Urbanowicz. All rights reserved.
 //
 
 import XCTest
 
 class ProjectTests: XCTestCase {
-    var project1: Project?
     override func setUp() {
         super.setUp()
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-        project1 = Project(projectName: "project1", startDate: NSDate())
+
     }
     
     override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
         super.tearDown()
     }
     
-    func testExample() {
-        XCTAssert(project1!.name == "project1")
+    func testProjectCreation() {
+        let now = NSDate()
+        let myProject:Project = Project(projectName: "project", startDate: now)
+        let compareResult = NSCalendar.currentCalendar().compareDate(now, toDate: myProject.startDate, toUnitGranularity: NSCalendarUnit.Day)
+        XCTAssert(myProject.name == "project")
+        XCTAssert(compareResult == NSComparisonResult.OrderedSame)
+    }
+    
+    func testRecordWork() {
+        let myProject = Project(projectName: "myProject", startDate: NSDate())
+        XCTAssert(myProject.workChunks.count == 0)
+        myProject.recordWork(3600)
+        XCTAssert(myProject.workChunks.count == 1)
+        XCTAssert(myProject.totalSeconds() == 3600)
+        myProject.recordWork(20)
+        XCTAssert(myProject.workChunks.count == 2)
+        XCTAssert(myProject.totalSeconds() == 3620)
+    }
+    
+    func testLastWorkedOn() {
+        let myProject = Project(projectName: "myProject", startDate: NSDate())
+        XCTAssert(myProject.lastWrokedOn() == nil)
+        myProject.recordWork(3600)
+        let lastWorkedOn = myProject.lastWrokedOn()
+        XCTAssert(lastWorkedOn != nil)
+        let compareResult = NSCalendar.currentCalendar().compareDate(NSDate(), toDate: lastWorkedOn!, toUnitGranularity: NSCalendarUnit.Day)
+        XCTAssert(compareResult == NSComparisonResult.OrderedSame)
+    }
+    
+    func testAveragePaceLastSevenDays() {
+        let myProject = Project(projectName: "myProject", startDate: NSDate())
+        var pace = myProject.averagePaceLastSevenDays()
+        XCTAssert(pace == 0)
+        myProject.recordWork(200)
+        myProject.recordWork(200)
+        pace = myProject.averagePaceLastSevenDays()
+        XCTAssert(pace == 400)
     }
     
 }
