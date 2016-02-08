@@ -92,6 +92,7 @@
 		F1B3B41E1C5540D80009FCF0 /* AbstractAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AbstractAnimator.swift; sourceTree = "<group>"; };
 		F1B5FE6C1C31AF73003A5C65 /* TransitionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionManager.swift; sourceTree = "<group>"; };
 		F1B920541BE7D7CC004A8CDB /* PauseButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PauseButton.swift; sourceTree = "<group>"; };
+		F1CC0EEB1C69284A0090D76D /* TimeBoxerPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = TimeBoxerPlayground.playground; sourceTree = "<group>"; };
 		F1D2444B1BDFF8320023B994 /* TimerRunningViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerRunningViewController.swift; sourceTree = "<group>"; };
 		F1EBB3E21C5AB93C005A36CE /* WorkChunk.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkChunk.swift; sourceTree = "<group>"; };
 		F1FC9AD21C3ED73B002A9F31 /* EditProjectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditProjectViewController.swift; sourceTree = "<group>"; };
@@ -198,6 +199,7 @@
 		F15F9C4E1BCCF376008733A3 /* TimeBoxer */ = {
 			isa = PBXGroup;
 			children = (
+				F1CC0EEB1C69284A0090D76D /* TimeBoxerPlayground.playground */,
 				F152EE8E1C5968B30090BECC /* Model */,
 				F137E96C1C4199130064E15F /* Colors */,
 				F1FC9AD71C3EE000002A9F31 /* ProjectsTableVC */,

@@ -63,13 +63,17 @@ class Project: NSObject, NSCoding, NSCopying {
     }
     
     func daysSinceStart() -> Int {
+        ///returns number of days in the project including today
         let now = NSDate()
-        let secondsSinceStart = now.timeIntervalSinceDate(startDate)
-        let daysSincesStart = Int(secondsSinceStart / (60 * 60 * 24))
-        return daysSincesStart
+        let calendar = NSCalendar.currentCalendar()
+        let dayDifference =
+            calendar.components(NSCalendarUnit.Day, fromDate: startDate, toDate: now, options: NSCalendarOptions())
+        let daysSinceStart = dayDifference.day + 1 //beacuase I want to include today in the sum
+        return daysSinceStart
     }
     
     func totalSeconds() -> Int {
+        ///returns the total number of seconds spent woring on the project
         var totalSeconds = 0
         for chunk in workChunks {
             totalSeconds += chunk.duration
@@ -79,7 +83,8 @@ class Project: NSObject, NSCoding, NSCopying {
     
     
     func averagePaceLastSevenDays() -> Int {
-        ///Returns an average number of seconds worked last seven days
+        ///Returns an average number of seconds spent working on the project in the last seven days
+        ///If the project is younger than seven days then the project's age in days is used to calculate the average.
         if workChunks.isEmpty {
             return 0
         }
@@ -100,15 +105,13 @@ class Project: NSObject, NSCoding, NSCopying {
         
         var totalSecondsLastSevenDays = 0
         var chunkIndex = workChunks.count - 1
-        var lastDate = NSDate()
         while chunkIndex >= 0 && isSevenDaysOrLessOld(workChunks[chunkIndex]) {
             totalSecondsLastSevenDays += workChunks[chunkIndex].duration
-            lastDate = workChunks[chunkIndex].date
             chunkIndex--
         }
         
-        let daysSinceLastDate = Int(now.timeIntervalSinceDate(lastDate) / (3600 * 24))
-        let average = Int(totalSecondsLastSevenDays / (daysSinceLastDate + 1))
+        let numberOfDays = min(7, daysSinceStart())
+        let average = Int(totalSecondsLastSevenDays / (numberOfDays))
         return average
     }
     
