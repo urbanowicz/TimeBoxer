@@ -88,7 +88,7 @@ class ProjectsTableViewController: UIViewController, UITableViewDelegate, UITabl
         return projects.count
     }
 
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) ->UITableViewCell {
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         var cell:MyTableViewCell? = tableView.dequeueReusableCellWithIdentifier(projectsTableId) as? MyTableViewCell
         if cell == nil {
@@ -98,6 +98,7 @@ class ProjectsTableViewController: UIViewController, UITableViewDelegate, UITabl
         //1. Pass the transition manager to the cell
         cell!.transitionManager = toEditProjectTransitionManager
         cell!.parentVC = self
+        cell!.project = projects[indexPath.row]
         cell!.selectionStyle = .None
         
         //2. configure the main text of the cell
@@ -127,6 +128,9 @@ class ProjectsTableViewController: UIViewController, UITableViewDelegate, UITabl
         }
         if segue.identifier! == "ProjectsTableToEditProject" {
             segue.destinationViewController.transitioningDelegate = toEditProjectTransitionManager
+            let selectedCell:MyTableViewCell = sender as! MyTableViewCell
+            let editProjectVC:EditProjectViewController = segue.destinationViewController as! EditProjectViewController
+            editProjectVC.project = selectedCell.project
         }
     }
     

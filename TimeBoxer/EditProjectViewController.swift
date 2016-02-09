@@ -9,13 +9,20 @@
 import UIKit
 
 class EditProjectViewController: UIViewController, UIGestureRecognizerDelegate {
+    var project:Project?
     var segueStarted:Bool = false
+    
+    @IBOutlet weak var projectNameLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         let panGestureRecognizer = UIPanGestureRecognizer(target: self, action:"handlePan:")
         panGestureRecognizer.delegate = self
         self.view.addGestureRecognizer(panGestureRecognizer)
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        projectNameLabel.text = project!.name
     }
 
     override func didReceiveMemoryWarning() {

@@ -12,6 +12,7 @@ class MyTableViewCell: UITableViewCell {
     var transitionManager:TransitionManager?
     var parentVC:UIViewController?
     var originalCenter:CGPoint?
+    var project:Project?
     var segueStarted:Bool = false
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
@@ -53,7 +54,7 @@ class MyTableViewCell: UITableViewCell {
                 center.x = originalCenter!.x + translation.x
             } else {
                 if !segueStarted {
-                    parentVC!.performSegueWithIdentifier("ProjectsTableToEditProject", sender: parentVC!)
+                    parentVC!.performSegueWithIdentifier("ProjectsTableToEditProject", sender: self)
                     segueStarted = true
                 }
                 let dx:CGFloat = (translation.x - drawerSize) / self.superview!.frame.width
