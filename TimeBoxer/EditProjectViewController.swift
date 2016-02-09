@@ -13,6 +13,10 @@ class EditProjectViewController: UIViewController, UIGestureRecognizerDelegate {
     var segueStarted:Bool = false
     
     @IBOutlet weak var projectNameLabel: UILabel!
+    @IBOutlet weak var startedOnLabel: UILabel!
+    @IBOutlet weak var daysSinceStartLabel: UILabel!
+    @IBOutlet weak var totalWorkTimeLabel: UILabel!
+    @IBOutlet weak var averagePaceLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()

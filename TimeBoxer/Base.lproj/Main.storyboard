@@ -30,12 +30,6 @@
                                 <color key="textColor" red="0.31372549019607843" green="0.31372549019607843" blue="0.31372549019607843" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Started on: October 12, 2015" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CuO-aD-8dx" userLabel="StartedOn">
-                                <rect key="frame" x="60" y="193" width="237" height="23"/>
-                                <fontDescription key="fontDescription" name="Baskerville" family="Baskerville" pointSize="20"/>
-                                <color key="textColor" red="0.15294117647058825" green="0.15294117647058825" blue="0.15294117647058825" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="30 days since start" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nwj-Tg-tLq" userLabel="DaysSinceStart">
                                 <rect key="frame" x="60" y="256" width="146" height="23"/>
                                 <fontDescription key="fontDescription" name="Baskerville" family="Baskerville" pointSize="20"/>
@@ -50,6 +44,12 @@
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="27 hours total" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BcY-Rg-x0Y" userLabel="TotalHours">
                                 <rect key="frame" x="60" y="319" width="112" height="23"/>
+                                <fontDescription key="fontDescription" name="Baskerville" family="Baskerville" pointSize="20"/>
+                                <color key="textColor" red="0.15294117647058825" green="0.15294117647058825" blue="0.15294117647058825" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Started on: October 12, 2015" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CuO-aD-8dx" userLabel="StartedOn">
+                                <rect key="frame" x="60" y="193" width="237" height="23"/>
                                 <fontDescription key="fontDescription" name="Baskerville" family="Baskerville" pointSize="20"/>
                                 <color key="textColor" red="0.15294117647058825" green="0.15294117647058825" blue="0.15294117647058825" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -70,7 +70,10 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="daysSinceStartLabel" destination="Nwj-Tg-tLq" id="3b7-yA-LyQ"/>
                         <outlet property="projectNameLabel" destination="kFF-4N-b20" id="gcD-XN-Pxc"/>
+                        <outlet property="startedOnLabel" destination="CuO-aD-8dx" id="0Gw-2i-5cP"/>
+                        <outlet property="totalWorkTimeLabel" destination="BcY-Rg-x0Y" id="egZ-We-k1C"/>
                         <segue destination="gEt-rm-jX2" kind="unwind" identifier="EditProjectUnwind" unwindAction="editProjectUnwind:" id="mIW-4q-2Wz"/>
                     </connections>
                 </viewController>
