@@ -21,12 +21,16 @@ class LastWorkedOnDateFormatterTests: XCTestCase {
     }
     
     func testCase1() {
-        let date:NSDate? = nil
-        let string = formatter.formatLastWorkedOnString(date)
+        let string = formatter.formatLastWorkedOnString(nil)
         XCTAssert(string == "never")
     }
     func testCase2() {
-        
+        var date = timeByAddingMinutes(-1)
+        var string = formatter.formatLastWorkedOnString(date)
+        XCTAssert(string == "1 minute ago")
+        date = timeByAddingMinutes(-10)
+        string = formatter.formatLastWorkedOnString(date)
+        XCTAssert(string == "10 minutes ago")
     }
     
     private func dateByAddingDays(days:Int) -> NSDate {

@@ -67,7 +67,7 @@ class ProjectTests: XCTestCase {
     
     func testAveragePaceLastSevenDays_2() {
         let tenDaysAgo = NSCalendar.currentCalendar().dateByAddingUnit(NSCalendarUnit.Day, value: -10, toDate: NSDate(), options: NSCalendarOptions())!
-        var myProject = Project(projectName: "myProject", startDate: tenDaysAgo)
+        let myProject = Project(projectName: "myProject", startDate: tenDaysAgo)
         myProject.workChunks.append(createWorkChunkWith(9, duration: 200))
         XCTAssert(myProject.averagePaceLastSevenDays() == 0)
         myProject.workChunks.append(createWorkChunkWith(7, duration: 200))
