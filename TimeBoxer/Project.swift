@@ -116,6 +116,8 @@ class Project: NSObject, NSCoding, NSCopying {
     }
     
     func lastWrokedOn() -> NSDate? {
+        ///returns the Date and Time that this project was last worked on
+        ///or nil if it hasn't been worked on yet
         let mostRecentWorkChunk = workChunks.last
         return mostRecentWorkChunk?.date
     }
