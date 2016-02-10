@@ -27,6 +27,20 @@ class EditProjectViewController: UIViewController, UIGestureRecognizerDelegate {
     
     override func viewWillAppear(animated: Bool) {
         projectNameLabel.text = project!.name
+        
+        func prepareStartedOnLabel() {
+            let dateFormatter = NSDateFormatter()
+            dateFormatter.dateStyle = NSDateFormatterStyle.MediumStyle
+            dateFormatter.timeStyle = NSDateFormatterStyle.NoStyle
+            self.startedOnLabel.text = dateFormatter.stringFromDate(self.project!.startDate)
+        }
+        prepareStartedOnLabel()
+        
+        func prepareDaysSinceStartLabel() {
+            self.daysSinceStartLabel.text = "Days since start: " + String(project!.daysSinceStart())
+        }
+        prepareDaysSinceStartLabel()
+        
     }
 
     override func didReceiveMemoryWarning() {
