@@ -18,6 +18,7 @@ class EditProjectViewController: UIViewController, UIGestureRecognizerDelegate {
     @IBOutlet weak var totalWorkTimeLabel: UILabel!
     @IBOutlet weak var averagePaceLabel: UILabel!
     
+    @IBOutlet weak var lastWorkedOn: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
         let panGestureRecognizer = UIPanGestureRecognizer(target: self, action:"handlePan:")
