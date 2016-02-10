@@ -20,6 +20,12 @@ class LastWorkedOnDateFormatterTests: XCTestCase {
         super.tearDown()
     }
     
+    func testLastWorkedOnInTheFuture() {
+        let date = timeByAddingMinutes(20)
+        let string = formatter.formatLastWorkedOnString(date)
+        XCTAssert(string == "")
+    }
+    
     func testCase1() {
         let string = formatter.formatLastWorkedOnString(nil)
         XCTAssert(string == "never")
@@ -31,6 +37,20 @@ class LastWorkedOnDateFormatterTests: XCTestCase {
         date = timeByAddingMinutes(-10)
         string = formatter.formatLastWorkedOnString(date)
         XCTAssert(string == "10 minutes ago")
+    }
+    func testCase3() {
+        let date = timeByAddingMinutes(-60)
+        let string = formatter.formatLastWorkedOnString(date)
+        XCTAssert(string == "1 hour ago")
+    }
+    
+    func testCase4() {
+        let date = timeByAddingMinutes(-65)
+        let string = formatter.formatLastWorkedOnString(date)
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateStyle = NSDateFormatterStyle.NoStyle
+        dateFormatter.timeStyle = NSDateFormatterStyle.ShortStyle
+        XCTAssert(string == dateFormatter.stringFromDate(date))
     }
     
     private func dateByAddingDays(days:Int) -> NSDate {
