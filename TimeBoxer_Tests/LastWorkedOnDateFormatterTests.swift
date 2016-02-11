@@ -53,6 +53,29 @@ class LastWorkedOnDateFormatterTests: XCTestCase {
         XCTAssert(string == dateFormatter.stringFromDate(date))
     }
     
+    func testCase5() {
+        let date = dateByAddingDays(-1)
+        let string = formatter.formatLastWorkedOnString(date)
+        XCTAssert(string == "yesterday")
+    }
+    
+    func testCase6() {
+        let date = dateByAddingDays(-120)
+        let string = formatter.formatLastWorkedOnString(date)
+        XCTAssert(string == "120 days ago")
+    }
+    
+    func testCase7() {
+        let date = dateByAddingDays(-362)
+        let string = formatter.formatLastWorkedOnString(date)
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateStyle = NSDateFormatterStyle.MediumStyle
+        dateFormatter.timeStyle = NSDateFormatterStyle.NoStyle
+        XCTAssert(string == dateFormatter.stringFromDate(date))
+    }
+    
+    
+    //MARK: Helper functions
     private func dateByAddingDays(days:Int) -> NSDate {
         let now = NSDate()
         return NSCalendar.currentCalendar().dateByAddingUnit(NSCalendarUnit.Day, value: days, toDate: now, options: NSCalendarOptions())!

@@ -16,9 +16,6 @@ class LastWorkedOnDateFormatter: NSObject {
             return "never"
         }
         
-        
-        
-        
         let now = NSDate()
         
         //error case, lastWorkedOn is in the future
@@ -26,8 +23,10 @@ class LastWorkedOnDateFormatter: NSObject {
             return ""
         }
         
+        let dayDifference = dayDifferenceBetween(now, earlierDate: lastWorkedOn!)
+        
         //2. lastWorkedOn is the same day as today
-        if isSameDay(now, date2: lastWorkedOn!) {
+        if dayDifference == 0 {
             
             let differenceInSeconds = Int(now.timeIntervalSinceDate(lastWorkedOn!))
             let differenceInMinutes = differenceInSeconds / 60
@@ -54,15 +53,36 @@ class LastWorkedOnDateFormatter: NSObject {
                 dateFormatter.timeStyle = NSDateFormatterStyle.ShortStyle
                 return dateFormatter.stringFromDate(lastWorkedOn!)
             }
-        } else {
-            
         }
-        return ""
+        
+        
+        
+        //3. One day diference
+        if  dayDifference == 1 {
+            return "yesterday"
+        }
+        
+        //4. 28 day difference
+        if dayDifference < 361 {
+            return "\(dayDifference) days ago"
+        }
+        
+        //default case, project is older than 361 days
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateStyle = NSDateFormatterStyle.MediumStyle
+        dateFormatter.timeStyle = NSDateFormatterStyle.NoStyle
+        
+        return dateFormatter.stringFromDate(lastWorkedOn!)
+    
     }
     
-    private func isSameDay(date1:NSDate, date2:NSDate) -> Bool {
-        let comparisonResult = NSCalendar.currentCalendar().compareDate(date1, toDate: date2, toUnitGranularity: NSCalendarUnit.Day)
-        return comparisonResult == NSComparisonResult.OrderedSame
+    
+    //MARK: Helper functions
+    private func dayDifferenceBetween(laterDate: NSDate, earlierDate: NSDate) -> Int {
+        let calendar = NSCalendar.currentCalendar()
+        let dayDifference =
+        calendar.components(NSCalendarUnit.Day, fromDate: earlierDate, toDate: laterDate, options: NSCalendarOptions())
+        return dayDifference.day
     }
     
 }
