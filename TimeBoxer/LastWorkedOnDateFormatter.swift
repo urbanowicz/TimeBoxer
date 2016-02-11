@@ -55,8 +55,6 @@ class LastWorkedOnDateFormatter: NSObject {
             }
         }
         
-        
-        
         //3. One day diference
         if  dayDifference == 1 {
             return "yesterday"

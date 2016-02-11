@@ -11,6 +11,7 @@ import UIKit
 class EditProjectViewController: UIViewController, UIGestureRecognizerDelegate {
     var project:Project?
     var segueStarted:Bool = false
+    private var lastWorkedOnDateFormatter = LastWorkedOnDateFormatter()
     
     @IBOutlet weak var projectNameLabel: UILabel!
     @IBOutlet weak var startedOnLabel: UILabel!
@@ -41,6 +42,8 @@ class EditProjectViewController: UIViewController, UIGestureRecognizerDelegate {
             self.daysSinceStartLabel.text = "Days since start: " + String(project!.daysSinceStart())
         }
         prepareDaysSinceStartLabel()
+        
+        self.lastWorkedOn.text = "Last worked on: " + lastWorkedOnDateFormatter.formatLastWorkedOnString(project!.lastWrokedOn())
         
     }
 

@@ -18,7 +18,7 @@ class ProjectsTableViewController: UIViewController, UITableViewDelegate, UITabl
     private var projects = Array<Project>()
     let projectsTableId = "projects"
     let projectsDAO = ProjectsDAO()
-    
+    private var lastWorkedOnDateFormatter = LastWorkedOnDateFormatter()
     private var newProjectAdded:Bool = false
     
     private let transitionManager =
@@ -103,13 +103,13 @@ class ProjectsTableViewController: UIViewController, UITableViewDelegate, UITabl
         
         //2. configure the main text of the cell
         cell!.textLabel!.text = projects[indexPath.row].name
-        cell!.textLabel!.font = UIFont(name:"Baskerville", size:20)
+        cell!.textLabel!.font = UIFont(name:"Avenir", size:18)
         cell!.textLabel!.textColor = Colors.toUIColor(ColorName.ALMOST_BLACK)
         
         //3. configure the detail text 
         //TODO
-        cell!.detailTextLabel?.text = "2 days ago"
-        cell!.detailTextLabel?.font = UIFont(name:"Baskerville", size: 16)
+        cell!.detailTextLabel?.text = lastWorkedOnDateFormatter.formatLastWorkedOnString(projects[indexPath.row].lastWrokedOn())
+        cell!.detailTextLabel?.font = UIFont(name:"Avenir", size: 14)
         cell!.detailTextLabel?.textColor = Colors.toUIColor(ColorName.LIGHT_GRAY)
         return cell!
     }
