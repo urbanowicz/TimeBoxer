@@ -43,8 +43,8 @@
                                 <color key="textColor" red="0.15294117647058825" green="0.15294117647058825" blue="0.15294117647058825" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="pace this week: 3h/day" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="45i-pE-846" userLabel="PaceThisWeek">
-                                <rect key="frame" x="60" y="393" width="185" height="25"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="pace this week: 3h/day" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="45i-pE-846" userLabel="PaceThisWeek">
+                                <rect key="frame" x="59" y="397" width="185" height="25"/>
                                 <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="18"/>
                                 <color key="textColor" red="0.15294117647058825" green="0.15294117647058825" blue="0.15294117647058825" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -120,7 +120,7 @@
         <!--Projects Table View Controller-->
         <scene sceneID="rLU-Ry-5YJ">
             <objects>
-                <viewController id="tfb-2n-GXL" customClass="ProjectsTableViewController" customModule="TimeBoxer" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="projectsTableViewController" id="tfb-2n-GXL" customClass="ProjectsTableViewController" customModule="TimeBoxer" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="YAL-US-Not"/>
                         <viewControllerLayoutGuide type="bottom" id="upn-os-BC1"/>
@@ -189,7 +189,7 @@
         <!--Add Project View Controller-->
         <scene sceneID="dZG-L9-nPN">
             <objects>
-                <viewController id="vfH-4J-4Nz" customClass="AddProjectViewController" customModule="TimeBoxer" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="addProjectViewController" id="vfH-4J-4Nz" customClass="AddProjectViewController" customModule="TimeBoxer" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="JJF-Le-5nA"/>
                         <viewControllerLayoutGuide type="bottom" id="0zA-2d-K3v"/>
