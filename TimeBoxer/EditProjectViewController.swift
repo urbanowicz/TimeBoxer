@@ -28,8 +28,10 @@ class EditProjectViewController: UIViewController, UIGestureRecognizerDelegate {
     }
     
     override func viewWillAppear(animated: Bool) {
+        //1.
         projectNameLabel.text = project!.name
         
+        //2.
         func prepareStartedOnLabel() {
             let dateFormatter = NSDateFormatter()
             dateFormatter.dateStyle = NSDateFormatterStyle.MediumStyle
@@ -38,11 +40,19 @@ class EditProjectViewController: UIViewController, UIGestureRecognizerDelegate {
         }
         prepareStartedOnLabel()
         
+        //3.
         func prepareDaysSinceStartLabel() {
             self.daysSinceStartLabel.text = "Days since start: " + String(project!.daysSinceStart())
         }
         prepareDaysSinceStartLabel()
         
+        //4. Total Work Time
+        let totalWorkTimeInSconds = project!.totalSeconds()
+        let totalWorkTimeInHours = Double(totalWorkTimeInSconds / 3600).roundToPlaces(1)
+        totalWorkTimeLabel.text = "total hours: \(totalWorkTimeInHours)"
+        //5. Average pace
+        
+        //6.
         self.lastWorkedOn.text = "Last worked on: " + lastWorkedOnDateFormatter.formatLastWorkedOnString(project!.lastWrokedOn())
         
     }
@@ -96,5 +106,13 @@ class EditProjectViewController: UIViewController, UIGestureRecognizerDelegate {
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         print("BEGIN Segue")
+    }
+}
+
+extension Double {
+    /// Rounds the double to decimal places value
+    func roundToPlaces(places:Int) -> Double {
+        let divisor = pow(10.0, Double(places))
+        return round(self * divisor) / divisor
     }
 }
