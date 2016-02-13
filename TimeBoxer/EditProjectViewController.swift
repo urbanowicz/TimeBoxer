@@ -51,6 +51,8 @@ class EditProjectViewController: UIViewController, UIGestureRecognizerDelegate {
         let totalWorkTimeInHours = Double(totalWorkTimeInSconds / 3600).roundToPlaces(1)
         totalWorkTimeLabel.text = "total hours: \(totalWorkTimeInHours)"
         //5. Average pace
+        averagePaceLabel.text = "Average pace last seven days: \(project!.averagePaceLastSevenDays())"
+        
         
         //6.
         self.lastWorkedOn.text = "Last worked on: " + lastWorkedOnDateFormatter.formatLastWorkedOnString(project!.lastWrokedOn())
