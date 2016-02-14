@@ -289,7 +289,7 @@
                                             </mask>
                                         </variation>
                                         <connections>
-                                            <segue destination="WVv-Cz-hWv" kind="show" identifier="TimeSliderToTimerRunning" id="wBF-tW-ajR"/>
+                                            <segue destination="WVv-Cz-hWv" kind="show" identifier="TimeSliderToTimerRunning" id="pqb-46-RWh"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -493,6 +493,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="wBF-tW-ajR"/>
+        <segue reference="pqb-46-RWh"/>
     </inferredMetricsTieBreakers>
 </document>

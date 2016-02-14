@@ -34,7 +34,7 @@ class TimeSliderViewController: UIViewController {
             tapGestureRecognizer.addTarget(self, action: "handleDoubleTap:")
             self.view.addGestureRecognizer(tapGestureRecognizer)
         }
-        setupTapGestureRecognizer()
+        //setupTapGestureRecognizer()
 
     }
     
@@ -61,7 +61,6 @@ class TimeSliderViewController: UIViewController {
 //MARK: - Navigation
 //----------------------------------------------------------------------------------------------------------------------
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        
         if let segueIdentifier = segue.identifier {
             activeSegue = segueIdentifier
             if segueIdentifier == "TimeSliderToTimerRunning" {
