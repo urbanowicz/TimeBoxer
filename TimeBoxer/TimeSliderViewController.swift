@@ -16,6 +16,7 @@ class TimeSliderViewController: UIViewController {
     let startButtonBackgroundColor = UIColor(red:1.0, green:0.945, blue: 0.902, alpha:1.0)
     let startButtonFrontLayerColor = UIColor(white:0.15, alpha:1.0)
     private let toTimerRunningVCAnimator = ToTimerRunningAnimator()
+    private var activeSegue:String?
 
 //----------------------------------------------------------------------------------------------------------------------
     override func viewDidLoad() {
@@ -26,6 +27,14 @@ class TimeSliderViewController: UIViewController {
         startButton.ovalLayerHighlightedColor = startButtonBackgroundColor
         startButton.borderColor = startButtonFrontLayerColor
         startButton.borderWidth = 1.0
+        
+        func setupTapGestureRecognizer() {
+            let tapGestureRecognizer = UITapGestureRecognizer()
+            tapGestureRecognizer.numberOfTapsRequired = 2
+            tapGestureRecognizer.addTarget(self, action: "handleDoubleTap:")
+            self.view.addGestureRecognizer(tapGestureRecognizer)
+        }
+        setupTapGestureRecognizer()
 
     }
     
@@ -54,18 +63,27 @@ class TimeSliderViewController: UIViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
         if let segueIdentifier = segue.identifier {
-            print(segueIdentifier)
+            activeSegue = segueIdentifier
+            if segueIdentifier == "TimeSliderToTimerRunning" {
+                let timerRunningViewController = segue.destinationViewController as! TimerRunningViewController
+                timerRunningViewController.counter = timeSlider.value * 60
+            }
         }
-        
-        let timerRunningViewController = segue.destinationViewController as! TimerRunningViewController
-        timerRunningViewController.counter = timeSlider.value * 60
-        
+    
     }
 
 //----------------------------------------------------------------------------------------------------------------------
     override func showViewController(vc: UIViewController, sender: AnyObject?) {
         let containerVC = parentViewController as! ContainerViewController
-        containerVC.switchViewControllers(self, toVC: vc, animator: toTimerRunningVCAnimator)
+        if activeSegue == "TimeSliderToTimerRunning" {
+            containerVC.switchViewControllers(self, toVC: vc, animator: toTimerRunningVCAnimator)
+    
+        }
+    }
+    
+//MARK: Double tap gesture
+    func handleDoubleTap(recognizer: UITapGestureRecognizer) {
+        print("Double tap recorded")
     }
 }
 

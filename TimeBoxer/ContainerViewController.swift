@@ -8,8 +8,8 @@
 
 import UIKit
 
-class ContainerViewController: UIViewController {
-    
+class ContainerViewController: UIViewController, UIGestureRecognizerDelegate{
+    private var originalCenter: CGPoint?
 
 //----------------------------------------------------------------------------------------------------------------------
     override func viewDidLoad()
@@ -23,7 +23,13 @@ class ContainerViewController: UIViewController {
         
         //2. Display the first screen
         displayViewController(timeSliderVC)
-
+        
+        //3. Add a Pan Gesture recognizer
+        
+        let panGestureRecognizer = UIPanGestureRecognizer()
+        panGestureRecognizer.addTarget(self, action: "handlePanGesture:")
+        view.addGestureRecognizer(panGestureRecognizer)
+        panGestureRecognizer.delegate = self
     }
 //----------------------------------------------------------------------------------------------------------------------
     func switchViewControllers(fromVC:UIViewController, toVC:UIViewController, animator:Animator) {
@@ -60,5 +66,33 @@ class ContainerViewController: UIViewController {
         super.didReceiveMemoryWarning()
 
     }
+//----------------------------------------------------------------------------------------------------------------------
+//MARK: PanGestureRecognizer
+    func handlePanGesture(gestureRecognizer: UIPanGestureRecognizer) {
+        if gestureRecognizer.state == .Began {
+            originalCenter = view.center
+        }
+        
+        if gestureRecognizer.state == .Changed {
+            let translation = gestureRecognizer.translationInView(view)
+            view.center.x = originalCenter!.x + translation.x
+        }
+        
+        if gestureRecognizer.state == .Ended {
+            UIView.animateWithDuration(0.1, animations: {self.view.center.x = self.originalCenter!.x})
+        }
+    }
+    
+    func gestureRecognizerShouldBegin(gestureRecognizer: UIGestureRecognizer) -> Bool {
+        if let panGestureRecognizer = gestureRecognizer as? UIPanGestureRecognizer {
+            let translation = panGestureRecognizer.translationInView(view)
+            if fabs(translation.x) > fabs(translation.y) && translation.x > 0 {
+                return true
+            }
+            return false
+        }
+        return false
+    }
+
 
 }
