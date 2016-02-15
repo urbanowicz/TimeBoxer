@@ -9,7 +9,9 @@
 import UIKit
 
 class ContainerViewController: UIViewController, UIGestureRecognizerDelegate{
-    private var originalCenter: CGPoint?
+    private var timeSliderVC:TimeSliderViewController?
+    private var projectsTableVC: ProjectsTableViewController?
+        
 
 //----------------------------------------------------------------------------------------------------------------------
     override func viewDidLoad()
@@ -17,12 +19,12 @@ class ContainerViewController: UIViewController, UIGestureRecognizerDelegate{
         super.viewDidLoad()
         
         //1. Instantiate the opening view controller
-        let timeSliderVC =
-            storyboard!.instantiateViewControllerWithIdentifier("timeSliderViewController") as!
+        timeSliderVC =
+            storyboard!.instantiateViewControllerWithIdentifier("timeSliderViewController") as?
             TimeSliderViewController
         
         //2. Display the first screen
-        displayViewController(timeSliderVC)
+        displayViewController(timeSliderVC!)
         
         //3. Add a Pan Gesture recognizer
         
@@ -30,18 +32,27 @@ class ContainerViewController: UIViewController, UIGestureRecognizerDelegate{
         panGestureRecognizer.addTarget(self, action: "handlePanGesture:")
         view.addGestureRecognizer(panGestureRecognizer)
         panGestureRecognizer.delegate = self
+        
+        //4. Create the Projects Table View
+        projectsTableVC =
+            storyboard!.instantiateViewControllerWithIdentifier("projectsTableViewController") as?
+            ProjectsTableViewController
     }
 //----------------------------------------------------------------------------------------------------------------------
-    func switchViewControllers(fromVC:UIViewController, toVC:UIViewController, animator:Animator) {
+    func switchViewControllers(fromVC:UIViewController, toVC:UIViewController, animator:Animator?) {
         self.addChildViewController(toVC)
         fromVC.willMoveToParentViewController(nil)
         toVC.view.frame = self.view.frame
-        animator.animateTransition(fromVC, toVC: toVC, container: self.view, completion:
-        {
+        if animator != nil {
+            animator!.animateTransition(fromVC, toVC: toVC, container: self.view, completion:
+            {
+                fromVC.removeFromParentViewController()
+                toVC.didMoveToParentViewController(self)
+            })
+        } else {
             fromVC.removeFromParentViewController()
             toVC.didMoveToParentViewController(self)
-            fromVC.removeFromParentViewController()
-        })
+        }
     }
     
 //----------------------------------------------------------------------------------------------------------------------
@@ -52,6 +63,7 @@ class ContainerViewController: UIViewController, UIGestureRecognizerDelegate{
         self.view.addSubview(vc.view)
         vc.didMoveToParentViewController(self)
     }
+    
 
 //----------------------------------------------------------------------------------------------------------------------
     private func hideViewController(vc: UIViewController)
@@ -69,17 +81,60 @@ class ContainerViewController: UIViewController, UIGestureRecognizerDelegate{
 //----------------------------------------------------------------------------------------------------------------------
 //MARK: PanGestureRecognizer
     func handlePanGesture(gestureRecognizer: UIPanGestureRecognizer) {
+        timeSliderVC = childViewControllers[0] as? TimeSliderViewController
+        if timeSliderVC == nil {
+            return
+        }
         if gestureRecognizer.state == .Began {
-            originalCenter = view.center
+            projectsTableVC!.view.frame = self.view.frame
+            projectsTableVC!.view.frame.origin.x  = self.view.frame.origin.x - view.frame.width
+            self.view.addSubview(projectsTableVC!.view)
         }
         
         if gestureRecognizer.state == .Changed {
             let translation = gestureRecognizer.translationInView(view)
-            view.center.x = originalCenter!.x + translation.x
+            timeSliderVC!.view.frame.origin.x = view.frame.origin.x + translation.x
+            projectsTableVC!.view.frame.origin.x = (view.frame.origin.x + translation.x) - view.frame.width
         }
         
         if gestureRecognizer.state == .Ended {
-            UIView.animateWithDuration(0.1, animations: {self.view.center.x = self.originalCenter!.x})
+            let translation = gestureRecognizer.translationInView(view)
+            if translation.x > view.frame.width / 2.0 {
+                
+                UIView.animateWithDuration(0.1,
+                    animations:
+                    {
+                        self.projectsTableVC!.view.frame.origin.x = self.view.frame.origin.x
+                        self.timeSliderVC!.view.frame.origin.x = self.view.frame.origin.x + self.view.frame.width
+                        
+                    },
+                    
+                    completion:
+                    {
+                        finished in
+                        self.addChildViewController(self.projectsTableVC!)
+                        self.projectsTableVC!.didMoveToParentViewController(self)
+                        self.timeSliderVC!.willMoveToParentViewController(nil)
+                        self.timeSliderVC!.view.removeFromSuperview()
+                        self.timeSliderVC!.removeFromParentViewController()
+                        
+
+                    })
+            } else {
+                UIView.animateWithDuration(0.1,
+                    animations:
+                    {
+                        self.timeSliderVC!.view.frame.origin.x = self.view.frame.origin.x
+                        self.projectsTableVC!.view.frame.origin.x = self.view.frame.origin.x - self.view.frame.width
+                    },
+                    
+                    completion:
+                    {
+                        finished in
+                        self.projectsTableVC!.view.removeFromSuperview()
+                    }
+                )
+            }
         }
     }
     
