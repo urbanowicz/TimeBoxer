@@ -139,9 +139,20 @@ class ContainerViewController: UIViewController, UIGestureRecognizerDelegate{
     }
     
     func gestureRecognizerShouldBegin(gestureRecognizer: UIGestureRecognizer) -> Bool {
+        var swipeDirection = 1
+        let activeViewController = childViewControllers[0]
+        if activeViewController as? TimeSliderViewController != nil {
+            swipeDirection = 1
+        } else
+            if activeViewController as? ProjectsTableViewController != nil {
+                swipeDirection = -1
+            } else {
+                return false
+        }
+        
         if let panGestureRecognizer = gestureRecognizer as? UIPanGestureRecognizer {
             let translation = panGestureRecognizer.translationInView(view)
-            if fabs(translation.x) > fabs(translation.y) && translation.x > 0 {
+            if fabs(translation.x) > fabs(translation.y) && CGFloat(swipeDirection) * translation.x > 0 {
                 return true
             }
             return false
