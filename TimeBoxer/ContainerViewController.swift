@@ -81,42 +81,55 @@ class ContainerViewController: UIViewController, UIGestureRecognizerDelegate{
 //----------------------------------------------------------------------------------------------------------------------
 //MARK: PanGestureRecognizer
     func handlePanGesture(gestureRecognizer: UIPanGestureRecognizer) {
-        timeSliderVC = childViewControllers[0] as? TimeSliderViewController
-        if timeSliderVC == nil {
-            return
+        let currentVC = childViewControllers[0] as? TimeSliderViewController
+        
+        var fromVC: UIViewController
+        var toVC: UIViewController
+        var direction:Int // direction == 1 is right to left, direction == -1 is left to right
+        
+        if currentVC != nil {
+            timeSliderVC = currentVC
+            fromVC = currentVC!
+            toVC = projectsTableVC!
+            direction = 1
+        } else {
+            fromVC = projectsTableVC!
+            toVC = timeSliderVC!
+            direction = -1
         }
+        
         if gestureRecognizer.state == .Began {
-            projectsTableVC!.view.frame = self.view.frame
-            projectsTableVC!.view.frame.origin.x  = self.view.frame.origin.x - view.frame.width
-            self.view.addSubview(projectsTableVC!.view)
+            toVC.view.frame = self.view.frame
+            toVC.view.frame.origin.x  = self.view.frame.origin.x - view.frame.width * CGFloat(direction)
+            self.view.addSubview(toVC.view)
         }
         
         if gestureRecognizer.state == .Changed {
             let translation = gestureRecognizer.translationInView(view)
-            timeSliderVC!.view.frame.origin.x = view.frame.origin.x + translation.x
-            projectsTableVC!.view.frame.origin.x = (view.frame.origin.x + translation.x) - view.frame.width
+            fromVC.view.frame.origin.x = view.frame.origin.x + translation.x
+            toVC.view.frame.origin.x = (view.frame.origin.x + translation.x) - view.frame.width * CGFloat(direction)
         }
         
         if gestureRecognizer.state == .Ended {
             let translation = gestureRecognizer.translationInView(view)
-            if translation.x > view.frame.width / 2.0 {
+            if fabs(translation.x) > view.frame.width / 2.0 {
                 
                 UIView.animateWithDuration(0.1,
                     animations:
                     {
-                        self.projectsTableVC!.view.frame.origin.x = self.view.frame.origin.x
-                        self.timeSliderVC!.view.frame.origin.x = self.view.frame.origin.x + self.view.frame.width
+                        toVC.view.frame.origin.x = self.view.frame.origin.x
+                        fromVC.view.frame.origin.x = self.view.frame.origin.x + self.view.frame.width * CGFloat(direction)
                         
                     },
                     
                     completion:
                     {
                         finished in
-                        self.addChildViewController(self.projectsTableVC!)
-                        self.projectsTableVC!.didMoveToParentViewController(self)
-                        self.timeSliderVC!.willMoveToParentViewController(nil)
-                        self.timeSliderVC!.view.removeFromSuperview()
-                        self.timeSliderVC!.removeFromParentViewController()
+                        self.addChildViewController(toVC)
+                        toVC.didMoveToParentViewController(self)
+                        fromVC.willMoveToParentViewController(nil)
+                        fromVC.view.removeFromSuperview()
+                        fromVC.removeFromParentViewController()
                         
 
                     })
@@ -124,14 +137,14 @@ class ContainerViewController: UIViewController, UIGestureRecognizerDelegate{
                 UIView.animateWithDuration(0.1,
                     animations:
                     {
-                        self.timeSliderVC!.view.frame.origin.x = self.view.frame.origin.x
-                        self.projectsTableVC!.view.frame.origin.x = self.view.frame.origin.x - self.view.frame.width
+                        fromVC.view.frame.origin.x = self.view.frame.origin.x
+                        toVC.view.frame.origin.x = self.view.frame.origin.x - self.view.frame.width * CGFloat(direction)
                     },
                     
                     completion:
                     {
                         finished in
-                        self.projectsTableVC!.view.removeFromSuperview()
+                        toVC.view.removeFromSuperview()
                     }
                 )
             }
