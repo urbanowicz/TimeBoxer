@@ -17,6 +17,7 @@ class BigSlider: UIControl {
     
     override func drawRect(rect: CGRect) {
         fillColor.setFill()
-        UIRectFill(rect)
+        let roundedRectPath = UIBezierPath(roundedRect: rect, cornerRadius: CGFloat(cornerRadius))
+        roundedRectPath.fill()
     }
 }
