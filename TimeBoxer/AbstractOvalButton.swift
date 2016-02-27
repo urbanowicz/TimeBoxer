@@ -11,9 +11,9 @@ import UIKit
 class AbstractOvalButton: UIButton {
     var frontLayerColor = UIColor.whiteColor()
     var frontLayerHighlightedColor = UIColor.whiteColor()
-    var ovalLayerColor = UIColor(red:0.15, green:0.15, blue:0.15, alpha:1.0)
-    var ovalLayerHighlightedColor = UIColor(red:0.58, green:0.58, blue:0.58, alpha:1.0)
-    var borderColor = UIColor.whiteColor()
+    var ovalLayerColor = UIColor.blackColor()
+    var ovalLayerHighlightedColor = UIColor.grayColor()
+    var borderColor = UIColor.greenColor()
     var borderWidth = 0.0
     
     override var highlighted: Bool {

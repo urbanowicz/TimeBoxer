@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8121.20" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="6mA-bS-VWc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8121.20" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="92H-bF-zZu">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8101.16"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
@@ -98,6 +98,38 @@
                 <exit id="gEt-rm-jX2" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="612" y="-1156"/>
+        </scene>
+        <!--Controls Test View Controller-->
+        <scene sceneID="Img-cL-Ctn">
+            <objects>
+                <viewController storyboardIdentifier="testViewController" id="92H-bF-zZu" customClass="UIControlsTestViewController" customModule="TimeBoxer" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="LMO-j7-rU3"/>
+                        <viewControllerLayoutGuide type="bottom" id="sZW-b0-RA4"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="tYq-vC-VwW">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N7a-TB-PYh" userLabel="StartButton" customClass="StartButton" customModule="TimeBoxer" customModuleProvider="target">
+                                <rect key="frame" x="260" y="500" width="80" height="80"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="Hzx-EW-v5P"/>
+                                    <constraint firstAttribute="width" secondItem="N7a-TB-PYh" secondAttribute="height" multiplier="1:1" id="YcQ-C4-whA"/>
+                                    <constraint firstAttribute="width" constant="80" id="h2l-tI-Xnn"/>
+                                </constraints>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="N7a-TB-PYh" firstAttribute="centerX" secondItem="tYq-vC-VwW" secondAttribute="centerX" id="5Fx-v5-gEp"/>
+                            <constraint firstItem="sZW-b0-RA4" firstAttribute="top" secondItem="N7a-TB-PYh" secondAttribute="bottom" constant="20" id="vlI-pB-VWq"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gCO-v3-S8V" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1427" y="-1145"/>
         </scene>
         <!--Container View Controller-->
         <scene sceneID="SNI-pH-kmp">

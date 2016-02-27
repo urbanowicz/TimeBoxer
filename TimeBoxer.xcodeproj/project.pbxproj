@@ -35,6 +35,7 @@
 		F189A1B21BD8C0D3000FFC5F /* TimeSliderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F189A1B11BD8C0D3000FFC5F /* TimeSliderViewController.swift */; };
 		F18D6B7A1BEB4BFE0003CBD4 /* TimerPausedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F18D6B791BEB4BFE0003CBD4 /* TimerPausedViewController.swift */; };
 		F1A0BC701C4E63FC0075ACCF /* MyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A0BC6F1C4E63FC0075ACCF /* MyTableViewCell.swift */; };
+		F1A605361C81FBCA008EF288 /* UIControlsTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A605351C81FBCA008EF288 /* UIControlsTestViewController.swift */; };
 		F1A95C041C6BD49000EF5204 /* LastWorkedOnDateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A95C031C6BD49000EF5204 /* LastWorkedOnDateFormatter.swift */; };
 		F1A95C061C6BD52B00EF5204 /* LastWorkedOnDateFormatterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A95C051C6BD52B00EF5204 /* LastWorkedOnDateFormatterTests.swift */; };
 		F1A95C071C6BD55B00EF5204 /* LastWorkedOnDateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A95C031C6BD49000EF5204 /* LastWorkedOnDateFormatter.swift */; };
@@ -91,6 +92,7 @@
 		F189A1B11BD8C0D3000FFC5F /* TimeSliderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeSliderViewController.swift; sourceTree = "<group>"; };
 		F18D6B791BEB4BFE0003CBD4 /* TimerPausedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerPausedViewController.swift; sourceTree = "<group>"; };
 		F1A0BC6F1C4E63FC0075ACCF /* MyTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyTableViewCell.swift; sourceTree = "<group>"; };
+		F1A605351C81FBCA008EF288 /* UIControlsTestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIControlsTestViewController.swift; sourceTree = "<group>"; };
 		F1A95C031C6BD49000EF5204 /* LastWorkedOnDateFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LastWorkedOnDateFormatter.swift; sourceTree = "<group>"; };
 		F1A95C051C6BD52B00EF5204 /* LastWorkedOnDateFormatterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LastWorkedOnDateFormatterTests.swift; sourceTree = "<group>"; };
 		F1AF3A0F1BFBAE3900D40AE8 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
@@ -204,6 +206,7 @@
 		F15F9C4E1BCCF376008733A3 /* TimeBoxer */ = {
 			isa = PBXGroup;
 			children = (
+				F1A605371C81FBDB008EF288 /* UIControlsTestVC */,
 				F1CC0EEB1C69284A0090D76D /* TimeBoxerPlayground.playground */,
 				F152EE8E1C5968B30090BECC /* Model */,
 				F137E96C1C4199130064E15F /* Colors */,
@@ -244,6 +247,14 @@
 				F1462A621BDC0A440004239A /* TimeSliderBodyLayer.swift */,
 			);
 			name = customControls;
+			sourceTree = "<group>";
+		};
+		F1A605371C81FBDB008EF288 /* UIControlsTestVC */ = {
+			isa = PBXGroup;
+			children = (
+				F1A605351C81FBCA008EF288 /* UIControlsTestViewController.swift */,
+			);
+			name = UIControlsTestVC;
 			sourceTree = "<group>";
 		};
 		F1B5FE6B1C31AF45003A5C65 /* Segues */ = {
@@ -408,6 +419,7 @@
 				F1EBB3E31C5AB93C005A36CE /* WorkChunk.swift in Sources */,
 				F1B920551BE7D7CC004A8CDB /* PauseButton.swift in Sources */,
 				F18D6B7A1BEB4BFE0003CBD4 /* TimerPausedViewController.swift in Sources */,
+				F1A605361C81FBCA008EF288 /* UIControlsTestViewController.swift in Sources */,
 				F15F9C501BCCF376008733A3 /* AppDelegate.swift in Sources */,
 				F189A1B21BD8C0D3000FFC5F /* TimeSliderViewController.swift in Sources */,
 				F137CD561C5D361B0005B51C /* ProjectsDAO.swift in Sources */,
