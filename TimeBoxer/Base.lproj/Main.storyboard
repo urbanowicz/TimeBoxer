@@ -118,6 +118,9 @@
                                     <constraint firstAttribute="width" secondItem="N7a-TB-PYh" secondAttribute="height" multiplier="1:1" id="YcQ-C4-whA"/>
                                     <constraint firstAttribute="width" constant="80" id="h2l-tI-Xnn"/>
                                 </constraints>
+                                <connections>
+                                    <action selector="startButtonPressed:" destination="92H-bF-zZu" eventType="touchUpInside" id="gq7-lH-Rys"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -126,6 +129,9 @@
                             <constraint firstItem="sZW-b0-RA4" firstAttribute="top" secondItem="N7a-TB-PYh" secondAttribute="bottom" constant="20" id="vlI-pB-VWq"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="startButton" destination="N7a-TB-PYh" id="3gl-KN-h7c"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gCO-v3-S8V" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

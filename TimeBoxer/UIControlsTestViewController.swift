@@ -9,10 +9,12 @@
 import UIKit
 
 class UIControlsTestViewController: UIViewController {
-
+    let blackColor = UIColor(red: 0.153, green: 0.153, blue: 0.153, alpha: 1.0)
+    @IBOutlet weak var startButton: StartButton!
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.view.backgroundColor = blackColor
+        setupStartButton()
         // Do any additional setup after loading the view.
     }
 
@@ -21,6 +23,17 @@ class UIControlsTestViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    private func setupStartButton() {
+        startButton.borderColor = UIColor.whiteColor()
+        startButton.ovalLayerColor = blackColor
+        startButton.frontLayerColor = UIColor.whiteColor()
+        startButton.ovalLayerHighlightedColor = UIColor.whiteColor()
+        startButton.frontLayerHighlightedColor = blackColor;
+        startButton.borderWidth = 5.0
+    }
+    
+    @IBAction func startButtonPressed(sender: StartButton) {
+    }
 
     /*
     // MARK: - Navigation

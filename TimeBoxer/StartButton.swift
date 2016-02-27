@@ -11,7 +11,6 @@ import UIKit
 class StartButton: AbstractOvalButton {
     
     override func drawFrontLayer(rect: CGRect) {
-        
         //draw the triangle layer
         let scaleFactor = CGFloat(0.3333333)
         let sqrt3 = CGFloat(1.7320508075688772)

@@ -31,22 +31,33 @@ class AbstractOvalButton: UIButton {
 //----------------------------------------------------------------------------------------------------------------------
     override func drawRect(rect: CGRect)
     {
-        let ovalPath = UIBezierPath(ovalInRect: rect)
+        var actualRect = rect
+        
+        if borderWidth > 0 {
+            //If the border of the circle is to be drawn I want it to grow inside the bounding rect not outside of it
+            let b = CGFloat(borderWidth)
+            let actualOrigin = CGPoint(x: rect.origin.x + b, y: rect.origin.y + b)
+            let actualSize = CGSize(width: rect.width - 2*b, height: rect.height - 2*b)
+            actualRect = CGRect(origin: actualOrigin, size: actualSize)
+        }
+        
+        let ovalPath = UIBezierPath(ovalInRect: actualRect)
         if !highlighted {
             ovalLayerColor.setFill()
         } else {
             ovalLayerHighlightedColor.setFill()
         }
         ovalPath.fill()
-        if !highlighted {
-            frontLayerColor.setFill()
-        } else {
-            frontLayerHighlightedColor.setFill()
-        }
+
         if borderWidth > 0 {
             borderColor.setStroke()
             ovalPath.lineWidth = CGFloat(borderWidth)
             ovalPath.stroke()
+        }
+        if !highlighted {
+            frontLayerColor.setFill()
+        } else {
+            frontLayerHighlightedColor.setFill()
         }
         drawFrontLayer(rect)
         
