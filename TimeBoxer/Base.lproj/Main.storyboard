@@ -122,14 +122,25 @@
                                     <action selector="startButtonPressed:" destination="92H-bF-zZu" eventType="touchUpInside" id="gq7-lH-Rys"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tnc-OG-HBm" customClass="BigSlider" customModule="TimeBoxer" customModuleProvider="target">
+                                <rect key="frame" x="226" y="66" width="148" height="361"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="361" id="6ol-H0-tFK"/>
+                                    <constraint firstAttribute="width" constant="148" id="osw-hW-G9b"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="N7a-TB-PYh" firstAttribute="centerX" secondItem="tYq-vC-VwW" secondAttribute="centerX" id="5Fx-v5-gEp"/>
+                            <constraint firstItem="Tnc-OG-HBm" firstAttribute="centerX" secondItem="tYq-vC-VwW" secondAttribute="centerX" id="U91-AP-VCZ"/>
+                            <constraint firstItem="Tnc-OG-HBm" firstAttribute="top" secondItem="LMO-j7-rU3" secondAttribute="bottom" constant="46" id="eVx-0A-vYT"/>
                             <constraint firstItem="sZW-b0-RA4" firstAttribute="top" secondItem="N7a-TB-PYh" secondAttribute="bottom" constant="20" id="vlI-pB-VWq"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="slider" destination="Tnc-OG-HBm" id="bkD-Wi-fvM"/>
                         <outlet property="startButton" destination="N7a-TB-PYh" id="3gl-KN-h7c"/>
                     </connections>
                 </viewController>

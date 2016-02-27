@@ -11,9 +11,13 @@ import UIKit
 class UIControlsTestViewController: UIViewController {
     let blackColor = UIColor(red: 0.153, green: 0.153, blue: 0.153, alpha: 1.0)
     @IBOutlet weak var startButton: StartButton!
+    
+    @IBOutlet weak var slider: BigSlider!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = blackColor
+        setupSlider()
         setupStartButton()
         // Do any additional setup after loading the view.
     }
@@ -21,6 +25,10 @@ class UIControlsTestViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    private func setupSlider() {
+        slider.fillColor = UIColor.blueColor()
     }
     
     private func setupStartButton() {

@@ -36,6 +36,7 @@
 		F18D6B7A1BEB4BFE0003CBD4 /* TimerPausedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F18D6B791BEB4BFE0003CBD4 /* TimerPausedViewController.swift */; };
 		F1A0BC701C4E63FC0075ACCF /* MyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A0BC6F1C4E63FC0075ACCF /* MyTableViewCell.swift */; };
 		F1A605361C81FBCA008EF288 /* UIControlsTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A605351C81FBCA008EF288 /* UIControlsTestViewController.swift */; };
+		F1A6053D1C8212CD008EF288 /* BigSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A6053C1C8212CD008EF288 /* BigSlider.swift */; };
 		F1A95C041C6BD49000EF5204 /* LastWorkedOnDateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A95C031C6BD49000EF5204 /* LastWorkedOnDateFormatter.swift */; };
 		F1A95C061C6BD52B00EF5204 /* LastWorkedOnDateFormatterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A95C051C6BD52B00EF5204 /* LastWorkedOnDateFormatterTests.swift */; };
 		F1A95C071C6BD55B00EF5204 /* LastWorkedOnDateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A95C031C6BD49000EF5204 /* LastWorkedOnDateFormatter.swift */; };
@@ -93,6 +94,7 @@
 		F18D6B791BEB4BFE0003CBD4 /* TimerPausedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerPausedViewController.swift; sourceTree = "<group>"; };
 		F1A0BC6F1C4E63FC0075ACCF /* MyTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyTableViewCell.swift; sourceTree = "<group>"; };
 		F1A605351C81FBCA008EF288 /* UIControlsTestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIControlsTestViewController.swift; sourceTree = "<group>"; };
+		F1A6053C1C8212CD008EF288 /* BigSlider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BigSlider.swift; sourceTree = "<group>"; };
 		F1A95C031C6BD49000EF5204 /* LastWorkedOnDateFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LastWorkedOnDateFormatter.swift; sourceTree = "<group>"; };
 		F1A95C051C6BD52B00EF5204 /* LastWorkedOnDateFormatterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LastWorkedOnDateFormatterTests.swift; sourceTree = "<group>"; };
 		F1AF3A0F1BFBAE3900D40AE8 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
@@ -206,9 +208,9 @@
 		F15F9C4E1BCCF376008733A3 /* TimeBoxer */ = {
 			isa = PBXGroup;
 			children = (
+				F1CC0EEB1C69284A0090D76D /* TimeBoxerPlayground.playground */,
 				F1A605381C8211C7008EF288 /* CustomControls */,
 				F1A605371C81FBDB008EF288 /* UIControlsTestVC */,
-				F1CC0EEB1C69284A0090D76D /* TimeBoxerPlayground.playground */,
 				F152EE8E1C5968B30090BECC /* Model */,
 				F137E96C1C4199130064E15F /* Colors */,
 				F1FC9AD71C3EE000002A9F31 /* ProjectsTableVC */,
@@ -278,6 +280,7 @@
 		F1A6053B1C821233008EF288 /* BigSlider */ = {
 			isa = PBXGroup;
 			children = (
+				F1A6053C1C8212CD008EF288 /* BigSlider.swift */,
 			);
 			name = BigSlider;
 			sourceTree = "<group>";
@@ -437,6 +440,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F1A6053D1C8212CD008EF288 /* BigSlider.swift in Sources */,
 				F13452111BEE672300AB9F67 /* InvertedCancelButton.swift in Sources */,
 				F1FC9AD31C3ED73B002A9F31 /* EditProjectViewController.swift in Sources */,
 				F1B3B41F1C5540D80009FCF0 /* AbstractAnimator.swift in Sources */,
