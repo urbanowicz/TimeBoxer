@@ -206,6 +206,7 @@
 		F15F9C4E1BCCF376008733A3 /* TimeBoxer */ = {
 			isa = PBXGroup;
 			children = (
+				F1A605381C8211C7008EF288 /* CustomControls */,
 				F1A605371C81FBDB008EF288 /* UIControlsTestVC */,
 				F1CC0EEB1C69284A0090D76D /* TimeBoxerPlayground.playground */,
 				F152EE8E1C5968B30090BECC /* Model */,
@@ -216,7 +217,6 @@
 				F10B85161C383349002C66F2 /* ContainerVC */,
 				F1B5FE6B1C31AF45003A5C65 /* Segues */,
 				F125D7D01C28491900B94849 /* AnimationShapes */,
-				F14F13031BEA82C50045936F /* Buttons */,
 				F14F13021BEA82A20045936F /* TimerPausedVC */,
 				F1D2444A1BDFF7C90023B994 /* TimerRunningVC */,
 				F1D244491BDFF4810023B994 /* TimeSliderVC */,
@@ -240,21 +240,46 @@
 			path = TimeBoxer_Tests;
 			sourceTree = "<group>";
 		};
-		F16979C81C29A25800420242 /* customControls */ = {
-			isa = PBXGroup;
-			children = (
-				F1FD15891BDBD3F60044BE4B /* SimpleTimeSlider.swift */,
-				F1462A621BDC0A440004239A /* TimeSliderBodyLayer.swift */,
-			);
-			name = customControls;
-			sourceTree = "<group>";
-		};
 		F1A605371C81FBDB008EF288 /* UIControlsTestVC */ = {
 			isa = PBXGroup;
 			children = (
 				F1A605351C81FBCA008EF288 /* UIControlsTestViewController.swift */,
 			);
 			name = UIControlsTestVC;
+			sourceTree = "<group>";
+		};
+		F1A605381C8211C7008EF288 /* CustomControls */ = {
+			isa = PBXGroup;
+			children = (
+				F1A605391C821201008EF288 /* Sliders */,
+				F14F13031BEA82C50045936F /* Buttons */,
+			);
+			name = CustomControls;
+			sourceTree = "<group>";
+		};
+		F1A605391C821201008EF288 /* Sliders */ = {
+			isa = PBXGroup;
+			children = (
+				F1A6053B1C821233008EF288 /* BigSlider */,
+				F1A6053A1C821212008EF288 /* SimpleTimeSlider */,
+			);
+			name = Sliders;
+			sourceTree = "<group>";
+		};
+		F1A6053A1C821212008EF288 /* SimpleTimeSlider */ = {
+			isa = PBXGroup;
+			children = (
+				F1FD15891BDBD3F60044BE4B /* SimpleTimeSlider.swift */,
+				F1462A621BDC0A440004239A /* TimeSliderBodyLayer.swift */,
+			);
+			name = SimpleTimeSlider;
+			sourceTree = "<group>";
+		};
+		F1A6053B1C821233008EF288 /* BigSlider */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = BigSlider;
 			sourceTree = "<group>";
 		};
 		F1B5FE6B1C31AF45003A5C65 /* Segues */ = {
@@ -271,7 +296,6 @@
 		F1D244491BDFF4810023B994 /* TimeSliderVC */ = {
 			isa = PBXGroup;
 			children = (
-				F16979C81C29A25800420242 /* customControls */,
 				F189A1B11BD8C0D3000FFC5F /* TimeSliderViewController.swift */,
 			);
 			name = TimeSliderVC;
