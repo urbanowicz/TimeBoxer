@@ -29,8 +29,7 @@ class UIControlsTestViewController: UIViewController {
     
     private func setupSlider() {
         slider.backgroundColor = view.backgroundColor
-        slider.fillColor = UIColor.blueColor()
-        slider.cornerRadius = 0.1 * Double(slider.bounds.width)
+        slider.fillColor = UIColor(red: 0.902, green: 1, blue: 1, alpha: 1)
     }
     
     private func setupStartButton() {
