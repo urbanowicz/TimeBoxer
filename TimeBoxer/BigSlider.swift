@@ -12,7 +12,6 @@ class BigSlider: UIControl {
     let handleHeight:CGFloat = 40.0
     let cornerRadius:CGFloat = 6.0
     
-    var value:Double = 0.0
     var fillColor:UIColor = UIColor.blackColor()
     
     var highlightedFillColor:UIColor {
@@ -23,6 +22,12 @@ class BigSlider: UIControl {
             var alpha = CGFloat()
             fillColor.getRed(&red, green: &green, blue: &blue, alpha: &alpha)
             return UIColor(red: red, green: green, blue: blue, alpha: 0.70)
+        }
+    }
+    
+    var value:Double {
+        get {
+            return Double(currentHeight / (bounds.height - handleHeight))
         }
     }
     
@@ -77,6 +82,7 @@ class BigSlider: UIControl {
         }
         boundCurrentHeight()
         setNeedsDisplay()
+        sendActionsForControlEvents(.ValueChanged)
         return true
     }
     

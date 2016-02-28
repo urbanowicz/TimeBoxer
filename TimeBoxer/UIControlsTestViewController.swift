@@ -30,6 +30,7 @@ class UIControlsTestViewController: UIViewController {
     private func setupSlider() {
         slider.backgroundColor = view.backgroundColor
         slider.fillColor = UIColor(red: 0.902, green: 1, blue: 1, alpha: 1)
+        slider.addTarget(self, action: "sliderValueChanged", forControlEvents: UIControlEvents.ValueChanged)
     }
     
     private func setupStartButton() {
@@ -38,7 +39,11 @@ class UIControlsTestViewController: UIViewController {
         startButton.frontLayerColor = UIColor.whiteColor()
         startButton.ovalLayerHighlightedColor = UIColor.whiteColor()
         startButton.frontLayerHighlightedColor = blackColor;
-        startButton.borderWidth = 5.0
+        startButton.borderWidth = 2.0
+    }
+    
+    func sliderValueChanged() {
+        print(slider.value)
     }
     
     @IBAction func startButtonPressed(sender: StartButton) {
