@@ -43,7 +43,7 @@ class UIControlsTestViewController: UIViewController {
     }
     
     func sliderValueChanged() {
-        print(slider.value)
+        
     }
     
     @IBAction func startButtonPressed(sender: StartButton) {
