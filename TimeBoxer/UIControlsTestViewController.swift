@@ -28,7 +28,6 @@ class UIControlsTestViewController: UIViewController {
     }
     
     private func setupSlider() {
-        slider.backgroundColor = view.backgroundColor
         slider.fillColor = UIColor(red: 0.902, green: 1, blue: 1, alpha: 1)
         slider.addTarget(self, action: "sliderValueChanged", forControlEvents: UIControlEvents.ValueChanged)
     }

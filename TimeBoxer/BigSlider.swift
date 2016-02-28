@@ -35,6 +35,16 @@ class BigSlider: UIControl {
     private var startLocation = CGPoint()
     private var currentHeight:CGFloat = 0.0
     
+    required init(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        self.backgroundColor = UIColor.clearColor()
+    }
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        self.backgroundColor = UIColor.clearColor()
+    }
+    
     override func drawRect(rect: CGRect) {
         if (!highlighted) {
             fillColor.setFill()
