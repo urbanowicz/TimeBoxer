@@ -15,6 +15,8 @@ class TimeSliderViewController: UIViewController {
     @IBOutlet weak var projectNameLabel: UILabel!
     @IBOutlet weak var timeLabel: UILabel!
     
+    private let sliderToMinutesConverter = SliderOutputToValueConverter(maxValue: 120, resolution: 5)
+    private let minutesToTextConverter = MinutesToStringConverter()
     private let toTimerRunningVCAnimator = ToTimerRunningAnimator()
     private var activeSegue:String?
 
@@ -45,7 +47,9 @@ class TimeSliderViewController: UIViewController {
 
 //----------------------------------------------------------------------------------------------------------------------
     @IBAction func timeSliderValueChanged() {
-        
+        let numberOfMinutes = sliderToMinutesConverter.convert(timeSlider.value)
+        timeLabel.text = minutesToTextConverter.convert(numberOfMinutes)
+        timeLabel.sizeToFit()
     }
 
 //MARK: Setup UI elements
@@ -68,7 +72,7 @@ class TimeSliderViewController: UIViewController {
     private func setupTimeLabel() {
         timeLabel.backgroundColor = Colors.toUIColor(.ALMOST_BLACK)
         timeLabel.textColor = Colors.toUIColor(.OFF_WHITE)
-        timeLabel.text = "1 hour 25 minutes"
+        timeLabel.text = "5 minutes"
         timeLabel.sizeToFit()
     }
     

@@ -37,6 +37,8 @@
 		F1981B9D1C84DE7200F49454 /* SliderOutputToValueConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1981B9C1C84DE7200F49454 /* SliderOutputToValueConverter.swift */; };
 		F1981B9E1C84DE7200F49454 /* SliderOutputToValueConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1981B9C1C84DE7200F49454 /* SliderOutputToValueConverter.swift */; };
 		F1981BA01C84DF8F00F49454 /* SliderOutputToValueConverterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1981B9F1C84DF8F00F49454 /* SliderOutputToValueConverterTests.swift */; };
+		F1981BA21C84E61700F49454 /* MinutesToStringConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1981BA11C84E61700F49454 /* MinutesToStringConverter.swift */; };
+		F1981BA31C84E61700F49454 /* MinutesToStringConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1981BA11C84E61700F49454 /* MinutesToStringConverter.swift */; };
 		F1A0BC701C4E63FC0075ACCF /* MyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A0BC6F1C4E63FC0075ACCF /* MyTableViewCell.swift */; };
 		F1A605361C81FBCA008EF288 /* UIControlsTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A605351C81FBCA008EF288 /* UIControlsTestViewController.swift */; };
 		F1A6053D1C8212CD008EF288 /* BigSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A6053C1C8212CD008EF288 /* BigSlider.swift */; };
@@ -97,6 +99,7 @@
 		F18D6B791BEB4BFE0003CBD4 /* TimerPausedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerPausedViewController.swift; sourceTree = "<group>"; };
 		F1981B9C1C84DE7200F49454 /* SliderOutputToValueConverter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SliderOutputToValueConverter.swift; sourceTree = "<group>"; };
 		F1981B9F1C84DF8F00F49454 /* SliderOutputToValueConverterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SliderOutputToValueConverterTests.swift; sourceTree = "<group>"; };
+		F1981BA11C84E61700F49454 /* MinutesToStringConverter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MinutesToStringConverter.swift; sourceTree = "<group>"; };
 		F1A0BC6F1C4E63FC0075ACCF /* MyTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyTableViewCell.swift; sourceTree = "<group>"; };
 		F1A605351C81FBCA008EF288 /* UIControlsTestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIControlsTestViewController.swift; sourceTree = "<group>"; };
 		F1A6053C1C8212CD008EF288 /* BigSlider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BigSlider.swift; sourceTree = "<group>"; };
@@ -307,6 +310,7 @@
 			children = (
 				F189A1B11BD8C0D3000FFC5F /* TimeSliderViewController.swift */,
 				F1981B9C1C84DE7200F49454 /* SliderOutputToValueConverter.swift */,
+				F1981BA11C84E61700F49454 /* MinutesToStringConverter.swift */,
 			);
 			name = TimeSliderVC;
 			sourceTree = "<group>";
@@ -471,6 +475,7 @@
 				F134520D1BEE63D400AB9F67 /* InvertedStopButton.swift in Sources */,
 				F11D5B9F1C42AD32007F2622 /* AddButton.swift in Sources */,
 				F137E96E1C41994A0064E15F /* ColorName.swift in Sources */,
+				F1981BA21C84E61700F49454 /* MinutesToStringConverter.swift in Sources */,
 				F152EE901C5968D00090BECC /* Project.swift in Sources */,
 				F10B85181C38346D002C66F2 /* ContainerViewController.swift in Sources */,
 				F14F13071BEA87160045936F /* StopButton.swift in Sources */,
@@ -490,6 +495,7 @@
 			files = (
 				F1981B9E1C84DE7200F49454 /* SliderOutputToValueConverter.swift in Sources */,
 				F1981BA01C84DF8F00F49454 /* SliderOutputToValueConverterTests.swift in Sources */,
+				F1981BA31C84E61700F49454 /* MinutesToStringConverter.swift in Sources */,
 				F1A95C061C6BD52B00EF5204 /* LastWorkedOnDateFormatterTests.swift in Sources */,
 				F15F9C651BCCF376008733A3 /* TimeBoxer_Tests.swift in Sources */,
 				F10CA9C11C67DEBC0062471C /* WorkChunk.swift in Sources */,

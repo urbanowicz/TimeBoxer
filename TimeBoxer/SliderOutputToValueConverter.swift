@@ -18,7 +18,8 @@ class SliderOutputToValueConverter: NSObject {
     
     func convert(sliderValue:Double) -> Int {
         let bucket = Int((sliderValue * Double(maxValue)) / Double(resolution))
-        return resolution * (bucket+1)
+        let value = min(resolution * (bucket+1), maxValue)
+        return value
     }
 
 }

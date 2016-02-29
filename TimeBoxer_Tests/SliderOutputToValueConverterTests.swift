@@ -31,4 +31,9 @@ class SliderOutputToValueConverterTests: XCTestCase {
         XCTAssert(value == 5)
     }
     
+    func testCase3() {
+        let value = converter?.convert(1.0)
+        XCTAssert(value == 120)
+    }
+    
 }
