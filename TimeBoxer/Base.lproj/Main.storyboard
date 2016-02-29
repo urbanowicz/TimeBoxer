@@ -13,6 +13,7 @@
             <string>Avenir-Book</string>
             <string>Avenir-Book</string>
             <string>Avenir-Book</string>
+            <string>Avenir-Book</string>
         </mutableArray>
         <mutableArray key="HelveticaNeue.ttc">
             <string>HelveticaNeue</string>
@@ -320,15 +321,24 @@
                                     <constraint firstAttribute="width" secondItem="DGo-vk-XWJ" secondAttribute="height" multiplier="1:1" id="lKS-Ce-Fdh"/>
                                 </constraints>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Project Name " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IKz-gY-cVc">
+                                <rect key="frame" x="246" y="368" width="108" height="24"/>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="DGo-vk-XWJ" firstAttribute="width" secondItem="7ur-lA-Jhx" secondAttribute="width" multiplier="0.28" id="0yx-V8-zX7"/>
+                            <constraint firstItem="DGo-vk-XWJ" firstAttribute="top" secondItem="IKz-gY-cVc" secondAttribute="bottom" constant="20" id="DvN-8h-qQi"/>
+                            <constraint firstItem="IKz-gY-cVc" firstAttribute="centerX" secondItem="7ur-lA-Jhx" secondAttribute="centerX" id="Y7R-Nk-CPW"/>
                             <constraint firstItem="qst-wG-f58" firstAttribute="top" secondItem="DGo-vk-XWJ" secondAttribute="bottom" constant="20" id="lP9-eg-0o2"/>
                             <constraint firstItem="DGo-vk-XWJ" firstAttribute="centerX" secondItem="7ur-lA-Jhx" secondAttribute="centerX" id="z9p-c9-f9v"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="projectNameLabel" destination="IKz-gY-cVc" id="6H9-tT-nVU"/>
                         <outlet property="startButton" destination="DGo-vk-XWJ" id="qPT-ZV-ScR"/>
                     </connections>
                 </viewController>

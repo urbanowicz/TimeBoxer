@@ -12,6 +12,7 @@ class TimeSliderViewController: UIViewController {
     
     @IBOutlet weak var timeSlider: BigSlider!
     @IBOutlet weak var startButton: StartButton!
+    @IBOutlet weak var projectNameLabel: UILabel!
     
     private let toTimerRunningVCAnimator = ToTimerRunningAnimator()
     private var activeSegue:String?
@@ -21,6 +22,7 @@ class TimeSliderViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = Colors.toUIColor(.ALMOST_BLACK)
         setupStartButton()
+        setupProjectNameLabel()
     }
     
 //----------------------------------------------------------------------------------------------------------------------
@@ -51,6 +53,13 @@ class TimeSliderViewController: UIViewController {
         startButton.ovalLayerHighlightedColor = Colors.toUIColor(.OFF_WHITE)!
         startButton.frontLayerHighlightedColor = Colors.toUIColor(.ALMOST_BLACK)!
         startButton.borderWidth = 2.0
+    }
+    
+    private func setupProjectNameLabel() {
+        projectNameLabel.backgroundColor = Colors.toUIColor(.ALMOST_BLACK)
+        projectNameLabel.textColor = Colors.toUIColor(.OFF_WHITE)
+        projectNameLabel.text = "Read On \"Intelligence\""
+        projectNameLabel.sizeToFit()
     }
     
 //MARK: - Navigation
