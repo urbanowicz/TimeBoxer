@@ -12,7 +12,18 @@ class BigSlider: UIControl {
     let handleHeight:CGFloat = 40.0
     let cornerRadius:CGFloat = 6.0
     
-    var fillColor:UIColor = UIColor.blackColor()
+    
+    var fillColor:UIColor = UIColor.blackColor() {
+        didSet {
+            sliderLayer.backgroundColor = fillColor.CGColor
+        }
+    }
+    
+    override var frame:CGRect {
+        didSet {
+            sliderLayer.frame = rectToDraw()
+        }
+    }
     
     var highlightedFillColor:UIColor {
         get {
@@ -31,31 +42,20 @@ class BigSlider: UIControl {
         }
     }
     
-    
+    private let sliderLayer = SliderLayer()
     private var startLocation = CGPoint()
     private var currentHeight:CGFloat = 0.0
     
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         self.backgroundColor = UIColor.clearColor()
+        sliderLayer.cornerRadius = cornerRadius
+        layer.addSublayer(sliderLayer)
     }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.backgroundColor = UIColor.clearColor()
-    }
-    
-    override func drawRect(rect: CGRect) {
-        if (!highlighted) {
-            fillColor.setFill()
-        } else {
-            highlightedFillColor.setFill()
-        }
-        
-        let rectToDraw = CGRect(x: bounds.origin.x, y: bounds.origin.y, width: bounds.width, height: handleHeight + currentHeight)
-        let pathToDraw = UIBezierPath(roundedRect: rectToDraw, cornerRadius: cornerRadius)
-        pathToDraw.fill()
-        
     }
     
     //MARK: Touch tracking
@@ -64,7 +64,7 @@ class BigSlider: UIControl {
         startLocation = touch.locationInView(self)
         let currentBounds = CGRect(x: bounds.origin.x, y: bounds.origin.y, width: bounds.width, height: handleHeight + currentHeight)
         if currentBounds.contains(startLocation) {
-            setNeedsDisplay()
+            sliderLayer.backgroundColor = highlightedFillColor.CGColor
             return true
         } else {
             return false
@@ -74,12 +74,11 @@ class BigSlider: UIControl {
     
     override func continueTrackingWithTouch(touch: UITouch, withEvent event: UIEvent?) -> Bool {
         
-        //1. Calculate how much we moved in the y direction and updated the current height of the slider
+        //1. Calculate how much we moved in the y direction and update the current height of the slider
         let currentLocation = touch.locationInView(self)
         let dy = currentLocation.y - startLocation.y
         startLocation = currentLocation
         currentHeight = currentHeight + dy
-        
         
         //2. Make sure we don't move outside the bounds of the slider
         func boundCurrentHeight() {
@@ -91,13 +90,30 @@ class BigSlider: UIControl {
             }
         }
         boundCurrentHeight()
-        setNeedsDisplay()
+        CATransaction.begin()
+        CATransaction.setValue(kCFBooleanTrue, forKey: kCATransactionDisableActions)
+        sliderLayer.frame = rectToDraw()
+        CATransaction.commit()
         sendActionsForControlEvents(.ValueChanged)
         return true
     }
     
     override func endTrackingWithTouch(touch: UITouch?, withEvent event: UIEvent?) {
-        setNeedsDisplay()
+        sliderLayer.backgroundColor = fillColor.CGColor
+    }
+    
+    func rectToDraw() -> CGRect {
+        return CGRect(x: bounds.origin.x, y: bounds.origin.y, width: bounds.width, height: handleHeight + currentHeight)
+    }
+    
+}
+
+class SliderLayer: CALayer {
+    
+    override var frame: CGRect {
+        didSet {
+            setNeedsDisplay()
+        }
     }
     
 }
