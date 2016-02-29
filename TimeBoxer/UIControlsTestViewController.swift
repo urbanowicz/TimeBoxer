@@ -27,6 +27,7 @@ class UIControlsTestViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    
     private func setupSlider() {
         slider.fillColor = Colors.toUIColor(.AZURE)!
         slider.addTarget(self, action: "sliderValueChanged", forControlEvents: UIControlEvents.ValueChanged)

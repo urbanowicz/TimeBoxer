@@ -26,6 +26,12 @@ class BigSlider: UIControl {
         }
     }
     
+    override var bounds:CGRect {
+        didSet {
+            sliderLayer.frame = rectToDraw()
+        }
+    }
+    
     var highlightedFillColor:UIColor {
         get {
             var red = CGFloat()
@@ -110,11 +116,9 @@ class BigSlider: UIControl {
 }
 
 class SliderLayer: CALayer {
-    
     override var frame: CGRect {
         didSet {
             setNeedsDisplay()
         }
     }
-    
 }
