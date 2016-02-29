@@ -25,6 +25,7 @@ class TimeSliderViewController: UIViewController {
         setupStartButton()
         setupProjectNameLabel()
         setupTimeLabel()
+        setupTimeSlider()
     }
     
 //----------------------------------------------------------------------------------------------------------------------
@@ -43,7 +44,7 @@ class TimeSliderViewController: UIViewController {
     }
 
 //----------------------------------------------------------------------------------------------------------------------
-    @IBAction func timeSliderValueChanged(sender: SimpleTimeSlider) {
+    @IBAction func timeSliderValueChanged() {
         
     }
 
@@ -69,6 +70,11 @@ class TimeSliderViewController: UIViewController {
         timeLabel.textColor = Colors.toUIColor(.OFF_WHITE)
         timeLabel.text = "1 hour 25 minutes"
         timeLabel.sizeToFit()
+    }
+    
+    private func setupTimeSlider() {
+        timeSlider.fillColor = Colors.toUIColor(.AZURE)!
+        timeSlider.addTarget(self, action: "timeSliderValueChanged", forControlEvents: UIControlEvents.ValueChanged)
     }
     
 //MARK: - Navigation

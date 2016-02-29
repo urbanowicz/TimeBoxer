@@ -334,6 +334,10 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="S2e-5T-8F7" customClass="BigSlider" customModule="TimeBoxer" customModuleProvider="target">
+                                <rect key="frame" x="188" y="73" width="225" height="279"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -342,7 +346,11 @@
                             <constraint firstItem="DGo-vk-XWJ" firstAttribute="top" secondItem="IKz-gY-cVc" secondAttribute="bottom" constant="20" id="DvN-8h-qQi"/>
                             <constraint firstItem="IKz-gY-cVc" firstAttribute="centerX" secondItem="7ur-lA-Jhx" secondAttribute="centerX" id="Y7R-Nk-CPW"/>
                             <constraint firstItem="LZV-Bq-Ygy" firstAttribute="centerX" secondItem="7ur-lA-Jhx" secondAttribute="centerX" id="Ysv-3q-xH8"/>
+                            <constraint firstItem="S2e-5T-8F7" firstAttribute="top" secondItem="LZV-Bq-Ygy" secondAttribute="bottom" constant="20" id="ZSJ-P6-JKm"/>
+                            <constraint firstItem="S2e-5T-8F7" firstAttribute="width" secondItem="7ur-lA-Jhx" secondAttribute="width" multiplier="0.375" id="gGb-ci-RZm"/>
+                            <constraint firstItem="IKz-gY-cVc" firstAttribute="top" secondItem="S2e-5T-8F7" secondAttribute="bottom" constant="20" id="gjM-pP-NRX"/>
                             <constraint firstItem="qst-wG-f58" firstAttribute="top" secondItem="DGo-vk-XWJ" secondAttribute="bottom" constant="20" id="lP9-eg-0o2"/>
+                            <constraint firstItem="S2e-5T-8F7" firstAttribute="centerX" secondItem="7ur-lA-Jhx" secondAttribute="centerX" id="wWB-fh-Kiz"/>
                             <constraint firstItem="DGo-vk-XWJ" firstAttribute="centerX" secondItem="7ur-lA-Jhx" secondAttribute="centerX" id="z9p-c9-f9v"/>
                         </constraints>
                     </view>
@@ -350,6 +358,7 @@
                         <outlet property="projectNameLabel" destination="IKz-gY-cVc" id="6H9-tT-nVU"/>
                         <outlet property="startButton" destination="DGo-vk-XWJ" id="qPT-ZV-ScR"/>
                         <outlet property="timeLabel" destination="LZV-Bq-Ygy" id="dms-2k-gkE"/>
+                        <outlet property="timeSlider" destination="S2e-5T-8F7" id="sr3-f8-gdR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0S7-9R-1fW" userLabel="First Responder" sceneMemberID="firstResponder"/>

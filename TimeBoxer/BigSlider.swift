@@ -22,6 +22,7 @@ class BigSlider: UIControl {
     override var frame:CGRect {
         didSet {
             sliderLayer.frame = rectToDraw()
+
         }
     }
     
