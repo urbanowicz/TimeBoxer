@@ -78,7 +78,12 @@ class ContainerViewController: UIViewController, UIGestureRecognizerDelegate{
         super.didReceiveMemoryWarning()
 
     }
+
+override func prefersStatusBarHidden() -> Bool {
+    return true;
+}
 //----------------------------------------------------------------------------------------------------------------------
+
 //MARK: PanGestureRecognizer
     func handlePanGesture(gestureRecognizer: UIPanGestureRecognizer) {
         let currentVC = childViewControllers[0] as? TimeSliderViewController

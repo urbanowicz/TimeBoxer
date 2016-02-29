@@ -329,20 +329,20 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LZV-Bq-Ygy">
-                                <rect key="frame" x="241" y="20" width="119" height="33"/>
+                                <rect key="frame" x="241" y="40" width="119" height="33"/>
                                 <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="24"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="S2e-5T-8F7" customClass="BigSlider" customModule="TimeBoxer" customModuleProvider="target">
-                                <rect key="frame" x="188" y="73" width="225" height="279"/>
+                                <rect key="frame" x="188" y="93" width="225" height="259"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="DGo-vk-XWJ" firstAttribute="width" secondItem="7ur-lA-Jhx" secondAttribute="width" multiplier="0.28" id="0yx-V8-zX7"/>
-                            <constraint firstItem="LZV-Bq-Ygy" firstAttribute="top" secondItem="Pye-Ya-2Po" secondAttribute="bottom" id="DH8-Aj-f4o"/>
+                            <constraint firstItem="LZV-Bq-Ygy" firstAttribute="top" secondItem="Pye-Ya-2Po" secondAttribute="bottom" constant="20" id="DH8-Aj-f4o"/>
                             <constraint firstItem="DGo-vk-XWJ" firstAttribute="top" secondItem="IKz-gY-cVc" secondAttribute="bottom" constant="20" id="DvN-8h-qQi"/>
                             <constraint firstItem="IKz-gY-cVc" firstAttribute="centerX" secondItem="7ur-lA-Jhx" secondAttribute="centerX" id="Y7R-Nk-CPW"/>
                             <constraint firstItem="LZV-Bq-Ygy" firstAttribute="centerX" secondItem="7ur-lA-Jhx" secondAttribute="centerX" id="Ysv-3q-xH8"/>
