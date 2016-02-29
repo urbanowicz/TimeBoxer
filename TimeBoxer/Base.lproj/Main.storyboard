@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8121.20" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="92H-bF-zZu">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8121.20" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="6mA-bS-VWc">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8101.16"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
@@ -314,63 +314,27 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" placeholderIntrinsicWidth="infinite" placeholderIntrinsicHeight="infinite" translatesAutoresizingMaskIntoConstraints="NO" id="uAL-3u-97j" customClass="SimpleTimeSlider" customModule="TimeBoxer" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="600" height="464"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <connections>
-                                    <action selector="timeSliderValueChanged:" destination="CN5-20-aaQ" eventType="valueChanged" id="0S9-XR-kpg"/>
-                                </connections>
-                            </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xI8-AT-XAn" userLabel="ToolbarFiller">
-                                <rect key="frame" x="0.0" y="492" width="600" height="108"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N5J-xj-kHZ" customClass="StartButton" customModule="TimeBoxer" customModuleProvider="target">
-                                        <rect key="frame" x="260" y="14" width="81" height="81"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="80" id="AHw-AV-zVm"/>
-                                            <constraint firstAttribute="width" secondItem="N5J-xj-kHZ" secondAttribute="height" multiplier="1:1" id="Ogq-yN-0SJ"/>
-                                            <constraint firstAttribute="height" constant="80" id="rvr-Py-Xuq"/>
-                                        </constraints>
-                                        <variation key="default">
-                                            <mask key="constraints">
-                                                <exclude reference="AHw-AV-zVm"/>
-                                                <exclude reference="rvr-Py-Xuq"/>
-                                            </mask>
-                                        </variation>
-                                        <connections>
-                                            <segue destination="WVv-Cz-hWv" kind="show" identifier="TimeSliderToTimerRunning" id="pqb-46-RWh"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DGo-vk-XWJ" userLabel="Start Button" customClass="StartButton" customModule="TimeBoxer" customModuleProvider="target">
+                                <rect key="frame" x="216" y="412" width="168" height="168"/>
                                 <constraints>
-                                    <constraint firstItem="N5J-xj-kHZ" firstAttribute="centerX" secondItem="xI8-AT-XAn" secondAttribute="centerX" id="wRc-0N-ekA"/>
-                                    <constraint firstItem="N5J-xj-kHZ" firstAttribute="height" secondItem="xI8-AT-XAn" secondAttribute="height" multiplier="0.75" id="xfn-Ua-ZLt"/>
-                                    <constraint firstItem="N5J-xj-kHZ" firstAttribute="centerY" secondItem="xI8-AT-XAn" secondAttribute="centerY" id="zIS-vu-2ip"/>
+                                    <constraint firstAttribute="width" secondItem="DGo-vk-XWJ" secondAttribute="height" multiplier="1:1" id="lKS-Ce-Fdh"/>
                                 </constraints>
-                            </view>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="uAL-3u-97j" firstAttribute="leading" secondItem="7ur-lA-Jhx" secondAttribute="leadingMargin" constant="-20" id="82q-0x-vhe"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="xI8-AT-XAn" secondAttribute="trailing" constant="-20" id="Y3l-US-1WV"/>
-                            <constraint firstItem="xI8-AT-XAn" firstAttribute="top" secondItem="uAL-3u-97j" secondAttribute="bottom" id="bBI-Xr-VDk"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="uAL-3u-97j" secondAttribute="trailing" constant="-20" id="cX8-TM-U3W"/>
-                            <constraint firstItem="xI8-AT-XAn" firstAttribute="leading" secondItem="7ur-lA-Jhx" secondAttribute="leadingMargin" constant="-20" id="g5f-Lj-jhb"/>
-                            <constraint firstItem="uAL-3u-97j" firstAttribute="top" secondItem="Pye-Ya-2Po" secondAttribute="bottom" constant="8" id="g6J-7F-dFe"/>
-                            <constraint firstItem="xI8-AT-XAn" firstAttribute="height" secondItem="7ur-lA-Jhx" secondAttribute="height" multiplier="0.18" id="uSk-AJ-lsz"/>
-                            <constraint firstItem="qst-wG-f58" firstAttribute="top" secondItem="xI8-AT-XAn" secondAttribute="bottom" id="zBr-qQ-1Fl"/>
+                            <constraint firstItem="DGo-vk-XWJ" firstAttribute="width" secondItem="7ur-lA-Jhx" secondAttribute="width" multiplier="0.28" id="0yx-V8-zX7"/>
+                            <constraint firstItem="qst-wG-f58" firstAttribute="top" secondItem="DGo-vk-XWJ" secondAttribute="bottom" constant="20" id="lP9-eg-0o2"/>
+                            <constraint firstItem="DGo-vk-XWJ" firstAttribute="centerX" secondItem="7ur-lA-Jhx" secondAttribute="centerX" id="z9p-c9-f9v"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="startButton" destination="N5J-xj-kHZ" id="NSn-03-iek"/>
-                        <outlet property="timeSlider" destination="uAL-3u-97j" id="Ybn-yy-7eh"/>
-                        <segue destination="tfb-2n-GXL" kind="show" identifier="TimeSliderToProjectsTable" id="Hu2-jX-0T3"/>
+                        <outlet property="startButton" destination="DGo-vk-XWJ" id="qPT-ZV-ScR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0S7-9R-1fW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="587" y="222"/>
+            <point key="canvasLocation" x="582" y="222"/>
         </scene>
         <!--Timer Running View Controller-->
         <scene sceneID="st3-lv-2It">
@@ -541,7 +505,4 @@
             <point key="canvasLocation" x="2057" y="222"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="pqb-46-RWh"/>
-    </inferredMetricsTieBreakers>
 </document>

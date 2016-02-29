@@ -10,32 +10,17 @@ import UIKit
 
 class TimeSliderViewController: UIViewController {
     
-    @IBOutlet weak var timeSlider: SimpleTimeSlider!
+    @IBOutlet weak var timeSlider: BigSlider!
     @IBOutlet weak var startButton: StartButton!
     
-    let startButtonBackgroundColor = UIColor(red:1.0, green:0.945, blue: 0.902, alpha:1.0)
-    let startButtonFrontLayerColor = UIColor(white:0.15, alpha:1.0)
     private let toTimerRunningVCAnimator = ToTimerRunningAnimator()
     private var activeSegue:String?
 
 //----------------------------------------------------------------------------------------------------------------------
     override func viewDidLoad() {
         super.viewDidLoad()
-        startButton.ovalLayerColor = startButtonBackgroundColor
-        startButton.frontLayerColor = startButtonFrontLayerColor
-        startButton.frontLayerHighlightedColor = startButtonFrontLayerColor
-        startButton.ovalLayerHighlightedColor = startButtonBackgroundColor
-        startButton.borderColor = startButtonFrontLayerColor
-        startButton.borderWidth = 1.0
-        
-        func setupTapGestureRecognizer() {
-            let tapGestureRecognizer = UITapGestureRecognizer()
-            tapGestureRecognizer.numberOfTapsRequired = 2
-            tapGestureRecognizer.addTarget(self, action: "handleDoubleTap:")
-            self.view.addGestureRecognizer(tapGestureRecognizer)
-        }
-        //setupTapGestureRecognizer()
-
+        view.backgroundColor = Colors.toUIColor(.ALMOST_BLACK)
+        setupStartButton()
     }
     
 //----------------------------------------------------------------------------------------------------------------------
@@ -45,17 +30,27 @@ class TimeSliderViewController: UIViewController {
 
 //----------------------------------------------------------------------------------------------------------------------
     override func viewWillAppear(animated: Bool) {
-        timeSlider.frameIsReady()
+        
     }
     
 //----------------------------------------------------------------------------------------------------------------------
     override func viewDidLayoutSubviews() {
-        timeSlider.frameIsReady()
+        
     }
 
 //----------------------------------------------------------------------------------------------------------------------
     @IBAction func timeSliderValueChanged(sender: SimpleTimeSlider) {
         
+    }
+
+//MARK: Setup UI elements
+    private func setupStartButton() {
+        startButton.borderColor = Colors.toUIColor(.OFF_WHITE)!
+        startButton.ovalLayerColor = Colors.toUIColor(.ALMOST_BLACK)!
+        startButton.frontLayerColor = Colors.toUIColor(.OFF_WHITE)!
+        startButton.ovalLayerHighlightedColor = Colors.toUIColor(.OFF_WHITE)!
+        startButton.frontLayerHighlightedColor = Colors.toUIColor(.ALMOST_BLACK)!
+        startButton.borderWidth = 2.0
     }
     
 //MARK: - Navigation
@@ -65,7 +60,7 @@ class TimeSliderViewController: UIViewController {
             activeSegue = segueIdentifier
             if segueIdentifier == "TimeSliderToTimerRunning" {
                 let timerRunningViewController = segue.destinationViewController as! TimerRunningViewController
-                timerRunningViewController.counter = timeSlider.value * 60
+                timerRunningViewController.counter = 5 * 60
             }
         }
     
@@ -80,10 +75,6 @@ class TimeSliderViewController: UIViewController {
         }
     }
     
-//MARK: Double tap gesture
-    func handleDoubleTap(recognizer: UITapGestureRecognizer) {
-        print("Double tap recorded")
-    }
 }
 
 
