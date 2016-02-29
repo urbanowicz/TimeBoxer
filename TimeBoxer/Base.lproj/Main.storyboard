@@ -14,6 +14,7 @@
             <string>Avenir-Book</string>
             <string>Avenir-Book</string>
             <string>Avenir-Book</string>
+            <string>Avenir-Book</string>
         </mutableArray>
         <mutableArray key="HelveticaNeue.ttc">
             <string>HelveticaNeue</string>
@@ -322,8 +323,14 @@
                                 </constraints>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Project Name " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IKz-gY-cVc">
-                                <rect key="frame" x="246" y="368" width="108" height="24"/>
-                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
+                                <rect key="frame" x="256" y="372" width="89" height="20"/>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="14"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LZV-Bq-Ygy">
+                                <rect key="frame" x="241" y="20" width="119" height="33"/>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="24"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -331,8 +338,10 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="DGo-vk-XWJ" firstAttribute="width" secondItem="7ur-lA-Jhx" secondAttribute="width" multiplier="0.28" id="0yx-V8-zX7"/>
+                            <constraint firstItem="LZV-Bq-Ygy" firstAttribute="top" secondItem="Pye-Ya-2Po" secondAttribute="bottom" id="DH8-Aj-f4o"/>
                             <constraint firstItem="DGo-vk-XWJ" firstAttribute="top" secondItem="IKz-gY-cVc" secondAttribute="bottom" constant="20" id="DvN-8h-qQi"/>
                             <constraint firstItem="IKz-gY-cVc" firstAttribute="centerX" secondItem="7ur-lA-Jhx" secondAttribute="centerX" id="Y7R-Nk-CPW"/>
+                            <constraint firstItem="LZV-Bq-Ygy" firstAttribute="centerX" secondItem="7ur-lA-Jhx" secondAttribute="centerX" id="Ysv-3q-xH8"/>
                             <constraint firstItem="qst-wG-f58" firstAttribute="top" secondItem="DGo-vk-XWJ" secondAttribute="bottom" constant="20" id="lP9-eg-0o2"/>
                             <constraint firstItem="DGo-vk-XWJ" firstAttribute="centerX" secondItem="7ur-lA-Jhx" secondAttribute="centerX" id="z9p-c9-f9v"/>
                         </constraints>
@@ -340,6 +349,7 @@
                     <connections>
                         <outlet property="projectNameLabel" destination="IKz-gY-cVc" id="6H9-tT-nVU"/>
                         <outlet property="startButton" destination="DGo-vk-XWJ" id="qPT-ZV-ScR"/>
+                        <outlet property="timeLabel" destination="LZV-Bq-Ygy" id="dms-2k-gkE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0S7-9R-1fW" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -13,6 +13,7 @@ class TimeSliderViewController: UIViewController {
     @IBOutlet weak var timeSlider: BigSlider!
     @IBOutlet weak var startButton: StartButton!
     @IBOutlet weak var projectNameLabel: UILabel!
+    @IBOutlet weak var timeLabel: UILabel!
     
     private let toTimerRunningVCAnimator = ToTimerRunningAnimator()
     private var activeSegue:String?
@@ -23,6 +24,7 @@ class TimeSliderViewController: UIViewController {
         view.backgroundColor = Colors.toUIColor(.ALMOST_BLACK)
         setupStartButton()
         setupProjectNameLabel()
+        setupTimeLabel()
     }
     
 //----------------------------------------------------------------------------------------------------------------------
@@ -60,6 +62,13 @@ class TimeSliderViewController: UIViewController {
         projectNameLabel.textColor = Colors.toUIColor(.OFF_WHITE)
         projectNameLabel.text = "Read On \"Intelligence\""
         projectNameLabel.sizeToFit()
+    }
+    
+    private func setupTimeLabel() {
+        timeLabel.backgroundColor = Colors.toUIColor(.ALMOST_BLACK)
+        timeLabel.textColor = Colors.toUIColor(.OFF_WHITE)
+        timeLabel.text = "1 hour 25 minutes"
+        timeLabel.sizeToFit()
     }
     
 //MARK: - Navigation
