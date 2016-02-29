@@ -15,7 +15,8 @@ class Colors: NSObject {
         ColorName.WHITE : UIColor(white:1.0, alpha:1.0),
         ColorName.OFF_WHITE : UIColor(red:1.0, green:0.945, blue: 0.902, alpha:1.0),
         ColorName.LIGHT_GRAY : UIColor(white:0.52, alpha:1.0),
-        ColorName.VERY_LIGHT_GRAY : UIColor(red:0.93, green:0.93, blue:0.93, alpha:1.0)
+        ColorName.VERY_LIGHT_GRAY : UIColor(red:0.93, green:0.93, blue:0.93, alpha:1.0),
+        ColorName.AZURE : UIColor(red: 0.902, green: 1, blue: 1, alpha: 1)
     ]
 
 //----------------------------------------------------------------------------------------------------------------------
