@@ -392,32 +392,29 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" distribution="fillProportionally" alignment="center" spacing="11" translatesAutoresizingMaskIntoConstraints="NO" id="dVc-89-ZfZ">
-                                <rect key="frame" x="240" y="259" width="201" height="115"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Project Name " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HoH-jI-dWq" userLabel="Project Name Label">
-                                        <rect key="frame" x="49" y="0.0" width="102" height="22"/>
-                                        <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="16"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0:00:00" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1IS-Qf-OeE" userLabel="Timer Label">
-                                        <rect key="frame" x="0.0" y="33" width="201" height="82"/>
-                                        <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="60"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0:00:00" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1IS-Qf-OeE" userLabel="Timer Label">
+                                <rect key="frame" x="200" y="259" width="201" height="82"/>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="60"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Project Name " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HoH-jI-dWq" userLabel="Project Name Label">
+                                <rect key="frame" x="249" y="217" width="102" height="22"/>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="16"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="REF-d8-4QU" firstAttribute="top" secondItem="UNg-MR-z0J" secondAttribute="bottom" constant="20" id="3R8-uZ-G8T"/>
-                            <constraint firstItem="dVc-89-ZfZ" firstAttribute="centerY" secondItem="o6n-fX-khZ" secondAttribute="centerY" id="5WD-gk-BCZ"/>
-                            <constraint firstItem="dVc-89-ZfZ" firstAttribute="centerX" secondItem="o6n-fX-khZ" secondAttribute="centerX" id="9uj-RP-hLx"/>
+                            <constraint firstItem="1IS-Qf-OeE" firstAttribute="centerY" secondItem="o6n-fX-khZ" secondAttribute="centerY" id="5EE-oD-H5o"/>
                             <constraint firstItem="5Fo-j0-8bi" firstAttribute="top" secondItem="WxM-gN-E9R" secondAttribute="bottom" constant="20" id="OMd-by-2ND"/>
+                            <constraint firstItem="HoH-jI-dWq" firstAttribute="centerX" secondItem="o6n-fX-khZ" secondAttribute="centerX" id="inc-H1-I7Q"/>
+                            <constraint firstItem="1IS-Qf-OeE" firstAttribute="centerX" secondItem="o6n-fX-khZ" secondAttribute="centerX" id="ip3-DV-5Oc"/>
                             <constraint firstItem="5Fo-j0-8bi" firstAttribute="centerX" secondItem="o6n-fX-khZ" secondAttribute="centerX" id="ph3-X4-eEp"/>
                             <constraint firstItem="UNg-MR-z0J" firstAttribute="width" secondItem="o6n-fX-khZ" secondAttribute="width" multiplier="0.28" id="s1D-4Y-FgO"/>
+                            <constraint firstItem="1IS-Qf-OeE" firstAttribute="top" secondItem="HoH-jI-dWq" secondAttribute="bottom" constant="20" id="yI9-6P-D0R"/>
                             <constraint firstItem="UNg-MR-z0J" firstAttribute="centerX" secondItem="o6n-fX-khZ" secondAttribute="centerX" id="zRs-EH-a58"/>
                         </constraints>
                     </view>
