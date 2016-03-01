@@ -24,6 +24,7 @@ class TimerPausedViewController: UIViewController {
         setupResumeButton()
         setupCancelButton()
         setupStopButton()
+        setupPausedLabel()
     }
 
     override func didReceiveMemoryWarning()
@@ -57,6 +58,10 @@ class TimerPausedViewController: UIViewController {
         stopButton.ovalLayerHighlightedColor = Colors.toUIColor(.OFF_WHITE)!
         stopButton.frontLayerHighlightedColor = Colors.toUIColor(.ALMOST_BLACK)!
         stopButton.borderWidth = 2.0
+    }
+    
+    private func setupPausedLabel() {
+        pausedLabel.textColor = Colors.toUIColor(.OFF_WHITE)!
     }
     
 //MARK: Actions
