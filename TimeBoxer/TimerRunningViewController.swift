@@ -11,45 +11,53 @@ import UIKit
 class TimerRunningViewController: UIViewController {
     @IBOutlet weak var pauseButton: PauseButton!
     @IBOutlet weak var timeLabel: UILabel!
-    @IBOutlet weak var toolbarFiller: UIView!
-    @IBOutlet weak var topContainer: UIView!
+    @IBOutlet weak var appTitleLabel: UILabel!
     
     private let toTimerPausedAnimator = ToTimerPausedAnimator()
     var timer = NSTimer()
     var counter = 0 //number of seconds
     
-//----------------------------------------------------------------------------------------------------------------------
+
     override func viewDidLoad()
     {
         super.viewDidLoad()
-        view.backgroundColor = UIColor(red:1.0, green:0.945, blue: 0.902, alpha:1.0)
-        toolbarFiller.backgroundColor = view.backgroundColor
-        topContainer.backgroundColor = view.backgroundColor
-        
-        pauseButton.frontLayerColor = UIColor(red:1.0, green:0.945, blue: 0.902, alpha:1.0)
-        pauseButton.ovalLayerHighlightedColor = pauseButton.ovalLayerColor
-        pauseButton.frontLayerHighlightedColor = pauseButton.frontLayerColor
+        view.backgroundColor = Colors.toUIColor(.OFF_WHITE)!
+        setupAppTitleLabel()
+        setupPauseButton()
     }
     
-//----------------------------------------------------------------------------------------------------------------------
+
     override func viewWillAppear(animated: Bool) {
-        updateTimeLabel()
-        timer = NSTimer.scheduledTimerWithTimeInterval(1.0, target:self, selector: "countDown",
-            userInfo: nil, repeats: true)
+//        updateTimeLabel()
+//        timer = NSTimer.scheduledTimerWithTimeInterval(1.0, target:self, selector: "countDown",
+//            userInfo: nil, repeats: true)
     }
 
-//----------------------------------------------------------------------------------------------------------------------
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+
+//MARK: Setup UI elements
+    private func setupAppTitleLabel() {
+        appTitleLabel.textColor = Colors.toUIColor(.ALMOST_BLACK)
+        appTitleLabel.sizeToFit()
+    }
+    private func setupPauseButton() {
+        pauseButton.borderColor = Colors.toUIColor(.ALMOST_BLACK)!
+        pauseButton.ovalLayerColor = Colors.toUIColor(.OFF_WHITE)!
+        pauseButton.frontLayerColor = Colors.toUIColor(.ALMOST_BLACK)!
+        pauseButton.ovalLayerHighlightedColor = Colors.toUIColor(.ALMOST_BLACK)!
+        pauseButton.frontLayerHighlightedColor = Colors.toUIColor(.OFF_WHITE)!
+        pauseButton.borderWidth = 2.0
+    }
     
-//----------------------------------------------------------------------------------------------------------------------
+//MARK: Actions
     @IBAction func pauseButtonPressed(sender: UIButton) {
         timer.invalidate()
     }
-    
-//----------------------------------------------------------------------------------------------------------------------
+
     func countDown() {
         counter--
         updateTimeLabel()
@@ -59,7 +67,6 @@ class TimerRunningViewController: UIViewController {
         }
     }
     
-//----------------------------------------------------------------------------------------------------------------------
     private func updateTimeLabel() {
         var counterCopy = counter
         let hours = counterCopy / 3600
@@ -90,11 +97,9 @@ class TimerRunningViewController: UIViewController {
         
     }
     
-    //MARK: - Navigation
-//----------------------------------------------------------------------------------------------------------------------
+//MARK: - Navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if let segueIdentifier = segue.identifier {
-            print(segueIdentifier)
             if segueIdentifier == "TimerRunningToTimerPaused" {
                 let timerPausedVC = segue.destinationViewController as! TimerPausedViewController
                 timerPausedVC.counter = counter
@@ -103,7 +108,7 @@ class TimerRunningViewController: UIViewController {
             print ("unknown segue")
         }
     }
-//----------------------------------------------------------------------------------------------------------------------
+
     override func showViewController(vc: UIViewController, sender: AnyObject?) {
         let containerVC = parentViewController as! ContainerViewController
         containerVC.switchViewControllers(self, toVC: vc, animator: toTimerPausedAnimator)

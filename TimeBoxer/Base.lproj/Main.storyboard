@@ -16,9 +16,6 @@
             <string>Avenir-Book</string>
             <string>Avenir-Book</string>
         </mutableArray>
-        <mutableArray key="HelveticaNeue.ttc">
-            <string>HelveticaNeue</string>
-        </mutableArray>
     </customFonts>
     <scenes>
         <!--Edit Project View Controller-->
@@ -381,62 +378,31 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BTw-im-1hi" userLabel="ToolbarFIller1">
-                                <rect key="frame" x="0.0" y="492" width="600" height="108"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FpE-Td-kzr" userLabel="PauseButton" customClass="PauseButton" customModule="TimeBoxer" customModuleProvider="target">
-                                        <rect key="frame" x="260" y="14" width="81" height="81"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" secondItem="FpE-Td-kzr" secondAttribute="height" multiplier="1:1" id="Euq-8Q-9mj"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
-                                        <connections>
-                                            <action selector="pauseButtonPressed:" destination="WVv-Cz-hWv" eventType="touchUpInside" id="Lxg-0b-djw"/>
-                                            <segue destination="lqK-VX-oTB" kind="show" identifier="TimerRunningToTimerPaused" id="Sjr-xE-zgp"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UNg-MR-z0J" userLabel="Pause Button" customClass="PauseButton" customModule="TimeBoxer" customModuleProvider="target">
+                                <rect key="frame" x="216" y="412" width="168" height="168"/>
                                 <constraints>
-                                    <constraint firstItem="FpE-Td-kzr" firstAttribute="height" secondItem="BTw-im-1hi" secondAttribute="height" multiplier="0.75" id="MUd-6n-bav"/>
-                                    <constraint firstItem="FpE-Td-kzr" firstAttribute="centerY" secondItem="BTw-im-1hi" secondAttribute="centerY" id="kWf-LA-zXL"/>
-                                    <constraint firstItem="FpE-Td-kzr" firstAttribute="centerX" secondItem="BTw-im-1hi" secondAttribute="centerX" id="pcZ-3E-8bP"/>
+                                    <constraint firstAttribute="width" secondItem="UNg-MR-z0J" secondAttribute="height" multiplier="1:1" id="LKm-8I-jbA"/>
                                 </constraints>
-                            </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hvt-Eh-bge" userLabel="TopContainer">
-                                <rect key="frame" x="0.0" y="28" width="600" height="464"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0:00:00" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4dv-nH-N0g" userLabel="TimeLabel">
-                                        <rect key="frame" x="180" y="198" width="241" height="67"/>
-                                        <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="57"/>
-                                        <color key="textColor" red="0.14280473066298338" green="0.14280473066298338" blue="0.14280473066298338" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstItem="4dv-nH-N0g" firstAttribute="centerY" secondItem="Hvt-Eh-bge" secondAttribute="centerY" id="gpi-oq-2xS"/>
-                                    <constraint firstItem="4dv-nH-N0g" firstAttribute="centerX" secondItem="Hvt-Eh-bge" secondAttribute="centerX" id="vGe-nq-zoX"/>
-                                </constraints>
-                            </view>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time Boxer" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Fo-j0-8bi">
+                                <rect key="frame" x="264" y="40" width="73" height="18"/>
+                                <fontDescription key="fontDescription" name="Baskerville" family="Baskerville" pointSize="15"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="REF-d8-4QU" firstAttribute="top" secondItem="BTw-im-1hi" secondAttribute="bottom" id="5XI-L7-gMx"/>
-                            <constraint firstItem="Hvt-Eh-bge" firstAttribute="leading" secondItem="o6n-fX-khZ" secondAttribute="leadingMargin" constant="-20" id="9zQ-DD-hwB"/>
-                            <constraint firstItem="BTw-im-1hi" firstAttribute="height" secondItem="o6n-fX-khZ" secondAttribute="height" multiplier="0.18" id="CNV-GG-RsR"/>
-                            <constraint firstItem="BTw-im-1hi" firstAttribute="leading" secondItem="o6n-fX-khZ" secondAttribute="leadingMargin" constant="-20" id="HfC-Q1-hpQ"/>
-                            <constraint firstItem="Hvt-Eh-bge" firstAttribute="top" secondItem="WxM-gN-E9R" secondAttribute="bottom" constant="8" id="L27-Kr-Uo9"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="Hvt-Eh-bge" secondAttribute="trailing" constant="-20" id="WQu-3z-ftf"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="BTw-im-1hi" secondAttribute="trailing" constant="-20" id="Wdn-n2-MKV"/>
-                            <constraint firstItem="BTw-im-1hi" firstAttribute="top" secondItem="Hvt-Eh-bge" secondAttribute="bottom" id="wgA-IL-crP"/>
+                            <constraint firstItem="REF-d8-4QU" firstAttribute="top" secondItem="UNg-MR-z0J" secondAttribute="bottom" constant="20" id="3R8-uZ-G8T"/>
+                            <constraint firstItem="5Fo-j0-8bi" firstAttribute="top" secondItem="WxM-gN-E9R" secondAttribute="bottom" constant="20" id="OMd-by-2ND"/>
+                            <constraint firstItem="5Fo-j0-8bi" firstAttribute="centerX" secondItem="o6n-fX-khZ" secondAttribute="centerX" id="ph3-X4-eEp"/>
+                            <constraint firstItem="UNg-MR-z0J" firstAttribute="width" secondItem="o6n-fX-khZ" secondAttribute="width" multiplier="0.28" id="s1D-4Y-FgO"/>
+                            <constraint firstItem="UNg-MR-z0J" firstAttribute="centerX" secondItem="o6n-fX-khZ" secondAttribute="centerX" id="zRs-EH-a58"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="pauseButton" destination="FpE-Td-kzr" id="q9K-BD-e5G"/>
-                        <outlet property="timeLabel" destination="4dv-nH-N0g" id="T7Y-Cx-Kjd"/>
-                        <outlet property="toolbarFiller" destination="BTw-im-1hi" id="Ojr-40-XHV"/>
-                        <outlet property="topContainer" destination="Hvt-Eh-bge" id="VS4-o5-mmr"/>
+                        <outlet property="appTitleLabel" destination="5Fo-j0-8bi" id="Va8-Jw-a75"/>
+                        <outlet property="pauseButton" destination="UNg-MR-z0J" id="EqC-Fm-rcX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="D5S-Un-hAw" userLabel="First Responder" sceneMemberID="firstResponder"/>
