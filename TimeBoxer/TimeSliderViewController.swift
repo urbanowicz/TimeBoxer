@@ -81,7 +81,8 @@ class TimeSliderViewController: UIViewController {
         if let segueIdentifier = segue.identifier {
             if segueIdentifier == "TimeSliderToTimerRunning" {
                 let timerRunningViewController = segue.destinationViewController as! TimerRunningViewController
-                timerRunningViewController.counter = 5 * 60
+                timerRunningViewController.counter = sliderToMinutesConverter.convert(timeSlider.value) * 60
+                timerRunningViewController.projectName = "Read \"On Intelligence\""
             }
         }
     

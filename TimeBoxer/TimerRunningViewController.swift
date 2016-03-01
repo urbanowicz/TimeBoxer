@@ -12,6 +12,9 @@ class TimerRunningViewController: UIViewController {
     @IBOutlet weak var pauseButton: PauseButton!
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var appTitleLabel: UILabel!
+    @IBOutlet weak var projectNameLabel: UILabel!
+    
+    var projectName:String?
     
     private let toTimerPausedAnimator = ToTimerPausedAnimator()
     var timer = NSTimer()
@@ -23,14 +26,16 @@ class TimerRunningViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = Colors.toUIColor(.OFF_WHITE)!
         setupAppTitleLabel()
+        setupProjectNameLabel()
+        setupTimeLabel()
         setupPauseButton()
     }
     
 
     override func viewWillAppear(animated: Bool) {
-//        updateTimeLabel()
-//        timer = NSTimer.scheduledTimerWithTimeInterval(1.0, target:self, selector: "countDown",
-//            userInfo: nil, repeats: true)
+        updateTimeLabel()
+        timer = NSTimer.scheduledTimerWithTimeInterval(1.0, target:self, selector: "countDown",
+            userInfo: nil, repeats: true)
     }
 
 
@@ -44,6 +49,16 @@ class TimerRunningViewController: UIViewController {
         appTitleLabel.textColor = Colors.toUIColor(.ALMOST_BLACK)
         appTitleLabel.sizeToFit()
     }
+    
+    private func setupProjectNameLabel() {
+        projectNameLabel.textColor = Colors.toUIColor(.ALMOST_BLACK)
+        projectNameLabel.text = projectName!
+    }
+    
+    private func setupTimeLabel() {
+        timeLabel.textColor = Colors.toUIColor(.ALMOST_BLACK)
+    }
+    
     private func setupPauseButton() {
         pauseButton.borderColor = Colors.toUIColor(.ALMOST_BLACK)!
         pauseButton.ovalLayerColor = Colors.toUIColor(.OFF_WHITE)!
