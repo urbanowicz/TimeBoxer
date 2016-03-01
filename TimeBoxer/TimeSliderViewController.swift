@@ -34,24 +34,7 @@ class TimeSliderViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
-
-//----------------------------------------------------------------------------------------------------------------------
-    override func viewWillAppear(animated: Bool) {
-        
-    }
     
-//----------------------------------------------------------------------------------------------------------------------
-    override func viewDidLayoutSubviews() {
-        
-    }
-
-//----------------------------------------------------------------------------------------------------------------------
-    @IBAction func timeSliderValueChanged() {
-        let numberOfMinutes = sliderToMinutesConverter.convert(timeSlider.value)
-        timeLabel.text = minutesToTextConverter.convert(numberOfMinutes)
-        timeLabel.sizeToFit()
-    }
-
 //MARK: Setup UI elements
     private func setupStartButton() {
         startButton.borderColor = Colors.toUIColor(.OFF_WHITE)!
@@ -80,6 +63,18 @@ class TimeSliderViewController: UIViewController {
         timeSlider.fillColor = Colors.toUIColor(.AZURE)!
         timeSlider.addTarget(self, action: "timeSliderValueChanged", forControlEvents: UIControlEvents.ValueChanged)
     }
+    
+//MARK: Actions
+    @IBAction func timeSliderValueChanged() {
+        let numberOfMinutes = sliderToMinutesConverter.convert(timeSlider.value)
+        timeLabel.text = minutesToTextConverter.convert(numberOfMinutes)
+        timeLabel.sizeToFit()
+    }
+    
+    @IBAction func startButtonPressed(sender: StartButton) {
+        performSegueWithIdentifier("TimeSliderToTimerRunning", sender: self)
+    }
+
     
 //MARK: - Navigation
 //----------------------------------------------------------------------------------------------------------------------

@@ -321,6 +321,9 @@
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="DGo-vk-XWJ" secondAttribute="height" multiplier="1:1" id="lKS-Ce-Fdh"/>
                                 </constraints>
+                                <connections>
+                                    <action selector="startButtonPressed:" destination="CN5-20-aaQ" eventType="touchUpInside" id="2H4-sa-pgg"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Project Name " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IKz-gY-cVc">
                                 <rect key="frame" x="256" y="372" width="89" height="20"/>
@@ -359,6 +362,7 @@
                         <outlet property="startButton" destination="DGo-vk-XWJ" id="qPT-ZV-ScR"/>
                         <outlet property="timeLabel" destination="LZV-Bq-Ygy" id="dms-2k-gkE"/>
                         <outlet property="timeSlider" destination="S2e-5T-8F7" id="sr3-f8-gdR"/>
+                        <segue destination="WVv-Cz-hWv" kind="show" identifier="TimeSliderToTimerRunning" id="kZ5-jR-Sp1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0S7-9R-1fW" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -534,4 +538,7 @@
             <point key="canvasLocation" x="2057" y="222"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="kZ5-jR-Sp1"/>
+    </inferredMetricsTieBreakers>
 </document>
