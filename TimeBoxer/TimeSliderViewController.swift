@@ -45,9 +45,10 @@ class TimeSliderViewController: UIViewController {
     }
     
     private func setupProjectNameLabel() {
-        projectNameLabel.backgroundColor = Colors.toUIColor(.ALMOST_BLACK)
         projectNameLabel.textColor = Colors.toUIColor(.OFF_WHITE)
-        projectNameLabel.text = "Read On \"Intelligence\""
+        projectNameLabel.text = "Read \"On Intelligence\" and implement the MIDI encoder for the NUPIC platform"
+        projectNameLabel.numberOfLines = 4
+        projectNameLabel.adjustsFontSizeToFitWidth = true
         projectNameLabel.sizeToFit()
     }
     

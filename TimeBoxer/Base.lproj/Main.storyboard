@@ -344,6 +344,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="DGo-vk-XWJ" firstAttribute="width" secondItem="7ur-lA-Jhx" secondAttribute="width" multiplier="0.28" id="0yx-V8-zX7"/>
+                            <constraint firstItem="IKz-gY-cVc" firstAttribute="width" relation="lessThanOrEqual" secondItem="7ur-lA-Jhx" secondAttribute="width" multiplier="0.6" id="BfR-P2-yv0"/>
                             <constraint firstItem="LZV-Bq-Ygy" firstAttribute="top" secondItem="Pye-Ya-2Po" secondAttribute="bottom" constant="20" id="DH8-Aj-f4o"/>
                             <constraint firstItem="DGo-vk-XWJ" firstAttribute="top" secondItem="IKz-gY-cVc" secondAttribute="bottom" constant="20" id="DvN-8h-qQi"/>
                             <constraint firstItem="IKz-gY-cVc" firstAttribute="centerX" secondItem="7ur-lA-Jhx" secondAttribute="centerX" id="Y7R-Nk-CPW"/>
