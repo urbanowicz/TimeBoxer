@@ -71,6 +71,7 @@ class TimerRunningViewController: UIViewController {
 //MARK: Actions
     @IBAction func pauseButtonPressed(sender: UIButton) {
         timer.invalidate()
+        performSegueWithIdentifier("TimerRunningToTimerPaused", sender: self)
     }
 
     func countDown() {

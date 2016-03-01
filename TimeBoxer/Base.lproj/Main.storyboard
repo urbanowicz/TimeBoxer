@@ -385,6 +385,9 @@
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="UNg-MR-z0J" secondAttribute="height" multiplier="1:1" id="LKm-8I-jbA"/>
                                 </constraints>
+                                <connections>
+                                    <action selector="pauseButtonPressed:" destination="WVv-Cz-hWv" eventType="touchUpInside" id="oZU-jI-0Di"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time Boxer" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Fo-j0-8bi">
                                 <rect key="frame" x="264" y="40" width="73" height="18"/>
@@ -423,6 +426,7 @@
                         <outlet property="pauseButton" destination="UNg-MR-z0J" id="EqC-Fm-rcX"/>
                         <outlet property="projectNameLabel" destination="HoH-jI-dWq" id="Tnq-9T-yeb"/>
                         <outlet property="timeLabel" destination="1IS-Qf-OeE" id="cVF-g1-2rs"/>
+                        <segue destination="lqK-VX-oTB" kind="show" identifier="TimerRunningToTimerPaused" id="ege-pk-Hef"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="D5S-Un-hAw" userLabel="First Responder" sceneMemberID="firstResponder"/>
