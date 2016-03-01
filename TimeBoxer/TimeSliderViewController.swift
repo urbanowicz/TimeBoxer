@@ -18,7 +18,6 @@ class TimeSliderViewController: UIViewController {
     private let sliderToMinutesConverter = SliderOutputToValueConverter(maxValue: 120, resolution: 5)
     private let minutesToTextConverter = MinutesToStringConverter()
     private let toTimerRunningVCAnimator = ToTimerRunningAnimator()
-    private var activeSegue:String?
 
 //----------------------------------------------------------------------------------------------------------------------
     override func viewDidLoad() {
@@ -80,7 +79,6 @@ class TimeSliderViewController: UIViewController {
 //----------------------------------------------------------------------------------------------------------------------
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if let segueIdentifier = segue.identifier {
-            activeSegue = segueIdentifier
             if segueIdentifier == "TimeSliderToTimerRunning" {
                 let timerRunningViewController = segue.destinationViewController as! TimerRunningViewController
                 timerRunningViewController.counter = 5 * 60
@@ -92,10 +90,7 @@ class TimeSliderViewController: UIViewController {
 //----------------------------------------------------------------------------------------------------------------------
     override func showViewController(vc: UIViewController, sender: AnyObject?) {
         let containerVC = parentViewController as! ContainerViewController
-        if activeSegue == "TimeSliderToTimerRunning" {
-            containerVC.switchViewControllers(self, toVC: vc, animator: toTimerRunningVCAnimator)
-    
-        }
+        containerVC.switchViewControllers(self, toVC: vc, animator: toTimerRunningVCAnimator)
     }
 }
 
