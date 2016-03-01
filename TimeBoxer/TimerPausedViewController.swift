@@ -9,6 +9,8 @@
 import UIKit
 
 class TimerPausedViewController: UIViewController {
+    
+    @IBOutlet weak var appTitleLabel: UILabel!
     @IBOutlet weak var pausedLabel: UILabel!
     @IBOutlet weak var resumeButton: StartButton!
     @IBOutlet weak var cancelButton: CancelButton!
@@ -21,6 +23,7 @@ class TimerPausedViewController: UIViewController {
     {
         super.viewDidLoad()
         view.backgroundColor = Colors.toUIColor(.ALMOST_BLACK)
+        setupAppTitleLabel()
         setupResumeButton()
         setupCancelButton()
         setupStopButton()
@@ -33,6 +36,9 @@ class TimerPausedViewController: UIViewController {
     }
     
 //MARK: Setup UI elements
+    private func setupAppTitleLabel() {
+        appTitleLabel.textColor = Colors.toUIColor(.OFF_WHITE)
+    }
     private func setupResumeButton() {
         resumeButton.borderColor = Colors.toUIColor(.OFF_WHITE)!
         resumeButton.ovalLayerColor = Colors.toUIColor(.ALMOST_BLACK)!
