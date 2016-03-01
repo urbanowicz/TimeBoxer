@@ -53,6 +53,9 @@ class TimerRunningViewController: UIViewController {
     private func setupProjectNameLabel() {
         projectNameLabel.textColor = Colors.toUIColor(.ALMOST_BLACK)
         projectNameLabel.text = projectName!
+        projectNameLabel.numberOfLines = 4
+        projectNameLabel.adjustsFontSizeToFitWidth = true
+        projectNameLabel.sizeToFit()
     }
     
     private func setupTimeLabel() {

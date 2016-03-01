@@ -82,7 +82,7 @@ class TimeSliderViewController: UIViewController {
             if segueIdentifier == "TimeSliderToTimerRunning" {
                 let timerRunningViewController = segue.destinationViewController as! TimerRunningViewController
                 timerRunningViewController.counter = sliderToMinutesConverter.convert(timeSlider.value) * 60
-                timerRunningViewController.projectName = "Read \"On Intelligence\""
+                timerRunningViewController.projectName = "Read \"On Intelligence\" and implement the MIDI encoder for the NUPIC platform"
             }
         }
     

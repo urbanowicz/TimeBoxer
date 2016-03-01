@@ -327,13 +327,13 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Project Name " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IKz-gY-cVc">
                                 <rect key="frame" x="256" y="372" width="89" height="20"/>
                                 <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="14"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LZV-Bq-Ygy">
                                 <rect key="frame" x="241" y="40" width="119" height="33"/>
                                 <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="24"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="S2e-5T-8F7" customClass="BigSlider" customModule="TimeBoxer" customModuleProvider="target">
@@ -392,19 +392,19 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time Boxer" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Fo-j0-8bi">
                                 <rect key="frame" x="264" y="40" width="73" height="18"/>
                                 <fontDescription key="fontDescription" name="Baskerville" family="Baskerville" pointSize="15"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0:00:00" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1IS-Qf-OeE" userLabel="Timer Label">
                                 <rect key="frame" x="200" y="259" width="201" height="82"/>
                                 <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="60"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Project Name " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HoH-jI-dWq" userLabel="Project Name Label">
-                                <rect key="frame" x="249" y="217" width="102" height="22"/>
-                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="16"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <rect key="frame" x="256" y="219" width="89" height="20"/>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="14"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -412,6 +412,7 @@
                         <constraints>
                             <constraint firstItem="REF-d8-4QU" firstAttribute="top" secondItem="UNg-MR-z0J" secondAttribute="bottom" constant="20" id="3R8-uZ-G8T"/>
                             <constraint firstItem="1IS-Qf-OeE" firstAttribute="centerY" secondItem="o6n-fX-khZ" secondAttribute="centerY" id="5EE-oD-H5o"/>
+                            <constraint firstItem="HoH-jI-dWq" firstAttribute="width" relation="lessThanOrEqual" secondItem="o6n-fX-khZ" secondAttribute="width" multiplier="0.6" id="DqQ-4I-D0x"/>
                             <constraint firstItem="5Fo-j0-8bi" firstAttribute="top" secondItem="WxM-gN-E9R" secondAttribute="bottom" constant="20" id="OMd-by-2ND"/>
                             <constraint firstItem="HoH-jI-dWq" firstAttribute="centerX" secondItem="o6n-fX-khZ" secondAttribute="centerX" id="inc-H1-I7Q"/>
                             <constraint firstItem="1IS-Qf-OeE" firstAttribute="centerX" secondItem="o6n-fX-khZ" secondAttribute="centerX" id="ip3-DV-5Oc"/>
