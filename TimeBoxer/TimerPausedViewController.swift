@@ -16,41 +16,62 @@ class TimerPausedViewController: UIViewController {
     private let toTimerRunningAnimator = ToTimerRunningAnimator()
     private let toTimeSliderAnimator = ToTimeSliderAnimator2()
     var counter = 0
-//----------------------------------------------------------------------------------------------------------------------
 
     override func viewDidLoad()
     {
         super.viewDidLoad()
         view.backgroundColor = Colors.toUIColor(.ALMOST_BLACK)
-
+        setupResumeButton()
+        setupCancelButton()
+        setupStopButton()
     }
 
-//----------------------------------------------------------------------------------------------------------------------
-    override func viewWillAppear(animated: Bool)
-    {
-        super.viewWillAppear(animated)
-    }
-
-//----------------------------------------------------------------------------------------------------------------------
     override func didReceiveMemoryWarning()
     {
         super.didReceiveMemoryWarning()
     }
     
-
-//----------------------------------------------------------------------------------------------------------------------
+//MARK: Setup UI elements
+    private func setupResumeButton() {
+        resumeButton.borderColor = Colors.toUIColor(.OFF_WHITE)!
+        resumeButton.ovalLayerColor = Colors.toUIColor(.ALMOST_BLACK)!
+        resumeButton.frontLayerColor = Colors.toUIColor(.OFF_WHITE)!
+        resumeButton.ovalLayerHighlightedColor = Colors.toUIColor(.OFF_WHITE)!
+        resumeButton.frontLayerHighlightedColor = Colors.toUIColor(.ALMOST_BLACK)!
+        resumeButton.borderWidth = 2.0
+    }
+    
+    private func setupCancelButton() {
+        cancelButton.borderColor = Colors.toUIColor(.OFF_WHITE)!
+        cancelButton.ovalLayerColor = Colors.toUIColor(.ALMOST_BLACK)!
+        cancelButton.frontLayerColor = Colors.toUIColor(.OFF_WHITE)!
+        cancelButton.ovalLayerHighlightedColor = Colors.toUIColor(.OFF_WHITE)!
+        cancelButton.frontLayerHighlightedColor = Colors.toUIColor(.ALMOST_BLACK)!
+        cancelButton.borderWidth = 2.0
+    }
+    
+    private func setupStopButton() {
+        stopButton.borderColor = Colors.toUIColor(.OFF_WHITE)!
+        stopButton.ovalLayerColor = Colors.toUIColor(.ALMOST_BLACK)!
+        stopButton.frontLayerColor = Colors.toUIColor(.OFF_WHITE)!
+        stopButton.ovalLayerHighlightedColor = Colors.toUIColor(.OFF_WHITE)!
+        stopButton.frontLayerHighlightedColor = Colors.toUIColor(.ALMOST_BLACK)!
+        stopButton.borderWidth = 2.0
+    }
+    
+//MARK: Actions
     @IBAction func stopButtonPressed(sender: InvertedStopButton)
     {
     
     }
 
-//----------------------------------------------------------------------------------------------------------------------
+
     @IBAction func cancelButtonPressed(sender: InvertedCancelButton)
     {
 
     }
     
-//----------------------------------------------------------------------------------------------------------------------
+
     @IBAction func resumeButtonPressed(sender: InvertedStartButton)
     {
 
@@ -58,7 +79,6 @@ class TimerPausedViewController: UIViewController {
     
     
 // MARK: - Navigation
-//----------------------------------------------------------------------------------------------------------------------
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)
     {
         if let segueIdentifier = segue.identifier {
@@ -71,7 +91,7 @@ class TimerPausedViewController: UIViewController {
             print("unknown Segue ")
         }
     }
-//----------------------------------------------------------------------------------------------------------------------
+
     override func showViewController(vc: UIViewController, sender: AnyObject?) {
         let containerVC = parentViewController as! ContainerViewController
         let button = sender as! AbstractOvalButton
@@ -94,7 +114,7 @@ private class ToTimerRunningAnimator:NSObject, Animator {
     var container:UIView?
     var completionBlock: (() -> Void)?
     
-//----------------------------------------------------------------------------------------------------------------------
+
     func animateTransition(fromVC: UIViewController, toVC: UIViewController, container: UIView, completion: (() -> Void)?)
     {
         //Remember: Container is the actual view of the parent controller.
@@ -115,7 +135,7 @@ private class ToTimerRunningAnimator:NSObject, Animator {
         fromVC.view.layer.mask = shrinkingCircleLayer
     }
 
-//----------------------------------------------------------------------------------------------------------------------
+
     override func animationDidStop(anim: CAAnimation, finished flag: Bool)
     {
         //Done with the animation. Do the cleanup.
@@ -126,7 +146,7 @@ private class ToTimerRunningAnimator:NSObject, Animator {
         }
     }
 
-//----------------------------------------------------------------------------------------------------------------------
+
     private func prepareShrinkingCircleAnimationLayer() -> CALayer
     {
         let animationLayer = CAShapeLayer()
@@ -146,7 +166,7 @@ private class ToTimerRunningAnimator:NSObject, Animator {
         return animationLayer
     }
     
-//----------------------------------------------------------------------------------------------------------------------
+
     private func createLargeCircleForButton(button:AbstractOvalButton) -> CirclePathWrapper
     {
         let circleCenter:CGPoint = container!.convertPoint(button.center, fromView: button.superview)
@@ -169,7 +189,7 @@ private class ToTimeSliderAnimator:NSObject, Animator {
     var container:UIView?
     var completionBlock: (() -> Void)?
     
-//----------------------------------------------------------------------------------------------------------------------
+
     func animateTransition(fromVC: UIViewController, toVC: UIViewController, container: UIView, completion: (() -> Void)?)
     {
         //Remember: Container is the actual view of the parent controller.
@@ -191,7 +211,7 @@ private class ToTimeSliderAnimator:NSObject, Animator {
         
     }
 
-//----------------------------------------------------------------------------------------------------------------------
+
     override func animationDidStop(anim: CAAnimation, finished flag: Bool) {
         timerPausedVC!.view.removeFromSuperview()
         timerPausedVC!.view.layer.mask = nil
@@ -200,7 +220,7 @@ private class ToTimeSliderAnimator:NSObject, Animator {
         }
     }
 
-//----------------------------------------------------------------------------------------------------------------------
+
     private func prepareShrinkingCircleAnimationLayer() -> CALayer
     {
         let animationLayer = CAShapeLayer()
@@ -220,7 +240,7 @@ private class ToTimeSliderAnimator:NSObject, Animator {
         return animationLayer
     }
     
-//----------------------------------------------------------------------------------------------------------------------
+
     private func createLargeCircleForButton(button:AbstractOvalButton) -> CirclePathWrapper
     {
         let circleCenter:CGPoint = container!.convertPoint(button.center, fromView: button.superview)
@@ -244,7 +264,6 @@ private class ToTimeSliderAnimator2:NSObject, Animator {
     var container:UIView?
     var completionBlock: (() -> Void)?
     
-    //----------------------------------------------------------------------------------------------------------------------
     func animateTransition(fromVC: UIViewController, toVC: UIViewController, container: UIView, completion: (() -> Void)?)
     {
         //Remember: Container is the actual view of the parent controller.

@@ -446,7 +446,43 @@
                     <view key="view" contentMode="scaleToFill" id="dUO-wX-w9S">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Rf-sR-KhQ" userLabel="Resume Button" customClass="StartButton" customModule="TimeBoxer" customModuleProvider="target">
+                                <rect key="frame" x="216" y="412" width="168" height="168"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="5Rf-sR-KhQ" secondAttribute="height" multiplier="1:1" id="aS1-uu-Buu"/>
+                                </constraints>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ByY-rk-xvn" userLabel="Cancel Button" customClass="CancelButton" customModule="TimeBoxer" customModuleProvider="target">
+                                <rect key="frame" x="102" y="444" width="104" height="104"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="ByY-rk-xvn" secondAttribute="height" multiplier="1:1" id="RCS-Gi-Bjm"/>
+                                </constraints>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CWg-Hk-SmY" customClass="StopButton" customModule="TimeBoxer" customModuleProvider="target">
+                                <rect key="frame" x="394" y="444" width="104" height="104"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="CWg-Hk-SmY" secondAttribute="height" multiplier="1:1" id="LTg-eL-wax"/>
+                                </constraints>
+                            </button>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="CWg-Hk-SmY" firstAttribute="centerY" secondItem="5Rf-sR-KhQ" secondAttribute="centerY" id="0Jr-yn-rqd"/>
+                            <constraint firstItem="ByY-rk-xvn" firstAttribute="width" secondItem="5Rf-sR-KhQ" secondAttribute="width" multiplier="0.618" id="7uP-OK-R9I"/>
+                            <constraint firstItem="tlZ-wA-v9z" firstAttribute="top" secondItem="5Rf-sR-KhQ" secondAttribute="bottom" constant="20" id="C2M-jh-s9J"/>
+                            <constraint firstItem="CWg-Hk-SmY" firstAttribute="width" secondItem="ByY-rk-xvn" secondAttribute="width" id="Qxl-UB-oVI"/>
+                            <constraint firstItem="ByY-rk-xvn" firstAttribute="centerY" secondItem="5Rf-sR-KhQ" secondAttribute="centerY" id="RG8-F5-daA"/>
+                            <constraint firstItem="5Rf-sR-KhQ" firstAttribute="width" secondItem="dUO-wX-w9S" secondAttribute="width" multiplier="0.28" id="ZOb-sW-EUy"/>
+                            <constraint firstItem="CWg-Hk-SmY" firstAttribute="leading" secondItem="5Rf-sR-KhQ" secondAttribute="trailing" constant="10" id="he7-f4-KfI"/>
+                            <constraint firstItem="5Rf-sR-KhQ" firstAttribute="leading" secondItem="ByY-rk-xvn" secondAttribute="trailing" constant="10" id="qPl-3x-i3W"/>
+                            <constraint firstItem="5Rf-sR-KhQ" firstAttribute="centerX" secondItem="dUO-wX-w9S" secondAttribute="centerX" id="vMu-Cu-9Be"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="cancelButton" destination="ByY-rk-xvn" id="xkv-Ma-Suu"/>
+                        <outlet property="resumeButton" destination="5Rf-sR-KhQ" id="q9h-AE-4c3"/>
+                        <outlet property="stopButton" destination="CWg-Hk-SmY" id="kL5-nF-z5y"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8jm-Af-MkM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
