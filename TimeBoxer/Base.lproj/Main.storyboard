@@ -530,8 +530,24 @@
                     <view key="view" contentMode="scaleToFill" id="NG2-v5-aQ4">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z7C-76-t17" userLabel="OK Button" customClass="OKButton" customModule="TimeBoxer" customModuleProvider="target">
+                                <rect key="frame" x="216" y="412" width="168" height="168"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="z7C-76-t17" secondAttribute="height" multiplier="1:1" id="0Q7-0w-GSf"/>
+                                </constraints>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="z7C-76-t17" firstAttribute="centerX" secondItem="NG2-v5-aQ4" secondAttribute="centerX" id="b54-9r-g9F"/>
+                            <constraint firstItem="z7C-76-t17" firstAttribute="width" secondItem="NG2-v5-aQ4" secondAttribute="width" multiplier="0.28" id="kJO-XM-Bt6"/>
+                            <constraint firstItem="Pwj-gS-Y3a" firstAttribute="top" secondItem="z7C-76-t17" secondAttribute="bottom" constant="20" id="v8M-bw-pTE"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="okButton" destination="z7C-76-t17" id="Ekf-1z-1QC"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PFb-9g-FAW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
