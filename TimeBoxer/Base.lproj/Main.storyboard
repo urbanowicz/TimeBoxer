@@ -482,7 +482,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time Boxer" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fg3-W5-PqE" userLabel="App Title Label">
-                                <rect key="frame" x="264" y="28" width="73" height="18"/>
+                                <rect key="frame" x="264" y="40" width="73" height="18"/>
                                 <fontDescription key="fontDescription" name="Baskerville" family="Baskerville" pointSize="15"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -495,7 +495,7 @@
                             <constraint firstItem="CWg-Hk-SmY" firstAttribute="width" secondItem="ByY-rk-xvn" secondAttribute="width" id="Qxl-UB-oVI"/>
                             <constraint firstItem="ByY-rk-xvn" firstAttribute="centerY" secondItem="5Rf-sR-KhQ" secondAttribute="centerY" id="RG8-F5-daA"/>
                             <constraint firstItem="fg3-W5-PqE" firstAttribute="centerX" secondItem="dUO-wX-w9S" secondAttribute="centerX" id="VN5-3j-3Ud"/>
-                            <constraint firstItem="fg3-W5-PqE" firstAttribute="top" secondItem="0Xk-ea-Bok" secondAttribute="bottom" constant="8" id="ZMA-kl-q4K"/>
+                            <constraint firstItem="fg3-W5-PqE" firstAttribute="top" secondItem="0Xk-ea-Bok" secondAttribute="bottom" constant="20" id="ZMA-kl-q4K"/>
                             <constraint firstItem="5Rf-sR-KhQ" firstAttribute="width" secondItem="dUO-wX-w9S" secondAttribute="width" multiplier="0.28" id="ZOb-sW-EUy"/>
                             <constraint firstItem="CWg-Hk-SmY" firstAttribute="leading" secondItem="5Rf-sR-KhQ" secondAttribute="trailing" constant="10" id="he7-f4-KfI"/>
                             <constraint firstItem="UwJ-Ex-aSw" firstAttribute="centerX" secondItem="dUO-wX-w9S" secondAttribute="centerX" id="hkK-sF-AHZ"/>
