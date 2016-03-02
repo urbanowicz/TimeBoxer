@@ -18,7 +18,7 @@ class TimerRunningViewController: UIViewController {
     
     private let toTimerPausedAnimator = ToTimerPausedAnimator()
     var timer = NSTimer()
-    var counter = 0 //number of seconds
+    var numberOfSecondsToCountDown = 0 //number of seconds
     
 
     override func viewDidLoad()
@@ -78,16 +78,16 @@ class TimerRunningViewController: UIViewController {
     }
 
     func countDown() {
-        counter--
+        numberOfSecondsToCountDown--
         updateTimeLabel()
-        if counter == 0 {
+        if numberOfSecondsToCountDown == 0 {
             //initiate the segue programatically
             //stopButtonPressed(stopButton)
         }
     }
     
     private func updateTimeLabel() {
-        var counterCopy = counter
+        var counterCopy = numberOfSecondsToCountDown
         let hours = counterCopy / 3600
         counterCopy = counterCopy % 3600
         let minutes = counterCopy / 60
@@ -121,7 +121,7 @@ class TimerRunningViewController: UIViewController {
         if let segueIdentifier = segue.identifier {
             if segueIdentifier == "TimerRunningToTimerPaused" {
                 let timerPausedVC = segue.destinationViewController as! TimerPausedViewController
-                timerPausedVC.counter = counter
+                timerPausedVC.numberOfSecondsToCountDown = numberOfSecondsToCountDown
                 timerPausedVC.projectName = projectName
             }
         } else {

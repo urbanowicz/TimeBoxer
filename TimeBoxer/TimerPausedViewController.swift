@@ -16,7 +16,7 @@ class TimerPausedViewController: UIViewController {
     @IBOutlet weak var cancelButton: CancelButton!
     @IBOutlet weak var stopButton: StopButton!
     var projectName:String?
-    var counter = 0
+    var numberOfSecondsToCountDown = 0
     private let toTimerRunningAnimator = ToTimerRunningAnimator()
     private let toTimeSliderAnimator = ToTimeSliderAnimator2()
     
@@ -97,7 +97,7 @@ class TimerPausedViewController: UIViewController {
         if let segueIdentifier = segue.identifier {
             if segueIdentifier == "TimerPausedToTimerRunning" {
                 let timerRunningVC = segue.destinationViewController as! TimerRunningViewController
-                timerRunningVC.counter = counter
+                timerRunningVC.numberOfSecondsToCountDown = numberOfSecondsToCountDown
                 timerRunningVC.projectName = projectName
                 return
             }
