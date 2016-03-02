@@ -18,7 +18,7 @@ class TimerPausedViewController: UIViewController {
     var projectName:String?
     var numberOfSecondsToCountDown = 0
     private let toTimerRunningAnimator = ToTimerRunningAnimator()
-    private let toTimeSliderAnimator = ToTimeSliderAnimator2()
+    private let toTimeSliderAnimator = ToTimeSliderAnimator()
     
 
     override func viewDidLoad()
@@ -196,85 +196,11 @@ private class ToTimerRunningAnimator:NSObject, Animator {
     }
 }
 
+
 //
 //MARK: - ToTimeSliderAnimator
 //
 private class ToTimeSliderAnimator:NSObject, Animator {
-    let transitionDuration = 0.25
-    var timerPausedVC:TimerPausedViewController?
-    var timeSliderVC:TimeSliderViewController?
-    var container:UIView?
-    var completionBlock: (() -> Void)?
-    
-
-    func animateTransition(fromVC: UIViewController, toVC: UIViewController, container: UIView, completion: (() -> Void)?)
-    {
-        //Remember: Container is the actual view of the parent controller.
-        //It already contains the fromVC.view.
-        //It is the animator's responsibility to remove the fromVC.view and insert the toVC.view
-        
-        //1. Store the parameters as instance variables
-        self.timerPausedVC = fromVC as? TimerPausedViewController
-        self.timeSliderVC = toVC as? TimeSliderViewController
-        self.container = container
-        self.completionBlock = completion
-        
-        //2. Insert the toVC.view underneath the fromVC.view so that it can be uncovered during the animation.
-        container.insertSubview(toVC.view, belowSubview: fromVC.view)
-        
-        //3. Prepare the shrinking circle layer and set it as the fromVC.view's mask
-        let shrkinkingCircleLayer = prepareShrinkingCircleAnimationLayer()
-        fromVC.view.layer.mask = shrkinkingCircleLayer
-        
-    }
-
-
-    override func animationDidStop(anim: CAAnimation, finished flag: Bool) {
-        timerPausedVC!.view.removeFromSuperview()
-        timerPausedVC!.view.layer.mask = nil
-        if let executeCompletionBlock = completionBlock {
-            executeCompletionBlock()
-        }
-    }
-
-
-    private func prepareShrinkingCircleAnimationLayer() -> CALayer
-    {
-        let animationLayer = CAShapeLayer()
-        let cancelButton = timerPausedVC!.cancelButton
-        let cancelButtonCenter = container!.convertPoint(cancelButton.center, fromView: cancelButton.superview)
-        let smallCirclePath = CirclePathWrapper(centerX: cancelButtonCenter.x, centerY: cancelButtonCenter.y,
-            radius: 0.0).path
-        let largeCirclePath = createLargeCircleForButton(cancelButton).path
-        animationLayer.path = smallCirclePath
-        
-        let animation = CABasicAnimation(keyPath: "path")
-        animation.delegate = self
-        animation.duration = transitionDuration
-        animation.fromValue = largeCirclePath
-        animation.toValue = smallCirclePath
-        animationLayer.addAnimation(animation, forKey: "path")
-        return animationLayer
-    }
-    
-
-    private func createLargeCircleForButton(button:AbstractOvalButton) -> CirclePathWrapper
-    {
-        let circleCenter:CGPoint = container!.convertPoint(button.center, fromView: button.superview)
-        let xs = circleCenter.x
-        let ys = circleCenter.y
-        let x0 = container!.frame.origin.x
-        let y0 = container!.frame.origin.y
-        let  largeRadius = sqrt(pow((xs - x0),2) + pow((ys - y0),2))
-        return CirclePathWrapper(centerX: xs, centerY: ys, radius: largeRadius)
-    }
-    
-}
-
-//
-//MARK: - ToTimeSliderAnimator2
-//
-private class ToTimeSliderAnimator2:NSObject, Animator {
     let transitionDuration = 0.3
     var timerPausedVC:TimerPausedViewController?
     var timeSliderVC:TimeSliderViewController?
