@@ -17,8 +17,6 @@ class TimerPausedViewController: UIViewController {
     @IBOutlet weak var stopButton: StopButton!
     var projectName:String?
     var numberOfSecondsToCountDown = 0
-    private let toTimerRunningAnimator = ToTimerRunningAnimator()
-    private let toTimeSliderAnimator = ToTimeSliderAnimator()
     
 
     override func viewDidLoad()
@@ -75,7 +73,7 @@ class TimerPausedViewController: UIViewController {
 //MARK: Actions
     @IBAction func stopButtonPressed(sender: StopButton)
     {
-    
+        performSegueWithIdentifier("TimerPausedToTimerDone", sender: sender)
     }
 
 
@@ -106,6 +104,9 @@ class TimerPausedViewController: UIViewController {
                 timeSliderVC.projectName = projectName
                 return
             }
+            if segueIdentifier == "TimerPausedToTimerDone" {
+                
+            }
         }
     }
 
@@ -113,10 +114,13 @@ class TimerPausedViewController: UIViewController {
         let containerVC = parentViewController as! ContainerViewController
         let button = sender as! AbstractOvalButton
         if button == self.resumeButton {
-            containerVC.switchViewControllers(self, toVC: vc, animator: toTimerRunningAnimator)
+            containerVC.switchViewControllers(self, toVC: vc, animator: ToTimerRunningAnimator())
         }
         if button == self.cancelButton {
-            containerVC.switchViewControllers(self, toVC: vc, animator: toTimeSliderAnimator)
+            containerVC.switchViewControllers(self, toVC: vc, animator: FadeInAnimator())
+        }
+        if button == self.stopButton {
+            containerVC.switchViewControllers(self, toVC: vc, animator: FadeInAnimator())
         }
     }
 }
@@ -196,58 +200,33 @@ private class ToTimerRunningAnimator:NSObject, Animator {
     }
 }
 
+//
+//MARK: FadeInAnimator
+//
 
-//
-//MARK: - ToTimeSliderAnimator
-//
-private class ToTimeSliderAnimator:NSObject, Animator {
+private class FadeInAnimator:NSObject, Animator {
     let transitionDuration = 0.3
-    var timerPausedVC:TimerPausedViewController?
-    var timeSliderVC:TimeSliderViewController?
-    var container:UIView?
-    var completionBlock: (() -> Void)?
     
-    func animateTransition(fromVC: UIViewController, toVC: UIViewController, container: UIView, completion: (() -> Void)?)
-    {
+    func animateTransition(fromVC: UIViewController, toVC: UIViewController, container: UIView, completion: (() -> Void)?) {
         //Remember: Container is the actual view of the parent controller.
         //It already contains the fromVC.view.
         //It is the animator's responsibility to remove the fromVC.view and insert the toVC.view
         
-        //1. Store the parameters as instance variables
-        self.timerPausedVC = fromVC as? TimerPausedViewController
-        self.timeSliderVC = toVC as? TimeSliderViewController
-        self.container = container
-        self.completionBlock = completion
         
-        //2. Setup a white background 
-        let whiteLayer = CALayer()
-        whiteLayer.backgroundColor = UIColor.whiteColor().CGColor
-        whiteLayer.opacity = 0.0
-        //whiteLayer.frame = fromVC.view.layer.frame
-        fromVC.view.layer.addSublayer(whiteLayer)
-        
-        //3. Prepare the toVC.view to be faded in
+        //Prepare the toVC.view to be faded in
         toVC.view.alpha = 0.0
         container.addSubview(toVC.view)
         
-        UIView.animateKeyframesWithDuration(transitionDuration, delay: 0.0, options: UIViewKeyframeAnimationOptions.CalculationModeLinear,
-            animations: {
-                UIView.addKeyframeWithRelativeStartTime(0, relativeDuration: 0.25,
-                    animations: {
-                        whiteLayer.opacity = 1.0
-                    })
-                UIView.addKeyframeWithRelativeStartTime(0.25, relativeDuration: 0.75,
-                    animations : {
-                        toVC.view.alpha = 1.0
-                    })
-            },
+        UIView.animateWithDuration(transitionDuration,
+            animations: { toVC.view.alpha = 1.0 } ,
             completion: {
                 finished in
-                self.timerPausedVC!.view.removeFromSuperview()
-                whiteLayer.removeFromSuperlayer()
-                if let executeCompletionBlock = self.completionBlock {
+                fromVC.view.removeFromSuperview()
+                if let executeCompletionBlock = completion {
                     executeCompletionBlock()
                 }
-        })
+            }
+        )
     }
 }
+

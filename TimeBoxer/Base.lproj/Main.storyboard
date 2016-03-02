@@ -512,7 +512,7 @@
                         <outlet property="stopButton" destination="CWg-Hk-SmY" id="kL5-nF-z5y"/>
                         <segue destination="WVv-Cz-hWv" kind="show" identifier="TimerPausedToTimerRunning" id="pqB-dp-YLD"/>
                         <segue destination="CN5-20-aaQ" kind="show" identifier="TimerPausedToTimeSlider" id="DLL-pd-8SU"/>
-                        <segue destination="26t-Cs-zhz" kind="show" id="w1M-zt-kek"/>
+                        <segue destination="26t-Cs-zhz" kind="show" identifier="TimerPausedToTimerDone" id="w1M-zt-kek"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8jm-Af-MkM" userLabel="First Responder" sceneMemberID="firstResponder"/>

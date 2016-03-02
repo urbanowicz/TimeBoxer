@@ -13,7 +13,6 @@ class ContainerViewController: UIViewController, UIGestureRecognizerDelegate{
     private var projectsTableVC: ProjectsTableViewController?
         
 
-//----------------------------------------------------------------------------------------------------------------------
     override func viewDidLoad()
     {
         super.viewDidLoad()
@@ -38,7 +37,8 @@ class ContainerViewController: UIViewController, UIGestureRecognizerDelegate{
             storyboard!.instantiateViewControllerWithIdentifier("projectsTableViewController") as?
             ProjectsTableViewController
     }
-//----------------------------------------------------------------------------------------------------------------------
+
+    
     func switchViewControllers(fromVC:UIViewController, toVC:UIViewController, animator:Animator?) {
         self.addChildViewController(toVC)
         fromVC.willMoveToParentViewController(nil)
@@ -50,12 +50,14 @@ class ContainerViewController: UIViewController, UIGestureRecognizerDelegate{
                 toVC.didMoveToParentViewController(self)
             })
         } else {
+            view.addSubview(toVC.view)
+            fromVC.view.removeFromSuperview()
             fromVC.removeFromParentViewController()
             toVC.didMoveToParentViewController(self)
         }
     }
     
-//----------------------------------------------------------------------------------------------------------------------
+
     private func displayViewController(vc: UIViewController)
     {
         self.addChildViewController(vc)
@@ -65,7 +67,7 @@ class ContainerViewController: UIViewController, UIGestureRecognizerDelegate{
     }
     
 
-//----------------------------------------------------------------------------------------------------------------------
+
     private func hideViewController(vc: UIViewController)
     {
         vc.willMoveToParentViewController(nil)
@@ -73,7 +75,7 @@ class ContainerViewController: UIViewController, UIGestureRecognizerDelegate{
         vc.removeFromParentViewController()
     }
 
-//----------------------------------------------------------------------------------------------------------------------
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
 
@@ -82,7 +84,7 @@ class ContainerViewController: UIViewController, UIGestureRecognizerDelegate{
 override func prefersStatusBarHidden() -> Bool {
     return true;
 }
-//----------------------------------------------------------------------------------------------------------------------
+
 
 //MARK: PanGestureRecognizer
     func handlePanGesture(gestureRecognizer: UIPanGestureRecognizer) {
