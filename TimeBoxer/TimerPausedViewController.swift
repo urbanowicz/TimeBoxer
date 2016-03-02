@@ -15,9 +15,11 @@ class TimerPausedViewController: UIViewController {
     @IBOutlet weak var resumeButton: StartButton!
     @IBOutlet weak var cancelButton: CancelButton!
     @IBOutlet weak var stopButton: StopButton!
+    var projectName:String?
+    var counter = 0
     private let toTimerRunningAnimator = ToTimerRunningAnimator()
     private let toTimeSliderAnimator = ToTimeSliderAnimator2()
-    var counter = 0
+    
 
     override func viewDidLoad()
     {
@@ -71,21 +73,21 @@ class TimerPausedViewController: UIViewController {
     }
     
 //MARK: Actions
-    @IBAction func stopButtonPressed(sender: InvertedStopButton)
+    @IBAction func stopButtonPressed(sender: StopButton)
     {
     
     }
 
 
-    @IBAction func cancelButtonPressed(sender: InvertedCancelButton)
+    @IBAction func cancelButtonPressed(sender: CancelButton)
     {
 
     }
     
 
-    @IBAction func resumeButtonPressed(sender: InvertedStartButton)
+    @IBAction func resumeButtonPressed(sender: StartButton)
     {
-
+        performSegueWithIdentifier("TimerPausedToTimerRunning", sender: sender)
     }
     
     
@@ -93,10 +95,10 @@ class TimerPausedViewController: UIViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)
     {
         if let segueIdentifier = segue.identifier {
-            print(segueIdentifier)
             if segueIdentifier == "TimerPausedToTimerRunning" {
                 let timerRunningVC = segue.destinationViewController as! TimerRunningViewController
                 timerRunningVC.counter = counter
+                timerRunningVC.projectName = projectName
             }
         } else {
             print("unknown Segue ")

@@ -122,6 +122,7 @@ class TimerRunningViewController: UIViewController {
             if segueIdentifier == "TimerRunningToTimerPaused" {
                 let timerPausedVC = segue.destinationViewController as! TimerPausedViewController
                 timerPausedVC.counter = counter
+                timerPausedVC.projectName = projectName
             }
         } else {
             print ("unknown segue")

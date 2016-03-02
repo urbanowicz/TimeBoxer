@@ -453,18 +453,27 @@
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="5Rf-sR-KhQ" secondAttribute="height" multiplier="1:1" id="aS1-uu-Buu"/>
                                 </constraints>
+                                <connections>
+                                    <action selector="resumeButtonPressed:" destination="lqK-VX-oTB" eventType="touchUpInside" id="waN-fM-Ll2"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ByY-rk-xvn" userLabel="Cancel Button" customClass="CancelButton" customModule="TimeBoxer" customModuleProvider="target">
                                 <rect key="frame" x="102" y="444" width="104" height="104"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="ByY-rk-xvn" secondAttribute="height" multiplier="1:1" id="RCS-Gi-Bjm"/>
                                 </constraints>
+                                <connections>
+                                    <action selector="cancelButtonPressed:" destination="lqK-VX-oTB" eventType="touchUpInside" id="0yd-Ni-swo"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CWg-Hk-SmY" customClass="StopButton" customModule="TimeBoxer" customModuleProvider="target">
                                 <rect key="frame" x="394" y="444" width="104" height="104"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="CWg-Hk-SmY" secondAttribute="height" multiplier="1:1" id="LTg-eL-wax"/>
                                 </constraints>
+                                <connections>
+                                    <action selector="stopButtonPressed:" destination="lqK-VX-oTB" eventType="touchUpInside" id="QsH-s5-A2l"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Paused" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UwJ-Ex-aSw" userLabel="Paused Label">
                                 <rect key="frame" x="203" y="259" width="195" height="82"/>
@@ -501,6 +510,7 @@
                         <outlet property="pausedLabel" destination="UwJ-Ex-aSw" id="UGE-fw-etV"/>
                         <outlet property="resumeButton" destination="5Rf-sR-KhQ" id="q9h-AE-4c3"/>
                         <outlet property="stopButton" destination="CWg-Hk-SmY" id="kL5-nF-z5y"/>
+                        <segue destination="WVv-Cz-hWv" kind="show" identifier="TimerPausedToTimerRunning" id="pqB-dp-YLD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8jm-Af-MkM" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -508,4 +518,7 @@
             <point key="canvasLocation" x="2057" y="222"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="pqB-dp-YLD"/>
+    </inferredMetricsTieBreakers>
 </document>
