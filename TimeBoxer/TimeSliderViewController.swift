@@ -15,6 +15,8 @@ class TimeSliderViewController: UIViewController {
     @IBOutlet weak var projectNameLabel: UILabel!
     @IBOutlet weak var timeLabel: UILabel!
     
+    var projectName:String?
+    
     private let sliderToMinutesConverter = SliderOutputToValueConverter(maxValue: 120, resolution: 5)
     private let minutesToTextConverter = MinutesToStringConverter()
     private let toTimerRunningVCAnimator = ToTimerRunningAnimator()
@@ -22,6 +24,7 @@ class TimeSliderViewController: UIViewController {
 //----------------------------------------------------------------------------------------------------------------------
     override func viewDidLoad() {
         super.viewDidLoad()
+        projectName = "Read \"On Intelligence\" and implement the MIDI encoder for the NUPIC platform"
         view.backgroundColor = Colors.toUIColor(.ALMOST_BLACK)
         setupStartButton()
         setupProjectNameLabel()
@@ -46,7 +49,7 @@ class TimeSliderViewController: UIViewController {
     
     private func setupProjectNameLabel() {
         projectNameLabel.textColor = Colors.toUIColor(.OFF_WHITE)
-        projectNameLabel.text = "Read \"On Intelligence\" and implement the MIDI encoder for the NUPIC platform"
+        projectNameLabel.text = projectName!
         projectNameLabel.numberOfLines = 4
         projectNameLabel.adjustsFontSizeToFitWidth = true
         projectNameLabel.sizeToFit()
@@ -83,7 +86,7 @@ class TimeSliderViewController: UIViewController {
             if segueIdentifier == "TimeSliderToTimerRunning" {
                 let timerRunningViewController = segue.destinationViewController as! TimerRunningViewController
                 timerRunningViewController.counter = sliderToMinutesConverter.convert(timeSlider.value) * 60
-                timerRunningViewController.projectName = "Read \"On Intelligence\" and implement the MIDI encoder for the NUPIC platform"
+                timerRunningViewController.projectName = projectName
             }
         }
     

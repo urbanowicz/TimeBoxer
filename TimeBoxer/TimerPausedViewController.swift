@@ -81,7 +81,7 @@ class TimerPausedViewController: UIViewController {
 
     @IBAction func cancelButtonPressed(sender: CancelButton)
     {
-
+        performSegueWithIdentifier("TimerPausedToTimeSlider", sender: sender)
     }
     
 
@@ -99,9 +99,13 @@ class TimerPausedViewController: UIViewController {
                 let timerRunningVC = segue.destinationViewController as! TimerRunningViewController
                 timerRunningVC.counter = counter
                 timerRunningVC.projectName = projectName
+                return
             }
-        } else {
-            print("unknown Segue ")
+            if segueIdentifier == "TimerPausedToTimeSlider" {
+                let timeSliderVC = segue.destinationViewController as! TimeSliderViewController
+                timeSliderVC.projectName = projectName
+                return
+            }
         }
     }
 
