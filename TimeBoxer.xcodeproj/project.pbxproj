@@ -32,6 +32,7 @@
 		F15F9C5A1BCCF376008733A3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F15F9C581BCCF376008733A3 /* LaunchScreen.storyboard */; };
 		F15F9C651BCCF376008733A3 /* TimeBoxer_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F15F9C641BCCF376008733A3 /* TimeBoxer_Tests.swift */; };
 		F189A1B21BD8C0D3000FFC5F /* TimeSliderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F189A1B11BD8C0D3000FFC5F /* TimeSliderViewController.swift */; };
+		F18C2AD81C873A9A004A7B72 /* TimerDoneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F18C2AD71C873A9A004A7B72 /* TimerDoneViewController.swift */; };
 		F18D6B7A1BEB4BFE0003CBD4 /* TimerPausedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F18D6B791BEB4BFE0003CBD4 /* TimerPausedViewController.swift */; };
 		F1981B9D1C84DE7200F49454 /* SliderOutputToValueConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1981B9C1C84DE7200F49454 /* SliderOutputToValueConverter.swift */; };
 		F1981B9E1C84DE7200F49454 /* SliderOutputToValueConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1981B9C1C84DE7200F49454 /* SliderOutputToValueConverter.swift */; };
@@ -93,6 +94,7 @@
 		F15F9C641BCCF376008733A3 /* TimeBoxer_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeBoxer_Tests.swift; sourceTree = "<group>"; };
 		F15F9C661BCCF376008733A3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F189A1B11BD8C0D3000FFC5F /* TimeSliderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeSliderViewController.swift; sourceTree = "<group>"; };
+		F18C2AD71C873A9A004A7B72 /* TimerDoneViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerDoneViewController.swift; sourceTree = "<group>"; };
 		F18D6B791BEB4BFE0003CBD4 /* TimerPausedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerPausedViewController.swift; sourceTree = "<group>"; };
 		F1981B9C1C84DE7200F49454 /* SliderOutputToValueConverter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SliderOutputToValueConverter.swift; sourceTree = "<group>"; };
 		F1981B9F1C84DF8F00F49454 /* SliderOutputToValueConverterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SliderOutputToValueConverterTests.swift; sourceTree = "<group>"; };
@@ -213,19 +215,20 @@
 			isa = PBXGroup;
 			children = (
 				F1CC0EEB1C69284A0090D76D /* TimeBoxerPlayground.playground */,
-				F1A605381C8211C7008EF288 /* CustomControls */,
-				F1A605371C81FBDB008EF288 /* UIControlsTestVC */,
 				F152EE8E1C5968B30090BECC /* Model */,
+				F1B5FE6B1C31AF45003A5C65 /* Segues */,
+				F125D7D01C28491900B94849 /* AnimationShapes */,
+				F1A605381C8211C7008EF288 /* CustomControls */,
 				F137E96C1C4199130064E15F /* Colors */,
+				F1A605371C81FBDB008EF288 /* UIControlsTestVC */,
 				F1FC9AD71C3EE000002A9F31 /* ProjectsTableVC */,
 				F1FC9AD41C3ED853002A9F31 /* AddProjectVC */,
 				F1FC9AD11C3ED70E002A9F31 /* EditProjectVC */,
 				F10B85161C383349002C66F2 /* ContainerVC */,
-				F1B5FE6B1C31AF45003A5C65 /* Segues */,
-				F125D7D01C28491900B94849 /* AnimationShapes */,
 				F14F13021BEA82A20045936F /* TimerPausedVC */,
 				F1D2444A1BDFF7C90023B994 /* TimerRunningVC */,
 				F1D244491BDFF4810023B994 /* TimeSliderVC */,
+				F18C2AD91C873AA0004A7B72 /* TimerDoneVC */,
 				F15F9C4F1BCCF376008733A3 /* AppDelegate.swift */,
 				F15F9C531BCCF376008733A3 /* Main.storyboard */,
 				F15F9C561BCCF376008733A3 /* Assets.xcassets */,
@@ -245,6 +248,14 @@
 				F1981B9F1C84DF8F00F49454 /* SliderOutputToValueConverterTests.swift */,
 			);
 			path = TimeBoxer_Tests;
+			sourceTree = "<group>";
+		};
+		F18C2AD91C873AA0004A7B72 /* TimerDoneVC */ = {
+			isa = PBXGroup;
+			children = (
+				F18C2AD71C873A9A004A7B72 /* TimerDoneViewController.swift */,
+			);
+			name = TimerDoneVC;
 			sourceTree = "<group>";
 		};
 		F1A605371C81FBDB008EF288 /* UIControlsTestVC */ = {
@@ -459,6 +470,7 @@
 				F137E9701C419A200064E15F /* Colors.swift in Sources */,
 				F134520D1BEE63D400AB9F67 /* InvertedStopButton.swift in Sources */,
 				F11D5B9F1C42AD32007F2622 /* AddButton.swift in Sources */,
+				F18C2AD81C873A9A004A7B72 /* TimerDoneViewController.swift in Sources */,
 				F137E96E1C41994A0064E15F /* ColorName.swift in Sources */,
 				F1981BA21C84E61700F49454 /* MinutesToStringConverter.swift in Sources */,
 				F152EE901C5968D00090BECC /* Project.swift in Sources */,
