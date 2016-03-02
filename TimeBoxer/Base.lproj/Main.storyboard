@@ -466,15 +466,6 @@
                                     <action selector="cancelButtonPressed:" destination="lqK-VX-oTB" eventType="touchUpInside" id="0yd-Ni-swo"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CWg-Hk-SmY" customClass="StopButton" customModule="TimeBoxer" customModuleProvider="target">
-                                <rect key="frame" x="394" y="444" width="104" height="104"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="CWg-Hk-SmY" secondAttribute="height" multiplier="1:1" id="LTg-eL-wax"/>
-                                </constraints>
-                                <connections>
-                                    <action selector="stopButtonPressed:" destination="lqK-VX-oTB" eventType="touchUpInside" id="QsH-s5-A2l"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Paused" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UwJ-Ex-aSw" userLabel="Paused Label">
                                 <rect key="frame" x="203" y="259" width="195" height="82"/>
                                 <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="60"/>
@@ -487,6 +478,15 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CWg-Hk-SmY" customClass="StopButton" customModule="TimeBoxer" customModuleProvider="target">
+                                <rect key="frame" x="394" y="444" width="104" height="104"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="CWg-Hk-SmY" secondAttribute="height" multiplier="1:1" id="LTg-eL-wax"/>
+                                </constraints>
+                                <connections>
+                                    <action selector="stopButtonPressed:" destination="lqK-VX-oTB" eventType="touchUpInside" id="QsH-s5-A2l"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <constraints>
                             <constraint firstItem="CWg-Hk-SmY" firstAttribute="centerY" secondItem="5Rf-sR-KhQ" secondAttribute="centerY" id="0Jr-yn-rqd"/>
@@ -512,16 +512,17 @@
                         <outlet property="stopButton" destination="CWg-Hk-SmY" id="kL5-nF-z5y"/>
                         <segue destination="WVv-Cz-hWv" kind="show" identifier="TimerPausedToTimerRunning" id="pqB-dp-YLD"/>
                         <segue destination="CN5-20-aaQ" kind="show" identifier="TimerPausedToTimeSlider" id="DLL-pd-8SU"/>
+                        <segue destination="26t-Cs-zhz" kind="show" id="w1M-zt-kek"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8jm-Af-MkM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2057" y="222"/>
         </scene>
-        <!--View Controller-->
+        <!--Timer Done View Controller-->
         <scene sceneID="cdg-rG-93R">
             <objects>
-                <viewController id="26t-Cs-zhz" sceneMemberID="viewController">
+                <viewController id="26t-Cs-zhz" customClass="TimerDoneViewController" customModule="TimeBoxer" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="6lO-PG-LvG"/>
                         <viewControllerLayoutGuide type="bottom" id="Pwj-gS-Y3a"/>
@@ -534,7 +535,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PFb-9g-FAW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1680" y="968"/>
+            <point key="canvasLocation" x="1688" y="1036"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>

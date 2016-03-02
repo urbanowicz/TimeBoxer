@@ -9,7 +9,7 @@
 import UIKit
 
 class UIControlsTestViewController: UIViewController {
-    let blackColor = Colors.toUIColor(.ALMOST_BLACK)!
+    let blackColor = Colors.almostBlack()
     @IBOutlet weak var startButton: StartButton!
     
     @IBOutlet weak var slider: BigSlider!
@@ -29,7 +29,7 @@ class UIControlsTestViewController: UIViewController {
     
     
     private func setupSlider() {
-        slider.fillColor = Colors.toUIColor(.AZURE)!
+        slider.fillColor = Colors.azure()
         slider.addTarget(self, action: "sliderValueChanged", forControlEvents: UIControlEvents.ValueChanged)
     }
     
