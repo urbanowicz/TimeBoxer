@@ -15,10 +15,12 @@ class TimerRunningViewController: UIViewController {
     @IBOutlet weak var projectNameLabel: UILabel!
     
     var projectName:String?
+    var numberOfSecondsToCountDown = 0 //number of seconds
+    var numberOfSecondsTheTimerWasSetTo = 0
     
     private let toTimerPausedAnimator = ToTimerPausedAnimator()
     var timer = NSTimer()
-    var numberOfSecondsToCountDown = 0 //number of seconds
+
     
 
     override func viewDidLoad()
@@ -122,6 +124,7 @@ class TimerRunningViewController: UIViewController {
             if segueIdentifier == "TimerRunningToTimerPaused" {
                 let timerPausedVC = segue.destinationViewController as! TimerPausedViewController
                 timerPausedVC.numberOfSecondsToCountDown = numberOfSecondsToCountDown
+                timerPausedVC.numberOfSecondsTheTimerWasSetTo = numberOfSecondsTheTimerWasSetTo
                 timerPausedVC.projectName = projectName
                 return
             }

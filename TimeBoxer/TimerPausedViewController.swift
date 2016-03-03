@@ -17,7 +17,7 @@ class TimerPausedViewController: UIViewController {
     @IBOutlet weak var stopButton: StopButton!
     var projectName:String?
     var numberOfSecondsToCountDown = 0
-    
+    var numberOfSecondsTheTimerWasSetTo = 0
 
     override func viewDidLoad()
     {
@@ -97,6 +97,7 @@ class TimerPausedViewController: UIViewController {
                 let timerRunningVC = segue.destinationViewController as! TimerRunningViewController
                 timerRunningVC.numberOfSecondsToCountDown = numberOfSecondsToCountDown
                 timerRunningVC.projectName = projectName
+                timerRunningVC.numberOfSecondsTheTimerWasSetTo = numberOfSecondsTheTimerWasSetTo
                 return
             }
             if segueIdentifier == "TimerPausedToTimeSlider" {
@@ -107,6 +108,8 @@ class TimerPausedViewController: UIViewController {
             if segueIdentifier == "TimerPausedToTimerDone" {
                 let timerDoneVC = segue.destinationViewController as! TimerDoneViewController
                 timerDoneVC.projectName = projectName
+                timerDoneVC.numberOfSecondsTheTimerWasSetTo = numberOfSecondsTheTimerWasSetTo
+                timerDoneVC.numberOfSecondsToCountDown = numberOfSecondsToCountDown
                 return
             }
         }
