@@ -540,6 +540,9 @@
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="z7C-76-t17" secondAttribute="height" multiplier="1:1" id="0Q7-0w-GSf"/>
                                 </constraints>
+                                <connections>
+                                    <action selector="okButtonPressed:" destination="26t-Cs-zhz" eventType="touchUpInside" id="j7c-40-kuD"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time Boxer" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OOx-ef-zkT" userLabel="App Title Label">
                                 <rect key="frame" x="264" y="40" width="73" height="18"/>
@@ -598,6 +601,7 @@
                         <outlet property="okButton" destination="z7C-76-t17" id="Ekf-1z-1QC"/>
                         <outlet property="projectNameLabel" destination="sJ1-YW-71b" id="ku0-Wm-Nap"/>
                         <outlet property="timeLabel" destination="7rw-QG-Usg" id="1HE-GI-HMH"/>
+                        <segue destination="CN5-20-aaQ" kind="show" identifier="TimerDoneToTimeSlider" id="tj7-93-GMq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PFb-9g-FAW" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -607,5 +611,6 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="pqB-dp-YLD"/>
+        <segue reference="tj7-93-GMq"/>
     </inferredMetricsTieBreakers>
 </document>
