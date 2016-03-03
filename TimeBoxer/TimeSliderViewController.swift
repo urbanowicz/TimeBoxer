@@ -24,7 +24,7 @@ class TimeSliderViewController: UIViewController {
 //----------------------------------------------------------------------------------------------------------------------
     override func viewDidLoad() {
         super.viewDidLoad()
-        projectName = "Read \"On Intelligence\" and implement the MIDI encoder for the NUPIC platform"
+        projectName = "Transcriber." //"Read \"On Intelligence\" and implement the MIDI encoder for the NUPIC platform"
         view.backgroundColor = Colors.toUIColor(.ALMOST_BLACK)
         setupStartButton()
         setupProjectNameLabel()

@@ -9,12 +9,16 @@
 import UIKit
 
 class TimerDoneViewController: UIViewController {
-
+    
+    var projectName:String?
+    var numberOfSecondsToCountDown:Int?
+    var amountOfSecondsTheTimerWasSetTo:Int?
+    
     @IBOutlet weak var appTitleLabel: UILabel!
     @IBOutlet weak var completedLabel: UILabel!
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var ofLabel: UILabel!
-    @IBOutlet weak var projectName: UILabel!
+    @IBOutlet weak var projectNameLabel: UILabel!
     
     @IBOutlet weak var okButton: OKButton!
     override func viewDidLoad() {
@@ -48,7 +52,11 @@ class TimerDoneViewController: UIViewController {
         ofLabel.textColor = Colors.lightGray()
     }
     private func setupProjectNameLabel() {
-        projectName.textColor = Colors.almostBlack()
+        projectNameLabel.textColor = Colors.almostBlack()
+        projectNameLabel.text = projectName
+        projectNameLabel.numberOfLines = 4
+        projectNameLabel.adjustsFontSizeToFitWidth = true
+        projectNameLabel.sizeToFit()
     }
     
     private func setupOKButton() {

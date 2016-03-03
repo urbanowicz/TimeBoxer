@@ -547,8 +547,8 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="nLR-hS-MGL">
-                                <rect key="frame" x="201" y="219" width="248" height="131"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="nLR-hS-MGL">
+                                <rect key="frame" x="176" y="210" width="248" height="101"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Completed" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MPS-4p-qEX" userLabel="Completed Label">
                                         <rect key="frame" x="0.0" y="0.0" width="248" height="20"/>
@@ -568,21 +568,24 @@
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Project Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sJ1-YW-71b" userLabel="Project Name Label">
-                                        <rect key="frame" x="0.0" y="111" width="248" height="20"/>
-                                        <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="14"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                 </subviews>
                             </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Project Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sJ1-YW-71b" userLabel="Project Name Label">
+                                <rect key="frame" x="257" y="321" width="86" height="20"/>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="14"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="sJ1-YW-71b" firstAttribute="top" secondItem="nLR-hS-MGL" secondAttribute="bottom" constant="10" id="BcO-Rc-5Or"/>
                             <constraint firstItem="OOx-ef-zkT" firstAttribute="top" secondItem="6lO-PG-LvG" secondAttribute="bottom" constant="20" id="DC7-hx-We7"/>
                             <constraint firstItem="OOx-ef-zkT" firstAttribute="centerX" secondItem="NG2-v5-aQ4" secondAttribute="centerX" id="MQP-ix-7Y0"/>
+                            <constraint firstItem="sJ1-YW-71b" firstAttribute="centerX" secondItem="NG2-v5-aQ4" secondAttribute="centerX" id="ZAz-VS-a8A"/>
                             <constraint firstItem="z7C-76-t17" firstAttribute="centerX" secondItem="NG2-v5-aQ4" secondAttribute="centerX" id="b54-9r-g9F"/>
-                            <constraint firstItem="nLR-hS-MGL" firstAttribute="centerY" secondItem="NG2-v5-aQ4" secondAttribute="centerY" constant="-20" id="gK4-gt-V6T"/>
+                            <constraint firstItem="sJ1-YW-71b" firstAttribute="width" relation="lessThanOrEqual" secondItem="NG2-v5-aQ4" secondAttribute="width" multiplier="0.6" id="enf-SS-8jc"/>
+                            <constraint firstItem="nLR-hS-MGL" firstAttribute="centerY" secondItem="NG2-v5-aQ4" secondAttribute="centerY" constant="-40" id="gK4-gt-V6T"/>
                             <constraint firstItem="z7C-76-t17" firstAttribute="width" secondItem="NG2-v5-aQ4" secondAttribute="width" multiplier="0.28" id="kJO-XM-Bt6"/>
                             <constraint firstItem="nLR-hS-MGL" firstAttribute="centerX" secondItem="NG2-v5-aQ4" secondAttribute="centerX" id="tfb-gs-QTk"/>
                             <constraint firstItem="Pwj-gS-Y3a" firstAttribute="top" secondItem="z7C-76-t17" secondAttribute="bottom" constant="20" id="v8M-bw-pTE"/>
@@ -593,7 +596,7 @@
                         <outlet property="completedLabel" destination="MPS-4p-qEX" id="0fS-xv-S0Y"/>
                         <outlet property="ofLabel" destination="37X-hJ-KiI" id="5ic-zW-ncV"/>
                         <outlet property="okButton" destination="z7C-76-t17" id="Ekf-1z-1QC"/>
-                        <outlet property="projectName" destination="sJ1-YW-71b" id="UwM-4B-fle"/>
+                        <outlet property="projectNameLabel" destination="sJ1-YW-71b" id="ku0-Wm-Nap"/>
                         <outlet property="timeLabel" destination="7rw-QG-Usg" id="1HE-GI-HMH"/>
                     </connections>
                 </viewController>

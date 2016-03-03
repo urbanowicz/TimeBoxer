@@ -105,7 +105,9 @@ class TimerPausedViewController: UIViewController {
                 return
             }
             if segueIdentifier == "TimerPausedToTimerDone" {
-                
+                let timerDoneVC = segue.destinationViewController as! TimerDoneViewController
+                timerDoneVC.projectName = projectName
+                return
             }
         }
     }
