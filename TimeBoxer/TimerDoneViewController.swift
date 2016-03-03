@@ -20,18 +20,28 @@ class TimerDoneViewController: UIViewController {
     @IBOutlet weak var ofLabel: UILabel!
     @IBOutlet weak var projectNameLabel: UILabel!
     @IBOutlet weak var okButton: OKButton!
+    @IBOutlet weak var zeroMinutesLabel: UILabel!
     
     private let minutesToStringConverter = MinutesToStringConverter()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = Colors.seafoam()
+        
+        hideAllLabels()
+        
+        if numberOfSecondsTheTimerWasSetTo - numberOfSecondsToCountDown < 60 {
+            setupZeroMinutesLabel()
+        } else {
+        
+            setupCompletedLabel()
+            setupTimeLabel()
+            setupOfLabel()
+            setupProjectNameLabel()
+        }
         setupAppTitleLabel()
-        setupCompletedLabel()
-        setupTimeLabel()
-        setupOfLabel()
         setupOKButton()
-        setupProjectNameLabel()
+
     }
 
     override func didReceiveMemoryWarning() {
@@ -40,22 +50,39 @@ class TimerDoneViewController: UIViewController {
     }
 
 //MARK: Setup UI elements
+    private func hideAllLabels() {
+        zeroMinutesLabel.hidden = true
+        completedLabel.hidden = true
+        timeLabel.hidden = true
+        ofLabel.hidden = true
+        projectNameLabel.hidden = true
+    }
+    private func setupZeroMinutesLabel() {
+        zeroMinutesLabel.hidden = false
+        zeroMinutesLabel.numberOfLines = 2
+        zeroMinutesLabel.adjustsFontSizeToFitWidth = true
+        zeroMinutesLabel.textColor = Colors.almostBlack()
+    }
     private func setupAppTitleLabel() {
         appTitleLabel.textColor = Colors.almostBlack()
         appTitleLabel.sizeToFit()
     }
     private func setupCompletedLabel() {
+        completedLabel.hidden = false
         completedLabel.textColor = Colors.lightGray()
     }
     private func setupTimeLabel() {
         let numberOfCompletedMinutes = Int((numberOfSecondsTheTimerWasSetTo - numberOfSecondsToCountDown) / 60)
+        timeLabel.hidden = false
         timeLabel.text = minutesToStringConverter.convert(numberOfCompletedMinutes)
         timeLabel.textColor = Colors.almostBlack()
     }
     private func setupOfLabel() {
+        ofLabel.hidden = false
         ofLabel.textColor = Colors.lightGray()
     }
     private func setupProjectNameLabel() {
+        projectNameLabel.hidden = false
         projectNameLabel.textColor = Colors.almostBlack()
         projectNameLabel.text = projectName
         projectNameLabel.numberOfLines = 4

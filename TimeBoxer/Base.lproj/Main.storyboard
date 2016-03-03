@@ -22,6 +22,7 @@
             <string>Avenir-Book</string>
             <string>Avenir-BookOblique</string>
             <string>Avenir-Book</string>
+            <string>Avenir-Book</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -579,9 +580,17 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="You haven't completed a one full minute." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nQk-pv-55n" userLabel="Zero Minutes Label">
+                                <rect key="frame" x="25" y="260" width="550" height="41"/>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="30"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="nQk-pv-55n" firstAttribute="centerX" secondItem="NG2-v5-aQ4" secondAttribute="centerX" id="6QA-dW-CLN"/>
+                            <constraint firstItem="nQk-pv-55n" firstAttribute="centerY" secondItem="NG2-v5-aQ4" secondAttribute="centerY" constant="-20" id="7Pj-tQ-QYe"/>
                             <constraint firstItem="sJ1-YW-71b" firstAttribute="top" secondItem="nLR-hS-MGL" secondAttribute="bottom" constant="10" id="BcO-Rc-5Or"/>
                             <constraint firstItem="OOx-ef-zkT" firstAttribute="top" secondItem="6lO-PG-LvG" secondAttribute="bottom" constant="20" id="DC7-hx-We7"/>
                             <constraint firstItem="OOx-ef-zkT" firstAttribute="centerX" secondItem="NG2-v5-aQ4" secondAttribute="centerX" id="MQP-ix-7Y0"/>
@@ -589,6 +598,7 @@
                             <constraint firstItem="z7C-76-t17" firstAttribute="centerX" secondItem="NG2-v5-aQ4" secondAttribute="centerX" id="b54-9r-g9F"/>
                             <constraint firstItem="sJ1-YW-71b" firstAttribute="width" relation="lessThanOrEqual" secondItem="NG2-v5-aQ4" secondAttribute="width" multiplier="0.6" id="enf-SS-8jc"/>
                             <constraint firstItem="nLR-hS-MGL" firstAttribute="centerY" secondItem="NG2-v5-aQ4" secondAttribute="centerY" constant="-40" id="gK4-gt-V6T"/>
+                            <constraint firstItem="nQk-pv-55n" firstAttribute="width" secondItem="NG2-v5-aQ4" secondAttribute="width" multiplier="0.8" id="gks-BF-D73"/>
                             <constraint firstItem="z7C-76-t17" firstAttribute="width" secondItem="NG2-v5-aQ4" secondAttribute="width" multiplier="0.28" id="kJO-XM-Bt6"/>
                             <constraint firstItem="nLR-hS-MGL" firstAttribute="centerX" secondItem="NG2-v5-aQ4" secondAttribute="centerX" id="tfb-gs-QTk"/>
                             <constraint firstItem="Pwj-gS-Y3a" firstAttribute="top" secondItem="z7C-76-t17" secondAttribute="bottom" constant="20" id="v8M-bw-pTE"/>
@@ -601,6 +611,7 @@
                         <outlet property="okButton" destination="z7C-76-t17" id="Ekf-1z-1QC"/>
                         <outlet property="projectNameLabel" destination="sJ1-YW-71b" id="ku0-Wm-Nap"/>
                         <outlet property="timeLabel" destination="7rw-QG-Usg" id="1HE-GI-HMH"/>
+                        <outlet property="zeroMinutesLabel" destination="nQk-pv-55n" id="DfX-Ld-nTX"/>
                         <segue destination="CN5-20-aaQ" kind="show" identifier="TimerDoneToTimeSlider" id="tj7-93-GMq"/>
                     </connections>
                 </viewController>
