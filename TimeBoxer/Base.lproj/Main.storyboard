@@ -18,6 +18,10 @@
             <string>Avenir-Book</string>
             <string>Avenir-Book</string>
             <string>Avenir-Book</string>
+            <string>Avenir-BookOblique</string>
+            <string>Avenir-Book</string>
+            <string>Avenir-BookOblique</string>
+            <string>Avenir-Book</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -537,16 +541,60 @@
                                     <constraint firstAttribute="width" secondItem="z7C-76-t17" secondAttribute="height" multiplier="1:1" id="0Q7-0w-GSf"/>
                                 </constraints>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time Boxer" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OOx-ef-zkT" userLabel="App Title Label">
+                                <rect key="frame" x="264" y="40" width="73" height="18"/>
+                                <fontDescription key="fontDescription" name="Baskerville" family="Baskerville" pointSize="15"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="nLR-hS-MGL">
+                                <rect key="frame" x="201" y="219" width="248" height="131"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Completed" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MPS-4p-qEX" userLabel="Completed Label">
+                                        <rect key="frame" x="0.0" y="0.0" width="248" height="20"/>
+                                        <fontDescription key="fontDescription" name="Avenir-BookOblique" family="Avenir" pointSize="14"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="1 hour, 20 minutes" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7rw-QG-Usg" userLabel="Time Label">
+                                        <rect key="frame" x="0.0" y="30" width="248" height="41"/>
+                                        <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="30"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="of" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="37X-hJ-KiI" userLabel="Of Label">
+                                        <rect key="frame" x="0.0" y="81" width="248" height="20"/>
+                                        <fontDescription key="fontDescription" name="Avenir-BookOblique" family="Avenir" pointSize="14"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Project Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sJ1-YW-71b" userLabel="Project Name Label">
+                                        <rect key="frame" x="0.0" y="111" width="248" height="20"/>
+                                        <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="14"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="OOx-ef-zkT" firstAttribute="top" secondItem="6lO-PG-LvG" secondAttribute="bottom" constant="20" id="DC7-hx-We7"/>
+                            <constraint firstItem="OOx-ef-zkT" firstAttribute="centerX" secondItem="NG2-v5-aQ4" secondAttribute="centerX" id="MQP-ix-7Y0"/>
                             <constraint firstItem="z7C-76-t17" firstAttribute="centerX" secondItem="NG2-v5-aQ4" secondAttribute="centerX" id="b54-9r-g9F"/>
+                            <constraint firstItem="nLR-hS-MGL" firstAttribute="centerY" secondItem="NG2-v5-aQ4" secondAttribute="centerY" constant="-20" id="gK4-gt-V6T"/>
                             <constraint firstItem="z7C-76-t17" firstAttribute="width" secondItem="NG2-v5-aQ4" secondAttribute="width" multiplier="0.28" id="kJO-XM-Bt6"/>
+                            <constraint firstItem="nLR-hS-MGL" firstAttribute="centerX" secondItem="NG2-v5-aQ4" secondAttribute="centerX" id="tfb-gs-QTk"/>
                             <constraint firstItem="Pwj-gS-Y3a" firstAttribute="top" secondItem="z7C-76-t17" secondAttribute="bottom" constant="20" id="v8M-bw-pTE"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="appTitleLabel" destination="OOx-ef-zkT" id="yCD-bU-NKV"/>
+                        <outlet property="completedLabel" destination="MPS-4p-qEX" id="0fS-xv-S0Y"/>
+                        <outlet property="ofLabel" destination="37X-hJ-KiI" id="5ic-zW-ncV"/>
                         <outlet property="okButton" destination="z7C-76-t17" id="Ekf-1z-1QC"/>
+                        <outlet property="projectName" destination="sJ1-YW-71b" id="UwM-4B-fle"/>
+                        <outlet property="timeLabel" destination="7rw-QG-Usg" id="1HE-GI-HMH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PFb-9g-FAW" userLabel="First Responder" sceneMemberID="firstResponder"/>
