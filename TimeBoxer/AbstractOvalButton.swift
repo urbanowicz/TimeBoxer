@@ -9,8 +9,11 @@
 import UIKit
 
 class AbstractOvalButton: UIButton {
+    
     var frontLayerColor = UIColor.whiteColor()
     var frontLayerHighlightedColor = UIColor.whiteColor()
+    var frontLayerStrokeColor = UIColor.whiteColor()
+    var frontLayerHighlighteStrokeColor = UIColor.whiteColor()
     var ovalLayerColor = UIColor.blackColor()
     var ovalLayerHighlightedColor = UIColor.grayColor()
     var borderColor = UIColor.greenColor()
@@ -55,8 +58,10 @@ class AbstractOvalButton: UIButton {
             ovalPath.stroke()
         }
         if !highlighted {
+            frontLayerStrokeColor.setStroke()
             frontLayerColor.setFill()
         } else {
+            frontLayerHighlighteStrokeColor.setStroke()
             frontLayerHighlightedColor.setFill()
         }
         drawFrontLayer(rect)

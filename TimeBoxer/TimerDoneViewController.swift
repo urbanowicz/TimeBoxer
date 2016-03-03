@@ -26,9 +26,9 @@ class TimerDoneViewController: UIViewController {
     private func setupOKButton() {
         okButton.borderColor = Colors.almostBlack()
         okButton.ovalLayerColor = Colors.seafoam()
-        okButton.frontLayerColor = Colors.almostBlack()
+        okButton.frontLayerStrokeColor = Colors.almostBlack()
         okButton.ovalLayerHighlightedColor = Colors.almostBlack()
-        okButton.frontLayerHighlightedColor = Colors.seafoam()
+        okButton.frontLayerHighlighteStrokeColor = Colors.seafoam()
         okButton.borderWidth = 2.0
     }
 }
