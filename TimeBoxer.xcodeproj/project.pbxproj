@@ -28,6 +28,7 @@
 		F15F9C571BCCF376008733A3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F15F9C561BCCF376008733A3 /* Assets.xcassets */; };
 		F15F9C5A1BCCF376008733A3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F15F9C581BCCF376008733A3 /* LaunchScreen.storyboard */; };
 		F15F9C651BCCF376008733A3 /* TimeBoxer_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F15F9C641BCCF376008733A3 /* TimeBoxer_Tests.swift */; };
+		F188DA6F1C898890000E8AD2 /* ShrinkingCircleAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F188DA6E1C898890000E8AD2 /* ShrinkingCircleAnimator.swift */; };
 		F189A1B21BD8C0D3000FFC5F /* TimeSliderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F189A1B11BD8C0D3000FFC5F /* TimeSliderViewController.swift */; };
 		F18C2AD81C873A9A004A7B72 /* TimerDoneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F18C2AD71C873A9A004A7B72 /* TimerDoneViewController.swift */; };
 		F18D6B7A1BEB4BFE0003CBD4 /* TimerPausedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F18D6B791BEB4BFE0003CBD4 /* TimerPausedViewController.swift */; };
@@ -88,6 +89,7 @@
 		F15F9C601BCCF376008733A3 /* TimeBoxer.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TimeBoxer.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F15F9C641BCCF376008733A3 /* TimeBoxer_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeBoxer_Tests.swift; sourceTree = "<group>"; };
 		F15F9C661BCCF376008733A3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F188DA6E1C898890000E8AD2 /* ShrinkingCircleAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShrinkingCircleAnimator.swift; sourceTree = "<group>"; };
 		F189A1B11BD8C0D3000FFC5F /* TimeSliderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeSliderViewController.swift; sourceTree = "<group>"; };
 		F18C2AD71C873A9A004A7B72 /* TimerDoneViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerDoneViewController.swift; sourceTree = "<group>"; };
 		F18D6B791BEB4BFE0003CBD4 /* TimerPausedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerPausedViewController.swift; sourceTree = "<group>"; };
@@ -142,6 +144,7 @@
 			isa = PBXGroup;
 			children = (
 				F125D7D11C28496700B94849 /* CirclePathWrapper.swift */,
+				F188DA6E1C898890000E8AD2 /* ShrinkingCircleAnimator.swift */,
 			);
 			name = Animators;
 			sourceTree = "<group>";
@@ -466,6 +469,7 @@
 				F1981BA21C84E61700F49454 /* MinutesToStringConverter.swift in Sources */,
 				F152EE901C5968D00090BECC /* Project.swift in Sources */,
 				F10B85181C38346D002C66F2 /* ContainerViewController.swift in Sources */,
+				F188DA6F1C898890000E8AD2 /* ShrinkingCircleAnimator.swift in Sources */,
 				F14F13071BEA87160045936F /* StopButton.swift in Sources */,
 				F1A95C041C6BD49000EF5204 /* LastWorkedOnDateFormatter.swift in Sources */,
 				F1D2444C1BDFF8320023B994 /* TimerRunningViewController.swift in Sources */,
