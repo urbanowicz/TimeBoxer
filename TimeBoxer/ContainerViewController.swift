@@ -125,6 +125,10 @@ override func prefersStatusBarHidden() -> Bool {
         }
         
         if gestureRecognizer.state == .Ended {
+            if direction == -1 {
+                toTimeSliderSwipeHandler!.handleSwipeEnded(gestureRecognizer)
+                return
+            }
             let translation = gestureRecognizer.translationInView(view)
             if fabs(translation.x) > view.frame.width / 2.0 {
                 
@@ -192,39 +196,39 @@ override func prefersStatusBarHidden() -> Bool {
         let location = gestureRecognizer.locationInView(projectsTableVC!.projectsTableView)
         if let cell = projectsTableVC!.cellAtPoint(location) {
             toTimeSliderSwipeHandler = ProjectsTableToTimeSliderSwipeHandler(tableCell: cell,
-                projectsTableVC: projectsTableVC!, timeSliderVC: timeSliderVC!, containerView: self.view)
+                fromVC: projectsTableVC!, toVC: timeSliderVC!, containerVC: self)
         }
-    }
-    
-    private func toTimeSliderSwipeChanged(gesutreRecognizer:UIPanGestureRecognizer) {
-        
-    }
-
-    private func toTimeSliderSwipeEnded(gestureRecognizer:UIPanGestureRecognizer) {
-        
     }
 }
 
 private class ProjectsTableToTimeSliderSwipeHandler: NSObject {
     var tableCell: UITableViewCell
-    var tableView: UIView
+    //var tableView: UIView
     var fromView:UIView
     var toView: UIView
     var containerView: UIView
+   
+    var fromVC: UIViewController
+    var toVC: UIViewController
+    var containerVC: ContainerViewController
     
     private var tableCellOrigin:CGPoint
-    init(tableCell:UITableViewCell, projectsTableVC: ProjectsTableViewController, timeSliderVC: TimeSliderViewController, containerView: UIView) {
+    private  let drawerSize = CGFloat(50)
+    init(tableCell:UITableViewCell, fromVC: UIViewController, toVC: UIViewController, containerVC: ContainerViewController) {
         self.tableCell = tableCell
         self.tableCellOrigin = tableCell.frame.origin
-        self.tableView = projectsTableVC.projectsTableView
-        self.fromView = projectsTableVC.view
-        self.toView = timeSliderVC.view
-        self.containerView = containerView
+        //self.tableView = projectsTableVC.projectsTableView
+        self.fromView = fromVC.view
+        self.fromVC = fromVC
+        self.toView = toVC.view
+        self.toVC = toVC
+        self.containerView = containerVC.view
+        self.containerVC = containerVC
     }
     
     func handleSwipeChanged(gestureRecognizer: UIPanGestureRecognizer) {
-        let drawerSize = CGFloat(50)
-        let translationInProjectsTableView = gestureRecognizer.translationInView(tableView)
+
+        let translationInProjectsTableView = gestureRecognizer.translationInView(fromView)
         if fabs(translationInProjectsTableView.x) <= drawerSize {
             //animate the table Cell
             if  translationInProjectsTableView.x > 0 {
@@ -235,10 +239,74 @@ private class ProjectsTableToTimeSliderSwipeHandler: NSObject {
             tableCell.frame.origin.x = tableCellOrigin.x + translationInProjectsTableView.x
         } else {
             let translation = gestureRecognizer.translationInView(containerView)
-            let dx = translation.x + drawerSize
-            fromView.frame.origin.x = containerView.frame.origin.x + dx
-            toView.frame.origin.x = (containerView.frame.origin.x + dx) + containerView.frame.width
+            let dx = fabs(translation.x) - drawerSize
+            fromView.frame.origin.x = containerView.frame.origin.x - dx
+            toView.frame.origin.x = (containerView.frame.origin.x - dx) + containerView.frame.width
             
         }
+    }
+    
+    func handleSwipeEnded(gestureRecognizer: UIPanGestureRecognizer) {
+        let translation = gestureRecognizer.translationInView(containerView)
+        
+        
+        if fabs(translation.x) <= drawerSize {
+            rollbackCellAnimation()
+            return
+        }
+        
+        let dx = fabs(translation.x) - drawerSize
+        if dx < containerView.frame.width / 2.0  {
+            rollbackTransition()
+            return
+        } else  {
+            commitTransition()
+        }
+        
+    }
+    
+    private func rollbackCellAnimation() {
+        UIView.animateWithDuration(0.1, animations: { self.tableCell.frame.origin.x = self.tableCellOrigin.x })
+    }
+    
+    private func rollbackTransition() {
+        
+        UIView.animateWithDuration(0.1,
+            animations:
+            {
+                self.tableCell.frame.origin.x = self.tableCellOrigin.x
+                self.fromView.frame.origin.x = self.containerView.frame.origin.x
+                self.toView.frame.origin.x = self.containerView.frame.origin.x + self.containerView.frame.width
+            },
+            
+            completion:
+            {
+                finished in
+                self.toView.removeFromSuperview()
+            }
+        )
+    }
+    
+    private func commitTransition() {
+        UIView.animateWithDuration(0.1,
+            animations:
+            {
+                
+                self.toView.frame.origin.x = self.containerView.frame.origin.x
+                self.fromView.frame.origin.x = self.containerView.frame.origin.x - self.containerView.frame.width
+                
+            },
+            
+            completion:
+            {
+                finished in
+                self.containerVC.addChildViewController(self.toVC)
+                self.toVC.didMoveToParentViewController(self.containerVC)
+                self.fromVC.willMoveToParentViewController(nil)
+                self.fromView.removeFromSuperview()
+                self.fromVC.removeFromParentViewController()
+                self.tableCell.frame.origin.x = self.tableCellOrigin.x
+                
+        })
     }
 }
