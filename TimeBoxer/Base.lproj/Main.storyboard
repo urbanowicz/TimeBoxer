@@ -435,6 +435,7 @@
                         <outlet property="projectNameLabel" destination="HoH-jI-dWq" id="Tnq-9T-yeb"/>
                         <outlet property="timeLabel" destination="1IS-Qf-OeE" id="cVF-g1-2rs"/>
                         <segue destination="lqK-VX-oTB" kind="show" identifier="TimerRunningToTimerPaused" id="ege-pk-Hef"/>
+                        <segue destination="26t-Cs-zhz" kind="show" identifier="TimerRunningToTimerDone" id="L9w-ZE-epX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="D5S-Un-hAw" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -617,11 +618,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PFb-9g-FAW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1688" y="1036"/>
+            <point key="canvasLocation" x="1731" y="1229"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="pqB-dp-YLD"/>
+        <segue reference="L9w-ZE-epX"/>
         <segue reference="tj7-93-GMq"/>
     </inferredMetricsTieBreakers>
 </document>

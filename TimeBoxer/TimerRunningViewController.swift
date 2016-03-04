@@ -76,16 +76,20 @@ class TimerRunningViewController: UIViewController {
 //MARK: Actions
     @IBAction func pauseButtonPressed(sender: UIButton) {
         timer.invalidate()
-        performSegueWithIdentifier("TimerRunningToTimerPaused", sender: self)
+        performSegueWithIdentifier("TimerRunningToTimerPaused", sender: sender)
     }
 
     func countDown() {
         numberOfSecondsToCountDown--
         updateTimeLabel()
         if numberOfSecondsToCountDown == 0 {
-            //initiate the segue programatically
-            //stopButtonPressed(stopButton)
+            handleTimerDone()
         }
+    }
+    
+    private func handleTimerDone() {
+        timer.invalidate()
+        performSegueWithIdentifier("TimerRunningToTimerDone", sender: self)
     }
     
     private func updateTimeLabel() {
@@ -128,12 +132,24 @@ class TimerRunningViewController: UIViewController {
                 timerPausedVC.projectName = projectName
                 return
             }
+            if segueIdentifier == "TimerRunningToTimerDone" {
+                let timerDoneVC = segue.destinationViewController as! TimerDoneViewController
+                timerDoneVC.numberOfSecondsTheTimerWasSetTo = numberOfSecondsTheTimerWasSetTo
+                timerDoneVC.numberOfSecondsToCountDown = 0
+                timerDoneVC.projectName = projectName
+            }
         }
     }
 
     override func showViewController(vc: UIViewController, sender: AnyObject?) {
         let containerVC = parentViewController as! ContainerViewController
-        containerVC.switchViewControllers(self, toVC: vc, animator: toTimerPausedAnimator)
+        if  sender as? PauseButton != nil {
+            containerVC.switchViewControllers(self, toVC: vc, animator: toTimerPausedAnimator)
+            return
+        }
+        if sender as? TimerRunningViewController != nil {
+            containerVC.switchViewControllers(self, toVC: vc, animator: FadeInAnimator())
+        }
     }
 
 }
