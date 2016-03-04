@@ -138,12 +138,12 @@
 			name = ContainerVC;
 			sourceTree = "<group>";
 		};
-		F125D7D01C28491900B94849 /* AnimationShapes */ = {
+		F125D7D01C28491900B94849 /* Animators */ = {
 			isa = PBXGroup;
 			children = (
 				F125D7D11C28496700B94849 /* CirclePathWrapper.swift */,
 			);
-			name = AnimationShapes;
+			name = Animators;
 			sourceTree = "<group>";
 		};
 		F137E96C1C4199130064E15F /* Colors */ = {
@@ -211,7 +211,7 @@
 				F1CC0EEB1C69284A0090D76D /* TimeBoxerPlayground.playground */,
 				F152EE8E1C5968B30090BECC /* Model */,
 				F1B5FE6B1C31AF45003A5C65 /* Segues */,
-				F125D7D01C28491900B94849 /* AnimationShapes */,
+				F125D7D01C28491900B94849 /* Animators */,
 				F1A605381C8211C7008EF288 /* CustomControls */,
 				F137E96C1C4199130064E15F /* Colors */,
 				F1A605371C81FBDB008EF288 /* UIControlsTestVC */,

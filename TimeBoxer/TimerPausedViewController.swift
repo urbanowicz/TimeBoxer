@@ -119,7 +119,8 @@ class TimerPausedViewController: UIViewController {
         let containerVC = parentViewController as! ContainerViewController
         let button = sender as! AbstractOvalButton
         if button == self.resumeButton {
-            containerVC.switchViewControllers(self, toVC: vc, animator: ToTimerRunningAnimator())
+            containerVC.switchViewControllers(self, toVC: vc, animator:
+                ShrinkingCircleAnimator(circleCenter: resumeButton.center, parentView: resumeButton.superview!))
         }
         if button == self.cancelButton {
             containerVC.switchViewControllers(self, toVC: vc, animator: FadeInAnimator())
@@ -131,16 +132,22 @@ class TimerPausedViewController: UIViewController {
 }
 
 //
-//MARK: - ToTimerRunningAnimator
+//MARK: - ShrinkingCircleAnimator
 //
-private class ToTimerRunningAnimator:NSObject, Animator {
+private class ShrinkingCircleAnimator:NSObject, Animator {
     let transitionDuration = 0.25
-    var timerPausedVC:TimerPausedViewController?
-    var timerRunningVC:TimerRunningViewController?
+    var fromVC:UIViewController?
+    var toVC:UIViewController?
     var container:UIView?
     var completionBlock: (() -> Void)?
+    var circleCenter:CGPoint
+    var circlesParentView:UIView
     
-
+    init(circleCenter:CGPoint, parentView: UIView) {
+        self.circleCenter = circleCenter
+        circlesParentView = parentView
+    }
+    
     func animateTransition(fromVC: UIViewController, toVC: UIViewController, container: UIView, completion: (() -> Void)?)
     {
         //Remember: Container is the actual view of the parent controller.
@@ -148,8 +155,8 @@ private class ToTimerRunningAnimator:NSObject, Animator {
         //It is the animator's responsibility to remove the fromVC.view and insert the toVC.view
         
         //1. Store the parameters as instance variables
-        self.timerPausedVC = fromVC as? TimerPausedViewController
-        self.timerRunningVC = toVC as? TimerRunningViewController
+        self.fromVC = fromVC
+        self.toVC = toVC
         self.container = container
         self.completionBlock = completion
         
@@ -160,27 +167,26 @@ private class ToTimerRunningAnimator:NSObject, Animator {
         let shrinkingCircleLayer = prepareShrinkingCircleAnimationLayer()
         fromVC.view.layer.mask = shrinkingCircleLayer
     }
-
-
+    
+    
     override func animationDidStop(anim: CAAnimation, finished flag: Bool)
     {
         //Done with the animation. Do the cleanup.
-        timerPausedVC!.view.removeFromSuperview()
-        timerPausedVC!.view.layer.mask = nil
+        fromVC!.view.removeFromSuperview()
+        fromVC!.view.layer.mask = nil
         if let executeCompletionBlock = completionBlock {
             executeCompletionBlock()
         }
     }
-
-
+    
+    
     private func prepareShrinkingCircleAnimationLayer() -> CALayer
     {
         let animationLayer = CAShapeLayer()
-        let resumeButton = timerPausedVC!.resumeButton
-        let resumeButtonCenter = container!.convertPoint(resumeButton.center, fromView: resumeButton.superview)
-        let smallCirclePath = CirclePathWrapper(centerX: resumeButtonCenter.x, centerY: resumeButtonCenter.y,
+        let actualCircleCenter = container!.convertPoint(circleCenter, fromView: circlesParentView)
+        let smallCirclePath = CirclePathWrapper(centerX: actualCircleCenter.x, centerY: actualCircleCenter.y,
             radius: 0.0).path
-        let largeCirclePath = createLargeCircleForButton(resumeButton).path
+        let largeCirclePath = createLargeCircle(actualCircleCenter).path
         animationLayer.path = smallCirclePath
         
         let animation = CABasicAnimation(keyPath: "path")
@@ -192,12 +198,12 @@ private class ToTimerRunningAnimator:NSObject, Animator {
         return animationLayer
     }
     
-
-    private func createLargeCircleForButton(button:AbstractOvalButton) -> CirclePathWrapper
+    
+    private func createLargeCircle(actualCircleCenter: CGPoint) -> CirclePathWrapper
     {
-        let circleCenter:CGPoint = container!.convertPoint(button.center, fromView: button.superview)
-        let xs = circleCenter.x
-        let ys = circleCenter.y
+        
+        let xs = actualCircleCenter.x
+        let ys = actualCircleCenter.y
         let x0 = container!.frame.origin.x
         let y0 = container!.frame.origin.y
         let  largeRadius = sqrt(pow((xs - x0),2) + pow((ys - y0),2))
