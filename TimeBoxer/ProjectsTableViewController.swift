@@ -81,7 +81,14 @@ class ProjectsTableViewController: UIViewController, UITableViewDelegate, UITabl
             newProjectAdded = false
         }
     }
-
+    
+    func cellAtPoint(point:CGPoint) -> UITableViewCell? {
+        if let index = projectsTableView.indexPathForRowAtPoint(point) {
+            return projectsTableView.cellForRowAtIndexPath(index)
+        } else  {
+            return nil
+        }
+    }
 
 //MARK: UITableViewDataSource
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

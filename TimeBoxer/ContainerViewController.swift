@@ -106,6 +106,9 @@ override func prefersStatusBarHidden() -> Bool {
         }
         
         if gestureRecognizer.state == .Began {
+            if direction == -1 {
+                toTimeSliderSwipeBegan(gestureRecognizer)
+            }
             toVC.view.frame = self.view.frame
             toVC.view.frame.origin.x  = self.view.frame.origin.x - view.frame.width * CGFloat(direction)
             self.view.addSubview(toVC.view)
@@ -179,6 +182,21 @@ override func prefersStatusBarHidden() -> Bool {
         }
         return false
     }
+    
+//MARK: ProjectsTable to TimeSlider swipe
+    private func toTimeSliderSwipeBegan(gestureRecognizer:UIPanGestureRecognizer) {
+        let location = gestureRecognizer.locationInView(projectsTableVC!.projectsTableView)
+        if let cell = projectsTableVC!.cellAtPoint(location) {
+            print(cell.textLabel!.text)
+        }
+    
+    }
+    
+    private func toTimeSliderSwipeChanged(gesutreRecognizer:UIPanGestureRecognizer) {
+        
+    }
 
-
+    private func toTimeSliderswipeEnded(gestureRecognizer:UIPanGestureRecognizer) {
+        
+    }
 }
