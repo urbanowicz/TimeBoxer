@@ -12,7 +12,7 @@ class ContainerViewController: UIViewController, UIGestureRecognizerDelegate{
     private var timeSliderVC:TimeSliderViewController?
     private var projectsTableVC: ProjectsTableViewController?
         
-
+    private var toTimeSliderSwipeHandler:ProjectsTableToTimeSliderSwipeHandler?
     override func viewDidLoad()
     {
         super.viewDidLoad()
@@ -115,9 +115,13 @@ override func prefersStatusBarHidden() -> Bool {
         }
         
         if gestureRecognizer.state == .Changed {
-            let translation = gestureRecognizer.translationInView(view)
-            fromVC.view.frame.origin.x = view.frame.origin.x + translation.x
-            toVC.view.frame.origin.x = (view.frame.origin.x + translation.x) - view.frame.width * CGFloat(direction)
+            if direction == -1 {
+                toTimeSliderSwipeHandler!.handleSwipeChanged(gestureRecognizer)
+            } else {
+                let translation = gestureRecognizer.translationInView(view)
+                fromVC.view.frame.origin.x = view.frame.origin.x + translation.x
+                toVC.view.frame.origin.x = (view.frame.origin.x + translation.x) - view.frame.width * CGFloat(direction)
+            }
         }
         
         if gestureRecognizer.state == .Ended {
@@ -187,16 +191,54 @@ override func prefersStatusBarHidden() -> Bool {
     private func toTimeSliderSwipeBegan(gestureRecognizer:UIPanGestureRecognizer) {
         let location = gestureRecognizer.locationInView(projectsTableVC!.projectsTableView)
         if let cell = projectsTableVC!.cellAtPoint(location) {
-            print(cell.textLabel!.text)
+            toTimeSliderSwipeHandler = ProjectsTableToTimeSliderSwipeHandler(tableCell: cell,
+                projectsTableVC: projectsTableVC!, timeSliderVC: timeSliderVC!, containerView: self.view)
         }
-    
     }
     
     private func toTimeSliderSwipeChanged(gesutreRecognizer:UIPanGestureRecognizer) {
         
     }
 
-    private func toTimeSliderswipeEnded(gestureRecognizer:UIPanGestureRecognizer) {
+    private func toTimeSliderSwipeEnded(gestureRecognizer:UIPanGestureRecognizer) {
         
+    }
+}
+
+private class ProjectsTableToTimeSliderSwipeHandler: NSObject {
+    var tableCell: UITableViewCell
+    var tableView: UIView
+    var fromView:UIView
+    var toView: UIView
+    var containerView: UIView
+    
+    private var tableCellOrigin:CGPoint
+    init(tableCell:UITableViewCell, projectsTableVC: ProjectsTableViewController, timeSliderVC: TimeSliderViewController, containerView: UIView) {
+        self.tableCell = tableCell
+        self.tableCellOrigin = tableCell.frame.origin
+        self.tableView = projectsTableVC.projectsTableView
+        self.fromView = projectsTableVC.view
+        self.toView = timeSliderVC.view
+        self.containerView = containerView
+    }
+    
+    func handleSwipeChanged(gestureRecognizer: UIPanGestureRecognizer) {
+        let drawerSize = CGFloat(50)
+        let translationInProjectsTableView = gestureRecognizer.translationInView(tableView)
+        if fabs(translationInProjectsTableView.x) <= drawerSize {
+            //animate the table Cell
+            if  translationInProjectsTableView.x > 0 {
+                //Don't let the user drag the cell in the opposite direction now
+                return
+            }
+            print(translationInProjectsTableView.x)
+            tableCell.frame.origin.x = tableCellOrigin.x + translationInProjectsTableView.x
+        } else {
+            let translation = gestureRecognizer.translationInView(containerView)
+            let dx = translation.x + drawerSize
+            fromView.frame.origin.x = containerView.frame.origin.x + dx
+            toView.frame.origin.x = (containerView.frame.origin.x + dx) + containerView.frame.width
+            
+        }
     }
 }
