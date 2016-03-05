@@ -34,11 +34,8 @@ class ProjectsTableViewController: UIViewController, UITableViewDelegate, UITabl
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        //Load saved projects
-        let savedProjects = projectsDAO.loadProjects()
-        if savedProjects != nil {
-            projects = savedProjects!
-        }
+        
+        loadSavedProjects()
         
         //Add self as applicationWillResignActive observer
         let app = UIApplication.sharedApplication()
@@ -74,6 +71,13 @@ class ProjectsTableViewController: UIViewController, UITableViewDelegate, UITabl
         }
     }
     
+    private func loadSavedProjects() {
+        let savedProjects = projectsDAO.loadProjects()
+        if savedProjects != nil {
+            projects = savedProjects!
+        }
+    }
+    
     //MARK: Setup UI Elements
     
     private func setupHeader() {
@@ -99,9 +103,9 @@ class ProjectsTableViewController: UIViewController, UITableViewDelegate, UITabl
         addProjectButton.frontLayerHighlightedColor = addProjectButton.frontLayerColor
     }
     
-    func cellAtPoint(point:CGPoint) -> UITableViewCell? {
+    func cellAtPoint(point:CGPoint) -> MyTableViewCell? {
         if let index = projectsTableView.indexPathForRowAtPoint(point) {
-            return projectsTableView.cellForRowAtIndexPath(index)
+            return projectsTableView.cellForRowAtIndexPath(index) as? MyTableViewCell
         } else  {
             return nil
         }

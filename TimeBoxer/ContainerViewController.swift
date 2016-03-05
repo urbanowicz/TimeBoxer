@@ -18,25 +18,25 @@ class ContainerViewController: UIViewController, UIGestureRecognizerDelegate{
     {
         super.viewDidLoad()
         
-        //1. Instantiate the opening view controller
-        timeSliderVC =
-            storyboard!.instantiateViewControllerWithIdentifier("timeSliderViewController") as?
-            TimeSliderViewController
+
         
-        //2. Display the first screen
-        displayViewController(timeSliderVC!)
-        
-        //3. Add a Pan Gesture recognizer
+        //1. Add a Pan Gesture recognizer
         
         let panGestureRecognizer = UIPanGestureRecognizer()
         panGestureRecognizer.addTarget(self, action: "handlePanGesture:")
         view.addGestureRecognizer(panGestureRecognizer)
         panGestureRecognizer.delegate = self
         
-        //4. Create the Projects Table View
+        //2. Instantiate the opening view controller
+        timeSliderVC =
+            storyboard!.instantiateViewControllerWithIdentifier("timeSliderViewController") as?
+        TimeSliderViewController
+        
+        //3. Create the Projects Table View
         projectsTableVC =
             storyboard!.instantiateViewControllerWithIdentifier("projectsTableViewController") as?
             ProjectsTableViewController
+        displayViewController(projectsTableVC!)
     }
 
     
@@ -199,7 +199,7 @@ class ContainerViewController: UIViewController, UIGestureRecognizerDelegate{
         //Create the swipe handler and we're good to go
         toTimeSliderSwipeHandler = ProjectsTableToTimeSliderSwipeHandler(tableCell: cell!,
                 fromVC: projectsTableVC!, toVC: timeSliderVC!, containerVC: self)
-  
+        timeSliderVC!.projectName = cell!.project!.name
         return true
     }
     

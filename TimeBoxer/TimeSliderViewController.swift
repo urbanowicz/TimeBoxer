@@ -24,14 +24,16 @@ class TimeSliderViewController: UIViewController {
 //---------------------------------------------------------------------------------------------------
     override func viewDidLoad() {
         super.viewDidLoad()
-        projectName = "Transcriber." //"Read \"On Intelligence\" and implement the MIDI encoder for the NUPIC platform"
+        //projectName = "Read \"On Intelligence\" and implement the MIDI encoder for the NUPIC platform"
         view.backgroundColor = Colors.toUIColor(.ALMOST_BLACK)
         setupStartButton()
-        setupProjectNameLabel()
         setupTimeLabel()
         setupTimeSlider()
     }
     
+    override func viewWillAppear(animated: Bool) {
+        setupProjectNameLabel()
+    }
 //---------------------------------------------------------------------------------------------------
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
