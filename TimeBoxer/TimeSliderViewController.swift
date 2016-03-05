@@ -21,7 +21,7 @@ class TimeSliderViewController: UIViewController {
     private let minutesToTextConverter = MinutesToStringConverter()
     private let toTimerRunningVCAnimator = ToTimerRunningAnimator()
 
-//----------------------------------------------------------------------------------------------------------------------
+//---------------------------------------------------------------------------------------------------
     override func viewDidLoad() {
         super.viewDidLoad()
         projectName = "Transcriber." //"Read \"On Intelligence\" and implement the MIDI encoder for the NUPIC platform"
@@ -32,7 +32,7 @@ class TimeSliderViewController: UIViewController {
         setupTimeSlider()
     }
     
-//----------------------------------------------------------------------------------------------------------------------
+//---------------------------------------------------------------------------------------------------
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
