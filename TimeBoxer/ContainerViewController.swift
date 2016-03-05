@@ -89,70 +89,118 @@ class ContainerViewController: UIViewController, UIGestureRecognizerDelegate{
 
 //MARK: PanGestureRecognizer
     func handlePanGesture(gestureRecognizer: UIPanGestureRecognizer) {
-        let currentVC = childViewControllers[0] as? TimeSliderViewController
+        
         
         var toVC: UIViewController
-        var direction:Int // direction == 1 is right to left, direction == -1 is left to right
+        let toTimeSlider = -1
+        let toProjectsTable = 1
+        var direction:Int
         
+        let currentVC = childViewControllers[0] as? TimeSliderViewController
         if currentVC != nil {
-            timeSliderVC = currentVC
             toVC = projectsTableVC!
-            direction = 1
+            direction = toProjectsTable
         } else {
             toVC = timeSliderVC!
-            direction = -1
+            direction = toTimeSlider
         }
         
         if gestureRecognizer.state == .Began {
             toVC.view.frame = self.view.frame
             toVC.view.frame.origin.x  = self.view.frame.origin.x - view.frame.width * CGFloat(direction)
             self.view.addSubview(toVC.view)
-            if direction == -1 {
-                toTimeSliderSwipeBegan(gestureRecognizer)
-            } else {
-                self.toProjectsTableSwipeHandler =
-                    TimeSliderToProjectsTableSwipeHandler(fromVC: timeSliderVC!, toVC: projectsTableVC!, containerVC: self)
-            }
         }
         
         if gestureRecognizer.state == .Changed {
-            if direction == -1 {
+            if direction == toTimeSlider {
                 toTimeSliderSwipeHandler!.handleSwipeChanged(gestureRecognizer)
-            } else {
+            }
+            if direction == toProjectsTable {
                 toProjectsTableSwipeHandler!.handleSwipeChanged(gestureRecognizer)
             }
         }
         
         if gestureRecognizer.state == .Ended {
-            if direction == -1 {
+            if direction == toTimeSlider {
                 toTimeSliderSwipeHandler!.handleSwipeEnded(gestureRecognizer)
-                return
-            } else {
+            }
+            if direction == toProjectsTable {
                 toProjectsTableSwipeHandler!.handleSwipeEnded(gestureRecognizer)
             }
         }
     }
     
     func gestureRecognizerShouldBegin(gestureRecognizer: UIGestureRecognizer) -> Bool {
-        var swipeDirection = 1
-        let activeViewController = childViewControllers[0]
-        if activeViewController as? TimeSliderViewController != nil {
-            swipeDirection = 1
-        } else
-            if activeViewController as? ProjectsTableViewController != nil {
-                swipeDirection = -1
-            } else {
-                return false
-        }
-        
-        if let panGestureRecognizer = gestureRecognizer as? UIPanGestureRecognizer {
-            let translation = panGestureRecognizer.translationInView(view)
-            if fabs(translation.x) > fabs(translation.y) && CGFloat(swipeDirection) * translation.x > 0 {
-                return true
-            }
+        let panGestureRecognizer = gestureRecognizer as? UIPanGestureRecognizer
+        if panGestureRecognizer == nil {
             return false
         }
+        
+        let activeViewController = childViewControllers[0]
+        
+        if activeViewController as? TimeSliderViewController != nil {
+            self.timeSliderVC = activeViewController as? TimeSliderViewController
+            return swipeShouldBeginOnTimeSliderVC(panGestureRecognizer!)
+        }
+        
+        if activeViewController as? ProjectsTableViewController != nil {
+            return swipeShouldBeginOnProjectsTableVC(panGestureRecognizer!)
+        }
+        
         return false
+    }
+    
+    private func swipeShouldBeginOnTimeSliderVC(panGestureRecognizer: UIPanGestureRecognizer) -> Bool {
+        //we're only interested in a swipe that is left to right and didn't start on any of the controls
+        
+        let translation = panGestureRecognizer.translationInView(view)
+        if fabs(translation.x) < fabs(translation.y) {
+            //swipe in the y direction
+            return false
+        }
+        if translation.x < 0 {
+            //swipe is right to left
+            return false
+        }
+        
+        let location = panGestureRecognizer.locationInView(timeSliderVC!.view)
+        if timeSliderVC!.timeSlider.frame.contains(location) {
+            //swipe began inside the slider
+            return false
+        }
+        if timeSliderVC!.startButton.frame.contains(location) {
+            //swipe began inside the start button
+            return false
+        }
+        
+        //If we made it to here, we're good to go
+        self.toProjectsTableSwipeHandler =
+            TimeSliderToProjectsTableSwipeHandler(fromVC: timeSliderVC!, toVC: projectsTableVC!, containerVC: self)
+        return true
+    }
+    
+    private func swipeShouldBeginOnProjectsTableVC(panGestureRecognizer: UIPanGestureRecognizer) -> Bool {
+        let translation = panGestureRecognizer.translationInView(view)
+        if fabs(translation.x) < fabs(translation.y) {
+            //swipe in y direction
+            return false
+        }
+        if translation.x > 0 {
+            //swipe is left to right
+            return false
+        }
+        let location = panGestureRecognizer.locationInView(projectsTableVC!.projectsTableView)
+        let cell = projectsTableVC!.cellAtPoint(location)
+        if cell == nil {
+            //swipe didn't start on the table cell
+            return false
+        }
+        
+        //Create the swipe handler and we're good to go
+        toTimeSliderSwipeHandler = ProjectsTableToTimeSliderSwipeHandler(tableCell: cell!,
+                fromVC: projectsTableVC!, toVC: timeSliderVC!, containerVC: self)
+  
+        return true
     }
     
 //MARK: ProjectsTable to TimeSlider swipe
