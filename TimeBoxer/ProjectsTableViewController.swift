@@ -87,7 +87,7 @@ class ProjectsTableViewController: UIViewController, UITableViewDelegate, UITabl
         projectsTableView.delegate = self
         projectsTableView.dataSource = self
         projectsTableView.separatorColor = Colors.veryLightGray()
-        projectsTableView.rowHeight = 55
+        projectsTableView.rowHeight = 62
         projectsTableView.registerClass(MyTableViewCell.self, forCellReuseIdentifier: projectsTableId)
     }
     
@@ -96,11 +96,13 @@ class ProjectsTableViewController: UIViewController, UITableViewDelegate, UITabl
     }
     
     private func setupAddProjectButton() {
-        addProjectButton.frontLayerColor = Colors.toUIColor(ColorName.WHITE)!
-        addProjectButton.ovalLayerColor = Colors.toUIColor(ColorName.ALMOST_BLACK)!
-        addProjectButton.ovalLayerHighlightedColor = addProjectButton.ovalLayerColor
-        addProjectButton.frontLayerHighlightedColor = addProjectButton.frontLayerColor
-        addProjectButton.borderWidth = 0
+        addProjectButton.borderColor = Colors.kindOfGray()
+        addProjectButton.ovalLayerColor = UIColor.whiteColor()
+        addProjectButton.frontLayerColor = Colors.kindOfGray()
+        
+        addProjectButton.ovalLayerHighlightedColor = Colors.kindOfGray()
+        addProjectButton.frontLayerHighlightedColor = UIColor.whiteColor()
+        addProjectButton.borderWidth = 2.0
     }
     
     func cellAtPoint(point:CGPoint) -> MyTableViewCell? {

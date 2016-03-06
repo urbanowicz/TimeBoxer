@@ -40,6 +40,10 @@ class Colors: NSObject {
         return UIColor(red:0.93, green:0.93, blue:0.93, alpha:1.0)
     }
     
+    static func kindOfGray() -> UIColor {
+        return UIColor(red:0.804, green:0.804, blue:0.804, alpha:1.0)
+    }
+    
     static func azure() -> UIColor {
         return UIColor(red: 0.902, green: 1, blue: 1, alpha: 1)
     }

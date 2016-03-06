@@ -22,7 +22,7 @@ class AddProjectViewController: UIViewController, UITextFieldDelegate {
         projectNameTextField.textColor = Colors.toUIColor(.ALMOST_BLACK)
         
         newProjectLabel.textColor = Colors.toUIColor(.OFF_WHITE)
-        headerView.backgroundColor = Colors.toUIColor(.ALMOST_BLACK)
+        headerView.backgroundColor = UIColor(red:0.478, green:0.263, blue:0.451, alpha:1)
        
     }
     
