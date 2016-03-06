@@ -16,6 +16,8 @@
 		F119251D1C8CB2D3002BEAC2 /* ProjectsTableToEditProjectAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F119251C1C8CB2D3002BEAC2 /* ProjectsTableToEditProjectAnimator.swift */; };
 		F119251F1C8CB2F7002BEAC2 /* AddProjectToProjectsTableDismissAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F119251E1C8CB2F7002BEAC2 /* AddProjectToProjectsTableDismissAnimator.swift */; };
 		F11925211C8CB319002BEAC2 /* ProjectsTableToAddProjectAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11925201C8CB319002BEAC2 /* ProjectsTableToAddProjectAnimator.swift */; };
+		F11925231C8CC9E3002BEAC2 /* ProjectsTableToTimeSliderSwipeHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11925221C8CC9E3002BEAC2 /* ProjectsTableToTimeSliderSwipeHandler.swift */; };
+		F11925251C8CCA04002BEAC2 /* TimeSliderToProjectsTableSwipeHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11925241C8CCA04002BEAC2 /* TimeSliderToProjectsTableSwipeHandler.swift */; };
 		F11D5B9F1C42AD32007F2622 /* AddButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11D5B9E1C42AD32007F2622 /* AddButton.swift */; };
 		F125D7D21C28496700B94849 /* CirclePathWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F125D7D11C28496700B94849 /* CirclePathWrapper.swift */; };
 		F12C5D8C1C46FA450040969F /* KeyboardNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = F12C5D8B1C46FA450040969F /* KeyboardNotification.swift */; };
@@ -78,6 +80,8 @@
 		F119251C1C8CB2D3002BEAC2 /* ProjectsTableToEditProjectAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectsTableToEditProjectAnimator.swift; sourceTree = "<group>"; };
 		F119251E1C8CB2F7002BEAC2 /* AddProjectToProjectsTableDismissAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddProjectToProjectsTableDismissAnimator.swift; sourceTree = "<group>"; };
 		F11925201C8CB319002BEAC2 /* ProjectsTableToAddProjectAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectsTableToAddProjectAnimator.swift; sourceTree = "<group>"; };
+		F11925221C8CC9E3002BEAC2 /* ProjectsTableToTimeSliderSwipeHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectsTableToTimeSliderSwipeHandler.swift; sourceTree = "<group>"; };
+		F11925241C8CCA04002BEAC2 /* TimeSliderToProjectsTableSwipeHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeSliderToProjectsTableSwipeHandler.swift; sourceTree = "<group>"; };
 		F11D5B9E1C42AD32007F2622 /* AddButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddButton.swift; sourceTree = "<group>"; };
 		F125D7D11C28496700B94849 /* CirclePathWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CirclePathWrapper.swift; sourceTree = "<group>"; };
 		F12C5D8B1C46FA450040969F /* KeyboardNotification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardNotification.swift; sourceTree = "<group>"; };
@@ -146,6 +150,8 @@
 			isa = PBXGroup;
 			children = (
 				F10B85171C38346D002C66F2 /* ContainerViewController.swift */,
+				F11925221C8CC9E3002BEAC2 /* ProjectsTableToTimeSliderSwipeHandler.swift */,
+				F11925241C8CCA04002BEAC2 /* TimeSliderToProjectsTableSwipeHandler.swift */,
 			);
 			name = ContainerVC;
 			sourceTree = "<group>";
@@ -486,6 +492,8 @@
 				F1B5FE6D1C31AF73003A5C65 /* TransitionManager.swift in Sources */,
 				F12C5D8C1C46FA450040969F /* KeyboardNotification.swift in Sources */,
 				F119251D1C8CB2D3002BEAC2 /* ProjectsTableToEditProjectAnimator.swift in Sources */,
+				F11925231C8CC9E3002BEAC2 /* ProjectsTableToTimeSliderSwipeHandler.swift in Sources */,
+				F11925251C8CCA04002BEAC2 /* TimeSliderToProjectsTableSwipeHandler.swift in Sources */,
 				F125D7D21C28496700B94849 /* CirclePathWrapper.swift in Sources */,
 				F137E9701C419A200064E15F /* Colors.swift in Sources */,
 				F119251F1C8CB2F7002BEAC2 /* AddProjectToProjectsTableDismissAnimator.swift in Sources */,
