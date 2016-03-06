@@ -12,6 +12,10 @@
 		F10CA9C01C67DCB10062471C /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = F152EE8F1C5968D00090BECC /* Project.swift */; };
 		F10CA9C11C67DEBC0062471C /* WorkChunk.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1EBB3E21C5AB93C005A36CE /* WorkChunk.swift */; };
 		F10CA9C31C67E1970062471C /* ProjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10CA9C21C67E1970062471C /* ProjectTests.swift */; };
+		F119251B1C8CB2AC002BEAC2 /* EditProjectToProjectsTableDismissAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F119251A1C8CB2AC002BEAC2 /* EditProjectToProjectsTableDismissAnimator.swift */; };
+		F119251D1C8CB2D3002BEAC2 /* ProjectsTableToEditProjectAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F119251C1C8CB2D3002BEAC2 /* ProjectsTableToEditProjectAnimator.swift */; };
+		F119251F1C8CB2F7002BEAC2 /* AddProjectToProjectsTableDismissAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F119251E1C8CB2F7002BEAC2 /* AddProjectToProjectsTableDismissAnimator.swift */; };
+		F11925211C8CB319002BEAC2 /* ProjectsTableToAddProjectAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11925201C8CB319002BEAC2 /* ProjectsTableToAddProjectAnimator.swift */; };
 		F11D5B9F1C42AD32007F2622 /* AddButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11D5B9E1C42AD32007F2622 /* AddButton.swift */; };
 		F125D7D21C28496700B94849 /* CirclePathWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F125D7D11C28496700B94849 /* CirclePathWrapper.swift */; };
 		F12C5D8C1C46FA450040969F /* KeyboardNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = F12C5D8B1C46FA450040969F /* KeyboardNotification.swift */; };
@@ -70,6 +74,10 @@
 		F10B85171C38346D002C66F2 /* ContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContainerViewController.swift; sourceTree = "<group>"; };
 		F10B85191C384E23002C66F2 /* Animator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Animator.swift; sourceTree = "<group>"; };
 		F10CA9C21C67E1970062471C /* ProjectTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectTests.swift; sourceTree = "<group>"; };
+		F119251A1C8CB2AC002BEAC2 /* EditProjectToProjectsTableDismissAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditProjectToProjectsTableDismissAnimator.swift; sourceTree = "<group>"; };
+		F119251C1C8CB2D3002BEAC2 /* ProjectsTableToEditProjectAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectsTableToEditProjectAnimator.swift; sourceTree = "<group>"; };
+		F119251E1C8CB2F7002BEAC2 /* AddProjectToProjectsTableDismissAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddProjectToProjectsTableDismissAnimator.swift; sourceTree = "<group>"; };
+		F11925201C8CB319002BEAC2 /* ProjectsTableToAddProjectAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectsTableToAddProjectAnimator.swift; sourceTree = "<group>"; };
 		F11D5B9E1C42AD32007F2622 /* AddButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddButton.swift; sourceTree = "<group>"; };
 		F125D7D11C28496700B94849 /* CirclePathWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CirclePathWrapper.swift; sourceTree = "<group>"; };
 		F12C5D8B1C46FA450040969F /* KeyboardNotification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardNotification.swift; sourceTree = "<group>"; };
@@ -140,6 +148,17 @@
 				F10B85171C38346D002C66F2 /* ContainerViewController.swift */,
 			);
 			name = ContainerVC;
+			sourceTree = "<group>";
+		};
+		F11925191C8CB26A002BEAC2 /* Animators */ = {
+			isa = PBXGroup;
+			children = (
+				F119251A1C8CB2AC002BEAC2 /* EditProjectToProjectsTableDismissAnimator.swift */,
+				F119251C1C8CB2D3002BEAC2 /* ProjectsTableToEditProjectAnimator.swift */,
+				F119251E1C8CB2F7002BEAC2 /* AddProjectToProjectsTableDismissAnimator.swift */,
+				F11925201C8CB319002BEAC2 /* ProjectsTableToAddProjectAnimator.swift */,
+			);
+			name = Animators;
 			sourceTree = "<group>";
 		};
 		F125D7D01C28491900B94849 /* Animators */ = {
@@ -340,6 +359,7 @@
 		F1FC9AD71C3EE000002A9F31 /* ProjectsTableVC */ = {
 			isa = PBXGroup;
 			children = (
+				F11925191C8CB26A002BEAC2 /* Animators */,
 				F1FC9AD81C3EE0CC002A9F31 /* ProjectsTableViewController.swift */,
 				F1A0BC6F1C4E63FC0075ACCF /* MyTableViewCell.swift */,
 				F137CD551C5D361B0005B51C /* ProjectsDAO.swift */,
@@ -454,6 +474,7 @@
 				F1EBB3E31C5AB93C005A36CE /* WorkChunk.swift in Sources */,
 				F1B920551BE7D7CC004A8CDB /* PauseButton.swift in Sources */,
 				F18D6B7A1BEB4BFE0003CBD4 /* TimerPausedViewController.swift in Sources */,
+				F11925211C8CB319002BEAC2 /* ProjectsTableToAddProjectAnimator.swift in Sources */,
 				F1A605361C81FBCA008EF288 /* UIControlsTestViewController.swift in Sources */,
 				F15F9C501BCCF376008733A3 /* AppDelegate.swift in Sources */,
 				F189A1B21BD8C0D3000FFC5F /* TimeSliderViewController.swift in Sources */,
@@ -464,8 +485,10 @@
 				F1981B9D1C84DE7200F49454 /* SliderOutputToValueConverter.swift in Sources */,
 				F1B5FE6D1C31AF73003A5C65 /* TransitionManager.swift in Sources */,
 				F12C5D8C1C46FA450040969F /* KeyboardNotification.swift in Sources */,
+				F119251D1C8CB2D3002BEAC2 /* ProjectsTableToEditProjectAnimator.swift in Sources */,
 				F125D7D21C28496700B94849 /* CirclePathWrapper.swift in Sources */,
 				F137E9701C419A200064E15F /* Colors.swift in Sources */,
+				F119251F1C8CB2F7002BEAC2 /* AddProjectToProjectsTableDismissAnimator.swift in Sources */,
 				F11D5B9F1C42AD32007F2622 /* AddButton.swift in Sources */,
 				F18C2AD81C873A9A004A7B72 /* TimerDoneViewController.swift in Sources */,
 				F137E96E1C41994A0064E15F /* ColorName.swift in Sources */,
@@ -478,6 +501,7 @@
 				F1A95C041C6BD49000EF5204 /* LastWorkedOnDateFormatter.swift in Sources */,
 				F1D2444C1BDFF8320023B994 /* TimerRunningViewController.swift in Sources */,
 				F1A0BC701C4E63FC0075ACCF /* MyTableViewCell.swift in Sources */,
+				F119251B1C8CB2AC002BEAC2 /* EditProjectToProjectsTableDismissAnimator.swift in Sources */,
 				F14F13051BEA83660045936F /* AbstractOvalButton.swift in Sources */,
 				F14F13091BEA88FA0045936F /* CancelButton.swift in Sources */,
 				F1FC9AD91C3EE0CC002A9F31 /* ProjectsTableViewController.swift in Sources */,
