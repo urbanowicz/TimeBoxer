@@ -80,7 +80,7 @@ class ProjectTests: XCTestCase {
     
     private func createWorkChunkWith(numberOfDaysAgo:Int, duration: Int) -> WorkChunk {
         let workDate = NSCalendar.currentCalendar().dateByAddingUnit(NSCalendarUnit.Day, value: -numberOfDaysAgo, toDate: NSDate(), options: NSCalendarOptions())!
-        return WorkChunk(date: workDate, duration: duration)
+        return WorkChunk(date: workDate, durationInSeconds: duration)
     }
     
 }

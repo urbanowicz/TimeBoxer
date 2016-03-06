@@ -14,9 +14,9 @@ class WorkChunk: NSObject, NSCoding, NSCopying {
     var date:NSDate
     var duration:Int
     
-    init(date:NSDate, duration:Int) {
+    init(date:NSDate, durationInSeconds:Int) {
         self.date = date
-        self.duration = duration
+        self.duration = durationInSeconds
     }
     
     required init(coder decoder: NSCoder) {
@@ -30,7 +30,7 @@ class WorkChunk: NSObject, NSCoding, NSCopying {
     }
     
     func copyWithZone(zone: NSZone) -> AnyObject {
-        let copy = WorkChunk(date: date, duration: duration)
+        let copy = WorkChunk(date: date, durationInSeconds: duration)
         return copy
     }
 }

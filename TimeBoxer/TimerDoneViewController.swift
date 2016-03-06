@@ -101,9 +101,16 @@ class TimerDoneViewController: UIViewController {
     }
     
     @IBAction func okButtonPressed(sender: OKButton) {
+        recordWorkDone()
         performSegueWithIdentifier("TimerDoneToTimeSlider", sender: sender)
     }
     
+    private func recordWorkDone() {
+        let numberOfCompletedMinutes = Int((numberOfSecondsTheTimerWasSetTo - numberOfSecondsToCountDown) / 60)
+        if numberOfCompletedMinutes >= 1 {
+            project?.recordWork(numberOfCompletedMinutes * 60)
+        }
+    }
     //MARK: - Navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if let segueIdentifier = segue.identifier {

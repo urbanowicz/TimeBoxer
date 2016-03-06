@@ -52,8 +52,8 @@ class Project: NSObject, NSCoding, NSCopying {
         return newWorkChunks
     }
 //MARK:Recording work time
-    func recordWork(duration:Int) {
-        let workChunk = WorkChunk(date:NSDate(), duration: duration)
+    func recordWork(durationInSeconds:Int) {
+        let workChunk = WorkChunk(date:NSDate(), durationInSeconds: durationInSeconds)
         workChunks.append(workChunk)
     }
     
