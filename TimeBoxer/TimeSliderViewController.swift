@@ -16,6 +16,7 @@ class TimeSliderViewController: UIViewController {
     @IBOutlet weak var timeLabel: UILabel!
     
     var projectName:String?
+    var project:Project?
     
     private let sliderToMinutesConverter = SliderOutputToValueConverter(maxValue: 120, resolution: 5)
     private let minutesToTextConverter = MinutesToStringConverter()
@@ -91,6 +92,7 @@ class TimeSliderViewController: UIViewController {
                     sliderToMinutesConverter.convert(timeSlider.value) * 60
                 timerRunningViewController.numberOfSecondsTheTimerWasSetTo = timerRunningViewController.numberOfSecondsToCountDown
                 timerRunningViewController.projectName = projectName
+                timerRunningViewController.project = project
             }
         }
     

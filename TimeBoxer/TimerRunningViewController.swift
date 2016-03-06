@@ -17,6 +17,7 @@ class TimerRunningViewController: UIViewController {
     var projectName:String?
     var numberOfSecondsToCountDown = 0 //number of seconds
     var numberOfSecondsTheTimerWasSetTo = 0
+    var project: Project?
     
     private let toTimerPausedAnimator = ToTimerPausedAnimator()
     var timer = NSTimer()
@@ -130,6 +131,7 @@ class TimerRunningViewController: UIViewController {
                 timerPausedVC.numberOfSecondsToCountDown = numberOfSecondsToCountDown
                 timerPausedVC.numberOfSecondsTheTimerWasSetTo = numberOfSecondsTheTimerWasSetTo
                 timerPausedVC.projectName = projectName
+                timerPausedVC.project = project
                 return
             }
             if segueIdentifier == "TimerRunningToTimerDone" {
@@ -137,6 +139,7 @@ class TimerRunningViewController: UIViewController {
                 timerDoneVC.numberOfSecondsTheTimerWasSetTo = numberOfSecondsTheTimerWasSetTo
                 timerDoneVC.numberOfSecondsToCountDown = 0
                 timerDoneVC.projectName = projectName
+                timerDoneVC.project = project
             }
         }
     }

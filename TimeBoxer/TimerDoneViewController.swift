@@ -13,6 +13,7 @@ class TimerDoneViewController: UIViewController {
     var projectName:String?
     var numberOfSecondsToCountDown = 0
     var numberOfSecondsTheTimerWasSetTo = 0
+    var project:Project?
     
     @IBOutlet weak var appTitleLabel: UILabel!
     @IBOutlet weak var completedLabel: UILabel!

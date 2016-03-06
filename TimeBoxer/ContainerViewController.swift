@@ -197,6 +197,7 @@ class ContainerViewController: UIViewController, UIGestureRecognizerDelegate{
         toTimeSliderSwipeHandler = ProjectsTableToTimeSliderSwipeHandler(tableCell: cell!,
                 fromVC: projectsTableVC!, toVC: timeSliderVC!, containerVC: self)
         timeSliderVC!.projectName = cell!.project!.name
+        timeSliderVC!.project = cell!.project
         return true
     }
     

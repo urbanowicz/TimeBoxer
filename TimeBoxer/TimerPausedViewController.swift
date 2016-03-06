@@ -18,6 +18,7 @@ class TimerPausedViewController: UIViewController {
     var projectName:String?
     var numberOfSecondsToCountDown = 0
     var numberOfSecondsTheTimerWasSetTo = 0
+    var project: Project?
 
     override func viewDidLoad()
     {
@@ -97,17 +98,20 @@ class TimerPausedViewController: UIViewController {
                 let timerRunningVC = segue.destinationViewController as! TimerRunningViewController
                 timerRunningVC.numberOfSecondsToCountDown = numberOfSecondsToCountDown
                 timerRunningVC.projectName = projectName
+                timerRunningVC.project = project
                 timerRunningVC.numberOfSecondsTheTimerWasSetTo = numberOfSecondsTheTimerWasSetTo
                 return
             }
             if segueIdentifier == "TimerPausedToTimeSlider" {
                 let timeSliderVC = segue.destinationViewController as! TimeSliderViewController
                 timeSliderVC.projectName = projectName
+                timeSliderVC.project = project
                 return
             }
             if segueIdentifier == "TimerPausedToTimerDone" {
                 let timerDoneVC = segue.destinationViewController as! TimerDoneViewController
                 timerDoneVC.projectName = projectName
+                timerDoneVC.project = project
                 timerDoneVC.numberOfSecondsTheTimerWasSetTo = numberOfSecondsTheTimerWasSetTo
                 timerDoneVC.numberOfSecondsToCountDown = numberOfSecondsToCountDown
                 return
