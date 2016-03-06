@@ -44,9 +44,10 @@ class ProjectsTableViewController: UIViewController, UITableViewDelegate, UITabl
         
         //Setup UI elements
         setupHeader()
+        setupAddProjectButton()
         setupProjectsTable()
         setupAppTitleLabel()
-        setupAddProjectButton()
+        
     }
     
     func applicationWillResignActive(notification:NSNotification) {
@@ -99,6 +100,7 @@ class ProjectsTableViewController: UIViewController, UITableViewDelegate, UITabl
         addProjectButton.ovalLayerColor = Colors.toUIColor(ColorName.ALMOST_BLACK)!
         addProjectButton.ovalLayerHighlightedColor = addProjectButton.ovalLayerColor
         addProjectButton.frontLayerHighlightedColor = addProjectButton.frontLayerColor
+        addProjectButton.borderWidth = 0
     }
     
     func cellAtPoint(point:CGPoint) -> MyTableViewCell? {
@@ -159,8 +161,7 @@ class ProjectsTableViewController: UIViewController, UITableViewDelegate, UITabl
     @IBAction func unwindToProjectsTableVC(unwindSegue: UIStoryboardSegue) {
         let addProjectVC:AddProjectViewController = unwindSegue.sourceViewController as! AddProjectViewController
         let newProjectName = addProjectVC.projectNameTextField!.text!
-        //TODO
-        let newProject = Project(projectName: newProjectName, startDate: NSDate(dateString: "2016-01-01"))
+        let newProject = Project(projectName: newProjectName, startDate: NSDate())
         projects.insert(newProject, atIndex: 0)
         newProjectAdded = true
     }

@@ -185,16 +185,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eGy-rW-UYM" userLabel="Add Project Button" customClass="AddButton" customModule="TimeBoxer" customModuleProvider="target">
-                                <rect key="frame" x="265" y="510" width="70" height="70"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="70" id="2wB-If-lZp"/>
-                                    <constraint firstAttribute="width" secondItem="eGy-rW-UYM" secondAttribute="height" multiplier="1:1" id="shT-3v-0yX"/>
-                                </constraints>
-                                <connections>
-                                    <segue destination="vfH-4J-4Nz" kind="presentation" identifier="ProjectsTableToAddProject" id="khV-Nn-hk6"/>
-                                </connections>
-                            </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2i6-bD-FtY" userLabel="Header">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="65"/>
                                 <subviews>
@@ -212,14 +202,24 @@
                                     <constraint firstAttribute="height" constant="65" id="ulB-DT-GFW"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eGy-rW-UYM" userLabel="Add Project Button" customClass="AddButton" customModule="TimeBoxer" customModuleProvider="target">
+                                <rect key="frame" x="265" y="510" width="70" height="70"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="70" id="2wB-If-lZp"/>
+                                    <constraint firstAttribute="width" secondItem="eGy-rW-UYM" secondAttribute="height" multiplier="1:1" id="shT-3v-0yX"/>
+                                </constraints>
+                                <connections>
+                                    <segue destination="vfH-4J-4Nz" kind="presentation" identifier="ProjectsTableToAddProject" id="khV-Nn-hk6"/>
+                                </connections>
+                            </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="P0n-w1-o3y">
-                                <rect key="frame" x="0.0" y="65" width="600" height="535"/>
+                                <rect key="frame" x="0.0" y="65" width="600" height="415"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="upn-os-BC1" firstAttribute="top" secondItem="P0n-w1-o3y" secondAttribute="bottom" id="3yH-Eq-DGq"/>
+                            <constraint firstItem="upn-os-BC1" firstAttribute="top" secondItem="P0n-w1-o3y" secondAttribute="bottom" constant="120" id="3yH-Eq-DGq"/>
                             <constraint firstItem="P0n-w1-o3y" firstAttribute="top" secondItem="2i6-bD-FtY" secondAttribute="bottom" id="4vs-fx-KFm"/>
                             <constraint firstItem="2i6-bD-FtY" firstAttribute="top" secondItem="3oU-0d-xxl" secondAttribute="topMargin" id="8OH-9a-maa"/>
                             <constraint firstAttribute="trailingMargin" secondItem="P0n-w1-o3y" secondAttribute="trailing" constant="-20" id="WD8-VS-uhj"/>
