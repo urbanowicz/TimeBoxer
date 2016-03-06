@@ -18,10 +18,7 @@ class ContainerViewController: UIViewController, UIGestureRecognizerDelegate{
     {
         super.viewDidLoad()
         
-
-        
         //1. Add a Pan Gesture recognizer
-        
         let panGestureRecognizer = UIPanGestureRecognizer()
         panGestureRecognizer.addTarget(self, action: "handlePanGesture:")
         view.addGestureRecognizer(panGestureRecognizer)
@@ -263,12 +260,6 @@ private class ProjectsTableToTimeSliderSwipeHandler: NSObject {
     func handleSwipeEnded(gestureRecognizer: UIPanGestureRecognizer) {
         let translation = gestureRecognizer.translationInView(containerView)
         
-        
-        if fabs(translation.x) <= drawerSize {
-            rollbackCellAnimation()
-            return
-        }
-        
         let dx = fabs(translation.x) - drawerSize
         if dx < containerView.frame.width / 2.0  {
             rollbackTransition()
@@ -277,10 +268,6 @@ private class ProjectsTableToTimeSliderSwipeHandler: NSObject {
             commitTransition()
         }
         
-    }
-    
-    private func rollbackCellAnimation() {
-        UIView.animateWithDuration(0.1, animations: { self.tableCell.frame.origin.x = self.tableCellOrigin.x })
     }
     
     private func rollbackTransition() {
