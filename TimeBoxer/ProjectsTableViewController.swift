@@ -47,7 +47,6 @@ class ProjectsTableViewController: UIViewController, UITableViewDelegate, UITabl
         setupProjectsTable()
         setupAppTitleLabel()
         setupAddProjectButton()
-
     }
     
     func applicationWillResignActive(notification:NSNotification) {
@@ -79,7 +78,6 @@ class ProjectsTableViewController: UIViewController, UITableViewDelegate, UITabl
     }
     
     //MARK: Setup UI Elements
-    
     private func setupHeader() {
         headerView.backgroundColor = Colors.oceanBlue()
     }
@@ -87,7 +85,7 @@ class ProjectsTableViewController: UIViewController, UITableViewDelegate, UITabl
     private func setupProjectsTable() {
         projectsTableView.delegate = self
         projectsTableView.dataSource = self
-        projectsTableView.separatorColor = Colors.toUIColor(ColorName.VERY_LIGHT_GRAY)
+        projectsTableView.separatorColor = Colors.veryLightGray()
         projectsTableView.rowHeight = 55
         projectsTableView.registerClass(MyTableViewCell.self, forCellReuseIdentifier: projectsTableId)
     }
@@ -132,21 +130,17 @@ class ProjectsTableViewController: UIViewController, UITableViewDelegate, UITabl
         //2. configure the main text of the cell
         cell!.textLabel!.text = projects[indexPath.row].name
         cell!.textLabel!.font = UIFont(name:"Avenir", size:18)
-        cell!.textLabel!.textColor = Colors.toUIColor(ColorName.ALMOST_BLACK)
+        cell!.textLabel!.textColor = Colors.almostBlack()
         
         //3. configure the detail text 
         //TODO
         cell!.detailTextLabel?.text = lastWorkedOnDateFormatter.formatLastWorkedOnString(projects[indexPath.row].lastWrokedOn())
-        cell!.detailTextLabel?.font = UIFont(name:"Avenir", size: 14)
-        cell!.detailTextLabel?.textColor = Colors.toUIColor(ColorName.LIGHT_GRAY)
+        cell!.detailTextLabel?.font = UIFont(name:"Avenir", size: 12)
+        cell!.detailTextLabel?.textColor = Colors.lightGray()
         return cell!
     }
     
 
-
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        //performSegueWithIdentifier("ProjectsTableToEditProject", sender: self)
-    }
 
     
 //MARK: Navigation
