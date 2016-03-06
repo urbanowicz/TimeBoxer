@@ -29,6 +29,9 @@ class LastWorkedOnDateFormatter: NSObject {
         if dayDifference == 0 {
             
             let differenceInSeconds = Int(now.timeIntervalSinceDate(lastWorkedOn!))
+            if differenceInSeconds < 60 {
+                return "just now"
+            }
             let differenceInMinutes = differenceInSeconds / 60
             
             //2a

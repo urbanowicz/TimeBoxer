@@ -74,6 +74,12 @@ class LastWorkedOnDateFormatterTests: XCTestCase {
         XCTAssert(string == dateFormatter.stringFromDate(date))
     }
     
+    func testCase8() {
+        let now = NSDate()
+        let string = formatter.formatLastWorkedOnString(now)
+        XCTAssert(string == "just now")
+    }
+    
     
     //MARK: Helper functions
     private func dateByAddingDays(days:Int) -> NSDate {
