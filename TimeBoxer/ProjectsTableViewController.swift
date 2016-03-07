@@ -15,6 +15,7 @@ class ProjectsTableViewController: UIViewController, UITableViewDelegate, UITabl
     @IBOutlet weak var projectsTableView: UITableView!
     @IBOutlet weak var addProjectButton: AddButton!
     
+    @IBOutlet weak var cornerFiller: UIView!
     
     @IBOutlet weak var stackView: UIStackView!
     @IBOutlet weak var noProjectsLabel: UILabel!
@@ -108,6 +109,7 @@ class ProjectsTableViewController: UIViewController, UITableViewDelegate, UITabl
     //MARK: Setup UI Elements
     private func setupHeader() {
         headerView.backgroundColor = Colors.oceanBlue()
+        cornerFiller.backgroundColor = Colors.oceanBlue()
         headerView.layer.cornerRadius = 6
         headerView.layer.masksToBounds = true
     }
