@@ -28,7 +28,7 @@ class LastWorkedOnDateFormatterTests: XCTestCase {
     
     func testCase1() {
         let string = formatter.formatLastWorkedOnString(nil)
-        XCTAssert(string == "never")
+        XCTAssert(string == "")
     }
     func testCase2() {
         var date = timeByAddingMinutes(-1)

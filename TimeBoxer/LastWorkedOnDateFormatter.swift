@@ -13,7 +13,7 @@ class LastWorkedOnDateFormatter: NSObject {
         
         //1. lastWokredOn is nil
         if lastWorkedOn == nil {
-            return "never"
+            return ""
         }
         
         let now = NSDate()

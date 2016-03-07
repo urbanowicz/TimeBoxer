@@ -24,6 +24,9 @@
             <string>Avenir-Book</string>
             <string>Avenir-Book</string>
         </mutableArray>
+        <mutableArray key="Helvetica.ttc">
+            <string>Helvetica-Bold</string>
+        </mutableArray>
     </customFonts>
     <scenes>
         <!--Edit Project View Controller-->
@@ -185,23 +188,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2i6-bD-FtY" userLabel="Header">
-                                <rect key="frame" x="0.0" y="0.0" width="596" height="65"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time Boxer" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rVO-On-1e2" userLabel="Time Boxer Label">
-                                        <rect key="frame" x="250" y="20" width="97" height="23"/>
-                                        <fontDescription key="fontDescription" name="Baskerville" family="Baskerville" pointSize="20"/>
-                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstItem="rVO-On-1e2" firstAttribute="top" secondItem="2i6-bD-FtY" secondAttribute="top" constant="20" id="EPR-ei-thV"/>
-                                    <constraint firstItem="rVO-On-1e2" firstAttribute="centerX" secondItem="2i6-bD-FtY" secondAttribute="centerX" id="ibd-4E-RPJ"/>
-                                    <constraint firstAttribute="height" constant="65" id="ulB-DT-GFW"/>
-                                </constraints>
-                            </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eGy-rW-UYM" userLabel="Add Project Button" customClass="AddButton" customModule="TimeBoxer" customModuleProvider="target">
                                 <rect key="frame" x="240" y="460" width="120" height="120"/>
                                 <constraints>
@@ -215,6 +201,23 @@
                                 <rect key="frame" x="5" y="65" width="590" height="415"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2i6-bD-FtY" userLabel="Header">
+                                <rect key="frame" x="4" y="0.0" width="592" height="65"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Time Boxer" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rVO-On-1e2" userLabel="Time Boxer Label">
+                                        <rect key="frame" x="246" y="20" width="101" height="18"/>
+                                        <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="18"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="rVO-On-1e2" firstAttribute="top" secondItem="2i6-bD-FtY" secondAttribute="top" constant="20" id="EPR-ei-thV"/>
+                                    <constraint firstItem="rVO-On-1e2" firstAttribute="centerX" secondItem="2i6-bD-FtY" secondAttribute="centerX" id="ibd-4E-RPJ"/>
+                                    <constraint firstAttribute="height" constant="65" id="ulB-DT-GFW"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -226,7 +229,7 @@
                             <constraint firstAttribute="trailingMargin" secondItem="2i6-bD-FtY" secondAttribute="trailing" constant="-16" id="c9n-a3-IY4"/>
                             <constraint firstItem="eGy-rW-UYM" firstAttribute="centerX" secondItem="3oU-0d-xxl" secondAttribute="centerX" id="g8C-TM-OTn"/>
                             <constraint firstItem="upn-os-BC1" firstAttribute="top" secondItem="eGy-rW-UYM" secondAttribute="bottom" constant="20" id="hyN-Xq-tOY"/>
-                            <constraint firstItem="2i6-bD-FtY" firstAttribute="leading" secondItem="3oU-0d-xxl" secondAttribute="leadingMargin" constant="-20" id="i66-Ue-xnk"/>
+                            <constraint firstItem="2i6-bD-FtY" firstAttribute="leading" secondItem="3oU-0d-xxl" secondAttribute="leadingMargin" constant="-16" id="i66-Ue-xnk"/>
                             <constraint firstItem="P0n-w1-o3y" firstAttribute="leading" secondItem="3oU-0d-xxl" secondAttribute="leadingMargin" constant="-15" id="lqF-L3-bYg"/>
                         </constraints>
                     </view>

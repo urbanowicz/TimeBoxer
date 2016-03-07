@@ -59,6 +59,11 @@ class ProjectsTableViewController: UIViewController, UITableViewDelegate, UITabl
         super.didReceiveMemoryWarning()
     }
 
+    override func viewWillAppear(animated: Bool) {
+        if !newProjectAdded {
+            self.projectsTableView.reloadData()
+        }
+    }
     
     override func viewDidAppear(animated: Bool) {
         if newProjectAdded {
@@ -81,6 +86,8 @@ class ProjectsTableViewController: UIViewController, UITableViewDelegate, UITabl
     //MARK: Setup UI Elements
     private func setupHeader() {
         headerView.backgroundColor = Colors.oceanBlue()
+        headerView.layer.cornerRadius = 6
+        headerView.layer.masksToBounds = true
     }
     
     private func setupProjectsTable() {

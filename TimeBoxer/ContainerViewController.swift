@@ -170,7 +170,6 @@ class ContainerViewController: UIViewController, UIGestureRecognizerDelegate{
         }
         
         //If we made it to here, we're good to go
-        projectsTableVC!.projectsTableView.reloadData()
         self.toProjectsTableSwipeHandler =
             TimeSliderToProjectsTableSwipeHandler(fromVC: timeSliderVC!, toVC: projectsTableVC!, containerVC: self)
         return true
