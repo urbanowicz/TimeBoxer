@@ -15,7 +15,11 @@ class ProjectsTableViewController: UIViewController, UITableViewDelegate, UITabl
     @IBOutlet weak var projectsTableView: UITableView!
     @IBOutlet weak var addProjectButton: AddButton!
     
+    
+    @IBOutlet weak var stackView: UIStackView!
     @IBOutlet weak var noProjectsLabel: UILabel!
+    @IBOutlet weak var useAddButtonLabel: UILabel!
+    
     private var projects = Array<Project>()
     let projectsTableId = "projects"
     let projectsDAO = ProjectsDAO()
@@ -49,6 +53,7 @@ class ProjectsTableViewController: UIViewController, UITableViewDelegate, UITabl
         setupProjectsTable()
         setupAppTitleLabel()
         setupNoProjectsLabel()
+        setupUseAddButtonLabel()
     }
     
     func applicationWillResignActive(notification:NSNotification) {
@@ -64,14 +69,20 @@ class ProjectsTableViewController: UIViewController, UITableViewDelegate, UITabl
         if !newProjectAdded {
             if projects.count == 0 {
                 noProjectsLabel.hidden = false
+                useAddButtonLabel.hidden = false
+                stackView.hidden = false
                 projectsTableView.hidden = true
             } else {
                 noProjectsLabel.hidden = true
+                useAddButtonLabel.hidden = true
+                stackView.hidden = true
                 projectsTableView.hidden = false
                 projectsTableView.reloadData()
             }
         } else {
             noProjectsLabel.hidden = true
+            useAddButtonLabel.hidden = true
+            stackView.hidden = true 
             projectsTableView.hidden = false
         }
     }
@@ -117,7 +128,6 @@ class ProjectsTableViewController: UIViewController, UITableViewDelegate, UITabl
         addProjectButton.borderColor = Colors.kindOfGray()
         addProjectButton.ovalLayerColor = UIColor.whiteColor()
         addProjectButton.frontLayerColor = Colors.kindOfGray()
-        
         addProjectButton.ovalLayerHighlightedColor = Colors.kindOfGray()
         addProjectButton.frontLayerHighlightedColor = UIColor.whiteColor()
         addProjectButton.borderWidth = 2.0
@@ -125,6 +135,14 @@ class ProjectsTableViewController: UIViewController, UITableViewDelegate, UITabl
     
     private func setupNoProjectsLabel() {
         noProjectsLabel.textColor = Colors.almostBlack()
+        noProjectsLabel.numberOfLines = 2
+        noProjectsLabel.lineBreakMode = NSLineBreakMode.ByWordWrapping
+    }
+    
+    private func setupUseAddButtonLabel() {
+        useAddButtonLabel.textColor = Colors.lightGray()
+        useAddButtonLabel.numberOfLines = 2
+        useAddButtonLabel.lineBreakMode = NSLineBreakMode.ByWordWrapping
     }
     
     func cellAtPoint(point:CGPoint) -> MyTableViewCell? {
