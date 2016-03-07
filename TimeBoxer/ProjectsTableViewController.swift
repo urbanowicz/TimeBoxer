@@ -144,7 +144,6 @@ class ProjectsTableViewController: UIViewController, UITableViewDelegate, UITabl
         cell!.textLabel!.textColor = Colors.almostBlack()
         
         //3. configure the detail text 
-        //TODO
         cell!.detailTextLabel?.text = lastWorkedOnDateFormatter.formatLastWorkedOnString(projects[indexPath.row].lastWrokedOn())
         cell!.detailTextLabel?.font = UIFont(name:"Avenir", size: 12)
         cell!.detailTextLabel?.textColor = Colors.lightGray()
@@ -191,16 +190,3 @@ class ProjectsTableViewController: UIViewController, UITableViewDelegate, UITabl
     
 }
 
-
-//MARK: ProjectsTableToAddProject animator
-
-
-
-//MARK: AddProjectToProjectsTable dismiss animator
-
-
-
-//MARK: ProjectsTableToEditProjectAnimator
-
-
-//MARK: EditProjectToProjectsTableDismissAnimator

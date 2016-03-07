@@ -154,7 +154,7 @@ class ContainerViewController: UIViewController, UIGestureRecognizerDelegate{
             //swipe in the y direction
             return false
         }
-        if translation.x < 0 {
+        if translation.x <= 0 {
             //swipe is right to left
             return false
         }
@@ -181,7 +181,7 @@ class ContainerViewController: UIViewController, UIGestureRecognizerDelegate{
             //swipe in y direction
             return false
         }
-        if translation.x > 0 {
+        if translation.x >= 0 {
             //swipe is left to right
             return false
         }
