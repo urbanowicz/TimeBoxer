@@ -15,6 +15,7 @@ class ProjectsTableViewController: UIViewController, UITableViewDelegate, UITabl
     @IBOutlet weak var projectsTableView: UITableView!
     @IBOutlet weak var addProjectButton: AddButton!
     
+    @IBOutlet weak var noProjectsLabel: UILabel!
     private var projects = Array<Project>()
     let projectsTableId = "projects"
     let projectsDAO = ProjectsDAO()
@@ -47,7 +48,7 @@ class ProjectsTableViewController: UIViewController, UITableViewDelegate, UITabl
         setupAddProjectButton()
         setupProjectsTable()
         setupAppTitleLabel()
-        
+        setupNoProjectsLabel()
     }
     
     func applicationWillResignActive(notification:NSNotification) {
@@ -61,7 +62,17 @@ class ProjectsTableViewController: UIViewController, UITableViewDelegate, UITabl
 
     override func viewWillAppear(animated: Bool) {
         if !newProjectAdded {
-            self.projectsTableView.reloadData()
+            if projects.count == 0 {
+                noProjectsLabel.hidden = false
+                projectsTableView.hidden = true
+            } else {
+                noProjectsLabel.hidden = true
+                projectsTableView.hidden = false
+                projectsTableView.reloadData()
+            }
+        } else {
+            noProjectsLabel.hidden = true
+            projectsTableView.hidden = false
         }
     }
     
@@ -110,6 +121,10 @@ class ProjectsTableViewController: UIViewController, UITableViewDelegate, UITabl
         addProjectButton.ovalLayerHighlightedColor = Colors.kindOfGray()
         addProjectButton.frontLayerHighlightedColor = UIColor.whiteColor()
         addProjectButton.borderWidth = 2.0
+    }
+    
+    private func setupNoProjectsLabel() {
+        noProjectsLabel.textColor = Colors.almostBlack()
     }
     
     func cellAtPoint(point:CGPoint) -> MyTableViewCell? {
