@@ -10,12 +10,10 @@ import UIKit
 
 class ProjectsTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
-    @IBOutlet weak var headerView: UIView!
+    @IBOutlet weak var titleBar: TitleBar!
     @IBOutlet weak var timeBoxerLabel: UILabel!
     @IBOutlet weak var projectsTableView: UITableView!
     @IBOutlet weak var addProjectButton: AddButton!
-    
-    @IBOutlet weak var cornerFiller: UIView!
     
     @IBOutlet weak var stackView: UIStackView!
     @IBOutlet weak var noProjectsLabel: UILabel!
@@ -49,7 +47,7 @@ class ProjectsTableViewController: UIViewController, UITableViewDelegate, UITabl
             name: UIApplicationWillResignActiveNotification, object: app)
         
         //Setup UI elements
-        setupHeader()
+        setupTitleBar()
         setupAddProjectButton()
         setupProjectsTable()
         setupAppTitleLabel()
@@ -107,11 +105,9 @@ class ProjectsTableViewController: UIViewController, UITableViewDelegate, UITabl
     }
     
     //MARK: Setup UI Elements
-    private func setupHeader() {
-        headerView.backgroundColor = Colors.oceanBlue()
-        cornerFiller.backgroundColor = Colors.oceanBlue()
-        headerView.layer.cornerRadius = 6
-        headerView.layer.masksToBounds = true
+    private func setupTitleBar() {
+        titleBar.fillColor = Colors.oceanBlue()
+        titleBar.cornerRadius = 6
     }
     
     private func setupProjectsTable() {
