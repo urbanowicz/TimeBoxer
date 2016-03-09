@@ -15,7 +15,29 @@ class ProjectsTableViewDataSource: NSObject, UITableViewDataSource {
 
     private var lastWorkedOnDateFormatter = LastWorkedOnDateFormatter()
     
+    let projectsDAO = ProjectsDAO()
     let projectsTableId = "projects"
+    
+    override init() {
+        //Add self as applicationWillResignActive observer
+        super.init()
+        let app = UIApplication.sharedApplication()
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "applicationWillResignActive:",
+            name: UIApplicationWillResignActiveNotification, object: app)
+        loadSavedProjects()
+    }
+    
+    func applicationWillResignActive(notification:NSNotification) {
+        //save projects to storage
+        projectsDAO.saveProjects(projects)
+    }
+    
+    func loadSavedProjects() {
+        let savedProjects = projectsDAO.loadProjects()
+        if savedProjects != nil {
+            projects = savedProjects!
+        }
+    }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         print(projects.count)

@@ -19,8 +19,6 @@ class ProjectsTableViewController: UIViewController, UITableViewDelegate {
     @IBOutlet weak var noProjectsLabel: UILabel!
     @IBOutlet weak var useAddButtonLabel: UILabel!
     
-    let projectsTableId = "projects"
-    let projectsDAO = ProjectsDAO()
     let projectsTableDataSource = ProjectsTableViewDataSource()
     private var lastWorkedOnDateFormatter = LastWorkedOnDateFormatter()
     private var newProjectAdded:Bool = false
@@ -38,14 +36,6 @@ class ProjectsTableViewController: UIViewController, UITableViewDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        loadSavedProjects()
-        
-        //Add self as applicationWillResignActive observer
-        let app = UIApplication.sharedApplication()
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "applicationWillResignActive:",
-            name: UIApplicationWillResignActiveNotification, object: app)
-        
         //Setup UI elements
         setupTitleBar()
         setupAddProjectButton()
@@ -55,10 +45,7 @@ class ProjectsTableViewController: UIViewController, UITableViewDelegate {
         setupUseAddButtonLabel()
     }
     
-    func applicationWillResignActive(notification:NSNotification) {
-        //save projects to storage
-        projectsDAO.saveProjects(projectsTableDataSource.projects)
-    }
+
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -97,13 +84,6 @@ class ProjectsTableViewController: UIViewController, UITableViewDelegate {
         }
     }
     
-    private func loadSavedProjects() {
-        let savedProjects = projectsDAO.loadProjects()
-        if savedProjects != nil {
-            projectsTableDataSource.projects = savedProjects!
-        }
-    }
-    
     //MARK: Setup UI Elements
     private func setupTitleBar() {
         titleBar.fillColor = Colors.oceanBlue()
@@ -117,7 +97,7 @@ class ProjectsTableViewController: UIViewController, UITableViewDelegate {
         projectsTableView.dataSource = projectsTableDataSource
         projectsTableView.separatorColor = Colors.veryLightGray()
         projectsTableView.rowHeight = 62
-        projectsTableView.registerClass(MyTableViewCell.self, forCellReuseIdentifier: projectsTableId)
+        projectsTableView.registerClass(MyTableViewCell.self, forCellReuseIdentifier: projectsTableDataSource.projectsTableId)
     }
     
     private func setupAppTitleLabel() {
