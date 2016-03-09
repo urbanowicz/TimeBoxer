@@ -341,6 +341,7 @@
                         <outlet property="newProjectLabel" destination="y9B-SC-Ory" id="5MA-vf-dfs"/>
                         <outlet property="projectNameLabel" destination="Kxr-7U-l2A" id="8JQ-c7-hAL"/>
                         <outlet property="projectNameTextField" destination="Lwh-CH-BOO" id="X3M-Id-u0r"/>
+                        <outlet property="projectNameTextFieldCenterYConstraint" destination="syH-eV-b7j" id="edB-o3-b9o"/>
                         <outlet property="titleBar" destination="aaC-6d-cUj" id="5CP-pc-ZJh"/>
                         <segue destination="dIy-m2-ZKe" kind="unwind" identifier="ProjectAddedUnwind" unwindAction="unwindToProjectsTableVC:" id="CEZ-l4-9fV"/>
                     </connections>

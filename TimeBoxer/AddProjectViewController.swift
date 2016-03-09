@@ -16,11 +16,13 @@ class AddProjectViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var lineSeparator: UIView!
     @IBOutlet weak var projectNameLabel: UILabel!
     
+    @IBOutlet weak var projectNameTextFieldCenterYConstraint: NSLayoutConstraint!
     var projectName:String?
 
     override func viewDidLoad()
     {
         super.viewDidLoad()
+        registerForKeyboardNotifications()
         setupTitleBar()
         setupNewProjectLabel()
         setupProjectNameTextField()
@@ -37,7 +39,19 @@ class AddProjectViewController: UIViewController, UITextFieldDelegate {
         super.didReceiveMemoryWarning()
     }
     
+    func registerForKeyboardNotifications() {
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillShow:",
+            name: UIKeyboardWillShowNotification, object: nil)
+    }
+    
 //MARK: Setup UI Elements
+    
+    func keyboardWillShow(notification: NSNotification) {
+        let keyboardNotification = KeyboardNotification(notification)
+        let keyboardFrame = keyboardNotification.frameEndForView(self.view)
+        projectNameTextFieldCenterYConstraint.constant = projectNameTextFieldCenterYConstraint.constant -
+            keyboardFrame.height/2.0 + titleBar.frame.height/2.0
+    }
     
     private func setupTitleBar() {
         titleBar.fillColor = Colors.purple()
