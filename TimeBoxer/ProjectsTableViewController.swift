@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ProjectsTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class ProjectsTableViewController: UIViewController, UITableViewDelegate {
 
     @IBOutlet weak var titleBar: TitleBar!
     @IBOutlet weak var timeBoxerLabel: UILabel!
@@ -19,9 +19,9 @@ class ProjectsTableViewController: UIViewController, UITableViewDelegate, UITabl
     @IBOutlet weak var noProjectsLabel: UILabel!
     @IBOutlet weak var useAddButtonLabel: UILabel!
     
-    private var projects = Array<Project>()
     let projectsTableId = "projects"
     let projectsDAO = ProjectsDAO()
+    let projectsTableDataSource = ProjectsTableViewDataSource()
     private var lastWorkedOnDateFormatter = LastWorkedOnDateFormatter()
     private var newProjectAdded:Bool = false
     
@@ -57,7 +57,7 @@ class ProjectsTableViewController: UIViewController, UITableViewDelegate, UITabl
     
     func applicationWillResignActive(notification:NSNotification) {
         //save projects to storage
-        projectsDAO.saveProjects(projects)
+        projectsDAO.saveProjects(projectsTableDataSource.projects)
     }
 
     override func didReceiveMemoryWarning() {
@@ -66,7 +66,7 @@ class ProjectsTableViewController: UIViewController, UITableViewDelegate, UITabl
 
     override func viewWillAppear(animated: Bool) {
         if !newProjectAdded {
-            if projects.count == 0 {
+            if projectsTableDataSource.projects.count == 0 {
                 noProjectsLabel.hidden = false
                 useAddButtonLabel.hidden = false
                 stackView.hidden = false
@@ -100,7 +100,7 @@ class ProjectsTableViewController: UIViewController, UITableViewDelegate, UITabl
     private func loadSavedProjects() {
         let savedProjects = projectsDAO.loadProjects()
         if savedProjects != nil {
-            projects = savedProjects!
+            projectsTableDataSource.projects = savedProjects!
         }
     }
     
@@ -111,8 +111,10 @@ class ProjectsTableViewController: UIViewController, UITableViewDelegate, UITabl
     }
     
     private func setupProjectsTable() {
+        projectsTableDataSource.projectsTableViewController = self
+        projectsTableDataSource.toEditProjectTransitionManager = toEditProjectTransitionManager
         projectsTableView.delegate = self
-        projectsTableView.dataSource = self
+        projectsTableView.dataSource = projectsTableDataSource
         projectsTableView.separatorColor = Colors.veryLightGray()
         projectsTableView.rowHeight = 62
         projectsTableView.registerClass(MyTableViewCell.self, forCellReuseIdentifier: projectsTableId)
@@ -150,39 +152,6 @@ class ProjectsTableViewController: UIViewController, UITableViewDelegate, UITabl
             return nil
         }
     }
-
-//MARK: UITableViewDataSource
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return projects.count
-    }
-
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        
-        var cell:MyTableViewCell? = tableView.dequeueReusableCellWithIdentifier(projectsTableId) as? MyTableViewCell
-        if cell == nil {
-            cell = MyTableViewCell(style:UITableViewCellStyle.Value1, reuseIdentifier:projectsTableId)
-        }
-        
-        //1. Pass the transition manager to the cell
-        cell!.transitionManager = toEditProjectTransitionManager
-        cell!.parentVC = self
-        cell!.project = projects[indexPath.row]
-        cell!.selectionStyle = .None
-        
-        //2. configure the main text of the cell
-        cell!.textLabel!.text = projects[indexPath.row].name
-        cell!.textLabel!.font = UIFont(name:"Avenir", size:18)
-        cell!.textLabel!.textColor = Colors.almostBlack()
-        
-        //3. configure the detail text 
-        cell!.detailTextLabel?.text = lastWorkedOnDateFormatter.formatLastWorkedOnString(projects[indexPath.row].lastWrokedOn())
-        cell!.detailTextLabel?.font = UIFont(name:"Avenir", size: 12)
-        cell!.detailTextLabel?.textColor = Colors.lightGray()
-        return cell!
-    }
-    
-
-
     
 //MARK: Navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -201,7 +170,7 @@ class ProjectsTableViewController: UIViewController, UITableViewDelegate, UITabl
         let addProjectVC:AddProjectViewController = unwindSegue.sourceViewController as! AddProjectViewController
         let newProjectName = addProjectVC.projectNameTextField!.text!
         let newProject = Project(projectName: newProjectName, startDate: NSDate())
-        projects.insert(newProject, atIndex: 0)
+        projectsTableDataSource.projects.insert(newProject, atIndex: 0)
         newProjectAdded = true
     }
     

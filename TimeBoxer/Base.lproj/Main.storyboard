@@ -299,11 +299,11 @@
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dGk-jU-whk" customClass="XButton" customModule="TimeBoxer" customModuleProvider="target">
-                                        <rect key="frame" x="20" y="24" width="12" height="12"/>
+                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dGk-jU-whk" customClass="XButton" customModule="TimeBoxer" customModuleProvider="target">
+                                        <rect key="frame" x="20" y="25" width="11" height="11"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="dGk-jU-whk" secondAttribute="height" multiplier="1:1" id="IfH-Ap-n9A"/>
-                                            <constraint firstAttribute="width" constant="12" id="hwH-YM-dLd"/>
+                                            <constraint firstAttribute="width" constant="11" id="hwH-YM-dLd"/>
                                         </constraints>
                                         <connections>
                                             <action selector="xButtonPressed:" destination="vfH-4J-4Nz" eventType="touchUpInside" id="kxU-sY-7Ee"/>
