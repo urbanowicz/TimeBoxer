@@ -80,6 +80,10 @@ class AddProjectViewController: UIViewController, UITextFieldDelegate {
 
 
 //MARK: Status Bar
+    override func prefersStatusBarHidden() -> Bool {
+        return true
+    }
+    
     override func preferredStatusBarStyle() -> UIStatusBarStyle
     {
         return UIStatusBarStyle.LightContent
