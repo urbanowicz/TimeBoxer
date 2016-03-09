@@ -299,12 +299,21 @@
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dGk-jU-whk" customClass="XButton" customModule="TimeBoxer" customModuleProvider="target">
+                                        <rect key="frame" x="20" y="22" width="15" height="15"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="dGk-jU-whk" secondAttribute="height" multiplier="1:1" id="IfH-Ap-n9A"/>
+                                            <constraint firstAttribute="width" constant="15" id="hwH-YM-dLd"/>
+                                        </constraints>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
+                                    <constraint firstItem="dGk-jU-whk" firstAttribute="leading" secondItem="aaC-6d-cUj" secondAttribute="leading" constant="20" id="2Gn-51-bgW"/>
                                     <constraint firstAttribute="height" constant="60" id="7x7-ev-5Er"/>
                                     <constraint firstItem="y9B-SC-Ory" firstAttribute="top" secondItem="aaC-6d-cUj" secondAttribute="top" constant="20" id="EdU-TQ-idy"/>
                                     <constraint firstItem="y9B-SC-Ory" firstAttribute="centerX" secondItem="aaC-6d-cUj" secondAttribute="centerX" id="ZqO-fe-sGQ"/>
+                                    <constraint firstItem="dGk-jU-whk" firstAttribute="centerY" secondItem="y9B-SC-Ory" secondAttribute="centerY" id="w12-aY-hVm"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7h2-pM-vcI" userLabel="Line Separator">
@@ -343,6 +352,7 @@
                         <outlet property="projectNameTextField" destination="Lwh-CH-BOO" id="X3M-Id-u0r"/>
                         <outlet property="projectNameTextFieldCenterYConstraint" destination="syH-eV-b7j" id="edB-o3-b9o"/>
                         <outlet property="titleBar" destination="aaC-6d-cUj" id="5CP-pc-ZJh"/>
+                        <outlet property="xButton" destination="dGk-jU-whk" id="PMe-Qo-4eP"/>
                         <segue destination="dIy-m2-ZKe" kind="unwind" identifier="ProjectAddedUnwind" unwindAction="unwindToProjectsTableVC:" id="CEZ-l4-9fV"/>
                     </connections>
                 </viewController>

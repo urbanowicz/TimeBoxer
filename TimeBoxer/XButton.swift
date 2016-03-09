@@ -8,7 +8,7 @@
 
 import UIKit
 
-class xButton: AbstractOvalButton {
+class XButton: AbstractOvalButton {
     var strokeWidth = CGFloat(1.0)
     override func drawFrontLayer(rect: CGRect) {
         

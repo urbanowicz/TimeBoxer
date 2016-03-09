@@ -10,6 +10,7 @@ import UIKit
 
 class AddProjectViewController: UIViewController, UITextFieldDelegate {
 
+    @IBOutlet weak var xButton: XButton!
     @IBOutlet weak var newProjectLabel: UILabel!
     @IBOutlet weak var titleBar: TitleBar!
     @IBOutlet weak var projectNameTextField: UITextField!
@@ -25,6 +26,7 @@ class AddProjectViewController: UIViewController, UITextFieldDelegate {
         registerForKeyboardNotifications()
         setupTitleBar()
         setupNewProjectLabel()
+        setupXButton()
         setupProjectNameTextField()
         setupLineSeparator()
         setupProjectNameLabel()
@@ -53,6 +55,15 @@ class AddProjectViewController: UIViewController, UITextFieldDelegate {
 
     private func setupNewProjectLabel() {
         newProjectLabel.textColor = Colors.offWhite()
+    }
+    
+    private func setupXButton() {
+        xButton.borderWidth = 0.0
+        xButton.strokeWidth = 1.5
+        xButton.ovalLayerColor = Colors.offWhite()
+        xButton.frontLayerStrokeColor = Colors.purple()
+        xButton.ovalLayerHighlightedColor = Colors.purple()
+        xButton.frontLayerHighlighteStrokeColor = Colors.offWhite()
     }
     private func setupProjectNameTextField() {
         projectNameTextField.delegate = self
