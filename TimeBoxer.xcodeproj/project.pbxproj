@@ -29,6 +29,7 @@
 		F14F13071BEA87160045936F /* StopButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F14F13061BEA87160045936F /* StopButton.swift */; };
 		F14F13091BEA88FA0045936F /* CancelButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F14F13081BEA88FA0045936F /* CancelButton.swift */; };
 		F150E3B01C8ECD3000D7D502 /* TitleBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = F150E3AF1C8ECD3000D7D502 /* TitleBar.swift */; };
+		F1520B1B1C9049A8002F359E /* xButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1520B1A1C9049A8002F359E /* xButton.swift */; };
 		F152EE901C5968D00090BECC /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = F152EE8F1C5968D00090BECC /* Project.swift */; };
 		F15F9C501BCCF376008733A3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F15F9C4F1BCCF376008733A3 /* AppDelegate.swift */; };
 		F15F9C551BCCF376008733A3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F15F9C531BCCF376008733A3 /* Main.storyboard */; };
@@ -94,6 +95,7 @@
 		F14F13061BEA87160045936F /* StopButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StopButton.swift; sourceTree = "<group>"; };
 		F14F13081BEA88FA0045936F /* CancelButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CancelButton.swift; sourceTree = "<group>"; };
 		F150E3AF1C8ECD3000D7D502 /* TitleBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TitleBar.swift; sourceTree = "<group>"; };
+		F1520B1A1C9049A8002F359E /* xButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = xButton.swift; sourceTree = "<group>"; };
 		F152EE8F1C5968D00090BECC /* Project.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Project.swift; sourceTree = "<group>"; };
 		F15F9C4C1BCCF376008733A3 /* TimeBoxer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TimeBoxer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F15F9C4F1BCCF376008733A3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -206,6 +208,7 @@
 				F14F13081BEA88FA0045936F /* CancelButton.swift */,
 				F11D5B9E1C42AD32007F2622 /* AddButton.swift */,
 				F1F36ACF1C875F770039EF0B /* OKButton.swift */,
+				F1520B1A1C9049A8002F359E /* xButton.swift */,
 			);
 			name = Buttons;
 			sourceTree = "<group>";
@@ -513,6 +516,7 @@
 				F137E96E1C41994A0064E15F /* ColorName.swift in Sources */,
 				F1981BA21C84E61700F49454 /* MinutesToStringConverter.swift in Sources */,
 				F152EE901C5968D00090BECC /* Project.swift in Sources */,
+				F1520B1B1C9049A8002F359E /* xButton.swift in Sources */,
 				F10B85181C38346D002C66F2 /* ContainerViewController.swift in Sources */,
 				F188DA6F1C898890000E8AD2 /* ShrinkingCircleAnimator.swift in Sources */,
 				F17F17B71C899A72003C04AC /* FadeInAnimator.swift in Sources */,
