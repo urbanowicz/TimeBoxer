@@ -46,13 +46,6 @@ class AddProjectViewController: UIViewController, UITextFieldDelegate {
     
 //MARK: Setup UI Elements
     
-    func keyboardWillShow(notification: NSNotification) {
-        let keyboardNotification = KeyboardNotification(notification)
-        let keyboardFrame = keyboardNotification.frameEndForView(self.view)
-        projectNameTextFieldCenterYConstraint.constant = projectNameTextFieldCenterYConstraint.constant -
-            keyboardFrame.height/2.0 + titleBar.frame.height/2.0
-    }
-    
     private func setupTitleBar() {
         titleBar.fillColor = Colors.purple()
         titleBar.cornerRadius = 6.0
@@ -72,7 +65,13 @@ class AddProjectViewController: UIViewController, UITextFieldDelegate {
     private func setupProjectNameLabel() {
         projectNameLabel.textColor = Colors.kindOfGray()
     }
-    
+//MARK: Keyboard Will Show
+    func keyboardWillShow(notification: NSNotification) {
+        let keyboardNotification = KeyboardNotification(notification)
+        let keyboardFrame = keyboardNotification.frameEndForView(self.view)
+        projectNameTextFieldCenterYConstraint.constant = projectNameTextFieldCenterYConstraint.constant -
+            keyboardFrame.height/2.0 + titleBar.frame.height/2.0
+    }
 
 //MARK: UITextFieldDelegate
 
