@@ -55,5 +55,9 @@ class Colors: NSObject {
     static func oceanBlue() -> UIColor {
         return UIColor(red:0.243, green:0.325, blue:0.404, alpha:1)
     }
+    
+    static func purple() -> UIColor {
+        return UIColor(red:0.478, green:0.263, blue:0.451, alpha:1)
+    }
  
 }

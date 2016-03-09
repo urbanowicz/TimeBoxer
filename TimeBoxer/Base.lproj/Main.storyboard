@@ -14,17 +14,20 @@
             <string>Avenir-Book</string>
             <string>Avenir-Book</string>
             <string>Avenir-Book</string>
-            <string>Avenir-BookOblique</string>
-            <string>Avenir-Book</string>
-            <string>Avenir-Book</string>
-            <string>Avenir-Book</string>
-            <string>Avenir-Book</string>
-            <string>Avenir-Book</string>
-            <string>Avenir-BookOblique</string>
             <string>Avenir-Book</string>
             <string>Avenir-BookOblique</string>
             <string>Avenir-Book</string>
             <string>Avenir-Book</string>
+            <string>Avenir-Book</string>
+            <string>Avenir-Book</string>
+            <string>Avenir-Book</string>
+            <string>Avenir-Book</string>
+            <string>Avenir-BookOblique</string>
+            <string>Avenir-Book</string>
+            <string>Avenir-BookOblique</string>
+            <string>Avenir-Book</string>
+            <string>Avenir-Book</string>
+            <string>Avenir-BookOblique</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -120,42 +123,39 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N7a-TB-PYh" userLabel="StartButton" customClass="StartButton" customModule="TimeBoxer" customModuleProvider="target">
-                                <rect key="frame" x="260" y="500" width="80" height="80"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Read &quot;On Intelligence&quot; and implement a MIDI" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="giO-fH-iuc">
+                                <rect key="frame" x="134" y="51" width="332" height="22"/>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="16"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Bce-Je-SGf">
+                                <rect key="frame" x="90" y="287" width="420" height="27"/>
+                                <color key="backgroundColor" red="0.94517591783216781" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="80" id="Hzx-EW-v5P"/>
-                                    <constraint firstAttribute="width" secondItem="N7a-TB-PYh" secondAttribute="height" multiplier="1:1" id="YcQ-C4-whA"/>
-                                    <constraint firstAttribute="width" constant="80" id="h2l-tI-Xnn"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="27" id="M6Y-nY-LZQ"/>
                                 </constraints>
-                                <connections>
-                                    <action selector="startButtonPressed:" destination="92H-bF-zZu" eventType="touchUpInside" id="gq7-lH-Rys"/>
-                                </connections>
-                            </button>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tnc-OG-HBm" customClass="BigSlider" customModule="TimeBoxer" customModuleProvider="target">
-                                <rect key="frame" x="189" y="66" width="222" height="361"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="361" id="6ol-H0-tFK"/>
-                                </constraints>
-                            </view>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="Tnc-OG-HBm" firstAttribute="width" secondItem="tYq-vC-VwW" secondAttribute="width" multiplier="0.37" id="2BF-fC-Z4f"/>
-                            <constraint firstItem="N7a-TB-PYh" firstAttribute="centerX" secondItem="tYq-vC-VwW" secondAttribute="centerX" id="5Fx-v5-gEp"/>
-                            <constraint firstItem="Tnc-OG-HBm" firstAttribute="centerX" secondItem="tYq-vC-VwW" secondAttribute="centerX" id="U91-AP-VCZ"/>
-                            <constraint firstItem="Tnc-OG-HBm" firstAttribute="top" secondItem="LMO-j7-rU3" secondAttribute="bottom" constant="46" id="eVx-0A-vYT"/>
-                            <constraint firstItem="sZW-b0-RA4" firstAttribute="top" secondItem="N7a-TB-PYh" secondAttribute="bottom" constant="20" id="vlI-pB-VWq"/>
+                            <constraint firstItem="giO-fH-iuc" firstAttribute="top" secondItem="LMO-j7-rU3" secondAttribute="bottom" constant="31" id="9fP-U0-iN0"/>
+                            <constraint firstItem="giO-fH-iuc" firstAttribute="width" relation="lessThanOrEqual" secondItem="tYq-vC-VwW" secondAttribute="width" multiplier="0.7" id="ELj-8w-R2s"/>
+                            <constraint firstItem="giO-fH-iuc" firstAttribute="centerX" secondItem="tYq-vC-VwW" secondAttribute="centerX" id="Kl6-on-UPu"/>
+                            <constraint firstItem="Bce-Je-SGf" firstAttribute="centerY" secondItem="tYq-vC-VwW" secondAttribute="centerY" id="Xj1-2n-gdR"/>
+                            <constraint firstItem="Bce-Je-SGf" firstAttribute="centerX" secondItem="tYq-vC-VwW" secondAttribute="centerX" id="coX-KT-1sJ"/>
+                            <constraint firstItem="Bce-Je-SGf" firstAttribute="width" secondItem="tYq-vC-VwW" secondAttribute="width" multiplier="0.7" id="eDm-qz-oNI"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="slider" destination="Tnc-OG-HBm" id="bkD-Wi-fvM"/>
-                        <outlet property="startButton" destination="N7a-TB-PYh" id="3gl-KN-h7c"/>
+                        <outlet property="testLabel" destination="giO-fH-iuc" id="ofa-Fg-tnl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gCO-v3-S8V" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1427" y="-1145"/>
+            <point key="canvasLocation" x="1427" y="-1131"/>
         </scene>
         <!--Container View Controller-->
         <scene sceneID="SNI-pH-kmp">
@@ -200,7 +200,7 @@
                                 <rect key="frame" x="5" y="60" width="590" height="420"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </tableView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2i6-bD-FtY" userLabel="Header" customClass="TitleBar" customModule="TimeBoxer" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2i6-bD-FtY" customClass="TitleBar" customModule="TimeBoxer" customModuleProvider="target">
                                 <rect key="frame" x="4" y="0.0" width="592" height="60"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TIME  BOXER" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rVO-On-1e2" userLabel="Time Boxer Label">
@@ -284,60 +284,60 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="type in the project's name here" textAlignment="center" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Lwh-CH-BOO">
-                                <rect key="frame" x="20" y="283" width="560" height="35"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" clearsOnBeginEditing="YES" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="Lwh-CH-BOO">
+                                <rect key="frame" x="75" y="288" width="450" height="25"/>
                                 <color key="textColor" red="0.15294117647058825" green="0.15294117647058825" blue="0.15294117647058825" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" name="Baskerville" family="Baskerville" pointSize="30"/>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="18"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
                             </textField>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GbI-Eo-n4Y">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="65"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="New Project" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cxo-OS-dTQ">
-                                        <rect key="frame" x="251" y="20" width="99" height="23"/>
-                                        <fontDescription key="fontDescription" name="Baskerville" family="Baskerville" pointSize="20"/>
-                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mms-d2-Mvw">
-                                        <rect key="frame" x="20" y="25" width="30" height="30"/>
-                                        <state key="normal" title="X"/>
-                                        <connections>
-                                            <segue destination="dIy-m2-ZKe" kind="unwind" identifier="AddProjectCancelledUnwind" unwindAction="cancelAddProjectUnwind:" id="5hm-ab-YTs"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aaC-6d-cUj" customClass="TitleBar" customModule="TimeBoxer" customModuleProvider="target">
+                                <rect key="frame" x="4" y="0.0" width="592" height="60"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstItem="Cxo-OS-dTQ" firstAttribute="top" secondItem="GbI-Eo-n4Y" secondAttribute="top" constant="20" id="5JY-sd-NEQ"/>
-                                    <constraint firstItem="Mms-d2-Mvw" firstAttribute="leading" secondItem="GbI-Eo-n4Y" secondAttribute="leading" constant="20" id="Rfy-Be-joD"/>
-                                    <constraint firstItem="Cxo-OS-dTQ" firstAttribute="centerX" secondItem="GbI-Eo-n4Y" secondAttribute="centerX" id="atC-gy-2hj"/>
-                                    <constraint firstAttribute="bottom" secondItem="Mms-d2-Mvw" secondAttribute="bottom" constant="10" id="mQZ-2x-0md"/>
-                                    <constraint firstAttribute="height" constant="65" id="ref-Lf-tUi"/>
+                                    <constraint firstAttribute="height" constant="60" id="7x7-ev-5Er"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7h2-pM-vcI" userLabel="Line Separator">
+                                <rect key="frame" x="75" y="313" width="450" height="1"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="hiC-Yd-Pz8"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Project name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kxr-7U-l2A" userLabel="name label">
+                                <rect key="frame" x="75" y="320" width="82" height="20"/>
+                                <fontDescription key="fontDescription" name="Avenir-BookOblique" family="Avenir" pointSize="14"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="GbI-Eo-n4Y" firstAttribute="top" secondItem="ImF-7u-4lo" secondAttribute="topMargin" id="KXD-P9-IWp"/>
-                            <constraint firstItem="GbI-Eo-n4Y" firstAttribute="leading" secondItem="ImF-7u-4lo" secondAttribute="leadingMargin" constant="-20" id="P2L-9g-Wxe"/>
-                            <constraint firstItem="Lwh-CH-BOO" firstAttribute="leading" secondItem="ImF-7u-4lo" secondAttribute="leadingMargin" id="gfQ-Hy-MSD"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="GbI-Eo-n4Y" secondAttribute="trailing" constant="-20" id="ngN-Na-QWj"/>
+                            <constraint firstItem="aaC-6d-cUj" firstAttribute="leading" secondItem="ImF-7u-4lo" secondAttribute="leadingMargin" constant="-16" id="66s-41-nPg"/>
+                            <constraint firstItem="Lwh-CH-BOO" firstAttribute="centerX" secondItem="ImF-7u-4lo" secondAttribute="centerX" id="9s0-hM-F0W"/>
+                            <constraint firstItem="7h2-pM-vcI" firstAttribute="leading" secondItem="Lwh-CH-BOO" secondAttribute="leading" id="BNS-yv-X1p"/>
+                            <constraint firstItem="Lwh-CH-BOO" firstAttribute="width" secondItem="ImF-7u-4lo" secondAttribute="width" multiplier="0.75" id="IMh-Z3-Ise"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="aaC-6d-cUj" secondAttribute="trailing" constant="-16" id="WVf-fP-Pb3"/>
+                            <constraint firstItem="aaC-6d-cUj" firstAttribute="top" secondItem="ImF-7u-4lo" secondAttribute="topMargin" id="YSn-EQ-G1R"/>
+                            <constraint firstItem="7h2-pM-vcI" firstAttribute="top" secondItem="Lwh-CH-BOO" secondAttribute="bottom" id="Yhu-gZ-zUM"/>
+                            <constraint firstItem="7h2-pM-vcI" firstAttribute="width" secondItem="Lwh-CH-BOO" secondAttribute="width" id="gte-1L-nHd"/>
+                            <constraint firstItem="Kxr-7U-l2A" firstAttribute="leading" secondItem="Lwh-CH-BOO" secondAttribute="leading" id="kfJ-EG-B5i"/>
                             <constraint firstItem="Lwh-CH-BOO" firstAttribute="centerY" secondItem="ImF-7u-4lo" secondAttribute="centerY" id="syH-eV-b7j"/>
-                            <constraint firstItem="Lwh-CH-BOO" firstAttribute="trailing" secondItem="ImF-7u-4lo" secondAttribute="trailingMargin" id="uss-kX-aps"/>
+                            <constraint firstItem="Kxr-7U-l2A" firstAttribute="top" secondItem="Lwh-CH-BOO" secondAttribute="bottom" constant="7" id="ze6-95-UbN"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="headerView" destination="GbI-Eo-n4Y" id="Dio-Cf-Z7i"/>
-                        <outlet property="newProjectLabel" destination="Cxo-OS-dTQ" id="J9S-gs-vjR"/>
+                        <outlet property="lineSeparator" destination="7h2-pM-vcI" id="Qj6-0T-feQ"/>
+                        <outlet property="projectNameLabel" destination="Kxr-7U-l2A" id="8JQ-c7-hAL"/>
                         <outlet property="projectNameTextField" destination="Lwh-CH-BOO" id="X3M-Id-u0r"/>
+                        <outlet property="titleBar" destination="aaC-6d-cUj" id="5CP-pc-ZJh"/>
                         <segue destination="dIy-m2-ZKe" kind="unwind" identifier="ProjectAddedUnwind" unwindAction="unwindToProjectsTableVC:" id="CEZ-l4-9fV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uuO-At-bhA" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="dIy-m2-ZKe" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="612" y="-477"/>
+            <point key="canvasLocation" x="612" y="-472"/>
         </scene>
         <!--Time Slider View Controller-->
         <scene sceneID="ofa-gv-sJw">
