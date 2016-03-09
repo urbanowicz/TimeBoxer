@@ -11,7 +11,6 @@ import UIKit
 class AddProjectViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var newProjectLabel: UILabel!
-    
     @IBOutlet weak var titleBar: TitleBar!
     @IBOutlet weak var projectNameTextField: UITextField!
     @IBOutlet weak var lineSeparator: UIView!
@@ -23,7 +22,7 @@ class AddProjectViewController: UIViewController, UITextFieldDelegate {
     {
         super.viewDidLoad()
         setupTitleBar()
-        //setupNewProjectLabel()
+        setupNewProjectLabel()
         setupProjectNameTextField()
         setupLineSeparator()
         setupProjectNameLabel()
