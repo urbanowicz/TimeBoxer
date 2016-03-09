@@ -60,10 +60,10 @@ class AddProjectViewController: UIViewController, UITextFieldDelegate {
     private func setupXButton() {
         xButton.borderWidth = 0.0
         xButton.strokeWidth = 1.5
-        xButton.ovalLayerColor = Colors.offWhite()
-        xButton.frontLayerStrokeColor = Colors.purple()
-        xButton.ovalLayerHighlightedColor = Colors.purple()
-        xButton.frontLayerHighlighteStrokeColor = Colors.offWhite()
+        xButton.ovalLayerColor = Colors.purple()
+        xButton.frontLayerStrokeColor = Colors.offWhite()
+        xButton.ovalLayerHighlightedColor = Colors.offWhite()
+        xButton.frontLayerHighlighteStrokeColor = Colors.purple()
     }
     private func setupProjectNameTextField() {
         projectNameTextField.delegate = self
@@ -83,7 +83,12 @@ class AddProjectViewController: UIViewController, UITextFieldDelegate {
         projectNameTextFieldCenterYConstraint.constant = projectNameTextFieldCenterYConstraint.constant -
             keyboardFrame.height/2.0 + titleBar.frame.height/2.0
     }
+    
+//MARK: Actions
+    
 
+    @IBAction func xButtonPressed(sender: XButton) {
+    }
 //MARK: UITextFieldDelegate
 
     func textFieldShouldReturn(textField: UITextField) -> Bool

@@ -17,6 +17,7 @@
             <string>Avenir-Book</string>
             <string>Avenir-BookOblique</string>
             <string>Avenir-Book</string>
+            <string>Avenir-BookOblique</string>
             <string>Avenir-Book</string>
             <string>Avenir-Book</string>
             <string>Avenir-Book</string>
@@ -27,7 +28,6 @@
             <string>Avenir-BookOblique</string>
             <string>Avenir-Book</string>
             <string>Avenir-Book</string>
-            <string>Avenir-BookOblique</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -305,6 +305,10 @@
                                             <constraint firstAttribute="width" secondItem="dGk-jU-whk" secondAttribute="height" multiplier="1:1" id="IfH-Ap-n9A"/>
                                             <constraint firstAttribute="width" constant="15" id="hwH-YM-dLd"/>
                                         </constraints>
+                                        <connections>
+                                            <action selector="xButtonPressed:" destination="vfH-4J-4Nz" eventType="touchUpInside" id="kxU-sY-7Ee"/>
+                                            <segue destination="dIy-m2-ZKe" kind="unwind" unwindAction="cancelAddProjectUnwind:" id="Yff-Yv-pZW"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
