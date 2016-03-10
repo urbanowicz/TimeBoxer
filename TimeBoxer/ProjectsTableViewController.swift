@@ -53,7 +53,7 @@ class ProjectsTableViewController: UIViewController, UITableViewDelegate {
 
     override func viewWillAppear(animated: Bool) {
         if !newProjectAdded {
-            if projectsTableDataSource.projects.count == 0 {
+            if projectsTableDataSource.numberOfProjects() == 0 {
                 noProjectsLabel.hidden = false
                 useAddButtonLabel.hidden = false
                 stackView.hidden = false

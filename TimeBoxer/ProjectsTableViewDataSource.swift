@@ -39,8 +39,11 @@ class ProjectsTableViewDataSource: NSObject, UITableViewDataSource {
         }
     }
     
+    func numberOfProjects() -> Int {
+        return projects.count 
+    }
+    
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print(projects.count)
         return projects.count
     }
     
@@ -56,15 +59,38 @@ class ProjectsTableViewDataSource: NSObject, UITableViewDataSource {
         cell!.project = projects[indexPath.row]
         cell!.selectionStyle = .None
         
-        //2. configure the main text of the cell
-        cell!.textLabel!.text = projects[indexPath.row].name
-        cell!.textLabel!.font = UIFont(name:"Avenir", size:18)
-        cell!.textLabel!.textColor = Colors.almostBlack()
-        
-        //3. configure the detail text
+        //2. configure the detail text
         cell!.detailTextLabel?.text = lastWorkedOnDateFormatter.formatLastWorkedOnString(projects[indexPath.row].lastWrokedOn())
         cell!.detailTextLabel?.font = UIFont(name:"Avenir", size: 12)
+        cell!.detailTextLabel?.sizeToFit()
         cell!.detailTextLabel?.textColor = Colors.lightGray()
+
+        //3. configure the main text of the cell
+        cell!.textLabel!.text = projects[indexPath.row].name
+        cell!.textLabel!.font = UIFont(name:"Avenir", size:18)
+        cell!.textLabel!.numberOfLines = 4
+        cell!.textLabel!.lineBreakMode = NSLineBreakMode.ByWordWrapping
+        cell!.textLabel!.textColor = Colors.almostBlack()
+        let detailTextWidth = cell!.detailTextLabel!.frame.width
+        howManyLinesOfTextForLabel(cell!.textLabel!, maxWidth: cell!.frame.width - detailTextWidth)
         return cell!
+    }
+    
+    private func howManyLinesOfTextForLabel(label:UILabel, maxWidth:CGFloat) -> Int {
+        let labelCopy = UILabel()
+        labelCopy.text = label.text
+        labelCopy.font = label.font
+        labelCopy.numberOfLines = 1
+        labelCopy.sizeToFit()
+        label.frame = CGRect(origin: label.frame.origin, size: CGSize(width: maxWidth, height: label.frame.height))
+        let actualWidth = labelCopy.frame.width
+        let numberOfLines = Int(ceil(actualWidth / maxWidth))
+        if numberOfLines >= 4 {
+            label.font = label.font.fontWithSize(14)
+        } else
+            if numberOfLines >= 2 {
+              label.font = label.font.fontWithSize(16)
+            }
+        return numberOfLines
     }
 }
