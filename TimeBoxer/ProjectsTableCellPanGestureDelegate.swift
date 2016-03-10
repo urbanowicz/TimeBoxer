@@ -9,25 +9,26 @@
 import UIKit
 
 class ProjectsTableCellPanGestureDelegate: UIView, UIGestureRecognizerDelegate  {
-    var projectsTableView:UITableView?
     var tableCell:MyTableViewCell?
-    var projectsTableVC:UIViewController?
-    var transitionManager:TransitionManager?
+    var projectsTableVC:ProjectsTableViewController?
     
     private var segueStarted:Bool = false
     private var originalCenter:CGPoint?
     
     func handlePan(recognizer: UIPanGestureRecognizer) {
         let drawerSize = CGFloat(50)
+        let projectsTableView = tableCell!.superview!
+        let transitionManager = projectsTableVC!.toEditProjectTransitionManager
         if recognizer.state == .Began {
             originalCenter = tableCell!.center
             segueStarted = false
         }
         if recognizer.state == .Changed {
-            let translation = recognizer.translationInView(projectsTableView!)
+            
+            let translation = recognizer.translationInView(projectsTableView)
             if translation.x < drawerSize {
                 if segueStarted {
-                    transitionManager!.interactiveAnimator!.cancelInteractiveTransition()
+                    transitionManager.interactiveAnimator!.cancelInteractiveTransition()
                     segueStarted = false
                 }
                 tableCell!.center.x = originalCenter!.x + translation.x
@@ -36,19 +37,19 @@ class ProjectsTableCellPanGestureDelegate: UIView, UIGestureRecognizerDelegate  
                     projectsTableVC!.performSegueWithIdentifier("ProjectsTableToEditProject", sender: tableCell)
                     segueStarted = true
                 }
-                let dx:CGFloat = (translation.x - drawerSize) / projectsTableView!.frame.width
-                transitionManager!.interactiveAnimator!.updateInteractiveTransition(dx)
+                let dx:CGFloat = (translation.x - drawerSize) / projectsTableView.frame.width
+                transitionManager.interactiveAnimator!.updateInteractiveTransition(dx)
             }
         }
         if recognizer.state == .Ended {
             if !segueStarted {
                 UIView.animateWithDuration(0.2, animations: {self.tableCell!.center.x = self.originalCenter!.x})
             } else {
-                let translation = recognizer.translationInView(self.projectsTableView!)
-                if translation.x - drawerSize > (self.projectsTableView!.frame.width/2.0) {
-                    transitionManager!.interactiveAnimator!.finishInteractiveTransition()
+                let translation = recognizer.translationInView(projectsTableView)
+                if translation.x - drawerSize > (projectsTableView.frame.width/2.0) {
+                    transitionManager.interactiveAnimator!.finishInteractiveTransition()
                 } else {
-                    transitionManager!.interactiveAnimator!.cancelInteractiveTransition()
+                    transitionManager.interactiveAnimator!.cancelInteractiveTransition()
                     
                     
                 }
@@ -59,8 +60,9 @@ class ProjectsTableCellPanGestureDelegate: UIView, UIGestureRecognizerDelegate  
     }
     
     override func gestureRecognizerShouldBegin(gestureRecognizer: UIGestureRecognizer) -> Bool {
+        let projectsTableView = tableCell!.superview!
         if let panGestureRecognizer = gestureRecognizer as? UIPanGestureRecognizer {
-            let translation = panGestureRecognizer.translationInView(projectsTableView!)
+            let translation = panGestureRecognizer.translationInView(projectsTableView)
             if fabs(translation.x) > fabs(translation.y) && translation.x > 0 {
                 return true
             }

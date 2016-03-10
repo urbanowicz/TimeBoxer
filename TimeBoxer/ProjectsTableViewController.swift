@@ -23,11 +23,11 @@ class ProjectsTableViewController: UIViewController, UITableViewDelegate {
     private var lastWorkedOnDateFormatter = LastWorkedOnDateFormatter()
     private var newProjectAdded:Bool = false
     
-    private let transitionManager =
+    let transitionManager =
     TransitionManager(animator: ProjectsTableToAddProjectAnimator(),
         dismissAnimator:AddProjectToProjectsTableDismissAnimator())
     
-    private let toEditProjectTransitionManager =
+    let toEditProjectTransitionManager =
     TransitionManager(animator: ProjectsTableToEditProjectAnimator(),
         dismissAnimator: EditProjectToProjectsTableDismissAnimator(),
         interactiveAnimator: UIPercentDrivenInteractiveTransition(),
@@ -92,7 +92,6 @@ class ProjectsTableViewController: UIViewController, UITableViewDelegate {
     
     private func setupProjectsTable() {
         projectsTableDataSource.projectsTableViewController = self
-        projectsTableDataSource.toEditProjectTransitionManager = toEditProjectTransitionManager
         projectsTableView.delegate = self
         projectsTableView.dataSource = projectsTableDataSource
         projectsTableView.separatorColor = Colors.veryLightGray()

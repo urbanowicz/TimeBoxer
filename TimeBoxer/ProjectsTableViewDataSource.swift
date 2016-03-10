@@ -11,7 +11,6 @@ import UIKit
 class ProjectsTableViewDataSource: NSObject, UITableViewDataSource {
     var projects = Array<Project>()
     var projectsTableViewController:ProjectsTableViewController?
-    var toEditProjectTransitionManager:TransitionManager?
 
     private var lastWorkedOnDateFormatter = LastWorkedOnDateFormatter()
     
@@ -54,18 +53,12 @@ class ProjectsTableViewDataSource: NSObject, UITableViewDataSource {
         }
         
         let panGestureDelegate = ProjectsTableCellPanGestureDelegate()
-        panGestureDelegate.projectsTableView = tableView
         panGestureDelegate.tableCell = cell!
         panGestureDelegate.projectsTableVC = projectsTableViewController
-        panGestureDelegate.transitionManager = toEditProjectTransitionManager
         cell!.panGestureRecognizerDelegate = panGestureDelegate
         let panGestureRecognizer = UIPanGestureRecognizer(target: panGestureDelegate, action: "handlePan:")
         panGestureRecognizer.delegate = panGestureDelegate
-        //cell!.addGestureRecognizer(panGestureRecognizer)
-        
-        //1. Pass the transition manager to the cell
-        cell!.transitionManager = toEditProjectTransitionManager!
-        cell!.parentVC = projectsTableViewController!
+        cell!.addGestureRecognizer(panGestureRecognizer)
         cell!.project = projects[indexPath.row]
         cell!.selectionStyle = .None
         
