@@ -14,6 +14,7 @@ class MyTableViewCell: UITableViewCell {
     var originalCenter:CGPoint?
     var project:Project?
     var segueStarted:Bool = false
+    var panGestureRecognizerDelegate:ProjectsTableCellPanGestureDelegate?
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style:UITableViewCellStyle.Value1, reuseIdentifier:reuseIdentifier)

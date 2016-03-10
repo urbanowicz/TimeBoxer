@@ -53,6 +53,16 @@ class ProjectsTableViewDataSource: NSObject, UITableViewDataSource {
             cell = MyTableViewCell(style:UITableViewCellStyle.Value1, reuseIdentifier:projectsTableId)
         }
         
+        let panGestureDelegate = ProjectsTableCellPanGestureDelegate()
+        panGestureDelegate.projectsTableView = tableView
+        panGestureDelegate.tableCell = cell!
+        panGestureDelegate.projectsTableVC = projectsTableViewController
+        panGestureDelegate.transitionManager = toEditProjectTransitionManager
+        cell!.panGestureRecognizerDelegate = panGestureDelegate
+        let panGestureRecognizer = UIPanGestureRecognizer(target: panGestureDelegate, action: "handlePan:")
+        panGestureRecognizer.delegate = panGestureDelegate
+        //cell!.addGestureRecognizer(panGestureRecognizer)
+        
         //1. Pass the transition manager to the cell
         cell!.transitionManager = toEditProjectTransitionManager!
         cell!.parentVC = projectsTableViewController!

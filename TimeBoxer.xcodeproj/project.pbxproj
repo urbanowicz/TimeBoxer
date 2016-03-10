@@ -37,6 +37,7 @@
 		F15F9C571BCCF376008733A3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F15F9C561BCCF376008733A3 /* Assets.xcassets */; };
 		F15F9C5A1BCCF376008733A3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F15F9C581BCCF376008733A3 /* LaunchScreen.storyboard */; };
 		F15F9C651BCCF376008733A3 /* TimeBoxer_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F15F9C641BCCF376008733A3 /* TimeBoxer_Tests.swift */; };
+		F17CDF671C9191BD0042E927 /* ProjectsTableCellPanGestureDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17CDF661C9191BD0042E927 /* ProjectsTableCellPanGestureDelegate.swift */; };
 		F17F17B71C899A72003C04AC /* FadeInAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17F17B61C899A72003C04AC /* FadeInAnimator.swift */; };
 		F188DA6F1C898890000E8AD2 /* ShrinkingCircleAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F188DA6E1C898890000E8AD2 /* ShrinkingCircleAnimator.swift */; };
 		F189A1B21BD8C0D3000FFC5F /* TimeSliderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F189A1B11BD8C0D3000FFC5F /* TimeSliderViewController.swift */; };
@@ -108,6 +109,7 @@
 		F15F9C601BCCF376008733A3 /* TimeBoxer.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TimeBoxer.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F15F9C641BCCF376008733A3 /* TimeBoxer_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeBoxer_Tests.swift; sourceTree = "<group>"; };
 		F15F9C661BCCF376008733A3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F17CDF661C9191BD0042E927 /* ProjectsTableCellPanGestureDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectsTableCellPanGestureDelegate.swift; sourceTree = "<group>"; };
 		F17F17B61C899A72003C04AC /* FadeInAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FadeInAnimator.swift; sourceTree = "<group>"; };
 		F188DA6E1C898890000E8AD2 /* ShrinkingCircleAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShrinkingCircleAnimator.swift; sourceTree = "<group>"; };
 		F189A1B11BD8C0D3000FFC5F /* TimeSliderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeSliderViewController.swift; sourceTree = "<group>"; };
@@ -386,6 +388,7 @@
 				F1A0BC6F1C4E63FC0075ACCF /* MyTableViewCell.swift */,
 				F137CD551C5D361B0005B51C /* ProjectsDAO.swift */,
 				F10C61A71C90A3500054B3FB /* ProjectsTableViewDataSource.swift */,
+				F17CDF661C9191BD0042E927 /* ProjectsTableCellPanGestureDelegate.swift */,
 			);
 			name = ProjectsTableVC;
 			sourceTree = "<group>";
@@ -521,6 +524,7 @@
 				F1981BA21C84E61700F49454 /* MinutesToStringConverter.swift in Sources */,
 				F152EE901C5968D00090BECC /* Project.swift in Sources */,
 				F1520B1B1C9049A8002F359E /* XButton.swift in Sources */,
+				F17CDF671C9191BD0042E927 /* ProjectsTableCellPanGestureDelegate.swift in Sources */,
 				F10B85181C38346D002C66F2 /* ContainerViewController.swift in Sources */,
 				F188DA6F1C898890000E8AD2 /* ShrinkingCircleAnimator.swift in Sources */,
 				F17F17B71C899A72003C04AC /* FadeInAnimator.swift in Sources */,
