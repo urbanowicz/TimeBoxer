@@ -95,8 +95,6 @@ class ProjectsTableViewController: UIViewController, UITableViewDelegate {
         projectsTableView.delegate = self
         projectsTableView.dataSource = projectsTableDataSource
         projectsTableView.separatorColor = Colors.veryLightGray()
-        projectsTableView.rowHeight = 62
-        projectsTableView.registerClass(MyTableViewCell.self, forCellReuseIdentifier: projectsTableDataSource.projectsTableId)
     }
     
     private func setupAppTitleLabel() {

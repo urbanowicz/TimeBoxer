@@ -2,13 +2,10 @@
 
 import UIKit
 
-//get the calendar
-let calendar = NSCalendar.currentCalendar()
+let label = UILabel()
+label.font = UIFont(name: "Avenir", size: 12.0)
+label.text = "aaaaaaaaaaaaaaa"
+label.numberOfLines = 1
+label.sizeToFit()
 
-//let's create a couple of dates
-let now = NSDate()
-let threeDaysAgo = calendar.dateByAddingUnit(NSCalendarUnit.Day, value: -3, toDate: now, options: NSCalendarOptions())
-
-let components = calendar.components(NSCalendarUnit.Day, fromDate: threeDaysAgo!, toDate: now, options: NSCalendarOptions())
-components.day
-
+let lineHeight = label.font.lineHeight

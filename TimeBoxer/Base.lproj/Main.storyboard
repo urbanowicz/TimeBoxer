@@ -196,9 +196,19 @@
                                     <segue destination="vfH-4J-4Nz" kind="presentation" identifier="ProjectsTableToAddProject" id="khV-Nn-hk6"/>
                                 </connections>
                             </button>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="P0n-w1-o3y">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="62" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="P0n-w1-o3y">
                                 <rect key="frame" x="5" y="60" width="590" height="420"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="projects" selectionStyle="none" indentationWidth="10" reuseIdentifier="ProjectCell" id="RJ9-tz-21q" customClass="MyTableViewCell" customModule="TimeBoxer" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="22" width="590" height="62"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="RJ9-tz-21q" id="kl5-Ye-dlE">
+                                            <rect key="frame" x="0.0" y="0.0" width="590" height="61"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2i6-bD-FtY" customClass="TitleBar" customModule="TimeBoxer" customModuleProvider="target">
                                 <rect key="frame" x="4" y="0.0" width="592" height="60"/>

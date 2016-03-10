@@ -15,7 +15,7 @@ class ProjectsTableViewDataSource: NSObject, UITableViewDataSource {
     private var lastWorkedOnDateFormatter = LastWorkedOnDateFormatter()
     
     let projectsDAO = ProjectsDAO()
-    let projectsTableId = "projects"
+    let projectsTableId = "ProjectCell"
     
     override init() {
         //Add self as applicationWillResignActive observer
@@ -47,10 +47,7 @@ class ProjectsTableViewDataSource: NSObject, UITableViewDataSource {
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var cell:MyTableViewCell? = tableView.dequeueReusableCellWithIdentifier(projectsTableId) as? MyTableViewCell
-        if cell == nil {
-            cell = MyTableViewCell(style:UITableViewCellStyle.Value1, reuseIdentifier:projectsTableId)
-        }
+        let cell:MyTableViewCell? = tableView.dequeueReusableCellWithIdentifier(projectsTableId) as? MyTableViewCell
         
         let panGestureDelegate = ProjectsTableCellPanGestureDelegate()
         panGestureDelegate.tableCell = cell!
@@ -63,10 +60,10 @@ class ProjectsTableViewDataSource: NSObject, UITableViewDataSource {
         cell!.selectionStyle = .None
         
         //2. configure the detail text
-        cell!.detailTextLabel?.text = lastWorkedOnDateFormatter.formatLastWorkedOnString(projects[indexPath.row].lastWrokedOn())
-        cell!.detailTextLabel?.font = UIFont(name:"Avenir", size: 12)
-        cell!.detailTextLabel?.sizeToFit()
-        cell!.detailTextLabel?.textColor = Colors.lightGray()
+//        cell!.detailTextLabel?.text = lastWorkedOnDateFormatter.formatLastWorkedOnString(projects[indexPath.row].lastWrokedOn())
+//        cell!.detailTextLabel?.font = UIFont(name:"Avenir", size: 12)
+//        cell!.detailTextLabel?.sizeToFit()
+//        cell!.detailTextLabel?.textColor = Colors.lightGray()
 
         //3. configure the main text of the cell
         cell!.textLabel!.text = projects[indexPath.row].name
@@ -74,8 +71,8 @@ class ProjectsTableViewDataSource: NSObject, UITableViewDataSource {
         cell!.textLabel!.numberOfLines = 4
         cell!.textLabel!.lineBreakMode = NSLineBreakMode.ByWordWrapping
         cell!.textLabel!.textColor = Colors.almostBlack()
-        let detailTextWidth = cell!.detailTextLabel!.frame.width
-        howManyLinesOfTextForLabel(cell!.textLabel!, maxWidth: cell!.frame.width - detailTextWidth)
+    //    let detailTextWidth = cell!.detailTextLabel!.frame.width
+    //    howManyLinesOfTextForLabel(cell!.textLabel!, maxWidth: cell!.frame.width - detailTextWidth)
         return cell!
     }
     
