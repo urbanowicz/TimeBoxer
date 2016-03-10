@@ -47,33 +47,31 @@ class ProjectsTableViewDataSource: NSObject, UITableViewDataSource {
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell:MyTableViewCell? = tableView.dequeueReusableCellWithIdentifier(projectsTableId) as? MyTableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier(projectsTableId) as! MyTableViewCell
         
         let panGestureDelegate = ProjectsTableCellPanGestureDelegate()
-        panGestureDelegate.tableCell = cell!
+        panGestureDelegate.tableCell = cell
         panGestureDelegate.projectsTableVC = projectsTableViewController
-        cell!.panGestureRecognizerDelegate = panGestureDelegate
+        cell.panGestureRecognizerDelegate = panGestureDelegate
         let panGestureRecognizer = UIPanGestureRecognizer(target: panGestureDelegate, action: "handlePan:")
         panGestureRecognizer.delegate = panGestureDelegate
-        cell!.addGestureRecognizer(panGestureRecognizer)
-        cell!.project = projects[indexPath.row]
-        cell!.selectionStyle = .None
+        cell.addGestureRecognizer(panGestureRecognizer)
+        cell.project = projects[indexPath.row]
         
-        //2. configure the detail text
-//        cell!.detailTextLabel?.text = lastWorkedOnDateFormatter.formatLastWorkedOnString(projects[indexPath.row].lastWrokedOn())
-//        cell!.detailTextLabel?.font = UIFont(name:"Avenir", size: 12)
-//        cell!.detailTextLabel?.sizeToFit()
-//        cell!.detailTextLabel?.textColor = Colors.lightGray()
+        cell.preservesSuperviewLayoutMargins = false
+        cell.separatorInset = UIEdgeInsetsZero
+        cell.layoutMargins = UIEdgeInsetsZero
+        cell.lastWorkedOnLabel.text =
+            lastWorkedOnDateFormatter.formatLastWorkedOnString(projects[indexPath.row].lastWrokedOn())
+        cell.lastWorkedOnLabel.textColor = Colors.lightGray()
 
-        //3. configure the main text of the cell
-        cell!.textLabel!.text = projects[indexPath.row].name
-        cell!.textLabel!.font = UIFont(name:"Avenir", size:18)
-        cell!.textLabel!.numberOfLines = 4
-        cell!.textLabel!.lineBreakMode = NSLineBreakMode.ByWordWrapping
-        cell!.textLabel!.textColor = Colors.almostBlack()
-    //    let detailTextWidth = cell!.detailTextLabel!.frame.width
+
+        cell.projectNameLabel.text = projects[indexPath.row].name
+        cell.projectNameLabel.numberOfLines = 4
+        cell.projectNameLabel.lineBreakMode = NSLineBreakMode.ByWordWrapping
+        cell.projectNameLabel.textColor = Colors.almostBlack()
     //    howManyLinesOfTextForLabel(cell!.textLabel!, maxWidth: cell!.frame.width - detailTextWidth)
-        return cell!
+        return cell
     }
     
     private func howManyLinesOfTextForLabel(label:UILabel, maxWidth:CGFloat) -> Int {

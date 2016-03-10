@@ -12,11 +12,9 @@ class MyTableViewCell: UITableViewCell {
     var project:Project?
     var panGestureRecognizerDelegate:ProjectsTableCellPanGestureDelegate?
     
-//    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
-//        super.init(style:UITableViewCellStyle.Value1, reuseIdentifier:reuseIdentifier)
-//    }
+    @IBOutlet weak var lastWorkedOnLabel: UILabel!
+    @IBOutlet weak var projectNameLabel: UILabel!
     
-
     override func awakeFromNib() {
         super.awakeFromNib()
     

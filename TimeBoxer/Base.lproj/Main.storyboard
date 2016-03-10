@@ -28,6 +28,8 @@
             <string>Avenir-BookOblique</string>
             <string>Avenir-Book</string>
             <string>Avenir-Book</string>
+            <string>Avenir-Book</string>
+            <string>Avenir-Book</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -80,7 +82,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.52319165209790208" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="AUX-gZ-DWC" firstAttribute="top" secondItem="45i-pE-846" secondAttribute="bottom" constant="40" id="1ly-fb-266"/>
                             <constraint firstItem="BcY-Rg-x0Y" firstAttribute="leading" secondItem="y0t-tH-WgZ" secondAttribute="leadingMargin" constant="40" id="4aF-pq-fal"/>
@@ -197,16 +199,45 @@
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="62" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="P0n-w1-o3y">
-                                <rect key="frame" x="5" y="60" width="590" height="420"/>
+                                <rect key="frame" x="4" y="60" width="591" height="420"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="projects" selectionStyle="none" indentationWidth="10" reuseIdentifier="ProjectCell" id="RJ9-tz-21q" customClass="MyTableViewCell" customModule="TimeBoxer" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="22" width="590" height="62"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="projects" selectionStyle="none" indentationWidth="0.0" shouldIndentWhileEditing="NO" reuseIdentifier="ProjectCell" id="RJ9-tz-21q" customClass="MyTableViewCell" customModule="TimeBoxer" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="22" width="591" height="62"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="RJ9-tz-21q" id="kl5-Ye-dlE">
-                                            <rect key="frame" x="0.0" y="0.0" width="590" height="61"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="591" height="61"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1 minute ago" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7IU-v6-3z2" userLabel="Last Worked On">
+                                                    <rect key="frame" x="478" y="22" width="95" height="17"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="95" id="gwo-jF-wHA"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="12"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Project Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dzG-97-QYh">
+                                                    <rect key="frame" x="23" y="13" width="440" height="35"/>
+                                                    <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="18"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailingMargin" secondItem="7IU-v6-3z2" secondAttribute="trailing" constant="10" id="0bw-Xk-YgD"/>
+                                                <constraint firstItem="dzG-97-QYh" firstAttribute="leading" secondItem="kl5-Ye-dlE" secondAttribute="leadingMargin" constant="15" id="2FE-QG-jHC"/>
+                                                <constraint firstItem="dzG-97-QYh" firstAttribute="top" secondItem="kl5-Ye-dlE" secondAttribute="topMargin" constant="5" id="Ilo-n6-e8K"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="dzG-97-QYh" secondAttribute="bottom" constant="5" id="f6o-CH-Dac"/>
+                                                <constraint firstItem="7IU-v6-3z2" firstAttribute="leading" secondItem="dzG-97-QYh" secondAttribute="trailing" constant="15" id="jeR-Du-7JZ"/>
+                                                <constraint firstItem="7IU-v6-3z2" firstAttribute="centerY" secondItem="kl5-Ye-dlE" secondAttribute="centerY" id="moX-Va-nW2"/>
+                                            </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="lastWorkedOnLabel" destination="7IU-v6-3z2" id="TRf-FM-8Gw"/>
+                                            <outlet property="projectNameLabel" destination="dzG-97-QYh" id="b0J-EX-PfI"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -263,7 +294,7 @@
                             <constraint firstItem="2i6-bD-FtY" firstAttribute="leading" secondItem="3oU-0d-xxl" secondAttribute="leadingMargin" constant="-16" id="i66-Ue-xnk"/>
                             <constraint firstItem="POc-bX-K55" firstAttribute="height" relation="lessThanOrEqual" secondItem="3oU-0d-xxl" secondAttribute="height" multiplier="0.2" id="jDT-8N-yhB"/>
                             <constraint firstItem="POc-bX-K55" firstAttribute="width" relation="lessThanOrEqual" secondItem="3oU-0d-xxl" secondAttribute="width" multiplier="0.7" id="lZY-rD-bbd"/>
-                            <constraint firstItem="P0n-w1-o3y" firstAttribute="leading" secondItem="3oU-0d-xxl" secondAttribute="leadingMargin" constant="-15" id="lqF-L3-bYg"/>
+                            <constraint firstItem="P0n-w1-o3y" firstAttribute="leading" secondItem="3oU-0d-xxl" secondAttribute="leadingMargin" constant="-16" id="lqF-L3-bYg"/>
                             <constraint firstItem="jJ5-tZ-w2O" firstAttribute="centerX" secondItem="3oU-0d-xxl" secondAttribute="centerX" id="t1g-lD-Q8W"/>
                         </constraints>
                     </view>

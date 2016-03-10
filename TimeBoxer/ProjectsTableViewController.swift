@@ -95,6 +95,7 @@ class ProjectsTableViewController: UIViewController, UITableViewDelegate {
         projectsTableView.delegate = self
         projectsTableView.dataSource = projectsTableDataSource
         projectsTableView.separatorColor = Colors.veryLightGray()
+        projectsTableView.separatorInset = UIEdgeInsetsZero
     }
     
     private func setupAppTitleLabel() {
@@ -129,6 +130,7 @@ class ProjectsTableViewController: UIViewController, UITableViewDelegate {
             return nil
         }
     }
+    
     
 //MARK: Navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
