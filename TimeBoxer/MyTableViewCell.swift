@@ -28,7 +28,7 @@ class MyTableViewCell: UITableViewCell {
     func adjustFontSizeToFitTheFrame() {
         projectNameLabel.numberOfLines = 0
         projectNameLabel.lineBreakMode = NSLineBreakMode.ByTruncatingTail
-        var (height, numberOfLines) = heightAndNumberOfLinesForLabel(projectNameLabel, maxWidth:projectNameLabel.frame.width)
+        let (_,  numberOfLines) = heightAndNumberOfLinesForLabel(projectNameLabel, maxWidth:projectNameLabel.frame.width)
         if numberOfLines >= 2 {
             projectNameLabel.font = projectNameLabel.font.fontWithSize(14.0)
         }
