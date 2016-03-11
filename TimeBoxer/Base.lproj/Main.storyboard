@@ -15,12 +15,6 @@
             <string>Avenir-Book</string>
             <string>Avenir-Book</string>
             <string>Avenir-Book</string>
-            <string>Avenir-BookOblique</string>
-            <string>Avenir-Book</string>
-            <string>Avenir-BookOblique</string>
-            <string>Avenir-Book</string>
-            <string>Avenir-Book</string>
-            <string>Avenir-Book</string>
             <string>Avenir-Book</string>
             <string>Avenir-Book</string>
             <string>Avenir-BookOblique</string>
@@ -28,6 +22,12 @@
             <string>Avenir-BookOblique</string>
             <string>Avenir-Book</string>
             <string>Avenir-Book</string>
+            <string>Avenir-Book</string>
+            <string>Avenir-Book</string>
+            <string>Avenir-Book</string>
+            <string>Avenir-BookOblique</string>
+            <string>Avenir-Book</string>
+            <string>Avenir-BookOblique</string>
             <string>Avenir-Book</string>
             <string>Avenir-Book</string>
         </mutableArray>
@@ -125,31 +125,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Read &quot;On Intelligence&quot; and implement a MIDI" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="giO-fH-iuc">
-                                <rect key="frame" x="134" y="51" width="332" height="22"/>
-                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="16"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="&quot;Read on Intelligence and implement the MIDI enc&quot;" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="giO-fH-iuc">
+                                <rect key="frame" x="0.0" y="0.0" width="420" height="25"/>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="18"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Bce-Je-SGf">
-                                <rect key="frame" x="90" y="287" width="420" height="27"/>
-                                <color key="backgroundColor" red="0.94517591783216781" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="27" id="M6Y-nY-LZQ"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="giO-fH-iuc" firstAttribute="top" secondItem="LMO-j7-rU3" secondAttribute="bottom" constant="31" id="9fP-U0-iN0"/>
-                            <constraint firstItem="giO-fH-iuc" firstAttribute="width" relation="lessThanOrEqual" secondItem="tYq-vC-VwW" secondAttribute="width" multiplier="0.7" id="ELj-8w-R2s"/>
-                            <constraint firstItem="giO-fH-iuc" firstAttribute="centerX" secondItem="tYq-vC-VwW" secondAttribute="centerX" id="Kl6-on-UPu"/>
-                            <constraint firstItem="Bce-Je-SGf" firstAttribute="centerY" secondItem="tYq-vC-VwW" secondAttribute="centerY" id="Xj1-2n-gdR"/>
-                            <constraint firstItem="Bce-Je-SGf" firstAttribute="centerX" secondItem="tYq-vC-VwW" secondAttribute="centerX" id="coX-KT-1sJ"/>
-                            <constraint firstItem="Bce-Je-SGf" firstAttribute="width" secondItem="tYq-vC-VwW" secondAttribute="width" multiplier="0.7" id="eDm-qz-oNI"/>
-                        </constraints>
                     </view>
                     <connections>
                         <outlet property="testLabel" destination="giO-fH-iuc" id="ofa-Fg-tnl"/>

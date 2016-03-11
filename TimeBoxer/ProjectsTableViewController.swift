@@ -130,7 +130,12 @@ class ProjectsTableViewController: UIViewController, UITableViewDelegate {
             return nil
         }
     }
-    
+
+//MARK: Adjust font size
+    func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
+        let myCell = cell as! MyTableViewCell
+        myCell.adjustFontSizeToFitTheFrame()
+    }
     
 //MARK: Navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {

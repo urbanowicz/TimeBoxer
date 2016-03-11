@@ -65,30 +65,8 @@ class ProjectsTableViewDataSource: NSObject, UITableViewDataSource {
             lastWorkedOnDateFormatter.formatLastWorkedOnString(projects[indexPath.row].lastWrokedOn())
         cell.lastWorkedOnLabel.textColor = Colors.lightGray()
 
-
         cell.projectNameLabel.text = projects[indexPath.row].name
-        cell.projectNameLabel.numberOfLines = 4
-        cell.projectNameLabel.lineBreakMode = NSLineBreakMode.ByWordWrapping
         cell.projectNameLabel.textColor = Colors.almostBlack()
-    //    howManyLinesOfTextForLabel(cell!.textLabel!, maxWidth: cell!.frame.width - detailTextWidth)
         return cell
-    }
-    
-    private func howManyLinesOfTextForLabel(label:UILabel, maxWidth:CGFloat) -> Int {
-        let labelCopy = UILabel()
-        labelCopy.text = label.text
-        labelCopy.font = label.font
-        labelCopy.numberOfLines = 1
-        labelCopy.sizeToFit()
-        label.frame = CGRect(origin: label.frame.origin, size: CGSize(width: maxWidth, height: label.frame.height))
-        let actualWidth = labelCopy.frame.width
-        let numberOfLines = Int(ceil(actualWidth / maxWidth))
-        if numberOfLines >= 4 {
-            label.font = label.font.fontWithSize(14)
-        } else
-            if numberOfLines >= 2 {
-              label.font = label.font.fontWithSize(16)
-            }
-        return numberOfLines
     }
 }
