@@ -48,7 +48,15 @@ class ProjectsTableViewDataSource: NSObject, UITableViewDataSource {
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier(projectsTableId) as! MyTableViewCell
-        
+        cell.project = projects[indexPath.row]
+        setupPanGestureRecognizerForCell(cell)
+        setupSeparatorInsetsForCell(cell)
+        setupLastWorkedOnLabelForCell(cell, indexPath: indexPath)
+        setupProjectNameLabelForCell(cell, indexPath: indexPath)
+        return cell
+    }
+    
+    private func setupPanGestureRecognizerForCell(cell:MyTableViewCell) {
         let panGestureDelegate = ProjectsTableCellPanGestureDelegate()
         panGestureDelegate.tableCell = cell
         panGestureDelegate.projectsTableVC = projectsTableViewController
@@ -56,18 +64,22 @@ class ProjectsTableViewDataSource: NSObject, UITableViewDataSource {
         let panGestureRecognizer = UIPanGestureRecognizer(target: panGestureDelegate, action: "handlePan:")
         panGestureRecognizer.delegate = panGestureDelegate
         cell.addGestureRecognizer(panGestureRecognizer)
-        cell.project = projects[indexPath.row]
-        
+    }
+    
+    private func setupSeparatorInsetsForCell(cell:MyTableViewCell) {
         cell.preservesSuperviewLayoutMargins = false
         cell.separatorInset = UIEdgeInsetsZero
         cell.layoutMargins = UIEdgeInsetsZero
+    }
+    
+    private func setupLastWorkedOnLabelForCell(cell:MyTableViewCell, indexPath:NSIndexPath) {
         cell.lastWorkedOnLabel.text =
             lastWorkedOnDateFormatter.formatLastWorkedOnString(projects[indexPath.row].lastWrokedOn())
         cell.lastWorkedOnLabel.textColor = Colors.lightGray()
-        
-
+    }
+    
+    private func setupProjectNameLabelForCell(cell:MyTableViewCell, indexPath:NSIndexPath) {
         cell.projectNameLabel.text = projects[indexPath.row].name
         cell.projectNameLabel.textColor = Colors.almostBlack()
-        return cell
     }
 }
