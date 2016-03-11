@@ -193,16 +193,16 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1 minute ago" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7IU-v6-3z2" userLabel="Last Worked On">
-                                                    <rect key="frame" x="478" y="22" width="95" height="17"/>
+                                                    <rect key="frame" x="513" y="22" width="60" height="17"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="95" id="gwo-jF-wHA"/>
+                                                        <constraint firstAttribute="width" constant="60" id="Tmd-Ny-hBl"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="12"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Project Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dzG-97-QYh">
-                                                    <rect key="frame" x="23" y="13" width="440" height="35"/>
+                                                    <rect key="frame" x="23" y="5" width="475" height="51"/>
                                                     <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="18"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
@@ -211,8 +211,8 @@
                                             <constraints>
                                                 <constraint firstAttribute="trailingMargin" secondItem="7IU-v6-3z2" secondAttribute="trailing" constant="10" id="0bw-Xk-YgD"/>
                                                 <constraint firstItem="dzG-97-QYh" firstAttribute="leading" secondItem="kl5-Ye-dlE" secondAttribute="leadingMargin" constant="15" id="2FE-QG-jHC"/>
-                                                <constraint firstItem="dzG-97-QYh" firstAttribute="top" secondItem="kl5-Ye-dlE" secondAttribute="topMargin" constant="5" id="Ilo-n6-e8K"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="dzG-97-QYh" secondAttribute="bottom" constant="5" id="f6o-CH-Dac"/>
+                                                <constraint firstItem="dzG-97-QYh" firstAttribute="top" secondItem="kl5-Ye-dlE" secondAttribute="top" constant="5" id="Ilo-n6-e8K"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="dzG-97-QYh" secondAttribute="bottomMargin" constant="5" id="f6o-CH-Dac"/>
                                                 <constraint firstItem="7IU-v6-3z2" firstAttribute="leading" secondItem="dzG-97-QYh" secondAttribute="trailing" constant="15" id="jeR-Du-7JZ"/>
                                                 <constraint firstItem="7IU-v6-3z2" firstAttribute="centerY" secondItem="kl5-Ye-dlE" secondAttribute="centerY" id="moX-Va-nW2"/>
                                             </constraints>

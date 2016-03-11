@@ -36,7 +36,7 @@ class MyTableViewCell: UITableViewCell {
             height = heightForLabel(projectNameLabel, maxWidth:projectNameLabel.frame.width)
         }
     }
-
+    
     private func heightForLabel(label:UILabel, maxWidth:CGFloat) -> CGFloat {
         let text = label.text! as NSString
         let attributes = [NSFontAttributeName: label.font]

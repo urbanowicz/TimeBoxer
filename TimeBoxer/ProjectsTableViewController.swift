@@ -137,6 +137,11 @@ class ProjectsTableViewController: UIViewController, UITableViewDelegate {
         myCell.adjustFontSizeToFitTheFrame()
     }
     
+    func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath) {
+        let cell = projectsTableView.cellForRowAtIndexPath(indexPath) as? MyTableViewCell
+        print(cell?.projectNameLabel.frame.size)
+    }
+    
 //MARK: Navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier! == "ProjectsTableToAddProject" {

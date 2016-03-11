@@ -64,6 +64,7 @@ class ProjectsTableViewDataSource: NSObject, UITableViewDataSource {
         cell.lastWorkedOnLabel.text =
             lastWorkedOnDateFormatter.formatLastWorkedOnString(projects[indexPath.row].lastWrokedOn())
         cell.lastWorkedOnLabel.textColor = Colors.lightGray()
+        
 
         cell.projectNameLabel.text = projects[indexPath.row].name
         cell.projectNameLabel.textColor = Colors.almostBlack()
