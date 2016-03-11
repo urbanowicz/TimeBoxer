@@ -9,7 +9,7 @@
 import UIKit
 
 class ProjectsTableToTimeSliderSwipeHandler: NSObject {
-    var tableCell: UITableViewCell
+    var tableCell: MyTableViewCell
     var fromView:UIView
     var toView: UIView
     var containerView: UIView
@@ -20,7 +20,7 @@ class ProjectsTableToTimeSliderSwipeHandler: NSObject {
     
     private var tableCellOrigin:CGPoint
     private  let drawerSize = CGFloat(50)
-    init(tableCell:UITableViewCell, fromVC: UIViewController, toVC: UIViewController, containerVC: ContainerViewController) {
+    init(tableCell:MyTableViewCell, fromVC: UIViewController, toVC: UIViewController, containerVC: ContainerViewController) {
         self.tableCell = tableCell
         self.tableCellOrigin = tableCell.frame.origin
         self.fromView = fromVC.view
@@ -40,7 +40,7 @@ class ProjectsTableToTimeSliderSwipeHandler: NSObject {
                 //Don't let the user drag the cell in the opposite direction now
                 return
             }
-            tableCell.frame.origin.x = tableCellOrigin.x + translationInProjectsTableView.x
+            tableCell.facadeView.frame.origin.x = tableCellOrigin.x + translationInProjectsTableView.x
         } else {
             let translation = gestureRecognizer.translationInView(containerView)
             let dx = fabs(translation.x) - drawerSize
@@ -68,7 +68,7 @@ class ProjectsTableToTimeSliderSwipeHandler: NSObject {
         UIView.animateWithDuration(0.1,
             animations:
             {
-                self.tableCell.frame.origin.x = self.tableCellOrigin.x
+                self.tableCell.facadeView.frame.origin.x = self.tableCellOrigin.x
                 self.fromView.frame.origin.x = self.containerView.frame.origin.x
                 self.toView.frame.origin.x = self.containerView.frame.origin.x + self.containerView.frame.width
             },
@@ -99,7 +99,7 @@ class ProjectsTableToTimeSliderSwipeHandler: NSObject {
                 self.fromVC.willMoveToParentViewController(nil)
                 self.fromView.removeFromSuperview()
                 self.fromVC.removeFromParentViewController()
-                self.tableCell.frame.origin.x = self.tableCellOrigin.x
+                self.tableCell.facadeView.frame.origin.x = self.tableCellOrigin.x
                 
         })
     }

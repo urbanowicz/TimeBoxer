@@ -53,6 +53,8 @@ class ProjectsTableViewDataSource: NSObject, UITableViewDataSource {
         setupSeparatorInsetsForCell(cell)
         setupLastWorkedOnLabelForCell(cell, indexPath: indexPath)
         setupProjectNameLabelForCell(cell, indexPath: indexPath)
+        setupLeftDrawerForCell(cell)
+        setupRightDrawerForCell(cell)
         return cell
     }
     
@@ -81,5 +83,13 @@ class ProjectsTableViewDataSource: NSObject, UITableViewDataSource {
     private func setupProjectNameLabelForCell(cell:MyTableViewCell, indexPath:NSIndexPath) {
         cell.projectNameLabel.text = projects[indexPath.row].name
         cell.projectNameLabel.textColor = Colors.almostBlack()
+    }
+    
+    private func setupLeftDrawerForCell(cell:MyTableViewCell) {
+        cell.leftDrawer.backgroundColor = UIColor.blueColor()
+    }
+    
+    private func setupRightDrawerForCell(cell:MyTableViewCell) {
+        cell.rightDrawer.backgroundColor = UIColor.greenColor()
     }
 }

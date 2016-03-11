@@ -91,7 +91,6 @@ class ProjectsTableViewController: UIViewController, UITableViewDelegate {
     }
     
     private func setupProjectsTable() {
-        projectsTableView.backgroundColor = UIColor.brownColor()
         projectsTableDataSource.projectsTableViewController = self
         projectsTableView.delegate = self
         projectsTableView.dataSource = projectsTableDataSource
