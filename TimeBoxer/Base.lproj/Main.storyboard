@@ -193,30 +193,30 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SrC-pn-XcZ" userLabel="Right Drawer">
-                                                    <rect key="frame" x="533" y="8" width="50" height="53"/>
+                                                    <rect key="frame" x="533" y="0.0" width="50" height="69"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="50" id="AMh-tb-Uah"/>
                                                     </constraints>
                                                 </view>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AfP-3Y-hfO" userLabel="Left Drawer">
-                                                    <rect key="frame" x="8" y="8" width="50" height="53"/>
+                                                    <rect key="frame" x="8" y="0.0" width="50" height="69"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="50" id="kMC-Fb-66m"/>
                                                     </constraints>
                                                 </view>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TIa-hQ-MXw" userLabel="Facade">
-                                                    <rect key="frame" x="8" y="8" width="575" height="53"/>
+                                                    <rect key="frame" x="8" y="0.0" width="575" height="69"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Project Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dzG-97-QYh">
-                                                            <rect key="frame" x="5" y="2" width="495" height="49"/>
+                                                            <rect key="frame" x="5" y="2" width="495" height="65"/>
                                                             <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="18"/>
                                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1 minute ago" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7IU-v6-3z2" userLabel="Last Worked On">
-                                                            <rect key="frame" x="510" y="18" width="60" height="17"/>
+                                                            <rect key="frame" x="510" y="26" width="60" height="17"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="60" id="0NO-7b-zpn"/>
                                                             </constraints>
@@ -237,14 +237,14 @@
                                                 </view>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="bottomMargin" secondItem="AfP-3Y-hfO" secondAttribute="bottom" id="2SA-Ir-Lns"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="SrC-pn-XcZ" secondAttribute="bottom" id="4Vt-Qp-87N"/>
+                                                <constraint firstAttribute="bottom" secondItem="AfP-3Y-hfO" secondAttribute="bottom" id="2SA-Ir-Lns"/>
+                                                <constraint firstAttribute="bottom" secondItem="SrC-pn-XcZ" secondAttribute="bottom" id="4Vt-Qp-87N"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="SrC-pn-XcZ" secondAttribute="trailing" id="Bla-sr-SnT"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="TIa-hQ-MXw" secondAttribute="bottom" id="KSh-8a-k6h"/>
+                                                <constraint firstAttribute="bottom" secondItem="TIa-hQ-MXw" secondAttribute="bottom" id="KSh-8a-k6h"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="TIa-hQ-MXw" secondAttribute="trailing" id="LPx-Rz-ETI"/>
-                                                <constraint firstItem="AfP-3Y-hfO" firstAttribute="top" secondItem="kl5-Ye-dlE" secondAttribute="topMargin" id="QKT-Ge-ddy"/>
-                                                <constraint firstAttribute="topMargin" secondItem="SrC-pn-XcZ" secondAttribute="top" id="Vfl-jY-Gfg"/>
-                                                <constraint firstItem="TIa-hQ-MXw" firstAttribute="top" secondItem="kl5-Ye-dlE" secondAttribute="topMargin" id="Xgq-im-5g7"/>
+                                                <constraint firstItem="AfP-3Y-hfO" firstAttribute="top" secondItem="kl5-Ye-dlE" secondAttribute="top" id="QKT-Ge-ddy"/>
+                                                <constraint firstAttribute="top" secondItem="SrC-pn-XcZ" secondAttribute="top" id="Vfl-jY-Gfg"/>
+                                                <constraint firstItem="TIa-hQ-MXw" firstAttribute="top" secondItem="kl5-Ye-dlE" secondAttribute="top" id="Xgq-im-5g7"/>
                                                 <constraint firstItem="AfP-3Y-hfO" firstAttribute="leading" secondItem="kl5-Ye-dlE" secondAttribute="leadingMargin" id="fCw-A8-8ne"/>
                                                 <constraint firstItem="TIa-hQ-MXw" firstAttribute="leading" secondItem="kl5-Ye-dlE" secondAttribute="leadingMargin" id="veR-4Z-cSy"/>
                                             </constraints>
