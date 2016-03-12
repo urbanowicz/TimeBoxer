@@ -13,14 +13,14 @@ class ProjectsTableCellPanGestureDelegate: UIView, UIGestureRecognizerDelegate  
     var projectsTableVC:ProjectsTableViewController?
     
     private var segueStarted:Bool = false
-    private var originalCenter:CGPoint?
+    private var facadeOrigin:CGPoint?
     
     func handlePan(recognizer: UIPanGestureRecognizer) {
         let drawerSize = CGFloat(50)
         let projectsTableView = tableCell!.superview!
         let transitionManager = projectsTableVC!.toEditProjectTransitionManager
         if recognizer.state == .Began {
-            originalCenter = tableCell!.center
+            facadeOrigin = tableCell!.facadeView.frame.origin
             segueStarted = false
         }
         if recognizer.state == .Changed {
@@ -31,7 +31,7 @@ class ProjectsTableCellPanGestureDelegate: UIView, UIGestureRecognizerDelegate  
                     transitionManager.interactiveAnimator!.cancelInteractiveTransition()
                     segueStarted = false
                 }
-                tableCell!.center.x = originalCenter!.x + translation.x
+                tableCell!.facadeView.frame.origin.x = facadeOrigin!.x + translation.x
             } else {
                 if !segueStarted {
                     projectsTableVC!.performSegueWithIdentifier("ProjectsTableToEditProject", sender: tableCell)
@@ -43,7 +43,7 @@ class ProjectsTableCellPanGestureDelegate: UIView, UIGestureRecognizerDelegate  
         }
         if recognizer.state == .Ended {
             if !segueStarted {
-                UIView.animateWithDuration(0.2, animations: {self.tableCell!.center.x = self.originalCenter!.x})
+                UIView.animateWithDuration(0.2, animations: {self.tableCell!.facadeView.frame.origin.x = self.facadeOrigin!.x})
             } else {
                 let translation = recognizer.translationInView(projectsTableView)
                 if translation.x - drawerSize > (projectsTableView.frame.width/2.0) {
@@ -53,7 +53,7 @@ class ProjectsTableCellPanGestureDelegate: UIView, UIGestureRecognizerDelegate  
                     
                     
                 }
-                UIView.animateWithDuration(0.1, animations: {self.tableCell!.center.x = self.originalCenter!.x})
+                UIView.animateWithDuration(0.1, animations: {self.tableCell!.facadeView.frame.origin.x = self.facadeOrigin!.x})
                 segueStarted = false
             }
         }
