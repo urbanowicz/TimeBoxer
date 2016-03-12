@@ -22,7 +22,7 @@ class ProjectsTableToTimeSliderSwipeHandler: NSObject {
     private  let drawerSize = CGFloat(50)
     init(tableCell:MyTableViewCell, fromVC: UIViewController, toVC: UIViewController, containerVC: ContainerViewController) {
         self.tableCell = tableCell
-        self.tableCellOrigin = tableCell.frame.origin
+        self.tableCellOrigin = tableCell.facadeView.frame.origin
         self.fromView = fromVC.view
         self.fromVC = fromVC
         self.toView = toVC.view
