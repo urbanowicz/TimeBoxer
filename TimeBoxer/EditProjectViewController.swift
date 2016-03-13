@@ -30,32 +30,24 @@ class EditProjectViewController: UIViewController, UIGestureRecognizerDelegate {
     override func viewWillAppear(animated: Bool) {
         //1.
         //projectNameLabel.text = project!.name
-        
-        //2.
-        func prepareStartedOnLabel() {
-            let dateFormatter = NSDateFormatter()
-            dateFormatter.dateStyle = NSDateFormatterStyle.MediumStyle
-            dateFormatter.timeStyle = NSDateFormatterStyle.NoStyle
-            self.startedOnLabel.text = dateFormatter.stringFromDate(self.project!.startDate)
-        }
-        prepareStartedOnLabel()
-        
-        //3.
-        func prepareDaysSinceStartLabel() {
-            self.daysSinceStartLabel.text = "Days since start: " + String(project!.daysSinceStart())
-        }
-        prepareDaysSinceStartLabel()
-        
-        //4. Total Work Time
-        let totalWorkTimeInSconds = project!.totalSeconds()
-        let totalWorkTimeInHours = Double(totalWorkTimeInSconds / 3600).roundToPlaces(1)
-        totalWorkTimeLabel.text = "total hours: \(totalWorkTimeInHours)"
-        //5. Average pace
-        averagePaceLabel.text = "Average pace last seven days: \(project!.averagePaceLastSevenDays())"
-        
-        
-        //6.
-        self.lastWorkedOn.text = "Last worked on: " + lastWorkedOnDateFormatter.formatLastWorkedOnString(project!.lastWrokedOn())
+        setupStartedOnLabel()
+//        
+//        //3.
+//        func prepareDaysSinceStartLabel() {
+//            self.daysSinceStartLabel.text = "Days since start: " + String(project!.daysSinceStart())
+//        }
+//        prepareDaysSinceStartLabel()
+//        
+//        //4. Total Work Time
+//        let totalWorkTimeInSconds = project!.totalSeconds()
+//        let totalWorkTimeInHours = Double(totalWorkTimeInSconds / 3600).roundToPlaces(1)
+//        totalWorkTimeLabel.text = "total hours: \(totalWorkTimeInHours)"
+//        //5. Average pace
+//        averagePaceLabel.text = "Average pace last seven days: \(project!.averagePaceLastSevenDays())"
+//        
+//        
+//        //6.
+//        self.lastWorkedOn.text = "Last worked on: " + lastWorkedOnDateFormatter.formatLastWorkedOnString(project!.lastWrokedOn())
         
     }
 
@@ -66,6 +58,30 @@ class EditProjectViewController: UIViewController, UIGestureRecognizerDelegate {
     //MARK: Setup UI Elements
     private func setupTitleBar() {
         titleBar.fillColor = Colors.violet()
+    }
+    
+    private func setupStartedOnLabel() {
+        
+        let startedOnString = NSMutableAttributedString(string: "Started On: ", attributes:avenirAttributesForRegularText())
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateStyle = NSDateFormatterStyle.LongStyle
+        dateFormatter.timeStyle = NSDateFormatterStyle.NoStyle
+        let dateString = NSAttributedString(string: dateFormatter.stringFromDate(project!.startDate), attributes: avenirAttributesForMarkedText())
+        
+        startedOnString.appendAttributedString(dateString)
+        startedOnLabel.attributedText = startedOnString
+    }
+    
+    private func avenirAttributesForRegularText() -> [String : AnyObject] {
+        let regularAvenirAttributes = [NSFontAttributeName:UIFont(name:"Avenir", size:18.0)!, NSForegroundColorAttributeName:Colors.almostBlack()]
+        return regularAvenirAttributes
+    }
+    
+    private func avenirAttributesForMarkedText() -> [String: AnyObject] {
+        let avenirMediumFontAttributes = [UIFontDescriptorNameAttribute:"Avenir", UIFontDescriptorFaceAttribute:"Medium"]
+        let avenirMediumFont = UIFont(descriptor: UIFontDescriptor(fontAttributes: avenirMediumFontAttributes), size: 18)
+        let markedAttributes = [NSFontAttributeName:avenirMediumFont, NSForegroundColorAttributeName:Colors.violet()]
+        return markedAttributes
     }
     
     //MARK: pan gesture recognizer

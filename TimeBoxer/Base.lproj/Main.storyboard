@@ -12,11 +12,6 @@
             <string>Avenir-Book</string>
             <string>Avenir-Book</string>
             <string>Avenir-Book</string>
-            <string>Avenir-Book</string>
-            <string>Avenir-Book</string>
-            <string>Avenir-Book</string>
-            <string>Avenir-Book</string>
-            <string>Avenir-Book</string>
             <string>Avenir-BookOblique</string>
             <string>Avenir-Book</string>
             <string>Avenir-BookOblique</string>
@@ -45,36 +40,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="30 days since start" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nwj-Tg-tLq" userLabel="DaysSinceStart">
-                                <rect key="frame" x="60" y="263" width="148" height="25"/>
-                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="18"/>
-                                <color key="textColor" red="0.15294117647058825" green="0.15294117647058825" blue="0.15294117647058825" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="pace this week: 3h/day" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="45i-pE-846" userLabel="PaceThisWeek">
-                                <rect key="frame" x="60" y="393" width="185" height="25"/>
-                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="18"/>
-                                <color key="textColor" red="0.15294117647058825" green="0.15294117647058825" blue="0.15294117647058825" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="27 hours total" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BcY-Rg-x0Y" userLabel="TotalHours">
-                                <rect key="frame" x="60" y="328" width="111" height="25"/>
-                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="18"/>
-                                <color key="textColor" red="0.15294117647058825" green="0.15294117647058825" blue="0.15294117647058825" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Started on: October 12, 2015" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CuO-aD-8dx" userLabel="StartedOn">
-                                <rect key="frame" x="60" y="198" width="237" height="25"/>
-                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="18"/>
-                                <color key="textColor" red="0.15294117647058825" green="0.15294117647058825" blue="0.15294117647058825" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Last worked on: " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AUX-gZ-DWC" userLabel="LastWorkedOn">
-                                <rect key="frame" x="60" y="458" width="133" height="25"/>
-                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="18"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UGN-ez-FOm" customClass="TitleBar" customModule="TimeBoxer" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="60"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -82,31 +47,38 @@
                                     <constraint firstAttribute="height" constant="60" id="S6R-Fn-UQ3"/>
                                 </constraints>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CuO-aD-8dx" userLabel="Started On">
+                                <rect key="frame" x="40" y="80" width="237" height="25"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="Started on: October 12, 2015">
+                                        <attributes>
+                                            <color key="NSColor" red="0.15294117647058825" green="0.15294117647058825" blue="0.15294117647058825" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <font key="NSFont" size="18" name="Avenir-Book"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="AUX-gZ-DWC" firstAttribute="top" secondItem="45i-pE-846" secondAttribute="bottom" constant="40" id="1ly-fb-266"/>
-                            <constraint firstItem="BcY-Rg-x0Y" firstAttribute="leading" secondItem="y0t-tH-WgZ" secondAttribute="leadingMargin" constant="40" id="4aF-pq-fal"/>
                             <constraint firstItem="UGN-ez-FOm" firstAttribute="top" secondItem="y0t-tH-WgZ" secondAttribute="top" id="AI5-Em-Kld"/>
-                            <constraint firstItem="Nwj-Tg-tLq" firstAttribute="leading" secondItem="y0t-tH-WgZ" secondAttribute="leadingMargin" constant="40" id="K5o-DK-UUK"/>
                             <constraint firstAttribute="trailing" secondItem="UGN-ez-FOm" secondAttribute="trailing" id="Ykc-Ym-yg9"/>
-                            <constraint firstItem="45i-pE-846" firstAttribute="leading" secondItem="y0t-tH-WgZ" secondAttribute="leadingMargin" constant="40" id="awp-TN-9Md"/>
-                            <constraint firstItem="BcY-Rg-x0Y" firstAttribute="top" secondItem="Nwj-Tg-tLq" secondAttribute="bottom" constant="40" id="bDF-y6-s6c"/>
-                            <constraint firstItem="Nwj-Tg-tLq" firstAttribute="top" secondItem="CuO-aD-8dx" secondAttribute="bottom" constant="40" id="dZO-Gn-xH7"/>
-                            <constraint firstItem="45i-pE-846" firstAttribute="top" secondItem="BcY-Rg-x0Y" secondAttribute="bottom" constant="40" id="fNN-GR-v0m"/>
                             <constraint firstItem="CuO-aD-8dx" firstAttribute="top" secondItem="om9-dy-SQy" secondAttribute="bottom" constant="178" id="hol-yQ-h6u"/>
-                            <constraint firstItem="AUX-gZ-DWC" firstAttribute="leading" secondItem="y0t-tH-WgZ" secondAttribute="leadingMargin" constant="40" id="hsK-Oz-bYy"/>
-                            <constraint firstItem="CuO-aD-8dx" firstAttribute="leading" secondItem="y0t-tH-WgZ" secondAttribute="leadingMargin" constant="40" id="mAB-kC-rwF"/>
+                            <constraint firstItem="CuO-aD-8dx" firstAttribute="leading" secondItem="y0t-tH-WgZ" secondAttribute="leadingMargin" constant="20" id="mAB-kC-rwF"/>
                             <constraint firstItem="UGN-ez-FOm" firstAttribute="leading" secondItem="y0t-tH-WgZ" secondAttribute="leading" id="oF1-yp-0ET"/>
+                            <constraint firstItem="CuO-aD-8dx" firstAttribute="top" secondItem="UGN-ez-FOm" secondAttribute="bottom" constant="20" id="yUZ-bE-Ucp"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="hol-yQ-h6u"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
-                        <outlet property="averagePaceLabel" destination="45i-pE-846" id="nXP-fy-dNh"/>
-                        <outlet property="daysSinceStartLabel" destination="Nwj-Tg-tLq" id="3b7-yA-LyQ"/>
-                        <outlet property="lastWorkedOn" destination="AUX-gZ-DWC" id="eVM-WC-uHD"/>
                         <outlet property="startedOnLabel" destination="CuO-aD-8dx" id="0Gw-2i-5cP"/>
                         <outlet property="titleBar" destination="UGN-ez-FOm" id="WHy-Tk-7kS"/>
-                        <outlet property="totalWorkTimeLabel" destination="BcY-Rg-x0Y" id="egZ-We-k1C"/>
                         <segue destination="gEt-rm-jX2" kind="unwind" identifier="EditProjectUnwind" unwindAction="editProjectUnwind:" id="mIW-4q-2Wz"/>
                     </connections>
                 </viewController>
