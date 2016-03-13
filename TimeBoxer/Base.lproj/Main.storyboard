@@ -27,6 +27,10 @@
             <string>Avenir-Book</string>
             <string>Avenir-Book</string>
             <string>Avenir-Book</string>
+            <string>Avenir-Book</string>
+            <string>Avenir-Book</string>
+            <string>Avenir-Book</string>
+            <string>Avenir-Book</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -50,7 +54,7 @@
                                 </constraints>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="fLw-KL-bXS">
-                                <rect key="frame" x="40" y="80" width="237" height="60"/>
+                                <rect key="frame" x="40" y="80" width="237" height="200"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Started on: October 12, 2015" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CuO-aD-8dx" userLabel="Started On">
                                         <rect key="frame" x="0.0" y="0.0" width="237" height="25"/>
@@ -60,6 +64,30 @@
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Total Hours" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BkX-5A-ikH">
                                         <rect key="frame" x="0.0" y="35" width="237" height="25"/>
+                                        <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="18"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Total Hours Today" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jLb-a9-MlL">
+                                        <rect key="frame" x="0.0" y="70" width="237" height="25"/>
+                                        <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="18"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Days Since Start" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Upk-ZB-HLv">
+                                        <rect key="frame" x="0.0" y="105" width="237" height="25"/>
+                                        <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="18"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Pace This Week" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="foU-89-dxw">
+                                        <rect key="frame" x="0.0" y="140" width="237" height="25"/>
+                                        <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="18"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Last Worked On" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ceZ-xd-nLV">
+                                        <rect key="frame" x="0.0" y="175" width="237" height="25"/>
                                         <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="18"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
@@ -77,9 +105,13 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="daysSinceStartLabel" destination="Upk-ZB-HLv" id="z96-ZM-Z46"/>
+                        <outlet property="lastWorkedOnLabel" destination="ceZ-xd-nLV" id="ag6-IM-JZZ"/>
+                        <outlet property="paceThisWeekLabel" destination="foU-89-dxw" id="M1U-7T-VJy"/>
                         <outlet property="startedOnLabel" destination="CuO-aD-8dx" id="0Gw-2i-5cP"/>
                         <outlet property="titleBar" destination="UGN-ez-FOm" id="WHy-Tk-7kS"/>
                         <outlet property="totalHoursLabel" destination="BkX-5A-ikH" id="ibe-sx-VNk"/>
+                        <outlet property="totalHoursTodayLabel" destination="jLb-a9-MlL" id="j94-Ic-Nv8"/>
                         <segue destination="gEt-rm-jX2" kind="unwind" identifier="EditProjectUnwind" unwindAction="editProjectUnwind:" id="mIW-4q-2Wz"/>
                     </connections>
                 </viewController>

@@ -16,12 +16,11 @@ class EditProjectViewController: UIViewController, UIGestureRecognizerDelegate {
     @IBOutlet weak var projectNameLabel: UILabel!
     @IBOutlet weak var startedOnLabel: UILabel!
     @IBOutlet weak var totalHoursLabel: UILabel!
-    
-
+    @IBOutlet weak var totalHoursTodayLabel: UILabel!
     @IBOutlet weak var daysSinceStartLabel: UILabel!
-    @IBOutlet weak var averagePaceLabel: UILabel!
+    @IBOutlet weak var paceThisWeekLabel: UILabel!
+    @IBOutlet weak var lastWorkedOnLabel: UILabel!
     
-    @IBOutlet weak var lastWorkedOn: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
         setupPanGestureRecognizer()
@@ -29,27 +28,13 @@ class EditProjectViewController: UIViewController, UIGestureRecognizerDelegate {
     }
     
     override func viewWillAppear(animated: Bool) {
-        //1.
         //projectNameLabel.text = project!.name
         setupStartedOnLabel()
         setupTotalHoursLabel()
-//        
-//        //3.
-//        func prepareDaysSinceStartLabel() {
-//            self.daysSinceStartLabel.text = "Days since start: " + String(project!.daysSinceStart())
-//        }
-//        prepareDaysSinceStartLabel()
-//        
-//        //4. Total Work Time
-//        let totalWorkTimeInSconds = project!.totalSeconds()
-//        let totalWorkTimeInHours = Double(totalWorkTimeInSconds / 3600).roundToPlaces(1)
-//        totalWorkTimeLabel.text = "total hours: \(totalWorkTimeInHours)"
-//        //5. Average pace
-//        averagePaceLabel.text = "Average pace last seven days: \(project!.averagePaceLastSevenDays())"
-//        
-//        
-//        //6.
-//        self.lastWorkedOn.text = "Last worked on: " + lastWorkedOnDateFormatter.formatLastWorkedOnString(project!.lastWrokedOn())
+        setupTotalHoursTodayLabel()
+        setupDaysSinceStartLabel()
+        setupPaceThisWeekLabel()
+        setupLastWorkedOnLabel()
         
     }
 
@@ -85,6 +70,31 @@ class EditProjectViewController: UIViewController, UIGestureRecognizerDelegate {
         self.totalHoursLabel.attributedText = totalHoursString
     }
     
+    private func setupTotalHoursTodayLabel() {
+        totalHoursTodayLabel.text = "Total Hours Today : Todo"
+    }
+    
+    private func setupDaysSinceStartLabel() {
+        let daysSinceStartString = NSMutableAttributedString(string: "Days since start: ", attributes: avenirAttributesForRegularText())
+        let numberOfDaysString = NSAttributedString(string: String(project!.daysSinceStart()), attributes: avenirAttributesForMarkedText())
+        daysSinceStartString.appendAttributedString(numberOfDaysString)
+        daysSinceStartLabel.attributedText = daysSinceStartString
+    }
+    
+    private func setupPaceThisWeekLabel() {
+        let paceString = NSMutableAttributedString(string: "Pace last seven days: ", attributes: avenirAttributesForRegularText())
+        let valueString = NSAttributedString(string: String(project!.averagePaceLastSevenDays()), attributes: avenirAttributesForMarkedText())
+        paceString.appendAttributedString(valueString)
+        paceThisWeekLabel.attributedText = paceString
+    }
+    
+    private func setupLastWorkedOnLabel() {
+        let lastWorkedOnString = NSMutableAttributedString(string: "Last worked on: ", attributes: avenirAttributesForRegularText())
+        let valueString = NSAttributedString(string: String(lastWorkedOnDateFormatter.formatLastWorkedOnString(project!.lastWrokedOn())), attributes: avenirAttributesForMarkedText())
+        lastWorkedOnString.appendAttributedString(valueString)
+        lastWorkedOnLabel.attributedText = lastWorkedOnString
+    }
+    
     private func avenirAttributesForRegularText() -> [String : AnyObject] {
         let regularAvenirAttributes = [NSFontAttributeName:UIFont(name:"Avenir", size:18.0)!, NSForegroundColorAttributeName:Colors.almostBlack()]
         return regularAvenirAttributes
@@ -96,6 +106,7 @@ class EditProjectViewController: UIViewController, UIGestureRecognizerDelegate {
         let markedAttributes = [NSFontAttributeName:avenirMediumFont, NSForegroundColorAttributeName:Colors.violet()]
         return markedAttributes
     }
+    
     
     //MARK: pan gesture recognizer
     private func setupPanGestureRecognizer() {
