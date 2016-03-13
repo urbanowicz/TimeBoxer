@@ -59,5 +59,8 @@ class Colors: NSObject {
     static func purple() -> UIColor {
         return UIColor(red:0.478, green:0.263, blue:0.451, alpha:1)
     }
- 
+    
+    static func violet() -> UIColor {
+        return UIColor(red:0.29, green:0.263, blue:0.478, alpha:1.0)
+    }
 }

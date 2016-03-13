@@ -13,6 +13,7 @@ class EditProjectViewController: UIViewController, UIGestureRecognizerDelegate {
     var segueStarted:Bool = false
     private var lastWorkedOnDateFormatter = LastWorkedOnDateFormatter()
     
+    @IBOutlet weak var titleBar: TitleBar!
     @IBOutlet weak var projectNameLabel: UILabel!
     @IBOutlet weak var startedOnLabel: UILabel!
     @IBOutlet weak var daysSinceStartLabel: UILabel!
@@ -22,14 +23,13 @@ class EditProjectViewController: UIViewController, UIGestureRecognizerDelegate {
     @IBOutlet weak var lastWorkedOn: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
-        let panGestureRecognizer = UIPanGestureRecognizer(target: self, action:"handlePan:")
-        panGestureRecognizer.delegate = self
-        self.view.addGestureRecognizer(panGestureRecognizer)
+        setupPanGestureRecognizer()
+        setupTitleBar()
     }
     
     override func viewWillAppear(animated: Bool) {
         //1.
-        projectNameLabel.text = project!.name
+        //projectNameLabel.text = project!.name
         
         //2.
         func prepareStartedOnLabel() {
@@ -63,7 +63,17 @@ class EditProjectViewController: UIViewController, UIGestureRecognizerDelegate {
         super.didReceiveMemoryWarning()
     }
     
+    //MARK: Setup UI Elements
+    private func setupTitleBar() {
+        titleBar.fillColor = Colors.violet()
+    }
+    
     //MARK: pan gesture recognizer
+    private func setupPanGestureRecognizer() {
+        let panGestureRecognizer = UIPanGestureRecognizer(target: self, action:"handlePan:")
+        panGestureRecognizer.delegate = self
+        self.view.addGestureRecognizer(panGestureRecognizer)
+    }
     func handlePan(recognizer: UIPanGestureRecognizer) {
         let translation = recognizer.translationInView(self.view)
         let dx:CGFloat = (-translation.x) / (self.view.frame.width)
