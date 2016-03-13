@@ -12,7 +12,6 @@
             <string>Avenir-Book</string>
             <string>Avenir-Book</string>
             <string>Avenir-Book</string>
-            <string>Avenir-Book</string>
             <string>Avenir-BookOblique</string>
             <string>Avenir-Book</string>
             <string>Avenir-BookOblique</string>
@@ -24,6 +23,7 @@
             <string>Avenir-BookOblique</string>
             <string>Avenir-Book</string>
             <string>Avenir-BookOblique</string>
+            <string>Avenir-Book</string>
             <string>Avenir-Book</string>
             <string>Avenir-Book</string>
             <string>Avenir-Book</string>
@@ -49,35 +49,32 @@
                                     <constraint firstAttribute="height" constant="60" id="S6R-Fn-UQ3"/>
                                 </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Started on: October 12, 2015" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CuO-aD-8dx" userLabel="Started On">
-                                <rect key="frame" x="40" y="80" width="237" height="25"/>
-                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="18"/>
-                                <color key="textColor" red="0.15294117647058825" green="0.15294117647058825" blue="0.15294117647058825" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total Hours" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BkX-5A-ikH">
-                                <rect key="frame" x="40" y="125" width="91" height="25"/>
-                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="18"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="fLw-KL-bXS">
+                                <rect key="frame" x="40" y="80" width="237" height="60"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Started on: October 12, 2015" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CuO-aD-8dx" userLabel="Started On">
+                                        <rect key="frame" x="0.0" y="0.0" width="237" height="25"/>
+                                        <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="18"/>
+                                        <color key="textColor" red="0.15294117647058825" green="0.15294117647058825" blue="0.15294117647058825" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Total Hours" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BkX-5A-ikH">
+                                        <rect key="frame" x="0.0" y="35" width="237" height="25"/>
+                                        <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="18"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="UGN-ez-FOm" firstAttribute="top" secondItem="y0t-tH-WgZ" secondAttribute="top" id="AI5-Em-Kld"/>
-                            <constraint firstItem="BkX-5A-ikH" firstAttribute="leading" secondItem="CuO-aD-8dx" secondAttribute="leading" id="Jo9-jU-dlD"/>
-                            <constraint firstItem="BkX-5A-ikH" firstAttribute="top" secondItem="CuO-aD-8dx" secondAttribute="bottom" constant="20" id="QVF-Fs-p1h"/>
                             <constraint firstAttribute="trailing" secondItem="UGN-ez-FOm" secondAttribute="trailing" id="Ykc-Ym-yg9"/>
-                            <constraint firstItem="CuO-aD-8dx" firstAttribute="top" secondItem="om9-dy-SQy" secondAttribute="bottom" constant="178" id="hol-yQ-h6u"/>
-                            <constraint firstItem="CuO-aD-8dx" firstAttribute="leading" secondItem="y0t-tH-WgZ" secondAttribute="leadingMargin" constant="20" id="mAB-kC-rwF"/>
+                            <constraint firstItem="fLw-KL-bXS" firstAttribute="leading" secondItem="y0t-tH-WgZ" secondAttribute="leadingMargin" constant="20" id="am3-q0-anY"/>
+                            <constraint firstItem="CuO-aD-8dx" firstAttribute="top" secondItem="UGN-ez-FOm" secondAttribute="bottom" constant="20" id="mma-KY-CQl"/>
                             <constraint firstItem="UGN-ez-FOm" firstAttribute="leading" secondItem="y0t-tH-WgZ" secondAttribute="leading" id="oF1-yp-0ET"/>
-                            <constraint firstItem="CuO-aD-8dx" firstAttribute="top" secondItem="UGN-ez-FOm" secondAttribute="bottom" constant="20" id="yUZ-bE-Ucp"/>
                         </constraints>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="hol-yQ-h6u"/>
-                            </mask>
-                        </variation>
                     </view>
                     <connections>
                         <outlet property="startedOnLabel" destination="CuO-aD-8dx" id="0Gw-2i-5cP"/>
