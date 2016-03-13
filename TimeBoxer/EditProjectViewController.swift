@@ -12,12 +12,13 @@ class EditProjectViewController: UIViewController, UIGestureRecognizerDelegate {
     var project:Project?
     var segueStarted:Bool = false
     private var lastWorkedOnDateFormatter = LastWorkedOnDateFormatter()
-    
     @IBOutlet weak var titleBar: TitleBar!
     @IBOutlet weak var projectNameLabel: UILabel!
     @IBOutlet weak var startedOnLabel: UILabel!
+    @IBOutlet weak var totalHoursLabel: UILabel!
+    
+
     @IBOutlet weak var daysSinceStartLabel: UILabel!
-    @IBOutlet weak var totalWorkTimeLabel: UILabel!
     @IBOutlet weak var averagePaceLabel: UILabel!
     
     @IBOutlet weak var lastWorkedOn: UILabel!
@@ -31,6 +32,7 @@ class EditProjectViewController: UIViewController, UIGestureRecognizerDelegate {
         //1.
         //projectNameLabel.text = project!.name
         setupStartedOnLabel()
+        setupTotalHoursLabel()
 //        
 //        //3.
 //        func prepareDaysSinceStartLabel() {
@@ -61,7 +63,6 @@ class EditProjectViewController: UIViewController, UIGestureRecognizerDelegate {
     }
     
     private func setupStartedOnLabel() {
-        
         let startedOnString = NSMutableAttributedString(string: "Started On: ", attributes:avenirAttributesForRegularText())
         let dateFormatter = NSDateFormatter()
         dateFormatter.dateStyle = NSDateFormatterStyle.LongStyle
@@ -70,6 +71,18 @@ class EditProjectViewController: UIViewController, UIGestureRecognizerDelegate {
         
         startedOnString.appendAttributedString(dateString)
         startedOnLabel.attributedText = startedOnString
+    }
+    
+    private func setupTotalHoursLabel() {
+        let totalSeconds = project!.totalSeconds()
+        let totalHours = Double(totalSeconds / 3600).roundToPlaces(1)
+        let totalHoursString = NSMutableAttributedString(string: "\(totalHours) ", attributes: avenirAttributesForMarkedText())
+        var hoursString = NSAttributedString(string: " hours total", attributes: avenirAttributesForRegularText())
+        if totalHours == 1 {
+            hoursString = NSAttributedString(string: " hour total", attributes: avenirAttributesForRegularText())
+        }
+        totalHoursString.appendAttributedString(hoursString)
+        self.totalHoursLabel.attributedText = totalHoursString
     }
     
     private func avenirAttributesForRegularText() -> [String : AnyObject] {

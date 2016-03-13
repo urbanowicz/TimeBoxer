@@ -12,17 +12,19 @@
             <string>Avenir-Book</string>
             <string>Avenir-Book</string>
             <string>Avenir-Book</string>
-            <string>Avenir-BookOblique</string>
-            <string>Avenir-Book</string>
-            <string>Avenir-BookOblique</string>
-            <string>Avenir-Book</string>
-            <string>Avenir-Book</string>
-            <string>Avenir-Book</string>
-            <string>Avenir-Book</string>
             <string>Avenir-Book</string>
             <string>Avenir-BookOblique</string>
             <string>Avenir-Book</string>
             <string>Avenir-BookOblique</string>
+            <string>Avenir-Book</string>
+            <string>Avenir-Book</string>
+            <string>Avenir-Book</string>
+            <string>Avenir-Book</string>
+            <string>Avenir-Book</string>
+            <string>Avenir-BookOblique</string>
+            <string>Avenir-Book</string>
+            <string>Avenir-BookOblique</string>
+            <string>Avenir-Book</string>
             <string>Avenir-Book</string>
             <string>Avenir-Book</string>
         </mutableArray>
@@ -47,23 +49,24 @@
                                     <constraint firstAttribute="height" constant="60" id="S6R-Fn-UQ3"/>
                                 </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CuO-aD-8dx" userLabel="Started On">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Started on: October 12, 2015" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CuO-aD-8dx" userLabel="Started On">
                                 <rect key="frame" x="40" y="80" width="237" height="25"/>
-                                <attributedString key="attributedText">
-                                    <fragment content="Started on: October 12, 2015">
-                                        <attributes>
-                                            <color key="NSColor" red="0.15294117647058825" green="0.15294117647058825" blue="0.15294117647058825" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <font key="NSFont" size="18" name="Avenir-Book"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
-                                        </attributes>
-                                    </fragment>
-                                </attributedString>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="18"/>
+                                <color key="textColor" red="0.15294117647058825" green="0.15294117647058825" blue="0.15294117647058825" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total Hours" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BkX-5A-ikH">
+                                <rect key="frame" x="40" y="125" width="91" height="25"/>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="18"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="UGN-ez-FOm" firstAttribute="top" secondItem="y0t-tH-WgZ" secondAttribute="top" id="AI5-Em-Kld"/>
+                            <constraint firstItem="BkX-5A-ikH" firstAttribute="leading" secondItem="CuO-aD-8dx" secondAttribute="leading" id="Jo9-jU-dlD"/>
+                            <constraint firstItem="BkX-5A-ikH" firstAttribute="top" secondItem="CuO-aD-8dx" secondAttribute="bottom" constant="20" id="QVF-Fs-p1h"/>
                             <constraint firstAttribute="trailing" secondItem="UGN-ez-FOm" secondAttribute="trailing" id="Ykc-Ym-yg9"/>
                             <constraint firstItem="CuO-aD-8dx" firstAttribute="top" secondItem="om9-dy-SQy" secondAttribute="bottom" constant="178" id="hol-yQ-h6u"/>
                             <constraint firstItem="CuO-aD-8dx" firstAttribute="leading" secondItem="y0t-tH-WgZ" secondAttribute="leadingMargin" constant="20" id="mAB-kC-rwF"/>
@@ -79,6 +82,7 @@
                     <connections>
                         <outlet property="startedOnLabel" destination="CuO-aD-8dx" id="0Gw-2i-5cP"/>
                         <outlet property="titleBar" destination="UGN-ez-FOm" id="WHy-Tk-7kS"/>
+                        <outlet property="totalHoursLabel" destination="BkX-5A-ikH" id="ibe-sx-VNk"/>
                         <segue destination="gEt-rm-jX2" kind="unwind" identifier="EditProjectUnwind" unwindAction="editProjectUnwind:" id="mIW-4q-2Wz"/>
                     </connections>
                 </viewController>
