@@ -8,15 +8,17 @@
 
 import UIKit
 
-class UIControlsTestViewController: UIViewController {
+class UIControlsTestViewController: UIViewController, UITableViewDataSource {
   
     @IBOutlet weak var statsTableView: UITableView!
 
-
+    let cellId = "statsCellId"
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = Colors.almostBlack()
+        //statsTableView.delegate = self
+        statsTableView.dataSource = self
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -41,9 +43,16 @@ class UIControlsTestViewController: UIViewController {
         return true
     }
     
-    //MARK: UIScrollViewDelegate
+    //MARK: UITableViewDataSource
     
-
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 5
+    }
     
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier(cellId) as! StatsTableViewCell
+        //cell.textLabel?.text = "HAHA"
+        return cell
+    }
     
 }

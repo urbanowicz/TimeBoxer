@@ -48,6 +48,7 @@
 		F1981BA01C84DF8F00F49454 /* SliderOutputToValueConverterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1981B9F1C84DF8F00F49454 /* SliderOutputToValueConverterTests.swift */; };
 		F1981BA21C84E61700F49454 /* MinutesToStringConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1981BA11C84E61700F49454 /* MinutesToStringConverter.swift */; };
 		F1981BA31C84E61700F49454 /* MinutesToStringConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1981BA11C84E61700F49454 /* MinutesToStringConverter.swift */; };
+		F19D226C1CA01F8B006D76D4 /* StatsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F19D226B1CA01F8B006D76D4 /* StatsTableViewCell.swift */; };
 		F1A0BC701C4E63FC0075ACCF /* MyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A0BC6F1C4E63FC0075ACCF /* MyTableViewCell.swift */; };
 		F1A605361C81FBCA008EF288 /* UIControlsTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A605351C81FBCA008EF288 /* UIControlsTestViewController.swift */; };
 		F1A6053D1C8212CD008EF288 /* BigSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A6053C1C8212CD008EF288 /* BigSlider.swift */; };
@@ -120,6 +121,7 @@
 		F1981B9C1C84DE7200F49454 /* SliderOutputToValueConverter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SliderOutputToValueConverter.swift; sourceTree = "<group>"; };
 		F1981B9F1C84DF8F00F49454 /* SliderOutputToValueConverterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SliderOutputToValueConverterTests.swift; sourceTree = "<group>"; };
 		F1981BA11C84E61700F49454 /* MinutesToStringConverter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MinutesToStringConverter.swift; sourceTree = "<group>"; };
+		F19D226B1CA01F8B006D76D4 /* StatsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatsTableViewCell.swift; sourceTree = "<group>"; };
 		F1A0BC6F1C4E63FC0075ACCF /* MyTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyTableViewCell.swift; sourceTree = "<group>"; };
 		F1A605351C81FBCA008EF288 /* UIControlsTestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIControlsTestViewController.swift; sourceTree = "<group>"; };
 		F1A6053C1C8212CD008EF288 /* BigSlider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BigSlider.swift; sourceTree = "<group>"; };
@@ -310,6 +312,7 @@
 				F1A605351C81FBCA008EF288 /* UIControlsTestViewController.swift */,
 				F1C755B41C9B31300083466C /* BarChartView.swift */,
 				F1C755B61C9C87EB0083466C /* HorizontalBarView.swift */,
+				F19D226B1CA01F8B006D76D4 /* StatsTableViewCell.swift */,
 			);
 			name = UIControlsTestVC;
 			sourceTree = "<group>";
@@ -504,6 +507,7 @@
 				F1FC9AD31C3ED73B002A9F31 /* EditProjectViewController.swift in Sources */,
 				F1B3B41F1C5540D80009FCF0 /* AbstractAnimator.swift in Sources */,
 				F1EBB3E31C5AB93C005A36CE /* WorkChunk.swift in Sources */,
+				F19D226C1CA01F8B006D76D4 /* StatsTableViewCell.swift in Sources */,
 				F1B920551BE7D7CC004A8CDB /* PauseButton.swift in Sources */,
 				F18D6B7A1BEB4BFE0003CBD4 /* TimerPausedViewController.swift in Sources */,
 				F11925211C8CB319002BEAC2 /* ProjectsTableToAddProjectAnimator.swift in Sources */,
