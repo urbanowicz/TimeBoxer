@@ -32,6 +32,18 @@
             <string>Avenir-Book</string>
             <string>Avenir-Book</string>
             <string>Avenir-Book</string>
+            <string>Avenir-Book</string>
+            <string>Avenir-Book</string>
+            <string>Avenir-Book</string>
+            <string>Avenir-Book</string>
+            <string>Avenir-Book</string>
+            <string>Avenir-Book</string>
+            <string>Avenir-Book</string>
+            <string>Avenir-Book</string>
+            <string>Avenir-Book</string>
+            <string>Avenir-Book</string>
+            <string>Avenir-Book</string>
+            <string>Avenir-Book</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -175,64 +187,240 @@
                                                         <constraint firstItem="E5x-rM-pcz" firstAttribute="top" secondItem="XPd-EE-Fla" secondAttribute="top" id="Dqh-B9-SnW"/>
                                                         <constraint firstItem="Srt-qV-gsI" firstAttribute="leading" secondItem="E5x-rM-pcz" secondAttribute="trailing" constant="10" id="KcG-ID-gcm"/>
                                                         <constraint firstItem="E5x-rM-pcz" firstAttribute="leading" secondItem="XPd-EE-Fla" secondAttribute="leading" id="LEb-Tm-Z4u"/>
+                                                        <constraint firstAttribute="bottom" secondItem="E5x-rM-pcz" secondAttribute="bottom" id="g3f-9z-kml"/>
                                                         <constraint firstItem="Srt-qV-gsI" firstAttribute="centerY" secondItem="E5x-rM-pcz" secondAttribute="centerY" id="gRd-MN-6yb"/>
-                                                        <constraint firstAttribute="height" constant="40" id="kji-5f-NbF"/>
                                                         <constraint firstAttribute="trailing" secondItem="Srt-qV-gsI" secondAttribute="trailing" id="oXV-hT-f1c"/>
                                                     </constraints>
                                                 </view>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sH5-bo-f25" userLabel="Tuesday">
                                                     <rect key="frame" x="18" y="80" width="524" height="40"/>
                                                     <subviews>
-                                                        <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="xG0-MQ-RZI">
-                                                            <rect key="frame" x="0.0" y="0.0" width="110" height="40"/>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="xG0-MQ-RZI">
+                                                            <rect key="frame" x="0.0" y="0.0" width="44" height="40"/>
+                                                            <subviews>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Tue" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F3n-OD-q1d">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="44" height="20"/>
+                                                                    <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="14"/>
+                                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="11 mar" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KbN-UE-vu5">
+                                                                    <rect key="frame" x="0.0" y="20" width="44" height="20"/>
+                                                                    <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="14"/>
+                                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                            </subviews>
                                                         </stackView>
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7PB-3S-wHA" customClass="HorizontalBarView" customModule="TimeBoxer" customModuleProvider="target">
+                                                            <rect key="frame" x="54" y="8" width="470" height="24"/>
+                                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        </view>
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <constraints>
+                                                        <constraint firstItem="7PB-3S-wHA" firstAttribute="leading" secondItem="xG0-MQ-RZI" secondAttribute="trailing" constant="10" id="1Wr-Nb-uZK"/>
+                                                        <constraint firstAttribute="trailing" secondItem="7PB-3S-wHA" secondAttribute="trailing" id="6Lb-00-gac"/>
+                                                        <constraint firstItem="7PB-3S-wHA" firstAttribute="centerY" secondItem="xG0-MQ-RZI" secondAttribute="centerY" id="R4x-Md-r6D"/>
+                                                        <constraint firstItem="xG0-MQ-RZI" firstAttribute="top" secondItem="sH5-bo-f25" secondAttribute="top" id="dz0-49-ERt"/>
+                                                        <constraint firstItem="7PB-3S-wHA" firstAttribute="height" secondItem="xG0-MQ-RZI" secondAttribute="height" multiplier="0.6" id="rBG-k9-M69"/>
+                                                        <constraint firstAttribute="bottom" secondItem="xG0-MQ-RZI" secondAttribute="bottom" id="xNm-Ip-7Wu"/>
+                                                        <constraint firstItem="xG0-MQ-RZI" firstAttribute="leading" secondItem="sH5-bo-f25" secondAttribute="leading" id="y3I-PK-gk2"/>
+                                                    </constraints>
+                                                    <variation key="default">
+                                                        <mask key="constraints">
+                                                            <exclude reference="rBG-k9-M69"/>
+                                                        </mask>
+                                                    </variation>
                                                 </view>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zXx-7b-2pK" userLabel="Wednsday">
                                                     <rect key="frame" x="18" y="142" width="524" height="40"/>
                                                     <subviews>
-                                                        <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Rxr-tX-cUb">
-                                                            <rect key="frame" x="0.0" y="0.0" width="110" height="40"/>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Rxr-tX-cUb">
+                                                            <rect key="frame" x="0.0" y="0.0" width="44" height="40"/>
+                                                            <subviews>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Wed" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q7C-Cb-ta7">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="44" height="20"/>
+                                                                    <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="14"/>
+                                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="12 mar" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W2u-BT-M6P">
+                                                                    <rect key="frame" x="0.0" y="20" width="44" height="20"/>
+                                                                    <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="14"/>
+                                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                            </subviews>
                                                         </stackView>
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="d0W-aw-to4" customClass="HorizontalBarView" customModule="TimeBoxer" customModuleProvider="target">
+                                                            <rect key="frame" x="54" y="8" width="470" height="24"/>
+                                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        </view>
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <constraints>
+                                                        <constraint firstItem="Rxr-tX-cUb" firstAttribute="top" secondItem="zXx-7b-2pK" secondAttribute="top" id="45t-do-Z3b"/>
+                                                        <constraint firstAttribute="bottom" secondItem="Rxr-tX-cUb" secondAttribute="bottom" id="FsK-wR-CoW"/>
+                                                        <constraint firstAttribute="trailing" secondItem="d0W-aw-to4" secondAttribute="trailing" id="ISS-1s-YnW"/>
+                                                        <constraint firstItem="d0W-aw-to4" firstAttribute="centerY" secondItem="Rxr-tX-cUb" secondAttribute="centerY" id="PTs-NV-88R"/>
+                                                        <constraint firstItem="Rxr-tX-cUb" firstAttribute="leading" secondItem="zXx-7b-2pK" secondAttribute="leading" id="VU2-he-EtW"/>
+                                                        <constraint firstItem="d0W-aw-to4" firstAttribute="height" secondItem="Rxr-tX-cUb" secondAttribute="height" multiplier="0.6" id="ed0-9X-Zz9"/>
+                                                        <constraint firstItem="d0W-aw-to4" firstAttribute="leading" secondItem="Rxr-tX-cUb" secondAttribute="trailing" constant="10" id="ffP-kr-Dpx"/>
+                                                    </constraints>
+                                                    <variation key="default">
+                                                        <mask key="constraints">
+                                                            <exclude reference="ed0-9X-Zz9"/>
+                                                        </mask>
+                                                    </variation>
                                                 </view>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jeB-Ic-O87" userLabel="Thursday">
                                                     <rect key="frame" x="18" y="205" width="524" height="40"/>
                                                     <subviews>
-                                                        <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="ynU-w8-PfO">
-                                                            <rect key="frame" x="0.0" y="0.0" width="110" height="40"/>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="ynU-w8-PfO">
+                                                            <rect key="frame" x="0.0" y="0.0" width="44" height="40"/>
+                                                            <subviews>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Thu" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Wf-LP-lD6">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="44" height="20"/>
+                                                                    <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="14"/>
+                                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="13 mar" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GKK-Gt-3DW">
+                                                                    <rect key="frame" x="0.0" y="20" width="44" height="20"/>
+                                                                    <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="14"/>
+                                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                            </subviews>
                                                         </stackView>
+                                                        <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Prq-Kk-6Mw" customClass="HorizontalBarView" customModule="TimeBoxer" customModuleProvider="target">
+                                                            <rect key="frame" x="54" y="7" width="470" height="25"/>
+                                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        </view>
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <constraints>
+                                                        <constraint firstItem="ynU-w8-PfO" firstAttribute="leading" secondItem="jeB-Ic-O87" secondAttribute="leading" id="1Lh-dQ-VAG"/>
+                                                        <constraint firstItem="Prq-Kk-6Mw" firstAttribute="leading" secondItem="ynU-w8-PfO" secondAttribute="trailing" constant="10" id="3SU-DY-vq6"/>
+                                                        <constraint firstAttribute="bottom" secondItem="ynU-w8-PfO" secondAttribute="bottom" id="3c8-Lm-vuR"/>
+                                                        <constraint firstAttribute="trailing" secondItem="Prq-Kk-6Mw" secondAttribute="trailing" id="5dh-4j-3PX"/>
+                                                        <constraint firstItem="Prq-Kk-6Mw" firstAttribute="centerY" secondItem="ynU-w8-PfO" secondAttribute="centerY" id="CxC-P7-5V0"/>
+                                                        <constraint firstItem="ynU-w8-PfO" firstAttribute="top" secondItem="jeB-Ic-O87" secondAttribute="top" id="LeL-9H-4Dy"/>
+                                                        <constraint firstItem="Prq-Kk-6Mw" firstAttribute="height" secondItem="jeB-Ic-O87" secondAttribute="height" id="al7-kH-8j5"/>
+                                                        <constraint firstItem="Prq-Kk-6Mw" firstAttribute="height" secondItem="ynU-w8-PfO" secondAttribute="height" multiplier="0.6" constant="1" id="bUs-T0-nce"/>
+                                                    </constraints>
+                                                    <variation key="default">
+                                                        <mask key="constraints">
+                                                            <exclude reference="al7-kH-8j5"/>
+                                                            <exclude reference="bUs-T0-nce"/>
+                                                        </mask>
+                                                    </variation>
                                                 </view>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Z02-7W-qjX" userLabel="Friday">
                                                     <rect key="frame" x="18" y="267" width="524" height="40"/>
                                                     <subviews>
-                                                        <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="5uS-Sk-yMz">
-                                                            <rect key="frame" x="0.0" y="0.0" width="110" height="40"/>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="5uS-Sk-yMz">
+                                                            <rect key="frame" x="0.0" y="0.0" width="44" height="40"/>
+                                                            <subviews>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Fri" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="18n-gX-dQ4">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="44" height="20"/>
+                                                                    <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="14"/>
+                                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="14 mar" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BEA-Ot-qZp">
+                                                                    <rect key="frame" x="0.0" y="20" width="44" height="20"/>
+                                                                    <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="14"/>
+                                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                            </subviews>
                                                         </stackView>
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Lol-KD-ac2" customClass="HorizontalBarView" customModule="TimeBoxer" customModuleProvider="target">
+                                                            <rect key="frame" x="54" y="8" width="470" height="24"/>
+                                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        </view>
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <constraints>
+                                                        <constraint firstItem="Lol-KD-ac2" firstAttribute="leading" secondItem="5uS-Sk-yMz" secondAttribute="trailing" constant="10" id="Gye-XC-cJ7"/>
+                                                        <constraint firstItem="5uS-Sk-yMz" firstAttribute="top" secondItem="Z02-7W-qjX" secondAttribute="top" id="KfN-ky-cfn"/>
+                                                        <constraint firstItem="5uS-Sk-yMz" firstAttribute="leading" secondItem="Z02-7W-qjX" secondAttribute="leading" id="N3v-lm-8Gl"/>
+                                                        <constraint firstAttribute="trailing" secondItem="Lol-KD-ac2" secondAttribute="trailing" id="WtA-S3-reF"/>
+                                                        <constraint firstAttribute="bottom" secondItem="5uS-Sk-yMz" secondAttribute="bottom" id="mvV-8U-skc"/>
+                                                        <constraint firstItem="Lol-KD-ac2" firstAttribute="centerY" secondItem="5uS-Sk-yMz" secondAttribute="centerY" id="se7-zm-X0i"/>
+                                                    </constraints>
                                                 </view>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pkg-F3-54B" userLabel="Saturday">
                                                     <rect key="frame" x="18" y="329" width="524" height="40"/>
                                                     <subviews>
-                                                        <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="JpD-zf-bnx">
-                                                            <rect key="frame" x="0.0" y="0.0" width="110" height="40"/>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="JpD-zf-bnx">
+                                                            <rect key="frame" x="0.0" y="0.0" width="44" height="40"/>
+                                                            <subviews>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Sat" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="36b-ge-y6e">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="44" height="20"/>
+                                                                    <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="14"/>
+                                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="15 mar" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M35-UH-bZv">
+                                                                    <rect key="frame" x="0.0" y="20" width="44" height="20"/>
+                                                                    <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="14"/>
+                                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                            </subviews>
                                                         </stackView>
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pbd-L9-Fxa" customClass="HorizontalBarView" customModule="TimeBoxer" customModuleProvider="target">
+                                                            <rect key="frame" x="54" y="8" width="470" height="24"/>
+                                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        </view>
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <constraints>
+                                                        <constraint firstItem="pbd-L9-Fxa" firstAttribute="leading" secondItem="JpD-zf-bnx" secondAttribute="trailing" constant="10" id="2Td-lK-Pty"/>
+                                                        <constraint firstItem="pbd-L9-Fxa" firstAttribute="centerY" secondItem="JpD-zf-bnx" secondAttribute="centerY" id="cdJ-KD-CAe"/>
+                                                        <constraint firstAttribute="trailing" secondItem="pbd-L9-Fxa" secondAttribute="trailing" id="k09-ey-UNW"/>
+                                                        <constraint firstItem="JpD-zf-bnx" firstAttribute="top" secondItem="Pkg-F3-54B" secondAttribute="top" id="lfD-7F-1Qk"/>
+                                                        <constraint firstItem="JpD-zf-bnx" firstAttribute="leading" secondItem="Pkg-F3-54B" secondAttribute="leading" id="rCM-Za-7N1"/>
+                                                        <constraint firstAttribute="bottom" secondItem="JpD-zf-bnx" secondAttribute="bottom" id="wdD-P0-2fe"/>
+                                                    </constraints>
                                                 </view>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qIJ-pM-cZq" userLabel="Sunday">
                                                     <rect key="frame" x="18" y="391" width="524" height="40"/>
                                                     <subviews>
-                                                        <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="ltb-vS-x2B">
-                                                            <rect key="frame" x="0.0" y="0.0" width="110" height="40"/>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="ltb-vS-x2B">
+                                                            <rect key="frame" x="0.0" y="0.0" width="44" height="40"/>
+                                                            <subviews>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Sun" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VXF-2M-97t">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="44" height="20"/>
+                                                                    <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="14"/>
+                                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="16 mar" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LvX-Xi-9c9">
+                                                                    <rect key="frame" x="0.0" y="20" width="44" height="20"/>
+                                                                    <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="14"/>
+                                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                            </subviews>
                                                         </stackView>
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JNE-dC-UrT" customClass="HorizontalBarView" customModule="TimeBoxer" customModuleProvider="target">
+                                                            <rect key="frame" x="54" y="8" width="470" height="24"/>
+                                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        </view>
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <constraints>
+                                                        <constraint firstItem="ltb-vS-x2B" firstAttribute="leading" secondItem="qIJ-pM-cZq" secondAttribute="leading" id="QhR-hY-mJS"/>
+                                                        <constraint firstItem="JNE-dC-UrT" firstAttribute="centerY" secondItem="ltb-vS-x2B" secondAttribute="centerY" id="WPN-0d-ZxA"/>
+                                                        <constraint firstItem="JNE-dC-UrT" firstAttribute="leading" secondItem="ltb-vS-x2B" secondAttribute="trailing" constant="10" id="XgB-o2-rgS"/>
+                                                        <constraint firstAttribute="trailing" secondItem="JNE-dC-UrT" secondAttribute="trailing" id="ad2-PC-FxT"/>
+                                                        <constraint firstAttribute="bottom" secondItem="ltb-vS-x2B" secondAttribute="bottom" id="jhL-MX-9sk"/>
+                                                        <constraint firstItem="ltb-vS-x2B" firstAttribute="top" secondItem="qIJ-pM-cZq" secondAttribute="top" id="v5A-RW-Fvj"/>
+                                                    </constraints>
                                                 </view>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UsK-6K-1xm" userLabel="fillerA">
                                                     <rect key="frame" x="18" y="58" width="524" height="22"/>
@@ -273,8 +461,11 @@
                                                 <constraint firstItem="sH5-bo-f25" firstAttribute="trailing" secondItem="XPd-EE-Fla" secondAttribute="trailing" id="9TY-oy-5hc"/>
                                                 <constraint firstItem="qIJ-pM-cZq" firstAttribute="trailing" secondItem="Pkg-F3-54B" secondAttribute="trailing" id="AQ0-C8-BPX"/>
                                                 <constraint firstItem="aFv-l6-wqd" firstAttribute="leading" secondItem="UsK-6K-1xm" secondAttribute="leading" id="B69-3v-CS8"/>
+                                                <constraint firstItem="Prq-Kk-6Mw" firstAttribute="height" secondItem="Srt-qV-gsI" secondAttribute="height" id="BtE-jQ-s8F"/>
                                                 <constraint firstItem="Pkg-F3-54B" firstAttribute="height" secondItem="Z02-7W-qjX" secondAttribute="height" id="Buv-0O-qm3"/>
                                                 <constraint firstItem="t46-0t-H3D" firstAttribute="trailing" secondItem="aFv-l6-wqd" secondAttribute="trailing" id="GJd-Xj-TUb"/>
+                                                <constraint firstItem="Lol-KD-ac2" firstAttribute="height" secondItem="Srt-qV-gsI" secondAttribute="height" id="GR8-xF-z0a"/>
+                                                <constraint firstItem="7PB-3S-wHA" firstAttribute="height" secondItem="Srt-qV-gsI" secondAttribute="height" id="GUk-fT-EaP"/>
                                                 <constraint firstItem="UsK-6K-1xm" firstAttribute="height" secondItem="aFv-l6-wqd" secondAttribute="height" id="IQ4-qE-nRe"/>
                                                 <constraint firstItem="aFv-l6-wqd" firstAttribute="height" secondItem="t46-0t-H3D" secondAttribute="height" id="IpB-k8-uYI"/>
                                                 <constraint firstItem="1sj-1u-Cfs" firstAttribute="leading" secondItem="VKX-5m-dUG" secondAttribute="leading" id="LTH-Sm-T1h"/>
@@ -286,7 +477,9 @@
                                                 <constraint firstItem="t46-0t-H3D" firstAttribute="top" secondItem="zXx-7b-2pK" secondAttribute="bottom" id="TZ8-tf-MRW"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="XPd-EE-Fla" secondAttribute="trailing" constant="10" id="URa-kx-HYJ"/>
                                                 <constraint firstItem="zXx-7b-2pK" firstAttribute="height" secondItem="sH5-bo-f25" secondAttribute="height" id="Wzm-c8-PZc"/>
+                                                <constraint firstItem="d0W-aw-to4" firstAttribute="height" secondItem="Srt-qV-gsI" secondAttribute="height" id="XKQ-xE-Joy"/>
                                                 <constraint firstItem="jeB-Ic-O87" firstAttribute="trailing" secondItem="zXx-7b-2pK" secondAttribute="trailing" id="Y5L-SU-YZe"/>
+                                                <constraint firstItem="JNE-dC-UrT" firstAttribute="height" secondItem="Srt-qV-gsI" secondAttribute="height" id="Yn5-oL-dDm"/>
                                                 <constraint firstItem="qIJ-pM-cZq" firstAttribute="leading" secondItem="Pkg-F3-54B" secondAttribute="leading" id="ZIE-Vh-VU9"/>
                                                 <constraint firstItem="jeB-Ic-O87" firstAttribute="top" secondItem="t46-0t-H3D" secondAttribute="bottom" id="Zyk-VZ-ZmJ"/>
                                                 <constraint firstItem="sH5-bo-f25" firstAttribute="height" secondItem="XPd-EE-Fla" secondAttribute="height" id="anD-74-Wku"/>
@@ -309,6 +502,7 @@
                                                 <constraint firstItem="Pkg-F3-54B" firstAttribute="trailing" secondItem="Z02-7W-qjX" secondAttribute="trailing" id="rHu-4F-6jd"/>
                                                 <constraint firstItem="aFv-l6-wqd" firstAttribute="top" secondItem="sH5-bo-f25" secondAttribute="bottom" id="sPA-Me-hrH"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="UsK-6K-1xm" secondAttribute="trailing" constant="10" id="uKV-IZ-Jnl"/>
+                                                <constraint firstItem="pbd-L9-Fxa" firstAttribute="height" secondItem="Srt-qV-gsI" secondAttribute="height" id="uQP-fF-x9D"/>
                                                 <constraint firstItem="c4z-dB-tvy" firstAttribute="top" secondItem="jeB-Ic-O87" secondAttribute="bottom" id="wwK-xN-vRI"/>
                                                 <constraint firstItem="1sj-1u-Cfs" firstAttribute="top" secondItem="Pkg-F3-54B" secondAttribute="bottom" id="yqT-yj-qNW"/>
                                             </constraints>
