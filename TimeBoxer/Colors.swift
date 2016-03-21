@@ -25,7 +25,7 @@ class Colors: NSObject {
     }
     
     static func almostBlack() -> UIColor {
-        return UIColor(white:0.15, alpha:1.0)
+        return UIColor(red:0.06, green:0.06, blue:0.06, alpha:1.0)
     }
     
     static func offWhite() -> UIColor {

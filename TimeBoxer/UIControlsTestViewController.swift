@@ -10,20 +10,21 @@ import UIKit
 
 class UIControlsTestViewController: UIViewController {
   
+    @IBOutlet weak var statsTableView: UITableView!
+
+
     
-    @IBOutlet weak var projectNameLabel: UILabel!
-    @IBOutlet weak var TableCellView: UIView!
-    @IBOutlet weak var appTitleLabel: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = Colors.almostBlack()
-        projectNameLabel.textColor = Colors.almostBlack()
-        TableCellView.backgroundColor = Colors.almostBlack()
-        appTitleLabel.textColor = Colors.offWhite()
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        
     }
     
     override func viewDidAppear(animated: Bool) {
-       
+        
     }
     
     override func viewDidLayoutSubviews() {
@@ -39,4 +40,10 @@ class UIControlsTestViewController: UIViewController {
     override func prefersStatusBarHidden() -> Bool {
         return true
     }
+    
+    //MARK: UIScrollViewDelegate
+    
+
+    
+    
 }

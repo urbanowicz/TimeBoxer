@@ -58,6 +58,8 @@
 		F1B3B41F1C5540D80009FCF0 /* AbstractAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1B3B41E1C5540D80009FCF0 /* AbstractAnimator.swift */; };
 		F1B5FE6D1C31AF73003A5C65 /* TransitionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1B5FE6C1C31AF73003A5C65 /* TransitionManager.swift */; };
 		F1B920551BE7D7CC004A8CDB /* PauseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1B920541BE7D7CC004A8CDB /* PauseButton.swift */; };
+		F1C755B51C9B31300083466C /* BarChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C755B41C9B31300083466C /* BarChartView.swift */; };
+		F1C755B71C9C87EB0083466C /* HorizontalBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C755B61C9C87EB0083466C /* HorizontalBarView.swift */; };
 		F1D2444C1BDFF8320023B994 /* TimerRunningViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D2444B1BDFF8320023B994 /* TimerRunningViewController.swift */; };
 		F1EBB3E31C5AB93C005A36CE /* WorkChunk.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1EBB3E21C5AB93C005A36CE /* WorkChunk.swift */; };
 		F1F36AD01C875F770039EF0B /* OKButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F36ACF1C875F770039EF0B /* OKButton.swift */; };
@@ -127,6 +129,8 @@
 		F1B3B41E1C5540D80009FCF0 /* AbstractAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AbstractAnimator.swift; sourceTree = "<group>"; };
 		F1B5FE6C1C31AF73003A5C65 /* TransitionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionManager.swift; sourceTree = "<group>"; };
 		F1B920541BE7D7CC004A8CDB /* PauseButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PauseButton.swift; sourceTree = "<group>"; };
+		F1C755B41C9B31300083466C /* BarChartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BarChartView.swift; sourceTree = "<group>"; };
+		F1C755B61C9C87EB0083466C /* HorizontalBarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HorizontalBarView.swift; sourceTree = "<group>"; };
 		F1CC0EEB1C69284A0090D76D /* TimeBoxerPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = TimeBoxerPlayground.playground; sourceTree = "<group>"; };
 		F1D2444B1BDFF8320023B994 /* TimerRunningViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerRunningViewController.swift; sourceTree = "<group>"; };
 		F1EBB3E21C5AB93C005A36CE /* WorkChunk.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkChunk.swift; sourceTree = "<group>"; };
@@ -304,6 +308,8 @@
 			isa = PBXGroup;
 			children = (
 				F1A605351C81FBCA008EF288 /* UIControlsTestViewController.swift */,
+				F1C755B41C9B31300083466C /* BarChartView.swift */,
+				F1C755B61C9C87EB0083466C /* HorizontalBarView.swift */,
 			);
 			name = UIControlsTestVC;
 			sourceTree = "<group>";
@@ -522,10 +528,12 @@
 				F18C2AD81C873A9A004A7B72 /* TimerDoneViewController.swift in Sources */,
 				F137E96E1C41994A0064E15F /* ColorName.swift in Sources */,
 				F1981BA21C84E61700F49454 /* MinutesToStringConverter.swift in Sources */,
+				F1C755B71C9C87EB0083466C /* HorizontalBarView.swift in Sources */,
 				F152EE901C5968D00090BECC /* Project.swift in Sources */,
 				F1520B1B1C9049A8002F359E /* XButton.swift in Sources */,
 				F17CDF671C9191BD0042E927 /* ProjectsTableCellPanGestureDelegate.swift in Sources */,
 				F10B85181C38346D002C66F2 /* ContainerViewController.swift in Sources */,
+				F1C755B51C9B31300083466C /* BarChartView.swift in Sources */,
 				F188DA6F1C898890000E8AD2 /* ShrinkingCircleAnimator.swift in Sources */,
 				F17F17B71C899A72003C04AC /* FadeInAnimator.swift in Sources */,
 				F14F13071BEA87160045936F /* StopButton.swift in Sources */,
