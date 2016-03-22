@@ -11,6 +11,7 @@ import UIKit
 class UIControlsTestViewController: UIViewController, UITableViewDataSource {
   
     @IBOutlet weak var statsTableView: UITableView!
+    let statsTableDataSource = StatsTableDataSource()
 
     let cellId = "statsCellId"
     
@@ -18,7 +19,7 @@ class UIControlsTestViewController: UIViewController, UITableViewDataSource {
         super.viewDidLoad()
         self.view.backgroundColor = Colors.almostBlack()
         //statsTableView.delegate = self
-        statsTableView.dataSource = self
+        statsTableView.dataSource = statsTableDataSource
     }
     
     override func viewWillAppear(animated: Bool) {
