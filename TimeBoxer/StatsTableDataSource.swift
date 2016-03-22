@@ -23,9 +23,55 @@ class StatsTableDataSource: NSObject, UITableViewDataSource {
     }
     
     private func setupCell(cell: StatsTableViewCell) {
+        cell.contentView.backgroundColor = Colors.almostBlack()
+        
+        //Monday
+        let mondayContainerView = cell.mondayBar.superview!
+        mondayContainerView.backgroundColor = Colors.almostBlack()
         cell.mondayLabel.textColor = Colors.silver()
         cell.mondayDateLabel.textColor = Colors.silver()
-        cell.mondayBar.superview!.backgroundColor = Colors.almostBlack()
         cell.mondayBar.fillColor = Colors.azure()
+        
+        //Tuesday
+        let tuesdayContainerView = cell.tuesdayBar.superview!
+        tuesdayContainerView.backgroundColor = Colors.almostBlack()
+        cell.tuesdayLabel.textColor = Colors.silver()
+        cell.tuesdayDateLabel.textColor = Colors.silver()
+        cell.tuesdayBar.fillColor = Colors.azure()
+        
+        //Wednesday
+        let wednesdayContainerView = cell.wednesdayBar.superview!
+        wednesdayContainerView.backgroundColor = Colors.almostBlack()
+        cell.wednesdayLabel.textColor = Colors.silver()
+        cell.wednesdayDateLabel.textColor = Colors.silver()
+        cell.wednesdayBar.fillColor = Colors.azure()
+        
+        //Thursday
+        let thursdayContainerView = cell.thursdayBar.superview!
+        thursdayContainerView.backgroundColor = Colors.almostBlack()
+        cell.thursdayLabel.textColor = Colors.silver()
+        cell.thursdayDateLabel.textColor = Colors.silver()
+        cell.thursdayBar.fillColor = Colors.azure()
+        
+        //Friday
+        let fridayContainerView = cell.fridayBar.superview!
+        fridayContainerView.backgroundColor = Colors.almostBlack()
+        cell.fridayLabel.textColor = Colors.silver()
+        cell.fridayDateLabel.textColor = Colors.silver()
+        cell.fridayBar.fillColor = Colors.azure()
+        
+        //Saturday
+        let saturdayContainerView = cell.saturdayBar.superview!
+        saturdayContainerView.backgroundColor = Colors.almostBlack()
+        cell.saturdayLabel.textColor = Colors.silver()
+        cell.saturdayDateLabel.textColor = Colors.silver()
+        cell.saturdayBar.fillColor = Colors.azure()
+        
+        //Sunday
+        let sundayContainerView = cell.sundayBar.superview!
+        sundayContainerView.backgroundColor = Colors.almostBlack()
+        cell.sundayLabel.textColor = Colors.silver()
+        cell.sundayDateLabel.textColor = Colors.silver()
+        cell.sundayBar.fillColor = Colors.azure()
     }
 }
