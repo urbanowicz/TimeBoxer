@@ -17,6 +17,20 @@
             <string>Avenir-Book</string>
             <string>Avenir-Book</string>
             <string>Avenir-Book</string>
+            <string>Avenir-Book</string>
+            <string>Avenir-Book</string>
+            <string>Avenir-Book</string>
+            <string>Avenir-Book</string>
+            <string>Avenir-Book</string>
+            <string>Avenir-Book</string>
+            <string>Avenir-Book</string>
+            <string>Avenir-Book</string>
+            <string>Avenir-Book</string>
+            <string>Avenir-Book</string>
+            <string>Avenir-Book</string>
+            <string>Avenir-Book</string>
+            <string>Avenir-Book</string>
+            <string>Avenir-Book</string>
             <string>Avenir-BookOblique</string>
             <string>Avenir-Book</string>
             <string>Avenir-BookOblique</string>
@@ -28,20 +42,6 @@
             <string>Avenir-BookOblique</string>
             <string>Avenir-Book</string>
             <string>Avenir-BookOblique</string>
-            <string>Avenir-Book</string>
-            <string>Avenir-Book</string>
-            <string>Avenir-Book</string>
-            <string>Avenir-Book</string>
-            <string>Avenir-Book</string>
-            <string>Avenir-Book</string>
-            <string>Avenir-Book</string>
-            <string>Avenir-Book</string>
-            <string>Avenir-Book</string>
-            <string>Avenir-Book</string>
-            <string>Avenir-Book</string>
-            <string>Avenir-Book</string>
-            <string>Avenir-Book</string>
-            <string>Avenir-Book</string>
             <string>Avenir-Book</string>
             <string>Avenir-Book</string>
         </mutableArray>
@@ -147,7 +147,7 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="450" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Xxc-5V-GGY">
                                 <rect key="frame" x="20" y="20" width="560" height="580"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.062745098039215685" green="0.062745098039215685" blue="0.062745098039215685" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="statsCellId" id="Uqd-Dv-kfG" customClass="StatsTableViewCell" customModule="TimeBoxer" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="22" width="560" height="450"/>
@@ -253,8 +253,8 @@
                                                                 </label>
                                                             </subviews>
                                                         </stackView>
-                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="d0W-aw-to4" customClass="HorizontalBarView" customModule="TimeBoxer" customModuleProvider="target">
-                                                            <rect key="frame" x="54" y="8" width="470" height="24"/>
+                                                        <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="d0W-aw-to4" customClass="HorizontalBarView" customModule="TimeBoxer" customModuleProvider="target">
+                                                            <rect key="frame" x="54" y="7" width="470" height="24"/>
                                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         </view>
                                                     </subviews>
@@ -507,6 +507,29 @@
                                                 <constraint firstItem="1sj-1u-Cfs" firstAttribute="top" secondItem="Pkg-F3-54B" secondAttribute="bottom" id="yqT-yj-qNW"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="fridayBar" destination="Lol-KD-ac2" id="J4o-Is-QdB"/>
+                                            <outlet property="fridayDateLabel" destination="BEA-Ot-qZp" id="fiG-kf-ADo"/>
+                                            <outlet property="fridayLabel" destination="18n-gX-dQ4" id="SDX-BM-aOA"/>
+                                            <outlet property="mondayBar" destination="Srt-qV-gsI" id="lYd-AT-XNH"/>
+                                            <outlet property="mondayDateLabel" destination="hIt-wn-J9g" id="h0c-8E-Epa"/>
+                                            <outlet property="mondayLabel" destination="SM9-dS-Vjl" id="UOc-iB-9F9"/>
+                                            <outlet property="saturdayBar" destination="pbd-L9-Fxa" id="VNG-xl-xbW"/>
+                                            <outlet property="saturdayDateLabel" destination="M35-UH-bZv" id="T65-wu-Ldz"/>
+                                            <outlet property="saturdayLabel" destination="36b-ge-y6e" id="EBq-Zt-ihR"/>
+                                            <outlet property="sundayBar" destination="JNE-dC-UrT" id="UeW-fw-egp"/>
+                                            <outlet property="sundayDateLabel" destination="LvX-Xi-9c9" id="fTf-eC-Khm"/>
+                                            <outlet property="sundayLabel" destination="VXF-2M-97t" id="4u3-Zu-NI6"/>
+                                            <outlet property="thursdayBar" destination="Prq-Kk-6Mw" id="bVi-Vm-3si"/>
+                                            <outlet property="thursdayDateLabel" destination="GKK-Gt-3DW" id="o6f-az-Dwu"/>
+                                            <outlet property="thursdayLabel" destination="1Wf-LP-lD6" id="4Ys-kE-7bP"/>
+                                            <outlet property="tuesdayBar" destination="7PB-3S-wHA" id="rso-dl-WEg"/>
+                                            <outlet property="tuesdayDateLabel" destination="KbN-UE-vu5" id="tDD-xF-gdw"/>
+                                            <outlet property="tuesdayLabel" destination="F3n-OD-q1d" id="ZlF-Tf-bbZ"/>
+                                            <outlet property="wednesdayBar" destination="d0W-aw-to4" id="mE3-eu-J24"/>
+                                            <outlet property="wednesdayDateLabel" destination="W2u-BT-M6P" id="f8m-Tb-lwz"/>
+                                            <outlet property="wednesdayLabel" destination="Q7C-Cb-ta7" id="U9I-Pr-EU4"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
