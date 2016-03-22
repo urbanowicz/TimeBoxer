@@ -422,29 +422,29 @@
                                                         <constraint firstItem="ltb-vS-x2B" firstAttribute="top" secondItem="qIJ-pM-cZq" secondAttribute="top" id="v5A-RW-Fvj"/>
                                                     </constraints>
                                                 </view>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UsK-6K-1xm" userLabel="fillerA">
+                                                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UsK-6K-1xm" userLabel="fillerA">
                                                     <rect key="frame" x="18" y="58" width="524" height="22"/>
-                                                    <color key="backgroundColor" red="0.51200000000000001" green="0.754" blue="0.34300000000000003" alpha="0.23999999999999999" colorSpace="calibratedRGB"/>
+                                                    <color key="backgroundColor" red="0.51200000000000001" green="0.754" blue="0.34300000000000003" alpha="1" colorSpace="calibratedRGB"/>
                                                 </view>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aFv-l6-wqd" userLabel="fillerB">
+                                                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aFv-l6-wqd" userLabel="fillerB">
                                                     <rect key="frame" x="18" y="120" width="524" height="22"/>
-                                                    <color key="backgroundColor" red="0.51200000000000001" green="0.754" blue="0.34300000000000003" alpha="0.23999999999999999" colorSpace="calibratedRGB"/>
+                                                    <color key="backgroundColor" red="0.51200000000000001" green="0.754" blue="0.34300000000000003" alpha="1" colorSpace="calibratedRGB"/>
                                                 </view>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="t46-0t-H3D" userLabel="fillerC">
+                                                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="t46-0t-H3D" userLabel="fillerC">
                                                     <rect key="frame" x="18" y="182" width="524" height="23"/>
-                                                    <color key="backgroundColor" red="0.51200000000000001" green="0.754" blue="0.34300000000000003" alpha="0.23999999999999999" colorSpace="calibratedRGB"/>
+                                                    <color key="backgroundColor" red="0.51200000000000001" green="0.754" blue="0.34300000000000003" alpha="1" colorSpace="calibratedRGB"/>
                                                 </view>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c4z-dB-tvy" userLabel="fillerD">
+                                                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c4z-dB-tvy" userLabel="fillerD">
                                                     <rect key="frame" x="18" y="245" width="524" height="22"/>
-                                                    <color key="backgroundColor" red="0.51200000000000001" green="0.754" blue="0.34300000000000003" alpha="0.23999999999999999" colorSpace="calibratedRGB"/>
+                                                    <color key="backgroundColor" red="0.51200000000000001" green="0.754" blue="0.34300000000000003" alpha="1" colorSpace="calibratedRGB"/>
                                                 </view>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VKX-5m-dUG" userLabel="fillerE">
+                                                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VKX-5m-dUG" userLabel="fillerE">
                                                     <rect key="frame" x="18" y="307" width="524" height="22"/>
-                                                    <color key="backgroundColor" red="0.51200000000000001" green="0.754" blue="0.34300000000000003" alpha="0.23999999999999999" colorSpace="calibratedRGB"/>
+                                                    <color key="backgroundColor" red="0.51200000000000001" green="0.754" blue="0.34300000000000003" alpha="1" colorSpace="calibratedRGB"/>
                                                 </view>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1sj-1u-Cfs" userLabel="fillerF">
+                                                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1sj-1u-Cfs" userLabel="fillerF">
                                                     <rect key="frame" x="18" y="369" width="524" height="22"/>
-                                                    <color key="backgroundColor" red="0.51200000000000001" green="0.754" blue="0.34300000000000003" alpha="0.23999999999999999" colorSpace="calibratedRGB"/>
+                                                    <color key="backgroundColor" red="0.51200000000000001" green="0.754" blue="0.34300000000000003" alpha="1" colorSpace="calibratedRGB"/>
                                                 </view>
                                             </subviews>
                                             <constraints>
@@ -548,7 +548,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gCO-v3-S8V" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1427" y="-1131"/>
+            <point key="canvasLocation" x="1364" y="-1156"/>
         </scene>
         <!--Container View Controller-->
         <scene sceneID="SNI-pH-kmp">

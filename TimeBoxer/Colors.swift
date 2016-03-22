@@ -45,7 +45,7 @@ class Colors: NSObject {
     }
     
     static func azure() -> UIColor {
-        return UIColor(red: 0.902, green: 1, blue: 1, alpha: 1)
+        return UIColor(red:0.58, green:1.00, blue:1.00, alpha:1.0)
     }
     
     static func seafoam() -> UIColor {
