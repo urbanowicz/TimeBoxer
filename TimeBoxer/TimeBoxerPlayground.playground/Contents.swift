@@ -1,25 +1,60 @@
-//: Playground - noun: a place where people can play
 
 import UIKit
 
+struct WorkChunk {
+    var date:NSDate
+    var duration:Int
+}
 
-func heightForLabel(label:UILabel, maxWidth:CGFloat) -> CGFloat {
-    let text = label.text! as NSString
-    let attributes = [NSFontAttributeName: label.font]
-    let frameSize = CGSizeMake(maxWidth, CGFloat.max)
-    let labelSize = text.boundingRectWithSize(frameSize, options: NSStringDrawingOptions.UsesLineFragmentOrigin, attributes: attributes, context: nil)
-    return labelSize.height
+let formatter = NSDateFormatter()
+formatter.dateFormat = "dd-MMM-yyyy"
+
+func dateToWeek(date:NSDate) -> [NSDate] {
+    let calendar = NSCalendar.currentCalendar()
+    let components = calendar.components([NSCalendarUnit.Weekday], fromDate:date)
+    let numberOfDaysSinceMonday = components.weekday - 2
+    let monday = calendar.dateByAddingUnit(NSCalendarUnit.Day, value: -numberOfDaysSinceMonday, toDate: date, options: NSCalendarOptions.WrapComponents)!
+    var week = [monday]
+    for i in 1 ... 6 {
+        week.append(calendar.dateByAddingUnit(NSCalendarUnit.Day, value: i, toDate: monday, options: NSCalendarOptions.WrapComponents)!)
+    }
+    return week
 }
 
 
-let text = "Read on Intelligence and implement the MIDI enc"
-let label = UILabel(frame:CGRectMake(0, 0, 220, 100))
-label.font = UIFont(name: "Avenir", size: 18.0)
-label.text = text
 
-heightForLabel(label, maxWidth: label.frame.width)
+//week1
+let w1 = WorkChunk(date: formatter.dateFromString("15-Mar-2016")!, duration:1000)
+let w2 = WorkChunk(date: formatter.dateFromString("18-Mar-2016")!, duration:2000)
+let w3 = WorkChunk(date: formatter.dateFromString("18-Mar-2016")!, duration:1500)
+//week2
+let w4 = WorkChunk(date: formatter.dateFromString("21-Mar-2016")!, duration:300)
+let w5 = WorkChunk(date: formatter.dateFromString("23-Mar-2016")!, duration:3600)
+let w6 = WorkChunk(date: formatter.dateFromString("23-Mar-2016")!, duration:2000)
 
+var workChunks = [w1,w2,w3,w4,w5,w6]
 
+func workChunksWithDate(date:NSDate) ->[WorkChunk] {
+    let calendar = NSCalendar.currentCalendar()
+    var result = [WorkChunk]()
+    var comparisonResult = NSComparisonResult.OrderedDescending
+    for i in 0 ..< workChunks.count {
+        let workChunkDate = workChunks[i].date
+        comparisonResult = calendar.compareDate(workChunkDate, toDate: date, toUnitGranularity: .Day)
+        if comparisonResult == NSComparisonResult.OrderedSame {
+            result.append(workChunks[i])
+        }
+        if comparisonResult == NSComparisonResult.OrderedDescending {
+            break
+        }
+        
+    }
+    return result
+}
+
+let week = dateToWeek(w1.date)
+
+workChunksWithDate(NSDate()).count
 
 //--------------------------------------------------------------------------
 
