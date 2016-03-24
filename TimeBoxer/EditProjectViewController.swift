@@ -19,6 +19,7 @@ class EditProjectViewController: UIViewController, UIGestureRecognizerDelegate {
         super.viewDidLoad()
         self.view.backgroundColor = Colors.almostBlack()
         setupStatsTableView()
+        setupPanGestureRecognizer()
     }
     
     override func viewWillAppear(animated: Bool) {
