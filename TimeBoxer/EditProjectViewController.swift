@@ -11,30 +11,17 @@ import UIKit
 class EditProjectViewController: UIViewController, UIGestureRecognizerDelegate {
     var project:Project?
     var segueStarted:Bool = false
-    private var lastWorkedOnDateFormatter = LastWorkedOnDateFormatter()
-    @IBOutlet weak var titleBar: TitleBar!
-    @IBOutlet weak var projectNameLabel: UILabel!
-    @IBOutlet weak var startedOnLabel: UILabel!
-    @IBOutlet weak var totalHoursLabel: UILabel!
-    @IBOutlet weak var totalHoursTodayLabel: UILabel!
-    @IBOutlet weak var daysSinceStartLabel: UILabel!
-    @IBOutlet weak var paceThisWeekLabel: UILabel!
-    @IBOutlet weak var lastWorkedOnLabel: UILabel!
+    
+    @IBOutlet weak var statsTableView: UITableView!
+    let statsTableDataSource = StatsTableDataSource()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupPanGestureRecognizer()
-        setupTitleBar()
+        self.view.backgroundColor = Colors.almostBlack()
+        setupStatsTableView()
     }
     
     override func viewWillAppear(animated: Bool) {
-        //projectNameLabel.text = project!.name
-        setupStartedOnLabel()
-        setupTotalHoursLabel()
-        setupTotalHoursTodayLabel()
-        setupDaysSinceStartLabel()
-        setupPaceThisWeekLabel()
-        setupLastWorkedOnLabel()
         
     }
 
@@ -43,68 +30,9 @@ class EditProjectViewController: UIViewController, UIGestureRecognizerDelegate {
     }
     
     //MARK: Setup UI Elements
-    private func setupTitleBar() {
-        titleBar.fillColor = Colors.violet()
-    }
-    
-    private func setupStartedOnLabel() {
-        let startedOnString = NSMutableAttributedString(string: "Started On: ", attributes:avenirAttributesForRegularText())
-        let dateFormatter = NSDateFormatter()
-        dateFormatter.dateStyle = NSDateFormatterStyle.LongStyle
-        dateFormatter.timeStyle = NSDateFormatterStyle.NoStyle
-        let dateString = NSAttributedString(string: dateFormatter.stringFromDate(project!.startDate), attributes: avenirAttributesForMarkedText())
-        
-        startedOnString.appendAttributedString(dateString)
-        startedOnLabel.attributedText = startedOnString
-    }
-    
-    private func setupTotalHoursLabel() {
-        let totalSeconds = project!.totalSeconds()
-        let totalHours = Double(totalSeconds / 3600).roundToPlaces(1)
-        let totalHoursString = NSMutableAttributedString(string: "\(totalHours) ", attributes: avenirAttributesForMarkedText())
-        var hoursString = NSAttributedString(string: " hours total", attributes: avenirAttributesForRegularText())
-        if totalHours == 1 {
-            hoursString = NSAttributedString(string: " hour total", attributes: avenirAttributesForRegularText())
-        }
-        totalHoursString.appendAttributedString(hoursString)
-        self.totalHoursLabel.attributedText = totalHoursString
-    }
-    
-    private func setupTotalHoursTodayLabel() {
-        totalHoursTodayLabel.text = "Total Hours Today : Todo"
-    }
-    
-    private func setupDaysSinceStartLabel() {
-        let daysSinceStartString = NSMutableAttributedString(string: "Days since start: ", attributes: avenirAttributesForRegularText())
-        let numberOfDaysString = NSAttributedString(string: String(project!.daysSinceStart()), attributes: avenirAttributesForMarkedText())
-        daysSinceStartString.appendAttributedString(numberOfDaysString)
-        daysSinceStartLabel.attributedText = daysSinceStartString
-    }
-    
-    private func setupPaceThisWeekLabel() {
-        let paceString = NSMutableAttributedString(string: "Pace last seven days: ", attributes: avenirAttributesForRegularText())
-        let valueString = NSAttributedString(string: String(project!.averagePaceLastSevenDays()), attributes: avenirAttributesForMarkedText())
-        paceString.appendAttributedString(valueString)
-        paceThisWeekLabel.attributedText = paceString
-    }
-    
-    private func setupLastWorkedOnLabel() {
-        let lastWorkedOnString = NSMutableAttributedString(string: "Last worked on: ", attributes: avenirAttributesForRegularText())
-        let valueString = NSAttributedString(string: String(lastWorkedOnDateFormatter.formatLastWorkedOnString(project!.lastWrokedOn())), attributes: avenirAttributesForMarkedText())
-        lastWorkedOnString.appendAttributedString(valueString)
-        lastWorkedOnLabel.attributedText = lastWorkedOnString
-    }
-    
-    private func avenirAttributesForRegularText() -> [String : AnyObject] {
-        let regularAvenirAttributes = [NSFontAttributeName:UIFont(name:"Avenir", size:18.0)!, NSForegroundColorAttributeName:Colors.almostBlack()]
-        return regularAvenirAttributes
-    }
-    
-    private func avenirAttributesForMarkedText() -> [String: AnyObject] {
-        let avenirMediumFontAttributes = [UIFontDescriptorNameAttribute:"Avenir", UIFontDescriptorFaceAttribute:"Medium"]
-        let avenirMediumFont = UIFont(descriptor: UIFontDescriptor(fontAttributes: avenirMediumFontAttributes), size: 18)
-        let markedAttributes = [NSFontAttributeName:avenirMediumFont, NSForegroundColorAttributeName:Colors.violet()]
-        return markedAttributes
+    private func setupStatsTableView() {
+        statsTableView.backgroundColor = Colors.almostBlack()
+        statsTableView.dataSource = statsTableDataSource
     }
     
     
