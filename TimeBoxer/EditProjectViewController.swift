@@ -34,6 +34,7 @@ class EditProjectViewController: UIViewController, UIGestureRecognizerDelegate {
     private func setupStatsTableView() {
         statsTableView.backgroundColor = Colors.almostBlack()
         statsTableView.dataSource = statsTableDataSource
+        statsTableView.rowHeight = 400
     }
     
     
