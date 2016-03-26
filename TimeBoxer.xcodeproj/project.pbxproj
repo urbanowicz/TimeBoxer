@@ -313,9 +313,6 @@
 			children = (
 				F1A605351C81FBCA008EF288 /* UIControlsTestViewController.swift */,
 				F1C755B41C9B31300083466C /* BarChartView.swift */,
-				F1C755B61C9C87EB0083466C /* HorizontalBarView.swift */,
-				F19D226B1CA01F8B006D76D4 /* StatsTableViewCell.swift */,
-				F1B9E9E31CA1468000D86239 /* StatsTableDataSource.swift */,
 			);
 			name = UIControlsTestVC;
 			sourceTree = "<group>";
@@ -378,7 +375,10 @@
 		F1FC9AD11C3ED70E002A9F31 /* EditProjectVC */ = {
 			isa = PBXGroup;
 			children = (
+				F19D226B1CA01F8B006D76D4 /* StatsTableViewCell.swift */,
+				F1B9E9E31CA1468000D86239 /* StatsTableDataSource.swift */,
 				F1FC9AD21C3ED73B002A9F31 /* EditProjectViewController.swift */,
+				F1C755B61C9C87EB0083466C /* HorizontalBarView.swift */,
 				F1A95C031C6BD49000EF5204 /* LastWorkedOnDateFormatter.swift */,
 			);
 			name = EditProjectVC;

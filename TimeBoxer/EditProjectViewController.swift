@@ -23,7 +23,7 @@ class EditProjectViewController: UIViewController, UIGestureRecognizerDelegate {
     }
     
     override func viewWillAppear(animated: Bool) {
-        
+        statsTableDataSource.project = project
     }
 
     override func didReceiveMemoryWarning() {

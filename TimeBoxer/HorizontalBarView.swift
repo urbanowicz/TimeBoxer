@@ -12,9 +12,11 @@ import UIKit
 class HorizontalBarView: UIView {
     @IBInspectable var fillColor:UIColor = UIColor.redColor()
     @IBInspectable var cornerRadius:CGFloat = CGFloat(0.0)
+    @IBInspectable var value:CGFloat = CGFloat(1.0) //Value between 0.0 and 0.1
     
     override func drawRect(rect: CGRect) {
-        let path = UIBezierPath(roundedRect: rect, cornerRadius: cornerRadius)
+        let rectToDraw = CGRectMake(rect.origin.x, rect.origin.y, value * rect.width, rect.height)
+        let path = UIBezierPath(roundedRect: rectToDraw, cornerRadius: cornerRadius)
         fillColor.setFill()
         path.fill()
     }

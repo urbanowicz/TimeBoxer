@@ -7,7 +7,7 @@ struct WorkChunk {
 }
 
 let formatter = NSDateFormatter()
-formatter.dateFormat = "dd-MMM-yyyy"
+formatter.dateFormat = "dd-MMM-yyyy hh:mm:ss"
 
 func dateToWeek(date:NSDate) -> [NSDate] {
     let calendar = NSCalendar.currentCalendar()
@@ -22,15 +22,36 @@ func dateToWeek(date:NSDate) -> [NSDate] {
 }
 
 
+func dayDifferenceBetween(laterDate: NSDate, earlierDate: NSDate) -> Int {
+    let calendar = NSCalendar.currentCalendar()
+    let laterDateNoTimeComponent = dateWithNoTimeComponentFromDate(laterDate)
+    let earlierDateNoTimeComponent = dateWithNoTimeComponentFromDate(earlierDate)
+    let dayDifference =
+    calendar.components(NSCalendarUnit.Day, fromDate: earlierDateNoTimeComponent, toDate: laterDateNoTimeComponent, options: [])
+    return dayDifference.day
+}
+
+func dateWithNoTimeComponentFromDate(date: NSDate) -> NSDate {
+    let calendar = NSCalendar.currentCalendar()
+    var unit = NSCalendarUnit.Year
+    unit.unionInPlace(NSCalendarUnit.Month)
+    unit.unionInPlace(NSCalendarUnit.Day)
+    let components = calendar.components(unit, fromDate: date)
+    components.second = 0
+    components.minute = 0
+    components.hour = 0
+    components.nanosecond = 0
+    return calendar.dateFromComponents(components)!
+}
 
 //week1
-let w1 = WorkChunk(date: formatter.dateFromString("15-Mar-2016")!, duration:1000)
-let w2 = WorkChunk(date: formatter.dateFromString("18-Mar-2016")!, duration:2000)
-let w3 = WorkChunk(date: formatter.dateFromString("18-Mar-2016")!, duration:1500)
+let w1 = WorkChunk(date: formatter.dateFromString("15-Mar-2016 00:00:00")!, duration:1000)
+let w2 = WorkChunk(date: formatter.dateFromString("18-Mar-2016 00:00:00")!, duration:2000)
+let w3 = WorkChunk(date: formatter.dateFromString("18-Mar-2016 00:00:00")!, duration:1500)
 //week2
-let w4 = WorkChunk(date: formatter.dateFromString("21-Mar-2016")!, duration:300)
-let w5 = WorkChunk(date: formatter.dateFromString("23-Mar-2016")!, duration:3600)
-let w6 = WorkChunk(date: formatter.dateFromString("23-Mar-2016")!, duration:2000)
+let w4 = WorkChunk(date: formatter.dateFromString("21-Mar-2016 10:00:00")!, duration:300)
+let w5 = WorkChunk(date: formatter.dateFromString("23-Mar-2016 00:00:00")!, duration:3600)
+let w6 = WorkChunk(date: formatter.dateFromString("23-Mar-2016 00:00:00")!, duration:2000)
 
 var workChunks = [w1,w2,w3,w4,w5,w6]
 
@@ -55,22 +76,21 @@ func workChunksWithDate(date:NSDate) ->[WorkChunk] {
 let week = dateToWeek(w1.date)
 
 workChunksWithDate(NSDate()).count
+dayDifferenceBetween(w5.date, earlierDate: w4.date)
+
+let calendar = NSCalendar.currentCalendar()
+var unit = NSCalendarUnit.Year
+unit.unionInPlace(NSCalendarUnit.Month)
+unit.unionInPlace(NSCalendarUnit.Day)
+calendar.components(unit, fromDate: w5.date).year
 
 //--------------------------------------------------------------------------
 
-func dayDifferenceBetween(laterDate: NSDate, earlierDate: NSDate) -> Int {
-    let calendar = NSCalendar.currentCalendar()
-    let dayDifference =
-    calendar.components(NSCalendarUnit.Day, fromDate: earlierDate, toDate: laterDate, options: NSCalendarOptions())
-    return dayDifference.day
-}
 
-let now = NSDate()
-let dateStringFormatter = NSDateFormatter()
-dateStringFormatter.dateFormat = "yyyy'-'MM'-'dd'T'HH':'mm':'ss'Z'"
-let earlier = dateStringFormatter.dateFromString("2016-03-09T18:51:00")
 
-let diff = dayDifferenceBetween(now, earlierDate: earlier!)
+
+
+
 
 
 
