@@ -72,6 +72,18 @@ class Project: NSObject, NSCoding, NSCopying {
         return daysSinceStart
     }
     
+    func numberOfWeeksSinceStart() -> Int {
+        let calendar = NSCalendar.currentCalendar()
+        let mondayInWeekOne = calendar.mondayBeforeTheDate(startDate)
+        let today = NSDate()
+        let daysSinceFirstMonday = today.daysSince(mondayInWeekOne) + 1
+        var numberOfWeeks = daysSinceFirstMonday / 7
+        if daysSinceFirstMonday % 7 > 0 {
+            numberOfWeeks += 1
+        }
+        return numberOfWeeks
+    }
+    
     func totalSeconds() -> Int {
         ///returns the total number of seconds spent woring on the project
         var totalSeconds = 0

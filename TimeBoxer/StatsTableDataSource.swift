@@ -14,7 +14,7 @@ class StatsTableDataSource: NSObject, UITableViewDataSource {
     let cellId = "statsCellId"
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return numberOfWeeks()
+        return project!.numberOfWeeksSinceStart()
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -75,48 +75,5 @@ class StatsTableDataSource: NSObject, UITableViewDataSource {
         cell.sundayDateLabel.textColor = Colors.silver()
         cell.sundayBar.fillColor = Colors.azure()
     }
-    
-    private func numberOfWeeks() -> Int {
-        let mondayInWeekOne = mondayBeforeTheDate(project!.startDate)
-        let today = NSDate()
-        let daysSinceStart = dayDifferenceBetween(today, earlierDate: mondayInWeekOne) + 1
-        
 
-        
-        var numberOfWeeks = daysSinceStart / 7
-        if daysSinceStart % 7 > 0 {
-            numberOfWeeks += 1
-        }
-        return numberOfWeeks
-    }
-    
-    private func mondayBeforeTheDate(date:NSDate) -> NSDate {
-        let calendar = NSCalendar.currentCalendar()
-        let components = calendar.components([NSCalendarUnit.Weekday], fromDate:date)
-        let numberOfDaysSinceMonday = components.weekday - 2
-        let monday = calendar.dateByAddingUnit(NSCalendarUnit.Day, value: -numberOfDaysSinceMonday, toDate: date, options: NSCalendarOptions.WrapComponents)!
-        return monday
-    }
-    
-    func dayDifferenceBetween(laterDate: NSDate, earlierDate: NSDate) -> Int {
-        let calendar = NSCalendar.currentCalendar()
-        let laterDateNoTimeComponent = dateWithNoTimeComponentFromDate(laterDate)
-        let earlierDateNoTimeComponent = dateWithNoTimeComponentFromDate(earlierDate)
-        let dayDifference =
-        calendar.components(NSCalendarUnit.Day, fromDate: earlierDateNoTimeComponent, toDate: laterDateNoTimeComponent, options: [])
-        return dayDifference.day
-    }
-    
-    private func dateWithNoTimeComponentFromDate(date: NSDate) -> NSDate {
-        let calendar = NSCalendar.currentCalendar()
-        var unit = NSCalendarUnit.Year
-        unit.unionInPlace(NSCalendarUnit.Month)
-        unit.unionInPlace(NSCalendarUnit.Day)
-        let components = calendar.components(unit, fromDate: date)
-        components.second = 0
-        components.minute = 0
-        components.hour = 0
-        components.nanosecond = 0
-        return calendar.dateFromComponents(components)!
-    }
 }
