@@ -133,6 +133,24 @@ class Project: NSObject, NSCoding, NSCopying {
         let mostRecentWorkChunk = workChunks.last
         return mostRecentWorkChunk?.date
     }
+    
+    func workChunksWithDate(date:NSDate) ->[WorkChunk] {
+        let calendar = NSCalendar.currentCalendar()
+        var result = [WorkChunk]()
+        var comparisonResult = NSComparisonResult.OrderedDescending
+        for i in 0 ..< workChunks.count {
+            let workChunkDate = workChunks[i].date
+            comparisonResult = calendar.compareDate(workChunkDate, toDate: date, toUnitGranularity: .Day)
+            if comparisonResult == NSComparisonResult.OrderedSame {
+                result.append(workChunks[i])
+            }
+            if comparisonResult == NSComparisonResult.OrderedDescending {
+                break
+            }
+            
+        }
+        return result
+    }
 }
 
 //MARK: ProjectState
