@@ -20,6 +20,4 @@ class HorizontalBarView: UIView {
         fillColor.setFill()
         path.fill()
     }
-
-
 }

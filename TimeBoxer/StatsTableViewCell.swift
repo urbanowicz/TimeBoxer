@@ -13,6 +13,7 @@ class StatsTableViewCell: UITableViewCell {
     @IBOutlet weak var mondayLabel: UILabel!
     @IBOutlet weak var mondayDateLabel: UILabel!
     @IBOutlet weak var mondayBar: HorizontalBarView!
+    @IBOutlet weak var mondayInnerBarLabel: UILabel!
     
     @IBOutlet weak var tuesdayLabel: UILabel!
     @IBOutlet weak var tuesdayDateLabel: UILabel!

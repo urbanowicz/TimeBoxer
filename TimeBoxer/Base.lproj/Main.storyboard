@@ -52,6 +52,13 @@
             <string>Avenir-BookOblique</string>
             <string>Avenir-Book</string>
             <string>Avenir-Book</string>
+            <string>Avenir-Book</string>
+            <string>Avenir-Book</string>
+            <string>Avenir-Book</string>
+            <string>Avenir-Book</string>
+            <string>Avenir-Book</string>
+            <string>Avenir-Book</string>
+            <string>Avenir-Book</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -100,7 +107,19 @@
                                                         </stackView>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wCl-fG-v2H" customClass="HorizontalBarView" customModule="TimeBoxer" customModuleProvider="target">
                                                             <rect key="frame" x="54" y="8" width="470" height="24"/>
+                                                            <subviews>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1h" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AnA-0S-2ww">
+                                                                    <rect key="frame" x="449" y="2" width="16" height="20"/>
+                                                                    <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="14"/>
+                                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                            </subviews>
                                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="trailing" secondItem="AnA-0S-2ww" secondAttribute="trailing" constant="5" id="DL6-Cd-1wU"/>
+                                                                <constraint firstItem="AnA-0S-2ww" firstAttribute="centerY" secondItem="wCl-fG-v2H" secondAttribute="centerY" id="Ogk-3N-Atn"/>
+                                                            </constraints>
                                                         </view>
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -136,7 +155,19 @@
                                                         </stackView>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="52S-II-tfH" customClass="HorizontalBarView" customModule="TimeBoxer" customModuleProvider="target">
                                                             <rect key="frame" x="54" y="8" width="470" height="24"/>
+                                                            <subviews>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1h" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mAb-K9-Z4f">
+                                                                    <rect key="frame" x="449" y="2" width="16" height="20"/>
+                                                                    <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="14"/>
+                                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                            </subviews>
                                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                            <constraints>
+                                                                <constraint firstItem="mAb-K9-Z4f" firstAttribute="centerY" secondItem="52S-II-tfH" secondAttribute="centerY" id="Bif-pD-GUD"/>
+                                                                <constraint firstAttribute="trailing" secondItem="mAb-K9-Z4f" secondAttribute="trailing" constant="5" id="Fw4-AV-w1W"/>
+                                                            </constraints>
                                                         </view>
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -177,7 +208,19 @@
                                                         </stackView>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WWE-pF-lTb" customClass="HorizontalBarView" customModule="TimeBoxer" customModuleProvider="target">
                                                             <rect key="frame" x="54" y="8" width="470" height="24"/>
+                                                            <subviews>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1h" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IjH-C2-P3Q">
+                                                                    <rect key="frame" x="449" y="2" width="16" height="20"/>
+                                                                    <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="14"/>
+                                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                            </subviews>
                                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                            <constraints>
+                                                                <constraint firstItem="IjH-C2-P3Q" firstAttribute="centerY" secondItem="WWE-pF-lTb" secondAttribute="centerY" id="CWa-1g-QGY"/>
+                                                                <constraint firstAttribute="trailing" secondItem="IjH-C2-P3Q" secondAttribute="trailing" constant="5" id="YII-oY-Ga7"/>
+                                                            </constraints>
                                                         </view>
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -218,7 +261,19 @@
                                                         </stackView>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iCf-Ta-yoT" customClass="HorizontalBarView" customModule="TimeBoxer" customModuleProvider="target">
                                                             <rect key="frame" x="54" y="8" width="470" height="24"/>
+                                                            <subviews>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1h" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C1W-Af-gQE">
+                                                                    <rect key="frame" x="449" y="2" width="16" height="20"/>
+                                                                    <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="14"/>
+                                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                            </subviews>
                                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                            <constraints>
+                                                                <constraint firstItem="C1W-Af-gQE" firstAttribute="centerY" secondItem="iCf-Ta-yoT" secondAttribute="centerY" id="aAF-TJ-eTY"/>
+                                                                <constraint firstAttribute="trailing" secondItem="C1W-Af-gQE" secondAttribute="trailing" constant="5" id="hWh-pb-aSu"/>
+                                                            </constraints>
                                                         </view>
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -261,7 +316,19 @@
                                                         </stackView>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hHA-Hc-ZBB" customClass="HorizontalBarView" customModule="TimeBoxer" customModuleProvider="target">
                                                             <rect key="frame" x="54" y="8" width="470" height="24"/>
+                                                            <subviews>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1h" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fxz-1t-pox">
+                                                                    <rect key="frame" x="449" y="2" width="16" height="20"/>
+                                                                    <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="14"/>
+                                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                            </subviews>
                                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="trailing" secondItem="fxz-1t-pox" secondAttribute="trailing" constant="5" id="3HQ-Si-Mmv"/>
+                                                                <constraint firstItem="fxz-1t-pox" firstAttribute="centerY" secondItem="hHA-Hc-ZBB" secondAttribute="centerY" id="w6e-2b-kr6"/>
+                                                            </constraints>
                                                         </view>
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -296,7 +363,19 @@
                                                         </stackView>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PeM-ju-zvh" customClass="HorizontalBarView" customModule="TimeBoxer" customModuleProvider="target">
                                                             <rect key="frame" x="54" y="8" width="470" height="24"/>
+                                                            <subviews>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1h" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cMF-X8-q4w">
+                                                                    <rect key="frame" x="449" y="2" width="16" height="20"/>
+                                                                    <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="14"/>
+                                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                            </subviews>
                                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                            <constraints>
+                                                                <constraint firstItem="cMF-X8-q4w" firstAttribute="centerY" secondItem="PeM-ju-zvh" secondAttribute="centerY" id="3aW-jw-rLx"/>
+                                                                <constraint firstAttribute="trailing" secondItem="cMF-X8-q4w" secondAttribute="trailing" constant="5" id="Oyf-xh-h6Y"/>
+                                                            </constraints>
                                                         </view>
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -331,7 +410,19 @@
                                                         </stackView>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XIr-P8-1jT" customClass="HorizontalBarView" customModule="TimeBoxer" customModuleProvider="target">
                                                             <rect key="frame" x="54" y="8" width="470" height="24"/>
+                                                            <subviews>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="1h" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I5j-cv-4J8">
+                                                                    <rect key="frame" x="447" y="2" width="18" height="21"/>
+                                                                    <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="14"/>
+                                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                            </subviews>
                                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="trailing" secondItem="I5j-cv-4J8" secondAttribute="trailing" constant="5" id="KoI-Uu-Wbj"/>
+                                                                <constraint firstItem="I5j-cv-4J8" firstAttribute="centerY" secondItem="XIr-P8-1jT" secondAttribute="centerY" id="Nes-6N-jFd"/>
+                                                            </constraints>
                                                         </view>
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -435,6 +526,7 @@
                                             <outlet property="fridayLabel" destination="u5i-26-BZB" id="P4p-AC-z31"/>
                                             <outlet property="mondayBar" destination="XIr-P8-1jT" id="fHs-vh-2ea"/>
                                             <outlet property="mondayDateLabel" destination="buA-tw-T8I" id="12i-qp-Avp"/>
+                                            <outlet property="mondayInnerBarLabel" destination="I5j-cv-4J8" id="fPl-je-6CV"/>
                                             <outlet property="mondayLabel" destination="8b0-16-Zo5" id="HaV-9q-W1m"/>
                                             <outlet property="saturdayBar" destination="52S-II-tfH" id="y1w-IK-gha"/>
                                             <outlet property="saturdayDateLabel" destination="bxj-j3-WnE" id="Jq8-lA-aYL"/>
