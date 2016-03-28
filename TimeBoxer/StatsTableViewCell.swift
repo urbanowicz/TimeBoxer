@@ -18,28 +18,33 @@ class StatsTableViewCell: UITableViewCell {
     @IBOutlet weak var tuesdayLabel: UILabel!
     @IBOutlet weak var tuesdayDateLabel: UILabel!
     @IBOutlet weak var tuesdayBar: HorizontalBarView!
+    @IBOutlet weak var tuesdayInnerBarLabel: UILabel!
     
     @IBOutlet weak var wednesdayLabel: UILabel!
     @IBOutlet weak var wednesdayDateLabel: UILabel!
     @IBOutlet weak var wednesdayBar: HorizontalBarView!
+    @IBOutlet weak var wednesdayInnerBarLabel: UILabel!
     
     @IBOutlet weak var thursdayLabel: UILabel!
     @IBOutlet weak var thursdayDateLabel: UILabel!
     @IBOutlet weak var thursdayBar: HorizontalBarView!
+    @IBOutlet weak var thursdayInnerBarLabel: UILabel!
 
     @IBOutlet weak var fridayLabel: UILabel!
     @IBOutlet weak var fridayDateLabel: UILabel!
     @IBOutlet weak var fridayBar: HorizontalBarView!
+    @IBOutlet weak var fridayInnerBarLabel: UILabel!
     
     
     @IBOutlet weak var saturdayLabel: UILabel!
     @IBOutlet weak var saturdayDateLabel: UILabel!
     @IBOutlet weak var saturdayBar: HorizontalBarView!
-    
+    @IBOutlet weak var saturdayInnerBarLabel: UILabel!
     
     @IBOutlet weak var sundayLabel: UILabel!
     @IBOutlet weak var sundayDateLabel: UILabel!
     @IBOutlet weak var sundayBar: HorizontalBarView!
+    @IBOutlet weak var sundayInnerBarLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

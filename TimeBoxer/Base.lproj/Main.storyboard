@@ -523,6 +523,7 @@
                                         <connections>
                                             <outlet property="fridayBar" destination="WWE-pF-lTb" id="PAS-Wb-4rx"/>
                                             <outlet property="fridayDateLabel" destination="5rB-HS-Kwo" id="8Ai-Zz-0Iq"/>
+                                            <outlet property="fridayInnerBarLabel" destination="IjH-C2-P3Q" id="M56-9G-Ams"/>
                                             <outlet property="fridayLabel" destination="u5i-26-BZB" id="P4p-AC-z31"/>
                                             <outlet property="mondayBar" destination="XIr-P8-1jT" id="fHs-vh-2ea"/>
                                             <outlet property="mondayDateLabel" destination="buA-tw-T8I" id="12i-qp-Avp"/>
@@ -530,18 +531,23 @@
                                             <outlet property="mondayLabel" destination="8b0-16-Zo5" id="HaV-9q-W1m"/>
                                             <outlet property="saturdayBar" destination="52S-II-tfH" id="y1w-IK-gha"/>
                                             <outlet property="saturdayDateLabel" destination="bxj-j3-WnE" id="Jq8-lA-aYL"/>
+                                            <outlet property="saturdayInnerBarLabel" destination="mAb-K9-Z4f" id="9NI-5F-SS5"/>
                                             <outlet property="saturdayLabel" destination="6Zf-Wd-WDd" id="gRe-2E-IOw"/>
                                             <outlet property="sundayBar" destination="wCl-fG-v2H" id="Ddg-ig-vVC"/>
                                             <outlet property="sundayDateLabel" destination="sFb-0N-vgo" id="xQJ-yJ-Nd2"/>
+                                            <outlet property="sundayInnerBarLabel" destination="AnA-0S-2ww" id="ZgC-th-6Pm"/>
                                             <outlet property="sundayLabel" destination="JhF-4T-i4W" id="F5c-Xt-Swh"/>
                                             <outlet property="thursdayBar" destination="iCf-Ta-yoT" id="wiE-Ol-3Iw"/>
                                             <outlet property="thursdayDateLabel" destination="F0z-wF-9qG" id="Zs5-ci-bqr"/>
+                                            <outlet property="thursdayInnerBarLabel" destination="C1W-Af-gQE" id="fZi-5h-NSI"/>
                                             <outlet property="thursdayLabel" destination="ku8-N2-k2e" id="tTS-28-JiP"/>
                                             <outlet property="tuesdayBar" destination="PeM-ju-zvh" id="4MR-ql-nu0"/>
                                             <outlet property="tuesdayDateLabel" destination="fYE-Fn-XCX" id="iyg-7w-BqG"/>
+                                            <outlet property="tuesdayInnerBarLabel" destination="cMF-X8-q4w" id="b6a-uT-ZXi"/>
                                             <outlet property="tuesdayLabel" destination="KEf-lb-ftF" id="o80-Vu-79I"/>
                                             <outlet property="wednesdayBar" destination="hHA-Hc-ZBB" id="1FY-SW-fKp"/>
                                             <outlet property="wednesdayDateLabel" destination="muT-2S-bDw" id="m8O-s0-EKP"/>
+                                            <outlet property="wednesdayInnerBarLabel" destination="fxz-1t-pox" id="mQg-Ci-Bdz"/>
                                             <outlet property="wednesdayLabel" destination="Xpf-zx-RpS" id="aXc-Mf-ePb"/>
                                         </connections>
                                     </tableViewCell>
