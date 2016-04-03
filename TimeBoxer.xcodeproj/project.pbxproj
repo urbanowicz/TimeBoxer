@@ -39,6 +39,8 @@
 		F15F9C571BCCF376008733A3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F15F9C561BCCF376008733A3 /* Assets.xcassets */; };
 		F15F9C5A1BCCF376008733A3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F15F9C581BCCF376008733A3 /* LaunchScreen.storyboard */; };
 		F15F9C651BCCF376008733A3 /* TimeBoxer_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F15F9C641BCCF376008733A3 /* TimeBoxer_Tests.swift */; };
+		F168FFF91CB15ACB00F298BE /* WorkTimeFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F168FFF81CB15ACB00F298BE /* WorkTimeFormatter.swift */; };
+		F168FFFA1CB15ACB00F298BE /* WorkTimeFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F168FFF81CB15ACB00F298BE /* WorkTimeFormatter.swift */; };
 		F17CDF671C9191BD0042E927 /* ProjectsTableCellPanGestureDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17CDF661C9191BD0042E927 /* ProjectsTableCellPanGestureDelegate.swift */; };
 		F17F17B71C899A72003C04AC /* FadeInAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17F17B61C899A72003C04AC /* FadeInAnimator.swift */; };
 		F188DA6F1C898890000E8AD2 /* ShrinkingCircleAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F188DA6E1C898890000E8AD2 /* ShrinkingCircleAnimator.swift */; };
@@ -117,6 +119,7 @@
 		F15F9C601BCCF376008733A3 /* TimeBoxer.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TimeBoxer.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F15F9C641BCCF376008733A3 /* TimeBoxer_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeBoxer_Tests.swift; sourceTree = "<group>"; };
 		F15F9C661BCCF376008733A3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F168FFF81CB15ACB00F298BE /* WorkTimeFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkTimeFormatter.swift; sourceTree = "<group>"; };
 		F17CDF661C9191BD0042E927 /* ProjectsTableCellPanGestureDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectsTableCellPanGestureDelegate.swift; sourceTree = "<group>"; };
 		F17F17B61C899A72003C04AC /* FadeInAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FadeInAnimator.swift; sourceTree = "<group>"; };
 		F188DA6E1C898890000E8AD2 /* ShrinkingCircleAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShrinkingCircleAnimator.swift; sourceTree = "<group>"; };
@@ -388,6 +391,7 @@
 				F1FC9AD21C3ED73B002A9F31 /* EditProjectViewController.swift */,
 				F1C755B61C9C87EB0083466C /* HorizontalBarView.swift */,
 				F1A95C031C6BD49000EF5204 /* LastWorkedOnDateFormatter.swift */,
+				F168FFF81CB15ACB00F298BE /* WorkTimeFormatter.swift */,
 			);
 			name = EditProjectVC;
 			sourceTree = "<group>";
@@ -516,6 +520,7 @@
 			files = (
 				F1A6053D1C8212CD008EF288 /* BigSlider.swift in Sources */,
 				F1FC9AD31C3ED73B002A9F31 /* EditProjectViewController.swift in Sources */,
+				F168FFF91CB15ACB00F298BE /* WorkTimeFormatter.swift in Sources */,
 				F1B3B41F1C5540D80009FCF0 /* AbstractAnimator.swift in Sources */,
 				F1EBB3E31C5AB93C005A36CE /* WorkChunk.swift in Sources */,
 				F19D226C1CA01F8B006D76D4 /* StatsTableViewCell.swift in Sources */,
@@ -579,6 +584,7 @@
 				F15F9C651BCCF376008733A3 /* TimeBoxer_Tests.swift in Sources */,
 				F10CA9C11C67DEBC0062471C /* WorkChunk.swift in Sources */,
 				F10CA9C01C67DCB10062471C /* Project.swift in Sources */,
+				F168FFFA1CB15ACB00F298BE /* WorkTimeFormatter.swift in Sources */,
 				F12E2C6F1CA84A90008DA69C /* NSDateExtension.swift in Sources */,
 				F10CA9C31C67E1970062471C /* ProjectTests.swift in Sources */,
 				F1A95C071C6BD55B00EF5204 /* LastWorkedOnDateFormatter.swift in Sources */,
