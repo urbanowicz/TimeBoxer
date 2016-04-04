@@ -19,9 +19,9 @@ class WorkTimeFormatter: NSObject {
         components.second = workTimeInSeconds
         let timeString = formatter.stringFromDate(NSCalendar.currentCalendar().dateFromComponents(components)!)
         let timeStringComponents = timeString.componentsSeparatedByString(":")
-        let hours = Int(timeStringComponents[0])
-        let minutes = Int(timeStringComponents[1])
-        let seconds = Int(timeStringComponents[2])
+        let hours:Int = Int(timeStringComponents[0])!
+        let minutes:Int = Int(timeStringComponents[1])!
+        let seconds:Int = Int(timeStringComponents[2])!
         var stringToReturn = ""
         
         if hours > 0 {

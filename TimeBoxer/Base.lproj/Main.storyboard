@@ -39,13 +39,6 @@
             <string>Avenir-Book</string>
             <string>Avenir-Book</string>
             <string>Avenir-Book</string>
-            <string>Avenir-Book</string>
-            <string>Avenir-Book</string>
-            <string>Avenir-Book</string>
-            <string>Avenir-Book</string>
-            <string>Avenir-Book</string>
-            <string>Avenir-Book</string>
-            <string>Avenir-Book</string>
             <string>Avenir-BookOblique</string>
             <string>Avenir-Book</string>
             <string>Avenir-BookOblique</string>
@@ -57,13 +50,6 @@
             <string>Avenir-BookOblique</string>
             <string>Avenir-Book</string>
             <string>Avenir-BookOblique</string>
-            <string>Avenir-Book</string>
-            <string>Avenir-Book</string>
-            <string>Avenir-Book</string>
-            <string>Avenir-Book</string>
-            <string>Avenir-Book</string>
-            <string>Avenir-Book</string>
-            <string>Avenir-Book</string>
             <string>Avenir-Book</string>
             <string>Avenir-Book</string>
         </mutableArray>
@@ -114,20 +100,6 @@
                                                         </stackView>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wCl-fG-v2H" customClass="HorizontalBarView" customModule="TimeBoxer" customModuleProvider="target">
                                                             <rect key="frame" x="54" y="8" width="470" height="24"/>
-                                                            <subviews>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Outer Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dG9-DJ-LkR" userLabel="Sunday Outer Label">
-                                                                    <rect key="frame" x="214" y="2" width="75" height="21"/>
-                                                                    <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="14"/>
-                                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                                    <nil key="highlightedColor"/>
-                                                                </label>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="1h" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AnA-0S-2ww">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="16" height="20"/>
-                                                                    <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="14"/>
-                                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                                    <nil key="highlightedColor"/>
-                                                                </label>
-                                                            </subviews>
                                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         </view>
                                                     </subviews>
@@ -164,20 +136,6 @@
                                                         </stackView>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="52S-II-tfH" customClass="HorizontalBarView" customModule="TimeBoxer" customModuleProvider="target">
                                                             <rect key="frame" x="54" y="8" width="470" height="24"/>
-                                                            <subviews>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Outer Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CCS-7K-r7l" userLabel="Saturday Outer Label">
-                                                                    <rect key="frame" x="197" y="2" width="75" height="21"/>
-                                                                    <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="14"/>
-                                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                                    <nil key="highlightedColor"/>
-                                                                </label>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="1h" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mAb-K9-Z4f">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="16" height="20"/>
-                                                                    <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="14"/>
-                                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                                    <nil key="highlightedColor"/>
-                                                                </label>
-                                                            </subviews>
                                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         </view>
                                                     </subviews>
@@ -213,38 +171,18 @@
                                                         </stackView>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WWE-pF-lTb" customClass="HorizontalBarView" customModule="TimeBoxer" customModuleProvider="target">
                                                             <rect key="frame" x="54" y="8" width="470" height="24"/>
-                                                            <subviews>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Outer Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f5t-tR-ZMp" userLabel="Friday Outer Label">
-                                                                    <rect key="frame" x="197" y="2" width="75" height="21"/>
-                                                                    <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="14"/>
-                                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                                    <nil key="highlightedColor"/>
-                                                                </label>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="1h" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IjH-C2-P3Q">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="16" height="20"/>
-                                                                    <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="14"/>
-                                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                                    <nil key="highlightedColor"/>
-                                                                </label>
-                                                            </subviews>
                                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         </view>
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <constraints>
                                                         <constraint firstAttribute="bottom" secondItem="o9g-Vq-pwt" secondAttribute="bottom" id="EZD-R1-tV2"/>
-                                                        <constraint firstItem="WWE-pF-lTb" firstAttribute="height" secondItem="o9g-Vq-pwt" secondAttribute="height" multiplier="0.6" id="ajR-yh-KlL"/>
                                                         <constraint firstItem="o9g-Vq-pwt" firstAttribute="top" secondItem="DhJ-ZD-tQc" secondAttribute="top" id="cP6-Qj-wgI"/>
                                                         <constraint firstItem="WWE-pF-lTb" firstAttribute="centerY" secondItem="o9g-Vq-pwt" secondAttribute="centerY" id="e7h-9s-Nxk"/>
                                                         <constraint firstAttribute="trailing" secondItem="WWE-pF-lTb" secondAttribute="trailing" id="n1e-JR-roc"/>
                                                         <constraint firstItem="WWE-pF-lTb" firstAttribute="leading" secondItem="o9g-Vq-pwt" secondAttribute="trailing" constant="10" id="th0-dU-91q"/>
                                                         <constraint firstItem="o9g-Vq-pwt" firstAttribute="leading" secondItem="DhJ-ZD-tQc" secondAttribute="leading" id="yHo-GJ-5DR"/>
                                                     </constraints>
-                                                    <variation key="default">
-                                                        <mask key="constraints">
-                                                            <exclude reference="ajR-yh-KlL"/>
-                                                        </mask>
-                                                    </variation>
                                                 </view>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Xj-gw-ZUo" userLabel="Thursday">
                                                     <rect key="frame" x="18" y="205" width="524" height="40"/>
@@ -268,20 +206,6 @@
                                                         </stackView>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iCf-Ta-yoT" customClass="HorizontalBarView" customModule="TimeBoxer" customModuleProvider="target">
                                                             <rect key="frame" x="54" y="8" width="470" height="24"/>
-                                                            <subviews>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Outer Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rBe-9Z-Wvt" userLabel="Thursday Outer Label">
-                                                                    <rect key="frame" x="197" y="2" width="75" height="21"/>
-                                                                    <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="14"/>
-                                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                                    <nil key="highlightedColor"/>
-                                                                </label>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="1h" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C1W-Af-gQE">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="16" height="20"/>
-                                                                    <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="14"/>
-                                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                                    <nil key="highlightedColor"/>
-                                                                </label>
-                                                            </subviews>
                                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         </view>
                                                     </subviews>
@@ -291,17 +215,9 @@
                                                         <constraint firstAttribute="trailing" secondItem="iCf-Ta-yoT" secondAttribute="trailing" id="I8f-8s-EG0"/>
                                                         <constraint firstItem="iCf-Ta-yoT" firstAttribute="leading" secondItem="fxL-cM-dR6" secondAttribute="trailing" constant="10" id="Nia-UJ-FKc"/>
                                                         <constraint firstAttribute="bottom" secondItem="fxL-cM-dR6" secondAttribute="bottom" id="SLI-vC-0qM"/>
-                                                        <constraint firstItem="iCf-Ta-yoT" firstAttribute="height" secondItem="fxL-cM-dR6" secondAttribute="height" multiplier="0.6" constant="1" id="WrS-Ge-RQh"/>
                                                         <constraint firstItem="iCf-Ta-yoT" firstAttribute="centerY" secondItem="fxL-cM-dR6" secondAttribute="centerY" id="YFh-nU-vdS"/>
                                                         <constraint firstItem="fxL-cM-dR6" firstAttribute="leading" secondItem="7Xj-gw-ZUo" secondAttribute="leading" id="c2o-qs-TKn"/>
-                                                        <constraint firstItem="iCf-Ta-yoT" firstAttribute="height" secondItem="7Xj-gw-ZUo" secondAttribute="height" id="vcC-vo-MaF"/>
                                                     </constraints>
-                                                    <variation key="default">
-                                                        <mask key="constraints">
-                                                            <exclude reference="WrS-Ge-RQh"/>
-                                                            <exclude reference="vcC-vo-MaF"/>
-                                                        </mask>
-                                                    </variation>
                                                 </view>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tJX-JG-WVJ" userLabel="Wednesday">
                                                     <rect key="frame" x="18" y="267" width="524" height="40"/>
@@ -325,20 +241,6 @@
                                                         </stackView>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hHA-Hc-ZBB" customClass="HorizontalBarView" customModule="TimeBoxer" customModuleProvider="target">
                                                             <rect key="frame" x="54" y="8" width="470" height="24"/>
-                                                            <subviews>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Outer Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mcn-Zl-FXu" userLabel="Wednesday Outer Label">
-                                                                    <rect key="frame" x="197" y="2" width="75" height="21"/>
-                                                                    <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="14"/>
-                                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                                    <nil key="highlightedColor"/>
-                                                                </label>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="1h" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fxz-1t-pox">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="16" height="20"/>
-                                                                    <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="14"/>
-                                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                                    <nil key="highlightedColor"/>
-                                                                </label>
-                                                            </subviews>
                                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         </view>
                                                     </subviews>
@@ -374,20 +276,6 @@
                                                         </stackView>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PeM-ju-zvh" customClass="HorizontalBarView" customModule="TimeBoxer" customModuleProvider="target">
                                                             <rect key="frame" x="54" y="8" width="470" height="24"/>
-                                                            <subviews>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Outer Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nsn-RQ-H1d" userLabel="Tuesday Outer Label">
-                                                                    <rect key="frame" x="197" y="2" width="75" height="21"/>
-                                                                    <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="14"/>
-                                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                                    <nil key="highlightedColor"/>
-                                                                </label>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="1h" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cMF-X8-q4w">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="16" height="20"/>
-                                                                    <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="14"/>
-                                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                                    <nil key="highlightedColor"/>
-                                                                </label>
-                                                            </subviews>
                                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         </view>
                                                     </subviews>
@@ -423,20 +311,6 @@
                                                         </stackView>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XIr-P8-1jT" customClass="HorizontalBarView" customModule="TimeBoxer" customModuleProvider="target">
                                                             <rect key="frame" x="54" y="8" width="470" height="24"/>
-                                                            <subviews>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Outer Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="atr-BK-54o" userLabel="Monday Outer Label">
-                                                                    <rect key="frame" x="197" y="2" width="75" height="21"/>
-                                                                    <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="14"/>
-                                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                                    <nil key="highlightedColor"/>
-                                                                </label>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="1h" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I5j-cv-4J8">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="18" height="21"/>
-                                                                    <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="14"/>
-                                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                                    <nil key="highlightedColor"/>
-                                                                </label>
-                                                            </subviews>
                                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         </view>
                                                     </subviews>
@@ -538,39 +412,25 @@
                                         <connections>
                                             <outlet property="fridayBar" destination="WWE-pF-lTb" id="PAS-Wb-4rx"/>
                                             <outlet property="fridayDateLabel" destination="5rB-HS-Kwo" id="8Ai-Zz-0Iq"/>
-                                            <outlet property="fridayInnerBarLabel" destination="IjH-C2-P3Q" id="M56-9G-Ams"/>
                                             <outlet property="fridayLabel" destination="u5i-26-BZB" id="P4p-AC-z31"/>
-                                            <outlet property="fridayOuterBarLabel" destination="f5t-tR-ZMp" id="o6a-tE-vyY"/>
                                             <outlet property="mondayBar" destination="XIr-P8-1jT" id="fHs-vh-2ea"/>
                                             <outlet property="mondayDateLabel" destination="buA-tw-T8I" id="12i-qp-Avp"/>
-                                            <outlet property="mondayInnerBarLabel" destination="I5j-cv-4J8" id="fPl-je-6CV"/>
                                             <outlet property="mondayLabel" destination="8b0-16-Zo5" id="HaV-9q-W1m"/>
-                                            <outlet property="mondayOuterBarLabel" destination="atr-BK-54o" id="fuM-BB-MFM"/>
                                             <outlet property="saturdayBar" destination="52S-II-tfH" id="y1w-IK-gha"/>
                                             <outlet property="saturdayDateLabel" destination="bxj-j3-WnE" id="Jq8-lA-aYL"/>
-                                            <outlet property="saturdayInnerBarLabel" destination="mAb-K9-Z4f" id="9NI-5F-SS5"/>
                                             <outlet property="saturdayLabel" destination="6Zf-Wd-WDd" id="gRe-2E-IOw"/>
-                                            <outlet property="saturdayOuterBarLabel" destination="CCS-7K-r7l" id="1mU-VZ-JNH"/>
                                             <outlet property="sundayBar" destination="wCl-fG-v2H" id="Ddg-ig-vVC"/>
                                             <outlet property="sundayDateLabel" destination="sFb-0N-vgo" id="xQJ-yJ-Nd2"/>
-                                            <outlet property="sundayInnerBarLabel" destination="AnA-0S-2ww" id="ZgC-th-6Pm"/>
                                             <outlet property="sundayLabel" destination="JhF-4T-i4W" id="F5c-Xt-Swh"/>
-                                            <outlet property="sundayOuterBarLabel" destination="dG9-DJ-LkR" id="mUK-Q2-9Zt"/>
                                             <outlet property="thursdayBar" destination="iCf-Ta-yoT" id="wiE-Ol-3Iw"/>
                                             <outlet property="thursdayDateLabel" destination="F0z-wF-9qG" id="Zs5-ci-bqr"/>
-                                            <outlet property="thursdayInnerBarLabel" destination="C1W-Af-gQE" id="fZi-5h-NSI"/>
                                             <outlet property="thursdayLabel" destination="ku8-N2-k2e" id="tTS-28-JiP"/>
-                                            <outlet property="thursdayOuterBarLabel" destination="rBe-9Z-Wvt" id="0ze-wG-v5R"/>
                                             <outlet property="tuesdayBar" destination="PeM-ju-zvh" id="4MR-ql-nu0"/>
                                             <outlet property="tuesdayDateLabel" destination="fYE-Fn-XCX" id="iyg-7w-BqG"/>
-                                            <outlet property="tuesdayInnerBarLabel" destination="cMF-X8-q4w" id="b6a-uT-ZXi"/>
                                             <outlet property="tuesdayLabel" destination="KEf-lb-ftF" id="o80-Vu-79I"/>
-                                            <outlet property="tuesdayOuterBarLabel" destination="nsn-RQ-H1d" id="70R-q5-Dg8"/>
                                             <outlet property="wednesdayBar" destination="hHA-Hc-ZBB" id="1FY-SW-fKp"/>
                                             <outlet property="wednesdayDateLabel" destination="muT-2S-bDw" id="m8O-s0-EKP"/>
-                                            <outlet property="wednesdayInnerBarLabel" destination="fxz-1t-pox" id="mQg-Ci-Bdz"/>
                                             <outlet property="wednesdayLabel" destination="Xpf-zx-RpS" id="aXc-Mf-ePb"/>
-                                            <outlet property="wednesdayOuterBarLabel" destination="mcn-Zl-FXu" id="ve8-jd-x5A"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
