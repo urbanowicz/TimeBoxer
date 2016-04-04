@@ -133,7 +133,7 @@ class StatsTableDataSource: NSObject, UITableViewDataSource {
     private func setupHorizontalBar(bar:HorizontalBarView, totalWorkInSeconds:Int) {
         let eightHoursInSeconds = 8*3600
         bar.value = CGFloat(totalWorkInSeconds) / CGFloat(eightHoursInSeconds)
-        bar.backgroundColor = UIColor.blackColor()
+        bar.backgroundColor = Colors.almostBlack()
         bar.fillColor = Colors.azure()
         bar.labelText = workTimeFormatter.format(totalWorkInSeconds)
     }
