@@ -12,7 +12,6 @@ import UIKit
 class HorizontalBarView: UIView {
     var fillColor:UIColor = UIColor.redColor()
     var cornerRadius:CGFloat = CGFloat(0.0)
-    var date:NSDate?
     var value:CGFloat = CGFloat(1.0) {
         didSet {
             setNeedsDisplay()

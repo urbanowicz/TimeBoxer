@@ -52,6 +52,7 @@
             <string>Avenir-BookOblique</string>
             <string>Avenir-Book</string>
             <string>Avenir-Book</string>
+            <string>Avenir-Book</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -67,16 +68,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="singleLineEtched" rowHeight="450" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="7uQ-Cm-Ie9" userLabel="Stats Table View">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="singleLineEtched" rowHeight="486" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="7uQ-Cm-Ie9" userLabel="Stats Table View">
                                 <rect key="frame" x="20" y="0.0" width="560" height="600"/>
                                 <color key="backgroundColor" red="1" green="1" blue="0.61176470589999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <inset key="separatorInset" minX="30" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="statsCellId" id="ynR-KS-wT1" customClass="StatsTableViewCell" customModule="TimeBoxer" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="22" width="560" height="450"/>
+                                        <rect key="frame" x="0.0" y="22" width="560" height="486"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ynR-KS-wT1" id="ZcC-Up-b8Q">
-                                            <rect key="frame" x="0.0" y="0.0" width="560" height="449"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="560" height="485"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eIp-LE-aDZ" userLabel="Sunday">
@@ -116,7 +117,7 @@
                                                     </constraints>
                                                 </view>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nIU-KQ-FZo" userLabel="Saturday">
-                                                    <rect key="frame" x="18" y="80" width="524" height="40"/>
+                                                    <rect key="frame" x="18" y="81" width="524" height="40"/>
                                                     <subviews>
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="3r5-0r-w2c">
                                                             <rect key="frame" x="0.0" y="0.0" width="44" height="40"/>
@@ -151,7 +152,7 @@
                                                     </constraints>
                                                 </view>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DhJ-ZD-tQc" userLabel="Friday">
-                                                    <rect key="frame" x="18" y="142" width="524" height="40"/>
+                                                    <rect key="frame" x="18" y="144" width="524" height="40"/>
                                                     <subviews>
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="o9g-Vq-pwt">
                                                             <rect key="frame" x="0.0" y="0.0" width="44" height="40"/>
@@ -186,7 +187,7 @@
                                                     </constraints>
                                                 </view>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Xj-gw-ZUo" userLabel="Thursday">
-                                                    <rect key="frame" x="18" y="205" width="524" height="40"/>
+                                                    <rect key="frame" x="18" y="207" width="524" height="40"/>
                                                     <subviews>
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="fxL-cM-dR6">
                                                             <rect key="frame" x="0.0" y="0.0" width="44" height="40"/>
@@ -221,7 +222,7 @@
                                                     </constraints>
                                                 </view>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tJX-JG-WVJ" userLabel="Wednesday">
-                                                    <rect key="frame" x="18" y="267" width="524" height="40"/>
+                                                    <rect key="frame" x="18" y="269" width="524" height="40"/>
                                                     <subviews>
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="RfS-fO-ZKl">
                                                             <rect key="frame" x="0.0" y="0.0" width="44" height="40"/>
@@ -256,7 +257,7 @@
                                                     </constraints>
                                                 </view>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZxW-c2-lbc" userLabel="Tuesday">
-                                                    <rect key="frame" x="18" y="329" width="524" height="40"/>
+                                                    <rect key="frame" x="18" y="332" width="524" height="40"/>
                                                     <subviews>
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="FDg-WP-QF5">
                                                             <rect key="frame" x="0.0" y="0.0" width="44" height="40"/>
@@ -291,7 +292,7 @@
                                                     </constraints>
                                                 </view>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XWS-Hb-0Ns" userLabel="Monday">
-                                                    <rect key="frame" x="18" y="391" width="524" height="40"/>
+                                                    <rect key="frame" x="18" y="395" width="524" height="40"/>
                                                     <subviews>
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="7Wu-iO-2ey">
                                                             <rect key="frame" x="0.0" y="0.0" width="44" height="40"/>
@@ -326,29 +327,35 @@
                                                     </constraints>
                                                 </view>
                                                 <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CuW-Jy-5Cd" userLabel="fillerA">
-                                                    <rect key="frame" x="18" y="58" width="524" height="22"/>
+                                                    <rect key="frame" x="18" y="58" width="524" height="23"/>
                                                     <color key="backgroundColor" red="0.51200000000000001" green="0.754" blue="0.34300000000000003" alpha="1" colorSpace="calibratedRGB"/>
                                                 </view>
                                                 <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="50a-N6-RJO" userLabel="fillerB">
-                                                    <rect key="frame" x="18" y="120" width="524" height="22"/>
+                                                    <rect key="frame" x="18" y="121" width="524" height="23"/>
                                                     <color key="backgroundColor" red="0.51200000000000001" green="0.754" blue="0.34300000000000003" alpha="1" colorSpace="calibratedRGB"/>
                                                 </view>
                                                 <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mW8-ra-bch" userLabel="fillerC">
-                                                    <rect key="frame" x="18" y="182" width="524" height="23"/>
+                                                    <rect key="frame" x="18" y="184" width="524" height="23"/>
                                                     <color key="backgroundColor" red="0.51200000000000001" green="0.754" blue="0.34300000000000003" alpha="1" colorSpace="calibratedRGB"/>
                                                 </view>
                                                 <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="w8r-BI-PMt" userLabel="fillerD">
-                                                    <rect key="frame" x="18" y="245" width="524" height="22"/>
+                                                    <rect key="frame" x="18" y="247" width="524" height="22"/>
                                                     <color key="backgroundColor" red="0.51200000000000001" green="0.754" blue="0.34300000000000003" alpha="1" colorSpace="calibratedRGB"/>
                                                 </view>
                                                 <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EgL-0n-ZXN" userLabel="fillerE">
-                                                    <rect key="frame" x="18" y="307" width="524" height="22"/>
+                                                    <rect key="frame" x="18" y="309" width="524" height="23"/>
                                                     <color key="backgroundColor" red="0.51200000000000001" green="0.754" blue="0.34300000000000003" alpha="1" colorSpace="calibratedRGB"/>
                                                 </view>
                                                 <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FZ4-MD-CDo" userLabel="fillerF">
-                                                    <rect key="frame" x="18" y="369" width="524" height="22"/>
+                                                    <rect key="frame" x="18" y="372" width="524" height="23"/>
                                                     <color key="backgroundColor" red="0.51200000000000001" green="0.754" blue="0.34300000000000003" alpha="1" colorSpace="calibratedRGB"/>
                                                 </view>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Week" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sio-fN-B4Y" userLabel="WeekLabel">
+                                                    <rect key="frame" x="260" y="450" width="41" height="22"/>
+                                                    <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="16"/>
+                                                    <color key="textColor" red="0.87838723776223782" green="0.0" blue="0.33866914335664333" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="tJX-JG-WVJ" firstAttribute="top" secondItem="w8r-BI-PMt" secondAttribute="bottom" id="0JT-Ec-5m3"/>
@@ -363,6 +370,7 @@
                                                 <constraint firstItem="mW8-ra-bch" firstAttribute="top" secondItem="DhJ-ZD-tQc" secondAttribute="bottom" id="Ete-H7-VnY"/>
                                                 <constraint firstItem="7Xj-gw-ZUo" firstAttribute="trailing" secondItem="DhJ-ZD-tQc" secondAttribute="trailing" id="F3t-lj-wBa"/>
                                                 <constraint firstItem="7Xj-gw-ZUo" firstAttribute="top" secondItem="mW8-ra-bch" secondAttribute="bottom" id="FO7-VN-d8B"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="sio-fN-B4Y" secondAttribute="bottom" constant="5" id="FhZ-7g-dmy"/>
                                                 <constraint firstItem="hHA-Hc-ZBB" firstAttribute="height" secondItem="wCl-fG-v2H" secondAttribute="height" id="GUq-CW-72b"/>
                                                 <constraint firstItem="XWS-Hb-0Ns" firstAttribute="top" secondItem="FZ4-MD-CDo" secondAttribute="bottom" id="Gk3-gI-AaP"/>
                                                 <constraint firstItem="50a-N6-RJO" firstAttribute="leading" secondItem="CuW-Jy-5Cd" secondAttribute="leading" id="GlF-Y5-j0s"/>
@@ -378,6 +386,7 @@
                                                 <constraint firstItem="w8r-BI-PMt" firstAttribute="leading" secondItem="mW8-ra-bch" secondAttribute="leading" id="Prg-bt-2NJ"/>
                                                 <constraint firstItem="EgL-0n-ZXN" firstAttribute="trailing" secondItem="w8r-BI-PMt" secondAttribute="trailing" id="R3q-Mt-gLL"/>
                                                 <constraint firstItem="nIU-KQ-FZo" firstAttribute="top" secondItem="CuW-Jy-5Cd" secondAttribute="bottom" id="SgJ-hf-ADm"/>
+                                                <constraint firstItem="sio-fN-B4Y" firstAttribute="top" secondItem="XWS-Hb-0Ns" secondAttribute="bottom" constant="15" id="Sww-GH-3eN"/>
                                                 <constraint firstItem="PeM-ju-zvh" firstAttribute="height" secondItem="wCl-fG-v2H" secondAttribute="height" id="T8a-P4-EHU"/>
                                                 <constraint firstItem="DhJ-ZD-tQc" firstAttribute="height" secondItem="nIU-KQ-FZo" secondAttribute="height" id="Tge-g8-Dfy"/>
                                                 <constraint firstItem="DhJ-ZD-tQc" firstAttribute="trailing" secondItem="nIU-KQ-FZo" secondAttribute="trailing" id="VlU-qt-iFM"/>
@@ -388,6 +397,7 @@
                                                 <constraint firstItem="nIU-KQ-FZo" firstAttribute="leading" secondItem="eIp-LE-aDZ" secondAttribute="leading" id="byV-W2-ZrT"/>
                                                 <constraint firstItem="50a-N6-RJO" firstAttribute="trailing" secondItem="CuW-Jy-5Cd" secondAttribute="trailing" id="coZ-OV-FJP"/>
                                                 <constraint firstItem="eIp-LE-aDZ" firstAttribute="leading" secondItem="ZcC-Up-b8Q" secondAttribute="leadingMargin" constant="10" id="dTO-z7-nH4"/>
+                                                <constraint firstItem="sio-fN-B4Y" firstAttribute="centerX" secondItem="ZcC-Up-b8Q" secondAttribute="centerX" id="dda-MO-Von"/>
                                                 <constraint firstItem="eIp-LE-aDZ" firstAttribute="top" secondItem="ZcC-Up-b8Q" secondAttribute="topMargin" constant="10" id="epB-nk-iug"/>
                                                 <constraint firstItem="tJX-JG-WVJ" firstAttribute="height" secondItem="7Xj-gw-ZUo" secondAttribute="height" id="fGD-1X-0Me"/>
                                                 <constraint firstItem="FZ4-MD-CDo" firstAttribute="leading" secondItem="EgL-0n-ZXN" secondAttribute="leading" id="fym-1C-LA8"/>
@@ -409,6 +419,11 @@
                                                 <constraint firstItem="52S-II-tfH" firstAttribute="height" secondItem="wCl-fG-v2H" secondAttribute="height" id="wTe-Ia-Ov3"/>
                                                 <constraint firstItem="CuW-Jy-5Cd" firstAttribute="leading" secondItem="ZcC-Up-b8Q" secondAttribute="leadingMargin" constant="10" id="z8W-89-9CB"/>
                                             </constraints>
+                                            <variation key="default">
+                                                <mask key="constraints">
+                                                    <exclude reference="Lvq-nj-8gL"/>
+                                                </mask>
+                                            </variation>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="fridayBar" destination="WWE-pF-lTb" id="PAS-Wb-4rx"/>
@@ -432,6 +447,7 @@
                                             <outlet property="wednesdayBar" destination="hHA-Hc-ZBB" id="1FY-SW-fKp"/>
                                             <outlet property="wednesdayDateLabel" destination="muT-2S-bDw" id="m8O-s0-EKP"/>
                                             <outlet property="wednesdayLabel" destination="Xpf-zx-RpS" id="aXc-Mf-ePb"/>
+                                            <outlet property="weekLabel" destination="sio-fN-B4Y" id="xUz-iT-mfE"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

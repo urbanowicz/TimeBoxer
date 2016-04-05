@@ -40,7 +40,8 @@ class StatsTableViewCell: UITableViewCell {
     @IBOutlet weak var sundayLabel: UILabel!
     @IBOutlet weak var sundayDateLabel: UILabel!
     @IBOutlet weak var sundayBar: HorizontalBarView!
-
+    
+    @IBOutlet weak var weekLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
