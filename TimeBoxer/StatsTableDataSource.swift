@@ -9,7 +9,7 @@
 import UIKit
 
 class StatsTableDataSource: NSObject, UITableViewDataSource {
-    var project:Project?
+    var project:Project? 
     private let workTimeFormatter = WorkTimeFormatter()
     let cellId = "statsCellId"
     
@@ -35,7 +35,7 @@ class StatsTableDataSource: NSObject, UITableViewDataSource {
         //Monday
         let mondayWorkChunks = project!.workChunksWithDate(monday)
         var totalWork = totalWorkInSecondsForWorkChunks(mondayWorkChunks)
-        setupHorizontalBar(cell.mondayBar, totalWorkInSeconds: totalWork)
+        setupHorizontalBar(cell.mondayBar, totalWorkInSeconds: totalWork, date: monday)
         let mondayContainerView = cell.mondayBar.superview!
         mondayContainerView.backgroundColor = Colors.almostBlack()
         cell.mondayLabel.textColor = Colors.silver()
@@ -47,7 +47,7 @@ class StatsTableDataSource: NSObject, UITableViewDataSource {
         let tuesday = calendar.dateByAddingUnit(NSCalendarUnit.Day, value: 1, toDate: monday, options: [])!
         let tuesdayWorkChunks = project!.workChunksWithDate(tuesday)
         totalWork = totalWorkInSecondsForWorkChunks(tuesdayWorkChunks)
-        setupHorizontalBar(cell.tuesdayBar, totalWorkInSeconds: totalWork)
+        setupHorizontalBar(cell.tuesdayBar, totalWorkInSeconds: totalWork,date: tuesday)
         let tuesdayContainerView = cell.tuesdayBar.superview!
         tuesdayContainerView.backgroundColor = Colors.almostBlack()
         cell.tuesdayLabel.textColor = Colors.silver()
@@ -57,8 +57,8 @@ class StatsTableDataSource: NSObject, UITableViewDataSource {
         //Wednesday
         let wednesday = calendar.dateByAddingUnit(NSCalendarUnit.Day, value: 1, toDate: tuesday, options: [])!
         let wednesdayWorkChunks = project!.workChunksWithDate(wednesday)
-        totalWork = 5 * 3600 //totalWorkInSecondsForWorkChunks(wednesdayWorkChunks)
-        setupHorizontalBar(cell.wednesdayBar, totalWorkInSeconds: totalWork)
+        totalWork = totalWorkInSecondsForWorkChunks(wednesdayWorkChunks)
+        setupHorizontalBar(cell.wednesdayBar, totalWorkInSeconds: totalWork, date: wednesday )
         let wednesdayContainerView = cell.wednesdayBar.superview!
         wednesdayContainerView.backgroundColor = Colors.almostBlack()
         cell.wednesdayLabel.textColor = Colors.silver()
@@ -70,7 +70,7 @@ class StatsTableDataSource: NSObject, UITableViewDataSource {
         let thursday = calendar.dateByAddingUnit(NSCalendarUnit.Day, value: 1, toDate: wednesday, options: [])!
         let thursdayWorkChunks = project!.workChunksWithDate(thursday)
         totalWork = totalWorkInSecondsForWorkChunks(thursdayWorkChunks)
-        setupHorizontalBar(cell.thursdayBar, totalWorkInSeconds: totalWork)
+        setupHorizontalBar(cell.thursdayBar, totalWorkInSeconds: totalWork, date: thursday )
         let thursdayContainerView = cell.thursdayBar.superview!
         thursdayContainerView.backgroundColor = Colors.almostBlack()
         cell.thursdayLabel.textColor = Colors.silver()
@@ -82,7 +82,7 @@ class StatsTableDataSource: NSObject, UITableViewDataSource {
         let friday = calendar.dateByAddingUnit(NSCalendarUnit.Day, value: 1, toDate: thursday, options: [])!
         let fridayWorkChunks = project!.workChunksWithDate(friday)
         totalWork = totalWorkInSecondsForWorkChunks(fridayWorkChunks)
-        setupHorizontalBar(cell.fridayBar, totalWorkInSeconds: totalWork)
+        setupHorizontalBar(cell.fridayBar, totalWorkInSeconds: totalWork,date: friday )
         let fridayContainerView = cell.fridayBar.superview!
         fridayContainerView.backgroundColor = Colors.almostBlack()
         cell.fridayLabel.textColor = Colors.silver()
@@ -94,7 +94,7 @@ class StatsTableDataSource: NSObject, UITableViewDataSource {
         let saturday = calendar.dateByAddingUnit(NSCalendarUnit.Day, value: 1, toDate: friday, options: [])!
         let saturdayWorkChunks = project!.workChunksWithDate(saturday)
         totalWork = totalWorkInSecondsForWorkChunks(saturdayWorkChunks)
-        setupHorizontalBar(cell.saturdayBar, totalWorkInSeconds: totalWork)
+        setupHorizontalBar(cell.saturdayBar, totalWorkInSeconds: totalWork, date:saturday )
         let saturdayContainerView = cell.saturdayBar.superview!
         saturdayContainerView.backgroundColor = Colors.almostBlack()
         cell.saturdayLabel.textColor = Colors.silver()
@@ -106,7 +106,7 @@ class StatsTableDataSource: NSObject, UITableViewDataSource {
         let sunday = calendar.dateByAddingUnit(NSCalendarUnit.Day, value: 1, toDate: saturday, options: [])!
         let sundayWorkChunks = project!.workChunksWithDate(sunday)
         totalWork = totalWorkInSecondsForWorkChunks(sundayWorkChunks)
-        setupHorizontalBar(cell.sundayBar, totalWorkInSeconds: totalWork)
+        setupHorizontalBar(cell.sundayBar, totalWorkInSeconds: totalWork, date:sunday )
         let sundayContainerView = cell.sundayBar.superview!
         sundayContainerView.backgroundColor = Colors.almostBlack()
         cell.sundayLabel.textColor = Colors.silver()
@@ -130,11 +130,12 @@ class StatsTableDataSource: NSObject, UITableViewDataSource {
         return totalWorkInSeconds
     }
     
-    private func setupHorizontalBar(bar:HorizontalBarView, totalWorkInSeconds:Int) {
+    private func setupHorizontalBar(bar:HorizontalBarView, totalWorkInSeconds:Int, date:NSDate) {
         let eightHoursInSeconds = 8*3600
         bar.value = CGFloat(totalWorkInSeconds) / CGFloat(eightHoursInSeconds)
         bar.backgroundColor = Colors.almostBlack()
         bar.fillColor = Colors.azure()
         bar.labelText = workTimeFormatter.format(totalWorkInSeconds)
+        bar.date = date
     }
 }

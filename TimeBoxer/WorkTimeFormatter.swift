@@ -9,11 +9,7 @@
 import UIKit
 
 class WorkTimeFormatter: NSObject {
-    private let formatter = NSDateFormatter()
-    override init() {
-        super.init()
-        formatter.dateFormat = "h:m:s"
-    }
+
     func format(workTimeInSeconds:Int) -> String {
         let hours:Int = workTimeInSeconds / 3600
         let minutes:Int = (workTimeInSeconds % 3600) / 60

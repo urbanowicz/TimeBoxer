@@ -12,10 +12,19 @@ import UIKit
 class HorizontalBarView: UIView {
     var fillColor:UIColor = UIColor.redColor()
     var cornerRadius:CGFloat = CGFloat(0.0)
-    var value:CGFloat = CGFloat(1.0) //Value between 0.0 and 0.1
+    var date:NSDate?
+    var value:CGFloat = CGFloat(1.0) {
+        didSet {
+            setNeedsDisplay()
+        }
+    }//Value between 0.0 and 0.1
     private var innerLabel: UILabel
     private var outerLabel: UILabel
-    var labelText: String?
+    var labelText: String? {
+        didSet {
+            setNeedsDisplay()
+        }
+    }
     
     required init(coder aDecoder: NSCoder) {
         innerLabel = UILabel()
