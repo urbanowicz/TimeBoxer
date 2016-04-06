@@ -68,13 +68,20 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mwz-43-j4u" userLabel="Project Name Label">
-                                <rect key="frame" x="30" y="30" width="42" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Project name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mwz-43-j4u" userLabel="Project Name Label">
+                                <rect key="frame" x="30" y="30" width="101" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="singleLineEtched" rowHeight="486" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="7uQ-Cm-Ie9" userLabel="Stats Table View">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ePb-1J-qg0" userLabel="Separator">
+                                <rect key="frame" x="20" y="60" width="560" height="1"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="XZ2-gm-Jdz"/>
+                                </constraints>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="486" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="7uQ-Cm-Ie9" userLabel="Stats Table View">
                                 <rect key="frame" x="20" y="61" width="560" height="539"/>
                                 <color key="backgroundColor" red="1" green="1" blue="0.61176470589999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <inset key="separatorInset" minX="30" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -464,14 +471,18 @@
                             <constraint firstItem="30k-rV-2yN" firstAttribute="top" secondItem="7uQ-Cm-Ie9" secondAttribute="bottom" id="0rv-4T-GIf"/>
                             <constraint firstItem="7uQ-Cm-Ie9" firstAttribute="leading" secondItem="y0t-tH-WgZ" secondAttribute="leadingMargin" id="8iZ-bj-5Wq"/>
                             <constraint firstItem="7uQ-Cm-Ie9" firstAttribute="trailing" secondItem="y0t-tH-WgZ" secondAttribute="trailingMargin" id="NFa-aa-Nem"/>
+                            <constraint firstItem="7uQ-Cm-Ie9" firstAttribute="top" secondItem="ePb-1J-qg0" secondAttribute="bottom" id="Qzw-c5-Mtw"/>
+                            <constraint firstItem="ePb-1J-qg0" firstAttribute="leading" secondItem="7uQ-Cm-Ie9" secondAttribute="leading" id="RdA-rP-y8r"/>
                             <constraint firstItem="7uQ-Cm-Ie9" firstAttribute="top" secondItem="mwz-43-j4u" secondAttribute="bottom" constant="10" id="ScJ-rj-GzF"/>
                             <constraint firstItem="mwz-43-j4u" firstAttribute="leading" secondItem="y0t-tH-WgZ" secondAttribute="leadingMargin" constant="10" id="a7z-qB-OC9"/>
                             <constraint firstItem="mwz-43-j4u" firstAttribute="top" secondItem="om9-dy-SQy" secondAttribute="bottom" constant="10" id="cUz-dp-w5e"/>
+                            <constraint firstItem="ePb-1J-qg0" firstAttribute="width" secondItem="7uQ-Cm-Ie9" secondAttribute="width" id="fg9-lK-zRu"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="projectNameLabel" destination="mwz-43-j4u" id="Ui0-bV-x6h"/>
                         <outlet property="statsTableView" destination="7uQ-Cm-Ie9" id="FpK-tf-uyl"/>
+                        <outlet property="titleBarSeparator" destination="ePb-1J-qg0" id="aoz-u0-0cV"/>
                         <segue destination="gEt-rm-jX2" kind="unwind" identifier="EditProjectUnwind" unwindAction="editProjectUnwind:" id="mIW-4q-2Wz"/>
                     </connections>
                 </viewController>

@@ -14,6 +14,7 @@ class EditProjectViewController: UIViewController, UIGestureRecognizerDelegate {
     
     @IBOutlet weak var statsTableView: UITableView!
     @IBOutlet weak var projectNameLabel: UILabel!
+    @IBOutlet weak var titleBarSeparator: UIView!
     
     let statsTableDataSource = StatsTableDataSource()
     
@@ -22,6 +23,7 @@ class EditProjectViewController: UIViewController, UIGestureRecognizerDelegate {
         self.view.backgroundColor = Colors.almostBlack()
         setupStatsTableView()
         setupProjectNameLabel()
+        setupTitleBarSeparator()
         setupPanGestureRecognizer()
     }
     
@@ -38,6 +40,7 @@ class EditProjectViewController: UIViewController, UIGestureRecognizerDelegate {
         statsTableView.backgroundColor = Colors.almostBlack()
         statsTableView.dataSource = statsTableDataSource
         statsTableView.rowHeight = 400
+        statsTableView.separatorColor = Colors.silver()
     }
     
     private func setupProjectNameLabel() {
@@ -47,6 +50,9 @@ class EditProjectViewController: UIViewController, UIGestureRecognizerDelegate {
         projectNameLabel.sizeToFit()
     }
     
+    private func setupTitleBarSeparator() {
+        titleBarSeparator.backgroundColor = Colors.silver()
+    }
     
     //MARK: pan gesture recognizer
     private func setupPanGestureRecognizer() {
