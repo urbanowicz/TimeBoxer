@@ -31,7 +31,7 @@ class MyTableViewCell: UITableViewCell {
     func adjustFontSizeToFitTheFrame() {
         projectNameLabel.numberOfLines = 0
         projectNameLabel.lineBreakMode = NSLineBreakMode.ByTruncatingTail
-        let (_,  numberOfLines) = heightAndNumberOfLinesForLabel(projectNameLabel, maxWidth:projectNameLabel.frame.width)
+        let (_,  numberOfLines) = projectNameLabel.heightAndNumberOfLinesWithWidth(projectNameLabel.frame.width)
         if numberOfLines >= 2 {
             projectNameLabel.font = projectNameLabel.font.fontWithSize(14.0)
         }
@@ -43,15 +43,5 @@ class MyTableViewCell: UITableViewCell {
 //            (height, numberOfLines) = heightAndNumberOfLinesForLabel(projectNameLabel, maxWidth:projectNameLabel.frame.width)
 //        }
 
-    }
-    
-    private func heightAndNumberOfLinesForLabel(label:UILabel, maxWidth:CGFloat) -> (CGFloat, Int) {
-        let text = label.text! as NSString
-        let attributes = [NSFontAttributeName: label.font]
-        let frameSize = CGSizeMake(maxWidth, CGFloat.max)
-        let labelSize = text.boundingRectWithSize(frameSize, options: NSStringDrawingOptions.UsesLineFragmentOrigin, attributes: attributes, context: nil)
-        let height = labelSize.height
-        let numberOfLines = Int(ceil(height / label.font.lineHeight))
-        return (height:height, numberOfLines:numberOfLines)
     }
 }

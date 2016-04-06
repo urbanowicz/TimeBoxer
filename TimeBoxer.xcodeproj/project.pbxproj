@@ -43,6 +43,8 @@
 		F168FFFA1CB15ACB00F298BE /* WorkTimeFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F168FFF81CB15ACB00F298BE /* WorkTimeFormatter.swift */; };
 		F17CDF671C9191BD0042E927 /* ProjectsTableCellPanGestureDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17CDF661C9191BD0042E927 /* ProjectsTableCellPanGestureDelegate.swift */; };
 		F17F17B71C899A72003C04AC /* FadeInAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17F17B61C899A72003C04AC /* FadeInAnimator.swift */; };
+		F18449591CB54508008939DD /* UILabelExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F18449581CB54508008939DD /* UILabelExtension.swift */; };
+		F184495A1CB54508008939DD /* UILabelExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F18449581CB54508008939DD /* UILabelExtension.swift */; };
 		F188DA6F1C898890000E8AD2 /* ShrinkingCircleAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F188DA6E1C898890000E8AD2 /* ShrinkingCircleAnimator.swift */; };
 		F189A1B21BD8C0D3000FFC5F /* TimeSliderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F189A1B11BD8C0D3000FFC5F /* TimeSliderViewController.swift */; };
 		F18C2AD81C873A9A004A7B72 /* TimerDoneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F18C2AD71C873A9A004A7B72 /* TimerDoneViewController.swift */; };
@@ -122,6 +124,7 @@
 		F168FFF81CB15ACB00F298BE /* WorkTimeFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkTimeFormatter.swift; sourceTree = "<group>"; };
 		F17CDF661C9191BD0042E927 /* ProjectsTableCellPanGestureDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectsTableCellPanGestureDelegate.swift; sourceTree = "<group>"; };
 		F17F17B61C899A72003C04AC /* FadeInAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FadeInAnimator.swift; sourceTree = "<group>"; };
+		F18449581CB54508008939DD /* UILabelExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UILabelExtension.swift; sourceTree = "<group>"; };
 		F188DA6E1C898890000E8AD2 /* ShrinkingCircleAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShrinkingCircleAnimator.swift; sourceTree = "<group>"; };
 		F189A1B11BD8C0D3000FFC5F /* TimeSliderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeSliderViewController.swift; sourceTree = "<group>"; };
 		F18C2AD71C873A9A004A7B72 /* TimerDoneViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerDoneViewController.swift; sourceTree = "<group>"; };
@@ -315,6 +318,7 @@
 			children = (
 				F19133521CA844DD00CED170 /* NSDateExtension.swift */,
 				F19133541CA8478900CED170 /* NSCalendarExtension.swift */,
+				F18449581CB54508008939DD /* UILabelExtension.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -538,6 +542,7 @@
 				F11925211C8CB319002BEAC2 /* ProjectsTableToAddProjectAnimator.swift in Sources */,
 				F1A605361C81FBCA008EF288 /* UIControlsTestViewController.swift in Sources */,
 				F15F9C501BCCF376008733A3 /* AppDelegate.swift in Sources */,
+				F18449591CB54508008939DD /* UILabelExtension.swift in Sources */,
 				F189A1B21BD8C0D3000FFC5F /* TimeSliderViewController.swift in Sources */,
 				F19133551CA8478900CED170 /* NSCalendarExtension.swift in Sources */,
 				F137CD561C5D361B0005B51C /* ProjectsDAO.swift in Sources */,
@@ -596,6 +601,7 @@
 				F12E2C6F1CA84A90008DA69C /* NSDateExtension.swift in Sources */,
 				F10CA9C31C67E1970062471C /* ProjectTests.swift in Sources */,
 				F1A95C071C6BD55B00EF5204 /* LastWorkedOnDateFormatter.swift in Sources */,
+				F184495A1CB54508008939DD /* UILabelExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
