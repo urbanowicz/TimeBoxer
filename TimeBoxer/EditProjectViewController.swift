@@ -13,12 +13,15 @@ class EditProjectViewController: UIViewController, UIGestureRecognizerDelegate {
     var segueStarted:Bool = false
     
     @IBOutlet weak var statsTableView: UITableView!
+    @IBOutlet weak var projectNameLabel: UILabel!
+    
     let statsTableDataSource = StatsTableDataSource()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = Colors.almostBlack()
         setupStatsTableView()
+        setupProjectNameLabel()
         setupPanGestureRecognizer()
     }
     
@@ -35,6 +38,13 @@ class EditProjectViewController: UIViewController, UIGestureRecognizerDelegate {
         statsTableView.backgroundColor = Colors.almostBlack()
         statsTableView.dataSource = statsTableDataSource
         statsTableView.rowHeight = 400
+    }
+    
+    private func setupProjectNameLabel() {
+        projectNameLabel.font = UIFont(name: "Avenir Book", size: 16)
+        projectNameLabel.textColor = Colors.silver()
+        projectNameLabel.text = project!.name
+        projectNameLabel.sizeToFit()
     }
     
     
@@ -88,13 +98,5 @@ class EditProjectViewController: UIViewController, UIGestureRecognizerDelegate {
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         print("BEGIN Segue")
-    }
-}
-
-extension Double {
-    /// Rounds the double to decimal places value
-    func roundToPlaces(places:Int) -> Double {
-        let divisor = pow(10.0, Double(places))
-        return round(self * divisor) / divisor
     }
 }
