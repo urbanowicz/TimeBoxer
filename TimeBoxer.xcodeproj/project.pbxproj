@@ -247,8 +247,6 @@
 			children = (
 				F152EE8F1C5968D00090BECC /* Project.swift */,
 				F1EBB3E21C5AB93C005A36CE /* WorkChunk.swift */,
-				F19133521CA844DD00CED170 /* NSDateExtension.swift */,
-				F19133541CA8478900CED170 /* NSCalendarExtension.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -275,6 +273,7 @@
 		F15F9C4E1BCCF376008733A3 /* TimeBoxer */ = {
 			isa = PBXGroup;
 			children = (
+				F18449571CB5448A008939DD /* Extensions */,
 				F1CC0EEB1C69284A0090D76D /* TimeBoxerPlayground.playground */,
 				F152EE8E1C5968B30090BECC /* Model */,
 				F1B5FE6B1C31AF45003A5C65 /* Segues */,
@@ -309,6 +308,15 @@
 				F1981B9F1C84DF8F00F49454 /* SliderOutputToValueConverterTests.swift */,
 			);
 			path = TimeBoxer_Tests;
+			sourceTree = "<group>";
+		};
+		F18449571CB5448A008939DD /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				F19133521CA844DD00CED170 /* NSDateExtension.swift */,
+				F19133541CA8478900CED170 /* NSCalendarExtension.swift */,
+			);
+			name = Extensions;
 			sourceTree = "<group>";
 		};
 		F18C2AD91C873AA0004A7B72 /* TimerDoneVC */ = {
