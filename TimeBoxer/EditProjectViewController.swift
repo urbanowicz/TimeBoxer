@@ -29,6 +29,7 @@ class EditProjectViewController: UIViewController, UIGestureRecognizerDelegate {
     
     override func viewWillAppear(animated: Bool) {
         statsTableDataSource.project = project
+        adjustFontSizeForProjectNameLabel()
     }
 
     override func didReceiveMemoryWarning() {
@@ -47,7 +48,16 @@ class EditProjectViewController: UIViewController, UIGestureRecognizerDelegate {
         projectNameLabel.font = UIFont(name: "Avenir Book", size: 16)
         projectNameLabel.textColor = Colors.silver()
         projectNameLabel.text = project!.name
-        projectNameLabel.sizeToFit()
+    }
+    
+    private func adjustFontSizeForProjectNameLabel() {
+        projectNameLabel.numberOfLines = 0
+        projectNameLabel.lineBreakMode = NSLineBreakMode.ByTruncatingTail
+        let (_,  numberOfLines) = projectNameLabel.heightAndNumberOfLinesWithWidth(projectNameLabel.frame.width)
+        if numberOfLines >= 2 {
+            projectNameLabel.font = projectNameLabel.font.fontWithSize(14.0)
+        }
+
     }
     
     private func setupTitleBarSeparator() {

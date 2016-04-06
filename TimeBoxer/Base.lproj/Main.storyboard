@@ -69,7 +69,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Project name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mwz-43-j4u" userLabel="Project Name Label">
-                                <rect key="frame" x="30" y="30" width="101" height="21"/>
+                                <rect key="frame" x="30" y="30" width="490" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -476,6 +476,7 @@
                             <constraint firstItem="7uQ-Cm-Ie9" firstAttribute="top" secondItem="mwz-43-j4u" secondAttribute="bottom" constant="10" id="ScJ-rj-GzF"/>
                             <constraint firstItem="mwz-43-j4u" firstAttribute="leading" secondItem="y0t-tH-WgZ" secondAttribute="leadingMargin" constant="10" id="a7z-qB-OC9"/>
                             <constraint firstItem="mwz-43-j4u" firstAttribute="top" secondItem="om9-dy-SQy" secondAttribute="bottom" constant="10" id="cUz-dp-w5e"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="mwz-43-j4u" secondAttribute="trailing" constant="60" id="ddG-2M-562"/>
                             <constraint firstItem="ePb-1J-qg0" firstAttribute="width" secondItem="7uQ-Cm-Ie9" secondAttribute="width" id="fg9-lK-zRu"/>
                         </constraints>
                     </view>
