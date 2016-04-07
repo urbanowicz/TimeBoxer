@@ -41,10 +41,6 @@ class Colors: NSObject {
         return UIColor(red:0.804, green:0.804, blue:0.804, alpha:1.0)
     }
     
-    static func seafoam() -> UIColor {
-        return UIColor(red: 0.902, green: 1, blue: 0.914, alpha:1)
-    }
-    
     static func oceanBlue() -> UIColor {
         return UIColor(red:0.243, green:0.325, blue:0.404, alpha:1)
     }

@@ -27,7 +27,7 @@ class TimerDoneViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = Colors.seafoam()
+        view.backgroundColor = Colors.golden()
         
         hideAllLabels()
         
@@ -93,9 +93,9 @@ class TimerDoneViewController: UIViewController {
     
     private func setupOKButton() {
         okButton.borderColor = Colors.almostBlack()
-        okButton.ovalLayerColor = Colors.seafoam()
+        okButton.ovalLayerColor = Colors.golden()
         okButton.frontLayerStrokeColor = Colors.almostBlack()
-        okButton.ovalLayerHighlightedColor = Colors.seafoam()
+        okButton.ovalLayerHighlightedColor = Colors.golden()
         okButton.frontLayerHighlighteStrokeColor = Colors.almostBlack()
         okButton.borderWidth = 2.0
     }
