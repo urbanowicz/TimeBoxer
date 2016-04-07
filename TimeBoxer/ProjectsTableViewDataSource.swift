@@ -49,8 +49,8 @@ class ProjectsTableViewDataSource: NSObject, UITableViewDataSource {
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier(projectsTableId) as! MyTableViewCell
         cell.project = projects[indexPath.row]
+        cell.facadeView.backgroundColor = Colors.almostBlack()
         setupPanGestureRecognizerForCell(cell)
-        setupSeparatorInsetsForCell(cell)
         setupLastWorkedOnLabelForCell(cell, indexPath: indexPath)
         setupProjectNameLabelForCell(cell, indexPath: indexPath)
         setupLeftDrawerForCell(cell)
@@ -68,21 +68,16 @@ class ProjectsTableViewDataSource: NSObject, UITableViewDataSource {
         cell.addGestureRecognizer(panGestureRecognizer)
     }
     
-    private func setupSeparatorInsetsForCell(cell:MyTableViewCell) {
-        cell.preservesSuperviewLayoutMargins = false
-        cell.separatorInset = UIEdgeInsetsZero
-        cell.layoutMargins = UIEdgeInsetsZero
-    }
     
     private func setupLastWorkedOnLabelForCell(cell:MyTableViewCell, indexPath:NSIndexPath) {
         cell.lastWorkedOnLabel.text =
             lastWorkedOnDateFormatter.formatLastWorkedOnString(projects[indexPath.row].lastWrokedOn())
-        cell.lastWorkedOnLabel.textColor = Colors.lightGray()
+        cell.lastWorkedOnLabel.textColor = Colors.azure()
     }
     
     private func setupProjectNameLabelForCell(cell:MyTableViewCell, indexPath:NSIndexPath) {
         cell.projectNameLabel.text = projects[indexPath.row].name
-        cell.projectNameLabel.textColor = Colors.almostBlack()
+        cell.projectNameLabel.textColor = Colors.silver()
     }
     
     private func setupLeftDrawerForCell(cell:MyTableViewCell) {

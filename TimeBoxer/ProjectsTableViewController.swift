@@ -10,7 +10,6 @@ import UIKit
 
 class ProjectsTableViewController: UIViewController, UITableViewDelegate {
 
-    @IBOutlet weak var titleBar: TitleBar!
     @IBOutlet weak var timeBoxerLabel: UILabel!
     @IBOutlet weak var projectsTableView: UITableView!
     @IBOutlet weak var addProjectButton: AddButton!
@@ -37,7 +36,7 @@ class ProjectsTableViewController: UIViewController, UITableViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         //Setup UI elements
-        setupTitleBar()
+        view.backgroundColor = Colors.almostBlack()
         setupAddProjectButton()
         setupProjectsTable()
         setupAppTitleLabel()
@@ -85,17 +84,13 @@ class ProjectsTableViewController: UIViewController, UITableViewDelegate {
     }
     
     //MARK: Setup UI Elements
-    private func setupTitleBar() {
-        titleBar.fillColor = Colors.almostBlack()
-        titleBar.cornerRadius = 6
-    }
     
     private func setupProjectsTable() {
         projectsTableDataSource.projectsTableViewController = self
         projectsTableView.delegate = self
+        projectsTableView.backgroundColor = Colors.almostBlack()
         projectsTableView.dataSource = projectsTableDataSource
-        projectsTableView.separatorColor = Colors.veryLightGray()
-        projectsTableView.separatorInset = UIEdgeInsetsZero
+        projectsTableView.separatorStyle = UITableViewCellSeparatorStyle.None
     }
     
     private func setupAppTitleLabel() {
