@@ -27,7 +27,7 @@ class TimerRunningViewController: UIViewController {
     override func viewDidLoad()
     {
         super.viewDidLoad()
-        view.backgroundColor = Colors.toUIColor(.OFF_WHITE)!
+        view.backgroundColor = Colors.silver()
         setupAppTitleLabel()
         setupProjectNameLabel()
         setupTimeLabel()
@@ -49,12 +49,12 @@ class TimerRunningViewController: UIViewController {
 
 //MARK: Setup UI elements
     private func setupAppTitleLabel() {
-        appTitleLabel.textColor = Colors.toUIColor(.ALMOST_BLACK)
+        appTitleLabel.textColor = Colors.almostBlack()
         appTitleLabel.sizeToFit()
     }
     
     private func setupProjectNameLabel() {
-        projectNameLabel.textColor = Colors.toUIColor(.ALMOST_BLACK)
+        projectNameLabel.textColor = Colors.almostBlack()
         projectNameLabel.text = projectName!
         projectNameLabel.numberOfLines = 4
         projectNameLabel.adjustsFontSizeToFitWidth = true
@@ -62,15 +62,15 @@ class TimerRunningViewController: UIViewController {
     }
     
     private func setupTimeLabel() {
-        timeLabel.textColor = Colors.toUIColor(.ALMOST_BLACK)
+        timeLabel.textColor = Colors.almostBlack()
     }
     
     private func setupPauseButton() {
-        pauseButton.borderColor = Colors.toUIColor(.ALMOST_BLACK)!
-        pauseButton.ovalLayerColor = Colors.toUIColor(.OFF_WHITE)!
-        pauseButton.frontLayerColor = Colors.toUIColor(.ALMOST_BLACK)!
-        pauseButton.ovalLayerHighlightedColor = Colors.toUIColor(.ALMOST_BLACK)!
-        pauseButton.frontLayerHighlightedColor = Colors.toUIColor(.OFF_WHITE)!
+        pauseButton.borderColor = Colors.almostBlack()
+        pauseButton.ovalLayerColor = Colors.silver()
+        pauseButton.frontLayerColor = Colors.almostBlack()
+        pauseButton.ovalLayerHighlightedColor = Colors.almostBlack()
+        pauseButton.frontLayerHighlightedColor = Colors.silver()
         pauseButton.borderWidth = 2.0
     }
     

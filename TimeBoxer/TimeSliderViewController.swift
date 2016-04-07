@@ -26,7 +26,7 @@ class TimeSliderViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         //projectName = "Read \"On Intelligence\" and implement the MIDI encoder for the NUPIC platform"
-        view.backgroundColor = Colors.toUIColor(.ALMOST_BLACK)
+        view.backgroundColor = Colors.almostBlack()
         setupStartButton()
         setupTimeLabel()
         setupTimeSlider()
@@ -42,16 +42,16 @@ class TimeSliderViewController: UIViewController {
     
 //MARK: Setup UI elements
     private func setupStartButton() {
-        startButton.borderColor = Colors.toUIColor(.OFF_WHITE)!
-        startButton.ovalLayerColor = Colors.toUIColor(.ALMOST_BLACK)!
-        startButton.frontLayerColor = Colors.toUIColor(.OFF_WHITE)!
-        startButton.ovalLayerHighlightedColor = Colors.toUIColor(.OFF_WHITE)!
-        startButton.frontLayerHighlightedColor = Colors.toUIColor(.ALMOST_BLACK)!
+        startButton.borderColor = Colors.silver()
+        startButton.ovalLayerColor = Colors.almostBlack()
+        startButton.frontLayerColor = Colors.silver()
+        startButton.ovalLayerHighlightedColor = Colors.silver()
+        startButton.frontLayerHighlightedColor = Colors.almostBlack()
         startButton.borderWidth = 2.0
     }
     
     private func setupProjectNameLabel() {
-        projectNameLabel.textColor = Colors.toUIColor(.OFF_WHITE)
+        projectNameLabel.textColor = Colors.silver()
         projectNameLabel.text = projectName!
         projectNameLabel.numberOfLines = 4
         projectNameLabel.adjustsFontSizeToFitWidth = true
@@ -59,14 +59,14 @@ class TimeSliderViewController: UIViewController {
     }
     
     private func setupTimeLabel() {
-        timeLabel.backgroundColor = Colors.toUIColor(.ALMOST_BLACK)
-        timeLabel.textColor = Colors.toUIColor(.OFF_WHITE)
+        timeLabel.backgroundColor = Colors.almostBlack()
+        timeLabel.textColor = Colors.silver()
         timeLabel.text = "5 minutes"
         timeLabel.sizeToFit()
     }
     
     private func setupTimeSlider() {
-        timeSlider.fillColor = Colors.toUIColor(.AZURE)!
+        timeSlider.fillColor = Colors.azure()
         timeSlider.addTarget(self, action: "timeSliderValueChanged", forControlEvents: UIControlEvents.ValueChanged)
     }
     

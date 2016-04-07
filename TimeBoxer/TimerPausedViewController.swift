@@ -23,7 +23,7 @@ class TimerPausedViewController: UIViewController {
     override func viewDidLoad()
     {
         super.viewDidLoad()
-        view.backgroundColor = Colors.toUIColor(.ALMOST_BLACK)
+        view.backgroundColor = Colors.almostBlack()
         setupAppTitleLabel()
         setupResumeButton()
         setupCancelButton()
@@ -38,37 +38,37 @@ class TimerPausedViewController: UIViewController {
     
 //MARK: Setup UI elements
     private func setupAppTitleLabel() {
-        appTitleLabel.textColor = Colors.toUIColor(.OFF_WHITE)
+        appTitleLabel.textColor = Colors.silver()
     }
     private func setupResumeButton() {
-        resumeButton.borderColor = Colors.toUIColor(.OFF_WHITE)!
-        resumeButton.ovalLayerColor = Colors.toUIColor(.ALMOST_BLACK)!
-        resumeButton.frontLayerColor = Colors.toUIColor(.OFF_WHITE)!
-        resumeButton.ovalLayerHighlightedColor = Colors.toUIColor(.OFF_WHITE)!
-        resumeButton.frontLayerHighlightedColor = Colors.toUIColor(.ALMOST_BLACK)!
+        resumeButton.borderColor = Colors.silver()
+        resumeButton.ovalLayerColor = Colors.almostBlack()
+        resumeButton.frontLayerColor = Colors.silver()
+        resumeButton.ovalLayerHighlightedColor = Colors.silver()
+        resumeButton.frontLayerHighlightedColor = Colors.almostBlack()
         resumeButton.borderWidth = 2.0
     }
     
     private func setupCancelButton() {
-        cancelButton.borderColor = Colors.toUIColor(.OFF_WHITE)!
-        cancelButton.ovalLayerColor = Colors.toUIColor(.ALMOST_BLACK)!
-        cancelButton.frontLayerColor = Colors.toUIColor(.OFF_WHITE)!
-        cancelButton.ovalLayerHighlightedColor = Colors.toUIColor(.OFF_WHITE)!
-        cancelButton.frontLayerHighlightedColor = Colors.toUIColor(.ALMOST_BLACK)!
+        cancelButton.borderColor = Colors.silver()
+        cancelButton.ovalLayerColor = Colors.almostBlack()
+        cancelButton.frontLayerColor = Colors.silver()
+        cancelButton.ovalLayerHighlightedColor = Colors.silver()
+        cancelButton.frontLayerHighlightedColor = Colors.almostBlack()
         cancelButton.borderWidth = 2.0
     }
     
     private func setupStopButton() {
-        stopButton.borderColor = Colors.toUIColor(.OFF_WHITE)!
-        stopButton.ovalLayerColor = Colors.toUIColor(.ALMOST_BLACK)!
-        stopButton.frontLayerColor = Colors.toUIColor(.OFF_WHITE)!
-        stopButton.ovalLayerHighlightedColor = Colors.toUIColor(.OFF_WHITE)!
-        stopButton.frontLayerHighlightedColor = Colors.toUIColor(.ALMOST_BLACK)!
+        stopButton.borderColor = Colors.golden()
+        stopButton.ovalLayerColor = Colors.almostBlack()
+        stopButton.frontLayerColor = Colors.golden()
+        stopButton.ovalLayerHighlightedColor = Colors.golden()
+        stopButton.frontLayerHighlightedColor = Colors.almostBlack()
         stopButton.borderWidth = 2.0
     }
     
     private func setupPausedLabel() {
-        pausedLabel.textColor = Colors.toUIColor(.OFF_WHITE)!
+        pausedLabel.textColor = Colors.silver()
     }
     
 //MARK: Actions

@@ -11,7 +11,6 @@ import UIKit
 class Colors: NSObject {
     private static var colorNameToUIColor : [ColorName : UIColor] =
     [
-        ColorName.ALMOST_BLACK : UIColor(white:0.15, alpha:1.0),
         ColorName.WHITE : UIColor(white:1.0, alpha:1.0),
         ColorName.OFF_WHITE : UIColor(red:1.0, green:0.945, blue: 0.902, alpha:1.0),
         ColorName.LIGHT_GRAY : UIColor(white:0.52, alpha:1.0),
@@ -24,9 +23,7 @@ class Colors: NSObject {
         return colorNameToUIColor[colorName]
     }
     
-    static func almostBlack() -> UIColor {
-        return UIColor(red:0.06, green:0.06, blue:0.06, alpha:1.0)
-    }
+
     
     static func offWhite() -> UIColor {
         return UIColor(red:1.0, green:0.945, blue: 0.902, alpha:1.0)
@@ -42,10 +39,6 @@ class Colors: NSObject {
     
     static func kindOfGray() -> UIColor {
         return UIColor(red:0.804, green:0.804, blue:0.804, alpha:1.0)
-    }
-    
-    static func azure() -> UIColor {
-        return UIColor(red:0.58, green:1.00, blue:1.00, alpha:1.0)
     }
     
     static func seafoam() -> UIColor {
@@ -64,7 +57,21 @@ class Colors: NSObject {
         return UIColor(red:0.29, green:0.263, blue:0.478, alpha:1.0)
     }
     
+    
+    //New Colors
+    static func almostBlack() -> UIColor {
+        return UIColor(red:0.06, green:0.06, blue:0.06, alpha:1.0)
+    }
+    
+    static func azure() -> UIColor {
+        return UIColor(red:0.58, green:1.00, blue:1.00, alpha:1.0)
+    }
+    
     static func silver() -> UIColor {
         return UIColor(red:0.85, green:0.90, blue:0.93, alpha:1.0)
+    }
+    
+    static func golden() -> UIColor {
+        return UIColor(red:0.93, green:0.93, blue:0.85, alpha:1.0)
     }
 }
