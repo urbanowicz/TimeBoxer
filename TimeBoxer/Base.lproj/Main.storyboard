@@ -1008,6 +1008,13 @@
                                                         <constraint firstItem="7IU-v6-3z2" firstAttribute="centerY" secondItem="TIa-hQ-MXw" secondAttribute="centerY" id="yjB-Sk-5Kx"/>
                                                     </constraints>
                                                 </view>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Umc-4T-xor" userLabel="Cell Separator">
+                                                    <rect key="frame" x="0.0" y="69" width="600" height="1"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="1" id="Isw-4F-yB9"/>
+                                                    </constraints>
+                                                </view>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="bottom" secondItem="AfP-3Y-hfO" secondAttribute="bottom" id="2SA-Ir-Lns"/>
@@ -1022,7 +1029,13 @@
                                                 <constraint firstItem="TIa-hQ-MXw" firstAttribute="leading" secondItem="kl5-Ye-dlE" secondAttribute="leading" id="veR-4Z-cSy"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="Umc-4T-xor" secondAttribute="bottom" id="BAv-he-hxt"/>
+                                            <constraint firstItem="Umc-4T-xor" firstAttribute="leading" secondItem="RJ9-tz-21q" secondAttribute="leading" id="yg2-Dy-eAL"/>
+                                            <constraint firstAttribute="trailing" secondItem="Umc-4T-xor" secondAttribute="trailing" id="yqz-hw-Q1C"/>
+                                        </constraints>
                                         <connections>
+                                            <outlet property="cellSeparator" destination="Umc-4T-xor" id="QOv-gg-XAH"/>
                                             <outlet property="facadeView" destination="TIa-hQ-MXw" id="Ly4-GG-eEV"/>
                                             <outlet property="lastWorkedOnLabel" destination="7IU-v6-3z2" id="TRf-FM-8Gw"/>
                                             <outlet property="leftDrawer" destination="AfP-3Y-hfO" id="EZ2-54-xqZ"/>

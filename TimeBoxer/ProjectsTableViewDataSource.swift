@@ -55,6 +55,7 @@ class ProjectsTableViewDataSource: NSObject, UITableViewDataSource {
         setupProjectNameLabelForCell(cell, indexPath: indexPath)
         setupLeftDrawerForCell(cell)
         setupRightDrawerForCell(cell)
+        setupCellSeparatorForCell(cell)
         return cell
     }
     
@@ -86,5 +87,9 @@ class ProjectsTableViewDataSource: NSObject, UITableViewDataSource {
     
     private func setupRightDrawerForCell(cell:MyTableViewCell) {
         cell.rightDrawer.backgroundColor = UIColor.greenColor()
+    }
+    
+    private func setupCellSeparatorForCell(cell:MyTableViewCell) {
+        cell.cellSeparator.backgroundColor = Colors.veryLightGray()
     }
 }

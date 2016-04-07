@@ -12,9 +12,9 @@ class MyTableViewCell: UITableViewCell {
     var project:Project?
     var panGestureRecognizerDelegate:ProjectsTableCellPanGestureDelegate?
     
+    @IBOutlet weak var cellSeparator: UIView!
     @IBOutlet weak var lastWorkedOnLabel: UILabel!
     @IBOutlet weak var projectNameLabel: UILabel!
-    
     @IBOutlet weak var facadeView: UIView!
     @IBOutlet weak var leftDrawer: UIView!
     @IBOutlet weak var rightDrawer: UIView!
