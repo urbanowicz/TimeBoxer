@@ -945,6 +945,13 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ln0-07-a9F" userLabel="Title Bar Separator">
+                                <rect key="frame" x="0.0" y="59" width="600" height="1"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="g8I-uZ-8CP"/>
+                                </constraints>
+                            </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eGy-rW-UYM" userLabel="Add Project Button" customClass="AddButton" customModule="TimeBoxer" customModuleProvider="target">
                                 <rect key="frame" x="240" y="460" width="120" height="120"/>
                                 <constraints>
@@ -1071,6 +1078,7 @@
                         <constraints>
                             <constraint firstItem="upn-os-BC1" firstAttribute="top" secondItem="P0n-w1-o3y" secondAttribute="bottom" constant="120" id="3yH-Eq-DGq"/>
                             <constraint firstItem="P0n-w1-o3y" firstAttribute="top" secondItem="rVO-On-1e2" secondAttribute="bottom" constant="11" id="6XL-hr-vV7"/>
+                            <constraint firstItem="ln0-07-a9F" firstAttribute="leading" secondItem="3oU-0d-xxl" secondAttribute="leading" id="DlZ-S7-UE4"/>
                             <constraint firstItem="rVO-On-1e2" firstAttribute="centerX" secondItem="3oU-0d-xxl" secondAttribute="centerX" id="HCM-yu-ssD"/>
                             <constraint firstItem="eGy-rW-UYM" firstAttribute="width" secondItem="3oU-0d-xxl" secondAttribute="width" multiplier="0.2" id="N8G-iZ-Zr0"/>
                             <constraint firstItem="jJ5-tZ-w2O" firstAttribute="centerY" secondItem="3oU-0d-xxl" secondAttribute="centerY" id="PkO-94-BVc"/>
@@ -1078,9 +1086,11 @@
                             <constraint firstItem="eGy-rW-UYM" firstAttribute="centerX" secondItem="3oU-0d-xxl" secondAttribute="centerX" id="g8C-TM-OTn"/>
                             <constraint firstItem="upn-os-BC1" firstAttribute="top" secondItem="eGy-rW-UYM" secondAttribute="bottom" constant="20" id="hyN-Xq-tOY"/>
                             <constraint firstItem="POc-bX-K55" firstAttribute="height" relation="lessThanOrEqual" secondItem="3oU-0d-xxl" secondAttribute="height" multiplier="0.2" id="jDT-8N-yhB"/>
+                            <constraint firstItem="ln0-07-a9F" firstAttribute="bottom" secondItem="P0n-w1-o3y" secondAttribute="top" id="kGN-P5-74r"/>
                             <constraint firstItem="POc-bX-K55" firstAttribute="width" relation="lessThanOrEqual" secondItem="3oU-0d-xxl" secondAttribute="width" multiplier="0.7" id="lZY-rD-bbd"/>
                             <constraint firstItem="P0n-w1-o3y" firstAttribute="leading" secondItem="3oU-0d-xxl" secondAttribute="leading" id="lqF-L3-bYg"/>
                             <constraint firstItem="rVO-On-1e2" firstAttribute="top" secondItem="YAL-US-Not" secondAttribute="bottom" constant="10" id="nyO-8I-khZ"/>
+                            <constraint firstAttribute="trailing" secondItem="ln0-07-a9F" secondAttribute="trailing" id="sz7-di-msa"/>
                             <constraint firstItem="jJ5-tZ-w2O" firstAttribute="centerX" secondItem="3oU-0d-xxl" secondAttribute="centerX" id="t1g-lD-Q8W"/>
                         </constraints>
                     </view>
@@ -1090,6 +1100,7 @@
                         <outlet property="projectsTableView" destination="P0n-w1-o3y" id="Smk-7W-4II"/>
                         <outlet property="stackView" destination="jJ5-tZ-w2O" id="XIq-2r-KqW"/>
                         <outlet property="timeBoxerLabel" destination="rVO-On-1e2" id="fbK-b8-DXi"/>
+                        <outlet property="titleBarSeparator" destination="ln0-07-a9F" id="b7N-Im-DiL"/>
                         <outlet property="useAddButtonLabel" destination="jW6-zk-wqc" id="FPx-pl-unb"/>
                         <segue destination="jvt-N1-OsS" kind="presentation" identifier="ProjectsTableToEditProject" modalPresentationStyle="overFullScreen" id="0on-dg-3dk"/>
                     </connections>

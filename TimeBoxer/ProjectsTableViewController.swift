@@ -11,6 +11,7 @@ import UIKit
 class ProjectsTableViewController: UIViewController, UITableViewDelegate {
 
     @IBOutlet weak var timeBoxerLabel: UILabel!
+    @IBOutlet weak var titleBarSeparator: UIView!
     @IBOutlet weak var projectsTableView: UITableView!
     @IBOutlet weak var addProjectButton: AddButton!
     
@@ -40,6 +41,7 @@ class ProjectsTableViewController: UIViewController, UITableViewDelegate {
         setupAddProjectButton()
         setupProjectsTable()
         setupAppTitleLabel()
+        setupTitleBarSeparator()
         setupNoProjectsLabel()
         setupUseAddButtonLabel()
     }
@@ -116,6 +118,10 @@ class ProjectsTableViewController: UIViewController, UITableViewDelegate {
         useAddButtonLabel.textColor = Colors.lightGray()
         useAddButtonLabel.numberOfLines = 2
         useAddButtonLabel.lineBreakMode = NSLineBreakMode.ByWordWrapping
+    }
+    
+    private func setupTitleBarSeparator() {
+        titleBarSeparator.backgroundColor = Colors.veryLightGray()
     }
     
     func cellAtPoint(point:CGPoint) -> MyTableViewCell? {
