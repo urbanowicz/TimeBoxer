@@ -54,16 +54,16 @@ class AddProjectViewController: UIViewController, UITextFieldDelegate {
     }
 
     private func setupNewProjectLabel() {
-        newProjectLabel.textColor = Colors.offWhite()
+        newProjectLabel.textColor = Colors.silver()
     }
     
     private func setupXButton() {
         xButton.borderWidth = 0.0
         xButton.strokeWidth = 1.5
         xButton.ovalLayerColor = Colors.purple()
-        xButton.frontLayerStrokeColor = Colors.offWhite()
+        xButton.frontLayerStrokeColor = Colors.silver()
         xButton.ovalLayerHighlightedColor = Colors.purple()
-        xButton.frontLayerHighlighteStrokeColor = Colors.offWhite()
+        xButton.frontLayerHighlighteStrokeColor = Colors.silver()
     }
     private func setupProjectNameTextField() {
         projectNameTextField.delegate = self

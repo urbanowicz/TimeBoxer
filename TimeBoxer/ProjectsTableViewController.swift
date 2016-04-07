@@ -86,7 +86,7 @@ class ProjectsTableViewController: UIViewController, UITableViewDelegate {
     
     //MARK: Setup UI Elements
     private func setupTitleBar() {
-        titleBar.fillColor = Colors.oceanBlue()
+        titleBar.fillColor = Colors.almostBlack()
         titleBar.cornerRadius = 6
     }
     
@@ -99,20 +99,20 @@ class ProjectsTableViewController: UIViewController, UITableViewDelegate {
     }
     
     private func setupAppTitleLabel() {
-        timeBoxerLabel.textColor = Colors.offWhite()
+        timeBoxerLabel.textColor = Colors.silver()
     }
     
     private func setupAddProjectButton() {
-        addProjectButton.borderColor = Colors.kindOfGray()
-        addProjectButton.ovalLayerColor = UIColor.whiteColor()
-        addProjectButton.frontLayerColor = Colors.kindOfGray()
-        addProjectButton.ovalLayerHighlightedColor = Colors.kindOfGray()
-        addProjectButton.frontLayerHighlightedColor = UIColor.whiteColor()
+        addProjectButton.borderColor = Colors.silver()
+        addProjectButton.ovalLayerColor = Colors.almostBlack()
+        addProjectButton.frontLayerColor = Colors.silver()
+        addProjectButton.ovalLayerHighlightedColor = Colors.silver()
+        addProjectButton.frontLayerHighlightedColor = Colors.almostBlack()
         addProjectButton.borderWidth = 2.0
     }
     
     private func setupNoProjectsLabel() {
-        noProjectsLabel.textColor = Colors.almostBlack()
+        noProjectsLabel.textColor = Colors.silver()
         noProjectsLabel.numberOfLines = 2
         noProjectsLabel.lineBreakMode = NSLineBreakMode.ByWordWrapping
     }

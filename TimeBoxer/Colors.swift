@@ -23,12 +23,6 @@ class Colors: NSObject {
         return colorNameToUIColor[colorName]
     }
     
-
-    
-    static func offWhite() -> UIColor {
-        return UIColor(red:1.0, green:0.945, blue: 0.902, alpha:1.0)
-    }
-    
     static func lightGray() -> UIColor {
         return UIColor(white:0.52, alpha:1.0)
     }
