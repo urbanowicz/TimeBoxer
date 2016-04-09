@@ -59,11 +59,13 @@ class ProjectsTableViewController: UIViewController, UITableViewDelegate {
                 useAddButtonLabel.hidden = false
                 stackView.hidden = false
                 projectsTableView.hidden = true
+                titleBarSeparator.hidden = true
             } else {
                 noProjectsLabel.hidden = true
                 useAddButtonLabel.hidden = true
                 stackView.hidden = true
                 projectsTableView.hidden = false
+                titleBarSeparator.hidden = false
                 projectsTableView.reloadData()
             }
         } else {

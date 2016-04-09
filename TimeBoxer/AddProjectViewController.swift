@@ -24,6 +24,7 @@ class AddProjectViewController: UIViewController, UITextFieldDelegate {
     {
         super.viewDidLoad()
         registerForKeyboardNotifications()
+        view.backgroundColor = Colors.almostBlack()
         setupTitleBar()
         setupNewProjectLabel()
         setupXButton()
@@ -49,8 +50,8 @@ class AddProjectViewController: UIViewController, UITextFieldDelegate {
 //MARK: Setup UI Elements
     
     private func setupTitleBar() {
-        titleBar.fillColor = Colors.purple()
-        titleBar.cornerRadius = 6.0
+        titleBar.fillColor = Colors.almostBlack()
+        titleBar.cornerRadius = 0
     }
 
     private func setupNewProjectLabel() {
@@ -60,14 +61,14 @@ class AddProjectViewController: UIViewController, UITextFieldDelegate {
     private func setupXButton() {
         xButton.borderWidth = 0.0
         xButton.strokeWidth = 1.5
-        xButton.ovalLayerColor = Colors.purple()
+        xButton.ovalLayerColor = Colors.almostBlack()
         xButton.frontLayerStrokeColor = Colors.silver()
-        xButton.ovalLayerHighlightedColor = Colors.purple()
+        xButton.ovalLayerHighlightedColor = Colors.almostBlack()
         xButton.frontLayerHighlighteStrokeColor = Colors.silver()
     }
     private func setupProjectNameTextField() {
         projectNameTextField.delegate = self
-        projectNameTextField.textColor = Colors.almostBlack()
+        projectNameTextField.textColor = Colors.silver()
         projectNameTextField.adjustsFontSizeToFitWidth = true
     }
     private func setupLineSeparator() {
