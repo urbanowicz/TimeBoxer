@@ -14,7 +14,6 @@ class TimerRunningViewController: UIViewController {
     @IBOutlet weak var appTitleLabel: UILabel!
     @IBOutlet weak var projectNameLabel: UILabel!
     
-    var projectName:String?
     var numberOfSecondsToCountDown = 0 //number of seconds
     var numberOfSecondsTheTimerWasSetTo = 0
     var project: Project?
@@ -54,7 +53,7 @@ class TimerRunningViewController: UIViewController {
     
     private func setupProjectNameLabel() {
         projectNameLabel.textColor = Colors.almostBlack()
-        projectNameLabel.text = projectName!
+        projectNameLabel.text = project!.name
         projectNameLabel.numberOfLines = 4
         projectNameLabel.adjustsFontSizeToFitWidth = true
         projectNameLabel.sizeToFit()
@@ -106,7 +105,7 @@ class TimerRunningViewController: UIViewController {
                 let timerDoneVC = segue.destinationViewController as! TimerDoneViewController
                 timerDoneVC.numberOfSecondsTheTimerWasSetTo = numberOfSecondsTheTimerWasSetTo
                 timerDoneVC.numberOfSecondsToCountDown = 0
-                timerDoneVC.projectName = projectName
+                timerDoneVC.projectName = project!.name
                 timerDoneVC.project = project
             }
         }

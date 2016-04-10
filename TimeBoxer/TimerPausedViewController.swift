@@ -110,14 +110,12 @@ class TimerPausedViewController: UIViewController {
             if segueIdentifier == "TimerPausedToTimerRunning" {
                 let timerRunningVC = segue.destinationViewController as! TimerRunningViewController
                 timerRunningVC.numberOfSecondsToCountDown = numberOfSecondsToCountDown
-                timerRunningVC.projectName = project!.name
                 timerRunningVC.project = project
                 timerRunningVC.numberOfSecondsTheTimerWasSetTo = numberOfSecondsTheTimerWasSetTo
                 return
             }
             if segueIdentifier == "TimerPausedToTimeSlider" {
                 let timeSliderVC = segue.destinationViewController as! TimeSliderViewController
-                timeSliderVC.projectName = project!.name
                 timeSliderVC.project = project
                 return
             }

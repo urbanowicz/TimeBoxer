@@ -15,7 +15,6 @@ class TimeSliderViewController: UIViewController {
     @IBOutlet weak var projectNameLabel: UILabel!
     @IBOutlet weak var timeLabel: UILabel!
     
-    var projectName:String?
     var project:Project?
     
     private let sliderToMinutesConverter = SliderOutputToValueConverter(maxValue: 120, resolution: 5)
@@ -52,7 +51,7 @@ class TimeSliderViewController: UIViewController {
     
     private func setupProjectNameLabel() {
         projectNameLabel.textColor = Colors.silver()
-        projectNameLabel.text = projectName!
+        projectNameLabel.text = project!.name
         projectNameLabel.numberOfLines = 4
         projectNameLabel.adjustsFontSizeToFitWidth = true
         projectNameLabel.sizeToFit()
@@ -91,7 +90,6 @@ class TimeSliderViewController: UIViewController {
                 timerRunningViewController.numberOfSecondsToCountDown =
                     sliderToMinutesConverter.convert(timeSlider.value) * 60
                 timerRunningViewController.numberOfSecondsTheTimerWasSetTo = timerRunningViewController.numberOfSecondsToCountDown
-                timerRunningViewController.projectName = projectName
                 timerRunningViewController.project = project
             }
         }

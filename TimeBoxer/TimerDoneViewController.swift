@@ -116,7 +116,7 @@ class TimerDoneViewController: UIViewController {
         if let segueIdentifier = segue.identifier {
             if segueIdentifier == "TimerDoneToTimeSlider" {
                 let timeSliderVC = segue.destinationViewController as! TimeSliderViewController
-                timeSliderVC.projectName = projectName
+                timeSliderVC.project = project
                 return
             }
         }
