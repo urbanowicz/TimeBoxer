@@ -47,6 +47,8 @@
 		F184495A1CB54508008939DD /* UILabelExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F18449581CB54508008939DD /* UILabelExtension.swift */; };
 		F185A09E1CBAB2BF0067775D /* TimeLabelTextFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F185A09D1CBAB2BF0067775D /* TimeLabelTextFormatter.swift */; };
 		F185A09F1CBAB2BF0067775D /* TimeLabelTextFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F185A09D1CBAB2BF0067775D /* TimeLabelTextFormatter.swift */; };
+		F185A0A11CBAB5A80067775D /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F185A0A01CBAB5A80067775D /* UIColorExtension.swift */; };
+		F185A0A21CBAB5A80067775D /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F185A0A01CBAB5A80067775D /* UIColorExtension.swift */; };
 		F188DA6F1C898890000E8AD2 /* ShrinkingCircleAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F188DA6E1C898890000E8AD2 /* ShrinkingCircleAnimator.swift */; };
 		F189A1B21BD8C0D3000FFC5F /* TimeSliderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F189A1B11BD8C0D3000FFC5F /* TimeSliderViewController.swift */; };
 		F18C2AD81C873A9A004A7B72 /* TimerDoneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F18C2AD71C873A9A004A7B72 /* TimerDoneViewController.swift */; };
@@ -128,6 +130,7 @@
 		F17F17B61C899A72003C04AC /* FadeInAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FadeInAnimator.swift; sourceTree = "<group>"; };
 		F18449581CB54508008939DD /* UILabelExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UILabelExtension.swift; sourceTree = "<group>"; };
 		F185A09D1CBAB2BF0067775D /* TimeLabelTextFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeLabelTextFormatter.swift; sourceTree = "<group>"; };
+		F185A0A01CBAB5A80067775D /* UIColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		F188DA6E1C898890000E8AD2 /* ShrinkingCircleAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShrinkingCircleAnimator.swift; sourceTree = "<group>"; };
 		F189A1B11BD8C0D3000FFC5F /* TimeSliderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeSliderViewController.swift; sourceTree = "<group>"; };
 		F18C2AD71C873A9A004A7B72 /* TimerDoneViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerDoneViewController.swift; sourceTree = "<group>"; };
@@ -322,6 +325,7 @@
 				F19133521CA844DD00CED170 /* NSDateExtension.swift */,
 				F19133541CA8478900CED170 /* NSCalendarExtension.swift */,
 				F18449581CB54508008939DD /* UILabelExtension.swift */,
+				F185A0A01CBAB5A80067775D /* UIColorExtension.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -575,6 +579,7 @@
 				F17CDF671C9191BD0042E927 /* ProjectsTableCellPanGestureDelegate.swift in Sources */,
 				F10B85181C38346D002C66F2 /* ContainerViewController.swift in Sources */,
 				F1C755B51C9B31300083466C /* BarChartView.swift in Sources */,
+				F185A0A11CBAB5A80067775D /* UIColorExtension.swift in Sources */,
 				F188DA6F1C898890000E8AD2 /* ShrinkingCircleAnimator.swift in Sources */,
 				F17F17B71C899A72003C04AC /* FadeInAnimator.swift in Sources */,
 				F14F13071BEA87160045936F /* StopButton.swift in Sources */,
@@ -596,6 +601,7 @@
 			files = (
 				F1981B9E1C84DE7200F49454 /* SliderOutputToValueConverter.swift in Sources */,
 				F1981BA01C84DF8F00F49454 /* SliderOutputToValueConverterTests.swift in Sources */,
+				F185A0A21CBAB5A80067775D /* UIColorExtension.swift in Sources */,
 				F12E2C6E1CA84A8C008DA69C /* NSCalendarExtension.swift in Sources */,
 				F1981BA31C84E61700F49454 /* MinutesToStringConverter.swift in Sources */,
 				F1A95C061C6BD52B00EF5204 /* LastWorkedOnDateFormatterTests.swift in Sources */,

@@ -41,7 +41,7 @@ class TimerPausedViewController: UIViewController {
     
 //MARK: Setup UI elements
     private func setupAppTitleLabel() {
-        appTitleLabel.textColor = Colors.silver()
+        appTitleLabel.textColor = Colors.silver().withAlpha(0.15)
     }
     private func setupResumeButton() {
         resumeButton.borderColor = Colors.silver()
@@ -71,12 +71,12 @@ class TimerPausedViewController: UIViewController {
     }
     
     private func setupTimeLabel() {
-        timeLabel.textColor = Colors.silver()
+        timeLabel.textColor = Colors.silver().withAlpha(0.15)
         timeLabel.text = timeLabelTextFormatter.formatWithNumberOfSecondsToCountDown(numberOfSecondsToCountDown)
     }
     
     private func setupProjectNameLabel() {
-        projectNameLabel.textColor = Colors.silver()
+        projectNameLabel.textColor = Colors.silver().withAlpha(0.15)
         projectNameLabel.text = project!.name
         projectNameLabel.numberOfLines = 4
         projectNameLabel.adjustsFontSizeToFitWidth = true
