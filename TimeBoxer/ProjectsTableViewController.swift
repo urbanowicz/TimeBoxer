@@ -73,6 +73,7 @@ class ProjectsTableViewController: UIViewController, UITableViewDelegate {
             useAddButtonLabel.hidden = true
             stackView.hidden = true 
             projectsTableView.hidden = false
+            titleBarSeparator.hidden = false
         }
     }
     

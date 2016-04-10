@@ -11,11 +11,13 @@ import UIKit
 class TimerPausedViewController: UIViewController {
     
     @IBOutlet weak var appTitleLabel: UILabel!
-    @IBOutlet weak var pausedLabel: UILabel!
     @IBOutlet weak var resumeButton: StartButton!
     @IBOutlet weak var cancelButton: CancelButton!
     @IBOutlet weak var stopButton: StopButton!
-    var projectName:String?
+    @IBOutlet weak var timeLabel: UILabel!
+    @IBOutlet weak var projectNameLabel: UILabel!
+    
+    private let timeLabelTextFormatter = TimeLabelTextFormatter()
     var numberOfSecondsToCountDown = 0
     var numberOfSecondsTheTimerWasSetTo = 0
     var project: Project?
@@ -28,7 +30,8 @@ class TimerPausedViewController: UIViewController {
         setupResumeButton()
         setupCancelButton()
         setupStopButton()
-        setupPausedLabel()
+        setupProjectNameLabel()
+        setupTimeLabel()
     }
 
     override func didReceiveMemoryWarning()
@@ -67,9 +70,19 @@ class TimerPausedViewController: UIViewController {
         stopButton.borderWidth = 2.0
     }
     
-    private func setupPausedLabel() {
-        pausedLabel.textColor = Colors.silver()
+    private func setupTimeLabel() {
+        timeLabel.textColor = Colors.silver()
+        timeLabel.text = timeLabelTextFormatter.formatWithNumberOfSecondsToCountDown(numberOfSecondsToCountDown)
     }
+    
+    private func setupProjectNameLabel() {
+        projectNameLabel.textColor = Colors.silver()
+        projectNameLabel.text = project!.name
+        projectNameLabel.numberOfLines = 4
+        projectNameLabel.adjustsFontSizeToFitWidth = true
+        projectNameLabel.sizeToFit()
+    }
+    
     
 //MARK: Actions
     @IBAction func stopButtonPressed(sender: StopButton)
@@ -97,20 +110,20 @@ class TimerPausedViewController: UIViewController {
             if segueIdentifier == "TimerPausedToTimerRunning" {
                 let timerRunningVC = segue.destinationViewController as! TimerRunningViewController
                 timerRunningVC.numberOfSecondsToCountDown = numberOfSecondsToCountDown
-                timerRunningVC.projectName = projectName
+                timerRunningVC.projectName = project!.name
                 timerRunningVC.project = project
                 timerRunningVC.numberOfSecondsTheTimerWasSetTo = numberOfSecondsTheTimerWasSetTo
                 return
             }
             if segueIdentifier == "TimerPausedToTimeSlider" {
                 let timeSliderVC = segue.destinationViewController as! TimeSliderViewController
-                timeSliderVC.projectName = projectName
+                timeSliderVC.projectName = project!.name
                 timeSliderVC.project = project
                 return
             }
             if segueIdentifier == "TimerPausedToTimerDone" {
                 let timerDoneVC = segue.destinationViewController as! TimerDoneViewController
-                timerDoneVC.projectName = projectName
+                timerDoneVC.projectName = project!.name
                 timerDoneVC.project = project
                 timerDoneVC.numberOfSecondsTheTimerWasSetTo = numberOfSecondsTheTimerWasSetTo
                 timerDoneVC.numberOfSecondsToCountDown = numberOfSecondsToCountDown

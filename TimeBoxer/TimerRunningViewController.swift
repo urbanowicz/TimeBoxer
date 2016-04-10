@@ -20,9 +20,8 @@ class TimerRunningViewController: UIViewController {
     var project: Project?
     
     private let toTimerPausedAnimator = ToTimerPausedAnimator()
+    private let timeLabelTextFormatter = TimeLabelTextFormatter()
     var timer = NSTimer()
-
-    
 
     override func viewDidLoad()
     {
@@ -36,7 +35,7 @@ class TimerRunningViewController: UIViewController {
     
 
     override func viewWillAppear(animated: Bool) {
-        updateTimeLabel()
+        timeLabel.text = timeLabelTextFormatter.formatWithNumberOfSecondsToCountDown(numberOfSecondsToCountDown)
         timer = NSTimer.scheduledTimerWithTimeInterval(1.0, target:self, selector: "countDown",
             userInfo: nil, repeats: true)
     }
@@ -82,7 +81,7 @@ class TimerRunningViewController: UIViewController {
 
     func countDown() {
         numberOfSecondsToCountDown--
-        updateTimeLabel()
+        timeLabel.text = timeLabelTextFormatter.formatWithNumberOfSecondsToCountDown(numberOfSecondsToCountDown)
         if numberOfSecondsToCountDown == 0 {
             handleTimerDone()
         }
@@ -93,36 +92,6 @@ class TimerRunningViewController: UIViewController {
         performSegueWithIdentifier("TimerRunningToTimerDone", sender: self)
     }
     
-    private func updateTimeLabel() {
-        var counterCopy = numberOfSecondsToCountDown
-        let hours = counterCopy / 3600
-        counterCopy = counterCopy % 3600
-        let minutes = counterCopy / 60
-        counterCopy = counterCopy % 60
-        let seconds = counterCopy
-        
-        var timeText = "\(hours):"
-        if minutes == 0 {
-            timeText += "00:"
-        } else {
-            if minutes < 10 {
-                timeText += "0"
-            }
-            timeText += "\(minutes):"
-        }
-        if seconds == 0 {
-            timeText += "00"
-        } else {
-            if seconds < 10 {
-                timeText += "0"
-            }
-            timeText += "\(seconds)"
-        }
-        
-        timeLabel.text = timeText
-        
-    }
-    
 //MARK: - Navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if let segueIdentifier = segue.identifier {
@@ -130,7 +99,6 @@ class TimerRunningViewController: UIViewController {
                 let timerPausedVC = segue.destinationViewController as! TimerPausedViewController
                 timerPausedVC.numberOfSecondsToCountDown = numberOfSecondsToCountDown
                 timerPausedVC.numberOfSecondsTheTimerWasSetTo = numberOfSecondsTheTimerWasSetTo
-                timerPausedVC.projectName = projectName
                 timerPausedVC.project = project
                 return
             }
