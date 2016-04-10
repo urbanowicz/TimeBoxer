@@ -21,25 +21,18 @@ class TimerDoneViewController: UIViewController {
     @IBOutlet weak var ofLabel: UILabel!
     @IBOutlet weak var projectNameLabel: UILabel!
     @IBOutlet weak var okButton: OKButton!
-    @IBOutlet weak var zeroMinutesLabel: UILabel!
     
-    private let minutesToStringConverter = MinutesToStringConverter()
+    private var numberOfCompletedSeconds = 0
+    private let workTimeFormatter = WorkTimeFormatter()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = Colors.golden()
-        
-        hideAllLabels()
-        
-        if numberOfSecondsTheTimerWasSetTo - numberOfSecondsToCountDown < 60 {
-            setupZeroMinutesLabel()
-        } else {
-        
-            setupCompletedLabel()
-            setupTimeLabel()
-            setupOfLabel()
-            setupProjectNameLabel()
-        }
+        numberOfCompletedSeconds = numberOfSecondsTheTimerWasSetTo - numberOfSecondsToCountDown
+        setupCompletedLabel()
+        setupTimeLabel()
+        setupOfLabel()
+        setupProjectNameLabel()
         setupAppTitleLabel()
         setupOKButton()
 
@@ -51,19 +44,7 @@ class TimerDoneViewController: UIViewController {
     }
 
 //MARK: Setup UI elements
-    private func hideAllLabels() {
-        zeroMinutesLabel.hidden = true
-        completedLabel.hidden = true
-        timeLabel.hidden = true
-        ofLabel.hidden = true
-        projectNameLabel.hidden = true
-    }
-    private func setupZeroMinutesLabel() {
-        zeroMinutesLabel.hidden = false
-        zeroMinutesLabel.numberOfLines = 2
-        zeroMinutesLabel.adjustsFontSizeToFitWidth = true
-        zeroMinutesLabel.textColor = Colors.almostBlack()
-    }
+
     private func setupAppTitleLabel() {
         appTitleLabel.textColor = Colors.almostBlack()
         appTitleLabel.sizeToFit()
@@ -73,9 +54,9 @@ class TimerDoneViewController: UIViewController {
         completedLabel.textColor = Colors.lightGray()
     }
     private func setupTimeLabel() {
-        let numberOfCompletedMinutes = Int((numberOfSecondsTheTimerWasSetTo - numberOfSecondsToCountDown) / 60)
         timeLabel.hidden = false
-        timeLabel.text = minutesToStringConverter.convert(numberOfCompletedMinutes)
+        timeLabel.text = workTimeFormatter.formatLong(numberOfCompletedSeconds)
+        timeLabel.numberOfLines = 0
         timeLabel.textColor = Colors.almostBlack()
     }
     private func setupOfLabel() {
@@ -106,10 +87,7 @@ class TimerDoneViewController: UIViewController {
     }
     
     private func recordWorkDone() {
-        let numberOfCompletedMinutes = Int((numberOfSecondsTheTimerWasSetTo - numberOfSecondsToCountDown) / 60)
-        if numberOfCompletedMinutes >= 1 {
-            project?.recordWork(numberOfCompletedMinutes * 60)
-        }
+        project?.recordWork(numberOfCompletedSeconds)
     }
     //MARK: - Navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
