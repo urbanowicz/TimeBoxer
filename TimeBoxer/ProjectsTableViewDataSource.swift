@@ -21,7 +21,7 @@ class ProjectsTableViewDataSource: NSObject, UITableViewDataSource {
         //Add self as applicationWillResignActive observer
         super.init()
         let app = UIApplication.sharedApplication()
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "applicationWillResignActive:",
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(UIApplicationDelegate.applicationWillResignActive(_:)),
             name: UIApplicationWillResignActiveNotification, object: app)
         loadSavedProjects()
     }
@@ -50,7 +50,7 @@ class ProjectsTableViewDataSource: NSObject, UITableViewDataSource {
         let cell = tableView.dequeueReusableCellWithIdentifier(projectsTableId) as! MyTableViewCell
         cell.project = projects[indexPath.row]
         cell.facadeView.backgroundColor = Colors.almostBlack()
-        setupPanGestureRecognizerForCell(cell)
+       // setupPanGestureRecognizerForCell(cell)
         setupLastWorkedOnLabelForCell(cell, indexPath: indexPath)
         setupProjectNameLabelForCell(cell, indexPath: indexPath)
         setupLeftDrawerForCell(cell)
@@ -59,15 +59,15 @@ class ProjectsTableViewDataSource: NSObject, UITableViewDataSource {
         return cell
     }
     
-    private func setupPanGestureRecognizerForCell(cell:MyTableViewCell) {
-        let panGestureDelegate = ProjectsTableCellPanGestureDelegate()
-        panGestureDelegate.tableCell = cell
-        panGestureDelegate.projectsTableVC = projectsTableViewController
-        cell.panGestureRecognizerDelegate = panGestureDelegate
-        let panGestureRecognizer = UIPanGestureRecognizer(target: panGestureDelegate, action: "handlePan:")
-        panGestureRecognizer.delegate = panGestureDelegate
-        cell.addGestureRecognizer(panGestureRecognizer)
-    }
+//    private func setupPanGestureRecognizerForCell(cell:MyTableViewCell) {
+//        let panGestureDelegate = ProjectsTableCellPanGestureDelegate()
+//        panGestureDelegate.tableCell = cell
+//        panGestureDelegate.projectsTableVC = projectsTableViewController
+//        cell.panGestureRecognizerDelegate = panGestureDelegate
+//        let panGestureRecognizer = UIPanGestureRecognizer(target: panGestureDelegate, action: Selector("handlePan:"))
+//        panGestureRecognizer.delegate = panGestureDelegate
+//        cell.addGestureRecognizer(panGestureRecognizer)
+//    }
     
     
     private func setupLastWorkedOnLabelForCell(cell:MyTableViewCell, indexPath:NSIndexPath) {

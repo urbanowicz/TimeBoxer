@@ -20,7 +20,7 @@ class ContainerViewController: UIViewController, UIGestureRecognizerDelegate{
         
         //1. Add a Pan Gesture recognizer
         let panGestureRecognizer = UIPanGestureRecognizer()
-        panGestureRecognizer.addTarget(self, action: "handlePanGesture:")
+        panGestureRecognizer.addTarget(self, action: #selector(ContainerViewController.handlePanGesture(_:)))
         view.addGestureRecognizer(panGestureRecognizer)
         panGestureRecognizer.delegate = self
         

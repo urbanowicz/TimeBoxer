@@ -32,7 +32,7 @@ class HorizontalBarView: UIView {
         outerLabel.font = UIFont(name: "Avenir Book", size: 14)
         innerLabel.textColor = Colors.almostBlack()
         outerLabel.textColor = Colors.azure()
-        super.init(coder: aDecoder)
+        super.init(coder: aDecoder)!
         self.addSubview(innerLabel)
         self.addSubview(outerLabel)
         

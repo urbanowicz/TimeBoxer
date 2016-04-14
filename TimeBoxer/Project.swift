@@ -119,7 +119,7 @@ class Project: NSObject, NSCoding, NSCopying {
         var chunkIndex = workChunks.count - 1
         while chunkIndex >= 0 && isSevenDaysOrLessOld(workChunks[chunkIndex]) {
             totalSecondsLastSevenDays += workChunks[chunkIndex].duration
-            chunkIndex--
+            chunkIndex -= 1
         }
         
         let numberOfDays = min(7, daysSinceStart())

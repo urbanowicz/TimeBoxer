@@ -35,7 +35,7 @@ class TimerRunningViewController: UIViewController {
 
     override func viewWillAppear(animated: Bool) {
         timeLabel.text = timeLabelTextFormatter.formatWithNumberOfSecondsToCountDown(numberOfSecondsToCountDown)
-        timer = NSTimer.scheduledTimerWithTimeInterval(1.0, target:self, selector: "countDown",
+        timer = NSTimer.scheduledTimerWithTimeInterval(1.0, target:self, selector: #selector(TimerRunningViewController.countDown),
             userInfo: nil, repeats: true)
     }
 
@@ -79,7 +79,7 @@ class TimerRunningViewController: UIViewController {
     }
 
     func countDown() {
-        numberOfSecondsToCountDown--
+        numberOfSecondsToCountDown -= 1
         timeLabel.text = timeLabelTextFormatter.formatWithNumberOfSecondsToCountDown(numberOfSecondsToCountDown)
         if numberOfSecondsToCountDown == 0 {
             handleTimerDone()

@@ -486,6 +486,7 @@
 				TargetAttributes = {
 					F15F9C4B1BCCF376008733A3 = {
 						CreatedOnToolsVersion = 7.0;
+						DevelopmentTeam = RW79CPXREY;
 					};
 					F15F9C5F1BCCF376008733A3 = {
 						CreatedOnToolsVersion = 7.0;
@@ -732,10 +733,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "$(SRCROOT)/TimeBoxer/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.example.TimeBoxer;
+				PRODUCT_BUNDLE_IDENTIFIER = co.timeboxer.TimeBoxer;
 				PRODUCT_NAME = TimeBoxer;
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -743,10 +748,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "$(SRCROOT)/TimeBoxer/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.example.TimeBoxer;
+				PRODUCT_BUNDLE_IDENTIFIER = co.timeboxer.TimeBoxer;
 				PRODUCT_NAME = TimeBoxer;
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};

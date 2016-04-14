@@ -35,13 +35,5 @@ class MyTableViewCell: UITableViewCell {
         if numberOfLines >= 2 {
             projectNameLabel.font = projectNameLabel.font.fontWithSize(14.0)
         }
-        
-//        var fontSize = projectNameLabel.font.pointSize
-//        while  height > projectNameLabel.frame.height && fontSize > 14 {
-//            fontSize -= 0.5
-//            projectNameLabel.font = projectNameLabel.font.fontWithSize(fontSize)
-//            (height, numberOfLines) = heightAndNumberOfLinesForLabel(projectNameLabel, maxWidth:projectNameLabel.frame.width)
-//        }
-
     }
 }
