@@ -24,7 +24,7 @@ class AddProjectToProjectsTableDismissAnimator: AbstractAnimator {
     }
     
     func registerForKeyboardNotifications() {
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillHide:",
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(AddProjectToProjectsTableDismissAnimator.keyboardWillHide(_:)),
             name: UIKeyboardWillHideNotification, object: nil)
     }
     

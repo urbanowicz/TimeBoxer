@@ -24,7 +24,7 @@ class ProjectsTableToAddProjectAnimator: AbstractAnimator {
     }
     
     func registerForKeyboardNotifications() {
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillShow:",
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ProjectsTableToAddProjectAnimator.keyboardWillShow(_:)),
             name: UIKeyboardWillShowNotification, object: nil)
     }
     

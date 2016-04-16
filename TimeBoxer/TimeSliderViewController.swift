@@ -66,7 +66,7 @@ class TimeSliderViewController: UIViewController {
     
     private func setupTimeSlider() {
         timeSlider.fillColor = Colors.azure()
-        timeSlider.addTarget(self, action: "timeSliderValueChanged", forControlEvents: UIControlEvents.ValueChanged)
+        timeSlider.addTarget(self, action: #selector(TimeSliderViewController.timeSliderValueChanged), forControlEvents: UIControlEvents.ValueChanged)
     }
     
 //MARK: Actions
@@ -140,7 +140,7 @@ private class ToTimerRunningAnimator:NSObject, Animator {
     }
 //----------------------------------------------------------------------------------------------------------------------
     override func animationDidStop(anim: CAAnimation, finished flag: Bool) {
-        animationCounter++
+        animationCounter += 1
         if animationCounter == 1 {
             //Done with the expanding circle animation. Prepare the next stage.
             prepareFadeInAnimationLayer()

@@ -10,7 +10,6 @@ import UIKit
 
 class MyTableViewCell: UITableViewCell {
     var project:Project?
-    var panGestureRecognizerDelegate:ProjectsTableCellPanGestureDelegate?
     
     @IBOutlet weak var cellSeparator: UIView!
     @IBOutlet weak var lastWorkedOnLabel: UILabel!

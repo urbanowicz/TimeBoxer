@@ -26,13 +26,6 @@ class ProjectsTableViewController: UIViewController, UITableViewDelegate {
     let transitionManager =
     TransitionManager(animator: ProjectsTableToAddProjectAnimator(),
         dismissAnimator:AddProjectToProjectsTableDismissAnimator())
-    
-    let toEditProjectTransitionManager =
-    TransitionManager(animator: ProjectsTableToEditProjectAnimator(),
-        dismissAnimator: EditProjectToProjectsTableDismissAnimator(),
-        interactiveAnimator: UIPercentDrivenInteractiveTransition(),
-        interactiveDismissAnimator: UIPercentDrivenInteractiveTransition())
-
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,7 +39,6 @@ class ProjectsTableViewController: UIViewController, UITableViewDelegate {
         setupUseAddButtonLabel()
     }
     
-
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -150,12 +142,6 @@ class ProjectsTableViewController: UIViewController, UITableViewDelegate {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier! == "ProjectsTableToAddProject" {
             segue.destinationViewController.transitioningDelegate = transitionManager
-        }
-        if segue.identifier! == "ProjectsTableToEditProject" {
-            segue.destinationViewController.transitioningDelegate = toEditProjectTransitionManager
-            let selectedCell:MyTableViewCell = sender as! MyTableViewCell
-            let editProjectVC:EditProjectViewController = segue.destinationViewController as! EditProjectViewController
-            editProjectVC.project = selectedCell.project
         }
     }
     

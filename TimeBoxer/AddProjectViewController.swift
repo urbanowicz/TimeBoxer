@@ -43,7 +43,7 @@ class AddProjectViewController: UIViewController, UITextFieldDelegate {
     }
     
     func registerForKeyboardNotifications() {
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillShow:",
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(AddProjectViewController.keyboardWillShow(_:)),
             name: UIKeyboardWillShowNotification, object: nil)
     }
     
