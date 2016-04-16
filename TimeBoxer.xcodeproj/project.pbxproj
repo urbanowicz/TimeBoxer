@@ -72,6 +72,7 @@
 		F1C755B71C9C87EB0083466C /* HorizontalBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C755B61C9C87EB0083466C /* HorizontalBarView.swift */; };
 		F1D2444C1BDFF8320023B994 /* TimerRunningViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D2444B1BDFF8320023B994 /* TimerRunningViewController.swift */; };
 		F1EBB3E31C5AB93C005A36CE /* WorkChunk.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1EBB3E21C5AB93C005A36CE /* WorkChunk.swift */; };
+		F1EDC2081CC2BE780097CAE4 /* ProjectStatsToProjectsTableSwipeHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1EDC2071CC2BE780097CAE4 /* ProjectStatsToProjectsTableSwipeHandler.swift */; };
 		F1F36AD01C875F770039EF0B /* OKButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F36ACF1C875F770039EF0B /* OKButton.swift */; };
 		F1FC9AD31C3ED73B002A9F31 /* ProjectStatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FC9AD21C3ED73B002A9F31 /* ProjectStatsViewController.swift */; };
 		F1FC9AD61C3ED86F002A9F31 /* AddProjectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FC9AD51C3ED86F002A9F31 /* AddProjectViewController.swift */; };
@@ -148,6 +149,7 @@
 		F1CC0EEB1C69284A0090D76D /* TimeBoxerPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = TimeBoxerPlayground.playground; sourceTree = "<group>"; };
 		F1D2444B1BDFF8320023B994 /* TimerRunningViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerRunningViewController.swift; sourceTree = "<group>"; };
 		F1EBB3E21C5AB93C005A36CE /* WorkChunk.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkChunk.swift; sourceTree = "<group>"; };
+		F1EDC2071CC2BE780097CAE4 /* ProjectStatsToProjectsTableSwipeHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectStatsToProjectsTableSwipeHandler.swift; sourceTree = "<group>"; };
 		F1F36ACF1C875F770039EF0B /* OKButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OKButton.swift; sourceTree = "<group>"; };
 		F1FC9AD21C3ED73B002A9F31 /* ProjectStatsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectStatsViewController.swift; sourceTree = "<group>"; };
 		F1FC9AD51C3ED86F002A9F31 /* AddProjectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddProjectViewController.swift; sourceTree = "<group>"; };
@@ -179,6 +181,7 @@
 				F11925221C8CC9E3002BEAC2 /* ProjectsTableToTimeSliderSwipeHandler.swift */,
 				F11925241C8CCA04002BEAC2 /* TimeSliderToProjectsTableSwipeHandler.swift */,
 				F19EC37A1CC24FD8001132FE /* ProjectsTableToProjectStatsSwipeHandler.swift */,
+				F1EDC2071CC2BE780097CAE4 /* ProjectStatsToProjectsTableSwipeHandler.swift */,
 			);
 			name = ContainerVC;
 			sourceTree = "<group>";
@@ -548,6 +551,7 @@
 				F125D7D21C28496700B94849 /* CirclePathWrapper.swift in Sources */,
 				F137E9701C419A200064E15F /* Colors.swift in Sources */,
 				F119251F1C8CB2F7002BEAC2 /* AddProjectToProjectsTableDismissAnimator.swift in Sources */,
+				F1EDC2081CC2BE780097CAE4 /* ProjectStatsToProjectsTableSwipeHandler.swift in Sources */,
 				F11D5B9F1C42AD32007F2622 /* AddButton.swift in Sources */,
 				F18C2AD81C873A9A004A7B72 /* TimerDoneViewController.swift in Sources */,
 				F137E96E1C41994A0064E15F /* ColorName.swift in Sources */,

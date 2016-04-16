@@ -33,10 +33,68 @@ class ProjectsTableToProjectStatsSwipeHandler: NSObject {
     }
     
     func handleSwipeChanged(gestureRecognizer: UIPanGestureRecognizer) {
-        print ("To ProjectStatsVC swipe changed")
+        let translationInProjectsTableView = gestureRecognizer.translationInView(fromView)
+        if fabs(translationInProjectsTableView.x) <= drawerSize {
+            if translationInProjectsTableView.x < 0 {
+                //Don't let the user drag the cell in the opposite direction now
+                return
+            }
+            tableCell.facadeView.frame.origin.x = tableCellOrigin.x + translationInProjectsTableView.x
+        } else {
+            let translation = gestureRecognizer.translationInView(containerView)
+            let dx = fabs(translation.x) - drawerSize
+            fromView.frame.origin.x = containerView.frame.origin.x + dx
+            toView.frame.origin.x = containerView.frame.origin.x - (containerView.frame.width - dx)
+        }
     }
     
     func handleSwipeEnded(gestureRecognizer: UIPanGestureRecognizer) {
-        print ("To ProjectStatsVC swipe ended")
+        let translation = gestureRecognizer.translationInView(containerView)
+        let dx = fabs(translation.x) - drawerSize
+        if dx < containerView.frame.width / 2.0  {
+            rollbackTransition()
+            return
+        } else  {
+            commitTransition()
+        }
+    }
+    
+    private func rollbackTransition() {
+        UIView.animateWithDuration(0.1,
+            animations:
+            {
+                self.tableCell.facadeView.frame.origin.x = self.tableCellOrigin.x
+                self.fromView.frame.origin.x = self.containerView.frame.origin.x
+                self.toView.frame.origin.x = self.containerView.frame.origin.x - self.containerView.frame.width
+            },
+                                   
+            completion:
+            {
+                finished in
+                self.toView.removeFromSuperview()
+            }
+        )
+    }
+    
+    private func commitTransition() {
+        UIView.animateWithDuration(0.1,
+        animations:
+            {
+                self.toView.frame.origin.x = self.containerView.frame.origin.x
+                self.fromView.frame.origin.x = self.containerView.frame.origin.x + self.containerView.frame.width
+                
+            },
+                                   
+        completion:
+            {
+                finished in
+                self.containerVC.addChildViewController(self.toVC)
+                self.toVC.didMoveToParentViewController(self.containerVC)
+                self.fromVC.willMoveToParentViewController(nil)
+                self.fromView.removeFromSuperview()
+                self.fromVC.removeFromParentViewController()
+                self.tableCell.facadeView.frame.origin.x = self.tableCellOrigin.x
+                
+        })
     }
 }
