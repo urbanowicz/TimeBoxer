@@ -166,6 +166,14 @@ class ProjectsTableViewController: UIViewController, UITableViewDelegate {
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
         return UIStatusBarStyle.LightContent
     }
+//MARK: Disable auto rotate
+    override func shouldAutorotate() -> Bool {
+        return false
+    }
+    
+    override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
+        return UIInterfaceOrientationMask.Portrait
+    }
     
 }
 

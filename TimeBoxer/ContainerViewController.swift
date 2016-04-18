@@ -267,13 +267,13 @@ class ContainerViewController: UIViewController, UIGestureRecognizerDelegate{
         return true
     }
     
-//MARK: ProjectsTable to TimeSlider swipe
-    private func toTimeSliderSwipeBegan(gestureRecognizer:UIPanGestureRecognizer) {
-        let location = gestureRecognizer.locationInView(projectsTableVC!.projectsTableView)
-        if let cell = projectsTableVC!.cellAtPoint(location) {
-            toTimeSliderSwipeHandler = ProjectsTableToTimeSliderSwipeHandler(tableCell: cell,
-                fromVC: projectsTableVC!, toVC: timeSliderVC!, containerVC: self)
-        }
+//MARK: Disable auto rotate
+    override func shouldAutorotate() -> Bool {
+        return false
+    }
+    
+    override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
+        return UIInterfaceOrientationMask.Portrait
     }
 }
 

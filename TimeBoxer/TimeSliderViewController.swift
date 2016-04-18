@@ -101,6 +101,15 @@ class TimeSliderViewController: UIViewController {
         let containerVC = parentViewController as! ContainerViewController
         containerVC.switchViewControllers(self, toVC: vc, animator: toTimerRunningVCAnimator)
     }
+
+//MARK: Disable auto rotate
+    override func shouldAutorotate() -> Bool {
+        return false
+    }
+    
+    override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
+        return UIInterfaceOrientationMask.Portrait
+    }
 }
 
 

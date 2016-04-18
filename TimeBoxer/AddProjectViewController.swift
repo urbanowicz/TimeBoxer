@@ -118,5 +118,13 @@ class AddProjectViewController: UIViewController, UITextFieldDelegate {
     {
         return UIStatusBarStyle.LightContent
     }
+//MARK: Disable auto rotate
+    override func shouldAutorotate() -> Bool {
+        return false
+    }
+    
+    override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
+        return UIInterfaceOrientationMask.Portrait
+    }
     
 }

@@ -105,4 +105,12 @@ class TimerDoneViewController: UIViewController {
         containerVC.switchViewControllers(self, toVC: vc, animator:
             ShrinkingCircleAnimator(circleCenter: okButton.center, parentView: okButton.superview!))
     }
+//MARK: Disable auto rotate
+    override func shouldAutorotate() -> Bool {
+        return false
+    }
+    
+    override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
+        return UIInterfaceOrientationMask.Portrait
+    }
 }
