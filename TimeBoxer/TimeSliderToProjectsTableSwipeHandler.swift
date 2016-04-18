@@ -34,7 +34,11 @@ class TimeSliderToProjectsTableSwipeHandler: NSObject {
     
     func handleSwipeEnded(gestureRecognizer:UIPanGestureRecognizer) {
         let translation = gestureRecognizer.translationInView(containerView)
-        if translation.x >= containerView.frame.width / 2.0 {
+        let startX = fabs(translation.x)
+        let acceleration = CGFloat(-100)
+        let velocity = fabs(gestureRecognizer.velocityInView(containerView).x)
+        let endX = startX - pow(velocity, 2)/(2*acceleration)
+        if endX >= containerView.frame.width / 2.0 {
             commitTransition()
         } else {
             rollbackTransition()
@@ -42,7 +46,7 @@ class TimeSliderToProjectsTableSwipeHandler: NSObject {
     }
     
     func commitTransition() {
-        UIView.animateWithDuration(0.1,
+        UIView.animateWithDuration(0.3,
             animations:
             {
                 self.toView.frame.origin.x = self.containerView.frame.origin.x
@@ -63,7 +67,7 @@ class TimeSliderToProjectsTableSwipeHandler: NSObject {
     }
     
     func rollbackTransition() {
-        UIView.animateWithDuration(0.1,
+        UIView.animateWithDuration(0.3,
             animations:
             {
                 self.fromView.frame.origin.x = self.containerView.frame.origin.x
