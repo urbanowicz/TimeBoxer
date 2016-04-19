@@ -69,6 +69,7 @@
 		F1B920551BE7D7CC004A8CDB /* PauseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1B920541BE7D7CC004A8CDB /* PauseButton.swift */; };
 		F1B9E9E41CA1468000D86239 /* StatsTableDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1B9E9E31CA1468000D86239 /* StatsTableDataSource.swift */; };
 		F1C755B71C9C87EB0083466C /* HorizontalBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C755B61C9C87EB0083466C /* HorizontalBarView.swift */; };
+		F1CA1C231CC6A66300491EC1 /* CellSwipeHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1CA1C221CC6A66300491EC1 /* CellSwipeHandler.swift */; };
 		F1D2444C1BDFF8320023B994 /* TimerRunningViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D2444B1BDFF8320023B994 /* TimerRunningViewController.swift */; };
 		F1D84C8B1CC656A90066D2C0 /* SwipeHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D84C8A1CC656A90066D2C0 /* SwipeHandler.swift */; };
 		F1D84C8D1CC658620066D2C0 /* SwipeDirection.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D84C8C1CC658620066D2C0 /* SwipeDirection.swift */; };
@@ -145,6 +146,7 @@
 		F1B920541BE7D7CC004A8CDB /* PauseButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PauseButton.swift; sourceTree = "<group>"; };
 		F1B9E9E31CA1468000D86239 /* StatsTableDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatsTableDataSource.swift; sourceTree = "<group>"; };
 		F1C755B61C9C87EB0083466C /* HorizontalBarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HorizontalBarView.swift; sourceTree = "<group>"; };
+		F1CA1C221CC6A66300491EC1 /* CellSwipeHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellSwipeHandler.swift; sourceTree = "<group>"; };
 		F1CC0EEB1C69284A0090D76D /* TimeBoxerPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = TimeBoxerPlayground.playground; sourceTree = "<group>"; };
 		F1D2444B1BDFF8320023B994 /* TimerRunningViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerRunningViewController.swift; sourceTree = "<group>"; };
 		F1D84C8A1CC656A90066D2C0 /* SwipeHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwipeHandler.swift; sourceTree = "<group>"; };
@@ -182,6 +184,7 @@
 				F19EC37A1CC24FD8001132FE /* ProjectsTableToProjectStatsSwipeHandler.swift */,
 				F1D84C8A1CC656A90066D2C0 /* SwipeHandler.swift */,
 				F1D84C8C1CC658620066D2C0 /* SwipeDirection.swift */,
+				F1CA1C221CC6A66300491EC1 /* CellSwipeHandler.swift */,
 			);
 			name = ContainerVC;
 			sourceTree = "<group>";
@@ -573,6 +576,7 @@
 				F1FC9AD91C3EE0CC002A9F31 /* ProjectsTableViewController.swift in Sources */,
 				F1F36AD01C875F770039EF0B /* OKButton.swift in Sources */,
 				F150E3B01C8ECD3000D7D502 /* TitleBar.swift in Sources */,
+				F1CA1C231CC6A66300491EC1 /* CellSwipeHandler.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
