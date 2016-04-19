@@ -33,17 +33,28 @@ class SwipeHandler: NSObject {
     }
     
     func handleSwipeChanged(gestureRecognizer:UIPanGestureRecognizer) {
-        let translation = fabs(gestureRecognizer.translationInView(containerView).x)
+        let translation = gestureRecognizer.translationInView(containerView)
         let direction:CGFloat  = swipeDirection == SwipeDirection.LEFT_TO_RIGHT ? 1.0 : -1.0
-        fromView.frame.origin.x = containerView.frame.origin.x + translation * direction
-        toView.frame.origin.x = (containerView.frame.origin.x - containerView.frame.width*direction) + (translation * direction)
+        if (translation.x * direction >= 0) {
+            let translationX = fabs(translation.x)
+            fromView.frame.origin.x = containerView.frame.origin.x + translationX * direction
+            toView.frame.origin.x = (containerView.frame.origin.x - containerView.frame.width*direction) + (translationX * direction)
+        }
     }
     
     func handleSwipeEnded(gestureRecognizer:UIPanGestureRecognizer) {
         let translation = gestureRecognizer.translationInView(containerView)
-        let startX = fabs(translation.x)
-        let velocity = fabs(gestureRecognizer.velocityInView(containerView).x)
-        let endX = startX - pow(velocity, 2)/(2 * negativeAcceleration)
+        let direction:CGFloat  = swipeDirection == SwipeDirection.LEFT_TO_RIGHT ? 1.0 : -1.0
+        let startX = translation.x * direction < 0 ? 0 : fabs(translation.x)
+        let velocity = gestureRecognizer.velocityInView(containerView).x * direction
+        
+        var endX = CGFloat(0)
+        if velocity > 0 {
+            endX = startX - pow(velocity, 2)/(2 * negativeAcceleration)
+        } else {
+            endX = startX + pow(velocity, 2)/(2 * negativeAcceleration)
+        }
+        
         if endX >= containerView.frame.width / 2.0 {
             commitTransition()
         } else {
