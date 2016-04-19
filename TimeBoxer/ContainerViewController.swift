@@ -14,9 +14,9 @@ class ContainerViewController: UIViewController, UIGestureRecognizerDelegate{
     private var projectStatsVC: ProjectStatsViewController?
         
     private var toTimeSliderSwipeHandler:ProjectsTableToTimeSliderSwipeHandler?
-    private var toProjectsTableSwipeHandler:TimeSliderToProjectsTableSwipeHandler?
+    private var timeSliderToProjectsTableSwipeHandler:SwipeHandler?
     private var toProjectStatsSwipeHandler:ProjectsTableToProjectStatsSwipeHandler?
-    private var projectStatsToProjectsTableSwipeHandler:ProjectStatsToProjectsTableSwipeHandler?
+    private var projectStatsToProjectsTableSwipeHandler:SwipeHandler?
     
     //transition directions
     let toTimeSliderTransition = 0
@@ -138,7 +138,7 @@ class ContainerViewController: UIViewController, UIGestureRecognizerDelegate{
             case toTimeSliderTransition:
                 toTimeSliderSwipeHandler!.handleSwipeChanged(gestureRecognizer)
             case timeSliderToProjectsTableTransition:
-                 toProjectsTableSwipeHandler!.handleSwipeChanged(gestureRecognizer)
+                 timeSliderToProjectsTableSwipeHandler!.handleSwipeChanged(gestureRecognizer)
             case toProjectStatsTransition:
                 toProjectStatsSwipeHandler!.handleSwipeChanged(gestureRecognizer)
             case projectStatsToProjectsTableTransition:
@@ -153,7 +153,7 @@ class ContainerViewController: UIViewController, UIGestureRecognizerDelegate{
             case toTimeSliderTransition:
                 toTimeSliderSwipeHandler!.handleSwipeEnded(gestureRecognizer)
             case timeSliderToProjectsTableTransition:
-                toProjectsTableSwipeHandler!.handleSwipeEnded(gestureRecognizer)
+                timeSliderToProjectsTableSwipeHandler!.handleSwipeEnded(gestureRecognizer)
             case toProjectStatsTransition:
                 toProjectStatsSwipeHandler!.handleSwipeEnded(gestureRecognizer)
             case projectStatsToProjectsTableTransition:
@@ -213,8 +213,8 @@ class ContainerViewController: UIViewController, UIGestureRecognizerDelegate{
         
         //If we made it to here, we're good to go
         self.transitionDirection = timeSliderToProjectsTableTransition
-        self.toProjectsTableSwipeHandler =
-            TimeSliderToProjectsTableSwipeHandler(fromVC: timeSliderVC!, toVC: projectsTableVC!, containerVC: self)
+        self.timeSliderToProjectsTableSwipeHandler =
+            SwipeHandler(fromVC: timeSliderVC!, toVC: projectsTableVC!, containerVC: self, swipeDirection: .LEFT_TO_RIGHT)
         return true
     }
     
@@ -230,7 +230,7 @@ class ContainerViewController: UIViewController, UIGestureRecognizerDelegate{
         }
         self.transitionDirection = projectStatsToProjectsTableTransition
         self.projectStatsToProjectsTableSwipeHandler =
-            ProjectStatsToProjectsTableSwipeHandler(fromVC: projectStatsVC!, toVC: projectsTableVC!, containerVC: self)
+            SwipeHandler(fromVC: projectStatsVC!, toVC: projectsTableVC!, containerVC: self, swipeDirection: .RIGHT_TO_LEFT)
         return true
     }
     

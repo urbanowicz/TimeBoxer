@@ -16,7 +16,6 @@
 		F119251F1C8CB2F7002BEAC2 /* AddProjectToProjectsTableDismissAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F119251E1C8CB2F7002BEAC2 /* AddProjectToProjectsTableDismissAnimator.swift */; };
 		F11925211C8CB319002BEAC2 /* ProjectsTableToAddProjectAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11925201C8CB319002BEAC2 /* ProjectsTableToAddProjectAnimator.swift */; };
 		F11925231C8CC9E3002BEAC2 /* ProjectsTableToTimeSliderSwipeHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11925221C8CC9E3002BEAC2 /* ProjectsTableToTimeSliderSwipeHandler.swift */; };
-		F11925251C8CCA04002BEAC2 /* TimeSliderToProjectsTableSwipeHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11925241C8CCA04002BEAC2 /* TimeSliderToProjectsTableSwipeHandler.swift */; };
 		F11D5B9F1C42AD32007F2622 /* AddButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11D5B9E1C42AD32007F2622 /* AddButton.swift */; };
 		F125D7D21C28496700B94849 /* CirclePathWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F125D7D11C28496700B94849 /* CirclePathWrapper.swift */; };
 		F12C5D8C1C46FA450040969F /* KeyboardNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = F12C5D8B1C46FA450040969F /* KeyboardNotification.swift */; };
@@ -71,8 +70,9 @@
 		F1B9E9E41CA1468000D86239 /* StatsTableDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1B9E9E31CA1468000D86239 /* StatsTableDataSource.swift */; };
 		F1C755B71C9C87EB0083466C /* HorizontalBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C755B61C9C87EB0083466C /* HorizontalBarView.swift */; };
 		F1D2444C1BDFF8320023B994 /* TimerRunningViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D2444B1BDFF8320023B994 /* TimerRunningViewController.swift */; };
+		F1D84C8B1CC656A90066D2C0 /* SwipeHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D84C8A1CC656A90066D2C0 /* SwipeHandler.swift */; };
+		F1D84C8D1CC658620066D2C0 /* SwipeDirection.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D84C8C1CC658620066D2C0 /* SwipeDirection.swift */; };
 		F1EBB3E31C5AB93C005A36CE /* WorkChunk.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1EBB3E21C5AB93C005A36CE /* WorkChunk.swift */; };
-		F1EDC2081CC2BE780097CAE4 /* ProjectStatsToProjectsTableSwipeHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1EDC2071CC2BE780097CAE4 /* ProjectStatsToProjectsTableSwipeHandler.swift */; };
 		F1F36AD01C875F770039EF0B /* OKButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F36ACF1C875F770039EF0B /* OKButton.swift */; };
 		F1FC9AD31C3ED73B002A9F31 /* ProjectStatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FC9AD21C3ED73B002A9F31 /* ProjectStatsViewController.swift */; };
 		F1FC9AD61C3ED86F002A9F31 /* AddProjectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FC9AD51C3ED86F002A9F31 /* AddProjectViewController.swift */; };
@@ -97,7 +97,6 @@
 		F119251E1C8CB2F7002BEAC2 /* AddProjectToProjectsTableDismissAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddProjectToProjectsTableDismissAnimator.swift; sourceTree = "<group>"; };
 		F11925201C8CB319002BEAC2 /* ProjectsTableToAddProjectAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectsTableToAddProjectAnimator.swift; sourceTree = "<group>"; };
 		F11925221C8CC9E3002BEAC2 /* ProjectsTableToTimeSliderSwipeHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectsTableToTimeSliderSwipeHandler.swift; sourceTree = "<group>"; };
-		F11925241C8CCA04002BEAC2 /* TimeSliderToProjectsTableSwipeHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeSliderToProjectsTableSwipeHandler.swift; sourceTree = "<group>"; };
 		F11D5B9E1C42AD32007F2622 /* AddButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddButton.swift; sourceTree = "<group>"; };
 		F125D7D11C28496700B94849 /* CirclePathWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CirclePathWrapper.swift; sourceTree = "<group>"; };
 		F12C5D8B1C46FA450040969F /* KeyboardNotification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardNotification.swift; sourceTree = "<group>"; };
@@ -148,8 +147,9 @@
 		F1C755B61C9C87EB0083466C /* HorizontalBarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HorizontalBarView.swift; sourceTree = "<group>"; };
 		F1CC0EEB1C69284A0090D76D /* TimeBoxerPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = TimeBoxerPlayground.playground; sourceTree = "<group>"; };
 		F1D2444B1BDFF8320023B994 /* TimerRunningViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerRunningViewController.swift; sourceTree = "<group>"; };
+		F1D84C8A1CC656A90066D2C0 /* SwipeHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwipeHandler.swift; sourceTree = "<group>"; };
+		F1D84C8C1CC658620066D2C0 /* SwipeDirection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwipeDirection.swift; sourceTree = "<group>"; };
 		F1EBB3E21C5AB93C005A36CE /* WorkChunk.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkChunk.swift; sourceTree = "<group>"; };
-		F1EDC2071CC2BE780097CAE4 /* ProjectStatsToProjectsTableSwipeHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectStatsToProjectsTableSwipeHandler.swift; sourceTree = "<group>"; };
 		F1F36ACF1C875F770039EF0B /* OKButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OKButton.swift; sourceTree = "<group>"; };
 		F1FC9AD21C3ED73B002A9F31 /* ProjectStatsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectStatsViewController.swift; sourceTree = "<group>"; };
 		F1FC9AD51C3ED86F002A9F31 /* AddProjectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddProjectViewController.swift; sourceTree = "<group>"; };
@@ -179,9 +179,9 @@
 			children = (
 				F10B85171C38346D002C66F2 /* ContainerViewController.swift */,
 				F11925221C8CC9E3002BEAC2 /* ProjectsTableToTimeSliderSwipeHandler.swift */,
-				F11925241C8CCA04002BEAC2 /* TimeSliderToProjectsTableSwipeHandler.swift */,
 				F19EC37A1CC24FD8001132FE /* ProjectsTableToProjectStatsSwipeHandler.swift */,
-				F1EDC2071CC2BE780097CAE4 /* ProjectStatsToProjectsTableSwipeHandler.swift */,
+				F1D84C8A1CC656A90066D2C0 /* SwipeHandler.swift */,
+				F1D84C8C1CC658620066D2C0 /* SwipeDirection.swift */,
 			);
 			name = ContainerVC;
 			sourceTree = "<group>";
@@ -547,18 +547,18 @@
 				F1B5FE6D1C31AF73003A5C65 /* TransitionManager.swift in Sources */,
 				F12C5D8C1C46FA450040969F /* KeyboardNotification.swift in Sources */,
 				F11925231C8CC9E3002BEAC2 /* ProjectsTableToTimeSliderSwipeHandler.swift in Sources */,
-				F11925251C8CCA04002BEAC2 /* TimeSliderToProjectsTableSwipeHandler.swift in Sources */,
 				F125D7D21C28496700B94849 /* CirclePathWrapper.swift in Sources */,
 				F137E9701C419A200064E15F /* Colors.swift in Sources */,
 				F119251F1C8CB2F7002BEAC2 /* AddProjectToProjectsTableDismissAnimator.swift in Sources */,
-				F1EDC2081CC2BE780097CAE4 /* ProjectStatsToProjectsTableSwipeHandler.swift in Sources */,
 				F11D5B9F1C42AD32007F2622 /* AddButton.swift in Sources */,
+				F1D84C8B1CC656A90066D2C0 /* SwipeHandler.swift in Sources */,
 				F18C2AD81C873A9A004A7B72 /* TimerDoneViewController.swift in Sources */,
 				F137E96E1C41994A0064E15F /* ColorName.swift in Sources */,
 				F1981BA21C84E61700F49454 /* MinutesToStringConverter.swift in Sources */,
 				F19133531CA844DD00CED170 /* NSDateExtension.swift in Sources */,
 				F1C755B71C9C87EB0083466C /* HorizontalBarView.swift in Sources */,
 				F152EE901C5968D00090BECC /* Project.swift in Sources */,
+				F1D84C8D1CC658620066D2C0 /* SwipeDirection.swift in Sources */,
 				F1520B1B1C9049A8002F359E /* XButton.swift in Sources */,
 				F10B85181C38346D002C66F2 /* ContainerViewController.swift in Sources */,
 				F185A0A11CBAB5A80067775D /* UIColorExtension.swift in Sources */,
