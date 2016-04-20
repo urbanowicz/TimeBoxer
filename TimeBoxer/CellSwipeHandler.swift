@@ -27,7 +27,7 @@ class CellSwipeHandler: NSObject {
     
     private var drawerSize = CGFloat(50)
     private var animationDuration = 0.2
-    private var negativeAcceleration = CGFloat(100)
+    private var negativeAcceleration = CGFloat(5000)
     
     init(cell: MyTableViewCell, leftVC: UIViewController, middleVC: UIViewController, rightVC: UIViewController, containerVC: ContainerViewController) {
         self.cell = cell
