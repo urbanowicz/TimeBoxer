@@ -27,7 +27,7 @@ class CellSwipeHandler: NSObject {
     
     private var drawerSize = CGFloat(50)
     private var animationDuration = 0.2
-    private var negativeAcceleration = CGFloat(-100)
+    private var negativeAcceleration = CGFloat(100)
     
     init(cell: MyTableViewCell, leftVC: UIViewController, middleVC: UIViewController, rightVC: UIViewController, containerVC: ContainerViewController) {
         self.cell = cell
@@ -71,7 +71,75 @@ class CellSwipeHandler: NSObject {
     }
     
     func handleSwipeEnded(gestureRecognizer: UIPanGestureRecognizer) {
-        rollbackTransition()
+        let translation = gestureRecognizer.translationInView(containerView)
+        let startX = translation.x
+        let velocity = gestureRecognizer.velocityInView(containerView)
+        let dx = pow(velocity.x, 2) / (2 * self.negativeAcceleration)
+        var endX = startX
+        if velocity.x < 0 {
+            endX -= dx
+        } else {
+            endX += dx
+        }
+        
+        if fabs(endX) < drawerSize {
+            cell.facadeView.frame.origin.x = cellOrigin.x + endX
+        } else {
+            cell.facadeView.frame.origin.x = endX > 0 ? cellOrigin.x + drawerSize : cellOrigin.x - drawerSize
+        }
+        
+        if fabs(endX) >= containerView.frame.width / 2.0 {
+            if endX > 0 {
+                commitToLeftViewTransition()
+            } else {
+                commitToRightViewTransition()
+            }
+        } else {
+            rollbackTransition()
+        }
+    }
+    
+    private func commitToRightViewTransition() {
+        UIView.animateWithDuration(animationDuration,
+            animations: {
+                self.rightView.frame.origin.x = self.containerView.frame.origin.x
+                self.middleView.frame.origin.x = self.containerView.frame.origin.x - self.containerView.frame.width
+                self.leftView.frame.origin.x = self.containerView.frame.origin.x - 2*self.containerView.frame.width
+                self.cell.facadeView.frame.origin.x = self.cellOrigin.x
+            },
+            completion: {
+                finished in
+                self.containerVC.addChildViewController(self.rightVC)
+                self.rightVC.didMoveToParentViewController(self.containerVC)
+                self.middleVC.willMoveToParentViewController(nil)
+                self.middleView.removeFromSuperview()
+                self.middleVC.removeFromParentViewController()
+                self.leftVC.willMoveToParentViewController(nil)
+                self.leftView.removeFromSuperview()
+                self.leftVC.removeFromParentViewController()
+            })
+    }
+    
+    private func commitToLeftViewTransition() {
+        UIView.animateWithDuration(animationDuration,
+            animations: {
+                self.leftView.frame.origin.x = self.containerView.frame.origin.x
+                self.middleView.frame.origin.x = self.containerView.frame.origin.x + self.containerView.frame.width
+                self.rightView.frame.origin.x = self.containerView.frame.origin.x + 2*self.containerView.frame.width
+                self.cell.facadeView.frame.origin.x = self.cellOrigin.x
+            },
+            completion: {
+                finished in
+                self.containerVC.addChildViewController(self.leftVC)
+                self.leftVC.didMoveToParentViewController(self.containerVC)
+                self.middleVC.willMoveToParentViewController(nil)
+                self.middleView.removeFromSuperview()
+                self.middleVC.removeFromParentViewController()
+                self.rightVC.willMoveToParentViewController(nil)
+                self.rightView.removeFromSuperview()
+                self.rightVC.removeFromParentViewController()
+            }
+        )
     }
     
     private func rollbackTransition() {
@@ -86,6 +154,8 @@ class CellSwipeHandler: NSObject {
             completion:
             {
                 finished in
+                self.leftView.removeFromSuperview()
+                self.rightView.removeFromSuperview()
             }
         )
     }
