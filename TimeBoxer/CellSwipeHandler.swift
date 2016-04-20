@@ -104,7 +104,8 @@ class CellSwipeHandler: NSObject {
     }
     
     private func commitToRightViewTransition() {
-        UIView.animateWithDuration(animationDuration,
+        
+        UIView.animateWithDuration(animationDuration, delay:0, options:UIViewAnimationOptions.CurveEaseInOut,
             animations: {
                 self.rightView.frame.origin.x = self.containerView.frame.origin.x
                 self.middleView.frame.origin.x = self.containerView.frame.origin.x - self.containerView.frame.width
@@ -125,7 +126,7 @@ class CellSwipeHandler: NSObject {
     }
     
     private func commitToLeftViewTransition() {
-        UIView.animateWithDuration(animationDuration,
+        UIView.animateWithDuration(animationDuration, delay:0, options:UIViewAnimationOptions.CurveEaseInOut,
             animations: {
                 self.leftView.frame.origin.x = self.containerView.frame.origin.x
                 self.middleView.frame.origin.x = self.containerView.frame.origin.x + self.containerView.frame.width
@@ -147,7 +148,7 @@ class CellSwipeHandler: NSObject {
     }
     
     private func rollbackTransition() {
-        UIView.animateWithDuration(animationDuration,
+        UIView.animateWithDuration(animationDuration, delay:0, options:UIViewAnimationOptions.CurveEaseInOut,
             animations:
             {
                 self.cell.facadeView.frame.origin.x = self.cellOrigin.x

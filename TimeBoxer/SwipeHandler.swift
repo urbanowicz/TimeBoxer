@@ -63,7 +63,7 @@ class SwipeHandler: NSObject {
     }
     
     func commitTransition() {
-        UIView.animateWithDuration(animationDuration,
+        UIView.animateWithDuration(animationDuration, delay:0, options:UIViewAnimationOptions.CurveEaseInOut,
             animations:
             {
                 let direction:CGFloat  = self.swipeDirection == SwipeDirection.LEFT_TO_RIGHT ? 1.0 : -1.0
@@ -85,7 +85,7 @@ class SwipeHandler: NSObject {
     }
     
     func rollbackTransition() {
-        UIView.animateWithDuration(animationDuration,
+        UIView.animateWithDuration(animationDuration, delay:0, options:UIViewAnimationOptions.CurveEaseInOut,
             animations:
             {
                 let direction:CGFloat  = self.swipeDirection == SwipeDirection.LEFT_TO_RIGHT ? 1.0 : -1.0

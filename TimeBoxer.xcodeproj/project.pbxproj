@@ -15,7 +15,6 @@
 		F10CA9C31C67E1970062471C /* ProjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10CA9C21C67E1970062471C /* ProjectTests.swift */; };
 		F119251F1C8CB2F7002BEAC2 /* AddProjectToProjectsTableDismissAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F119251E1C8CB2F7002BEAC2 /* AddProjectToProjectsTableDismissAnimator.swift */; };
 		F11925211C8CB319002BEAC2 /* ProjectsTableToAddProjectAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11925201C8CB319002BEAC2 /* ProjectsTableToAddProjectAnimator.swift */; };
-		F11925231C8CC9E3002BEAC2 /* ProjectsTableToTimeSliderSwipeHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11925221C8CC9E3002BEAC2 /* ProjectsTableToTimeSliderSwipeHandler.swift */; };
 		F11D5B9F1C42AD32007F2622 /* AddButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11D5B9E1C42AD32007F2622 /* AddButton.swift */; };
 		F125D7D21C28496700B94849 /* CirclePathWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F125D7D11C28496700B94849 /* CirclePathWrapper.swift */; };
 		F12C5D8C1C46FA450040969F /* KeyboardNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = F12C5D8B1C46FA450040969F /* KeyboardNotification.swift */; };
@@ -57,7 +56,6 @@
 		F1981BA21C84E61700F49454 /* MinutesToStringConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1981BA11C84E61700F49454 /* MinutesToStringConverter.swift */; };
 		F1981BA31C84E61700F49454 /* MinutesToStringConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1981BA11C84E61700F49454 /* MinutesToStringConverter.swift */; };
 		F19D226C1CA01F8B006D76D4 /* StatsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F19D226B1CA01F8B006D76D4 /* StatsTableViewCell.swift */; };
-		F19EC37B1CC24FD8001132FE /* ProjectsTableToProjectStatsSwipeHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = F19EC37A1CC24FD8001132FE /* ProjectsTableToProjectStatsSwipeHandler.swift */; };
 		F1A0BC701C4E63FC0075ACCF /* MyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A0BC6F1C4E63FC0075ACCF /* MyTableViewCell.swift */; };
 		F1A6053D1C8212CD008EF288 /* BigSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A6053C1C8212CD008EF288 /* BigSlider.swift */; };
 		F1A95C041C6BD49000EF5204 /* LastWorkedOnDateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A95C031C6BD49000EF5204 /* LastWorkedOnDateFormatter.swift */; };
@@ -97,7 +95,6 @@
 		F10CA9C21C67E1970062471C /* ProjectTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectTests.swift; sourceTree = "<group>"; };
 		F119251E1C8CB2F7002BEAC2 /* AddProjectToProjectsTableDismissAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddProjectToProjectsTableDismissAnimator.swift; sourceTree = "<group>"; };
 		F11925201C8CB319002BEAC2 /* ProjectsTableToAddProjectAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectsTableToAddProjectAnimator.swift; sourceTree = "<group>"; };
-		F11925221C8CC9E3002BEAC2 /* ProjectsTableToTimeSliderSwipeHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectsTableToTimeSliderSwipeHandler.swift; sourceTree = "<group>"; };
 		F11D5B9E1C42AD32007F2622 /* AddButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddButton.swift; sourceTree = "<group>"; };
 		F125D7D11C28496700B94849 /* CirclePathWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CirclePathWrapper.swift; sourceTree = "<group>"; };
 		F12C5D8B1C46FA450040969F /* KeyboardNotification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardNotification.swift; sourceTree = "<group>"; };
@@ -135,7 +132,6 @@
 		F1981B9F1C84DF8F00F49454 /* SliderOutputToValueConverterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SliderOutputToValueConverterTests.swift; sourceTree = "<group>"; };
 		F1981BA11C84E61700F49454 /* MinutesToStringConverter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MinutesToStringConverter.swift; sourceTree = "<group>"; };
 		F19D226B1CA01F8B006D76D4 /* StatsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatsTableViewCell.swift; sourceTree = "<group>"; };
-		F19EC37A1CC24FD8001132FE /* ProjectsTableToProjectStatsSwipeHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectsTableToProjectStatsSwipeHandler.swift; sourceTree = "<group>"; };
 		F1A0BC6F1C4E63FC0075ACCF /* MyTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyTableViewCell.swift; sourceTree = "<group>"; };
 		F1A6053C1C8212CD008EF288 /* BigSlider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BigSlider.swift; sourceTree = "<group>"; };
 		F1A95C031C6BD49000EF5204 /* LastWorkedOnDateFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LastWorkedOnDateFormatter.swift; sourceTree = "<group>"; };
@@ -180,8 +176,6 @@
 			isa = PBXGroup;
 			children = (
 				F10B85171C38346D002C66F2 /* ContainerViewController.swift */,
-				F11925221C8CC9E3002BEAC2 /* ProjectsTableToTimeSliderSwipeHandler.swift */,
-				F19EC37A1CC24FD8001132FE /* ProjectsTableToProjectStatsSwipeHandler.swift */,
 				F1D84C8A1CC656A90066D2C0 /* SwipeHandler.swift */,
 				F1D84C8C1CC658620066D2C0 /* SwipeDirection.swift */,
 				F1CA1C221CC6A66300491EC1 /* CellSwipeHandler.swift */,
@@ -538,7 +532,6 @@
 				F15F9C501BCCF376008733A3 /* AppDelegate.swift in Sources */,
 				F18449591CB54508008939DD /* UILabelExtension.swift in Sources */,
 				F189A1B21BD8C0D3000FFC5F /* TimeSliderViewController.swift in Sources */,
-				F19EC37B1CC24FD8001132FE /* ProjectsTableToProjectStatsSwipeHandler.swift in Sources */,
 				F19133551CA8478900CED170 /* NSCalendarExtension.swift in Sources */,
 				F137CD561C5D361B0005B51C /* ProjectsDAO.swift in Sources */,
 				F10B851A1C384E23002C66F2 /* Animator.swift in Sources */,
@@ -549,7 +542,6 @@
 				F1981B9D1C84DE7200F49454 /* SliderOutputToValueConverter.swift in Sources */,
 				F1B5FE6D1C31AF73003A5C65 /* TransitionManager.swift in Sources */,
 				F12C5D8C1C46FA450040969F /* KeyboardNotification.swift in Sources */,
-				F11925231C8CC9E3002BEAC2 /* ProjectsTableToTimeSliderSwipeHandler.swift in Sources */,
 				F125D7D21C28496700B94849 /* CirclePathWrapper.swift in Sources */,
 				F137E9701C419A200064E15F /* Colors.swift in Sources */,
 				F119251F1C8CB2F7002BEAC2 /* AddProjectToProjectsTableDismissAnimator.swift in Sources */,
