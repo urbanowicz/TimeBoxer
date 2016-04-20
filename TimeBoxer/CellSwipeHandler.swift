@@ -27,7 +27,7 @@ class CellSwipeHandler: NSObject {
     
     private var drawerSize = CGFloat(50)
     private var animationDuration = 0.2
-    private var negativeAcceleration = CGFloat(5000)
+    private var negativeAcceleration = CGFloat(1000)
     
     init(cell: MyTableViewCell, leftVC: UIViewController, middleVC: UIViewController, rightVC: UIViewController, containerVC: ContainerViewController) {
         self.cell = cell
@@ -74,7 +74,11 @@ class CellSwipeHandler: NSObject {
         let translation = gestureRecognizer.translationInView(containerView)
         let startX = translation.x
         let velocity = gestureRecognizer.velocityInView(containerView)
-        let dx = pow(velocity.x, 2) / (2 * self.negativeAcceleration)
+        var accelerationMultiplier = CGFloat(1)
+        if velocity.x * startX < 0 {
+            accelerationMultiplier = 100
+        }
+        let dx = pow(velocity.x, 2) / (2 * self.negativeAcceleration * accelerationMultiplier)
         var endX = startX
         if velocity.x < 0 {
             endX -= dx

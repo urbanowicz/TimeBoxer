@@ -17,7 +17,7 @@ class SwipeHandler: NSObject {
     var containerVC: ContainerViewController
     var swipeDirection: SwipeDirection
     
-    let negativeAcceleration = CGFloat(-100)
+    let negativeAcceleration = CGFloat(-1000)
     let animationDuration = 0.2
     
     
