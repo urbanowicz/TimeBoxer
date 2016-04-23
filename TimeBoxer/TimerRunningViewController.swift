@@ -16,16 +16,22 @@ class TimerRunningViewController: UIViewController {
     
     var numberOfSecondsToCountDown = 0 //number of seconds
     var numberOfSecondsTheTimerWasSetTo = 0
+    var stopTime:NSDate?
     var project: Project?
     
+    private let stopTimeKey = "TimeBoxer_TimerRunningVC_StopTimeKey"
     private let toTimerPausedAnimator = ToTimerPausedAnimator()
     private let timeLabelTextFormatter = TimeLabelTextFormatter()
     var timer = NSTimer()
-
+    private var timerDoneNotification:UILocalNotification?
+    
     override func viewDidLoad()
     {
         super.viewDidLoad()
         view.backgroundColor = Colors.silver()
+        
+        registerForLocalNotifications()
+        attemptReadingNumberOfSecondsToCountDownFromUserDefaults()
         setupAppTitleLabel()
         setupProjectNameLabel()
         setupTimeLabel()
@@ -34,8 +40,13 @@ class TimerRunningViewController: UIViewController {
     
 
     override func viewWillAppear(animated: Bool) {
+        if stopTime == nil {
+            setupStopTimeBasedOnNumberOfSecondsToCountDown()
+            setupTimerDoneNotification()
+        }
+        
         timeLabel.text = timeLabelTextFormatter.formatWithNumberOfSecondsToCountDown(numberOfSecondsToCountDown)
-        timer = NSTimer.scheduledTimerWithTimeInterval(1.0, target:self, selector: #selector(TimerRunningViewController.countDown),
+        timer = NSTimer.scheduledTimerWithTimeInterval(0.1, target:self, selector: #selector(TimerRunningViewController.countDown),
             userInfo: nil, repeats: true)
     }
 
@@ -79,7 +90,8 @@ class TimerRunningViewController: UIViewController {
     }
 
     func countDown() {
-        numberOfSecondsToCountDown -= 1
+        numberOfSecondsToCountDown = Int(stopTime!.timeIntervalSinceNow)
+        numberOfSecondsToCountDown = numberOfSecondsToCountDown < 0 ? 0 : numberOfSecondsToCountDown
         timeLabel.text = timeLabelTextFormatter.formatWithNumberOfSecondsToCountDown(numberOfSecondsToCountDown)
         if numberOfSecondsToCountDown == 0 {
             handleTimerDone()
@@ -91,8 +103,50 @@ class TimerRunningViewController: UIViewController {
         performSegueWithIdentifier("TimerRunningToTimerDone", sender: self)
     }
     
+//MARK: Notificatios
+    private func registerForLocalNotifications() {
+        let types: UIUserNotificationType = [.Badge, .Sound, .Alert]
+        let settings = UIUserNotificationSettings(forTypes: types, categories: nil)
+        UIApplication.sharedApplication().registerUserNotificationSettings(settings)
+    }
+    
+    private func attemptReadingNumberOfSecondsToCountDownFromUserDefaults() {
+        stopTime = NSUserDefaults.standardUserDefaults().objectForKey(stopTimeKey) as? NSDate
+        if stopTime != nil {
+            numberOfSecondsToCountDown = Int(stopTime!.timeIntervalSinceNow)
+        }
+    }
+    
+    private func setupStopTimeBasedOnNumberOfSecondsToCountDown() {
+        stopTime = NSCalendar.currentCalendar().dateByAddingUnit(NSCalendarUnit.Second, value: numberOfSecondsToCountDown, toDate: NSDate(), options: NSCalendarOptions())
+        NSUserDefaults.standardUserDefaults().setObject(stopTime, forKey: stopTimeKey)
+    }
+    
+    private func setupTimerDoneNotification() {
+        //schedule Notification
+        timerDoneNotification = UILocalNotification()
+        timerDoneNotification!.fireDate = stopTime
+        timerDoneNotification!.alertBody = "Timer done."
+        timerDoneNotification!.soundName = UILocalNotificationDefaultSoundName
+        UIApplication.sharedApplication().scheduleLocalNotification(timerDoneNotification!)
+    }
+    
+    private func removeStopTimeFromUserDefaults() {
+        NSUserDefaults.standardUserDefaults().setObject(nil, forKey: stopTimeKey)
+    }
+    
+    private func cancelTimerDoneNotification() {
+        if let notification = timerDoneNotification {
+            UIApplication.sharedApplication().cancelLocalNotification(notification)
+            timerDoneNotification = nil 
+        }
+    }
+    
 //MARK: - Navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        removeStopTimeFromUserDefaults()
+        cancelTimerDoneNotification()
+        
         if let segueIdentifier = segue.identifier {
             if segueIdentifier == "TimerRunningToTimerPaused" {
                 let timerPausedVC = segue.destinationViewController as! TimerPausedViewController
