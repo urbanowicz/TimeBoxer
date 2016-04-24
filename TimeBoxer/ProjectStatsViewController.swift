@@ -9,7 +9,7 @@
 import UIKit
 
 class ProjectStatsViewController: UIViewController {
-    var project:Project?
+    var project:Project? 
     var segueStarted:Bool = false
     
     @IBOutlet weak var statsTableView: UITableView!
@@ -28,6 +28,8 @@ class ProjectStatsViewController: UIViewController {
     
     override func viewWillAppear(animated: Bool) {
         statsTableDataSource.project = project
+//        statsTableView!.reloadRowsAtIndexPaths([NSIndexPath(forItem:0, inSection: 0)], withRowAnimation: UITableViewRowAnimation.None)
+        statsTableView!.reloadData()
         adjustFontSizeForProjectNameLabel()
     }
 
