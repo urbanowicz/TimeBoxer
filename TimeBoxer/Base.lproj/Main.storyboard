@@ -618,6 +618,7 @@
                                             <outlet property="lastWorkedOnLabel" destination="7IU-v6-3z2" id="TRf-FM-8Gw"/>
                                             <outlet property="leftDrawer" destination="AfP-3Y-hfO" id="EZ2-54-xqZ"/>
                                             <outlet property="projectNameLabel" destination="dzG-97-QYh" id="b0J-EX-PfI"/>
+                                            <outlet property="projectNameLabelBottomToFacadeViewTopConstraint" destination="Frh-ZB-bud" id="qex-eu-bD6"/>
                                             <outlet property="rightDrawer" destination="SrC-pn-XcZ" id="MSX-Ny-aNw"/>
                                         </connections>
                                     </tableViewCell>

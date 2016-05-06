@@ -17,6 +17,7 @@ class MyTableViewCell: UITableViewCell {
     @IBOutlet weak var facadeView: UIView!
     @IBOutlet weak var leftDrawer: UIView!
     @IBOutlet weak var rightDrawer: UIView!
+    @IBOutlet var projectNameLabelBottomToFacadeViewTopConstraint: NSLayoutConstraint!
     override func awakeFromNib() {
         super.awakeFromNib()
     

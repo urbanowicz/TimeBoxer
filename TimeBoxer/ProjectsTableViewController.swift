@@ -143,8 +143,6 @@ class ProjectsTableViewController: UIViewController, UITableViewDelegate {
             if selectedCell == nil {
                 return
             }
-            
-            print ("y: \(selectedCell!.frame.origin.y)" )
         
             func backupTupleForView(uiViewInstance: UIView) -> (view: UIView,frame: CGRect) {
                 let frameCopy = CGRectMake(uiViewInstance.frame.origin.x,
@@ -154,6 +152,7 @@ class ProjectsTableViewController: UIViewController, UITableViewDelegate {
                 return (uiViewInstance, frameCopy)
             }
             
+            NSLayoutConstraint.deactivateConstraints([self.selectedCell!.projectNameLabelBottomToFacadeViewTopConstraint])
             UIView.animateWithDuration(0.2, delay: 0, options: UIViewAnimationOptions.CurveEaseInOut,
                 animations: {
                     
@@ -194,6 +193,8 @@ class ProjectsTableViewController: UIViewController, UITableViewDelegate {
                     self.originalFrames.append(backupTupleForView(self.selectedCell!))
                     self.selectedCell!.frame = CGRect(x: 0, y: 0, width: self.projectsTableView.frame.width, height: self.projectsTableView.frame.height)
                     self.selectedCell!.facadeView.backgroundColor = Colors.purple()
+
+                    
                     
                 },
                 completion: {
@@ -213,6 +214,7 @@ class ProjectsTableViewController: UIViewController, UITableViewDelegate {
                     }
                     self.projectsTableView.setContentOffset(CGPoint(x:0, y: self.originalContentOffset!), animated: false)
                     self.selectedCell!.facadeView.backgroundColor = Colors.almostBlack()
+                    NSLayoutConstraint.activateConstraints ([self.selectedCell!.projectNameLabelBottomToFacadeViewTopConstraint])
                     
                 },
                    completion: {
@@ -230,8 +232,7 @@ class ProjectsTableViewController: UIViewController, UITableViewDelegate {
     }
     
     func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath) {
-        let cell = projectsTableView.cellForRowAtIndexPath(indexPath) as? MyTableViewCell
-        print(cell?.projectNameLabel.frame.size)
+
     }
     
 //MARK: Navigation
