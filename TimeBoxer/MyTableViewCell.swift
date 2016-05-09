@@ -18,14 +18,15 @@ class MyTableViewCell: UITableViewCell {
     @IBOutlet weak var leftDrawer: UIView!
     @IBOutlet weak var rightDrawer: UIView!
     @IBOutlet var projectNameLabelBottomToFacadeViewTopConstraint: NSLayoutConstraint!
+    
+    var deleteProjectButton:UIButton = UIButton(type: UIButtonType.System)
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-    
     }
 
     override func setSelected(selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
     }
     
     func adjustFontSizeToFitTheFrame() {
@@ -35,5 +36,22 @@ class MyTableViewCell: UITableViewCell {
         if numberOfLines >= 2 {
             projectNameLabel.font = projectNameLabel.font.fontWithSize(14.0)
         }
+    }
+    
+    func enterExpandedMode(rect:CGRect) {
+        let deleteButtonWidth:CGFloat = 200.0
+        let deleteButtonHeight:CGFloat = 50.0
+        let deleteButtonX:CGFloat = rect.width / 2.0 - deleteButtonWidth / 2.0
+        let deleteButtonY:CGFloat = rect.height / 2.0 - deleteButtonHeight / 2.0
+        deleteProjectButton.frame = CGRectMake(deleteButtonX, deleteButtonY, deleteButtonWidth, deleteButtonHeight)
+        deleteProjectButton.backgroundColor = UIColor.redColor()
+        deleteProjectButton.setTitle("Delete", forState:  UIControlState.Normal)
+        deleteProjectButton.titleLabel!.font = UIFont(name: "Avenir Book", size: 20)
+        deleteProjectButton.titleLabel!.textColor = Colors.almostBlack()
+        facadeView.addSubview(deleteProjectButton)
+    }
+    
+    func leaveExpandedMode() {
+        deleteProjectButton.removeFromSuperview()
     }
 }

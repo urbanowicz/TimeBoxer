@@ -135,8 +135,6 @@ class ProjectsTableViewController: UIViewController, UITableViewDelegate {
     }
     
     func handleLongPressGesture(gestureRecognizer:UILongPressGestureRecognizer) {
-        
-        
         if gestureRecognizer.state == .Began {
             
             selectedCell = self.cellAtPoint(gestureRecognizer.locationInView(self.projectsTableView))
@@ -153,7 +151,8 @@ class ProjectsTableViewController: UIViewController, UITableViewDelegate {
             }
             
             NSLayoutConstraint.deactivateConstraints([self.selectedCell!.projectNameLabelBottomToFacadeViewTopConstraint])
-            UIView.animateWithDuration(0.2, delay: 0, options: UIViewAnimationOptions.CurveEaseInOut,
+            self.selectedCell!.enterExpandedMode(view.frame)
+            UIView.animateWithDuration(3.0, delay: 0, options: UIViewAnimationOptions.CurveEaseInOut,
                 animations: {
                     
                     //1. Move the header up
@@ -175,7 +174,6 @@ class ProjectsTableViewController: UIViewController, UITableViewDelegate {
                     self.projectsTableView.frame = CGRect(x: 0.0, y: 0.0, width: self.view.frame.width, height: self.view.frame.height)
 
                     
-                    
                     //4. Move the visible cell out of the way
                     for visibleCell in self.projectsTableView.visibleCells {
                         if visibleCell.frame.origin.y < self.selectedCell!.frame.origin.y {
@@ -192,9 +190,11 @@ class ProjectsTableViewController: UIViewController, UITableViewDelegate {
                     //5. Expand the cell itself
                     self.originalFrames.append(backupTupleForView(self.selectedCell!))
                     self.selectedCell!.frame = CGRect(x: 0, y: 0, width: self.projectsTableView.frame.width, height: self.projectsTableView.frame.height)
-                    self.selectedCell!.facadeView.backgroundColor = Colors.purple()
-
+                    self.selectedCell!.facadeView.backgroundColor = Colors.almostBlack()
                     
+                    //6. Display the delete and cancel buttons
+                    self.selectedCell!.deleteProjectButton.alpha = 1.0
+
                     
                 },
                 completion: {
@@ -207,21 +207,25 @@ class ProjectsTableViewController: UIViewController, UITableViewDelegate {
                 return
             }
             
-            UIView.animateWithDuration(0.2, delay: 0, options: UIViewAnimationOptions.CurveEaseInOut,
-                   animations: {
-                    for (uiView, frame) in self.originalFrames {
-                        uiView.frame = frame
-                    }
-                    self.projectsTableView.setContentOffset(CGPoint(x:0, y: self.originalContentOffset!), animated: false)
-                    self.selectedCell!.facadeView.backgroundColor = Colors.almostBlack()
-                    NSLayoutConstraint.activateConstraints ([self.selectedCell!.projectNameLabelBottomToFacadeViewTopConstraint])
-                    
-                },
-                   completion: {
-                    finished in
-                    self.originalFrames.removeAll()
+            UIView.animateWithDuration(0.1, animations: {self.selectedCell!.deleteProjectButton.alpha = 0.0},
+            completion: {
+                finished in
+                self.selectedCell!.leaveExpandedMode()
+                UIView.animateWithDuration(0.2, delay: 0, options: UIViewAnimationOptions.CurveEaseInOut,
+                    animations: {
+                        for (uiView, frame) in self.originalFrames {
+                            uiView.frame = frame
+                        }
+                        self.projectsTableView.setContentOffset(CGPoint(x:0, y: self.originalContentOffset!), animated: false)
+                        self.selectedCell!.facadeView.backgroundColor = Colors.almostBlack()
+                        NSLayoutConstraint.activateConstraints ([self.selectedCell!.projectNameLabelBottomToFacadeViewTopConstraint])
+                        
+                    },
+                    completion: {
+                        finished in
+                        self.originalFrames.removeAll()
+                })
             })
-            
         }
     }
 
