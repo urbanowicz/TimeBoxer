@@ -151,8 +151,7 @@ class ProjectsTableViewController: UIViewController, UITableViewDelegate {
             }
             
             NSLayoutConstraint.deactivateConstraints([self.selectedCell!.projectNameLabelBottomToFacadeViewTopConstraint])
-            self.selectedCell!.enterExpandedMode(view.frame)
-            UIView.animateWithDuration(3.0, delay: 0, options: UIViewAnimationOptions.CurveEaseInOut,
+            UIView.animateWithDuration(0.1, delay: 0, options: UIViewAnimationOptions.CurveEaseInOut,
                 animations: {
                     
                     //1. Move the header up
@@ -192,41 +191,60 @@ class ProjectsTableViewController: UIViewController, UITableViewDelegate {
                     self.selectedCell!.frame = CGRect(x: 0, y: 0, width: self.projectsTableView.frame.width, height: self.projectsTableView.frame.height)
                     self.selectedCell!.facadeView.backgroundColor = Colors.almostBlack()
                     
-                    //6. Display the delete and cancel buttons
-                    self.selectedCell!.deleteProjectButton.alpha = 1.0
 
                     
                 },
                 completion: {
                     finished in
-            })
-        }
-        
-        if gestureRecognizer.state == .Ended {
-            if selectedCell == nil {
-                return
-            }
-            
-            UIView.animateWithDuration(0.1, animations: {self.selectedCell!.deleteProjectButton.alpha = 0.0},
-            completion: {
-                finished in
-                self.selectedCell!.leaveExpandedMode()
-                UIView.animateWithDuration(0.2, delay: 0, options: UIViewAnimationOptions.CurveEaseInOut,
-                    animations: {
-                        for (uiView, frame) in self.originalFrames {
-                            uiView.frame = frame
-                        }
-                        self.projectsTableView.setContentOffset(CGPoint(x:0, y: self.originalContentOffset!), animated: false)
-                        self.selectedCell!.facadeView.backgroundColor = Colors.almostBlack()
-                        NSLayoutConstraint.activateConstraints ([self.selectedCell!.projectNameLabelBottomToFacadeViewTopConstraint])
+                    let deleteProjectButton = self.selectedCell!.deleteProjectButton
+                    let facadeView = self.selectedCell!.facadeView
+                    deleteProjectButton.addTarget(self, action: #selector(ProjectsTableViewController.deleteProjectButtonPressed), forControlEvents: .TouchDown)
+                    deleteProjectButton.alpha = 0.0
+                    deleteProjectButton.frame = CGRectZero
+                    deleteProjectButton.frame.origin.x = facadeView.frame.width / 2.0
+                    deleteProjectButton.frame.origin.y = facadeView.frame.height / 2.0
+                    self.selectedCell!.setupDeleteProjectButton()
+                    facadeView.addSubview(deleteProjectButton)
+                    UIView.animateWithDuration(0.1, delay: 0, options: UIViewAnimationOptions.CurveEaseInOut, animations: {
+                        //6. Display the delete and cancel buttons
+                        deleteProjectButton.alpha = 1.0
+                        let buttonHeight = CGFloat(50)
+                        let buttonWidth = CGFloat(100)
+                        let buttonX = facadeView.frame.width / 2.0 - buttonWidth / 2.0
+                        let buttonY = facadeView.frame.height / 2.0 - buttonHeight / 2.0
+                        deleteProjectButton.frame = CGRectMake(buttonX, buttonY, buttonWidth, buttonHeight)
                         
-                    },
-                    completion: {
-                        finished in
-                        self.originalFrames.removeAll()
-                })
+                        }, completion: {finished in })
             })
         }
+    }
+    
+    func deleteProjectButtonPressed() {
+        
+        UIView.animateWithDuration(0.1, delay: 0, options: UIViewAnimationOptions.CurveEaseInOut, animations: {
+            self.selectedCell!.deleteProjectButton.alpha = 0.0
+            let buttonX = self.selectedCell!.facadeView.frame.width / 2.0
+            let buttonY = self.selectedCell!.facadeView.frame.height / 2.0
+            self.selectedCell!.deleteProjectButton.frame = CGRectMake(buttonX, buttonY, 0, 0)
+            },
+           completion: {
+            finished in
+            self.selectedCell!.deleteProjectButton.removeFromSuperview()
+            UIView.animateWithDuration(0.1, delay: 0, options: UIViewAnimationOptions.CurveEaseInOut,
+                animations: {
+                    for (uiView, frame) in self.originalFrames {
+                        uiView.frame = frame
+                    }
+                    self.projectsTableView.setContentOffset(CGPoint(x:0, y: self.originalContentOffset!), animated: false)
+                    self.selectedCell!.facadeView.backgroundColor = Colors.almostBlack()
+                    NSLayoutConstraint.activateConstraints ([self.selectedCell!.projectNameLabelBottomToFacadeViewTopConstraint])
+                    
+                },
+                completion: {
+                    finished in
+                    self.originalFrames.removeAll()
+            })
+        })
     }
 
 //MARK: Adjust font size

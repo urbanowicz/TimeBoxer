@@ -38,20 +38,10 @@ class MyTableViewCell: UITableViewCell {
         }
     }
     
-    func enterExpandedMode(rect:CGRect) {
-        let deleteButtonWidth:CGFloat = 200.0
-        let deleteButtonHeight:CGFloat = 50.0
-        let deleteButtonX:CGFloat = rect.width / 2.0 - deleteButtonWidth / 2.0
-        let deleteButtonY:CGFloat = rect.height / 2.0 - deleteButtonHeight / 2.0
-        deleteProjectButton.frame = CGRectMake(deleteButtonX, deleteButtonY, deleteButtonWidth, deleteButtonHeight)
+    func setupDeleteProjectButton() {
         deleteProjectButton.backgroundColor = UIColor.redColor()
         deleteProjectButton.setTitle("Delete", forState:  UIControlState.Normal)
         deleteProjectButton.titleLabel!.font = UIFont(name: "Avenir Book", size: 20)
         deleteProjectButton.titleLabel!.textColor = Colors.almostBlack()
-        facadeView.addSubview(deleteProjectButton)
-    }
-    
-    func leaveExpandedMode() {
-        deleteProjectButton.removeFromSuperview()
     }
 }
