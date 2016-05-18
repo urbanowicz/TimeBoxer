@@ -18,11 +18,19 @@ class MyTableViewCell: UITableViewCell {
     @IBOutlet weak var leftDrawer: UIView!
     @IBOutlet weak var rightDrawer: UIView!
     @IBOutlet var projectNameLabelBottomToFacadeViewTopConstraint: NSLayoutConstraint!
-    
+    @IBOutlet var projectNameLabelTrailingSpaceToFacadeViewConstraint: NSLayoutConstraint!
+    @IBOutlet var projectNameLabelTopToFacadeViewConstraint: NSLayoutConstraint!
+    @IBOutlet var projectNameLabelLeadingSpaceToFacadeViewConstraint: NSLayoutConstraint!
     var deleteProjectButton:UIButton = UIButton(type: UIButtonType.System)
-    
+    var cancelButton:UIButton = UIButton(type: UIButtonType.System)
+
     override func awakeFromNib() {
         super.awakeFromNib()
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+
     }
 
     override func setSelected(selected: Bool, animated: Bool) {
@@ -43,5 +51,14 @@ class MyTableViewCell: UITableViewCell {
         deleteProjectButton.setTitle("Delete", forState:  UIControlState.Normal)
         deleteProjectButton.titleLabel!.font = UIFont(name: "Avenir Book", size: 20)
         deleteProjectButton.titleLabel!.textColor = Colors.almostBlack()
+        deleteProjectButton.frame.size = CGSizeMake(projectNameLabel.frame.width, 50)
+    }
+    
+    func setupCancelButton() {
+        cancelButton.backgroundColor = UIColor.blueColor()
+        cancelButton.setTitle("Cancel", forState: UIControlState.Normal)
+        cancelButton.titleLabel!.font = UIFont(name: "Avenir Book", size: 20)
+        cancelButton.titleLabel!.textColor = Colors.almostBlack()
+        cancelButton.frame.size = CGSizeMake(projectNameLabel.frame.width, 50)
     }
 }

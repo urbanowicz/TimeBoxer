@@ -619,6 +619,9 @@
                                             <outlet property="leftDrawer" destination="AfP-3Y-hfO" id="EZ2-54-xqZ"/>
                                             <outlet property="projectNameLabel" destination="dzG-97-QYh" id="b0J-EX-PfI"/>
                                             <outlet property="projectNameLabelBottomToFacadeViewTopConstraint" destination="Frh-ZB-bud" id="qex-eu-bD6"/>
+                                            <outlet property="projectNameLabelLeadingSpaceToFacadeViewConstraint" destination="sb8-D6-H8E" id="edr-tt-rcQ"/>
+                                            <outlet property="projectNameLabelTopToFacadeViewConstraint" destination="gTt-pR-DQI" id="RFh-Q5-hXJ"/>
+                                            <outlet property="projectNameLabelTrailingSpaceToFacadeViewConstraint" destination="Yac-XN-6oa" id="GPe-Hv-DOr"/>
                                             <outlet property="rightDrawer" destination="SrC-pn-XcZ" id="MSX-Ny-aNw"/>
                                         </connections>
                                     </tableViewCell>
@@ -678,7 +681,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QKb-ic-GTJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-139" y="-477"/>
+            <point key="canvasLocation" x="-112" y="-574"/>
         </scene>
         <!--Add Project View Controller-->
         <scene sceneID="dZG-L9-nPN">
