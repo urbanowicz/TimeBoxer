@@ -28,6 +28,7 @@ class ProjectsTableViewController: UIViewController, UITableViewDelegate {
     private var selectedCell: MyTableViewCell?
     
     private var projectNameLabelHeightConstraint:NSLayoutConstraint?
+    private var projectNameLabelWidthConstraint:NSLayoutConstraint?
     private var originalProjectNameLabelTopConstraintConstant = CGFloat(0)
     private var originalProjectNameLabelLeadingConstraintConstant = CGFloat(0)
     private var startDeleteProjectButtonFrame = CGRectZero
@@ -153,7 +154,9 @@ class ProjectsTableViewController: UIViewController, UITableViewDelegate {
             }
             
             selectedCell!.setupDeleteProjectButton()
+            selectedCell!.deleteProjectButton.addTarget(self, action: #selector(ProjectsTableViewController.deleteProjectButtonPressed), forControlEvents: .TouchDown)
             selectedCell!.setupCancelButton()
+            selectedCell!.cancelButton.addTarget(self, action: #selector(ProjectsTableViewController.cancelButtonPressed), forControlEvents: .TouchDown)
             
             //----------------HELPER FUNCTIONS-------------------------------------------------
             func backupTupleForView(uiViewInstance: UIView) -> (view: UIView,frame: CGRect) {
@@ -193,28 +196,34 @@ class ProjectsTableViewController: UIViewController, UITableViewDelegate {
             projectNameLabelHeightConstraint = NSLayoutConstraint(item: selectedCell!.projectNameLabel, attribute: .Height, relatedBy: .Equal, toItem: nil, attribute: .NotAnAttribute, multiplier: 0, constant: selectedCell!.projectNameLabel.frame.height)
             projectNameLabelHeightConstraint!.active = true
             
+            projectNameLabelWidthConstraint = NSLayoutConstraint(item: selectedCell!.projectNameLabel, attribute: .Width, relatedBy: .Equal, toItem: nil, attribute: .NotAnAttribute, multiplier: 0, constant: selectedCell!.projectNameLabel.frame.width)
+            projectNameLabelWidthConstraint!.active = true
+            
             
             self.originalProjectNameLabelTopConstraintConstant = selectedCell!.projectNameLabelTopToFacadeViewConstraint.constant
             self.originalProjectNameLabelLeadingConstraintConstant = selectedCell!.projectNameLabelLeadingSpaceToFacadeViewConstraint.constant
             
             prepareStartAndEndFrames()
-
-            UIView.animateWithDuration(2.0, delay: 0, options: UIViewAnimationOptions.CurveEaseInOut,
+            self.selectedCell!.lastWorkedOnLabel.alpha = 0.0
+            UIView.animateWithDuration(0.3, delay: 0, options: UIViewAnimationOptions.CurveEaseInOut,
                 animations: {
                     
                     //1. Move the header up
                     let moveUpAmmount = self.view.convertPoint(self.selectedCell!.frame.origin, fromView: self.projectsTableView).y
                     self.originalFrames.append(backupTupleForView(self.timeBoxerLabel))
                     self.timeBoxerLabel.frame.origin.y -= moveUpAmmount
+                    self.timeBoxerLabel.alpha = 0.0
                     
                     self.originalFrames.append(backupTupleForView(self.titleBarSeparator))
                     self.titleBarSeparator.frame.origin.y -= moveUpAmmount
+                    self.titleBarSeparator.alpha = 0.0
                     
                     
                     //2. Move the add project button down
                     let moveDownAmount = self.view.frame.height - (moveUpAmmount + self.selectedCell!.frame.height)
                     self.originalFrames.append(backupTupleForView(self.addProjectButton))
                     self.addProjectButton.frame.origin.y += moveDownAmount
+                    self.addProjectButton.alpha = 0.0
                     
                     //3. Make the project table fill the whole container view
                     self.originalFrames.append(backupTupleForView(self.projectsTableView))
@@ -228,22 +237,27 @@ class ProjectsTableViewController: UIViewController, UITableViewDelegate {
                         if visibleCell.frame.origin.y < self.selectedCell!.frame.origin.y {
                             self.originalFrames.append(backupTupleForView(visibleCell))
                             visibleCell.frame.origin.y -= self.selectedCell!.frame.origin.y
+                            visibleCell.alpha = 0.0
                         }
                         
                         if visibleCell.frame.origin.y > self.selectedCell?.frame.origin.y {
                             self.originalFrames.append(backupTupleForView(visibleCell))
                             visibleCell.frame.origin.y += self.view.frame.height - (self.selectedCell!.frame.origin.y + self.selectedCell!.frame.height)
+                            visibleCell.alpha = 0.0
                         }
                     }
 
                     //5. Expand the cell itself
                     self.originalFrames.append(backupTupleForView(self.selectedCell!))
                     self.selectedCell!.frame = CGRect(x: 0, y: 0, width: self.projectsTableView.frame.width, height: self.projectsTableView.frame.height)
-                    self.selectedCell!.facadeView.backgroundColor = Colors.oceanBlue()
+                    
                     
                     //6. Move the projectNameLabel to the center
                     self.selectedCell!.projectNameLabelTopToFacadeViewConstraint.constant = self.endProjectNameLabelFrame.origin.y
                     self.selectedCell!.projectNameLabelLeadingSpaceToFacadeViewConstraint.constant = self.endProjectNameLabelFrame.origin.x
+                    
+                    self.selectedCell!.projectNameLabel.textColor = Colors.almostBlack()
+                    self.selectedCell!.facadeView.backgroundColor = Colors.silver()
                     self.view.layoutIfNeeded()
                 },
                 completion: {
@@ -251,7 +265,6 @@ class ProjectsTableViewController: UIViewController, UITableViewDelegate {
                     let deleteProjectButton = self.selectedCell!.deleteProjectButton
                     let cancelButton = self.selectedCell!.cancelButton
                     let facadeView = self.selectedCell!.facadeView
-                    deleteProjectButton.addTarget(self, action: #selector(ProjectsTableViewController.deleteProjectButtonPressed), forControlEvents: .TouchDown)
                     deleteProjectButton.alpha = 0.0
                     deleteProjectButton.frame = self.startDeleteProjectButtonFrame
                     cancelButton.alpha = 0.0
@@ -274,52 +287,43 @@ class ProjectsTableViewController: UIViewController, UITableViewDelegate {
     
     func deleteProjectButtonPressed() {
         
+    }
+    
+    func cancelButtonPressed() {
         UIView.animateWithDuration(0.2, delay: 0, options: UIViewAnimationOptions.CurveEaseInOut, animations: {
             self.selectedCell!.deleteProjectButton.alpha = 0.0
             self.selectedCell!.deleteProjectButton.frame = self.startDeleteProjectButtonFrame
             self.selectedCell!.cancelButton.alpha = 0.0
             self.selectedCell!.cancelButton.frame = self.startCancelButtonFrame
-
+            
             self.view.layoutIfNeeded()
             },
            completion: {
             finished in
             self.selectedCell!.deleteProjectButton.removeFromSuperview()
             self.selectedCell!.cancelButton.removeFromSuperview()
-            UIView.animateWithDuration(2.0, delay: 0, options: UIViewAnimationOptions.CurveEaseInOut,
+            UIView.animateWithDuration(0.2, delay: 0, options: UIViewAnimationOptions.CurveEaseInOut,
                 animations: {
                     for (uiView, frame) in self.originalFrames {
                         uiView.frame = frame
                     }
                     self.projectsTableView.setContentOffset(CGPoint(x:0, y: self.originalContentOffset!), animated: false)
+                    self.selectedCell!.projectNameLabel.textColor = Colors.silver()
                     self.selectedCell!.facadeView.backgroundColor = Colors.almostBlack()
                     self.selectedCell!.projectNameLabelLeadingSpaceToFacadeViewConstraint.constant = self.originalProjectNameLabelLeadingConstraintConstant
                     self.selectedCell!.projectNameLabelTopToFacadeViewConstraint.constant = self.originalProjectNameLabelTopConstraintConstant
+                    
                     self.view.layoutIfNeeded()
                     
                 },
                 completion: {
                     finished in
-                     NSLayoutConstraint.activateConstraints ([self.selectedCell!.projectNameLabelBottomToFacadeViewTopConstraint,self.selectedCell!.projectNameLabelTrailingSpaceToFacadeViewConstraint])
+                    self.selectedCell!.lastWorkedOnLabel.alpha = 1.0
+                    NSLayoutConstraint.activateConstraints ([self.selectedCell!.projectNameLabelBottomToFacadeViewTopConstraint,self.selectedCell!.projectNameLabelTrailingSpaceToFacadeViewConstraint])
+                    NSLayoutConstraint.deactivateConstraints([self.projectNameLabelHeightConstraint!, self.projectNameLabelWidthConstraint!])
                     self.originalFrames.removeAll()
             })
         })
-    }
-    
-    func cancelButtonPressed() {
-        
-    }
-    
-    func prepareFramesFor(projectNameLabel:UILabel, deleteProjectButton:UIButton, cancelButton:UIButton) -> (projectNameLabelFrame:CGRect, deleteProjectButtonFrame:CGRect, cancelButtonFrame: CGRect){
-        let spacing = CGFloat(20)
-        let stackWidth = projectNameLabel.frame.width
-        let stackHeight = projectNameLabel.frame.height + deleteProjectButton.frame.height + cancelButton.frame.height + 2*spacing
-        let stackX = view.frame.width / 2.0 - stackWidth / 2.0
-        let stackY = view.frame.height / 2.0 - stackHeight / 2.0
-        let projectNameLabelFrame = CGRectMake(stackX, stackY, stackWidth, projectNameLabel.frame.height)
-        let deleteProjectButtonFrame = CGRectMake(stackX, projectNameLabelFrame.origin.y + spacing, stackWidth, deleteProjectButton.frame.height)
-        let cancelButtonFrame = CGRectMake(stackX, deleteProjectButtonFrame.origin.y + spacing, stackWidth, cancelButton.frame.height)
-        return (projectNameLabelFrame, deleteProjectButtonFrame, cancelButtonFrame)
     }
 
 //MARK: Adjust font size
