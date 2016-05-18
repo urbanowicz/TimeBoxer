@@ -256,8 +256,7 @@ class ProjectsTableViewController: UIViewController, UITableViewDelegate {
                     self.selectedCell!.projectNameLabelTopToFacadeViewConstraint.constant = self.endProjectNameLabelFrame.origin.y
                     self.selectedCell!.projectNameLabelLeadingSpaceToFacadeViewConstraint.constant = self.endProjectNameLabelFrame.origin.x
                     
-                    self.selectedCell!.projectNameLabel.textColor = Colors.almostBlack()
-                    self.selectedCell!.facadeView.backgroundColor = Colors.silver()
+                    self.selectedCell!.facadeView.backgroundColor = Colors.oceanBlue()
                     self.view.layoutIfNeeded()
                 },
                 completion: {
@@ -302,13 +301,13 @@ class ProjectsTableViewController: UIViewController, UITableViewDelegate {
             finished in
             self.selectedCell!.deleteProjectButton.removeFromSuperview()
             self.selectedCell!.cancelButton.removeFromSuperview()
-            UIView.animateWithDuration(0.2, delay: 0, options: UIViewAnimationOptions.CurveEaseInOut,
+            UIView.animateWithDuration(0.3, delay: 0, options: UIViewAnimationOptions.CurveEaseInOut,
                 animations: {
                     for (uiView, frame) in self.originalFrames {
                         uiView.frame = frame
+                        uiView.alpha = 1.0
                     }
                     self.projectsTableView.setContentOffset(CGPoint(x:0, y: self.originalContentOffset!), animated: false)
-                    self.selectedCell!.projectNameLabel.textColor = Colors.silver()
                     self.selectedCell!.facadeView.backgroundColor = Colors.almostBlack()
                     self.selectedCell!.projectNameLabelLeadingSpaceToFacadeViewConstraint.constant = self.originalProjectNameLabelLeadingConstraintConstant
                     self.selectedCell!.projectNameLabelTopToFacadeViewConstraint.constant = self.originalProjectNameLabelTopConstraintConstant

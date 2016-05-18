@@ -47,16 +47,16 @@ class MyTableViewCell: UITableViewCell {
     }
     
     func setupDeleteProjectButton() {
-        deleteProjectButton.backgroundColor = Colors.almostBlack()
+        deleteProjectButton.backgroundColor = Colors.silver()
         deleteProjectButton.setTitle("Delete", forState:  UIControlState.Normal)
         deleteProjectButton.titleLabel!.font = UIFont(name: "Avenir Book", size: 20)
-        deleteProjectButton.tintColor = Colors.silver()
+        deleteProjectButton.tintColor = Colors.almostBlack()
         deleteProjectButton.frame.size = CGSizeMake(projectNameLabel.frame.width, 50)
     }
     
     func setupCancelButton() {
-        cancelButton.backgroundColor = Colors.almostBlack()
-        cancelButton.tintColor = Colors.silver()
+        cancelButton.backgroundColor = Colors.silver()
+        cancelButton.tintColor = Colors.almostBlack()
         cancelButton.setTitle("Cancel", forState: UIControlState.Normal)
         cancelButton.titleLabel!.font = UIFont(name: "Avenir Book", size: 20)
         cancelButton.titleLabel!.textColor = Colors.almostBlack()
