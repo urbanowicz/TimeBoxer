@@ -59,16 +59,18 @@ class ProjectsTableViewDataSource: NSObject, UITableViewDataSource {
         return cell
     }
     
-//    private func setupPanGestureRecognizerForCell(cell:MyTableViewCell) {
-//        let panGestureDelegate = ProjectsTableCellPanGestureDelegate()
-//        panGestureDelegate.tableCell = cell
-//        panGestureDelegate.projectsTableVC = projectsTableViewController
-//        cell.panGestureRecognizerDelegate = panGestureDelegate
-//        let panGestureRecognizer = UIPanGestureRecognizer(target: panGestureDelegate, action: Selector("handlePan:"))
-//        panGestureRecognizer.delegate = panGestureDelegate
-//        cell.addGestureRecognizer(panGestureRecognizer)
-//    }
-    
+    func deleteProject(name:String) {
+        var indexToDelete = 0
+        for project in projects {
+            if project.name == name {
+                break
+            }
+            indexToDelete += 1
+        }
+        if indexToDelete < projects.count {
+            projects.removeAtIndex(indexToDelete)
+        }
+    }
     
     private func setupLastWorkedOnLabelForCell(cell:MyTableViewCell, indexPath:NSIndexPath) {
         cell.lastWorkedOnLabel.text =

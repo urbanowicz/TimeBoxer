@@ -205,6 +205,8 @@ class ProjectsTableViewController: UIViewController, UITableViewDelegate {
             
             prepareStartAndEndFrames()
             self.selectedCell!.lastWorkedOnLabel.alpha = 0.0
+            
+            
             UIView.animateWithDuration(0.3, delay: 0, options: UIViewAnimationOptions.CurveEaseInOut,
                 animations: {
                     
@@ -255,8 +257,9 @@ class ProjectsTableViewController: UIViewController, UITableViewDelegate {
                     //6. Move the projectNameLabel to the center
                     self.selectedCell!.projectNameLabelTopToFacadeViewConstraint.constant = self.endProjectNameLabelFrame.origin.y
                     self.selectedCell!.projectNameLabelLeadingSpaceToFacadeViewConstraint.constant = self.endProjectNameLabelFrame.origin.x
-                    
+                    //7. Fade out the background of the table view
                     self.selectedCell!.facadeView.backgroundColor = Colors.oceanBlue()
+                    self.projectsTableView.backgroundColor = Colors.oceanBlue()
                     self.view.layoutIfNeeded()
                 },
                 completion: {
@@ -285,7 +288,46 @@ class ProjectsTableViewController: UIViewController, UITableViewDelegate {
     }
     
     func deleteProjectButtonPressed() {
-        
+        UIView.animateWithDuration(0.2, delay: 0, options: UIViewAnimationOptions.CurveEaseInOut, animations: {
+            self.selectedCell!.deleteProjectButton.alpha = 0.0
+            self.selectedCell!.deleteProjectButton.frame = self.startDeleteProjectButtonFrame
+            self.selectedCell!.cancelButton.alpha = 0.0
+            self.selectedCell!.cancelButton.frame = self.startCancelButtonFrame
+            
+            self.view.layoutIfNeeded()
+            },
+               completion: {
+                finished in
+                self.selectedCell!.deleteProjectButton.removeFromSuperview()
+                self.selectedCell!.cancelButton.removeFromSuperview()
+                UIView.animateWithDuration(0.3, delay: 0, options: UIViewAnimationOptions.CurveEaseInOut,
+                    animations: {
+                        for (uiView, frame) in self.originalFrames {
+                            uiView.frame = frame
+                            uiView.alpha = 1.0
+                        }
+                        self.projectsTableView.setContentOffset(CGPoint(x:0, y: self.originalContentOffset!), animated: false)
+                        self.selectedCell!.facadeView.backgroundColor = Colors.almostBlack()
+                        self.selectedCell!.projectNameLabelLeadingSpaceToFacadeViewConstraint.constant = self.originalProjectNameLabelLeadingConstraintConstant
+                        self.selectedCell!.projectNameLabelTopToFacadeViewConstraint.constant = self.originalProjectNameLabelTopConstraintConstant
+                        self.projectsTableView.backgroundColor = Colors.almostBlack()
+                        self.view.layoutIfNeeded()
+                        
+                    },
+                    completion: {
+                        finished in
+                        
+                        self.selectedCell!.lastWorkedOnLabel.alpha = 1.0
+                        NSLayoutConstraint.activateConstraints ([self.selectedCell!.projectNameLabelBottomToFacadeViewTopConstraint,self.selectedCell!.projectNameLabelTrailingSpaceToFacadeViewConstraint])
+                        NSLayoutConstraint.deactivateConstraints([self.projectNameLabelHeightConstraint!, self.projectNameLabelWidthConstraint!])
+                        self.originalFrames.removeAll()
+                        self.projectsTableView.beginUpdates()
+                        let selectedCellIndexPath = self.projectsTableView.indexPathForCell(self.selectedCell!)!
+                        self.projectsTableView.deleteRowsAtIndexPaths([selectedCellIndexPath], withRowAnimation: .Fade)
+                        self.projectsTableDataSource.deleteProject(self.selectedCell!.project!.name)
+                        self.projectsTableView.endUpdates()
+                })
+        })
     }
     
     func cancelButtonPressed() {
@@ -311,12 +353,13 @@ class ProjectsTableViewController: UIViewController, UITableViewDelegate {
                     self.selectedCell!.facadeView.backgroundColor = Colors.almostBlack()
                     self.selectedCell!.projectNameLabelLeadingSpaceToFacadeViewConstraint.constant = self.originalProjectNameLabelLeadingConstraintConstant
                     self.selectedCell!.projectNameLabelTopToFacadeViewConstraint.constant = self.originalProjectNameLabelTopConstraintConstant
-                    
+                    self.projectsTableView.backgroundColor = Colors.almostBlack()
                     self.view.layoutIfNeeded()
                     
                 },
                 completion: {
                     finished in
+                    
                     self.selectedCell!.lastWorkedOnLabel.alpha = 1.0
                     NSLayoutConstraint.activateConstraints ([self.selectedCell!.projectNameLabelBottomToFacadeViewTopConstraint,self.selectedCell!.projectNameLabelTrailingSpaceToFacadeViewConstraint])
                     NSLayoutConstraint.deactivateConstraints([self.projectNameLabelHeightConstraint!, self.projectNameLabelWidthConstraint!])
