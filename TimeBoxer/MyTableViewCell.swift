@@ -47,19 +47,27 @@ class MyTableViewCell: UITableViewCell {
     }
     
     func setupDeleteProjectButton() {
-        deleteProjectButton.backgroundColor = Colors.silver()
+        deleteProjectButton.backgroundColor = Colors.almostBlack()
+        deleteProjectButton.tintColor = Colors.silver()
         deleteProjectButton.setTitle("Delete", forState:  UIControlState.Normal)
         deleteProjectButton.titleLabel!.font = UIFont(name: "Avenir Book", size: 20)
-        deleteProjectButton.tintColor = Colors.almostBlack()
         deleteProjectButton.frame.size = CGSizeMake(projectNameLabel.frame.width, 50)
+        deleteProjectButton.clipsToBounds = true
+        deleteProjectButton.layer.borderColor = Colors.silver().CGColor
+        deleteProjectButton.layer.borderWidth = 1.0
+        deleteProjectButton.layer.cornerRadius = 0.05 * deleteProjectButton.frame.width
     }
     
     func setupCancelButton() {
-        cancelButton.backgroundColor = Colors.silver()
-        cancelButton.tintColor = Colors.almostBlack()
+        cancelButton.backgroundColor = Colors.almostBlack()
+        cancelButton.tintColor = Colors.silver()
         cancelButton.setTitle("Cancel", forState: UIControlState.Normal)
         cancelButton.titleLabel!.font = UIFont(name: "Avenir Book", size: 20)
         cancelButton.titleLabel!.textColor = Colors.almostBlack()
         cancelButton.frame.size = CGSizeMake(projectNameLabel.frame.width, 50)
+        cancelButton.clipsToBounds = true
+        cancelButton.layer.borderColor = Colors.silver().CGColor
+        cancelButton.layer.borderWidth = 1.0
+        cancelButton.layer.cornerRadius = 0.05 * cancelButton.frame.width
     }
 }

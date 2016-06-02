@@ -258,8 +258,6 @@ class ProjectsTableViewController: UIViewController, UITableViewDelegate {
                     self.selectedCell!.projectNameLabelTopToFacadeViewConstraint.constant = self.endProjectNameLabelFrame.origin.y
                     self.selectedCell!.projectNameLabelLeadingSpaceToFacadeViewConstraint.constant = self.endProjectNameLabelFrame.origin.x
                     //7. Fade out the background of the table view
-                    self.selectedCell!.facadeView.backgroundColor = Colors.oceanBlue()
-                    self.projectsTableView.backgroundColor = Colors.oceanBlue()
                     self.view.layoutIfNeeded()
                 },
                 completion: {
