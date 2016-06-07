@@ -301,7 +301,9 @@ class ProjectsTableViewController: UIViewController, UITableViewDelegate {
         yesDeleteButton.layer.position.y = selectedCell!.cancelButton.layer.position.y
         yesDeleteButton.layer.position.x = selectedCell!.cancelButton.frame.origin.x + yesDeleteButton.frame.width / 2.0
         yesDeleteButton.layer.transform = translationToTheRight
+        yesDeleteButton.addTarget(self, action: #selector(ProjectsTableViewController.yesDeleteButtonPressed), forControlEvents: .TouchDown)
         selectedCell!.addSubview(yesDeleteButton)
+
         
         selectedCell!.setupNoDeleteButton()
         let noDeleteButton = selectedCell!.noDeleteButton
@@ -309,7 +311,9 @@ class ProjectsTableViewController: UIViewController, UITableViewDelegate {
         noDeleteButton.layer.position.x = selectedCell!.cancelButton.frame.origin.x +
             selectedCell!.cancelButton.frame.width - noDeleteButton.frame.width/2.0
         noDeleteButton.layer.transform = translationToTheRight
+        noDeleteButton.addTarget(self, action: #selector(ProjectsTableViewController.noDeleteButtonPressed), forControlEvents: .TouchDown)
         selectedCell!.addSubview(noDeleteButton)
+        
         
         let slideInFromRightAnimation = CABasicAnimation(keyPath: "transform")
 
@@ -379,6 +383,41 @@ class ProjectsTableViewController: UIViewController, UITableViewDelegate {
 //                        self.projectsTableView.endUpdates()
 //                })
 //        })
+    }
+    
+    func yesDeleteButtonPressed() {
+        
+    }
+    
+    func noDeleteButtonPressed() {
+        let slideInFromTheLeftAnimation = CABasicAnimation(keyPath: "transform")
+        let translationToTheLeft = CATransform3DMakeTranslation(-view.frame.width, 0, 0)
+        slideInFromTheLeftAnimation.fromValue = NSValue(CATransform3D: translationToTheLeft)
+        slideInFromTheLeftAnimation.toValue = NSValue(CATransform3D: CATransform3DIdentity)
+        slideInFromTheLeftAnimation.duration = 0.2
+        
+        let deleteButton = selectedCell!.deleteProjectButton
+        let cancelButton = selectedCell!.cancelButton
+        
+        deleteButton.layer.addAnimation(slideInFromTheLeftAnimation, forKey: "slideInFromTheLeft")
+        cancelButton.layer.addAnimation(slideInFromTheLeftAnimation, forKey: "slideInFromTheleft")
+        deleteButton.layer.transform = CATransform3DIdentity
+        cancelButton.layer.transform = CATransform3DIdentity
+        
+        let slideOutToTheRightAnimation = CABasicAnimation(keyPath: "transform")
+        let translationToTheRight = CATransform3DMakeTranslation(view.frame.width, 0, 0)
+        slideOutToTheRightAnimation.fromValue = NSValue(CATransform3D: CATransform3DIdentity)
+        slideOutToTheRightAnimation.toValue = NSValue(CATransform3D: translationToTheRight)
+        
+        let confirmDeleteLabel = selectedCell!.confirmDeleteLabel
+        let yesDeleteButton = selectedCell!.yesDeleteButton
+        let noDeleteButton = selectedCell!.noDeleteButton
+        confirmDeleteLabel.layer.addAnimation(slideOutToTheRightAnimation, forKey: "slideOutToTheRight")
+        yesDeleteButton.layer.addAnimation(slideOutToTheRightAnimation, forKey: "slideOutToTheRight")
+        noDeleteButton.layer.addAnimation(slideOutToTheRightAnimation, forKey: "slideOutToTheRight")
+        confirmDeleteLabel.layer.transform = translationToTheRight
+        yesDeleteButton.layer.transform = translationToTheRight
+        noDeleteButton.layer.transform = translationToTheRight
     }
     
     func cancelButtonPressed() {
