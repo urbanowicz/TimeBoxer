@@ -21,9 +21,12 @@ class MyTableViewCell: UITableViewCell {
     @IBOutlet var projectNameLabelTrailingSpaceToFacadeViewConstraint: NSLayoutConstraint!
     @IBOutlet var projectNameLabelTopToFacadeViewConstraint: NSLayoutConstraint!
     @IBOutlet var projectNameLabelLeadingSpaceToFacadeViewConstraint: NSLayoutConstraint!
-    var deleteProjectButton:UIButton = UIButton(type: UIButtonType.System)
-    var cancelButton:UIButton = UIButton(type: UIButtonType.System)
-
+    
+    var deleteProjectButton = UIButton(type: UIButtonType.System)
+    var cancelButton = UIButton(type: UIButtonType.System)
+    var yesDeleteButton = UIButton(type: UIButtonType.System)
+    var noDeleteButton = UIButton(type: UIButtonType.System)
+    var confirmDeleteLabel = UILabel()
     override func awakeFromNib() {
         super.awakeFromNib()
     }
@@ -70,4 +73,39 @@ class MyTableViewCell: UITableViewCell {
         cancelButton.layer.borderWidth = 1.0
         cancelButton.layer.cornerRadius = 0.05 * cancelButton.frame.width
     }
+    
+    func setupYesDeleteButton() {
+        yesDeleteButton.backgroundColor = Colors.almostBlack()
+        yesDeleteButton.tintColor = Colors.silver()
+        yesDeleteButton.setTitle("Yes", forState: UIControlState.Normal)
+        yesDeleteButton.titleLabel!.font = UIFont(name: "Avenir Book", size: 20)
+        yesDeleteButton.frame.size = CGSizeMake(deleteProjectButton.frame.width/2.0 - 5, deleteProjectButton.frame.height)
+        yesDeleteButton.clipsToBounds = true
+        yesDeleteButton.layer.borderColor = Colors.silver().CGColor
+        yesDeleteButton.layer.borderWidth = 1.0
+        yesDeleteButton.layer.cornerRadius = 0.05 * yesDeleteButton.frame.width
+    }
+    
+    func setupNoDeleteButton() {
+        noDeleteButton.backgroundColor = Colors.almostBlack()
+        noDeleteButton.tintColor = Colors.silver()
+        noDeleteButton.setTitle("No", forState: UIControlState.Normal)
+        noDeleteButton.titleLabel!.font = UIFont(name: "Avenir Book", size: 20)
+        noDeleteButton.frame.size = CGSizeMake(deleteProjectButton.frame.width/2.0 - 5, deleteProjectButton.frame.height)
+        noDeleteButton.clipsToBounds = true
+        noDeleteButton.layer.borderColor = Colors.silver().CGColor
+        noDeleteButton.layer.borderWidth = 1.0
+        noDeleteButton.layer.cornerRadius = 0.05 * yesDeleteButton.frame.width
+    }
+    
+    func setupConfirmDeleteLabel() {
+        confirmDeleteLabel.font = UIFont(name: "Avenir Book", size: 20)
+        confirmDeleteLabel.backgroundColor = Colors.almostBlack()
+        confirmDeleteLabel.textColor = Colors.silver()
+        confirmDeleteLabel.frame.size = CGSizeMake(deleteProjectButton.frame.width, deleteProjectButton.frame.height)
+        confirmDeleteLabel.text = "Are you sure you want to delete the project?"
+        confirmDeleteLabel.numberOfLines = 2
+        confirmDeleteLabel.adjustsFontSizeToFitWidth = true
+    }
+    
 }

@@ -286,46 +286,99 @@ class ProjectsTableViewController: UIViewController, UITableViewDelegate {
     }
     
     func deleteProjectButtonPressed() {
-        UIView.animateWithDuration(0.2, delay: 0, options: UIViewAnimationOptions.CurveEaseInOut, animations: {
-            self.selectedCell!.deleteProjectButton.alpha = 0.0
-            self.selectedCell!.deleteProjectButton.frame = self.startDeleteProjectButtonFrame
-            self.selectedCell!.cancelButton.alpha = 0.0
-            self.selectedCell!.cancelButton.frame = self.startCancelButtonFrame
-            
-            self.view.layoutIfNeeded()
-            },
-               completion: {
-                finished in
-                self.selectedCell!.deleteProjectButton.removeFromSuperview()
-                self.selectedCell!.cancelButton.removeFromSuperview()
-                UIView.animateWithDuration(0.3, delay: 0, options: UIViewAnimationOptions.CurveEaseInOut,
-                    animations: {
-                        for (uiView, frame) in self.originalFrames {
-                            uiView.frame = frame
-                            uiView.alpha = 1.0
-                        }
-                        self.projectsTableView.setContentOffset(CGPoint(x:0, y: self.originalContentOffset!), animated: false)
-                        self.selectedCell!.facadeView.backgroundColor = Colors.almostBlack()
-                        self.selectedCell!.projectNameLabelLeadingSpaceToFacadeViewConstraint.constant = self.originalProjectNameLabelLeadingConstraintConstant
-                        self.selectedCell!.projectNameLabelTopToFacadeViewConstraint.constant = self.originalProjectNameLabelTopConstraintConstant
-                        self.projectsTableView.backgroundColor = Colors.almostBlack()
-                        self.view.layoutIfNeeded()
-                        
-                    },
-                    completion: {
-                        finished in
-                        
-                        self.selectedCell!.lastWorkedOnLabel.alpha = 1.0
-                        NSLayoutConstraint.activateConstraints ([self.selectedCell!.projectNameLabelBottomToFacadeViewTopConstraint,self.selectedCell!.projectNameLabelTrailingSpaceToFacadeViewConstraint])
-                        NSLayoutConstraint.deactivateConstraints([self.projectNameLabelHeightConstraint!, self.projectNameLabelWidthConstraint!])
-                        self.originalFrames.removeAll()
-                        self.projectsTableView.beginUpdates()
-                        let selectedCellIndexPath = self.projectsTableView.indexPathForCell(self.selectedCell!)!
-                        self.projectsTableView.deleteRowsAtIndexPaths([selectedCellIndexPath], withRowAnimation: .Fade)
-                        self.projectsTableDataSource.deleteProject(self.selectedCell!.project!.name)
-                        self.projectsTableView.endUpdates()
-                })
-        })
+        
+        
+        selectedCell!.setupConfirmDeleteLabel()
+        let confirmDeleteLabel = selectedCell!.confirmDeleteLabel
+        confirmDeleteLabel.layer.position.y = selectedCell!.deleteProjectButton.layer.position.y
+        confirmDeleteLabel.layer.position.x = selectedCell!.deleteProjectButton.layer.position.x
+        let translationToTheRight = CATransform3DMakeTranslation(view.frame.width, 0, 0)
+        confirmDeleteLabel.layer.transform = translationToTheRight
+        selectedCell!.addSubview(confirmDeleteLabel)
+        
+        selectedCell!.setupYesDeleteButton()
+        let yesDeleteButton = selectedCell!.yesDeleteButton
+        yesDeleteButton.layer.position.y = selectedCell!.cancelButton.layer.position.y
+        yesDeleteButton.layer.position.x = selectedCell!.cancelButton.frame.origin.x + yesDeleteButton.frame.width / 2.0
+        yesDeleteButton.layer.transform = translationToTheRight
+        selectedCell!.addSubview(yesDeleteButton)
+        
+        selectedCell!.setupNoDeleteButton()
+        let noDeleteButton = selectedCell!.noDeleteButton
+        noDeleteButton.layer.position.y = selectedCell!.cancelButton.layer.position.y
+        noDeleteButton.layer.position.x = selectedCell!.cancelButton.frame.origin.x +
+            selectedCell!.cancelButton.frame.width - noDeleteButton.frame.width/2.0
+        noDeleteButton.layer.transform = translationToTheRight
+        selectedCell!.addSubview(noDeleteButton)
+        
+        let slideInFromRightAnimation = CABasicAnimation(keyPath: "transform")
+
+        slideInFromRightAnimation.fromValue = NSValue(CATransform3D: translationToTheRight )
+        slideInFromRightAnimation.toValue = NSValue(CATransform3D: CATransform3DIdentity)
+        slideInFromRightAnimation.duration = 0.2
+        
+        confirmDeleteLabel.layer.addAnimation(slideInFromRightAnimation, forKey: "slideInFromRight")
+        confirmDeleteLabel.layer.transform = CATransform3DIdentity
+        yesDeleteButton.layer.addAnimation(slideInFromRightAnimation, forKey: "slideInFromRight")
+        yesDeleteButton.layer.transform = CATransform3DIdentity
+        noDeleteButton.layer.addAnimation(slideInFromRightAnimation, forKey: "slideInFromRight")
+        noDeleteButton.layer.transform = CATransform3DIdentity
+        
+        
+        let slideOutToTheLeftAnimation = CABasicAnimation(keyPath: "transform")
+        let translationToTheLeft = CATransform3DMakeTranslation(-view.frame.width, 0, 0)
+        slideOutToTheLeftAnimation.fromValue = NSValue(CATransform3D: CATransform3DIdentity)
+        slideOutToTheLeftAnimation.toValue = NSValue(CATransform3D: translationToTheLeft)
+        slideOutToTheLeftAnimation.duration = 0.2
+        
+        let deleteButton = selectedCell!.deleteProjectButton
+        deleteButton.layer.addAnimation(slideOutToTheLeftAnimation, forKey: "slideOutToTheLeft")
+        deleteButton.layer.transform = translationToTheLeft
+        
+        let cancelButton = selectedCell!.cancelButton
+        cancelButton.layer.addAnimation(slideOutToTheLeftAnimation, forKey: "sliedOutToTheLeft")
+        cancelButton.layer.transform = translationToTheLeft
+        
+//        UIView.animateWithDuration(0.2, delay: 0, options: UIViewAnimationOptions.CurveEaseInOut, animations: {
+//            self.selectedCell!.deleteProjectButton.alpha = 0.0
+//            self.selectedCell!.deleteProjectButton.frame = self.startDeleteProjectButtonFrame
+//            self.selectedCell!.cancelButton.alpha = 0.0
+//            self.selectedCell!.cancelButton.frame = self.startCancelButtonFrame
+//            
+//            self.view.layoutIfNeeded()
+//            },
+//               completion: {
+//                finished in
+//                self.selectedCell!.deleteProjectButton.removeFromSuperview()
+//                self.selectedCell!.cancelButton.removeFromSuperview()
+//                UIView.animateWithDuration(0.3, delay: 0, options: UIViewAnimationOptions.CurveEaseInOut,
+//                    animations: {
+//                        for (uiView, frame) in self.originalFrames {
+//                            uiView.frame = frame
+//                            uiView.alpha = 1.0
+//                        }
+//                        self.projectsTableView.setContentOffset(CGPoint(x:0, y: self.originalContentOffset!), animated: false)
+//                        self.selectedCell!.facadeView.backgroundColor = Colors.almostBlack()
+//                        self.selectedCell!.projectNameLabelLeadingSpaceToFacadeViewConstraint.constant = self.originalProjectNameLabelLeadingConstraintConstant
+//                        self.selectedCell!.projectNameLabelTopToFacadeViewConstraint.constant = self.originalProjectNameLabelTopConstraintConstant
+//                        self.projectsTableView.backgroundColor = Colors.almostBlack()
+//                        self.view.layoutIfNeeded()
+//                        
+//                    },
+//                    completion: {
+//                        finished in
+//                        
+//                        self.selectedCell!.lastWorkedOnLabel.alpha = 1.0
+//                        NSLayoutConstraint.activateConstraints ([self.selectedCell!.projectNameLabelBottomToFacadeViewTopConstraint,self.selectedCell!.projectNameLabelTrailingSpaceToFacadeViewConstraint])
+//                        NSLayoutConstraint.deactivateConstraints([self.projectNameLabelHeightConstraint!, self.projectNameLabelWidthConstraint!])
+//                        self.originalFrames.removeAll()
+//                        self.projectsTableView.beginUpdates()
+//                        let selectedCellIndexPath = self.projectsTableView.indexPathForCell(self.selectedCell!)!
+//                        self.projectsTableView.deleteRowsAtIndexPaths([selectedCellIndexPath], withRowAnimation: .Fade)
+//                        self.projectsTableDataSource.deleteProject(self.selectedCell!.project!.name)
+//                        self.projectsTableView.endUpdates()
+//                })
+//        })
     }
     
     func cancelButtonPressed() {
