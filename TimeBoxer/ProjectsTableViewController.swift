@@ -37,7 +37,6 @@ class ProjectsTableViewController: UIViewController, UITableViewDelegate {
     private var endDeleteProjectButtonFrame = CGRectZero
     private var endCancelButtonFrame = CGRectZero
     
-    
     let transitionManager =
     TransitionManager(animator: ProjectsTableToAddProjectAnimator(),
         dismissAnimator:AddProjectToProjectsTableDismissAnimator())
@@ -286,8 +285,6 @@ class ProjectsTableViewController: UIViewController, UITableViewDelegate {
     }
     
     func deleteProjectButtonPressed() {
-        
-        
         selectedCell!.setupConfirmDeleteLabel()
         let confirmDeleteLabel = selectedCell!.confirmDeleteLabel
         confirmDeleteLabel.layer.position.y = selectedCell!.deleteProjectButton.layer.position.y
@@ -320,6 +317,7 @@ class ProjectsTableViewController: UIViewController, UITableViewDelegate {
         slideInFromRightAnimation.fromValue = NSValue(CATransform3D: translationToTheRight )
         slideInFromRightAnimation.toValue = NSValue(CATransform3D: CATransform3DIdentity)
         slideInFromRightAnimation.duration = 0.2
+        slideInFromRightAnimation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
         
         confirmDeleteLabel.layer.addAnimation(slideInFromRightAnimation, forKey: "slideInFromRight")
         confirmDeleteLabel.layer.transform = CATransform3DIdentity
@@ -334,6 +332,7 @@ class ProjectsTableViewController: UIViewController, UITableViewDelegate {
         slideOutToTheLeftAnimation.fromValue = NSValue(CATransform3D: CATransform3DIdentity)
         slideOutToTheLeftAnimation.toValue = NSValue(CATransform3D: translationToTheLeft)
         slideOutToTheLeftAnimation.duration = 0.2
+        slideOutToTheLeftAnimation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
         
         let deleteButton = selectedCell!.deleteProjectButton
         deleteButton.layer.addAnimation(slideOutToTheLeftAnimation, forKey: "slideOutToTheLeft")
@@ -342,52 +341,49 @@ class ProjectsTableViewController: UIViewController, UITableViewDelegate {
         let cancelButton = selectedCell!.cancelButton
         cancelButton.layer.addAnimation(slideOutToTheLeftAnimation, forKey: "sliedOutToTheLeft")
         cancelButton.layer.transform = translationToTheLeft
-        
-//        UIView.animateWithDuration(0.2, delay: 0, options: UIViewAnimationOptions.CurveEaseInOut, animations: {
-//            self.selectedCell!.deleteProjectButton.alpha = 0.0
-//            self.selectedCell!.deleteProjectButton.frame = self.startDeleteProjectButtonFrame
-//            self.selectedCell!.cancelButton.alpha = 0.0
-//            self.selectedCell!.cancelButton.frame = self.startCancelButtonFrame
-//            
-//            self.view.layoutIfNeeded()
-//            },
-//               completion: {
-//                finished in
-//                self.selectedCell!.deleteProjectButton.removeFromSuperview()
-//                self.selectedCell!.cancelButton.removeFromSuperview()
-//                UIView.animateWithDuration(0.3, delay: 0, options: UIViewAnimationOptions.CurveEaseInOut,
-//                    animations: {
-//                        for (uiView, frame) in self.originalFrames {
-//                            uiView.frame = frame
-//                            uiView.alpha = 1.0
-//                        }
-//                        self.projectsTableView.setContentOffset(CGPoint(x:0, y: self.originalContentOffset!), animated: false)
-//                        self.selectedCell!.facadeView.backgroundColor = Colors.almostBlack()
-//                        self.selectedCell!.projectNameLabelLeadingSpaceToFacadeViewConstraint.constant = self.originalProjectNameLabelLeadingConstraintConstant
-//                        self.selectedCell!.projectNameLabelTopToFacadeViewConstraint.constant = self.originalProjectNameLabelTopConstraintConstant
-//                        self.projectsTableView.backgroundColor = Colors.almostBlack()
-//                        self.view.layoutIfNeeded()
-//                        
-//                    },
-//                    completion: {
-//                        finished in
-//                        
-//                        self.selectedCell!.lastWorkedOnLabel.alpha = 1.0
-//                        NSLayoutConstraint.activateConstraints ([self.selectedCell!.projectNameLabelBottomToFacadeViewTopConstraint,self.selectedCell!.projectNameLabelTrailingSpaceToFacadeViewConstraint])
-//                        NSLayoutConstraint.deactivateConstraints([self.projectNameLabelHeightConstraint!, self.projectNameLabelWidthConstraint!])
-//                        self.originalFrames.removeAll()
-//                        self.projectsTableView.beginUpdates()
-//                        let selectedCellIndexPath = self.projectsTableView.indexPathForCell(self.selectedCell!)!
-//                        self.projectsTableView.deleteRowsAtIndexPaths([selectedCellIndexPath], withRowAnimation: .Fade)
-//                        self.projectsTableDataSource.deleteProject(self.selectedCell!.project!.name)
-//                        self.projectsTableView.endUpdates()
-//                })
-//        })
+
     }
     
     func yesDeleteButtonPressed() {
+        let fadeOutAnimation = CABasicAnimation(keyPath: "opacity")
+        fadeOutAnimation.fromValue = 1.0
+        fadeOutAnimation.toValue = 0.0
+        fadeOutAnimation.duration = 0.2
+        fadeOutAnimation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
+        
+        let scaleDownAnimation = CABasicAnimation(keyPath: "transform")
+        
+        scaleDownAnimation.fromValue = NSValue(CATransform3D: CATransform3DIdentity)
+        let scaleDownTransform = CATransform3DMakeScale(0.0, 0.0, 1)
+        scaleDownAnimation.toValue = NSValue(CATransform3D: scaleDownTransform)
+        scaleDownAnimation.duration = 0.2
+        scaleDownAnimation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
+        
+        let dismissAnimationGroup = CAAnimationGroup()
+        dismissAnimationGroup.animations = [fadeOutAnimation, scaleDownAnimation]
+        dismissAnimationGroup.duration = 0.2
+        dismissAnimationGroup.delegate = self
+        
+        let confirmDeleteLabel = selectedCell!.confirmDeleteLabel
+        let yesDeleteButton = selectedCell!.yesDeleteButton
+        let noDeleteButton = selectedCell!.noDeleteButton
+
+        confirmDeleteLabel.layer.addAnimation(dismissAnimationGroup, forKey: "dismiss")
+        yesDeleteButton.layer.addAnimation(dismissAnimationGroup, forKey: "dismiss")
+        dismissAnimationGroup.setValue(true, forKey: "isFinal")
+        noDeleteButton.layer.addAnimation(dismissAnimationGroup, forKey: "dismiss")
+        
+        func setFinalTransformAndOpacityForView(someView:UIView) {
+            someView.layer.transform = scaleDownTransform
+            someView.layer.opacity = 0
+        }
+        
+        setFinalTransformAndOpacityForView(confirmDeleteLabel)
+        setFinalTransformAndOpacityForView(yesDeleteButton)
+        setFinalTransformAndOpacityForView(noDeleteButton)
         
     }
+    
     
     func noDeleteButtonPressed() {
         let slideInFromTheLeftAnimation = CABasicAnimation(keyPath: "transform")
@@ -395,6 +391,7 @@ class ProjectsTableViewController: UIViewController, UITableViewDelegate {
         slideInFromTheLeftAnimation.fromValue = NSValue(CATransform3D: translationToTheLeft)
         slideInFromTheLeftAnimation.toValue = NSValue(CATransform3D: CATransform3DIdentity)
         slideInFromTheLeftAnimation.duration = 0.2
+        slideInFromTheLeftAnimation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
         
         let deleteButton = selectedCell!.deleteProjectButton
         let cancelButton = selectedCell!.cancelButton
@@ -408,6 +405,8 @@ class ProjectsTableViewController: UIViewController, UITableViewDelegate {
         let translationToTheRight = CATransform3DMakeTranslation(view.frame.width, 0, 0)
         slideOutToTheRightAnimation.fromValue = NSValue(CATransform3D: CATransform3DIdentity)
         slideOutToTheRightAnimation.toValue = NSValue(CATransform3D: translationToTheRight)
+        slideOutToTheRightAnimation.duration = 0.2
+        slideOutToTheRightAnimation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
         
         let confirmDeleteLabel = selectedCell!.confirmDeleteLabel
         let yesDeleteButton = selectedCell!.yesDeleteButton
@@ -456,6 +455,49 @@ class ProjectsTableViewController: UIViewController, UITableViewDelegate {
                     self.originalFrames.removeAll()
             })
         })
+    }
+    
+    override func animationDidStop(anim: CAAnimation, finished flag: Bool) {
+        if let isFinal = anim.valueForKey("isFinal")  {
+            if isFinal as! Bool == true {
+                selectedCell!.deleteProjectButton.removeFromSuperview()
+                selectedCell!.cancelButton.removeFromSuperview()
+                selectedCell!.yesDeleteButton.removeFromSuperview()
+                selectedCell!.noDeleteButton.removeFromSuperview()
+                selectedCell!.confirmDeleteLabel.removeFromSuperview()
+                
+                UIView.animateWithDuration(0.3, delay: 0, options: UIViewAnimationOptions.CurveEaseInOut,
+                    animations: {
+                        for (uiView, frame) in self.originalFrames {
+                            uiView.frame = frame
+                            uiView.alpha = 1.0
+                        }
+                        self.projectsTableView.setContentOffset(CGPoint(x:0, y: self.originalContentOffset!), animated: false)
+                        self.selectedCell!.facadeView.backgroundColor = Colors.almostBlack()
+                        self.selectedCell!.projectNameLabelLeadingSpaceToFacadeViewConstraint.constant = self.originalProjectNameLabelLeadingConstraintConstant
+                        self.selectedCell!.projectNameLabelTopToFacadeViewConstraint.constant = self.originalProjectNameLabelTopConstraintConstant
+                        self.projectsTableView.backgroundColor = Colors.almostBlack()
+                        self.view.layoutIfNeeded()
+
+                    },
+                    completion: {
+                        finished in
+
+                        self.selectedCell!.lastWorkedOnLabel.alpha = 1.0
+                        NSLayoutConstraint.activateConstraints ([self.selectedCell!.projectNameLabelBottomToFacadeViewTopConstraint,self.selectedCell!.projectNameLabelTrailingSpaceToFacadeViewConstraint])
+                        NSLayoutConstraint.deactivateConstraints([self.projectNameLabelHeightConstraint!, self.projectNameLabelWidthConstraint!])
+                        self.originalFrames.removeAll()
+                        self.projectsTableView.beginUpdates()
+                        let selectedCellIndexPath = self.projectsTableView.indexPathForCell(self.selectedCell!)!
+                        self.projectsTableView.deleteRowsAtIndexPaths([selectedCellIndexPath], withRowAnimation: .Fade)
+                        self.projectsTableDataSource.deleteProject(self.selectedCell!.project!.name)
+                        self.projectsTableView.endUpdates()
+                })
+
+                
+                
+            }
+        }
     }
 
 //MARK: Adjust font size

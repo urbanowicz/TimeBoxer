@@ -50,6 +50,8 @@ class MyTableViewCell: UITableViewCell {
     }
     
     func setupDeleteProjectButton() {
+        deleteProjectButton.layer.transform = CATransform3DIdentity
+        deleteProjectButton.layer.opacity = 1.0
         deleteProjectButton.backgroundColor = Colors.almostBlack()
         deleteProjectButton.tintColor = Colors.silver()
         deleteProjectButton.setTitle("Delete", forState:  UIControlState.Normal)
@@ -62,6 +64,8 @@ class MyTableViewCell: UITableViewCell {
     }
     
     func setupCancelButton() {
+        cancelButton.layer.transform = CATransform3DIdentity
+        cancelButton.layer.opacity = 1.0
         cancelButton.backgroundColor = Colors.almostBlack()
         cancelButton.tintColor = Colors.silver()
         cancelButton.setTitle("Cancel", forState: UIControlState.Normal)
@@ -75,6 +79,8 @@ class MyTableViewCell: UITableViewCell {
     }
     
     func setupYesDeleteButton() {
+        yesDeleteButton.layer.transform = CATransform3DIdentity
+        yesDeleteButton.layer.opacity = 1.0
         yesDeleteButton.backgroundColor = Colors.almostBlack()
         yesDeleteButton.tintColor = Colors.silver()
         yesDeleteButton.setTitle("Yes", forState: UIControlState.Normal)
@@ -84,9 +90,12 @@ class MyTableViewCell: UITableViewCell {
         yesDeleteButton.layer.borderColor = Colors.silver().CGColor
         yesDeleteButton.layer.borderWidth = 1.0
         yesDeleteButton.layer.cornerRadius = 0.05 * yesDeleteButton.frame.width
+
     }
     
     func setupNoDeleteButton() {
+        noDeleteButton.layer.transform = CATransform3DIdentity
+        noDeleteButton.layer.opacity = 1.0
         noDeleteButton.backgroundColor = Colors.almostBlack()
         noDeleteButton.tintColor = Colors.silver()
         noDeleteButton.setTitle("No", forState: UIControlState.Normal)
@@ -96,9 +105,12 @@ class MyTableViewCell: UITableViewCell {
         noDeleteButton.layer.borderColor = Colors.silver().CGColor
         noDeleteButton.layer.borderWidth = 1.0
         noDeleteButton.layer.cornerRadius = 0.05 * yesDeleteButton.frame.width
+
     }
     
     func setupConfirmDeleteLabel() {
+        confirmDeleteLabel.layer.transform = CATransform3DIdentity
+        confirmDeleteLabel.layer.opacity = 1.0
         confirmDeleteLabel.font = UIFont(name: "Avenir Book", size: 20)
         confirmDeleteLabel.backgroundColor = Colors.almostBlack()
         confirmDeleteLabel.textColor = Colors.silver()
@@ -106,6 +118,7 @@ class MyTableViewCell: UITableViewCell {
         confirmDeleteLabel.text = "Are you sure you want to delete the project?"
         confirmDeleteLabel.numberOfLines = 2
         confirmDeleteLabel.adjustsFontSizeToFitWidth = true
+
     }
     
 }
