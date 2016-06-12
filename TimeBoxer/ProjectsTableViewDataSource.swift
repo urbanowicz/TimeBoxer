@@ -50,7 +50,6 @@ class ProjectsTableViewDataSource: NSObject, UITableViewDataSource {
         let cell = tableView.dequeueReusableCellWithIdentifier(projectsTableId) as! MyTableViewCell
         cell.project = projects[indexPath.row]
         cell.facadeView.backgroundColor = Colors.almostBlack()
-       // setupPanGestureRecognizerForCell(cell)
         setupLastWorkedOnLabelForCell(cell, indexPath: indexPath)
         setupProjectNameLabelForCell(cell, indexPath: indexPath)
         setupLeftDrawerForCell(cell)
