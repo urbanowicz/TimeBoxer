@@ -12,10 +12,16 @@ class XButton: AbstractOvalButton {
     var strokeWidth = CGFloat(1.0)
     override func drawFrontLayer(rect: CGRect) {
         
-        strokeLine(rect.origin.x, y1: rect.origin.y,
-            x2:rect.origin.x + rect.width , y2: rect.origin.y + rect.height)
-        strokeLine(rect.origin.x, y1: rect.origin.y + rect.height,
-            x2: rect.origin.x + rect.width, y2: rect.origin.y)
+        let scaleFactor = CGFloat(0.3)
+        var smallerRect = CGRectZero
+        smallerRect.size.height = rect.height * scaleFactor
+        smallerRect.size.width = rect.width * scaleFactor
+        smallerRect.origin.x = rect.origin.x + (rect.width - smallerRect.width) / 2.0
+        smallerRect.origin.y = rect.origin.y + (rect.height - smallerRect.height) / 2.0
+        strokeLine(smallerRect.origin.x, y1: smallerRect.origin.y,
+            x2:smallerRect.origin.x + smallerRect.width , y2: smallerRect.origin.y + smallerRect.height)
+        strokeLine(smallerRect.origin.x, y1: smallerRect.origin.y + smallerRect.height,
+            x2: smallerRect.origin.x + smallerRect.width, y2: smallerRect.origin.y)
     
     }
     
