@@ -83,7 +83,8 @@ class ProjectsTableViewDataSource: NSObject, UITableViewDataSource {
     }
     
     private func setupLeftDrawerForCell(cell:MyTableViewCell) {
-        cell.leftDrawer.backgroundColor = UIColor.blueColor()
+        cell.leftDrawer.backgroundColor = Colors.green()
+        cell.leftDrawer.fillColor = Colors.almostBlack().withAlpha(0.8)
     }
     
     private func setupRightDrawerForCell(cell:MyTableViewCell) {
