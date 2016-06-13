@@ -15,7 +15,7 @@ class MyTableViewCell: UITableViewCell {
     @IBOutlet weak var lastWorkedOnLabel: UILabel!
     @IBOutlet weak var projectNameLabel: UILabel!
     @IBOutlet weak var facadeView: UIView!
-    @IBOutlet weak var leftDrawer: UIView!
+    @IBOutlet weak var leftDrawer: LeftDrawerView!
     @IBOutlet weak var rightDrawer: UIView!
     @IBOutlet var projectNameLabelBottomToFacadeViewTopConstraint: NSLayoutConstraint!
     @IBOutlet var projectNameLabelTrailingSpaceToFacadeViewConstraint: NSLayoutConstraint!

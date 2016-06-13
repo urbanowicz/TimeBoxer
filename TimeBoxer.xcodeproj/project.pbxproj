@@ -24,6 +24,8 @@
 		F137CD561C5D361B0005B51C /* ProjectsDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = F137CD551C5D361B0005B51C /* ProjectsDAO.swift */; };
 		F137E96E1C41994A0064E15F /* ColorName.swift in Sources */ = {isa = PBXBuildFile; fileRef = F137E96D1C41994A0064E15F /* ColorName.swift */; };
 		F137E9701C419A200064E15F /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = F137E96F1C419A200064E15F /* Colors.swift */; };
+		F147F2D21D0F2F53001887DA /* LeftDrawerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F147F2D11D0F2F53001887DA /* LeftDrawerView.swift */; };
+		F147F2D31D0F2F53001887DA /* LeftDrawerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F147F2D11D0F2F53001887DA /* LeftDrawerView.swift */; };
 		F14F13051BEA83660045936F /* AbstractOvalButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F14F13041BEA83660045936F /* AbstractOvalButton.swift */; };
 		F14F13071BEA87160045936F /* StopButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F14F13061BEA87160045936F /* StopButton.swift */; };
 		F14F13091BEA88FA0045936F /* CancelButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F14F13081BEA88FA0045936F /* CancelButton.swift */; };
@@ -102,6 +104,7 @@
 		F137CD551C5D361B0005B51C /* ProjectsDAO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectsDAO.swift; sourceTree = "<group>"; };
 		F137E96D1C41994A0064E15F /* ColorName.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorName.swift; sourceTree = "<group>"; };
 		F137E96F1C419A200064E15F /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		F147F2D11D0F2F53001887DA /* LeftDrawerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftDrawerView.swift; sourceTree = "<group>"; };
 		F14F13041BEA83660045936F /* AbstractOvalButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AbstractOvalButton.swift; sourceTree = "<group>"; };
 		F14F13061BEA87160045936F /* StopButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StopButton.swift; sourceTree = "<group>"; };
 		F14F13081BEA88FA0045936F /* CancelButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CancelButton.swift; sourceTree = "<group>"; };
@@ -413,6 +416,7 @@
 				F1A0BC6F1C4E63FC0075ACCF /* MyTableViewCell.swift */,
 				F137CD551C5D361B0005B51C /* ProjectsDAO.swift */,
 				F10C61A71C90A3500054B3FB /* ProjectsTableViewDataSource.swift */,
+				F147F2D11D0F2F53001887DA /* LeftDrawerView.swift */,
 			);
 			name = ProjectsTableVC;
 			sourceTree = "<group>";
@@ -537,6 +541,7 @@
 				F10B851A1C384E23002C66F2 /* Animator.swift in Sources */,
 				F185A09E1CBAB2BF0067775D /* TimeLabelTextFormatter.swift in Sources */,
 				F1FC9AD61C3ED86F002A9F31 /* AddProjectViewController.swift in Sources */,
+				F147F2D21D0F2F53001887DA /* LeftDrawerView.swift in Sources */,
 				F10C61A81C90A3500054B3FB /* ProjectsTableViewDataSource.swift in Sources */,
 				F135A8361BE4C9F50079C9BB /* StartButton.swift in Sources */,
 				F1981B9D1C84DE7200F49454 /* SliderOutputToValueConverter.swift in Sources */,
@@ -586,6 +591,7 @@
 				F10CA9C11C67DEBC0062471C /* WorkChunk.swift in Sources */,
 				F10CA9C01C67DCB10062471C /* Project.swift in Sources */,
 				F168FFFA1CB15ACB00F298BE /* WorkTimeFormatter.swift in Sources */,
+				F147F2D31D0F2F53001887DA /* LeftDrawerView.swift in Sources */,
 				F12E2C6F1CA84A90008DA69C /* NSDateExtension.swift in Sources */,
 				F10CA9C31C67E1970062471C /* ProjectTests.swift in Sources */,
 				F1A95C071C6BD55B00EF5204 /* LastWorkedOnDateFormatter.swift in Sources */,

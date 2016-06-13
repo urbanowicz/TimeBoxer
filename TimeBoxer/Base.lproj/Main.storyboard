@@ -550,7 +550,7 @@
                                                         <constraint firstAttribute="width" constant="50" id="AMh-tb-Uah"/>
                                                     </constraints>
                                                 </view>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AfP-3Y-hfO" userLabel="Left Drawer">
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AfP-3Y-hfO" userLabel="Left Drawer" customClass="LeftDrawerView" customModule="TimeBoxer" customModuleProvider="target">
                                                     <rect key="frame" x="0.0" y="0.0" width="50" height="69"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <constraints>
