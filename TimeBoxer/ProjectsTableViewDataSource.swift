@@ -88,7 +88,8 @@ class ProjectsTableViewDataSource: NSObject, UITableViewDataSource {
     }
     
     private func setupRightDrawerForCell(cell:MyTableViewCell) {
-        cell.rightDrawer.backgroundColor = UIColor.greenColor()
+        cell.rightDrawer.backgroundColor = Colors.azure()
+        cell.rightDrawer.color = Colors.almostBlack().withAlpha(0.8)
     }
     
     private func setupCellSeparatorForCell(cell:MyTableViewCell) {

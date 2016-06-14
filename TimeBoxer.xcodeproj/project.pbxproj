@@ -70,6 +70,8 @@
 		F1B9E9E41CA1468000D86239 /* StatsTableDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1B9E9E31CA1468000D86239 /* StatsTableDataSource.swift */; };
 		F1C755B71C9C87EB0083466C /* HorizontalBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C755B61C9C87EB0083466C /* HorizontalBarView.swift */; };
 		F1CA1C231CC6A66300491EC1 /* CellSwipeHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1CA1C221CC6A66300491EC1 /* CellSwipeHandler.swift */; };
+		F1D1B2451D10359A00DC9EB8 /* RightDrawerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D1B2441D10359A00DC9EB8 /* RightDrawerView.swift */; };
+		F1D1B2461D10359A00DC9EB8 /* RightDrawerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D1B2441D10359A00DC9EB8 /* RightDrawerView.swift */; };
 		F1D2444C1BDFF8320023B994 /* TimerRunningViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D2444B1BDFF8320023B994 /* TimerRunningViewController.swift */; };
 		F1D84C8B1CC656A90066D2C0 /* SwipeHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D84C8A1CC656A90066D2C0 /* SwipeHandler.swift */; };
 		F1D84C8D1CC658620066D2C0 /* SwipeDirection.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D84C8C1CC658620066D2C0 /* SwipeDirection.swift */; };
@@ -147,6 +149,7 @@
 		F1C755B61C9C87EB0083466C /* HorizontalBarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HorizontalBarView.swift; sourceTree = "<group>"; };
 		F1CA1C221CC6A66300491EC1 /* CellSwipeHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellSwipeHandler.swift; sourceTree = "<group>"; };
 		F1CC0EEB1C69284A0090D76D /* TimeBoxerPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = TimeBoxerPlayground.playground; sourceTree = "<group>"; };
+		F1D1B2441D10359A00DC9EB8 /* RightDrawerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RightDrawerView.swift; sourceTree = "<group>"; };
 		F1D2444B1BDFF8320023B994 /* TimerRunningViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerRunningViewController.swift; sourceTree = "<group>"; };
 		F1D84C8A1CC656A90066D2C0 /* SwipeHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwipeHandler.swift; sourceTree = "<group>"; };
 		F1D84C8C1CC658620066D2C0 /* SwipeDirection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwipeDirection.swift; sourceTree = "<group>"; };
@@ -417,6 +420,7 @@
 				F137CD551C5D361B0005B51C /* ProjectsDAO.swift */,
 				F10C61A71C90A3500054B3FB /* ProjectsTableViewDataSource.swift */,
 				F147F2D11D0F2F53001887DA /* LeftDrawerView.swift */,
+				F1D1B2441D10359A00DC9EB8 /* RightDrawerView.swift */,
 			);
 			name = ProjectsTableVC;
 			sourceTree = "<group>";
@@ -529,6 +533,7 @@
 				F1B3B41F1C5540D80009FCF0 /* AbstractAnimator.swift in Sources */,
 				F1EBB3E31C5AB93C005A36CE /* WorkChunk.swift in Sources */,
 				F19D226C1CA01F8B006D76D4 /* StatsTableViewCell.swift in Sources */,
+				F1D1B2451D10359A00DC9EB8 /* RightDrawerView.swift in Sources */,
 				F1B920551BE7D7CC004A8CDB /* PauseButton.swift in Sources */,
 				F18D6B7A1BEB4BFE0003CBD4 /* TimerPausedViewController.swift in Sources */,
 				F1B9E9E41CA1468000D86239 /* StatsTableDataSource.swift in Sources */,
@@ -596,6 +601,7 @@
 				F10CA9C31C67E1970062471C /* ProjectTests.swift in Sources */,
 				F1A95C071C6BD55B00EF5204 /* LastWorkedOnDateFormatter.swift in Sources */,
 				F184495A1CB54508008939DD /* UILabelExtension.swift in Sources */,
+				F1D1B2461D10359A00DC9EB8 /* RightDrawerView.swift in Sources */,
 				F185A09F1CBAB2BF0067775D /* TimeLabelTextFormatter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
