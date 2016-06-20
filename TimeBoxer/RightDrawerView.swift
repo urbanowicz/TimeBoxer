@@ -12,6 +12,7 @@ class RightDrawerView: UIView {
     var color = UIColor.whiteColor()
     
     override func drawRect(rect:CGRect) {
+        
         var innerRect = CGRectZero
         innerRect.size.width = rect.width - 0.45 * rect.width
         innerRect.size.height = innerRect.width

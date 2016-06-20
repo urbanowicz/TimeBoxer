@@ -36,17 +36,17 @@ class LastWorkedOnDateFormatter: NSObject {
             
             //2a
             if differenceInMinutes == 1 {
-                return "1 minute ago"
+                return "1m"
             }
             
             //2b
             if differenceInMinutes < 60 {
-                return "\(differenceInMinutes) minutes ago"
+                return "\(differenceInMinutes)m"
             }
             
             //2c
             if differenceInMinutes == 60 {
-                return "1 hour ago"
+                return "1h"
             }
             
             //2d
@@ -63,11 +63,6 @@ class LastWorkedOnDateFormatter: NSObject {
             return "yesterday"
         }
         
-        //4. 28 day difference
-        if dayDifference < 361 {
-            return "\(dayDifference) days ago"
-        }
-        
         //default case, project is older than 361 days
         let dateFormatter = NSDateFormatter()
         dateFormatter.dateStyle = NSDateFormatterStyle.MediumStyle
@@ -79,10 +74,14 @@ class LastWorkedOnDateFormatter: NSObject {
     
     
     //MARK: Helper functions
-    private func dayDifferenceBetween(laterDate: NSDate, earlierDate: NSDate) -> Int {
+   private func dayDifferenceBetween(laterDate: NSDate, earlierDate: NSDate) -> Int {
         let calendar = NSCalendar.currentCalendar()
+        
+        let earlierStartOfDay = calendar.startOfDayForDate(earlierDate)
+        let laterStartOfDay = calendar.startOfDayForDate(laterDate)
+        
         let dayDifference =
-        calendar.components(NSCalendarUnit.Day, fromDate: earlierDate, toDate: laterDate, options: NSCalendarOptions())
+            calendar.components(NSCalendarUnit.Day, fromDate: earlierStartOfDay, toDate: laterStartOfDay, options: .WrapComponents)
         return dayDifference.day
     }
     
