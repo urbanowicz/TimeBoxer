@@ -33,8 +33,6 @@
             <string>Avenir-Book</string>
             <string>Avenir-Book</string>
             <string>Avenir-Book</string>
-            <string>Avenir-Book</string>
-            <string>Avenir-Book</string>
             <string>Avenir-BookOblique</string>
             <string>Avenir-Book</string>
             <string>Avenir-BookOblique</string>
@@ -784,19 +782,19 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Project Name " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IKz-gY-cVc">
-                                <rect key="frame" x="256" y="372" width="89" height="20"/>
-                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="14"/>
+                                <rect key="frame" x="248" y="370" width="104" height="22"/>
+                                <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="16"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LZV-Bq-Ygy">
-                                <rect key="frame" x="241" y="40" width="119" height="33"/>
-                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="24"/>
+                                <rect key="frame" x="234" y="40" width="133" height="26"/>
+                                <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="22"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="S2e-5T-8F7" customClass="BigSlider" customModule="TimeBoxer" customModuleProvider="target">
-                                <rect key="frame" x="188" y="93" width="225" height="259"/>
+                                <rect key="frame" x="188" y="86" width="225" height="264"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                         </subviews>
@@ -1093,8 +1091,8 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="pqB-dp-YLD"/>
         <segue reference="w1M-zt-kek"/>
+        <segue reference="kZ5-jR-Sp1"/>
         <segue reference="DLL-pd-8SU"/>
     </inferredMetricsTieBreakers>
 </document>
