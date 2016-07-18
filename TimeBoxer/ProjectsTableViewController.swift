@@ -182,9 +182,9 @@ class ProjectsTableViewController: UIViewController, UITableViewDelegate {
                 
                 endProjectNameLabelFrame = CGRectMake(stackX, stackY, stackWidth, projectNameLabel.frame.height)
                 endDeleteProjectButtonFrame =
-                    CGRectMake(stackX, endProjectNameLabelFrame.origin.y + endProjectNameLabelFrame.height + spacing, stackWidth, deleteProjectButton.frame.height)
+                    CGRectMake(stackX, endProjectNameLabelFrame.origin.y + endProjectNameLabelFrame.height + spacing, 170, deleteProjectButton.frame.height)
                 endCancelButtonFrame =
-                    CGRectMake(stackX, endDeleteProjectButtonFrame.origin.y + endDeleteProjectButtonFrame.height + spacing, stackWidth, cancelButton.frame.height)
+                    CGRectMake(stackX, endDeleteProjectButtonFrame.origin.y + endDeleteProjectButtonFrame.height + spacing, 170, cancelButton.frame.height)
                 
                 startDeleteProjectButtonFrame = CGRectMake(view.frame.width/2.0, endDeleteProjectButtonFrame.origin.y + endDeleteProjectButtonFrame.height/2.0
                     ,0,0)
@@ -263,25 +263,42 @@ class ProjectsTableViewController: UIViewController, UITableViewDelegate {
                 },
                 completion: {
                     finished in
+                    
                     let deleteProjectButton = self.selectedCell!.deleteProjectButton
+                    let scaleUpDeleteProjectButtonAnimation = POPSpringAnimation(propertyNamed: kPOPViewSize)
+                    scaleUpDeleteProjectButtonAnimation.toValue = NSValue.init(CGSize: self.endDeleteProjectButtonFrame.size)
+                    scaleUpDeleteProjectButtonAnimation.springBounciness = 4
+                    scaleUpDeleteProjectButtonAnimation.springSpeed = 10
+                    deleteProjectButton.pop_addAnimation(scaleUpDeleteProjectButtonAnimation, forKey: "scaleUp")
+                    
+                    let deleteProjectButtonAlphaAnimation = POPBasicAnimation(propertyNamed: kPOPViewAlpha)
+                    deleteProjectButtonAlphaAnimation.toValue = 1.0
+                    deleteProjectButtonAlphaAnimation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
+                    deleteProjectButtonAlphaAnimation.duration = 0.2
+                    deleteProjectButton.pop_addAnimation(deleteProjectButtonAlphaAnimation, forKey: "alpha")
+                    
+                    
                     let cancelButton = self.selectedCell!.cancelButton
+                    let scaleUpCancelButtonAnimation = POPSpringAnimation(propertyNamed: kPOPViewSize)
+                    scaleUpCancelButtonAnimation.toValue = NSValue.init(CGSize: self.endCancelButtonFrame.size)
+                    scaleUpCancelButtonAnimation.springBounciness = 4
+                    scaleUpCancelButtonAnimation.springSpeed = 10
+                    cancelButton.pop_addAnimation(scaleUpCancelButtonAnimation, forKey: "scaleUp")
+                    
+                    let cancelButtonAlphaAnimation = POPBasicAnimation(propertyNamed: kPOPViewAlpha)
+                    cancelButtonAlphaAnimation.toValue = 1.0
+                    cancelButtonAlphaAnimation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
+                    cancelButtonAlphaAnimation.duration = 0.2
+                    cancelButton.pop_addAnimation(deleteProjectButtonAlphaAnimation, forKey: "alpha")
+                    
                     let facadeView = self.selectedCell!.facadeView
-                    deleteProjectButton.alpha = 0.0
                     deleteProjectButton.frame = self.startDeleteProjectButtonFrame
-                    cancelButton.alpha = 0.0
                     cancelButton.frame = self.startCancelButtonFrame
+                    deleteProjectButton.alpha = 0.0
+                    cancelButton.alpha = 0.0
                     facadeView.addSubview(deleteProjectButton)
                     facadeView.addSubview(cancelButton)
 
-                    
-                    UIView.animateWithDuration(0.2, delay: 0, options: UIViewAnimationOptions.CurveEaseInOut, animations: {
-                        //6. Display the delete and cancel buttons
-                        deleteProjectButton.alpha = 1.0
-                        deleteProjectButton.frame = self.endDeleteProjectButtonFrame
-                        cancelButton.alpha = 1.0
-                        cancelButton.frame = self.endCancelButtonFrame
-                        self.view.layoutIfNeeded()
-                        }, completion: {finished in })
             })
         }
     }
