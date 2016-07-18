@@ -307,9 +307,8 @@ class ProjectsTableViewController: UIViewController, UITableViewDelegate {
         selectedCell!.setupConfirmDeleteLabel()
         let confirmDeleteLabel = selectedCell!.confirmDeleteLabel
         confirmDeleteLabel.layer.position.y = selectedCell!.deleteProjectButton.layer.position.y
-        confirmDeleteLabel.layer.position.x = selectedCell!.deleteProjectButton.layer.position.x
+        confirmDeleteLabel.layer.position.x = self.view.frame.width + confirmDeleteLabel.frame.width / 2.0
         let translationToTheRight = CATransform3DMakeTranslation(view.frame.width, 0, 0)
-        confirmDeleteLabel.layer.transform = translationToTheRight
         selectedCell!.addSubview(confirmDeleteLabel)
         
         selectedCell!.setupYesDeleteButton()
@@ -338,8 +337,12 @@ class ProjectsTableViewController: UIViewController, UITableViewDelegate {
         slideInFromRightAnimation.duration = 0.2
         slideInFromRightAnimation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
         
-        confirmDeleteLabel.layer.addAnimation(slideInFromRightAnimation, forKey: "slideInFromRight")
-        confirmDeleteLabel.layer.transform = CATransform3DIdentity
+        let confirmDeleteLabelSlideInFromRightAnimation = POPSpringAnimation(propertyNamed: kPOPLayerPosition)
+        confirmDeleteLabelSlideInFromRightAnimation.toValue = NSValue.init(CGPoint: CGPoint(x: selectedCell!.deleteProjectButton.layer.position.x, y: selectedCell!.deleteProjectButton.layer.position.y))
+        confirmDeleteLabelSlideInFromRightAnimation.springSpeed = 4
+        confirmDeleteLabelSlideInFromRightAnimation.springBounciness = 4
+        confirmDeleteLabel.pop_addAnimation(confirmDeleteLabelSlideInFromRightAnimation, forKey: "slideInFromRight")
+        
         yesDeleteButton.layer.addAnimation(slideInFromRightAnimation, forKey: "slideInFromRight")
         yesDeleteButton.layer.transform = CATransform3DIdentity
         noDeleteButton.layer.addAnimation(slideInFromRightAnimation, forKey: "slideInFromRight")
