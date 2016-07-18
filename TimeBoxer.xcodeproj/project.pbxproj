@@ -68,6 +68,8 @@
 		F1B5FE6D1C31AF73003A5C65 /* TransitionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1B5FE6C1C31AF73003A5C65 /* TransitionManager.swift */; };
 		F1B920551BE7D7CC004A8CDB /* PauseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1B920541BE7D7CC004A8CDB /* PauseButton.swift */; };
 		F1B9E9E41CA1468000D86239 /* StatsTableDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1B9E9E31CA1468000D86239 /* StatsTableDataSource.swift */; };
+		F1C3CBF01D3D2A9A00D78D07 /* pop.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1C3CBE21D3D28BA00D78D07 /* pop.framework */; };
+		F1C3CBF11D3D2A9A00D78D07 /* pop.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F1C3CBE21D3D28BA00D78D07 /* pop.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		F1C755B71C9C87EB0083466C /* HorizontalBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C755B61C9C87EB0083466C /* HorizontalBarView.swift */; };
 		F1CA1C231CC6A66300491EC1 /* CellSwipeHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1CA1C221CC6A66300491EC1 /* CellSwipeHandler.swift */; };
 		F1D1B2451D10359A00DC9EB8 /* RightDrawerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D1B2441D10359A00DC9EB8 /* RightDrawerView.swift */; };
@@ -90,7 +92,77 @@
 			remoteGlobalIDString = F15F9C4B1BCCF376008733A3;
 			remoteInfo = TimeBoxer_v0;
 		};
+		F1C3CBDF1D3D28BA00D78D07 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F1C3CBD51D3D28BA00D78D07 /* pop.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = EC191218162FB53A00E0CC76;
+			remoteInfo = "pop-ios-static";
+		};
+		F1C3CBE11D3D28BA00D78D07 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F1C3CBD51D3D28BA00D78D07 /* pop.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 0B6BE74819FFD3B900762101;
+			remoteInfo = "pop-ios-framework";
+		};
+		F1C3CBE31D3D28BA00D78D07 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F1C3CBD51D3D28BA00D78D07 /* pop.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = EC68857F18C7B60000C6194C;
+			remoteInfo = "pop-osx-framework";
+		};
+		F1C3CBE51D3D28BA00D78D07 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F1C3CBD51D3D28BA00D78D07 /* pop.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 0755AE4F1BEA15950094AB41;
+			remoteInfo = "pop-tvos-framework";
+		};
+		F1C3CBE71D3D28BA00D78D07 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F1C3CBD51D3D28BA00D78D07 /* pop.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = ECF01ED318C92B7F009E0AD1;
+			remoteInfo = "pop-tests-ios";
+		};
+		F1C3CBE91D3D28BA00D78D07 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F1C3CBD51D3D28BA00D78D07 /* pop.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = EC7E319918C93D6500B38170;
+			remoteInfo = "pop-tests-osx";
+		};
+		F1C3CBEB1D3D28BA00D78D07 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F1C3CBD51D3D28BA00D78D07 /* pop.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 0755AE8C1BEA19580094AB41;
+			remoteInfo = "pop-tests-tvos";
+		};
+		F1C3CBF21D3D2A9A00D78D07 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F1C3CBD51D3D28BA00D78D07 /* pop.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 0B6BE74719FFD3B900762101;
+			remoteInfo = "pop-ios-framework";
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		F1C3CBF41D3D2A9A00D78D07 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				F1C3CBF11D3D2A9A00D78D07 /* pop.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		F10B85171C38346D002C66F2 /* ContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContainerViewController.swift; sourceTree = "<group>"; };
@@ -146,6 +218,8 @@
 		F1B5FE6C1C31AF73003A5C65 /* TransitionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionManager.swift; sourceTree = "<group>"; };
 		F1B920541BE7D7CC004A8CDB /* PauseButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PauseButton.swift; sourceTree = "<group>"; };
 		F1B9E9E31CA1468000D86239 /* StatsTableDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatsTableDataSource.swift; sourceTree = "<group>"; };
+		F1C3CBD51D3D28BA00D78D07 /* pop.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = pop.xcodeproj; path = "Library/pop-master/pop.xcodeproj"; sourceTree = "<group>"; };
+		F1C3CBEE1D3D2A0600D78D07 /* PopBridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopBridge.h; sourceTree = "<group>"; };
 		F1C755B61C9C87EB0083466C /* HorizontalBarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HorizontalBarView.swift; sourceTree = "<group>"; };
 		F1CA1C221CC6A66300491EC1 /* CellSwipeHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellSwipeHandler.swift; sourceTree = "<group>"; };
 		F1CC0EEB1C69284A0090D76D /* TimeBoxerPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = TimeBoxerPlayground.playground; sourceTree = "<group>"; };
@@ -165,6 +239,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F1C3CBF01D3D2A9A00D78D07 /* pop.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -260,6 +335,7 @@
 		F15F9C431BCCF376008733A3 = {
 			isa = PBXGroup;
 			children = (
+				F1C3CBD51D3D28BA00D78D07 /* pop.xcodeproj */,
 				F1AF3A0F1BFBAE3900D40AE8 /* Default-568h@2x.png */,
 				F15F9C4E1BCCF376008733A3 /* TimeBoxer */,
 				F15F9C631BCCF376008733A3 /* TimeBoxer_Tests */,
@@ -299,6 +375,7 @@
 				F15F9C561BCCF376008733A3 /* Assets.xcassets */,
 				F15F9C581BCCF376008733A3 /* LaunchScreen.storyboard */,
 				F15F9C5B1BCCF376008733A3 /* Info.plist */,
+				F1C3CBEE1D3D2A0600D78D07 /* PopBridge.h */,
 			);
 			path = TimeBoxer;
 			sourceTree = "<group>";
@@ -371,6 +448,20 @@
 			name = Segues;
 			sourceTree = "<group>";
 		};
+		F1C3CBD61D3D28BA00D78D07 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F1C3CBE01D3D28BA00D78D07 /* libpop.a */,
+				F1C3CBE21D3D28BA00D78D07 /* pop.framework */,
+				F1C3CBE41D3D28BA00D78D07 /* pop.framework */,
+				F1C3CBE61D3D28BA00D78D07 /* pop.framework */,
+				F1C3CBE81D3D28BA00D78D07 /* pop-tests.xctest */,
+				F1C3CBEA1D3D28BA00D78D07 /* pop-tests.xctest */,
+				F1C3CBEC1D3D28BA00D78D07 /* pop-tests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		F1D244491BDFF4810023B994 /* TimeSliderVC */ = {
 			isa = PBXGroup;
 			children = (
@@ -435,10 +526,12 @@
 				F15F9C481BCCF376008733A3 /* Sources */,
 				F15F9C491BCCF376008733A3 /* Frameworks */,
 				F15F9C4A1BCCF376008733A3 /* Resources */,
+				F1C3CBF41D3D2A9A00D78D07 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				F1C3CBF31D3D2A9A00D78D07 /* PBXTargetDependency */,
 			);
 			name = TimeBoxer;
 			productName = TimeBoxer_v0;
@@ -493,6 +586,12 @@
 			mainGroup = F15F9C431BCCF376008733A3;
 			productRefGroup = F15F9C4D1BCCF376008733A3 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = F1C3CBD61D3D28BA00D78D07 /* Products */;
+					ProjectRef = F1C3CBD51D3D28BA00D78D07 /* pop.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				F15F9C4B1BCCF376008733A3 /* TimeBoxer */,
@@ -500,6 +599,58 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		F1C3CBE01D3D28BA00D78D07 /* libpop.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libpop.a;
+			remoteRef = F1C3CBDF1D3D28BA00D78D07 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		F1C3CBE21D3D28BA00D78D07 /* pop.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = pop.framework;
+			remoteRef = F1C3CBE11D3D28BA00D78D07 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		F1C3CBE41D3D28BA00D78D07 /* pop.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = pop.framework;
+			remoteRef = F1C3CBE31D3D28BA00D78D07 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		F1C3CBE61D3D28BA00D78D07 /* pop.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = pop.framework;
+			remoteRef = F1C3CBE51D3D28BA00D78D07 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		F1C3CBE81D3D28BA00D78D07 /* pop-tests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "pop-tests.xctest";
+			remoteRef = F1C3CBE71D3D28BA00D78D07 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		F1C3CBEA1D3D28BA00D78D07 /* pop-tests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "pop-tests.xctest";
+			remoteRef = F1C3CBE91D3D28BA00D78D07 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		F1C3CBEC1D3D28BA00D78D07 /* pop-tests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "pop-tests.xctest";
+			remoteRef = F1C3CBEB1D3D28BA00D78D07 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		F15F9C4A1BCCF376008733A3 /* Resources */ = {
@@ -614,6 +765,11 @@
 			target = F15F9C4B1BCCF376008733A3 /* TimeBoxer */;
 			targetProxy = F15F9C611BCCF376008733A3 /* PBXContainerItemProxy */;
 		};
+		F1C3CBF31D3D2A9A00D78D07 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "pop-ios-framework";
+			targetProxy = F1C3CBF21D3D2A9A00D78D07 /* PBXContainerItemProxy */;
+		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
@@ -726,9 +882,11 @@
 				INFOPLIST_FILE = "$(SRCROOT)/TimeBoxer/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "-lc++";
 				PRODUCT_BUNDLE_IDENTIFIER = co.timeboxer.TimeBoxer;
 				PRODUCT_NAME = TimeBoxer;
 				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = TimeBoxer/PopBridge.h;
 			};
 			name = Debug;
 		};
@@ -741,9 +899,11 @@
 				INFOPLIST_FILE = "$(SRCROOT)/TimeBoxer/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "-lc++";
 				PRODUCT_BUNDLE_IDENTIFIER = co.timeboxer.TimeBoxer;
 				PRODUCT_NAME = TimeBoxer;
 				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = TimeBoxer/PopBridge.h;
 			};
 			name = Release;
 		};
