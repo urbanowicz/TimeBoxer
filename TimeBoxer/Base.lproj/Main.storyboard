@@ -25,7 +25,6 @@
             <string>Avenir-Book</string>
             <string>Avenir-Book</string>
             <string>Avenir-Book</string>
-            <string>Avenir-Book</string>
             <string>Avenir-BookOblique</string>
             <string>Avenir-Book</string>
             <string>Avenir-Book</string>
@@ -560,17 +559,8 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="600" height="69"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Project Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dzG-97-QYh">
-                                                            <rect key="frame" x="15" y="2" width="500" height="65"/>
+                                                            <rect key="frame" x="15" y="2" width="570" height="65"/>
                                                             <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="18"/>
-                                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1 minute ago" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7IU-v6-3z2" userLabel="Last Worked On">
-                                                            <rect key="frame" x="525" y="26" width="60" height="17"/>
-                                                            <constraints>
-                                                                <constraint firstAttribute="width" constant="60" id="0NO-7b-zpn"/>
-                                                            </constraints>
-                                                            <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="12"/>
                                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
@@ -578,11 +568,9 @@
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <constraints>
                                                         <constraint firstAttribute="bottom" secondItem="dzG-97-QYh" secondAttribute="bottom" constant="2" id="Frh-ZB-bud"/>
-                                                        <constraint firstItem="7IU-v6-3z2" firstAttribute="leading" secondItem="dzG-97-QYh" secondAttribute="trailing" constant="10" id="Yac-XN-6oa"/>
+                                                        <constraint firstAttribute="trailing" secondItem="dzG-97-QYh" secondAttribute="trailing" constant="15" id="am8-LP-aAt"/>
                                                         <constraint firstItem="dzG-97-QYh" firstAttribute="top" secondItem="TIa-hQ-MXw" secondAttribute="top" constant="2" id="gTt-pR-DQI"/>
-                                                        <constraint firstAttribute="trailing" secondItem="7IU-v6-3z2" secondAttribute="trailing" constant="15" id="prH-xv-vsD"/>
                                                         <constraint firstItem="dzG-97-QYh" firstAttribute="leading" secondItem="TIa-hQ-MXw" secondAttribute="leading" constant="15" id="sb8-D6-H8E"/>
-                                                        <constraint firstItem="7IU-v6-3z2" firstAttribute="centerY" secondItem="TIa-hQ-MXw" secondAttribute="centerY" id="yjB-Sk-5Kx"/>
                                                     </constraints>
                                                 </view>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Umc-4T-xor" userLabel="Cell Separator">
@@ -614,13 +602,12 @@
                                         <connections>
                                             <outlet property="cellSeparator" destination="Umc-4T-xor" id="QOv-gg-XAH"/>
                                             <outlet property="facadeView" destination="TIa-hQ-MXw" id="Ly4-GG-eEV"/>
-                                            <outlet property="lastWorkedOnLabel" destination="7IU-v6-3z2" id="TRf-FM-8Gw"/>
                                             <outlet property="leftDrawer" destination="AfP-3Y-hfO" id="EZ2-54-xqZ"/>
                                             <outlet property="projectNameLabel" destination="dzG-97-QYh" id="b0J-EX-PfI"/>
                                             <outlet property="projectNameLabelBottomToFacadeViewTopConstraint" destination="Frh-ZB-bud" id="qex-eu-bD6"/>
                                             <outlet property="projectNameLabelLeadingSpaceToFacadeViewConstraint" destination="sb8-D6-H8E" id="edr-tt-rcQ"/>
                                             <outlet property="projectNameLabelTopToFacadeViewConstraint" destination="gTt-pR-DQI" id="RFh-Q5-hXJ"/>
-                                            <outlet property="projectNameLabelTrailingSpaceToFacadeViewConstraint" destination="Yac-XN-6oa" id="GPe-Hv-DOr"/>
+                                            <outlet property="projectNameLabelTrailingSpaceToFacadeViewConstraint" destination="am8-LP-aAt" id="Dfb-Mv-vdR"/>
                                             <outlet property="rightDrawer" destination="SrC-pn-XcZ" id="MSX-Ny-aNw"/>
                                         </connections>
                                     </tableViewCell>

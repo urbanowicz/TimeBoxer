@@ -11,8 +11,6 @@ import UIKit
 class ProjectsTableViewDataSource: NSObject, UITableViewDataSource {
     var projects = Array<Project>()
     var projectsTableViewController:ProjectsTableViewController?
-
-    private var lastWorkedOnDateFormatter = LastWorkedOnDateFormatter()
     
     let projectsDAO = ProjectsDAO()
     let projectsTableId = "ProjectCell"
@@ -50,7 +48,6 @@ class ProjectsTableViewDataSource: NSObject, UITableViewDataSource {
         let cell = tableView.dequeueReusableCellWithIdentifier(projectsTableId) as! MyTableViewCell
         cell.project = projects[indexPath.row]
         cell.facadeView.backgroundColor = Colors.almostBlack()
-        setupLastWorkedOnLabelForCell(cell, indexPath: indexPath)
         setupProjectNameLabelForCell(cell, indexPath: indexPath)
         setupLeftDrawerForCell(cell)
         setupRightDrawerForCell(cell)
@@ -71,12 +68,6 @@ class ProjectsTableViewDataSource: NSObject, UITableViewDataSource {
         }
     }
     
-    private func setupLastWorkedOnLabelForCell(cell:MyTableViewCell, indexPath:NSIndexPath) {
-        cell.lastWorkedOnLabel.text =
-            lastWorkedOnDateFormatter.formatLastWorkedOnString(projects[indexPath.row].lastWrokedOn())
-        cell.lastWorkedOnLabel.textColor = Colors.azure()
-        cell.lastWorkedOnLabel.hidden = true
-    }
     
     private func setupProjectNameLabelForCell(cell:MyTableViewCell, indexPath:NSIndexPath) {
         cell.projectNameLabel.text = projects[indexPath.row].name

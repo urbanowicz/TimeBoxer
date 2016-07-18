@@ -206,7 +206,6 @@ class ProjectsTableViewController: UIViewController, UITableViewDelegate {
             self.originalProjectNameLabelLeadingConstraintConstant = selectedCell!.projectNameLabelLeadingSpaceToFacadeViewConstraint.constant
             
             prepareStartAndEndFrames()
-            self.selectedCell!.lastWorkedOnLabel.alpha = 0.0
             
             
             UIView.animateWithDuration(0.3, delay: 0, options: UIViewAnimationOptions.CurveEaseInOut,
@@ -452,7 +451,6 @@ class ProjectsTableViewController: UIViewController, UITableViewDelegate {
                 completion: {
                     finished in
                     
-                    self.selectedCell!.lastWorkedOnLabel.alpha = 1.0
                     NSLayoutConstraint.activateConstraints ([self.selectedCell!.projectNameLabelBottomToFacadeViewTopConstraint,self.selectedCell!.projectNameLabelTrailingSpaceToFacadeViewConstraint])
                     NSLayoutConstraint.deactivateConstraints([self.projectNameLabelHeightConstraint!, self.projectNameLabelWidthConstraint!])
                     self.originalFrames.removeAll()
@@ -485,8 +483,6 @@ class ProjectsTableViewController: UIViewController, UITableViewDelegate {
                     },
                     completion: {
                         finished in
-
-                        self.selectedCell!.lastWorkedOnLabel.alpha = 1.0
                         NSLayoutConstraint.activateConstraints ([self.selectedCell!.projectNameLabelBottomToFacadeViewTopConstraint,self.selectedCell!.projectNameLabelTrailingSpaceToFacadeViewConstraint])
                         NSLayoutConstraint.deactivateConstraints([self.projectNameLabelHeightConstraint!, self.projectNameLabelWidthConstraint!])
                         self.originalFrames.removeAll()

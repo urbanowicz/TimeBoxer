@@ -12,7 +12,6 @@ class MyTableViewCell: UITableViewCell {
     var project:Project?
     
     @IBOutlet weak var cellSeparator: UIView!
-    @IBOutlet weak var lastWorkedOnLabel: UILabel!
     @IBOutlet weak var projectNameLabel: UILabel!
     @IBOutlet weak var facadeView: UIView!
     @IBOutlet weak var leftDrawer: LeftDrawerView!
