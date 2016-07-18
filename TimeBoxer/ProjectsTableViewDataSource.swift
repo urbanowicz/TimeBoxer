@@ -75,6 +75,7 @@ class ProjectsTableViewDataSource: NSObject, UITableViewDataSource {
         cell.lastWorkedOnLabel.text =
             lastWorkedOnDateFormatter.formatLastWorkedOnString(projects[indexPath.row].lastWrokedOn())
         cell.lastWorkedOnLabel.textColor = Colors.azure()
+        cell.lastWorkedOnLabel.hidden = true
     }
     
     private func setupProjectNameLabelForCell(cell:MyTableViewCell, indexPath:NSIndexPath) {
