@@ -510,14 +510,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time Boxer" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rVO-On-1e2" userLabel="Time Boxer Label">
-                                <rect key="frame" x="261" y="30" width="78" height="19"/>
-                                <fontDescription key="fontDescription" name="Optima-Regular" family="Optima" pointSize="16"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your Projects" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rVO-On-1e2" userLabel="Time Boxer Label">
+                                <rect key="frame" x="253" y="40" width="95" height="22"/>
+                                <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="16"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ln0-07-a9F" userLabel="Title Bar Separator">
-                                <rect key="frame" x="0.0" y="68" width="600" height="1"/>
+                                <rect key="frame" x="0.0" y="81" width="600" height="1"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="g8I-uZ-8CP"/>
@@ -533,7 +533,7 @@
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="70" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="P0n-w1-o3y">
-                                <rect key="frame" x="0.0" y="69" width="600" height="411"/>
+                                <rect key="frame" x="0.0" y="82" width="600" height="398"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="projects" selectionStyle="none" indentationWidth="0.0" shouldIndentWhileEditing="NO" reuseIdentifier="ProjectCell" id="RJ9-tz-21q" customClass="MyTableViewCell" customModule="TimeBoxer" customModuleProvider="target">
@@ -656,6 +656,7 @@
                             <constraint firstItem="ln0-07-a9F" firstAttribute="leading" secondItem="3oU-0d-xxl" secondAttribute="leading" id="DlZ-S7-UE4"/>
                             <constraint firstItem="rVO-On-1e2" firstAttribute="centerX" secondItem="3oU-0d-xxl" secondAttribute="centerX" id="HCM-yu-ssD"/>
                             <constraint firstItem="eGy-rW-UYM" firstAttribute="width" secondItem="3oU-0d-xxl" secondAttribute="width" multiplier="0.2" id="N8G-iZ-Zr0"/>
+                            <constraint firstItem="rVO-On-1e2" firstAttribute="top" secondItem="YAL-US-Not" secondAttribute="bottom" constant="20" id="NJh-9i-sm1"/>
                             <constraint firstItem="jJ5-tZ-w2O" firstAttribute="centerY" secondItem="3oU-0d-xxl" secondAttribute="centerY" id="PkO-94-BVc"/>
                             <constraint firstAttribute="trailing" secondItem="P0n-w1-o3y" secondAttribute="trailing" id="WD8-VS-uhj"/>
                             <constraint firstItem="eGy-rW-UYM" firstAttribute="centerX" secondItem="3oU-0d-xxl" secondAttribute="centerX" id="g8C-TM-OTn"/>
@@ -664,7 +665,6 @@
                             <constraint firstItem="ln0-07-a9F" firstAttribute="bottom" secondItem="P0n-w1-o3y" secondAttribute="top" id="kGN-P5-74r"/>
                             <constraint firstItem="POc-bX-K55" firstAttribute="width" relation="lessThanOrEqual" secondItem="3oU-0d-xxl" secondAttribute="width" multiplier="0.7" id="lZY-rD-bbd"/>
                             <constraint firstItem="P0n-w1-o3y" firstAttribute="leading" secondItem="3oU-0d-xxl" secondAttribute="leading" id="lqF-L3-bYg"/>
-                            <constraint firstItem="rVO-On-1e2" firstAttribute="top" secondItem="YAL-US-Not" secondAttribute="bottom" constant="10" id="nyO-8I-khZ"/>
                             <constraint firstAttribute="trailing" secondItem="ln0-07-a9F" secondAttribute="trailing" id="sz7-di-msa"/>
                             <constraint firstItem="jJ5-tZ-w2O" firstAttribute="centerX" secondItem="3oU-0d-xxl" secondAttribute="centerX" id="t1g-lD-Q8W"/>
                         </constraints>
@@ -931,7 +931,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ByY-rk-xvn" userLabel="Cancel Button" customClass="CancelButton" customModule="TimeBoxer" customModuleProvider="target">
-                                <rect key="frame" x="102" y="444" width="104" height="104"/>
+                                <rect key="frame" x="87" y="444" width="104" height="104"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="ByY-rk-xvn" secondAttribute="height" multiplier="1:1" id="RCS-Gi-Bjm"/>
                                 </constraints>
@@ -939,14 +939,8 @@
                                     <action selector="cancelButtonPressed:" destination="lqK-VX-oTB" eventType="touchUpInside" id="0yd-Ni-swo"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time Boxer" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fg3-W5-PqE" userLabel="App Title Label">
-                                <rect key="frame" x="264" y="40" width="73" height="18"/>
-                                <fontDescription key="fontDescription" name="Baskerville" family="Baskerville" pointSize="15"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CWg-Hk-SmY" customClass="StopButton" customModule="TimeBoxer" customModuleProvider="target">
-                                <rect key="frame" x="394" y="444" width="104" height="104"/>
+                                <rect key="frame" x="409" y="444" width="104" height="104"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="CWg-Hk-SmY" secondAttribute="height" multiplier="1:1" id="LTg-eL-wax"/>
                                 </constraints>
@@ -966,32 +960,56 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cancel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fac-qI-by0" userLabel="CancelLabel">
+                                <rect key="frame" x="120" y="419" width="39" height="15"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Resume" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b09-jC-XhK" userLabel="ResumeLabel">
+                                <rect key="frame" x="279" y="385" width="43" height="17"/>
+                                <fontDescription key="fontDescription" name="Avenir-LightOblique" family="Avenir" pointSize="12"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Stop" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0up-Db-OLK" userLabel="StopLabel">
+                                <rect key="frame" x="448" y="419" width="27" height="15"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <constraints>
                             <constraint firstItem="CWg-Hk-SmY" firstAttribute="centerY" secondItem="5Rf-sR-KhQ" secondAttribute="centerY" id="0Jr-yn-rqd"/>
+                            <constraint firstItem="CWg-Hk-SmY" firstAttribute="top" secondItem="0up-Db-OLK" secondAttribute="bottom" constant="10" id="542-ry-uOC"/>
                             <constraint firstItem="ByY-rk-xvn" firstAttribute="width" secondItem="5Rf-sR-KhQ" secondAttribute="width" multiplier="0.618" id="7uP-OK-R9I"/>
                             <constraint firstItem="U4s-iw-3SS" firstAttribute="top" secondItem="lLT-bv-q9U" secondAttribute="bottom" constant="20" id="AQI-ff-zUq"/>
                             <constraint firstItem="tlZ-wA-v9z" firstAttribute="top" secondItem="5Rf-sR-KhQ" secondAttribute="bottom" constant="20" id="C2M-jh-s9J"/>
                             <constraint firstItem="lLT-bv-q9U" firstAttribute="centerX" secondItem="dUO-wX-w9S" secondAttribute="centerX" id="CNX-le-jNk"/>
+                            <constraint firstItem="ByY-rk-xvn" firstAttribute="top" secondItem="Fac-qI-by0" secondAttribute="bottom" constant="10" id="EVx-Bs-Xrr"/>
+                            <constraint firstItem="Fac-qI-by0" firstAttribute="centerX" secondItem="ByY-rk-xvn" secondAttribute="centerX" id="Id7-ym-mIA"/>
                             <constraint firstItem="U4s-iw-3SS" firstAttribute="centerX" secondItem="dUO-wX-w9S" secondAttribute="centerX" id="Pzr-5P-fAG"/>
                             <constraint firstItem="CWg-Hk-SmY" firstAttribute="width" secondItem="ByY-rk-xvn" secondAttribute="width" id="Qxl-UB-oVI"/>
                             <constraint firstItem="ByY-rk-xvn" firstAttribute="centerY" secondItem="5Rf-sR-KhQ" secondAttribute="centerY" id="RG8-F5-daA"/>
                             <constraint firstItem="U4s-iw-3SS" firstAttribute="centerY" secondItem="dUO-wX-w9S" secondAttribute="centerY" id="RNu-5d-yPU"/>
-                            <constraint firstItem="fg3-W5-PqE" firstAttribute="centerX" secondItem="dUO-wX-w9S" secondAttribute="centerX" id="VN5-3j-3Ud"/>
-                            <constraint firstItem="fg3-W5-PqE" firstAttribute="top" secondItem="0Xk-ea-Bok" secondAttribute="bottom" constant="20" id="ZMA-kl-q4K"/>
                             <constraint firstItem="5Rf-sR-KhQ" firstAttribute="width" secondItem="dUO-wX-w9S" secondAttribute="width" multiplier="0.28" id="ZOb-sW-EUy"/>
-                            <constraint firstItem="CWg-Hk-SmY" firstAttribute="leading" secondItem="5Rf-sR-KhQ" secondAttribute="trailing" constant="10" id="he7-f4-KfI"/>
+                            <constraint firstItem="CWg-Hk-SmY" firstAttribute="leading" secondItem="5Rf-sR-KhQ" secondAttribute="trailing" constant="25" id="he7-f4-KfI"/>
+                            <constraint firstItem="b09-jC-XhK" firstAttribute="centerX" secondItem="5Rf-sR-KhQ" secondAttribute="centerX" id="lN7-Mt-IQr"/>
                             <constraint firstItem="lLT-bv-q9U" firstAttribute="width" relation="lessThanOrEqual" secondItem="dUO-wX-w9S" secondAttribute="width" multiplier="0.6" id="na6-Ji-dae"/>
-                            <constraint firstItem="5Rf-sR-KhQ" firstAttribute="leading" secondItem="ByY-rk-xvn" secondAttribute="trailing" constant="10" id="qPl-3x-i3W"/>
+                            <constraint firstItem="5Rf-sR-KhQ" firstAttribute="top" secondItem="b09-jC-XhK" secondAttribute="bottom" constant="10" id="oVw-YT-9Gw"/>
+                            <constraint firstItem="5Rf-sR-KhQ" firstAttribute="leading" secondItem="ByY-rk-xvn" secondAttribute="trailing" constant="25" id="qPl-3x-i3W"/>
                             <constraint firstItem="5Rf-sR-KhQ" firstAttribute="centerX" secondItem="dUO-wX-w9S" secondAttribute="centerX" id="vMu-Cu-9Be"/>
+                            <constraint firstItem="0up-Db-OLK" firstAttribute="centerX" secondItem="CWg-Hk-SmY" secondAttribute="centerX" id="yzx-UL-c2H"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="appTitleLabel" destination="fg3-W5-PqE" id="5Oy-dG-aob"/>
                         <outlet property="cancelButton" destination="ByY-rk-xvn" id="xkv-Ma-Suu"/>
+                        <outlet property="cancelLabel" destination="Fac-qI-by0" id="XiU-kG-eKZ"/>
                         <outlet property="projectNameLabel" destination="lLT-bv-q9U" id="GDg-E0-CUX"/>
                         <outlet property="resumeButton" destination="5Rf-sR-KhQ" id="q9h-AE-4c3"/>
+                        <outlet property="resumeLabel" destination="b09-jC-XhK" id="Uur-5q-8hn"/>
                         <outlet property="stopButton" destination="CWg-Hk-SmY" id="kL5-nF-z5y"/>
+                        <outlet property="stopLabel" destination="0up-Db-OLK" id="M5E-gb-FcQ"/>
                         <outlet property="timeLabel" destination="U4s-iw-3SS" id="5jc-q6-TTj"/>
                         <segue destination="WVv-Cz-hWv" kind="show" identifier="TimerPausedToTimerRunning" id="pqB-dp-YLD"/>
                         <segue destination="CN5-20-aaQ" kind="show" identifier="TimerPausedToTimeSlider" id="DLL-pd-8SU"/>
@@ -1090,7 +1108,7 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="pqB-dp-YLD"/>
-        <segue reference="L9w-ZE-epX"/>
-        <segue reference="tj7-93-GMq"/>
+        <segue reference="w1M-zt-kek"/>
+        <segue reference="DLL-pd-8SU"/>
     </inferredMetricsTieBreakers>
 </document>

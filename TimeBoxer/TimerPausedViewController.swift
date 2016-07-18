@@ -10,12 +10,15 @@ import UIKit
 
 class TimerPausedViewController: UIViewController {
     
-    @IBOutlet weak var appTitleLabel: UILabel!
     @IBOutlet weak var resumeButton: StartButton!
     @IBOutlet weak var cancelButton: CancelButton!
     @IBOutlet weak var stopButton: StopButton!
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var projectNameLabel: UILabel!
+    
+    @IBOutlet weak var stopLabel: UILabel!
+    @IBOutlet weak var resumeLabel: UILabel!
+    @IBOutlet weak var cancelLabel: UILabel!
     
     private let timeLabelTextFormatter = TimeLabelTextFormatter()
     var numberOfSecondsToCountDown = 0
@@ -26,10 +29,12 @@ class TimerPausedViewController: UIViewController {
     {
         super.viewDidLoad()
         view.backgroundColor = Colors.almostBlack()
-        setupAppTitleLabel()
         setupResumeButton()
         setupCancelButton()
         setupStopButton()
+        setupResumeLabel()
+        setupCancelLabel()
+        setupStopLabel()
         setupProjectNameLabel()
         setupTimeLabel()
     }
@@ -40,9 +45,7 @@ class TimerPausedViewController: UIViewController {
     }
     
 //MARK: Setup UI elements
-    private func setupAppTitleLabel() {
-        appTitleLabel.textColor = Colors.silver().withAlpha(0.15)
-    }
+
     private func setupResumeButton() {
         resumeButton.borderColor = Colors.silver()
         resumeButton.ovalLayerColor = Colors.almostBlack()
@@ -71,16 +74,34 @@ class TimerPausedViewController: UIViewController {
     }
     
     private func setupTimeLabel() {
-        timeLabel.textColor = Colors.silver().withAlpha(0.15)
+        timeLabel.textColor = Colors.silver().withAlpha(0.60)
         timeLabel.text = timeLabelTextFormatter.formatWithNumberOfSecondsToCountDown(numberOfSecondsToCountDown)
     }
     
     private func setupProjectNameLabel() {
-        projectNameLabel.textColor = Colors.silver().withAlpha(0.15)
+        projectNameLabel.textColor = Colors.silver().withAlpha(0.60)
         projectNameLabel.text = project!.name
         projectNameLabel.numberOfLines = 4
         projectNameLabel.adjustsFontSizeToFitWidth = true
         projectNameLabel.sizeToFit()
+    }
+    
+    private func setupResumeLabel() {
+        resumeLabel.text = "resume"
+        resumeLabel.textColor = Colors.silver()
+        resumeLabel.font = UIFont(name: "Avenir-LightOblique", size: 12)
+    }
+    
+    private func setupCancelLabel() {
+        cancelLabel.text = "cancel"
+        cancelLabel.textColor = Colors.silver()
+        cancelLabel.font = UIFont(name: "Avenir-LightOblique", size: 12)
+    }
+    
+    private func setupStopLabel() {
+        stopLabel.text = "stop"
+        stopLabel.textColor = Colors.silver()
+        stopLabel.font = UIFont(name: "Avenir-LightOblique", size: 12)
     }
     
     

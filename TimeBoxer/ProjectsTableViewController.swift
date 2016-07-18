@@ -69,12 +69,14 @@ class ProjectsTableViewController: UIViewController, UITableViewDelegate {
                 stackView.hidden = false
                 projectsTableView.hidden = true
                 titleBarSeparator.hidden = true
+                timeBoxerLabel.hidden = true
             } else {
                 noProjectsLabel.hidden = true
                 useAddButtonLabel.hidden = true
                 stackView.hidden = true
                 projectsTableView.hidden = false
                 titleBarSeparator.hidden = false
+                timeBoxerLabel.hidden = false
                 projectsTableView.reloadData()
             }
         } else {
@@ -83,6 +85,7 @@ class ProjectsTableViewController: UIViewController, UITableViewDelegate {
             stackView.hidden = true 
             projectsTableView.hidden = false
             titleBarSeparator.hidden = false
+            timeBoxerLabel.hidden = false 
         }
     }
     
@@ -108,7 +111,7 @@ class ProjectsTableViewController: UIViewController, UITableViewDelegate {
     }
     
     private func setupAppTitleLabel() {
-        timeBoxerLabel.textColor = Colors.silver()
+        timeBoxerLabel.textColor = Colors.azure()
     }
     
     private func setupAddProjectButton() {
