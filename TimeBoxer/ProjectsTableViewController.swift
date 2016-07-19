@@ -306,47 +306,52 @@ class ProjectsTableViewController: UIViewController, UITableViewDelegate {
     func deleteProjectButtonPressed() {
         selectedCell!.setupConfirmDeleteLabel()
         let confirmDeleteLabel = selectedCell!.confirmDeleteLabel
-        confirmDeleteLabel.layer.position.y = selectedCell!.deleteProjectButton.layer.position.y
-        confirmDeleteLabel.layer.position.x = self.view.frame.width + confirmDeleteLabel.frame.width / 2.0
-        let translationToTheRight = CATransform3DMakeTranslation(view.frame.width, 0, 0)
+        let confirmDeleteLabelPositionX = selectedCell!.deleteProjectButton.layer.position.x
+        let confirmDeleteLabelPositionY = selectedCell!.deleteProjectButton.layer.position.y
+        confirmDeleteLabel.layer.position.y = confirmDeleteLabelPositionY
+        confirmDeleteLabel.layer.position.x = confirmDeleteLabelPositionX + self.view.frame.width
         selectedCell!.addSubview(confirmDeleteLabel)
         
         selectedCell!.setupYesDeleteButton()
         let yesDeleteButton = selectedCell!.yesDeleteButton
-        yesDeleteButton.layer.position.y = selectedCell!.cancelButton.layer.position.y
-        yesDeleteButton.layer.position.x = selectedCell!.cancelButton.frame.origin.x + yesDeleteButton.frame.width / 2.0
-        yesDeleteButton.layer.transform = translationToTheRight
+        let yesDeleteButtonPositionY = selectedCell!.cancelButton.layer.position.y
+        let yesDeleteButtonPositionX = selectedCell!.cancelButton.frame.origin.x + yesDeleteButton.frame.width / 2.0
+        yesDeleteButton.layer.position.x = yesDeleteButtonPositionX + self.view.frame.width
+        yesDeleteButton.layer.position.y = yesDeleteButtonPositionY
         yesDeleteButton.addTarget(self, action: #selector(ProjectsTableViewController.yesDeleteButtonPressed), forControlEvents: .TouchDown)
         selectedCell!.addSubview(yesDeleteButton)
 
         
         selectedCell!.setupNoDeleteButton()
         let noDeleteButton = selectedCell!.noDeleteButton
-        noDeleteButton.layer.position.y = selectedCell!.cancelButton.layer.position.y
-        noDeleteButton.layer.position.x = selectedCell!.cancelButton.frame.origin.x +
+        let noDeleteButtonPositionX = selectedCell!.cancelButton.frame.origin.x +
             selectedCell!.cancelButton.frame.width - noDeleteButton.frame.width/2.0
-        noDeleteButton.layer.transform = translationToTheRight
+        let noDeleteButtonPositionY = selectedCell!.cancelButton.layer.position.y
+        noDeleteButton.layer.position.y = noDeleteButtonPositionY
+        noDeleteButton.layer.position.x = noDeleteButtonPositionX + self.view.frame.width
         noDeleteButton.addTarget(self, action: #selector(ProjectsTableViewController.noDeleteButtonPressed), forControlEvents: .TouchDown)
         selectedCell!.addSubview(noDeleteButton)
         
         
-        let slideInFromRightAnimation = CABasicAnimation(keyPath: "transform")
-
-        slideInFromRightAnimation.fromValue = NSValue(CATransform3D: translationToTheRight )
-        slideInFromRightAnimation.toValue = NSValue(CATransform3D: CATransform3DIdentity)
-        slideInFromRightAnimation.duration = 0.2
-        slideInFromRightAnimation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
-        
         let confirmDeleteLabelSlideInFromRightAnimation = POPSpringAnimation(propertyNamed: kPOPLayerPosition)
-        confirmDeleteLabelSlideInFromRightAnimation.toValue = NSValue.init(CGPoint: CGPoint(x: selectedCell!.deleteProjectButton.layer.position.x, y: selectedCell!.deleteProjectButton.layer.position.y))
+        confirmDeleteLabelSlideInFromRightAnimation.toValue = NSValue.init(CGPoint: CGPoint(x: confirmDeleteLabelPositionX, y: confirmDeleteLabelPositionY))
         confirmDeleteLabelSlideInFromRightAnimation.springSpeed = 4
         confirmDeleteLabelSlideInFromRightAnimation.springBounciness = 4
-        confirmDeleteLabel.pop_addAnimation(confirmDeleteLabelSlideInFromRightAnimation, forKey: "slideInFromRight")
+        confirmDeleteLabel.layer.pop_addAnimation(confirmDeleteLabelSlideInFromRightAnimation, forKey: "slideInFromRight")
         
-        yesDeleteButton.layer.addAnimation(slideInFromRightAnimation, forKey: "slideInFromRight")
-        yesDeleteButton.layer.transform = CATransform3DIdentity
-        noDeleteButton.layer.addAnimation(slideInFromRightAnimation, forKey: "slideInFromRight")
-        noDeleteButton.layer.transform = CATransform3DIdentity
+        let yesButtonSlideInFromRightAnimation = POPSpringAnimation(propertyNamed: kPOPLayerPosition)
+        yesButtonSlideInFromRightAnimation.toValue = NSValue.init(CGPoint: CGPoint(x: yesDeleteButtonPositionX, y: yesDeleteButtonPositionY))
+        yesButtonSlideInFromRightAnimation.springSpeed = 4
+        yesButtonSlideInFromRightAnimation.springBounciness = 4
+        yesDeleteButton.layer.pop_addAnimation(yesButtonSlideInFromRightAnimation, forKey: "slideInFromRight")
+        
+        
+        let noButtonSlideInFromRightAnimation = POPSpringAnimation(propertyNamed: kPOPLayerPosition)
+        noButtonSlideInFromRightAnimation.toValue = NSValue.init(CGPoint: CGPoint(x: noDeleteButtonPositionX, y: noDeleteButtonPositionY))
+        noButtonSlideInFromRightAnimation.springSpeed = 4
+        noButtonSlideInFromRightAnimation.springBounciness = 4
+        noDeleteButton.layer.pop_addAnimation(noButtonSlideInFromRightAnimation, forKey: "slideInFromRight")
+        
         
         
         let slideOutToTheLeftAnimation = CABasicAnimation(keyPath: "transform")
