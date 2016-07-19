@@ -22,13 +22,14 @@ class BigSlider: UIControl {
     override var frame:CGRect {
         didSet {
             sliderLayer.frame = rectToDraw()
-
         }
     }
     
     override var bounds:CGRect {
         didSet {
+            currentHeight = CGFloat(value) * (bounds.height - handleHeight)
             sliderLayer.frame = rectToDraw()
+            sliderLayer.setNeedsDisplay()
         }
     }
     
@@ -43,11 +44,7 @@ class BigSlider: UIControl {
         }
     }
     
-    var value:Double {
-        get {
-            return Double(currentHeight / (bounds.height - handleHeight))
-        }
-    }
+    var value:Double = 0.0
     
     private let sliderLayer = SliderLayer()
     private var startLocation = CGPoint()
@@ -97,6 +94,7 @@ class BigSlider: UIControl {
             }
         }
         boundCurrentHeight()
+        self.value = Double(currentHeight / (bounds.height - handleHeight))
         CATransaction.begin()
         CATransaction.setValue(kCFBooleanTrue, forKey: kCATransactionDisableActions)
         sliderLayer.frame = rectToDraw()
