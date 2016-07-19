@@ -11,27 +11,36 @@ import UIKit
 class StartButton: AbstractOvalButton {
     
     override func drawFrontLayer(rect: CGRect) {
-        //draw the triangle layer
+        let path = prepareTrianglePath(rect)
+        let trianglePath = UIBezierPath(CGPath: path)
+        trianglePath.fill()
+    }
+
+    private func prepareTrianglePath(rect:CGRect) -> CGPath {
+        
         let scaleFactor = CGFloat(0.3333333)
         let sqrt3 = CGFloat(1.7320508075688772)
         let a = rect.width * scaleFactor
         
-        let x1 = a + 5
+        let x1 = a + 7
         let y1 = a
-        let p1 = CGPoint(x: x1,y: y1)
+        let topLeft = CGPoint(x: x1,y: y1)
         let x2 = x1 + a * sqrt3 * 0.5
         let y2 = y1 + a * 0.5
-        let p2 = CGPoint(x: x2, y: y2)
+        let middleRight = CGPoint(x: x2, y: y2)
         let x3 = x1
         let y3 = y1 + a
-        let p3 = CGPoint(x: x3, y: y3)
+        let bottomLeft = CGPoint(x: x3, y: y3)
+        let start = CGPoint(x: topLeft.x, y: topLeft.y + (a / 2.0))
         
-        let trianglePath = UIBezierPath()
-        trianglePath.moveToPoint(p1)
-        trianglePath.addLineToPoint(p2)
-        trianglePath.addLineToPoint(p3)
-        trianglePath.closePath()
-        trianglePath.fill()
+        let radius = CGFloat(2.5)
+        let path:CGMutablePathRef = CGPathCreateMutable()
+        CGPathMoveToPoint(path, nil, start.x, start.y)
+        CGPathAddArcToPoint(path, nil, bottomLeft.x, bottomLeft.y, middleRight.x, middleRight.y, radius)
+        CGPathAddArcToPoint(path, nil, middleRight.x, middleRight.y, topLeft.x, topLeft.y, radius)
+        CGPathAddArcToPoint(path, nil, topLeft.x, topLeft.y, start.x, start.y, radius)
+        CGPathCloseSubpath(path)
+        return path
     }
-
+    
 }
