@@ -353,21 +353,21 @@ class ProjectsTableViewController: UIViewController, UITableViewDelegate {
         noDeleteButton.layer.pop_addAnimation(noButtonSlideInFromRightAnimation, forKey: "slideInFromRight")
         
         
-        
-        let slideOutToTheLeftAnimation = CABasicAnimation(keyPath: "transform")
-        let translationToTheLeft = CATransform3DMakeTranslation(-view.frame.width, 0, 0)
-        slideOutToTheLeftAnimation.fromValue = NSValue(CATransform3D: CATransform3DIdentity)
-        slideOutToTheLeftAnimation.toValue = NSValue(CATransform3D: translationToTheLeft)
-        slideOutToTheLeftAnimation.duration = 0.2
-        slideOutToTheLeftAnimation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
-        
         let deleteButton = selectedCell!.deleteProjectButton
-        deleteButton.layer.addAnimation(slideOutToTheLeftAnimation, forKey: "slideOutToTheLeft")
-        deleteButton.layer.transform = translationToTheLeft
+        let deleteButtonPositionX = deleteButton.layer.position.x
+        let deleteButtonSlideOutLeftAnimation = POPSpringAnimation(propertyNamed: kPOPLayerPositionX)
+        deleteButtonSlideOutLeftAnimation.toValue = deleteButtonPositionX - self.view.frame.width
+        deleteButtonSlideOutLeftAnimation.springSpeed = 4
+        deleteButtonSlideOutLeftAnimation.springBounciness = 4
+        deleteButton.layer.pop_addAnimation(deleteButtonSlideOutLeftAnimation, forKey: "slideOutLeft")
         
         let cancelButton = selectedCell!.cancelButton
-        cancelButton.layer.addAnimation(slideOutToTheLeftAnimation, forKey: "sliedOutToTheLeft")
-        cancelButton.layer.transform = translationToTheLeft
+        let cancelButtonPositionX = cancelButton.layer.position.x
+        let cancelButtonSlideOutLeftAnimation = POPSpringAnimation(propertyNamed: kPOPLayerPositionX)
+        cancelButtonSlideOutLeftAnimation.toValue = cancelButtonPositionX - self.view.frame.width
+        cancelButtonSlideOutLeftAnimation.springSpeed = 4
+        cancelButtonSlideOutLeftAnimation.springBounciness = 4
+        cancelButton.layer.pop_addAnimation(cancelButtonSlideOutLeftAnimation, forKey: "slideOutLeft")
 
     }
     
@@ -413,37 +413,52 @@ class ProjectsTableViewController: UIViewController, UITableViewDelegate {
     
     
     func noDeleteButtonPressed() {
-        let slideInFromTheLeftAnimation = CABasicAnimation(keyPath: "transform")
-        let translationToTheLeft = CATransform3DMakeTranslation(-view.frame.width, 0, 0)
-        slideInFromTheLeftAnimation.fromValue = NSValue(CATransform3D: translationToTheLeft)
-        slideInFromTheLeftAnimation.toValue = NSValue(CATransform3D: CATransform3DIdentity)
-        slideInFromTheLeftAnimation.duration = 0.2
-        slideInFromTheLeftAnimation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
         
+        //Slide the delete button back from the left
         let deleteButton = selectedCell!.deleteProjectButton
+        let deleteButtonPositionX = deleteButton.layer.position.x
+        let deleteButtonSlideInFromLeftAnimation = POPSpringAnimation(propertyNamed: kPOPLayerPositionX)
+        deleteButtonSlideInFromLeftAnimation.toValue = deleteButtonPositionX + self.view.frame.width
+        deleteButtonSlideInFromLeftAnimation.springBounciness = 4
+        deleteButtonSlideInFromLeftAnimation.springSpeed = 4
+        deleteButton.layer.pop_addAnimation(deleteButtonSlideInFromLeftAnimation, forKey: "slideInFromLeft")
+        
+        //Slide the cancel button back from the left
         let cancelButton = selectedCell!.cancelButton
+        let cancelButtonPositionX = cancelButton.layer.position.x
+        let cancelButtonSlideInFromLeftAnimation = POPSpringAnimation(propertyNamed: kPOPLayerPositionX)
+        cancelButtonSlideInFromLeftAnimation.toValue = cancelButtonPositionX + self.view.frame.width
+        cancelButtonSlideInFromLeftAnimation.springBounciness = 4
+        cancelButtonSlideInFromLeftAnimation.springSpeed = 4
+        cancelButton.layer.pop_addAnimation(cancelButtonSlideInFromLeftAnimation, forKey: "slideInFromLeft")
         
-        deleteButton.layer.addAnimation(slideInFromTheLeftAnimation, forKey: "slideInFromTheLeft")
-        cancelButton.layer.addAnimation(slideInFromTheLeftAnimation, forKey: "slideInFromTheleft")
-        deleteButton.layer.transform = CATransform3DIdentity
-        cancelButton.layer.transform = CATransform3DIdentity
-        
-        let slideOutToTheRightAnimation = CABasicAnimation(keyPath: "transform")
-        let translationToTheRight = CATransform3DMakeTranslation(view.frame.width, 0, 0)
-        slideOutToTheRightAnimation.fromValue = NSValue(CATransform3D: CATransform3DIdentity)
-        slideOutToTheRightAnimation.toValue = NSValue(CATransform3D: translationToTheRight)
-        slideOutToTheRightAnimation.duration = 0.2
-        slideOutToTheRightAnimation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
-        
+
+        //Slide the confirmDeleteLabel out to the right
         let confirmDeleteLabel = selectedCell!.confirmDeleteLabel
+        let confirmDeleteLabelPositionX = confirmDeleteLabel.layer.position.x
+        let confirmDeleteLabelSlideOutRightAnimation = POPSpringAnimation(propertyNamed: kPOPLayerPositionX)
+        confirmDeleteLabelSlideOutRightAnimation.toValue = confirmDeleteLabelPositionX + self.view.frame.width
+        confirmDeleteLabelSlideOutRightAnimation.springBounciness = 4
+        confirmDeleteLabelSlideOutRightAnimation.springSpeed = 4
+        confirmDeleteLabel.layer.pop_addAnimation(confirmDeleteLabelSlideOutRightAnimation, forKey: "slideOutRight")
+        
+        //Slide the yesDeleteButton out to the right
         let yesDeleteButton = selectedCell!.yesDeleteButton
+        let yesDeleteButtonPositionX = yesDeleteButton.layer.position.x
+        let yesButtonSliedOutRightAnimation = POPSpringAnimation(propertyNamed: kPOPLayerPositionX)
+        yesButtonSliedOutRightAnimation.toValue = yesDeleteButtonPositionX + self.view.frame.width
+        yesButtonSliedOutRightAnimation.springBounciness = 4
+        yesButtonSliedOutRightAnimation.springSpeed = 4
+        yesDeleteButton.layer.pop_addAnimation(yesButtonSliedOutRightAnimation, forKey: "slideOutRight")
+        
+        //Slide the noDeleteButton out to the right
         let noDeleteButton = selectedCell!.noDeleteButton
-        confirmDeleteLabel.layer.addAnimation(slideOutToTheRightAnimation, forKey: "slideOutToTheRight")
-        yesDeleteButton.layer.addAnimation(slideOutToTheRightAnimation, forKey: "slideOutToTheRight")
-        noDeleteButton.layer.addAnimation(slideOutToTheRightAnimation, forKey: "slideOutToTheRight")
-        confirmDeleteLabel.layer.transform = translationToTheRight
-        yesDeleteButton.layer.transform = translationToTheRight
-        noDeleteButton.layer.transform = translationToTheRight
+        let noDeleteButtonPositionX = noDeleteButton.layer.position.x
+        let noButtonSliedOutRightAnimation = POPSpringAnimation(propertyNamed: kPOPLayerPositionX)
+        noButtonSliedOutRightAnimation.toValue = noDeleteButtonPositionX + self.view.frame.width
+        noButtonSliedOutRightAnimation.springBounciness = 4
+        noButtonSliedOutRightAnimation.springSpeed = 4
+        noDeleteButton.layer.pop_addAnimation(noButtonSliedOutRightAnimation, forKey: "slideOutRight")
     }
     
     func cancelButtonPressed() {
