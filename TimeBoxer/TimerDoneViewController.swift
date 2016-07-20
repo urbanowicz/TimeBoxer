@@ -27,7 +27,7 @@ class TimerDoneViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = Colors.golden()
-        numberOfCompletedSeconds = 7456//numberOfSecondsTheTimerWasSetTo - numberOfSecondsToCountDown
+        numberOfCompletedSeconds = numberOfSecondsTheTimerWasSetTo - numberOfSecondsToCountDown
         setupCompletedLabel()
         setupTimeLabel()
         setupOfLabel()
@@ -41,6 +41,16 @@ class TimerDoneViewController: UIViewController {
 
     }
 
+    override func viewWillAppear(animated: Bool) {
+        if view.frame.width > 320 {
+            //Could this be done better with size classes?
+            let increaseFontSizeBy = CGFloat(4.0)
+            timeLabel.font = timeLabel.font.fontWithSize(timeLabel.font.pointSize + increaseFontSizeBy)
+            //completedLabel.font = completedLabel.font.fontWithSize(completedLabel.font.pointSize + increaseFontSizeBy)
+            //ofLabel.font = ofLabel.font.fontWithSize(ofLabel.font.pointSize + increaseFontSizeBy)
+            projectNameLabel.font = projectNameLabel.font.fontWithSize(projectNameLabel.font.pointSize + increaseFontSizeBy)
+        }
+    }
 //MARK: Setup UI elements
 
     private func setupCompletedLabel() {
