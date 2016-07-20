@@ -11,7 +11,6 @@ import UIKit
 class TimerRunningViewController: UIViewController {
     @IBOutlet weak var pauseButton: PauseButton!
     @IBOutlet weak var timeLabel: UILabel!
-    @IBOutlet weak var appTitleLabel: UILabel!
     @IBOutlet weak var projectNameLabel: UILabel!
     
     var numberOfSecondsToCountDown = 0 //number of seconds
@@ -32,7 +31,6 @@ class TimerRunningViewController: UIViewController {
         
         registerForLocalNotifications()
         attemptReadingNumberOfSecondsToCountDownFromUserDefaults()
-        setupAppTitleLabel()
         setupProjectNameLabel()
         setupTimeLabel()
         setupPauseButton()
@@ -57,10 +55,6 @@ class TimerRunningViewController: UIViewController {
     }
 
 //MARK: Setup UI elements
-    private func setupAppTitleLabel() {
-        appTitleLabel.textColor = Colors.almostBlack()
-        appTitleLabel.sizeToFit()
-    }
     
     private func setupProjectNameLabel() {
         projectNameLabel.textColor = Colors.almostBlack()
