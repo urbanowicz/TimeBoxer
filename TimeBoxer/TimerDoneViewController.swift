@@ -15,7 +15,6 @@ class TimerDoneViewController: UIViewController {
     var numberOfSecondsTheTimerWasSetTo = 0
     var project:Project?
     
-    @IBOutlet weak var appTitleLabel: UILabel!
     @IBOutlet weak var completedLabel: UILabel!
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var ofLabel: UILabel!
@@ -28,12 +27,11 @@ class TimerDoneViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = Colors.golden()
-        numberOfCompletedSeconds = numberOfSecondsTheTimerWasSetTo - numberOfSecondsToCountDown
+        numberOfCompletedSeconds = 7456//numberOfSecondsTheTimerWasSetTo - numberOfSecondsToCountDown
         setupCompletedLabel()
         setupTimeLabel()
         setupOfLabel()
         setupProjectNameLabel()
-        setupAppTitleLabel()
         setupOKButton()
 
     }
@@ -45,10 +43,6 @@ class TimerDoneViewController: UIViewController {
 
 //MARK: Setup UI elements
 
-    private func setupAppTitleLabel() {
-        appTitleLabel.textColor = Colors.almostBlack()
-        appTitleLabel.sizeToFit()
-    }
     private func setupCompletedLabel() {
         completedLabel.hidden = false
         completedLabel.textColor = Colors.lightGray()

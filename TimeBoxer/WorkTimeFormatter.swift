@@ -57,7 +57,7 @@ class WorkTimeFormatter: NSObject {
                 stringToReturn += "\(hours) hours"
             }
             if minutes > 0 || seconds > 0 {
-                stringToReturn += " ,"
+                stringToReturn += ", "
             }
         }
         
@@ -69,7 +69,7 @@ class WorkTimeFormatter: NSObject {
             }
             
             if seconds > 0 {
-                stringToReturn += " ,"
+                stringToReturn += ", "
             }
         }
         
