@@ -46,8 +46,8 @@ class TimerDoneViewController: UIViewController {
             //Could this be done better with size classes?
             let increaseFontSizeBy = CGFloat(4.0)
             timeLabel.font = timeLabel.font.fontWithSize(timeLabel.font.pointSize + increaseFontSizeBy)
-            //completedLabel.font = completedLabel.font.fontWithSize(completedLabel.font.pointSize + increaseFontSizeBy)
-            //ofLabel.font = ofLabel.font.fontWithSize(ofLabel.font.pointSize + increaseFontSizeBy)
+            completedLabel.font = completedLabel.font.fontWithSize(completedLabel.font.pointSize + increaseFontSizeBy)
+            ofLabel.font = ofLabel.font.fontWithSize(ofLabel.font.pointSize + increaseFontSizeBy)
             projectNameLabel.font = projectNameLabel.font.fontWithSize(projectNameLabel.font.pointSize + increaseFontSizeBy)
         }
     }
