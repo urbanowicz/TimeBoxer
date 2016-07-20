@@ -16,7 +16,9 @@ class StopButton: AbstractOvalButton {
         let x:CGFloat = rx * rect.width
         let y:CGFloat = ry * rect.height
         let a:CGFloat = rect.width - 2*x
-        CGContextFillRect(UIGraphicsGetCurrentContext(), CGRect(x:x, y:y,width:a,height:a))
+        
+        let rectPath = UIBezierPath(roundedRect: CGRect(x:x, y:y, width:a, height:a), cornerRadius: 2.5)
+        rectPath.fill()
     }
 
 }
