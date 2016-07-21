@@ -82,6 +82,8 @@
 		F1FC9AD31C3ED73B002A9F31 /* ProjectStatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FC9AD21C3ED73B002A9F31 /* ProjectStatsViewController.swift */; };
 		F1FC9AD61C3ED86F002A9F31 /* AddProjectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FC9AD51C3ED86F002A9F31 /* AddProjectViewController.swift */; };
 		F1FC9AD91C3EE0CC002A9F31 /* ProjectsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FC9AD81C3EE0CC002A9F31 /* ProjectsTableViewController.swift */; };
+		F1FCB8321D414686001B3329 /* AbstractRoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FCB8311D414686001B3329 /* AbstractRoundButton.swift */; };
+		F1FCB8331D414686001B3329 /* AbstractRoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FCB8311D414686001B3329 /* AbstractRoundButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -232,6 +234,7 @@
 		F1FC9AD21C3ED73B002A9F31 /* ProjectStatsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectStatsViewController.swift; sourceTree = "<group>"; };
 		F1FC9AD51C3ED86F002A9F31 /* AddProjectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddProjectViewController.swift; sourceTree = "<group>"; };
 		F1FC9AD81C3EE0CC002A9F31 /* ProjectsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectsTableViewController.swift; sourceTree = "<group>"; };
+		F1FCB8311D414686001B3329 /* AbstractRoundButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AbstractRoundButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -311,6 +314,7 @@
 				F11D5B9E1C42AD32007F2622 /* AddButton.swift */,
 				F1F36ACF1C875F770039EF0B /* OKButton.swift */,
 				F1520B1A1C9049A8002F359E /* XButton.swift */,
+				F1FCB8311D414686001B3329 /* AbstractRoundButton.swift */,
 			);
 			name = Buttons;
 			sourceTree = "<group>";
@@ -712,6 +716,7 @@
 				F137E96E1C41994A0064E15F /* ColorName.swift in Sources */,
 				F1981BA21C84E61700F49454 /* MinutesToStringConverter.swift in Sources */,
 				F19133531CA844DD00CED170 /* NSDateExtension.swift in Sources */,
+				F1FCB8321D414686001B3329 /* AbstractRoundButton.swift in Sources */,
 				F1C755B71C9C87EB0083466C /* HorizontalBarView.swift in Sources */,
 				F152EE901C5968D00090BECC /* Project.swift in Sources */,
 				F1D84C8D1CC658620066D2C0 /* SwipeDirection.swift in Sources */,
@@ -749,6 +754,7 @@
 				F168FFFA1CB15ACB00F298BE /* WorkTimeFormatter.swift in Sources */,
 				F147F2D31D0F2F53001887DA /* LeftDrawerView.swift in Sources */,
 				F12E2C6F1CA84A90008DA69C /* NSDateExtension.swift in Sources */,
+				F1FCB8331D414686001B3329 /* AbstractRoundButton.swift in Sources */,
 				F10CA9C31C67E1970062471C /* ProjectTests.swift in Sources */,
 				F1A95C071C6BD55B00EF5204 /* LastWorkedOnDateFormatter.swift in Sources */,
 				F184495A1CB54508008939DD /* UILabelExtension.swift in Sources */,

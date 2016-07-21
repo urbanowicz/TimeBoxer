@@ -10,7 +10,7 @@ import UIKit
 
 class TimerRunningViewController: UIViewController {
     @IBOutlet weak var pauseButton: PauseButton!
-    var stopButton: StopButton = StopButton()
+    var stopButton: AbstractRoundButton = AbstractRoundButton()
     var resumeButton: StartButton = StartButton()
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var projectNameLabel: UILabel!
@@ -89,27 +89,32 @@ class TimerRunningViewController: UIViewController {
         resumeButton.frontLayerColor = Colors.silver()
         resumeButton.frontLayerHighlightedColor = resumeButton.frontLayerColor
         resumeButton.frame = CGRectZero
+        resumeButton.alpha = 0.0
         self.view.addSubview(resumeButton)
     }
     
     private func setupStopButton() {
-        stopButton.borderColor = Colors.golden()
+        stopButton.borderColor = Colors.purple()
         stopButton.borderWidth = 2.0
-        stopButton.ovalLayerColor = Colors.almostBlack()
-        stopButton.ovalLayerHighlightedColor = stopButton.ovalLayerColor
+        stopButton.roundLayerColor = Colors.golden()
         stopButton.frontLayerColor = Colors.golden()
-        stopButton.frontLayerHighlightedColor = stopButton.frontLayerColor
         stopButton.frame = CGRectZero
+        stopButton.alpha = 0.0
         self.view.addSubview(stopButton)
     }
     
 //MARK: Actions
     @IBAction func pauseButtonPressed(sender: UIButton) {
         timer.invalidate()
-        //Setup Resume's button position
+        //Setup Resume button position
         let resumeButtonPositionX = pauseButton.layer.position.x - pauseButton.frame.width/2.0 - 10
         let resumeButtonPositionY = pauseButton.layer.position.y
         resumeButton.layer.position = CGPointMake(resumeButtonPositionX, resumeButtonPositionY)
+        
+        //Setup Stop button position
+        let stopButtonPositionX = pauseButton.layer.position.x + pauseButton.frame.width/2.0 + 10
+        let stopButtonPositionY = pauseButton.layer.position.y
+        stopButton.layer.position = CGPointMake(stopButtonPositionX, stopButtonPositionY)
         
         //Animate the pause button
         let pauseButtonZeroSizeAnimation = POPSpringAnimation(propertyNamed: kPOPViewSize)
@@ -123,6 +128,34 @@ class TimerRunningViewController: UIViewController {
         pauseButtonZeroAlphaAnimation.toValue = 0.0
         pauseButtonZeroAlphaAnimation.duration = 0.2
         pauseButton.pop_addAnimation(pauseButtonZeroAlphaAnimation, forKey: "zeroAlpha")
+        
+        //Animate the resume button
+        let pauseButtonSize = CGSizeMake(pauseButton.frame.width, pauseButton.frame.height)
+        let resumeButtonScaleUpAnimation = POPSpringAnimation(propertyNamed: kPOPLayerSize)
+        resumeButtonScaleUpAnimation.toValue = NSValue.init(CGSize: pauseButtonSize)
+        resumeButtonScaleUpAnimation.springBounciness = 4
+        resumeButtonScaleUpAnimation.springSpeed = 4
+        resumeButton.layer.pop_addAnimation(resumeButtonScaleUpAnimation, forKey: "scaleUp")
+        
+        let resumeButtonAlphaAnimation = POPBasicAnimation(propertyNamed: kPOPViewAlpha)
+        resumeButtonAlphaAnimation.toValue = 1.0
+        resumeButtonAlphaAnimation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
+        resumeButtonAlphaAnimation.duration = 0.2
+        resumeButton.pop_addAnimation(resumeButtonAlphaAnimation, forKey: "alpha")
+        
+        //Animate the stop button
+        let stopButtonScaleUpAnimation = POPSpringAnimation(propertyNamed: kPOPLayerSize)
+        stopButtonScaleUpAnimation.toValue = NSValue.init(CGSize: pauseButtonSize)
+        stopButtonScaleUpAnimation.springBounciness = 4
+        stopButtonScaleUpAnimation.springSpeed = 4
+        stopButton.layer.pop_addAnimation(stopButtonScaleUpAnimation, forKey: "scaleUp")
+        
+        let stopButtonAlphaAnimation = POPBasicAnimation(propertyNamed: kPOPViewAlpha)
+        stopButtonAlphaAnimation.toValue = 1.0
+        stopButtonAlphaAnimation.timingFunction = CAMediaTimingFunction(name:
+        kCAMediaTimingFunctionEaseInEaseOut)
+        stopButtonAlphaAnimation.duration = 0.2
+        stopButton.pop_addAnimation(stopButtonAlphaAnimation, forKey: "alpha")
         
         //Animate the time Label
         let timeLabelColorAnimation = POPBasicAnimation(propertyNamed: kPOPLabelTextColor)
