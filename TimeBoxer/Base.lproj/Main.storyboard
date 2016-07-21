@@ -844,13 +844,13 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0:00:00" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1IS-Qf-OeE" userLabel="Timer Label">
-                                <rect key="frame" x="211" y="276" width="178" height="49"/>
-                                <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="42"/>
+                                <rect key="frame" x="203" y="273" width="194" height="54"/>
+                                <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="46"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Project Name " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HoH-jI-dWq" userLabel="Project Name Label">
-                                <rect key="frame" x="240" y="231" width="120" height="25"/>
+                                <rect key="frame" x="240" y="188" width="120" height="25"/>
                                 <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="18"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -864,7 +864,7 @@
                             <constraint firstItem="HoH-jI-dWq" firstAttribute="centerX" secondItem="o6n-fX-khZ" secondAttribute="centerX" id="inc-H1-I7Q"/>
                             <constraint firstItem="1IS-Qf-OeE" firstAttribute="centerX" secondItem="o6n-fX-khZ" secondAttribute="centerX" id="ip3-DV-5Oc"/>
                             <constraint firstItem="UNg-MR-z0J" firstAttribute="width" secondItem="o6n-fX-khZ" secondAttribute="width" multiplier="0.28" id="s1D-4Y-FgO"/>
-                            <constraint firstItem="1IS-Qf-OeE" firstAttribute="top" secondItem="HoH-jI-dWq" secondAttribute="bottom" constant="20" id="yI9-6P-D0R"/>
+                            <constraint firstItem="1IS-Qf-OeE" firstAttribute="top" secondItem="HoH-jI-dWq" secondAttribute="bottom" constant="60" id="yI9-6P-D0R"/>
                             <constraint firstItem="UNg-MR-z0J" firstAttribute="centerX" secondItem="o6n-fX-khZ" secondAttribute="centerX" id="zRs-EH-a58"/>
                         </constraints>
                     </view>
