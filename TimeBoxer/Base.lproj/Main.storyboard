@@ -872,7 +872,6 @@
                         <outlet property="pauseButton" destination="UNg-MR-z0J" id="EqC-Fm-rcX"/>
                         <outlet property="projectNameLabel" destination="HoH-jI-dWq" id="Tnq-9T-yeb"/>
                         <outlet property="timeLabel" destination="1IS-Qf-OeE" id="cVF-g1-2rs"/>
-                        <segue destination="lqK-VX-oTB" kind="show" identifier="TimerRunningToTimerPaused" id="ege-pk-Hef"/>
                         <segue destination="26t-Cs-zhz" kind="show" identifier="TimerRunningToTimerDone" id="L9w-ZE-epX"/>
                     </connections>
                 </viewController>
@@ -1068,8 +1067,8 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="kZ5-jR-Sp1"/>
-        <segue reference="tj7-93-GMq"/>
+        <segue reference="pqB-dp-YLD"/>
         <segue reference="L9w-ZE-epX"/>
+        <segue reference="DLL-pd-8SU"/>
     </inferredMetricsTieBreakers>
 </document>

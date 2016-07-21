@@ -10,6 +10,8 @@ import UIKit
 
 class TimerRunningViewController: UIViewController {
     @IBOutlet weak var pauseButton: PauseButton!
+    var stopButton: StopButton = StopButton()
+    var resumeButton: StartButton = StartButton()
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var projectNameLabel: UILabel!
     
@@ -19,7 +21,6 @@ class TimerRunningViewController: UIViewController {
     var project: Project?
     
     private let stopTimeKey = "TimeBoxer_TimerRunningVC_StopTimeKey"
-    private let toTimerPausedAnimator = ToTimerPausedAnimator()
     private let timeLabelTextFormatter = TimeLabelTextFormatter()
     var timer = NSTimer()
     private var timerDoneNotification:UILocalNotification?
@@ -34,6 +35,8 @@ class TimerRunningViewController: UIViewController {
         setupProjectNameLabel()
         setupTimeLabel()
         setupPauseButton()
+        setupStopButton()
+        setupResumeButton()
     }
     
 
@@ -70,17 +73,89 @@ class TimerRunningViewController: UIViewController {
     
     private func setupPauseButton() {
         pauseButton.borderColor = Colors.almostBlack()
-        pauseButton.ovalLayerColor = Colors.silver()
-        pauseButton.frontLayerColor = Colors.almostBlack()
-        pauseButton.ovalLayerHighlightedColor = Colors.almostBlack()
-        pauseButton.frontLayerHighlightedColor = Colors.silver()
         pauseButton.borderWidth = 2.0
+        pauseButton.ovalLayerColor = Colors.silver()
+        pauseButton.ovalLayerHighlightedColor = pauseButton.ovalLayerColor
+        pauseButton.frontLayerColor = Colors.almostBlack()
+        pauseButton.frontLayerHighlightedColor = pauseButton.frontLayerColor
+        
+    }
+    
+    private func setupResumeButton() {
+        resumeButton.borderColor = Colors.silver()
+        resumeButton.borderWidth = 2.0
+        resumeButton.ovalLayerColor = Colors.almostBlack()
+        resumeButton.ovalLayerHighlightedColor = resumeButton.ovalLayerColor
+        resumeButton.frontLayerColor = Colors.silver()
+        resumeButton.frontLayerHighlightedColor = resumeButton.frontLayerColor
+        resumeButton.frame = CGRectZero
+        self.view.addSubview(resumeButton)
+    }
+    
+    private func setupStopButton() {
+        stopButton.borderColor = Colors.golden()
+        stopButton.borderWidth = 2.0
+        stopButton.ovalLayerColor = Colors.almostBlack()
+        stopButton.ovalLayerHighlightedColor = stopButton.ovalLayerColor
+        stopButton.frontLayerColor = Colors.golden()
+        stopButton.frontLayerHighlightedColor = stopButton.frontLayerColor
+        stopButton.frame = CGRectZero
+        self.view.addSubview(stopButton)
     }
     
 //MARK: Actions
     @IBAction func pauseButtonPressed(sender: UIButton) {
         timer.invalidate()
-        performSegueWithIdentifier("TimerRunningToTimerPaused", sender: sender)
+        //Setup Resume's button position
+        let resumeButtonPositionX = pauseButton.layer.position.x - pauseButton.frame.width/2.0 - 10
+        let resumeButtonPositionY = pauseButton.layer.position.y
+        resumeButton.layer.position = CGPointMake(resumeButtonPositionX, resumeButtonPositionY)
+        
+        //Animate the pause button
+        let pauseButtonZeroSizeAnimation = POPSpringAnimation(propertyNamed: kPOPViewSize)
+        pauseButtonZeroSizeAnimation.toValue = NSValue.init(CGSize: CGSizeZero)
+        pauseButtonZeroSizeAnimation.springBounciness = 4
+        pauseButtonZeroSizeAnimation.springSpeed = 4
+        pauseButton.pop_addAnimation(pauseButtonZeroSizeAnimation, forKey: "zeroSize")
+        
+        let pauseButtonZeroAlphaAnimation = POPBasicAnimation(propertyNamed: kPOPViewAlpha)
+        pauseButtonZeroAlphaAnimation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
+        pauseButtonZeroAlphaAnimation.toValue = 0.0
+        pauseButtonZeroAlphaAnimation.duration = 0.2
+        pauseButton.pop_addAnimation(pauseButtonZeroAlphaAnimation, forKey: "zeroAlpha")
+        
+        //Animate the time Label
+        let timeLabelColorAnimation = POPBasicAnimation(propertyNamed: kPOPLabelTextColor)
+        timeLabelColorAnimation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
+        timeLabelColorAnimation.toValue = Colors.silver()
+        timeLabelColorAnimation.duration = 0.1
+        timeLabel.pop_addAnimation(timeLabelColorAnimation, forKey: "textColor")
+        
+        let timeLabelScaleDownAnimation = POPSpringAnimation(propertyNamed: kPOPViewScaleXY)
+        timeLabelScaleDownAnimation.toValue = NSValue.init(CGPoint: CGPointMake(0.5, 0.5))
+        timeLabelScaleDownAnimation.springSpeed = 4
+        timeLabelScaleDownAnimation.springBounciness = 4
+        timeLabel.pop_addAnimation(timeLabelScaleDownAnimation, forKey: "scaleDown")
+        
+        //Animate the project name label
+        let projectNameLabelColorAnimation = POPBasicAnimation(propertyNamed: kPOPLabelTextColor)
+        projectNameLabelColorAnimation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
+        projectNameLabelColorAnimation.toValue = Colors.silver()
+        projectNameLabelColorAnimation.duration = 0.1
+        projectNameLabel.pop_addAnimation(projectNameLabelColorAnimation, forKey: "textColor")
+        
+        let projectNameLabelScaleDownAnimation = POPSpringAnimation(propertyNamed: kPOPViewScaleXY)
+        projectNameLabelScaleDownAnimation.toValue = NSValue.init(CGPoint: CGPointMake(0.5, 0.5))
+        projectNameLabelScaleDownAnimation.springSpeed = 4
+        projectNameLabelScaleDownAnimation.springBounciness = 4
+        projectNameLabel.pop_addAnimation(projectNameLabelScaleDownAnimation, forKey: "scaleDown")
+        
+        //Animate the background color
+        let backgroundColorAnimation = POPBasicAnimation(propertyNamed: kPOPViewBackgroundColor)
+        backgroundColorAnimation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
+        backgroundColorAnimation.toValue = Colors.almostBlack()
+        backgroundColorAnimation.duration = 0.2
+        view.pop_addAnimation(backgroundColorAnimation, forKey: "backgroundColor")
     }
 
     func countDown() {
@@ -142,13 +217,6 @@ class TimerRunningViewController: UIViewController {
         cancelTimerDoneNotification()
         
         if let segueIdentifier = segue.identifier {
-            if segueIdentifier == "TimerRunningToTimerPaused" {
-                let timerPausedVC = segue.destinationViewController as! TimerPausedViewController
-                timerPausedVC.numberOfSecondsToCountDown = numberOfSecondsToCountDown
-                timerPausedVC.numberOfSecondsTheTimerWasSetTo = numberOfSecondsTheTimerWasSetTo
-                timerPausedVC.project = project
-                return
-            }
             if segueIdentifier == "TimerRunningToTimerDone" {
                 let timerDoneVC = segue.destinationViewController as! TimerDoneViewController
                 timerDoneVC.numberOfSecondsTheTimerWasSetTo = numberOfSecondsTheTimerWasSetTo
@@ -161,10 +229,6 @@ class TimerRunningViewController: UIViewController {
 
     override func showViewController(vc: UIViewController, sender: AnyObject?) {
         let containerVC = parentViewController as! ContainerViewController
-        if  sender as? PauseButton != nil {
-            containerVC.switchViewControllers(self, toVC: vc, animator: toTimerPausedAnimator)
-            return
-        }
         if sender as? TimerRunningViewController != nil {
             containerVC.switchViewControllers(self, toVC: vc, animator: FadeInAnimator())
         }
@@ -176,82 +240,5 @@ class TimerRunningViewController: UIViewController {
     
     override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
         return UIInterfaceOrientationMask.Portrait
-    }
-
-}
-
-
-//
-// MARK: - ToTimerPausedAnimator
-//
-private class ToTimerPausedAnimator: NSObject, Animator {
-    let transitionDuration = 0.25
-    var timerRunningVC:TimerRunningViewController?
-    var timerPausedVC:TimerPausedViewController?
-    var container:UIView?
-    var completionBlock:(()->Void)?
-
-//----------------------------------------------------------------------------------------------------------------------
-    func animateTransition(fromVC: UIViewController, toVC: UIViewController, container: UIView, completion: (() -> Void)?)
-    {
-        //Remember: container is the view of the parent controller. It already contains the
-        //fromVC.view
-        //It is the animator's responsibility to remove the fromVC.view from the container and
-        //add the toVC.view to the container
-        
-        //1. Store the function parameters as instance variables
-        self.timerRunningVC = fromVC as? TimerRunningViewController
-        self.timerPausedVC = toVC as? TimerPausedViewController
-        self.container = container
-        self.completionBlock = completion
-        
-        //2. Crete the expanding circle animation layer and set it as a mask layer of the toVC.view
-        let expandingCircleAnimationLayer = prepareExpandingCircleAnimationLayer()
-        toVC.view.layer.mask = expandingCircleAnimationLayer
-        container.addSubview(toVC.view)
-    }
-
-//----------------------------------------------------------------------------------------------------------------------
-    override func animationDidStop(anim: CAAnimation, finished flag: Bool)
-    {
-        //Done with the animation, do the final cleanup
-        timerPausedVC!.view.layer.mask = nil
-        timerRunningVC!.view.removeFromSuperview()
-        if let executeCompletionBlock = completionBlock {
-            executeCompletionBlock()
-        }
-    }
-    
-//----------------------------------------------------------------------------------------------------------------------
-    private func prepareExpandingCircleAnimationLayer() -> CALayer
-    {
-        let animationLayer = CAShapeLayer()
-        //Create the small circle path and the large circle path
-        let pauseButton = timerRunningVC!.pauseButton
-        let pauseButtonCenter:CGPoint = container!.convertPoint(pauseButton.center, fromView: pauseButton.superview)
-        let smallCirclePath = CirclePathWrapper(centerX: pauseButtonCenter.x, centerY: pauseButtonCenter.y,
-            radius: pauseButton.radius).path
-        let largeCirclePath = createLargeCircleForButton(pauseButton).path
-        animationLayer.path = largeCirclePath
-        
-        //Create the animation
-        let animation = CABasicAnimation(keyPath: "path")
-        animation.delegate = self
-        animation.duration = transitionDuration
-        animation.fromValue = smallCirclePath
-        animation.toValue = largeCirclePath
-        animationLayer.addAnimation(animation, forKey: "path")
-        return animationLayer
-    }
-//----------------------------------------------------------------------------------------------------------------------
-    private func createLargeCircleForButton(button:AbstractOvalButton) -> CirclePathWrapper
-    {
-        let circleCenter:CGPoint = container!.convertPoint(button.center, fromView: button.superview)
-        let xs = circleCenter.x
-        let ys = circleCenter.y
-        let x0 = container!.frame.origin.x
-        let y0 = container!.frame.origin.y
-        let  largeRadius = sqrt(pow((xs - x0),2) + pow((ys - y0),2))
-        return CirclePathWrapper(centerX: xs, centerY: ys, radius: largeRadius)
     }
 }
