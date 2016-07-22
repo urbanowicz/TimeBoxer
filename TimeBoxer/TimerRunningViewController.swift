@@ -82,7 +82,7 @@ class TimerRunningViewController: UIViewController {
         resumeButton.frontLayerColor = Colors.silver()
         resumeButton.frame = CGRectZero
         resumeButton.alpha = 0.0
-        resumeButton.addTarget(self, action: #selector(TimerRunningViewController.resumeButtonPressed), forControlEvents: UIControlEvents.TouchDown)
+        resumeButton.addTarget(self, action: #selector(TimerRunningViewController.resumeButtonPressed), forControlEvents: .TouchDown)
         self.view.addSubview(resumeButton)
     }
     
@@ -93,6 +93,7 @@ class TimerRunningViewController: UIViewController {
         stopButton.frontLayerColor = Colors.golden()
         stopButton.frame = CGRectZero
         stopButton.alpha = 0.0
+        stopButton.addTarget(self, action: #selector(TimerRunningViewController.stopButtonPressed), forControlEvents: .TouchDown)
         self.view.addSubview(stopButton)
     }
     
@@ -269,12 +270,18 @@ class TimerRunningViewController: UIViewController {
         setupTimerDoneNotification()
         setupTimer()
     }
+    
+    func stopButtonPressed() {
+        handleTimerDone()
+    }
 
     func countDown() {
         numberOfSecondsToCountDown = Int(stopTime!.timeIntervalSinceNow)
         numberOfSecondsToCountDown = numberOfSecondsToCountDown < 0 ? 0 : numberOfSecondsToCountDown
         timeLabel.text = timeLabelTextFormatter.formatWithNumberOfSecondsToCountDown(numberOfSecondsToCountDown)
         if numberOfSecondsToCountDown == 0 {
+            removeStopTimeFromUserDefaults()
+            cancelTimerDoneNotification()
             handleTimerDone()
         }
     }
@@ -331,7 +338,7 @@ class TimerRunningViewController: UIViewController {
             if segueIdentifier == "TimerRunningToTimerDone" {
                 let timerDoneVC = segue.destinationViewController as! TimerDoneViewController
                 timerDoneVC.numberOfSecondsTheTimerWasSetTo = numberOfSecondsTheTimerWasSetTo
-                timerDoneVC.numberOfSecondsToCountDown = 0
+                timerDoneVC.numberOfSecondsToCountDown = numberOfSecondsToCountDown
                 timerDoneVC.projectName = project!.name
                 timerDoneVC.project = project
             }
