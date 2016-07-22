@@ -10,7 +10,7 @@ import UIKit
 
 class TimerRunningViewController: UIViewController {
     @IBOutlet weak var pauseButton: PauseButton!
-    var stopButton: AbstractRoundButton = AbstractRoundButton()
+    var stopButton: StopButton = StopButton()
     var resumeButton: StartButton = StartButton()
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var projectNameLabel: UILabel!
@@ -94,9 +94,9 @@ class TimerRunningViewController: UIViewController {
     }
     
     private func setupStopButton() {
-        stopButton.borderColor = Colors.purple()
+        stopButton.borderColor = Colors.golden()
         stopButton.borderWidth = 2.0
-        stopButton.roundLayerColor = Colors.golden()
+        stopButton.roundLayerColor = Colors.almostBlack()
         stopButton.frontLayerColor = Colors.golden()
         stopButton.frame = CGRectZero
         stopButton.alpha = 0.0

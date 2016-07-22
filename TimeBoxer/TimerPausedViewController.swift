@@ -65,12 +65,12 @@ class TimerPausedViewController: UIViewController {
     }
     
     private func setupStopButton() {
-        stopButton.borderColor = Colors.golden()
-        stopButton.ovalLayerColor = Colors.almostBlack()
-        stopButton.frontLayerColor = Colors.golden()
-        stopButton.ovalLayerHighlightedColor = Colors.golden()
-        stopButton.frontLayerHighlightedColor = Colors.almostBlack()
-        stopButton.borderWidth = 2.0
+//        stopButton.borderColor = Colors.golden()
+//        stopButton.ovalLayerColor = Colors.almostBlack()
+//        stopButton.frontLayerColor = Colors.golden()
+//        stopButton.ovalLayerHighlightedColor = Colors.golden()
+//        stopButton.frontLayerHighlightedColor = Colors.almostBlack()
+//        stopButton.borderWidth = 2.0
     }
     
     private func setupTimeLabel() {

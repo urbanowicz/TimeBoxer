@@ -2,23 +2,23 @@
 //  StopButton.swift
 //  TimeBoxer_v0
 //
-//  Created by Tomasz on 04.11.2015.
-//  Copyright © 2015 Tomasz. All rights reserved.
+//  Created by Tomasz Urbanowicz on 04.11.2015.
+//  Copyright © 2015 Tomasz Urbanowicz. All rights reserved.
 //
 
 import UIKit
 
-class StopButton: AbstractOvalButton {
+class StopButton: AbstractRoundButton {
 
-    override func drawFrontLayer(rect: CGRect) {
+    override func prepareFrontShapePath() -> CGPath {
         let rx:CGFloat = 0.333
         let ry:CGFloat = 0.333
-        let x:CGFloat = rx * rect.width
-        let y:CGFloat = ry * rect.height
-        let a:CGFloat = rect.width - 2*x
+        let x:CGFloat = rx * bounds.width
+        let y:CGFloat = ry * bounds.height
+        let a:CGFloat = bounds.width - 2*x
         
-        let rectPath = UIBezierPath(roundedRect: CGRect(x:x, y:y, width:a, height:a), cornerRadius: 2.5)
-        rectPath.fill()
+        let roundedRectPath = UIBezierPath(roundedRect: CGRect(x:x, y:y, width:a, height:a), cornerRadius: 2.5)
+        return roundedRectPath.CGPath
     }
 
 }
