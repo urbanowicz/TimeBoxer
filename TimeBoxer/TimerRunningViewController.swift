@@ -78,7 +78,6 @@ class TimerRunningViewController: UIViewController {
         pauseButton.ovalLayerHighlightedColor = pauseButton.ovalLayerColor
         pauseButton.frontLayerColor = Colors.almostBlack()
         pauseButton.frontLayerHighlightedColor = pauseButton.frontLayerColor
-        
     }
     
     private func setupResumeButton() {
@@ -88,6 +87,7 @@ class TimerRunningViewController: UIViewController {
         resumeButton.frontLayerColor = Colors.silver()
         resumeButton.frame = CGRectZero
         resumeButton.alpha = 0.0
+        resumeButton.addTarget(self, action: #selector(TimerRunningViewController.resumeButtonPressed), forControlEvents: UIControlEvents.TouchDown)
         self.view.addSubview(resumeButton)
     }
     
@@ -188,6 +188,83 @@ class TimerRunningViewController: UIViewController {
         backgroundColorAnimation.duration = 0.2
         view.pop_addAnimation(backgroundColorAnimation, forKey: "backgroundColor")
     }
+    
+    func resumeButtonPressed() {
+        //Animate the project name label
+        let projectNameLabelColorAnimation = POPBasicAnimation(propertyNamed: kPOPLabelTextColor)
+        projectNameLabelColorAnimation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
+        projectNameLabelColorAnimation.toValue = Colors.almostBlack()
+        projectNameLabelColorAnimation.duration = 0.1
+        projectNameLabel.pop_addAnimation(projectNameLabelColorAnimation, forKey: "textColor")
+        
+        let projectNameLabelScaleUpAnimation = POPSpringAnimation(propertyNamed: kPOPViewScaleXY)
+        projectNameLabelScaleUpAnimation.toValue = NSValue.init(CGPoint: CGPointMake(1.0, 1.0))
+        projectNameLabelScaleUpAnimation.springSpeed = 4
+        projectNameLabelScaleUpAnimation.springBounciness = 4
+        projectNameLabel.pop_addAnimation(projectNameLabelScaleUpAnimation, forKey: "scaleUp")
+        
+        //Animate the time label
+        let timeLabelColorAnimation = POPBasicAnimation(propertyNamed: kPOPLabelTextColor)
+        timeLabelColorAnimation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
+        timeLabelColorAnimation.toValue = Colors.almostBlack()
+        timeLabelColorAnimation.duration = 0.1
+        timeLabel.pop_addAnimation(timeLabelColorAnimation, forKey: "textColor")
+        
+        let timeLabelScaleUpAnimation = POPSpringAnimation(propertyNamed: kPOPViewScaleXY)
+        timeLabelScaleUpAnimation.toValue = NSValue.init(CGPoint: CGPointMake(1.0, 1.0))
+        timeLabelScaleUpAnimation.springSpeed = 4
+        timeLabelScaleUpAnimation.springBounciness = 4
+        timeLabel.pop_addAnimation(timeLabelScaleUpAnimation, forKey: "scaleUp")
+        
+        //Animate the pause button
+        let originalSize = CGSizeMake(resumeButton.bounds.width, resumeButton.bounds.width)
+        let pauseButtonScaleUpAnimation = POPSpringAnimation(propertyNamed: kPOPViewSize)
+        pauseButtonScaleUpAnimation.toValue = NSValue.init(CGSize: originalSize)
+        pauseButtonScaleUpAnimation.springBounciness = 4
+        pauseButtonScaleUpAnimation.springSpeed = 4
+        pauseButton.pop_addAnimation(pauseButtonScaleUpAnimation, forKey: "scaleUp")
+        
+        let pauseButtonAlphaAnimation = POPBasicAnimation(propertyNamed: kPOPViewAlpha)
+        pauseButtonAlphaAnimation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
+        pauseButtonAlphaAnimation.toValue = 1.0
+        pauseButtonAlphaAnimation.duration = 0.2
+        pauseButton.pop_addAnimation(pauseButtonAlphaAnimation, forKey: "alpha")
+        
+        //Animate the resume button
+        let resumeButtonZeroSizeAnimation = POPSpringAnimation(propertyNamed: kPOPLayerSize)
+        resumeButtonZeroSizeAnimation.toValue = NSValue.init(CGSize: CGSizeZero)
+        resumeButtonZeroSizeAnimation.springBounciness = 4
+        resumeButtonZeroSizeAnimation.springSpeed = 4
+        resumeButton.layer.pop_addAnimation(resumeButtonZeroSizeAnimation, forKey: "zeroSize")
+        
+        let resumeButtonZeroAlphaAnimation = POPBasicAnimation(propertyNamed: kPOPViewAlpha)
+        resumeButtonZeroAlphaAnimation.toValue = 0.0
+        resumeButtonZeroAlphaAnimation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
+        resumeButtonZeroAlphaAnimation.duration = 0.2
+        resumeButton.pop_addAnimation(resumeButtonZeroAlphaAnimation, forKey: "zeroAlpha")
+        
+        //Animate the stop button
+        let stopButtonZeroSizeAnimation = POPSpringAnimation(propertyNamed: kPOPLayerSize)
+        stopButtonZeroSizeAnimation.toValue = NSValue.init(CGSize: CGSizeZero)
+        stopButtonZeroSizeAnimation.springBounciness = 4
+        stopButtonZeroSizeAnimation.springSpeed = 4
+        stopButton.layer.pop_addAnimation(stopButtonZeroSizeAnimation, forKey: "zeroSize")
+        
+        let stopButtonZeroAlphaAnimation = POPBasicAnimation(propertyNamed: kPOPViewAlpha)
+        stopButtonZeroAlphaAnimation.toValue = 0.0
+        stopButtonZeroAlphaAnimation.timingFunction = CAMediaTimingFunction(name:
+            kCAMediaTimingFunctionEaseInEaseOut)
+        stopButtonZeroAlphaAnimation.duration = 0.2
+        stopButton.pop_addAnimation(stopButtonZeroAlphaAnimation, forKey: "zeroAlpha")
+        
+
+        //Animate the background color
+        let backgroundColorAnimation = POPBasicAnimation(propertyNamed: kPOPViewBackgroundColor)
+        backgroundColorAnimation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
+        backgroundColorAnimation.toValue = Colors.silver()
+        backgroundColorAnimation.duration = 0.2
+        view.pop_addAnimation(backgroundColorAnimation, forKey: "backgroundColor")
+    }
 
     func countDown() {
         numberOfSecondsToCountDown = Int(stopTime!.timeIntervalSinceNow)
@@ -197,13 +274,13 @@ class TimerRunningViewController: UIViewController {
             handleTimerDone()
         }
     }
-    
+
+//MARK: Notificatios
     private func handleTimerDone() {
         timer.invalidate()
         performSegueWithIdentifier("TimerRunningToTimerDone", sender: self)
     }
-    
-//MARK: Notificatios
+
     private func registerForLocalNotifications() {
         let types: UIUserNotificationType = [.Badge, .Sound, .Alert]
         let settings = UIUserNotificationSettings(forTypes: types, categories: nil)
