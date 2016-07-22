@@ -47,12 +47,12 @@ class TimerPausedViewController: UIViewController {
 //MARK: Setup UI elements
 
     private func setupResumeButton() {
-        resumeButton.borderColor = Colors.silver()
-        resumeButton.ovalLayerColor = Colors.almostBlack()
-        resumeButton.frontLayerColor = Colors.silver()
-        resumeButton.ovalLayerHighlightedColor = Colors.silver()
-        resumeButton.frontLayerHighlightedColor = Colors.almostBlack()
-        resumeButton.borderWidth = 2.0
+//        resumeButton.borderColor = Colors.silver()
+//        resumeButton.ovalLayerColor = Colors.almostBlack()
+//        resumeButton.frontLayerColor = Colors.silver()
+//        resumeButton.ovalLayerHighlightedColor = Colors.silver()
+//        resumeButton.frontLayerHighlightedColor = Colors.almostBlack()
+//        resumeButton.borderWidth = 2.0
     }
     
     private func setupCancelButton() {

@@ -41,12 +41,10 @@ class TimeSliderViewController: UIViewController {
     
 //MARK: Setup UI elements
     private func setupStartButton() {
-        startButton.borderColor = Colors.silver()
-        startButton.ovalLayerColor = Colors.almostBlack()
-        startButton.frontLayerColor = Colors.silver()
-        startButton.ovalLayerHighlightedColor = Colors.silver()
-        startButton.frontLayerHighlightedColor = Colors.almostBlack()
         startButton.borderWidth = 2.0
+        startButton.borderColor = Colors.silver()
+        startButton.roundLayerColor = Colors.almostBlack()
+        startButton.frontLayerColor = Colors.silver()
     }
     
     private func setupProjectNameLabel() {
@@ -190,7 +188,7 @@ private class ToTimerRunningAnimator:NSObject, Animator {
     }
 
 //----------------------------------------------------------------------------------------------------------------------
-    private func createLargeCircleForButton(button:AbstractOvalButton) -> CirclePathWrapper
+    private func createLargeCircleForButton(button:AbstractRoundButton) -> CirclePathWrapper
     {
         let circleCenter:CGPoint = container!.convertPoint(button.center, fromView: button.superview)
         let xs = circleCenter.x

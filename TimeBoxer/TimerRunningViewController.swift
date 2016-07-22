@@ -84,10 +84,8 @@ class TimerRunningViewController: UIViewController {
     private func setupResumeButton() {
         resumeButton.borderColor = Colors.silver()
         resumeButton.borderWidth = 2.0
-        resumeButton.ovalLayerColor = Colors.almostBlack()
-        resumeButton.ovalLayerHighlightedColor = resumeButton.ovalLayerColor
+        resumeButton.roundLayerColor = Colors.almostBlack()
         resumeButton.frontLayerColor = Colors.silver()
-        resumeButton.frontLayerHighlightedColor = resumeButton.frontLayerColor
         resumeButton.frame = CGRectZero
         resumeButton.alpha = 0.0
         self.view.addSubview(resumeButton)

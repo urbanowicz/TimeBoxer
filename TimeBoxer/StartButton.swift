@@ -8,19 +8,14 @@
 
 import UIKit
 
-class StartButton: AbstractOvalButton {
+class StartButton: AbstractRoundButton {
     
-    override func drawFrontLayer(rect: CGRect) {
-        let path = prepareTrianglePath(rect)
-        let trianglePath = UIBezierPath(CGPath: path)
-        trianglePath.fill()
-    }
 
-    private func prepareTrianglePath(rect:CGRect) -> CGPath {
+    override func prepareFrontShapePath() -> CGPath {
         
         let scaleFactor = CGFloat(0.3333333)
         let sqrt3 = CGFloat(1.7320508075688772)
-        let a = rect.width * scaleFactor
+        let a = bounds.width * scaleFactor
         
         let x1 = a + 7
         let y1 = a

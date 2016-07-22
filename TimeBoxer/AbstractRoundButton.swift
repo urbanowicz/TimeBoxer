@@ -33,6 +33,11 @@ class AbstractRoundButton: UIControl {
         }
     }
     
+    var radius:CGFloat {
+        get {
+            return bounds.width/2.0
+        }
+    }
     
     
     override init(frame: CGRect) {
