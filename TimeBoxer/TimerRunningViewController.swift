@@ -31,7 +31,6 @@ class TimerRunningViewController: UIViewController {
         view.backgroundColor = Colors.silver()
         
         registerForLocalNotifications()
-        attemptReadingNumberOfSecondsToCountDownFromUserDefaults()
         setupProjectNameLabel()
         setupTimeLabel()
         setupPauseButton()
@@ -41,14 +40,10 @@ class TimerRunningViewController: UIViewController {
     
 
     override func viewWillAppear(animated: Bool) {
-        if stopTime == nil {
-            setupStopTimeBasedOnNumberOfSecondsToCountDown()
-            setupTimerDoneNotification()
-        }
         
-        timeLabel.text = timeLabelTextFormatter.formatWithNumberOfSecondsToCountDown(numberOfSecondsToCountDown)
-        timer = NSTimer.scheduledTimerWithTimeInterval(0.1, target:self, selector: #selector(TimerRunningViewController.countDown),
-            userInfo: nil, repeats: true)
+        setupStopTimeBasedOnNumberOfSecondsToCountDown()
+        setupTimerDoneNotification()
+        setupTimer()
     }
 
 
@@ -103,7 +98,11 @@ class TimerRunningViewController: UIViewController {
     
 //MARK: Actions
     @IBAction func pauseButtonPressed(sender: UIButton) {
+        //Stop the timer and cancel the 'Timer Done' notification
         timer.invalidate()
+        removeStopTimeFromUserDefaults()
+        cancelTimerDoneNotification()
+        
         //Setup Resume button position
         let resumeButtonPositionX = pauseButton.layer.position.x - pauseButton.frame.width/2.0 - 10
         let resumeButtonPositionY = pauseButton.layer.position.y
@@ -264,6 +263,11 @@ class TimerRunningViewController: UIViewController {
         backgroundColorAnimation.toValue = Colors.silver()
         backgroundColorAnimation.duration = 0.2
         view.pop_addAnimation(backgroundColorAnimation, forKey: "backgroundColor")
+        
+        //Kick off the timer and register the 'Timer Done' notification
+        setupStopTimeBasedOnNumberOfSecondsToCountDown()
+        setupTimerDoneNotification()
+        setupTimer()
     }
 
     func countDown() {
@@ -287,13 +291,6 @@ class TimerRunningViewController: UIViewController {
         UIApplication.sharedApplication().registerUserNotificationSettings(settings)
     }
     
-    private func attemptReadingNumberOfSecondsToCountDownFromUserDefaults() {
-        stopTime = NSUserDefaults.standardUserDefaults().objectForKey(stopTimeKey) as? NSDate
-        if stopTime != nil {
-            numberOfSecondsToCountDown = Int(stopTime!.timeIntervalSinceNow)
-        }
-    }
-    
     private func setupStopTimeBasedOnNumberOfSecondsToCountDown() {
         stopTime = NSCalendar.currentCalendar().dateByAddingUnit(NSCalendarUnit.Second, value: numberOfSecondsToCountDown, toDate: NSDate(), options: NSCalendarOptions())
         NSUserDefaults.standardUserDefaults().setObject(stopTime, forKey: stopTimeKey)
@@ -306,6 +303,12 @@ class TimerRunningViewController: UIViewController {
         timerDoneNotification!.alertBody = "Timer done."
         timerDoneNotification!.soundName = UILocalNotificationDefaultSoundName
         UIApplication.sharedApplication().scheduleLocalNotification(timerDoneNotification!)
+    }
+    
+    private func setupTimer() {
+        timeLabel.text = timeLabelTextFormatter.formatWithNumberOfSecondsToCountDown(numberOfSecondsToCountDown)
+        timer = NSTimer.scheduledTimerWithTimeInterval(0.1, target:self, selector: #selector(TimerRunningViewController.countDown),
+                                                       userInfo: nil, repeats: true)
     }
     
     private func removeStopTimeFromUserDefaults() {
