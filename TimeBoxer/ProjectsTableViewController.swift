@@ -555,11 +555,6 @@ class ProjectsTableViewController: UIViewController, UITableViewDelegate {
         facadeView.layer.addAnimation(shakeAnimation, forKey: "shake")
     }
 
-//MARK: Adjust font size
-    func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
-        let myCell = cell as! MyTableViewCell
-        myCell.adjustFontSizeToFitTheFrame()
-    }
     
     func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath) {
 

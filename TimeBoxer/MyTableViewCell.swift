@@ -39,14 +39,6 @@ class MyTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
     }
     
-    func adjustFontSizeToFitTheFrame() {
-        projectNameLabel.numberOfLines = 0
-        projectNameLabel.lineBreakMode = NSLineBreakMode.ByTruncatingTail
-        let (_,  numberOfLines) = projectNameLabel.heightAndNumberOfLinesWithWidth(projectNameLabel.frame.width)
-        if numberOfLines >= 2 {
-            projectNameLabel.font = projectNameLabel.font.fontWithSize(14.0)
-        }
-    }
     
     func setupDeleteProjectButton() {
         deleteProjectButton.layer.transform = CATransform3DIdentity
