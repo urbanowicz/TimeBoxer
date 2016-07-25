@@ -76,12 +76,12 @@ class ProjectsTableViewDataSource: NSObject, UITableViewDataSource {
     
     private func setupLeftDrawerForCell(cell:MyTableViewCell) {
         cell.leftDrawer.backgroundColor = Colors.green()
-        cell.leftDrawer.fillColor = Colors.almostBlack().withAlpha(0.8)
+        cell.leftDrawer.fillColor = Colors.almostBlack().withAlpha(0.9)
     }
     
     private func setupRightDrawerForCell(cell:MyTableViewCell) {
         cell.rightDrawer.backgroundColor = Colors.azure()
-        cell.rightDrawer.color = Colors.almostBlack().withAlpha(0.8)
+        cell.rightDrawer.color = Colors.almostBlack().withAlpha(0.9)
     }
     
     private func setupCellSeparatorForCell(cell:MyTableViewCell) {
