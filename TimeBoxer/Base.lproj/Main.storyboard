@@ -502,14 +502,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your Projects" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rVO-On-1e2" userLabel="Time Boxer Label">
-                                <rect key="frame" x="247" y="40" width="107" height="25"/>
-                                <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="18"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time Boxer" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rVO-On-1e2" userLabel="Time Boxer Label">
+                                <rect key="frame" x="249" y="40" width="102" height="19"/>
+                                <fontDescription key="fontDescription" name="Copperplate-Light" family="Copperplate" pointSize="18"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ln0-07-a9F" userLabel="Title Bar Separator">
-                                <rect key="frame" x="0.0" y="84" width="600" height="1"/>
+                                <rect key="frame" x="0.0" y="78" width="600" height="1"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="g8I-uZ-8CP"/>
@@ -525,7 +525,7 @@
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="70" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="P0n-w1-o3y">
-                                <rect key="frame" x="0.0" y="85" width="600" height="395"/>
+                                <rect key="frame" x="0.0" y="79" width="600" height="401"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="projects" selectionStyle="none" indentationWidth="0.0" shouldIndentWhileEditing="NO" reuseIdentifier="ProjectCell" id="RJ9-tz-21q" customClass="MyTableViewCell" customModule="TimeBoxer" customModuleProvider="target">
