@@ -29,8 +29,6 @@
             <string>Avenir-Book</string>
             <string>Avenir-Book</string>
             <string>Avenir-BookOblique</string>
-            <string>Avenir-Book</string>
-            <string>Avenir-Book</string>
             <string>Avenir-BookOblique</string>
             <string>Avenir-BookOblique</string>
         </mutableArray>
@@ -891,117 +889,6 @@
             </objects>
             <point key="canvasLocation" x="1357" y="222"/>
         </scene>
-        <!--Timer Paused View Controller-->
-        <scene sceneID="Fjf-fp-nvg">
-            <objects>
-                <viewController storyboardIdentifier="timerPausedViewController" id="lqK-VX-oTB" customClass="TimerPausedViewController" customModule="TimeBoxer" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="0Xk-ea-Bok"/>
-                        <viewControllerLayoutGuide type="bottom" id="tlZ-wA-v9z"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="dUO-wX-w9S">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Rf-sR-KhQ" userLabel="Resume Button" customClass="StartButton" customModule="TimeBoxer" customModuleProvider="target">
-                                <rect key="frame" x="216" y="412" width="168" height="168"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="5Rf-sR-KhQ" secondAttribute="height" multiplier="1:1" id="aS1-uu-Buu"/>
-                                </constraints>
-                                <connections>
-                                    <action selector="resumeButtonPressed:" destination="lqK-VX-oTB" eventType="touchUpInside" id="waN-fM-Ll2"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ByY-rk-xvn" userLabel="Cancel Button" customClass="CancelButton" customModule="TimeBoxer" customModuleProvider="target">
-                                <rect key="frame" x="87" y="444" width="104" height="104"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="ByY-rk-xvn" secondAttribute="height" multiplier="1:1" id="RCS-Gi-Bjm"/>
-                                </constraints>
-                                <connections>
-                                    <action selector="cancelButtonPressed:" destination="lqK-VX-oTB" eventType="touchUpInside" id="0yd-Ni-swo"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CWg-Hk-SmY" customClass="StopButton" customModule="TimeBoxer" customModuleProvider="target">
-                                <rect key="frame" x="409" y="444" width="104" height="104"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="CWg-Hk-SmY" secondAttribute="height" multiplier="1:1" id="LTg-eL-wax"/>
-                                </constraints>
-                                <connections>
-                                    <action selector="stopButtonPressed:" destination="lqK-VX-oTB" eventType="touchUpInside" id="QsH-s5-A2l"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0:00:00" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U4s-iw-3SS" userLabel="Timer Label">
-                                <rect key="frame" x="200" y="259" width="201" height="82"/>
-                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="60"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Project Name " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lLT-bv-q9U" userLabel="Project Name Label">
-                                <rect key="frame" x="256" y="219" width="89" height="20"/>
-                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="14"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cancel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fac-qI-by0" userLabel="CancelLabel">
-                                <rect key="frame" x="120" y="419" width="39" height="15"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Resume" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b09-jC-XhK" userLabel="ResumeLabel">
-                                <rect key="frame" x="279" y="385" width="43" height="17"/>
-                                <fontDescription key="fontDescription" name="Avenir-LightOblique" family="Avenir" pointSize="12"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Stop" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0up-Db-OLK" userLabel="StopLabel">
-                                <rect key="frame" x="448" y="419" width="27" height="15"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <constraints>
-                            <constraint firstItem="CWg-Hk-SmY" firstAttribute="centerY" secondItem="5Rf-sR-KhQ" secondAttribute="centerY" id="0Jr-yn-rqd"/>
-                            <constraint firstItem="CWg-Hk-SmY" firstAttribute="top" secondItem="0up-Db-OLK" secondAttribute="bottom" constant="10" id="542-ry-uOC"/>
-                            <constraint firstItem="ByY-rk-xvn" firstAttribute="width" secondItem="5Rf-sR-KhQ" secondAttribute="width" multiplier="0.618" id="7uP-OK-R9I"/>
-                            <constraint firstItem="U4s-iw-3SS" firstAttribute="top" secondItem="lLT-bv-q9U" secondAttribute="bottom" constant="20" id="AQI-ff-zUq"/>
-                            <constraint firstItem="tlZ-wA-v9z" firstAttribute="top" secondItem="5Rf-sR-KhQ" secondAttribute="bottom" constant="20" id="C2M-jh-s9J"/>
-                            <constraint firstItem="lLT-bv-q9U" firstAttribute="centerX" secondItem="dUO-wX-w9S" secondAttribute="centerX" id="CNX-le-jNk"/>
-                            <constraint firstItem="ByY-rk-xvn" firstAttribute="top" secondItem="Fac-qI-by0" secondAttribute="bottom" constant="10" id="EVx-Bs-Xrr"/>
-                            <constraint firstItem="Fac-qI-by0" firstAttribute="centerX" secondItem="ByY-rk-xvn" secondAttribute="centerX" id="Id7-ym-mIA"/>
-                            <constraint firstItem="U4s-iw-3SS" firstAttribute="centerX" secondItem="dUO-wX-w9S" secondAttribute="centerX" id="Pzr-5P-fAG"/>
-                            <constraint firstItem="CWg-Hk-SmY" firstAttribute="width" secondItem="ByY-rk-xvn" secondAttribute="width" id="Qxl-UB-oVI"/>
-                            <constraint firstItem="ByY-rk-xvn" firstAttribute="centerY" secondItem="5Rf-sR-KhQ" secondAttribute="centerY" id="RG8-F5-daA"/>
-                            <constraint firstItem="U4s-iw-3SS" firstAttribute="centerY" secondItem="dUO-wX-w9S" secondAttribute="centerY" id="RNu-5d-yPU"/>
-                            <constraint firstItem="5Rf-sR-KhQ" firstAttribute="width" secondItem="dUO-wX-w9S" secondAttribute="width" multiplier="0.28" id="ZOb-sW-EUy"/>
-                            <constraint firstItem="CWg-Hk-SmY" firstAttribute="leading" secondItem="5Rf-sR-KhQ" secondAttribute="trailing" constant="25" id="he7-f4-KfI"/>
-                            <constraint firstItem="b09-jC-XhK" firstAttribute="centerX" secondItem="5Rf-sR-KhQ" secondAttribute="centerX" id="lN7-Mt-IQr"/>
-                            <constraint firstItem="lLT-bv-q9U" firstAttribute="width" relation="lessThanOrEqual" secondItem="dUO-wX-w9S" secondAttribute="width" multiplier="0.6" id="na6-Ji-dae"/>
-                            <constraint firstItem="5Rf-sR-KhQ" firstAttribute="top" secondItem="b09-jC-XhK" secondAttribute="bottom" constant="10" id="oVw-YT-9Gw"/>
-                            <constraint firstItem="5Rf-sR-KhQ" firstAttribute="leading" secondItem="ByY-rk-xvn" secondAttribute="trailing" constant="25" id="qPl-3x-i3W"/>
-                            <constraint firstItem="5Rf-sR-KhQ" firstAttribute="centerX" secondItem="dUO-wX-w9S" secondAttribute="centerX" id="vMu-Cu-9Be"/>
-                            <constraint firstItem="0up-Db-OLK" firstAttribute="centerX" secondItem="CWg-Hk-SmY" secondAttribute="centerX" id="yzx-UL-c2H"/>
-                        </constraints>
-                    </view>
-                    <connections>
-                        <outlet property="cancelButton" destination="ByY-rk-xvn" id="xkv-Ma-Suu"/>
-                        <outlet property="cancelLabel" destination="Fac-qI-by0" id="XiU-kG-eKZ"/>
-                        <outlet property="projectNameLabel" destination="lLT-bv-q9U" id="GDg-E0-CUX"/>
-                        <outlet property="resumeButton" destination="5Rf-sR-KhQ" id="q9h-AE-4c3"/>
-                        <outlet property="resumeLabel" destination="b09-jC-XhK" id="Uur-5q-8hn"/>
-                        <outlet property="stopButton" destination="CWg-Hk-SmY" id="kL5-nF-z5y"/>
-                        <outlet property="stopLabel" destination="0up-Db-OLK" id="M5E-gb-FcQ"/>
-                        <outlet property="timeLabel" destination="U4s-iw-3SS" id="5jc-q6-TTj"/>
-                        <segue destination="WVv-Cz-hWv" kind="show" identifier="TimerPausedToTimerRunning" id="pqB-dp-YLD"/>
-                        <segue destination="CN5-20-aaQ" kind="show" identifier="TimerPausedToTimeSlider" id="DLL-pd-8SU"/>
-                        <segue destination="26t-Cs-zhz" kind="show" identifier="TimerPausedToTimerDone" id="w1M-zt-kek"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="8jm-Af-MkM" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2057" y="222"/>
-        </scene>
         <!--Timer Done View Controller-->
         <scene sceneID="cdg-rG-93R">
             <objects>
@@ -1080,7 +967,5 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="5zF-Z6-lwk"/>
-        <segue reference="kZ5-jR-Sp1"/>
-        <segue reference="L9w-ZE-epX"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -28,7 +28,6 @@
 		F147F2D31D0F2F53001887DA /* LeftDrawerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F147F2D11D0F2F53001887DA /* LeftDrawerView.swift */; };
 		F14F13051BEA83660045936F /* AbstractOvalButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F14F13041BEA83660045936F /* AbstractOvalButton.swift */; };
 		F14F13071BEA87160045936F /* StopButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F14F13061BEA87160045936F /* StopButton.swift */; };
-		F14F13091BEA88FA0045936F /* CancelButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F14F13081BEA88FA0045936F /* CancelButton.swift */; };
 		F150E3B01C8ECD3000D7D502 /* TitleBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = F150E3AF1C8ECD3000D7D502 /* TitleBar.swift */; };
 		F1520B1B1C9049A8002F359E /* XButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1520B1A1C9049A8002F359E /* XButton.swift */; };
 		F152EE901C5968D00090BECC /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = F152EE8F1C5968D00090BECC /* Project.swift */; };
@@ -49,7 +48,6 @@
 		F188DA6F1C898890000E8AD2 /* ShrinkingCircleAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F188DA6E1C898890000E8AD2 /* ShrinkingCircleAnimator.swift */; };
 		F189A1B21BD8C0D3000FFC5F /* TimeSliderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F189A1B11BD8C0D3000FFC5F /* TimeSliderViewController.swift */; };
 		F18C2AD81C873A9A004A7B72 /* TimerDoneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F18C2AD71C873A9A004A7B72 /* TimerDoneViewController.swift */; };
-		F18D6B7A1BEB4BFE0003CBD4 /* TimerPausedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F18D6B791BEB4BFE0003CBD4 /* TimerPausedViewController.swift */; };
 		F19133531CA844DD00CED170 /* NSDateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F19133521CA844DD00CED170 /* NSDateExtension.swift */; };
 		F19133551CA8478900CED170 /* NSCalendarExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F19133541CA8478900CED170 /* NSCalendarExtension.swift */; };
 		F1981B9D1C84DE7200F49454 /* SliderOutputToValueConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1981B9C1C84DE7200F49454 /* SliderOutputToValueConverter.swift */; };
@@ -183,7 +181,6 @@
 		F147F2D11D0F2F53001887DA /* LeftDrawerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftDrawerView.swift; sourceTree = "<group>"; };
 		F14F13041BEA83660045936F /* AbstractOvalButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AbstractOvalButton.swift; sourceTree = "<group>"; };
 		F14F13061BEA87160045936F /* StopButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StopButton.swift; sourceTree = "<group>"; };
-		F14F13081BEA88FA0045936F /* CancelButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CancelButton.swift; sourceTree = "<group>"; };
 		F150E3AF1C8ECD3000D7D502 /* TitleBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TitleBar.swift; sourceTree = "<group>"; };
 		F1520B1A1C9049A8002F359E /* XButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XButton.swift; sourceTree = "<group>"; };
 		F152EE8F1C5968D00090BECC /* Project.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Project.swift; sourceTree = "<group>"; };
@@ -204,7 +201,6 @@
 		F188DA6E1C898890000E8AD2 /* ShrinkingCircleAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShrinkingCircleAnimator.swift; sourceTree = "<group>"; };
 		F189A1B11BD8C0D3000FFC5F /* TimeSliderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeSliderViewController.swift; sourceTree = "<group>"; };
 		F18C2AD71C873A9A004A7B72 /* TimerDoneViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerDoneViewController.swift; sourceTree = "<group>"; };
-		F18D6B791BEB4BFE0003CBD4 /* TimerPausedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerPausedViewController.swift; sourceTree = "<group>"; };
 		F19133521CA844DD00CED170 /* NSDateExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSDateExtension.swift; sourceTree = "<group>"; };
 		F19133541CA8478900CED170 /* NSCalendarExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSCalendarExtension.swift; sourceTree = "<group>"; };
 		F1981B9C1C84DE7200F49454 /* SliderOutputToValueConverter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SliderOutputToValueConverter.swift; sourceTree = "<group>"; };
@@ -295,14 +291,6 @@
 			name = Colors;
 			sourceTree = "<group>";
 		};
-		F14F13021BEA82A20045936F /* TimerPausedVC */ = {
-			isa = PBXGroup;
-			children = (
-				F18D6B791BEB4BFE0003CBD4 /* TimerPausedViewController.swift */,
-			);
-			name = TimerPausedVC;
-			sourceTree = "<group>";
-		};
 		F14F13031BEA82C50045936F /* Buttons */ = {
 			isa = PBXGroup;
 			children = (
@@ -310,7 +298,6 @@
 				F1B920541BE7D7CC004A8CDB /* PauseButton.swift */,
 				F14F13041BEA83660045936F /* AbstractOvalButton.swift */,
 				F14F13061BEA87160045936F /* StopButton.swift */,
-				F14F13081BEA88FA0045936F /* CancelButton.swift */,
 				F11D5B9E1C42AD32007F2622 /* AddButton.swift */,
 				F1F36ACF1C875F770039EF0B /* OKButton.swift */,
 				F1520B1A1C9049A8002F359E /* XButton.swift */,
@@ -370,7 +357,6 @@
 				F1FC9AD41C3ED853002A9F31 /* AddProjectVC */,
 				F1FC9AD11C3ED70E002A9F31 /* ProjectStatsVC */,
 				F10B85161C383349002C66F2 /* ContainerVC */,
-				F14F13021BEA82A20045936F /* TimerPausedVC */,
 				F1D2444A1BDFF7C90023B994 /* TimerRunningVC */,
 				F1D244491BDFF4810023B994 /* TimeSliderVC */,
 				F18C2AD91C873AA0004A7B72 /* TimerDoneVC */,
@@ -690,7 +676,6 @@
 				F19D226C1CA01F8B006D76D4 /* StatsTableViewCell.swift in Sources */,
 				F1D1B2451D10359A00DC9EB8 /* RightDrawerView.swift in Sources */,
 				F1B920551BE7D7CC004A8CDB /* PauseButton.swift in Sources */,
-				F18D6B7A1BEB4BFE0003CBD4 /* TimerPausedViewController.swift in Sources */,
 				F1B9E9E41CA1468000D86239 /* StatsTableDataSource.swift in Sources */,
 				F11925211C8CB319002BEAC2 /* ProjectsTableToAddProjectAnimator.swift in Sources */,
 				F15F9C501BCCF376008733A3 /* AppDelegate.swift in Sources */,
@@ -730,7 +715,6 @@
 				F1D2444C1BDFF8320023B994 /* TimerRunningViewController.swift in Sources */,
 				F1A0BC701C4E63FC0075ACCF /* MyTableViewCell.swift in Sources */,
 				F14F13051BEA83660045936F /* AbstractOvalButton.swift in Sources */,
-				F14F13091BEA88FA0045936F /* CancelButton.swift in Sources */,
 				F1FC9AD91C3EE0CC002A9F31 /* ProjectsTableViewController.swift in Sources */,
 				F1F36AD01C875F770039EF0B /* OKButton.swift in Sources */,
 				F150E3B01C8ECD3000D7D502 /* TitleBar.swift in Sources */,
