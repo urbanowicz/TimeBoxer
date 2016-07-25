@@ -134,7 +134,7 @@ class ProjectsTableViewController: UIViewController, UITableViewDelegate {
     }
     
     private func setupTitleBarSeparator() {
-        titleBarSeparator.backgroundColor = Colors.veryLightGray()
+        titleBarSeparator.backgroundColor = Colors.veryLightGray().withAlpha(0.1)
     }
     
     func cellAtPoint(point:CGPoint) -> MyTableViewCell? {

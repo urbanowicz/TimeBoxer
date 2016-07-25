@@ -85,6 +85,6 @@ class ProjectsTableViewDataSource: NSObject, UITableViewDataSource {
     }
     
     private func setupCellSeparatorForCell(cell:MyTableViewCell) {
-        cell.cellSeparator.backgroundColor = Colors.veryLightGray()
+        cell.cellSeparator.backgroundColor = Colors.veryLightGray().withAlpha(0.1)
     }
 }
