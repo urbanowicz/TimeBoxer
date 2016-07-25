@@ -70,10 +70,8 @@ class TimerRunningViewController: UIViewController {
     private func setupPauseButton() {
         pauseButton.borderColor = Colors.almostBlack()
         pauseButton.borderWidth = 2.0
-        pauseButton.ovalLayerColor = Colors.silver()
-        pauseButton.ovalLayerHighlightedColor = pauseButton.ovalLayerColor
+        pauseButton.roundLayerColor = Colors.silver()
         pauseButton.frontLayerColor = Colors.almostBlack()
-        pauseButton.frontLayerHighlightedColor = pauseButton.frontLayerColor
     }
     
     private func setupResumeButton() {
