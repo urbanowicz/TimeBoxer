@@ -102,9 +102,17 @@ class TimerRunningViewController: UIViewController {
         xButton.borderWidth = 0.0
         xButton.roundLayerColor = Colors.silver()
         xButton.frontLayerColor = Colors.almostBlack()
+        xButton.addTarget(self, action: #selector(TimerRunningViewController.xButtonPressed), forControlEvents: .TouchDown)
     }
     
 //MARK: Actions
+    func xButtonPressed() {
+        timer.invalidate()
+        removeStopTimeFromUserDefaults()
+        cancelTimerDoneNotification()
+        performSegueWithIdentifier("TimerRunningToTimeSlider", sender: self)
+    }
+    
     @IBAction func pauseButtonPressed(sender: UIButton) {
         //Stop the timer and cancel the 'Timer Done' notification
         timer.invalidate()
@@ -342,6 +350,13 @@ class TimerRunningViewController: UIViewController {
         cancelTimerDoneNotification()
         
         if let segueIdentifier = segue.identifier {
+            
+            if segueIdentifier == "TimerRunningToTimeSlider" {
+                let timeSliderVC = segue.destinationViewController as! TimeSliderViewController
+                timeSliderVC.project = project
+                return 
+            }
+            
             if segueIdentifier == "TimerRunningToTimerDone" {
                 let timerDoneVC = segue.destinationViewController as! TimerDoneViewController
                 timerDoneVC.numberOfSecondsTheTimerWasSetTo = numberOfSecondsTheTimerWasSetTo
