@@ -8,28 +8,35 @@
 
 import UIKit
 
-class XButton: AbstractOvalButton {
-    var strokeWidth = CGFloat(1.0)
-    override func drawFrontLayer(rect: CGRect) {
-        
-        let scaleFactor = CGFloat(0.3)
-        var smallerRect = CGRectZero
-        smallerRect.size.height = rect.height * scaleFactor
-        smallerRect.size.width = rect.width * scaleFactor
-        smallerRect.origin.x = rect.origin.x + (rect.width - smallerRect.width) / 2.0
-        smallerRect.origin.y = rect.origin.y + (rect.height - smallerRect.height) / 2.0
-        strokeLine(smallerRect.origin.x, y1: smallerRect.origin.y,
-            x2:smallerRect.origin.x + smallerRect.width , y2: smallerRect.origin.y + smallerRect.height)
-        strokeLine(smallerRect.origin.x, y1: smallerRect.origin.y + smallerRect.height,
-            x2: smallerRect.origin.x + smallerRect.width, y2: smallerRect.origin.y)
+class XButton: AbstractRoundButton {
+    var cornerRadius = CGFloat(1.0)
     
+    override func prepareFrontShapePath() -> CGPath {
+        let verticalBar = createVerticalBar(bounds)
+        let horizontalBar = createHorizontalBar(bounds)
+        let combinedPath = UIBezierPath()
+        combinedPath.appendPath(verticalBar)
+        combinedPath.appendPath(horizontalBar)
+        frontLayer.anchorPoint = CGPointMake(0.5, 0.5)
+        frontLayer.transform = CATransform3DMakeAffineTransform(CGAffineTransformMakeRotation(-0.785398))
+        return combinedPath.CGPath
     }
     
-    private func strokeLine(x1:CGFloat, y1:CGFloat, x2:CGFloat, y2:CGFloat) {
-        let path = UIBezierPath()
-        path.moveToPoint(CGPoint(x: x1, y: y1))
-        path.addLineToPoint(CGPoint(x: x2, y: y2))
-        path.lineWidth = strokeWidth
-        path.stroke()
+    private func createVerticalBar(rect: CGRect) -> UIBezierPath  {
+        let barWidth:CGFloat = rect.width * 0.1
+        let barHeight:CGFloat = rect.height * 0.45
+        let barX:CGFloat = ((rect.origin.x + rect.width) / 2.0) - (barWidth / 2.0)
+        let barY:CGFloat = rect.origin.y + (rect.height - barHeight) / 2.0
+        let barRect = CGRect(x:barX, y:barY, width:barWidth, height:barHeight)
+        return UIBezierPath(roundedRect: barRect, cornerRadius: cornerRadius)
+    }
+    
+    private func createHorizontalBar(rect: CGRect) -> UIBezierPath {
+        let barWidth:CGFloat = rect.width  * 0.45
+        let barHeight:CGFloat = rect.height * 0.1
+        let barX:CGFloat = ((rect.origin.x + rect.width) / 2.0) - (barWidth / 2.0)
+        let barY:CGFloat = rect.origin.y + (rect.height - barHeight) / 2.0
+        let barRect = CGRect(x:barX, y:barY, width:barWidth, height:barHeight)
+        return UIBezierPath(roundedRect: barRect, cornerRadius: cornerRadius)
     }
 }
