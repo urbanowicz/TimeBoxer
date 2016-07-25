@@ -115,12 +115,10 @@ class ProjectsTableViewController: UIViewController, UITableViewDelegate {
     }
     
     private func setupAddProjectButton() {
-        addProjectButton.borderColor = Colors.silver()
-        addProjectButton.ovalLayerColor = Colors.almostBlack()
-        addProjectButton.frontLayerColor = Colors.silver()
-        addProjectButton.ovalLayerHighlightedColor = Colors.silver()
-        addProjectButton.frontLayerHighlightedColor = Colors.almostBlack()
-        addProjectButton.borderWidth = 2.0
+        addProjectButton.borderWidth = 0.0
+        addProjectButton.roundLayerColor = Colors.silver()
+        addProjectButton.frontLayerColor = Colors.almostBlack()
+
     }
     
     private func setupNoProjectsLabel() {
