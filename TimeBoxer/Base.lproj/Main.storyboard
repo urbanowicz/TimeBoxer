@@ -855,12 +855,22 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OYR-4x-kxV" customClass="XButton" customModule="TimeBoxer" customModuleProvider="target">
+                                <rect key="frame" x="15" y="35" width="37" height="37"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="37" id="B0r-WD-fgh"/>
+                                    <constraint firstAttribute="width" secondItem="OYR-4x-kxV" secondAttribute="height" multiplier="1:1" id="CZM-Jp-yW8"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="REF-d8-4QU" firstAttribute="top" secondItem="UNg-MR-z0J" secondAttribute="bottom" constant="20" id="3R8-uZ-G8T"/>
                             <constraint firstItem="1IS-Qf-OeE" firstAttribute="centerY" secondItem="o6n-fX-khZ" secondAttribute="centerY" id="5EE-oD-H5o"/>
+                            <constraint firstItem="OYR-4x-kxV" firstAttribute="leading" secondItem="o6n-fX-khZ" secondAttribute="leading" constant="15" id="DAD-wT-IAZ"/>
                             <constraint firstItem="HoH-jI-dWq" firstAttribute="width" relation="lessThanOrEqual" secondItem="o6n-fX-khZ" secondAttribute="width" multiplier="0.6" id="DqQ-4I-D0x"/>
+                            <constraint firstItem="OYR-4x-kxV" firstAttribute="top" secondItem="WxM-gN-E9R" secondAttribute="bottom" constant="15" id="X47-DY-QZx"/>
                             <constraint firstItem="HoH-jI-dWq" firstAttribute="centerX" secondItem="o6n-fX-khZ" secondAttribute="centerX" id="inc-H1-I7Q"/>
                             <constraint firstItem="1IS-Qf-OeE" firstAttribute="centerX" secondItem="o6n-fX-khZ" secondAttribute="centerX" id="ip3-DV-5Oc"/>
                             <constraint firstItem="UNg-MR-z0J" firstAttribute="width" secondItem="o6n-fX-khZ" secondAttribute="width" multiplier="0.28" id="s1D-4Y-FgO"/>
@@ -872,12 +882,13 @@
                         <outlet property="pauseButton" destination="UNg-MR-z0J" id="EqC-Fm-rcX"/>
                         <outlet property="projectNameLabel" destination="HoH-jI-dWq" id="Tnq-9T-yeb"/>
                         <outlet property="timeLabel" destination="1IS-Qf-OeE" id="cVF-g1-2rs"/>
+                        <outlet property="xButton" destination="OYR-4x-kxV" id="o4Y-tS-HQh"/>
                         <segue destination="26t-Cs-zhz" kind="show" identifier="TimerRunningToTimerDone" id="L9w-ZE-epX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="D5S-Un-hAw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1294" y="222"/>
+            <point key="canvasLocation" x="1357" y="222"/>
         </scene>
         <!--Timer Paused View Controller-->
         <scene sceneID="Fjf-fp-nvg">

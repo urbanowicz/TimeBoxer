@@ -14,6 +14,7 @@ class TimerRunningViewController: UIViewController {
     var resumeButton: StartButton = StartButton()
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var projectNameLabel: UILabel!
+    @IBOutlet weak var xButton: XButton!
     
     var numberOfSecondsToCountDown = 0 //number of seconds
     var numberOfSecondsTheTimerWasSetTo = 0
@@ -36,11 +37,11 @@ class TimerRunningViewController: UIViewController {
         setupPauseButton()
         setupStopButton()
         setupResumeButton()
+        setupXButton()
     }
     
 
     override func viewWillAppear(animated: Bool) {
-        
         setupStopTimeBasedOnNumberOfSecondsToCountDown()
         setupTimerDoneNotification()
         setupTimer()
@@ -95,6 +96,12 @@ class TimerRunningViewController: UIViewController {
         stopButton.alpha = 0.0
         stopButton.addTarget(self, action: #selector(TimerRunningViewController.stopButtonPressed), forControlEvents: .TouchDown)
         self.view.addSubview(stopButton)
+    }
+    
+    private func setupXButton() {
+        xButton.borderWidth = 0.0
+        xButton.roundLayerColor = Colors.silver()
+        xButton.frontLayerColor = Colors.almostBlack()
     }
     
 //MARK: Actions
