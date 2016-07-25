@@ -28,7 +28,7 @@ class Colors: NSObject {
     }
     
     static func veryLightGray() -> UIColor {
-        return UIColor(red:0.45, green:0.47, blue:0.54, alpha:0.3)
+        return UIColor(red:0.45, green:0.47, blue:0.54, alpha:0.2)
     }
     
     static func kindOfGray() -> UIColor {
