@@ -524,37 +524,37 @@
                                     <segue destination="vfH-4J-4Nz" kind="presentation" identifier="ProjectsTableToAddProject" id="khV-Nn-hk6"/>
                                 </connections>
                             </button>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="70" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="P0n-w1-o3y">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="80" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="P0n-w1-o3y">
                                 <rect key="frame" x="0.0" y="79" width="600" height="401"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="projects" selectionStyle="none" indentationWidth="0.0" shouldIndentWhileEditing="NO" reuseIdentifier="ProjectCell" id="RJ9-tz-21q" customClass="MyTableViewCell" customModule="TimeBoxer" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="22" width="600" height="70"/>
+                                        <rect key="frame" x="0.0" y="22" width="600" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="RJ9-tz-21q" id="kl5-Ye-dlE">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="69"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="79"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SrC-pn-XcZ" userLabel="Right Drawer" customClass="RightDrawerView" customModule="TimeBoxer" customModuleProvider="target">
+                                                <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SrC-pn-XcZ" userLabel="Right Drawer" customClass="RightDrawerView" customModule="TimeBoxer" customModuleProvider="target">
                                                     <rect key="frame" x="550" y="0.0" width="50" height="69"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="50" id="AMh-tb-Uah"/>
                                                     </constraints>
                                                 </view>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AfP-3Y-hfO" userLabel="Left Drawer" customClass="LeftDrawerView" customModule="TimeBoxer" customModuleProvider="target">
+                                                <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AfP-3Y-hfO" userLabel="Left Drawer" customClass="LeftDrawerView" customModule="TimeBoxer" customModuleProvider="target">
                                                     <rect key="frame" x="0.0" y="0.0" width="50" height="69"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="50" id="kMC-Fb-66m"/>
                                                     </constraints>
                                                 </view>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TIa-hQ-MXw" userLabel="Facade">
+                                                <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TIa-hQ-MXw" userLabel="Facade">
                                                     <rect key="frame" x="0.0" y="0.0" width="600" height="69"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Project Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dzG-97-QYh">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Project Name" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dzG-97-QYh">
                                                             <rect key="frame" x="15" y="2" width="570" height="65"/>
-                                                            <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="18"/>
+                                                            <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="16"/>
                                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
@@ -567,7 +567,7 @@
                                                         <constraint firstItem="dzG-97-QYh" firstAttribute="leading" secondItem="TIa-hQ-MXw" secondAttribute="leading" constant="15" id="sb8-D6-H8E"/>
                                                     </constraints>
                                                 </view>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Umc-4T-xor" userLabel="Cell Separator">
+                                                <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Umc-4T-xor" userLabel="Cell Separator">
                                                     <rect key="frame" x="0.0" y="69" width="600" height="1"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <constraints>
