@@ -172,7 +172,7 @@ class TimerRunningViewController: UIViewController {
         let timeLabelColorAnimation = POPBasicAnimation(propertyNamed: kPOPLabelTextColor)
         timeLabelColorAnimation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
         timeLabelColorAnimation.toValue = Colors.silver()
-        timeLabelColorAnimation.duration = 0.1
+        timeLabelColorAnimation.duration = 0.2
         timeLabel.pop_addAnimation(timeLabelColorAnimation, forKey: "textColor")
         
         let timeLabelScaleDownAnimation = POPSpringAnimation(propertyNamed: kPOPViewScaleXY)
@@ -185,7 +185,7 @@ class TimerRunningViewController: UIViewController {
         let projectNameLabelColorAnimation = POPBasicAnimation(propertyNamed: kPOPLabelTextColor)
         projectNameLabelColorAnimation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
         projectNameLabelColorAnimation.toValue = Colors.silver()
-        projectNameLabelColorAnimation.duration = 0.1
+        projectNameLabelColorAnimation.duration = 0.2
         projectNameLabel.pop_addAnimation(projectNameLabelColorAnimation, forKey: "textColor")
         
         let projectNameLabelScaleDownAnimation = POPSpringAnimation(propertyNamed: kPOPViewScaleXY)
@@ -193,6 +193,19 @@ class TimerRunningViewController: UIViewController {
         projectNameLabelScaleDownAnimation.springSpeed = 4
         projectNameLabelScaleDownAnimation.springBounciness = 4
         projectNameLabel.pop_addAnimation(projectNameLabelScaleDownAnimation, forKey: "scaleDown")
+        
+        //Animate the x button
+        let xButtonRoundLayerFillColorAnimation = POPBasicAnimation(propertyNamed: kPOPShapeLayerFillColor)
+        xButtonRoundLayerFillColorAnimation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
+        xButtonRoundLayerFillColorAnimation.toValue = Colors.almostBlack()
+        xButtonRoundLayerFillColorAnimation.duration = 0.2
+        xButton.layer.pop_addAnimation(xButtonRoundLayerFillColorAnimation, forKey: "fillColor")
+        
+        let xButtonFrontLayerFillColorAnimation = POPBasicAnimation(propertyNamed: kPOPShapeLayerFillColor)
+        xButtonFrontLayerFillColorAnimation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
+        xButtonFrontLayerFillColorAnimation.toValue = Colors.silver()
+        xButtonFrontLayerFillColorAnimation.duration = 0.2
+        xButton.frontLayer.pop_addAnimation(xButtonFrontLayerFillColorAnimation, forKey: "fillColor")
         
         //Animate the background color
         let backgroundColorAnimation = POPBasicAnimation(propertyNamed: kPOPViewBackgroundColor)
@@ -207,7 +220,7 @@ class TimerRunningViewController: UIViewController {
         let projectNameLabelColorAnimation = POPBasicAnimation(propertyNamed: kPOPLabelTextColor)
         projectNameLabelColorAnimation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
         projectNameLabelColorAnimation.toValue = Colors.almostBlack()
-        projectNameLabelColorAnimation.duration = 0.1
+        projectNameLabelColorAnimation.duration = 0.2
         projectNameLabel.pop_addAnimation(projectNameLabelColorAnimation, forKey: "textColor")
         
         let projectNameLabelScaleUpAnimation = POPSpringAnimation(propertyNamed: kPOPViewScaleXY)
@@ -220,7 +233,7 @@ class TimerRunningViewController: UIViewController {
         let timeLabelColorAnimation = POPBasicAnimation(propertyNamed: kPOPLabelTextColor)
         timeLabelColorAnimation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
         timeLabelColorAnimation.toValue = Colors.almostBlack()
-        timeLabelColorAnimation.duration = 0.1
+        timeLabelColorAnimation.duration = 0.2
         timeLabel.pop_addAnimation(timeLabelColorAnimation, forKey: "textColor")
         
         let timeLabelScaleUpAnimation = POPSpringAnimation(propertyNamed: kPOPViewScaleXY)
@@ -270,6 +283,18 @@ class TimerRunningViewController: UIViewController {
         stopButtonZeroAlphaAnimation.duration = 0.2
         stopButton.pop_addAnimation(stopButtonZeroAlphaAnimation, forKey: "zeroAlpha")
         
+        //Animate the x button
+        let xButtonRoundLayerFillColorAnimation = POPBasicAnimation(propertyNamed: kPOPShapeLayerFillColor)
+        xButtonRoundLayerFillColorAnimation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
+        xButtonRoundLayerFillColorAnimation.toValue = Colors.silver()
+        xButtonRoundLayerFillColorAnimation.duration = 0.2
+        xButton.layer.pop_addAnimation(xButtonRoundLayerFillColorAnimation, forKey: "fillColor")
+        
+        let xButtonFrontLayerFillColorAnimation = POPBasicAnimation(propertyNamed: kPOPShapeLayerFillColor)
+        xButtonFrontLayerFillColorAnimation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
+        xButtonFrontLayerFillColorAnimation.toValue = Colors.almostBlack()
+        xButtonFrontLayerFillColorAnimation.duration = 0.2
+        xButton.frontLayer.pop_addAnimation(xButtonFrontLayerFillColorAnimation, forKey: "fillColor")
 
         //Animate the background color
         let backgroundColorAnimation = POPBasicAnimation(propertyNamed: kPOPViewBackgroundColor)
