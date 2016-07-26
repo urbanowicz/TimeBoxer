@@ -67,6 +67,8 @@
 		F1C3CBF01D3D2A9A00D78D07 /* pop.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1C3CBE21D3D28BA00D78D07 /* pop.framework */; };
 		F1C3CBF11D3D2A9A00D78D07 /* pop.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F1C3CBE21D3D28BA00D78D07 /* pop.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		F1CA1C231CC6A66300491EC1 /* CellSwipeHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1CA1C221CC6A66300491EC1 /* CellSwipeHandler.swift */; };
+		F1D08A3E1D4773E80066C907 /* CalendarHeatMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D08A3D1D4773E80066C907 /* CalendarHeatMap.swift */; };
+		F1D08A3F1D4773E80066C907 /* CalendarHeatMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D08A3D1D4773E80066C907 /* CalendarHeatMap.swift */; };
 		F1D1B2451D10359A00DC9EB8 /* RightDrawerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D1B2441D10359A00DC9EB8 /* RightDrawerView.swift */; };
 		F1D1B2461D10359A00DC9EB8 /* RightDrawerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D1B2441D10359A00DC9EB8 /* RightDrawerView.swift */; };
 		F1D2444C1BDFF8320023B994 /* TimerRunningViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D2444B1BDFF8320023B994 /* TimerRunningViewController.swift */; };
@@ -215,6 +217,7 @@
 		F1C3CBEE1D3D2A0600D78D07 /* PopBridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopBridge.h; sourceTree = "<group>"; };
 		F1CA1C221CC6A66300491EC1 /* CellSwipeHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellSwipeHandler.swift; sourceTree = "<group>"; };
 		F1CC0EEB1C69284A0090D76D /* TimeBoxerPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = TimeBoxerPlayground.playground; sourceTree = "<group>"; };
+		F1D08A3D1D4773E80066C907 /* CalendarHeatMap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarHeatMap.swift; sourceTree = "<group>"; };
 		F1D1B2441D10359A00DC9EB8 /* RightDrawerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RightDrawerView.swift; sourceTree = "<group>"; };
 		F1D2444B1BDFF8320023B994 /* TimerRunningViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerRunningViewController.swift; sourceTree = "<group>"; };
 		F1D84C8A1CC656A90066D2C0 /* SwipeHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwipeHandler.swift; sourceTree = "<group>"; };
@@ -471,6 +474,7 @@
 				F1FC9AD21C3ED73B002A9F31 /* ProjectStatsViewController.swift */,
 				F1A95C031C6BD49000EF5204 /* LastWorkedOnDateFormatter.swift */,
 				F168FFF81CB15ACB00F298BE /* WorkTimeFormatter.swift */,
+				F1D08A3D1D4773E80066C907 /* CalendarHeatMap.swift */,
 			);
 			name = ProjectStatsVC;
 			sourceTree = "<group>";
@@ -692,6 +696,7 @@
 				F19133531CA844DD00CED170 /* NSDateExtension.swift in Sources */,
 				F1FCB8321D414686001B3329 /* AbstractRoundButton.swift in Sources */,
 				F152EE901C5968D00090BECC /* Project.swift in Sources */,
+				F1D08A3E1D4773E80066C907 /* CalendarHeatMap.swift in Sources */,
 				F1D84C8D1CC658620066D2C0 /* SwipeDirection.swift in Sources */,
 				F1520B1B1C9049A8002F359E /* XButton.swift in Sources */,
 				F10B85181C38346D002C66F2 /* ContainerViewController.swift in Sources */,
@@ -726,6 +731,7 @@
 				F168FFFA1CB15ACB00F298BE /* WorkTimeFormatter.swift in Sources */,
 				F147F2D31D0F2F53001887DA /* LeftDrawerView.swift in Sources */,
 				F12E2C6F1CA84A90008DA69C /* NSDateExtension.swift in Sources */,
+				F1D08A3F1D4773E80066C907 /* CalendarHeatMap.swift in Sources */,
 				F1FCB8331D414686001B3329 /* AbstractRoundButton.swift in Sources */,
 				F10CA9C31C67E1970062471C /* ProjectTests.swift in Sources */,
 				F1A95C071C6BD55B00EF5204 /* LastWorkedOnDateFormatter.swift in Sources */,

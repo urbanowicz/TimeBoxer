@@ -37,15 +37,24 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="z40-fN-S2G" customClass="CalendarHeatMap" customModule="TimeBoxer" customModuleProvider="target">
+                                <rect key="frame" x="30" y="81" width="540" height="419"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="30k-rV-2yN" firstAttribute="top" secondItem="z40-fN-S2G" secondAttribute="bottom" constant="100" id="37M-xh-Wld"/>
+                            <constraint firstItem="z40-fN-S2G" firstAttribute="leading" secondItem="y0t-tH-WgZ" secondAttribute="leadingMargin" constant="10" id="HBN-XP-b7M"/>
+                            <constraint firstItem="z40-fN-S2G" firstAttribute="top" secondItem="mwz-43-j4u" secondAttribute="bottom" constant="30" id="VfS-dj-WTc"/>
                             <constraint firstItem="mwz-43-j4u" firstAttribute="leading" secondItem="y0t-tH-WgZ" secondAttribute="leadingMargin" constant="10" id="a7z-qB-OC9"/>
                             <constraint firstItem="mwz-43-j4u" firstAttribute="top" secondItem="om9-dy-SQy" secondAttribute="bottom" constant="10" id="cUz-dp-w5e"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="z40-fN-S2G" secondAttribute="trailing" constant="10" id="d7Z-Qv-l9z"/>
                             <constraint firstAttribute="trailingMargin" secondItem="mwz-43-j4u" secondAttribute="trailing" constant="10" id="ddG-2M-562"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="calendarHeatMap" destination="z40-fN-S2G" id="T0N-qg-vXp"/>
                         <outlet property="projectNameLabel" destination="mwz-43-j4u" id="Ui0-bV-x6h"/>
                         <segue destination="gEt-rm-jX2" kind="unwind" identifier="EditProjectUnwind" unwindAction="editProjectUnwind:" id="mIW-4q-2Wz"/>
                     </connections>

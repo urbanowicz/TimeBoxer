@@ -13,13 +13,13 @@ class ProjectStatsViewController: UIViewController {
     var segueStarted:Bool = false
     
     @IBOutlet weak var projectNameLabel: UILabel!
-
+    @IBOutlet weak var calendarHeatMap: CalendarHeatMap!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = Colors.almostBlack()
         setupProjectNameLabel()
-
+        setupCalendarHeatMap()
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -35,6 +35,10 @@ class ProjectStatsViewController: UIViewController {
     private func setupProjectNameLabel() {
         projectNameLabel.font = UIFont(name: "Avenir Book", size: 16)
         projectNameLabel.textColor = Colors.silver()
+    }
+    
+    private func setupCalendarHeatMap() {
+        calendarHeatMap.backgroundColor = Colors.oceanBlue()
     }
     
 }
