@@ -37,14 +37,13 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="z40-fN-S2G" customClass="CalendarHeatMap" customModule="TimeBoxer" customModuleProvider="target">
+                            <view contentMode="scaleToFill" placeholderIntrinsicWidth="infinite" placeholderIntrinsicHeight="419" translatesAutoresizingMaskIntoConstraints="NO" id="z40-fN-S2G" customClass="CalendarHeatMap" customModule="TimeBoxer" customModuleProvider="target">
                                 <rect key="frame" x="30" y="81" width="540" height="419"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="30k-rV-2yN" firstAttribute="top" secondItem="z40-fN-S2G" secondAttribute="bottom" constant="100" id="37M-xh-Wld"/>
                             <constraint firstItem="z40-fN-S2G" firstAttribute="leading" secondItem="y0t-tH-WgZ" secondAttribute="leadingMargin" constant="10" id="HBN-XP-b7M"/>
                             <constraint firstItem="z40-fN-S2G" firstAttribute="top" secondItem="mwz-43-j4u" secondAttribute="bottom" constant="30" id="VfS-dj-WTc"/>
                             <constraint firstItem="mwz-43-j4u" firstAttribute="leading" secondItem="y0t-tH-WgZ" secondAttribute="leadingMargin" constant="10" id="a7z-qB-OC9"/>
