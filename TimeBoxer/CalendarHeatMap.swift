@@ -10,6 +10,20 @@ import UIKit
 
 class CalendarHeatMap: UIView {
     
+    var year:Int = 0
+    var month:Int = 0
+    var day:Int = 0
+    
+    var currentDateComponents:NSDateComponents {
+        get {
+            let currentDateComponents = NSDateComponents()
+            currentDateComponents.year = year
+            currentDateComponents.month = month
+            currentDateComponents.day = day
+            return currentDateComponents
+        }
+    }
+    
     let sun = UILabel()
     let mon = UILabel()
     let tue = UILabel()
@@ -56,6 +70,12 @@ class CalendarHeatMap: UIView {
     }
     
     private func doBasicInit() {
+        //init the current date
+        let todayComponents = calendar.components(NSCalendarUnit.Year.union(NSCalendarUnit.Month).union(NSCalendarUnit.Day), fromDate: NSDate())
+        year = todayComponents.year
+        month = todayComponents.month
+        day = todayComponents.day
+        
         //init day names
         func initLabelWithText(text:String, label:UILabel) {
             label.font = dayNameFont
@@ -109,16 +129,12 @@ class CalendarHeatMap: UIView {
     private func layoutDayNumbers() {
         
         func getNumberOfDaysInTheMonth() -> Int {
-            let today = NSDate()
-            return calendar.rangeOfUnit(NSCalendarUnit.Day, inUnit: NSCalendarUnit.Month, forDate: today).length
+            let currentDate = calendar.dateFromComponents(currentDateComponents)!
+            return calendar.rangeOfUnit(NSCalendarUnit.Day, inUnit: NSCalendarUnit.Month, forDate: currentDate).length
         }
         
         func getLabelForTheFirstDayOfTheMonth() -> UILabel {
-            let today = NSDate()
-            
-            //What are the components for the current date?
-            let flags = NSCalendarUnit.Year.union(NSCalendarUnit.Month).union(NSCalendarUnit.Day).union(NSCalendarUnit.Weekday)
-            let components = calendar.components(flags , fromDate: today)
+            let components = currentDateComponents
             
             //What day of the week was the first day of the month?
             let firstDayOfTheMonthComponents = NSDateComponents()
