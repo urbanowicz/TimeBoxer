@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CalendarHeatMap: UIView {
+class CalendarHeatMap: UIView, UIGestureRecognizerDelegate {
     
     var year:Int = 0
     var month:Int = 0
@@ -65,6 +65,8 @@ class CalendarHeatMap: UIView {
         }
     }
     
+    private let panGestureRecognizer = UIPanGestureRecognizer()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         doBasicInit()
@@ -79,8 +81,10 @@ class CalendarHeatMap: UIView {
         setupCurrentDate()
         setupDayNames()
         setupDayNumbers()
+        setupGestureRecognizer()
     }
     
+    //MARK: setting up elements
     private func setupCurrentDate() {
         let todayComponents = calendar.components(NSCalendarUnit.Year.union(NSCalendarUnit.Month).union(NSCalendarUnit.Day), fromDate: NSDate())
         year = todayComponents.year
@@ -130,7 +134,7 @@ class CalendarHeatMap: UIView {
         }
     }
     
-    //MARK: Compute key variables
+    //MARK: Compuing key variables
     private func computeCellSize() {
         //find the size of the cell that each symbol in the calendar will take
         let sampleCalendarCell = UILabel()
@@ -144,7 +148,7 @@ class CalendarHeatMap: UIView {
         cDistance = (bounds.width - cellSize.width) / 6.0
     }
     
-    //MARK: layout elements
+    //MARK: laying elements out
     override func intrinsicContentSize() -> CGSize {
         if let lastDayNumberLabel = dayNumbers.last {
             let yMax = lastDayNumberLabel.frame.origin.y + lastDayNumberLabel.frame.size.height
@@ -193,4 +197,32 @@ class CalendarHeatMap: UIView {
         }
     }
 
+    //MARK: Navigation, gesture recognition
+    private func setupGestureRecognizer() {
+        panGestureRecognizer.addTarget(self, action: #selector(CalendarHeatMap.handleSwipeGesture(_:)))
+        panGestureRecognizer.delegate = self
+        self.addGestureRecognizer(panGestureRecognizer)
+        
+    }
+    
+    func handleSwipeGesture(gestureRecognizer:UISwipeGestureRecognizer) {
+        print(gestureRecognizer.locationInView(self))
+    }
+    
+    override func gestureRecognizerShouldBegin(gestureRecognizer: UIGestureRecognizer) -> Bool {
+        print("CalendarHeatMap.shouldBegin")
+        if gestureRecognizer != panGestureRecognizer {
+            return true
+        }
+        let translation = panGestureRecognizer.translationInView(self)
+        if fabs(translation.x) > fabs(translation.y) {
+            return false
+        }
+        return true
+    }
+    
+//    func gestureRecognizer(gestureRecognizer: UIGestureRecognizer, shouldBeRequiredToFailByGestureRecognizer otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+//        print("REQUIRED 1")
+//        return true
+//    }
 }

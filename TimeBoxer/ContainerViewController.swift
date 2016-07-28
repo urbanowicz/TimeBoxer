@@ -153,6 +153,7 @@ class ContainerViewController: UIViewController, UIGestureRecognizerDelegate{
     }
     
     func gestureRecognizerShouldBegin(gestureRecognizer: UIGestureRecognizer) -> Bool {
+        print("ContainerVC:shouldBegin")
         let panGestureRecognizer = gestureRecognizer as? UIPanGestureRecognizer
         if panGestureRecognizer == nil {
             return false
@@ -173,6 +174,10 @@ class ContainerViewController: UIViewController, UIGestureRecognizerDelegate{
             return swipeShouldBeginOnProjectStatsVC(panGestureRecognizer!)
         }
         
+        return false
+    }
+    
+    func gestureRecognizer(gestureRecognizer: UIGestureRecognizer, shouldRequireFailureOfGestureRecognizer otherGestureRecognizer: UIGestureRecognizer) -> Bool {
         return false
     }
     
