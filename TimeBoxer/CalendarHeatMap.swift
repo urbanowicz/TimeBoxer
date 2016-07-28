@@ -50,6 +50,21 @@ class CalendarHeatMap: UIView {
     
     private let calendar = NSCalendar.currentCalendar()
     
+    private var previousBoundsWidth:CGFloat = 0.0
+    
+    override var bounds:CGRect {
+        didSet {
+            if bounds.width != previousBoundsWidth {
+                computeCellSize() //Cell size could be computed in doBasicInit but it makes sense for me to keep it here
+                computeCDistance()
+                layoutDayNames()
+                layoutDayNumbers()
+                invalidateIntrinsicContentSize()
+                previousBoundsWidth = bounds.width
+            }
+        }
+    }
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         doBasicInit()
@@ -60,22 +75,20 @@ class CalendarHeatMap: UIView {
         doBasicInit()
     }
     
-    override var bounds: CGRect {
-        didSet {
-            computeCellSize() //Cell size could be computed in doBasicInit but it makes sense for me to keep it here
-            computeCDistance()
-            layoutDayNames()
-            layoutDayNumbers()
-        }
+    private func doBasicInit() {
+        setupCurrentDate()
+        setupDayNames()
+        setupDayNumbers()
     }
     
-    private func doBasicInit() {
-        //init the current date
+    private func setupCurrentDate() {
         let todayComponents = calendar.components(NSCalendarUnit.Year.union(NSCalendarUnit.Month).union(NSCalendarUnit.Day), fromDate: NSDate())
         year = todayComponents.year
         month = todayComponents.month
         day = todayComponents.day
-        
+    }
+    
+    private func setupDayNames() {
         //init day names
         func initLabelWithText(text:String, label:UILabel) {
             label.font = dayNameFont
@@ -85,7 +98,7 @@ class CalendarHeatMap: UIView {
             addSubview(label)
             dayNames.append(label)
         }
-
+        
         initLabelWithText("S", label: sun)
         initLabelWithText("M", label: mon)
         initLabelWithText("T", label: tue)
@@ -93,7 +106,28 @@ class CalendarHeatMap: UIView {
         initLabelWithText("T", label: thu)
         initLabelWithText("F", label: fri)
         initLabelWithText("S", label: sat)
+    }
+    
+    private func setupDayNumbers() {
+        func getNumberOfDaysInTheMonth() -> Int {
+            let currentDate = calendar.dateFromComponents(currentDateComponents)!
+            return calendar.rangeOfUnit(NSCalendarUnit.Day, inUnit: NSCalendarUnit.Month, forDate: currentDate).length
+        }
         
+        for dayNumberLabel in dayNumbers {
+            dayNumberLabel.removeFromSuperview()
+        }
+        
+        dayNumbers.removeAll(keepCapacity: true)
+        for dayNumber in 1...getNumberOfDaysInTheMonth() {
+            let dayLabel = UILabel()
+            dayLabel.font = dayNumberFont
+            dayLabel.textColor = fontColor
+            dayLabel.text = String(dayNumber)
+            dayLabel.sizeToFit()
+            dayNumbers.append(dayLabel)
+            addSubview(dayLabel)
+        }
     }
     
     //MARK: Compute key variables
@@ -111,8 +145,12 @@ class CalendarHeatMap: UIView {
     }
     
     //MARK: layout elements
-    override func layoutSubviews() {
-        super.layoutSubviews()
+    override func intrinsicContentSize() -> CGSize {
+        if let lastDayNumberLabel = dayNumbers.last {
+            let yMax = lastDayNumberLabel.frame.origin.y + lastDayNumberLabel.frame.size.height
+            return CGSizeMake(UIViewNoIntrinsicMetric, yMax)
+        }
+        return CGSizeMake(UIViewNoIntrinsicMetric, sun.frame.height)
     }
 
     private func layoutDayNames() {
@@ -127,15 +165,8 @@ class CalendarHeatMap: UIView {
     }
     
     private func layoutDayNumbers() {
-        
-        func getNumberOfDaysInTheMonth() -> Int {
-            let currentDate = calendar.dateFromComponents(currentDateComponents)!
-            return calendar.rangeOfUnit(NSCalendarUnit.Day, inUnit: NSCalendarUnit.Month, forDate: currentDate).length
-        }
-        
         func getLabelForTheFirstDayOfTheMonth() -> UILabel {
             let components = currentDateComponents
-            
             //What day of the week was the first day of the month?
             let firstDayOfTheMonthComponents = NSDateComponents()
             firstDayOfTheMonthComponents.day = 1
@@ -143,7 +174,6 @@ class CalendarHeatMap: UIView {
             firstDayOfTheMonthComponents.year = components.year
             let firstDayOfTheMonth = calendar.dateFromComponents(firstDayOfTheMonthComponents)!
             let firstDayOfTheMonthWeekday = calendar.components(NSCalendarUnit.Weekday, fromDate: firstDayOfTheMonth).weekday
-            
             return dayNames[firstDayOfTheMonthWeekday - 1]
             
         }
@@ -151,16 +181,8 @@ class CalendarHeatMap: UIView {
         let firstDayOfTheMonthLabel = getLabelForTheFirstDayOfTheMonth()
         var x = firstDayOfTheMonthLabel.layer.position.x
         var y = firstDayOfTheMonthLabel.layer.position.y + cDistance
-        dayNumbers.removeAll(keepCapacity: true)
-        for dayNumber in 1...getNumberOfDaysInTheMonth() {
-            let dayLabel = UILabel()
-            dayLabel.font = dayNumberFont
-            dayLabel.textColor = fontColor
-            dayLabel.text = String(dayNumber)
-            dayLabel.sizeToFit()
-            dayLabel.layer.position = CGPointMake(x,y)
-            addSubview(dayLabel)
-            dayNumbers.append(dayLabel)
+        for dayNumberLabel in dayNumbers {
+            dayNumberLabel.layer.position = CGPointMake(x,y)
             //advance the position
             if x == sat.layer.position.x {
                 x = sun.layer.position.x
@@ -170,13 +192,5 @@ class CalendarHeatMap: UIView {
             }
         }
     }
-    
-    /*
-    // Only override drawRect: if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func drawRect(rect: CGRect) {
-        // Drawing code
-    }
-    */
 
 }
