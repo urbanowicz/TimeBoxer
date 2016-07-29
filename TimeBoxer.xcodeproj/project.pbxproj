@@ -76,6 +76,8 @@
 		F1D84C8D1CC658620066D2C0 /* SwipeDirection.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D84C8C1CC658620066D2C0 /* SwipeDirection.swift */; };
 		F1EBB3E31C5AB93C005A36CE /* WorkChunk.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1EBB3E21C5AB93C005A36CE /* WorkChunk.swift */; };
 		F1F36AD01C875F770039EF0B /* OKButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F36ACF1C875F770039EF0B /* OKButton.swift */; };
+		F1F9178D1D4B65DC008A8D60 /* MonthHeatMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F9178C1D4B65DC008A8D60 /* MonthHeatMapView.swift */; };
+		F1F9178E1D4B65DC008A8D60 /* MonthHeatMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F9178C1D4B65DC008A8D60 /* MonthHeatMapView.swift */; };
 		F1FC9AD31C3ED73B002A9F31 /* ProjectStatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FC9AD21C3ED73B002A9F31 /* ProjectStatsViewController.swift */; };
 		F1FC9AD61C3ED86F002A9F31 /* AddProjectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FC9AD51C3ED86F002A9F31 /* AddProjectViewController.swift */; };
 		F1FC9AD91C3EE0CC002A9F31 /* ProjectsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FC9AD81C3EE0CC002A9F31 /* ProjectsTableViewController.swift */; };
@@ -224,6 +226,7 @@
 		F1D84C8C1CC658620066D2C0 /* SwipeDirection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwipeDirection.swift; sourceTree = "<group>"; };
 		F1EBB3E21C5AB93C005A36CE /* WorkChunk.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkChunk.swift; sourceTree = "<group>"; };
 		F1F36ACF1C875F770039EF0B /* OKButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OKButton.swift; sourceTree = "<group>"; };
+		F1F9178C1D4B65DC008A8D60 /* MonthHeatMapView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MonthHeatMapView.swift; sourceTree = "<group>"; };
 		F1FC9AD21C3ED73B002A9F31 /* ProjectStatsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectStatsViewController.swift; sourceTree = "<group>"; };
 		F1FC9AD51C3ED86F002A9F31 /* AddProjectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddProjectViewController.swift; sourceTree = "<group>"; };
 		F1FC9AD81C3EE0CC002A9F31 /* ProjectsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectsTableViewController.swift; sourceTree = "<group>"; };
@@ -475,6 +478,7 @@
 				F1A95C031C6BD49000EF5204 /* LastWorkedOnDateFormatter.swift */,
 				F168FFF81CB15ACB00F298BE /* WorkTimeFormatter.swift */,
 				F1D08A3D1D4773E80066C907 /* CalendarHeatMap.swift */,
+				F1F9178C1D4B65DC008A8D60 /* MonthHeatMapView.swift */,
 			);
 			name = ProjectStatsVC;
 			sourceTree = "<group>";
@@ -675,6 +679,7 @@
 				F18449591CB54508008939DD /* UILabelExtension.swift in Sources */,
 				F189A1B21BD8C0D3000FFC5F /* TimeSliderViewController.swift in Sources */,
 				F19133551CA8478900CED170 /* NSCalendarExtension.swift in Sources */,
+				F1F9178D1D4B65DC008A8D60 /* MonthHeatMapView.swift in Sources */,
 				F137CD561C5D361B0005B51C /* ProjectsDAO.swift in Sources */,
 				F10B851A1C384E23002C66F2 /* Animator.swift in Sources */,
 				F185A09E1CBAB2BF0067775D /* TimeLabelTextFormatter.swift in Sources */,
@@ -721,6 +726,7 @@
 			files = (
 				F1981B9E1C84DE7200F49454 /* SliderOutputToValueConverter.swift in Sources */,
 				F1981BA01C84DF8F00F49454 /* SliderOutputToValueConverterTests.swift in Sources */,
+				F1F9178E1D4B65DC008A8D60 /* MonthHeatMapView.swift in Sources */,
 				F185A0A21CBAB5A80067775D /* UIColorExtension.swift in Sources */,
 				F12E2C6E1CA84A8C008DA69C /* NSCalendarExtension.swift in Sources */,
 				F1981BA31C84E61700F49454 /* MinutesToStringConverter.swift in Sources */,
