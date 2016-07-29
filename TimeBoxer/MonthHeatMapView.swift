@@ -150,12 +150,15 @@ class MonthHeatMapView: UIView {
     }
     
     //MARK: laying elements out
-    override func intrinsicContentSize() -> CGSize {
+    func preferredHeight() ->CGFloat {
         if let lastDayNumberLabel = dayNumbers.last {
             let yMax = lastDayNumberLabel.frame.origin.y + lastDayNumberLabel.frame.size.height
-            return CGSizeMake(UIViewNoIntrinsicMetric, yMax)
+            return yMax
         }
-        return CGSizeMake(UIViewNoIntrinsicMetric, sun.frame.height)
+        return sun.frame.height
+    }
+    override func intrinsicContentSize() -> CGSize {
+        return CGSizeMake(UIViewNoIntrinsicMetric, preferredHeight())
     }
     
     private func layoutDayNames() {
@@ -206,13 +209,7 @@ class MonthHeatMapView: UIView {
             layoutDayNumbers()
             previousWidth = frame.width
         }
-        if let lastDayNumberLabel = dayNumbers.last {
-            let yMax = lastDayNumberLabel.frame.origin.y + lastDayNumberLabel.frame.size.height
-            frame.size =  CGSizeMake(frame.width, yMax)
-        } else {
-            frame.size = CGSizeMake(frame.width, sun.frame.height)
-        }
+        frame.size = CGSizeMake(frame.width, preferredHeight())
         invalidateIntrinsicContentSize()
     }
-
 }
