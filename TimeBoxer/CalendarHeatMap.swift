@@ -206,11 +206,10 @@ class CalendarHeatMap: UIView, UIGestureRecognizerDelegate {
     }
     
     func handleSwipeGesture(gestureRecognizer:UISwipeGestureRecognizer) {
-        print(gestureRecognizer.locationInView(self))
+
     }
     
     override func gestureRecognizerShouldBegin(gestureRecognizer: UIGestureRecognizer) -> Bool {
-        print("CalendarHeatMap.shouldBegin")
         if gestureRecognizer != panGestureRecognizer {
             return true
         }
