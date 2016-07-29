@@ -11,8 +11,9 @@ import UIKit
 class CalendarHeatMap: UIView, UIGestureRecognizerDelegate {
     
     private var currentMonth:MonthHeatMapView?
-    
-    private var previousWidth:CGFloat = 0.0
+    private var previousMonth:MonthHeatMapView?
+    private var nextMonth:MonthHeatMapView?
+
     private let panGestureRecognizer = UIPanGestureRecognizer()
     
     override init(frame: CGRect) {
@@ -26,17 +27,37 @@ class CalendarHeatMap: UIView, UIGestureRecognizerDelegate {
     }
     
     private func doBasicInit() {
+        
+        //get current day components
         let calendar = NSCalendar.currentCalendar()
         let todayComponents = calendar.components(NSCalendarUnit.Year.union(NSCalendarUnit.Month).union(NSCalendarUnit.Day), fromDate: NSDate())
+        
+        //prepare current month view
         currentMonth = MonthHeatMapView(year: todayComponents.year, month: todayComponents.month, day: todayComponents.day)
         currentMonth!.backgroundColor = UIColor.redColor()
         addSubview(currentMonth!)
+        
+        //prepare next month view
+        let nextMonthDate = calendar.dateByAddingUnit(NSCalendarUnit.Month, value: 1, toDate: NSDate(), options: NSCalendarOptions.WrapComponents)!
+
+        nextMonth = MonthHeatMapView(fromDate: nextMonthDate)
+        
+        nextMonth!.backgroundColor = UIColor.blueColor()
+        addSubview(nextMonth!)
+        
+        //setup the gesture recognizer
+        setupGestureRecognizer()
+        
+        clipsToBounds = true
+
     }
 
     override func layoutSubviews() {
-            currentMonth!.frame = CGRectMake(0, 0, frame.width, frame.height)
-            previousWidth = frame.width
-            invalidateIntrinsicContentSize()
+        currentMonth!.frame = CGRectMake(0, 0, frame.width, frame.height)
+        currentMonth!.heightToFit()
+        nextMonth!.frame = CGRectMake(0, frame.height, frame.width, frame.height)
+        nextMonth!.heightToFit()
+        invalidateIntrinsicContentSize()
     }
     override func intrinsicContentSize() -> CGSize {
         return currentMonth!.intrinsicContentSize()
@@ -53,7 +74,7 @@ class CalendarHeatMap: UIView, UIGestureRecognizerDelegate {
     func handleSwipeGesture(gestureRecognizer:UIPanGestureRecognizer) {
         //if the user swipes more than the threshold the transition is comitted
         //it is reversed otherwise
-        //let threshold = 100
+        let threshold = CGFloat(100)
         
         if gestureRecognizer.state == .Began {
             let startY = gestureRecognizer.locationInView(self).y
@@ -63,6 +84,10 @@ class CalendarHeatMap: UIView, UIGestureRecognizerDelegate {
         if gestureRecognizer.state == .Changed {
             let translation = gestureRecognizer.translationInView(self)
             print("translation: \(translation)")
+            if fabs(translation.y) < threshold {
+                currentMonth!.frame.origin.y = translation.y
+                currentMonth!.alpha = 1 - fabs(translation.y) / threshold
+            }
         }
         
         if gestureRecognizer.state == .Ended {
@@ -71,8 +96,6 @@ class CalendarHeatMap: UIView, UIGestureRecognizerDelegate {
             print("translation END: \(translation)")
             print("endY \(endY)")
         }
-        
-
     }
     
     override func gestureRecognizerShouldBegin(gestureRecognizer: UIGestureRecognizer) -> Bool {
@@ -85,5 +108,4 @@ class CalendarHeatMap: UIView, UIGestureRecognizerDelegate {
         }
         return true
     }
-    
 }

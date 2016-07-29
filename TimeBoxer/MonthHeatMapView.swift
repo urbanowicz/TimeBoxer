@@ -10,9 +10,9 @@ import UIKit
 
 class MonthHeatMapView: UIView {
 
-    var year:Int = 0
-    var month:Int = 0
-    var day:Int = 0
+    private var year:Int = 0
+    private var month:Int = 0
+    private var day:Int = 0
     
     var currentDateComponents:NSDateComponents {
         get {
@@ -52,35 +52,29 @@ class MonthHeatMapView: UIView {
     
     private var previousWidth:CGFloat = 0.0
     
-    override var frame: CGRect {
-        didSet {
-            if frame.width != previousWidth {
-                computeCellSize() //Cell size could be computed in doBasicInit but it makes sense for me to keep it here
-                computeCDistance()
-                layoutDayNames()
-                layoutDayNumbers()
-                invalidateIntrinsicContentSize()
-                previousWidth = bounds.width
-            }
-        }
-    }
-    
-    init(year:Int, month:Int, day:Int) {
-        super.init(frame: CGRectZero)
+    convenience init(year:Int, month:Int, day:Int) {
+        self.init(frame: CGRectZero)
         self.year = year
         self.month = month
         self.day = day
         doBasicInit()
-        
     }
+    
+    convenience init(fromComponents components:NSDateComponents) {
+        self.init(year: components.year, month: components.month, day: components.day)
+    }
+    
+    convenience init(fromDate date:NSDate) {
+        let calendar = NSCalendar.currentCalendar()
+        self.init(fromComponents: calendar.components(NSCalendarUnit.Year.union(NSCalendarUnit.Month).union(NSCalendarUnit.Day), fromDate: date))
+    }
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
-        doBasicInit()
     }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        doBasicInit()
     }
     
     private func doBasicInit() {
@@ -202,6 +196,23 @@ class MonthHeatMapView: UIView {
                 x += cDistance
             }
         }
+    }
+    
+    func heightToFit() {
+        if frame.width != previousWidth {
+            computeCellSize() //Cell size could be computed in doBasicInit but it makes sense for me to keep it here
+            computeCDistance()
+            layoutDayNames()
+            layoutDayNumbers()
+            previousWidth = frame.width
+        }
+        if let lastDayNumberLabel = dayNumbers.last {
+            let yMax = lastDayNumberLabel.frame.origin.y + lastDayNumberLabel.frame.size.height
+            frame.size =  CGSizeMake(frame.width, yMax)
+        } else {
+            frame.size = CGSizeMake(frame.width, sun.frame.height)
+        }
+        invalidateIntrinsicContentSize()
     }
 
 }
