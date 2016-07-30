@@ -80,14 +80,9 @@ class CalendarHeatMap: UIView, UIGestureRecognizerDelegate {
         //it is reversed otherwise
         let threshold = CGFloat(50)
         
-        if gestureRecognizer.state == .Began {
-            let startY = gestureRecognizer.locationInView(self).y
-            print("startY: \(startY)")
-        }
         
         if gestureRecognizer.state == .Changed {
             let translation = gestureRecognizer.translationInView(self)
-            print("translation: \(translation)")
             if fabs(translation.y) < threshold {
                 currentMonth!.frame.origin.y = translation.y
                 currentMonth!.alpha = 1 - fabs(translation.y) / (threshold * 2)
@@ -98,7 +93,7 @@ class CalendarHeatMap: UIView, UIGestureRecognizerDelegate {
                 //Animate the alpha of the current month
                 let currentMonthAlphaAnimation = POPBasicAnimation(propertyNamed: kPOPViewAlpha)
                 currentMonthAlphaAnimation.duration = 0.2
-                currentMonthAlphaAnimation.toValue = 0.0
+                currentMonthAlphaAnimation.toValue = 0.3
                 currentMonthAlphaAnimation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
                 currentMonth!.pop_addAnimation(currentMonthAlphaAnimation, forKey: "alpha")
                 
@@ -124,6 +119,18 @@ class CalendarHeatMap: UIView, UIGestureRecognizerDelegate {
                     nextMonthPositionAnimation.springBounciness = 10
                     nextMonthPositionAnimation.toValue = nextMonth!.frame.height / 2.0
                     nextMonth!.pop_addAnimation(nextMonthPositionAnimation, forKey: "positionY")
+                    
+                    //update the current, previous, next month
+                    previousMonth!.removeFromSuperview()
+                    previousMonth = currentMonth
+                    previousMonth!.backgroundColor = UIColor.greenColor()
+                    currentMonth = nextMonth
+                    currentMonth!.backgroundColor = UIColor.redColor()
+                    let nextMonthDate  = NSCalendar.currentCalendar().dateFromComponents(nextMonth!.currentDateComponents)!
+                    let newNextMonthDate = NSCalendar.currentCalendar().dateByAddingUnit(NSCalendarUnit.Month, value: 1, toDate: nextMonthDate, options: NSCalendarOptions.WrapComponents)!
+                    nextMonth = MonthHeatMapView(fromDate: newNextMonthDate)
+                    nextMonth!.backgroundColor = UIColor.blueColor()
+                    addSubview(nextMonth!)
                 } else {
                     //swipe down
                     //Animate the position of the current month
@@ -146,6 +153,19 @@ class CalendarHeatMap: UIView, UIGestureRecognizerDelegate {
                     previousMonthPositionAnimation.springBounciness = 10
                     previousMonthPositionAnimation.toValue = previousMonth!.frame.height / 2.0
                     previousMonth!.pop_addAnimation(previousMonthPositionAnimation, forKey: "positionY")
+                    
+                    //update the current, previous and next month
+                    nextMonth!.removeFromSuperview()
+                    nextMonth = currentMonth
+                    nextMonth!.backgroundColor = UIColor.blueColor()
+                    currentMonth = previousMonth
+                    currentMonth!.backgroundColor = UIColor.redColor()
+                    
+                    let previousMonthDate = NSCalendar.currentCalendar().dateFromComponents(previousMonth!.currentDateComponents)!
+                    let newPreviousMonthDate = NSCalendar.currentCalendar().dateByAddingUnit(NSCalendarUnit.Month, value: -1, toDate: previousMonthDate, options: NSCalendarOptions.WrapComponents)!
+                    previousMonth = MonthHeatMapView(fromDate: newPreviousMonthDate)
+                    previousMonth!.backgroundColor = UIColor.greenColor()
+                    addSubview(previousMonth!)
                 }
             }
         }
