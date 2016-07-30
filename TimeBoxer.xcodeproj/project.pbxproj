@@ -39,6 +39,7 @@
 		F168FFF91CB15ACB00F298BE /* WorkTimeFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F168FFF81CB15ACB00F298BE /* WorkTimeFormatter.swift */; };
 		F168FFFA1CB15ACB00F298BE /* WorkTimeFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F168FFF81CB15ACB00F298BE /* WorkTimeFormatter.swift */; };
 		F17F17B71C899A72003C04AC /* FadeInAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17F17B61C899A72003C04AC /* FadeInAnimator.swift */; };
+		F18284211D4CC50100651674 /* UIGestureRecognizerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F18284201D4CC50100651674 /* UIGestureRecognizerExtension.swift */; };
 		F18449591CB54508008939DD /* UILabelExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F18449581CB54508008939DD /* UILabelExtension.swift */; };
 		F184495A1CB54508008939DD /* UILabelExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F18449581CB54508008939DD /* UILabelExtension.swift */; };
 		F185A09E1CBAB2BF0067775D /* TimeLabelTextFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F185A09D1CBAB2BF0067775D /* TimeLabelTextFormatter.swift */; };
@@ -68,7 +69,6 @@
 		F1C3CBF11D3D2A9A00D78D07 /* pop.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F1C3CBE21D3D28BA00D78D07 /* pop.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		F1CA1C231CC6A66300491EC1 /* CellSwipeHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1CA1C221CC6A66300491EC1 /* CellSwipeHandler.swift */; };
 		F1D08A3E1D4773E80066C907 /* CalendarHeatMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D08A3D1D4773E80066C907 /* CalendarHeatMap.swift */; };
-		F1D08A3F1D4773E80066C907 /* CalendarHeatMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D08A3D1D4773E80066C907 /* CalendarHeatMap.swift */; };
 		F1D1B2451D10359A00DC9EB8 /* RightDrawerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D1B2441D10359A00DC9EB8 /* RightDrawerView.swift */; };
 		F1D1B2461D10359A00DC9EB8 /* RightDrawerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D1B2441D10359A00DC9EB8 /* RightDrawerView.swift */; };
 		F1D2444C1BDFF8320023B994 /* TimerRunningViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D2444B1BDFF8320023B994 /* TimerRunningViewController.swift */; };
@@ -77,7 +77,6 @@
 		F1EBB3E31C5AB93C005A36CE /* WorkChunk.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1EBB3E21C5AB93C005A36CE /* WorkChunk.swift */; };
 		F1F36AD01C875F770039EF0B /* OKButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F36ACF1C875F770039EF0B /* OKButton.swift */; };
 		F1F9178D1D4B65DC008A8D60 /* MonthHeatMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F9178C1D4B65DC008A8D60 /* MonthHeatMapView.swift */; };
-		F1F9178E1D4B65DC008A8D60 /* MonthHeatMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F9178C1D4B65DC008A8D60 /* MonthHeatMapView.swift */; };
 		F1FC9AD31C3ED73B002A9F31 /* ProjectStatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FC9AD21C3ED73B002A9F31 /* ProjectStatsViewController.swift */; };
 		F1FC9AD61C3ED86F002A9F31 /* AddProjectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FC9AD51C3ED86F002A9F31 /* AddProjectViewController.swift */; };
 		F1FC9AD91C3EE0CC002A9F31 /* ProjectsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FC9AD81C3EE0CC002A9F31 /* ProjectsTableViewController.swift */; };
@@ -196,6 +195,7 @@
 		F15F9C661BCCF376008733A3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F168FFF81CB15ACB00F298BE /* WorkTimeFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkTimeFormatter.swift; sourceTree = "<group>"; };
 		F17F17B61C899A72003C04AC /* FadeInAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FadeInAnimator.swift; sourceTree = "<group>"; };
+		F18284201D4CC50100651674 /* UIGestureRecognizerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIGestureRecognizerExtension.swift; sourceTree = "<group>"; };
 		F18449581CB54508008939DD /* UILabelExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UILabelExtension.swift; sourceTree = "<group>"; };
 		F185A09D1CBAB2BF0067775D /* TimeLabelTextFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeLabelTextFormatter.swift; sourceTree = "<group>"; };
 		F185A0A01CBAB5A80067775D /* UIColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
@@ -389,6 +389,7 @@
 				F19133541CA8478900CED170 /* NSCalendarExtension.swift */,
 				F18449581CB54508008939DD /* UILabelExtension.swift */,
 				F185A0A01CBAB5A80067775D /* UIColorExtension.swift */,
+				F18284201D4CC50100651674 /* UIGestureRecognizerExtension.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -709,6 +710,7 @@
 				F188DA6F1C898890000E8AD2 /* ShrinkingCircleAnimator.swift in Sources */,
 				F17F17B71C899A72003C04AC /* FadeInAnimator.swift in Sources */,
 				F14F13071BEA87160045936F /* StopButton.swift in Sources */,
+				F18284211D4CC50100651674 /* UIGestureRecognizerExtension.swift in Sources */,
 				F1A95C041C6BD49000EF5204 /* LastWorkedOnDateFormatter.swift in Sources */,
 				F1D2444C1BDFF8320023B994 /* TimerRunningViewController.swift in Sources */,
 				F1A0BC701C4E63FC0075ACCF /* MyTableViewCell.swift in Sources */,
@@ -726,7 +728,6 @@
 			files = (
 				F1981B9E1C84DE7200F49454 /* SliderOutputToValueConverter.swift in Sources */,
 				F1981BA01C84DF8F00F49454 /* SliderOutputToValueConverterTests.swift in Sources */,
-				F1F9178E1D4B65DC008A8D60 /* MonthHeatMapView.swift in Sources */,
 				F185A0A21CBAB5A80067775D /* UIColorExtension.swift in Sources */,
 				F12E2C6E1CA84A8C008DA69C /* NSCalendarExtension.swift in Sources */,
 				F1981BA31C84E61700F49454 /* MinutesToStringConverter.swift in Sources */,
@@ -737,7 +738,6 @@
 				F168FFFA1CB15ACB00F298BE /* WorkTimeFormatter.swift in Sources */,
 				F147F2D31D0F2F53001887DA /* LeftDrawerView.swift in Sources */,
 				F12E2C6F1CA84A90008DA69C /* NSDateExtension.swift in Sources */,
-				F1D08A3F1D4773E80066C907 /* CalendarHeatMap.swift in Sources */,
 				F1FCB8331D414686001B3329 /* AbstractRoundButton.swift in Sources */,
 				F10CA9C31C67E1970062471C /* ProjectTests.swift in Sources */,
 				F1A95C071C6BD55B00EF5204 /* LastWorkedOnDateFormatter.swift in Sources */,

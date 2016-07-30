@@ -28,23 +28,24 @@ class CalendarHeatMap: UIView, UIGestureRecognizerDelegate {
     
     private func doBasicInit() {
         
-        //get current day components
-        let calendar = NSCalendar.currentCalendar()
-        let todayComponents = calendar.components(NSCalendarUnit.Year.union(NSCalendarUnit.Month).union(NSCalendarUnit.Day), fromDate: NSDate())
-        
+        let now = NSDate()
         //prepare current month view
-        currentMonth = MonthHeatMapView(year: todayComponents.year, month: todayComponents.month, day: todayComponents.day)
+        currentMonth = MonthHeatMapView(fromDate: now)
         currentMonth!.backgroundColor = UIColor.redColor()
         addSubview(currentMonth!)
         
         //prepare next month view
-        let nextMonthDate = calendar.dateByAddingUnit(NSCalendarUnit.Month, value: 1, toDate: NSDate(), options: NSCalendarOptions.WrapComponents)!
-
+        let calendar = NSCalendar.currentCalendar()
+        let nextMonthDate = calendar.dateByAddingUnit(NSCalendarUnit.Month, value: 1, toDate: now, options: NSCalendarOptions.WrapComponents)!
         nextMonth = MonthHeatMapView(fromDate: nextMonthDate)
-        
         nextMonth!.backgroundColor = UIColor.blueColor()
         addSubview(nextMonth!)
         
+        //prepare previeous month view
+        let previousMonthDate = calendar.dateByAddingUnit(NSCalendarUnit.Month, value: -1, toDate: now, options: NSCalendarOptions.WrapComponents)!
+        previousMonth = MonthHeatMapView(fromDate: previousMonthDate)
+        previousMonth!.backgroundColor = UIColor.greenColor()
+        addSubview(previousMonth!)
         //setup the gesture recognizer
         setupGestureRecognizer()
         
@@ -57,6 +58,9 @@ class CalendarHeatMap: UIView, UIGestureRecognizerDelegate {
         currentMonth!.heightToFit()
         nextMonth!.frame = CGRectMake(0, frame.height, frame.width, frame.height)
         nextMonth!.heightToFit()
+        previousMonth!.frame = CGRectMake(0, -frame.height, frame.width, frame.height)
+        previousMonth!.heightToFit()
+        previousMonth!.frame.origin = CGPointMake(0, -previousMonth!.frame.height)
         invalidateIntrinsicContentSize()
     }
     override func intrinsicContentSize() -> CGSize {
@@ -74,7 +78,7 @@ class CalendarHeatMap: UIView, UIGestureRecognizerDelegate {
     func handleSwipeGesture(gestureRecognizer:UIPanGestureRecognizer) {
         //if the user swipes more than the threshold the transition is comitted
         //it is reversed otherwise
-        let threshold = CGFloat(100)
+        let threshold = CGFloat(50)
         
         if gestureRecognizer.state == .Began {
             let startY = gestureRecognizer.locationInView(self).y
@@ -86,15 +90,84 @@ class CalendarHeatMap: UIView, UIGestureRecognizerDelegate {
             print("translation: \(translation)")
             if fabs(translation.y) < threshold {
                 currentMonth!.frame.origin.y = translation.y
-                currentMonth!.alpha = 1 - fabs(translation.y) / threshold
+                currentMonth!.alpha = 1 - fabs(translation.y) / (threshold * 2)
+            } else {
+                //commit the transition
+                gestureRecognizer.cancel()
+                
+                //Animate the alpha of the current month
+                let currentMonthAlphaAnimation = POPBasicAnimation(propertyNamed: kPOPViewAlpha)
+                currentMonthAlphaAnimation.duration = 0.2
+                currentMonthAlphaAnimation.toValue = 0.0
+                currentMonthAlphaAnimation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
+                currentMonth!.pop_addAnimation(currentMonthAlphaAnimation, forKey: "alpha")
+                
+                if translation.y < 0 {
+                    //swipe up
+                    //Animate the position of the current month
+                    let currentMonthPositionAnimation = POPSpringAnimation(propertyNamed: kPOPLayerPositionY)
+                    currentMonthPositionAnimation.springSpeed = 25
+                    currentMonthPositionAnimation.springBounciness = 10
+                    currentMonthPositionAnimation.toValue =  -1.0 * currentMonth!.frame.height / 2.0
+                    currentMonth!.pop_addAnimation(currentMonthPositionAnimation, forKey: "positionY")
+                    
+                    //Animate the alpha of the nextMonth
+                    let nextMonthAlphaAnimation = POPBasicAnimation(propertyNamed: kPOPViewAlpha)
+                    nextMonthAlphaAnimation.duration = 0.2
+                    nextMonthAlphaAnimation.toValue = 1.0
+                    nextMonthAlphaAnimation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
+                    nextMonth!.pop_addAnimation(nextMonthAlphaAnimation, forKey: "alpha")
+                    
+                    //Animate the position of the nextMonth
+                    let nextMonthPositionAnimation = POPSpringAnimation(propertyNamed: kPOPLayerPositionY)
+                    nextMonthPositionAnimation.springSpeed = 25
+                    nextMonthPositionAnimation.springBounciness = 10
+                    nextMonthPositionAnimation.toValue = nextMonth!.frame.height / 2.0
+                    nextMonth!.pop_addAnimation(nextMonthPositionAnimation, forKey: "positionY")
+                } else {
+                    //swipe down
+                    //Animate the position of the current month
+                    let currentMonthPositionAnimation = POPSpringAnimation(propertyNamed: kPOPLayerPositionY)
+                    currentMonthPositionAnimation.springSpeed = 25
+                    currentMonthPositionAnimation.springBounciness = 10
+                    currentMonthPositionAnimation.toValue =  previousMonth!.frame.height + currentMonth!.frame.height / 2.0
+                    currentMonth!.pop_addAnimation(currentMonthPositionAnimation, forKey: "positionY")
+                    
+                    //Animate the alpha of the previousMonth
+                    let previousMonthAlphaAnimation = POPBasicAnimation(propertyNamed: kPOPViewAlpha)
+                    previousMonthAlphaAnimation.duration = 0.2
+                    previousMonthAlphaAnimation.toValue = 1.0
+                    previousMonthAlphaAnimation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
+                    previousMonth!.pop_addAnimation(previousMonthAlphaAnimation, forKey: "alpha")
+                    
+                    //Animate the position of prevousMonth
+                    let previousMonthPositionAnimation = POPSpringAnimation(propertyNamed: kPOPLayerPositionY)
+                    previousMonthPositionAnimation.springSpeed = 25
+                    previousMonthPositionAnimation.springBounciness = 10
+                    previousMonthPositionAnimation.toValue = previousMonth!.frame.height / 2.0
+                    previousMonth!.pop_addAnimation(previousMonthPositionAnimation, forKey: "positionY")
+                }
             }
         }
         
         if gestureRecognizer.state == .Ended {
-            let translation = gestureRecognizer.translationInView(self).y
-            let endY = gestureRecognizer.locationInView(self).y
-            print("translation END: \(translation)")
-            print("endY \(endY)")
+            let translation = gestureRecognizer.translationInView(self)
+            if fabs(translation.y) < threshold {
+                let currentMonthAlphaAnimation = POPBasicAnimation(propertyNamed: kPOPViewAlpha)
+                currentMonthAlphaAnimation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
+                currentMonthAlphaAnimation.duration = 0.2
+                currentMonthAlphaAnimation.toValue = 1.0
+                currentMonth!.pop_addAnimation(currentMonthAlphaAnimation, forKey: "alpha")
+                
+                let currentMonthPositionAnimation = POPSpringAnimation(propertyNamed: kPOPLayerPositionY)
+                currentMonthPositionAnimation.springSpeed = 25
+                currentMonthPositionAnimation.springBounciness = 10
+                currentMonthPositionAnimation.toValue = currentMonth!.frame.height / 2.0
+                currentMonth!.pop_addAnimation(currentMonthPositionAnimation, forKey: "positionY")
+                
+            } else {
+                //commit the transition
+            }
         }
     }
     
