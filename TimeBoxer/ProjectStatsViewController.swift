@@ -38,7 +38,7 @@ class ProjectStatsViewController: UIViewController {
     }
     
     private func setupCalendarHeatMap() {
-        calendarHeatMap.backgroundColor = Colors.oceanBlue()
+        calendarHeatMap.backgroundColor = Colors.almostBlack()
     }
     
 }

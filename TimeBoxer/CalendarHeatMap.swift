@@ -31,20 +31,22 @@ class CalendarHeatMap: UIView, UIGestureRecognizerDelegate {
         let now = NSDate()
         //prepare current month view
         currentMonth = MonthHeatMapView(fromDate: now)
-        currentMonth!.backgroundColor = UIColor.redColor()
+        currentMonth!.backgroundColor = UIColor.clearColor()
         addSubview(currentMonth!)
         
         //prepare next month view
         let calendar = NSCalendar.currentCalendar()
         let nextMonthDate = calendar.dateByAddingUnit(NSCalendarUnit.Month, value: 1, toDate: now, options: NSCalendarOptions.WrapComponents)!
         nextMonth = MonthHeatMapView(fromDate: nextMonthDate)
-        nextMonth!.backgroundColor = UIColor.blueColor()
+        nextMonth!.backgroundColor = UIColor.clearColor()
+        nextMonth!.alpha = 0.0
         addSubview(nextMonth!)
         
         //prepare previeous month view
         let previousMonthDate = calendar.dateByAddingUnit(NSCalendarUnit.Month, value: -1, toDate: now, options: NSCalendarOptions.WrapComponents)!
         previousMonth = MonthHeatMapView(fromDate: previousMonthDate)
-        previousMonth!.backgroundColor = UIColor.greenColor()
+        previousMonth!.backgroundColor = UIColor.clearColor()
+        previousMonth!.alpha = 0.0
         addSubview(previousMonth!)
         //setup the gesture recognizer
         setupGestureRecognizer()
@@ -85,7 +87,7 @@ class CalendarHeatMap: UIView, UIGestureRecognizerDelegate {
             let translation = gestureRecognizer.translationInView(self)
             if fabs(translation.y) < threshold {
                 currentMonth!.frame.origin.y = translation.y
-                currentMonth!.alpha = 1 - fabs(translation.y) / (threshold * 2)
+                currentMonth!.alpha = 1 - fabs(translation.y) / (threshold * 1.2)
             } else {
                 //commit the transition
                 gestureRecognizer.cancel()
@@ -93,7 +95,7 @@ class CalendarHeatMap: UIView, UIGestureRecognizerDelegate {
                 //Animate the alpha of the current month
                 let currentMonthAlphaAnimation = POPBasicAnimation(propertyNamed: kPOPViewAlpha)
                 currentMonthAlphaAnimation.duration = 0.2
-                currentMonthAlphaAnimation.toValue = 0.3
+                currentMonthAlphaAnimation.toValue = 0.0
                 currentMonthAlphaAnimation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
                 currentMonth!.pop_addAnimation(currentMonthAlphaAnimation, forKey: "alpha")
                 
@@ -101,8 +103,8 @@ class CalendarHeatMap: UIView, UIGestureRecognizerDelegate {
                     //swipe up
                     //Animate the position of the current month
                     let currentMonthPositionAnimation = POPSpringAnimation(propertyNamed: kPOPLayerPositionY)
-                    currentMonthPositionAnimation.springSpeed = 25
-                    currentMonthPositionAnimation.springBounciness = 10
+                    currentMonthPositionAnimation.springSpeed = 20
+                    currentMonthPositionAnimation.springBounciness = 3
                     currentMonthPositionAnimation.toValue =  -1.0 * currentMonth!.frame.height / 2.0
                     currentMonth!.pop_addAnimation(currentMonthPositionAnimation, forKey: "positionY")
                     
@@ -115,28 +117,29 @@ class CalendarHeatMap: UIView, UIGestureRecognizerDelegate {
                     
                     //Animate the position of the nextMonth
                     let nextMonthPositionAnimation = POPSpringAnimation(propertyNamed: kPOPLayerPositionY)
-                    nextMonthPositionAnimation.springSpeed = 25
-                    nextMonthPositionAnimation.springBounciness = 10
+                    nextMonthPositionAnimation.springSpeed = 20
+                    nextMonthPositionAnimation.springBounciness = 3
                     nextMonthPositionAnimation.toValue = nextMonth!.frame.height / 2.0
                     nextMonth!.pop_addAnimation(nextMonthPositionAnimation, forKey: "positionY")
                     
                     //update the current, previous, next month
                     previousMonth!.removeFromSuperview()
                     previousMonth = currentMonth
-                    previousMonth!.backgroundColor = UIColor.greenColor()
+                    previousMonth!.backgroundColor = UIColor.clearColor()
                     currentMonth = nextMonth
-                    currentMonth!.backgroundColor = UIColor.redColor()
+                    currentMonth!.backgroundColor = UIColor.clearColor()
                     let nextMonthDate  = NSCalendar.currentCalendar().dateFromComponents(nextMonth!.currentDateComponents)!
                     let newNextMonthDate = NSCalendar.currentCalendar().dateByAddingUnit(NSCalendarUnit.Month, value: 1, toDate: nextMonthDate, options: NSCalendarOptions.WrapComponents)!
                     nextMonth = MonthHeatMapView(fromDate: newNextMonthDate)
-                    nextMonth!.backgroundColor = UIColor.blueColor()
+                    nextMonth!.backgroundColor = UIColor.clearColor()
+                    nextMonth!.alpha = 0.0
                     addSubview(nextMonth!)
                 } else {
                     //swipe down
                     //Animate the position of the current month
                     let currentMonthPositionAnimation = POPSpringAnimation(propertyNamed: kPOPLayerPositionY)
-                    currentMonthPositionAnimation.springSpeed = 25
-                    currentMonthPositionAnimation.springBounciness = 10
+                    currentMonthPositionAnimation.springSpeed = 20
+                    currentMonthPositionAnimation.springBounciness = 3
                     currentMonthPositionAnimation.toValue =  previousMonth!.frame.height + currentMonth!.frame.height / 2.0
                     currentMonth!.pop_addAnimation(currentMonthPositionAnimation, forKey: "positionY")
                     
@@ -149,22 +152,23 @@ class CalendarHeatMap: UIView, UIGestureRecognizerDelegate {
                     
                     //Animate the position of prevousMonth
                     let previousMonthPositionAnimation = POPSpringAnimation(propertyNamed: kPOPLayerPositionY)
-                    previousMonthPositionAnimation.springSpeed = 25
-                    previousMonthPositionAnimation.springBounciness = 10
+                    previousMonthPositionAnimation.springSpeed = 20
+                    previousMonthPositionAnimation.springBounciness = 3
                     previousMonthPositionAnimation.toValue = previousMonth!.frame.height / 2.0
                     previousMonth!.pop_addAnimation(previousMonthPositionAnimation, forKey: "positionY")
                     
                     //update the current, previous and next month
                     nextMonth!.removeFromSuperview()
                     nextMonth = currentMonth
-                    nextMonth!.backgroundColor = UIColor.blueColor()
+                    nextMonth!.backgroundColor = UIColor.clearColor()
                     currentMonth = previousMonth
-                    currentMonth!.backgroundColor = UIColor.redColor()
+                    currentMonth!.backgroundColor = UIColor.clearColor()
                     
                     let previousMonthDate = NSCalendar.currentCalendar().dateFromComponents(previousMonth!.currentDateComponents)!
                     let newPreviousMonthDate = NSCalendar.currentCalendar().dateByAddingUnit(NSCalendarUnit.Month, value: -1, toDate: previousMonthDate, options: NSCalendarOptions.WrapComponents)!
                     previousMonth = MonthHeatMapView(fromDate: newPreviousMonthDate)
-                    previousMonth!.backgroundColor = UIColor.greenColor()
+                    previousMonth!.backgroundColor = UIColor.clearColor()
+                    previousMonth!.alpha = 0.0
                     addSubview(previousMonth!)
                 }
             }
@@ -180,8 +184,8 @@ class CalendarHeatMap: UIView, UIGestureRecognizerDelegate {
                 currentMonth!.pop_addAnimation(currentMonthAlphaAnimation, forKey: "alpha")
                 
                 let currentMonthPositionAnimation = POPSpringAnimation(propertyNamed: kPOPLayerPositionY)
-                currentMonthPositionAnimation.springSpeed = 25
-                currentMonthPositionAnimation.springBounciness = 10
+                currentMonthPositionAnimation.springSpeed = 20
+                currentMonthPositionAnimation.springBounciness = 3
                 currentMonthPositionAnimation.toValue = currentMonth!.frame.height / 2.0
                 currentMonth!.pop_addAnimation(currentMonthPositionAnimation, forKey: "positionY")
                 
