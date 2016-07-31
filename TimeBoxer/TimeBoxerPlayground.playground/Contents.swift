@@ -12,15 +12,20 @@ import UIKit
 //    return dayDifference.day
 //}
 //
-//let formatter = NSDateFormatter()
-//formatter.dateFormat = "MM-dd-yyyy HH:mm"
+let formatter = NSDateFormatter()
+formatter.dateFormat = "MMMM"
 //let laterDate = formatter.dateFromString("06-20-2016 00:10")
 //let earlierDate = formatter.dateFromString("06-20-2016 23:50")
 //
 //dayDifferenceBetween(laterDate!, earlierDate:earlierDate!)
 
 
+
+
 let today = NSDate()
+
+formatter.stringFromDate(today)
+
 let calendar = NSCalendar.currentCalendar()
 
 //How many days in the current month?

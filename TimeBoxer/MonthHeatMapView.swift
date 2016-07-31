@@ -24,6 +24,14 @@ class MonthHeatMapView: UIView {
         }
     }
     
+    var currentDate:NSDate? {
+        get {
+            return NSCalendar.currentCalendar().dateFromComponents(currentDateComponents)
+        }
+    }
+    
+    let monthNameLabel = UILabel()
+    
     let sun = UILabel()
     let mon = UILabel()
     let tue = UILabel()
@@ -34,6 +42,9 @@ class MonthHeatMapView: UIView {
     
     private var dayNames = [UILabel]()
     
+    private var dayNumbers = [UILabel]()
+    
+    let monthNameFont = UIFont(name:"Avenir-Heavy", size: 22)
     let dayNameFont = UIFont(name: "Avenir-Book", size: 12)
     let dayNumberFont = UIFont(name: "Menlo-Regular", size: 12)
     let fontColor = UIColor.whiteColor()
@@ -46,7 +57,9 @@ class MonthHeatMapView: UIView {
     //eg. S M T W T F S. The distance between the centers of these letters is equal to cDistance.
     private var cDistance:CGFloat = 0.0
     
-    private var dayNumbers = [UILabel]()
+    //yOffset is used for laying out elements along the y axis. Eg. After the name of the month had been laid out
+    //the yOoffset i set to where the next element should be positioned on the y axis.
+    private var yOffset:CGFloat = 0.0
     
     private let calendar = NSCalendar.currentCalendar()
     
@@ -79,6 +92,7 @@ class MonthHeatMapView: UIView {
     
     private func doBasicInit() {
         setupCurrentDate()
+        setupMonthNameLabel()
         setupDayNames()
         setupDayNumbers()
     }
@@ -91,6 +105,16 @@ class MonthHeatMapView: UIView {
             month = todayComponents.month
             day = todayComponents.day
         }
+    }
+    
+    private func setupMonthNameLabel() {
+        monthNameLabel.font = monthNameFont
+        let formatter = NSDateFormatter()
+        formatter.dateFormat = "MMMM"
+        monthNameLabel.text = formatter.stringFromDate(currentDate!)
+        monthNameLabel.textColor = fontColor
+        monthNameLabel.sizeToFit()
+        addSubview(monthNameLabel)
     }
     
     private func setupDayNames() {
@@ -155,14 +179,19 @@ class MonthHeatMapView: UIView {
             let yMax = lastDayNumberLabel.frame.origin.y + lastDayNumberLabel.frame.size.height
             return yMax
         }
-        return sun.frame.height
+        return sun.frame.origin.y + sun.frame.height
     }
     override func intrinsicContentSize() -> CGSize {
         return CGSizeMake(UIViewNoIntrinsicMetric, preferredHeight())
     }
     
+    private func layoutMonthNameLabel() {
+        monthNameLabel.frame.origin = CGPointMake(0, 0)
+        yOffset = monthNameLabel.frame.height + 50
+    }
+    
     private func layoutDayNames() {
-        sun.layer.position = CGPointMake(cellSize.width/2.0, sun.frame.height/2.0)
+        sun.layer.position = CGPointMake(cellSize.width/2.0, yOffset + sun.frame.height/2.0)
         mon.layer.position = CGPointMake(sun.layer.position.x + cDistance, sun.layer.position.y)
         tue.layer.position = CGPointMake(mon.layer.position.x + cDistance, sun.layer.position.y)
         wed.layer.position = CGPointMake(tue.layer.position.x + cDistance, sun.layer.position.y)
@@ -205,6 +234,7 @@ class MonthHeatMapView: UIView {
         if frame.width != previousWidth {
             computeCellSize() //Cell size could be computed in doBasicInit but it makes sense for me to keep it here
             computeCDistance()
+            layoutMonthNameLabel()
             layoutDayNames()
             layoutDayNumbers()
             previousWidth = frame.width
