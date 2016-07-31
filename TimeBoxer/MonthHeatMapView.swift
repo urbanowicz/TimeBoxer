@@ -31,6 +31,7 @@ class MonthHeatMapView: UIView {
     }
     
     let monthNameLabel = UILabel()
+    let yearLabel = UILabel()
     
     let sun = UILabel()
     let mon = UILabel()
@@ -45,6 +46,7 @@ class MonthHeatMapView: UIView {
     private var dayNumbers = [UILabel]()
     
     let monthNameFont = UIFont(name:"Avenir-Heavy", size: 22)
+    let yearFont = UIFont(name: "Menlo-Regular", size: 12)
     let dayNameFont = UIFont(name: "Avenir-Book", size: 12)
     let dayNumberFont = UIFont(name: "Menlo-Regular", size: 12)
     let fontColor = UIColor.whiteColor()
@@ -93,6 +95,7 @@ class MonthHeatMapView: UIView {
     private func doBasicInit() {
         setupCurrentDate()
         setupMonthNameLabel()
+        setupYearLabel()
         setupDayNames()
         setupDayNumbers()
     }
@@ -115,6 +118,21 @@ class MonthHeatMapView: UIView {
         monthNameLabel.textColor = fontColor
         monthNameLabel.sizeToFit()
         addSubview(monthNameLabel)
+    }
+    
+    private func setupYearLabel() {
+        yearLabel.font = yearFont
+        yearLabel.textColor = fontColor
+        let formatter = NSDateFormatter()
+        formatter.dateFormat = "yyyy"
+        let yearText = formatter.stringFromDate(currentDate!)
+        yearLabel.text = ""
+        for character in yearText.characters {
+            yearLabel.text!.append(character)
+            yearLabel.text!.append(Character(" "))
+        }
+        yearLabel.sizeToFit()
+        addSubview(yearLabel)
     }
     
     private func setupDayNames() {
@@ -187,7 +205,13 @@ class MonthHeatMapView: UIView {
     
     private func layoutMonthNameLabel() {
         monthNameLabel.frame.origin = CGPointMake(0, 0)
-        yOffset = monthNameLabel.frame.height + 50
+        yOffset = monthNameLabel.frame.height + 5
+    }
+    
+    private func layoutYearLabel() {
+        yearLabel.frame.origin = CGPointMake(0, yOffset)
+        yOffset += yearLabel.frame.height
+        yOffset += 50
     }
     
     private func layoutDayNames() {
@@ -234,7 +258,9 @@ class MonthHeatMapView: UIView {
         if frame.width != previousWidth {
             computeCellSize() //Cell size could be computed in doBasicInit but it makes sense for me to keep it here
             computeCDistance()
+            //the order in which layout methods are called is imoirtant. Laying out from top to bottom.
             layoutMonthNameLabel()
+            layoutYearLabel()
             layoutDayNames()
             layoutDayNumbers()
             previousWidth = frame.width
