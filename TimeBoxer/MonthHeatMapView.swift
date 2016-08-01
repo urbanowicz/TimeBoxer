@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MonthHeatMapView: UIView {
+class MonthHeatMapView: UIView, UIGestureRecognizerDelegate {
 
     private var year:Int = 0
     private var month:Int = 0
@@ -67,6 +67,8 @@ class MonthHeatMapView: UIView {
     
     private var previousWidth:CGFloat = 0.0
     
+    private let tapGestureRecognizer:UITapGestureRecognizer = UITapGestureRecognizer()
+    
     convenience init(year:Int, month:Int, day:Int) {
         self.init(frame: CGRectZero)
         self.year = year
@@ -98,6 +100,7 @@ class MonthHeatMapView: UIView {
         setupYearLabel()
         setupDayNames()
         setupDayNumbers()
+        setupTapGestureRecognizer()
     }
     
     //MARK: setting up elements
@@ -177,6 +180,27 @@ class MonthHeatMapView: UIView {
         }
     }
     
+    private func setupTapGestureRecognizer() {
+        tapGestureRecognizer.addTarget(self, action: #selector(MonthHeatMapView.handleTapGesture(_:)))
+        tapGestureRecognizer.delegate = self
+        self.addGestureRecognizer(tapGestureRecognizer)
+    }
+    
+    
+    //MARK: Handle tap gesture recognition
+    func handleTapGesture(recognizer:UITapGestureRecognizer) {
+        for dayNumberLabel in dayNumbers {
+            if dayNumberLabel.pointInside(recognizer.locationInView(dayNumberLabel), withEvent: nil) {
+                print(dayNumberLabel.text)
+                break
+            }
+        }
+    }
+    
+    override func gestureRecognizerShouldBegin(gestureRecognizer: UIGestureRecognizer) -> Bool {
+        return true
+    }
+    
     //MARK: Compuing key variables
     private func computeCellSize() {
         //find the size of the cell that each symbol in the calendar will take
@@ -193,11 +217,12 @@ class MonthHeatMapView: UIView {
     
     //MARK: laying elements out
     func preferredHeight() ->CGFloat {
-        if let lastDayNumberLabel = dayNumbers.last {
-            let yMax = lastDayNumberLabel.frame.origin.y + lastDayNumberLabel.frame.size.height
-            return yMax
-        }
-        return sun.frame.origin.y + sun.frame.height
+//        if let lastDayNumberLabel = dayNumbers.last {
+//            let yMax = lastDayNumberLabel.frame.origin.y + lastDayNumberLabel.frame.size.height
+//            return yMax
+//        }
+//        return sun.frame.origin.y + sun.frame.height
+        return yOffset
     }
     override func intrinsicContentSize() -> CGSize {
         return CGSizeMake(UIViewNoIntrinsicMetric, preferredHeight())
@@ -252,6 +277,10 @@ class MonthHeatMapView: UIView {
                 x += cDistance
             }
         }
+        
+        //update the yOffset
+        let lastDayNumberLabel = dayNumbers.last!
+        yOffset = lastDayNumberLabel.frame.origin.y + lastDayNumberLabel.frame.size.height
     }
     
     func heightToFit() {
