@@ -47,11 +47,14 @@ class MonthHeatMapView: UIView, UIGestureRecognizerDelegate {
     
     let currentDateLabel = UILabel()
     
+    let hoursWorkedLabel = UILabel()
+    
     let monthNameFont = UIFont(name:"Avenir-Heavy", size: 22)
     let yearFont = UIFont(name: "Menlo-Regular", size: 12)
     let dayNameFont = UIFont(name: "Avenir-Book", size: 12)
     let dayNumberFont = UIFont(name: "Menlo-Regular", size: 12)
     let currentDateFont = UIFont(name: "Avenir-Medium", size: 14)
+    let hoursWorkedFont = UIFont(name: "Avenir-Heavy", size: 18)
     let fontColor = UIColor.whiteColor()
     
     //cellSize is the size of the bounding rectangle inside of which each element of the calendar will fit.
@@ -104,6 +107,7 @@ class MonthHeatMapView: UIView, UIGestureRecognizerDelegate {
         setupDayNames()
         setupDayNumbers()
         setupCurrentDateLabel()
+        setupHoursWorkedLabel()
         setupTapGestureRecognizer()
     }
     
@@ -192,6 +196,14 @@ class MonthHeatMapView: UIView, UIGestureRecognizerDelegate {
         currentDateLabel.text = formatter.stringFromDate(currentDate!)
         currentDateLabel.sizeToFit()
         addSubview(currentDateLabel)
+    }
+    
+    private func setupHoursWorkedLabel() {
+        hoursWorkedLabel.font = hoursWorkedFont
+        hoursWorkedLabel.textColor = fontColor
+        hoursWorkedLabel.text = "2 hours, 10 minutes"
+        hoursWorkedLabel.sizeToFit()
+        addSubview(hoursWorkedLabel)
     }
     
     private func setupTapGestureRecognizer() {
@@ -300,6 +312,11 @@ class MonthHeatMapView: UIView, UIGestureRecognizerDelegate {
         yOffset += 5
     }
     
+    private func layoutHoursWorkedLabel() {
+        hoursWorkedLabel.frame.origin = CGPointMake(0, yOffset)
+        yOffset += hoursWorkedLabel.frame.size.height
+    }
+    
     func heightToFit() {
         if frame.width != previousWidth {
             computeCellSize() //Cell size could be computed in doBasicInit but it makes sense for me to keep it here
@@ -310,6 +327,7 @@ class MonthHeatMapView: UIView, UIGestureRecognizerDelegate {
             layoutDayNames()
             layoutDayNumbers()
             layoutCurrentDateLabel()
+            layoutHoursWorkedLabel()
             previousWidth = frame.width
         }
         frame.size = CGSizeMake(frame.width, preferredHeight())
