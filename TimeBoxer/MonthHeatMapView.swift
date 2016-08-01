@@ -45,10 +45,13 @@ class MonthHeatMapView: UIView, UIGestureRecognizerDelegate {
     
     private var dayNumbers = [UILabel]()
     
+    let currentDateLabel = UILabel()
+    
     let monthNameFont = UIFont(name:"Avenir-Heavy", size: 22)
     let yearFont = UIFont(name: "Menlo-Regular", size: 12)
     let dayNameFont = UIFont(name: "Avenir-Book", size: 12)
     let dayNumberFont = UIFont(name: "Menlo-Regular", size: 12)
+    let currentDateFont = UIFont(name: "Avenir-Medium", size: 14)
     let fontColor = UIColor.whiteColor()
     
     //cellSize is the size of the bounding rectangle inside of which each element of the calendar will fit.
@@ -100,6 +103,7 @@ class MonthHeatMapView: UIView, UIGestureRecognizerDelegate {
         setupYearLabel()
         setupDayNames()
         setupDayNumbers()
+        setupCurrentDateLabel()
         setupTapGestureRecognizer()
     }
     
@@ -180,6 +184,16 @@ class MonthHeatMapView: UIView, UIGestureRecognizerDelegate {
         }
     }
     
+    private func setupCurrentDateLabel() {
+        let formatter = NSDateFormatter()
+        formatter.dateFormat = "EEEE d MMMM"
+        currentDateLabel.font = currentDateFont
+        currentDateLabel.textColor = fontColor
+        currentDateLabel.text = formatter.stringFromDate(currentDate!)
+        currentDateLabel.sizeToFit()
+        addSubview(currentDateLabel)
+    }
+    
     private func setupTapGestureRecognizer() {
         tapGestureRecognizer.addTarget(self, action: #selector(MonthHeatMapView.handleTapGesture(_:)))
         tapGestureRecognizer.delegate = self
@@ -192,6 +206,7 @@ class MonthHeatMapView: UIView, UIGestureRecognizerDelegate {
         for dayNumberLabel in dayNumbers {
             if dayNumberLabel.pointInside(recognizer.locationInView(dayNumberLabel), withEvent: nil) {
                 print(dayNumberLabel.text)
+                day = Int(dayNumberLabel.text!)!
                 break
             }
         }
@@ -216,12 +231,7 @@ class MonthHeatMapView: UIView, UIGestureRecognizerDelegate {
     }
     
     //MARK: laying elements out
-    func preferredHeight() ->CGFloat {
-//        if let lastDayNumberLabel = dayNumbers.last {
-//            let yMax = lastDayNumberLabel.frame.origin.y + lastDayNumberLabel.frame.size.height
-//            return yMax
-//        }
-//        return sun.frame.origin.y + sun.frame.height
+    func preferredHeight() -> CGFloat {
         return yOffset
     }
     override func intrinsicContentSize() -> CGSize {
@@ -281,6 +291,13 @@ class MonthHeatMapView: UIView, UIGestureRecognizerDelegate {
         //update the yOffset
         let lastDayNumberLabel = dayNumbers.last!
         yOffset = lastDayNumberLabel.frame.origin.y + lastDayNumberLabel.frame.size.height
+        yOffset += 50
+    }
+    
+    private func layoutCurrentDateLabel() {
+        currentDateLabel.frame.origin = CGPointMake(0, yOffset)
+        yOffset += currentDateLabel.frame.size.height
+        yOffset += 5
     }
     
     func heightToFit() {
@@ -292,6 +309,7 @@ class MonthHeatMapView: UIView, UIGestureRecognizerDelegate {
             layoutYearLabel()
             layoutDayNames()
             layoutDayNumbers()
+            layoutCurrentDateLabel()
             previousWidth = frame.width
         }
         frame.size = CGSizeMake(frame.width, preferredHeight())
