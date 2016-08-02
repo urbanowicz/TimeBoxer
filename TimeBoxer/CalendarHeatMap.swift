@@ -87,14 +87,14 @@ class CalendarHeatMap: UIView, UIGestureRecognizerDelegate {
             let translation = gestureRecognizer.translationInView(self)
             if fabs(translation.y) < threshold {
                 currentMonth!.frame.origin.y = translation.y
-                currentMonth!.alpha = 1 - fabs(translation.y) / (threshold * 1.2)
+                currentMonth!.alpha = 1 - fabs(translation.y) / (threshold * 1.1)
             } else {
                 //commit the transition
                 gestureRecognizer.cancel()
                 
                 //Animate the alpha of the current month
                 let currentMonthAlphaAnimation = POPBasicAnimation(propertyNamed: kPOPViewAlpha)
-                currentMonthAlphaAnimation.duration = 0.2
+                currentMonthAlphaAnimation.duration = 0.01
                 currentMonthAlphaAnimation.toValue = 0.0
                 currentMonthAlphaAnimation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
                 currentMonth!.pop_addAnimation(currentMonthAlphaAnimation, forKey: "alpha")
@@ -190,6 +190,7 @@ class CalendarHeatMap: UIView, UIGestureRecognizerDelegate {
                 currentMonth!.pop_addAnimation(currentMonthPositionAnimation, forKey: "positionY")
                 
             } else {
+                print("GESTURE RECOGNIZER END")
                 //commit the transition
             }
         }
