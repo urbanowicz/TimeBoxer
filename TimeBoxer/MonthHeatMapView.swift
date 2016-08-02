@@ -266,7 +266,7 @@ class MonthHeatMapView: UIView, UIGestureRecognizerDelegate {
     private func layoutYearLabel() {
         yearLabel.frame.origin = CGPointMake(0, yOffset)
         yOffset += yearLabel.frame.height
-        yOffset += 50
+        yOffset += 30
     }
     
     private func layoutDayNames() {
@@ -311,7 +311,7 @@ class MonthHeatMapView: UIView, UIGestureRecognizerDelegate {
         //update the yOffset
         let lastDayNumberLabel = dayNumbers.last!
         yOffset = lastDayNumberLabel.frame.origin.y + lastDayNumberLabel.frame.size.height
-        yOffset += 50
+        yOffset += 30
     }
     
     private func layoutCurrentDateLabel() {
