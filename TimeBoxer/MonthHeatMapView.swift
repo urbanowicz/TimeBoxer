@@ -43,7 +43,7 @@ class MonthHeatMapView: UIView, UIGestureRecognizerDelegate {
     
     private var dayNames = [UILabel]()
     
-    private var dayNumbers = [UILabel]()
+    private var dayNumbers = [HeatMapCell]()
     
     let currentDateLabel = UILabel()
     
@@ -178,13 +178,15 @@ class MonthHeatMapView: UIView, UIGestureRecognizerDelegate {
         
         dayNumbers.removeAll(keepCapacity: true)
         for dayNumber in 1...getNumberOfDaysInTheMonth() {
-            let dayLabel = UILabel()
+            let dayNumberCell = HeatMapCell()
+            let dayLabel = dayNumberCell.dayNumberLabel
             dayLabel.font = dayNumberFont
             dayLabel.textColor = fontColor
             dayLabel.text = String(dayNumber)
             dayLabel.sizeToFit()
-            dayNumbers.append(dayLabel)
-            addSubview(dayLabel)
+            dayNumbers.append(dayNumberCell)
+            dayNumberCell.backgroundColor = UIColor.blueColor()
+            addSubview(dayNumberCell)
         }
     }
     
@@ -223,9 +225,9 @@ class MonthHeatMapView: UIView, UIGestureRecognizerDelegate {
             currentDateLabel.sizeToFit()
         }
         
-        for dayNumberLabel in dayNumbers {
-            if dayNumberLabel.pointInside(recognizer.locationInView(dayNumberLabel), withEvent: nil) {
-                day = Int(dayNumberLabel.text!)!
+        for dayNumberCell in dayNumbers {
+            if dayNumberCell.pointInside(recognizer.locationInView(dayNumberCell), withEvent: nil) {
+                day = dayNumberCell.getDayNumber()!
                 updateCurrentDateLabel()
                 break
             }
@@ -297,8 +299,9 @@ class MonthHeatMapView: UIView, UIGestureRecognizerDelegate {
         let firstDayOfTheMonthLabel = getLabelForTheFirstDayOfTheMonth()
         var x = firstDayOfTheMonthLabel.layer.position.x
         var y = firstDayOfTheMonthLabel.layer.position.y + cDistance
-        for dayNumberLabel in dayNumbers {
-            dayNumberLabel.layer.position = CGPointMake(x,y)
+        for dayNumberCell in dayNumbers {
+            dayNumberCell.frame.size = CGSizeMake(cDistance, cDistance)
+            dayNumberCell.layer.position = CGPointMake(x,y)
             //advance the position
             if x == sat.layer.position.x {
                 x = sun.layer.position.x
@@ -311,7 +314,7 @@ class MonthHeatMapView: UIView, UIGestureRecognizerDelegate {
         //update the yOffset
         let lastDayNumberLabel = dayNumbers.last!
         yOffset = lastDayNumberLabel.frame.origin.y + lastDayNumberLabel.frame.size.height
-        yOffset += 30
+        yOffset += 20
     }
     
     private func layoutCurrentDateLabel() {
