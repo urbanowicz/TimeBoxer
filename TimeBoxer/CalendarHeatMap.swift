@@ -56,12 +56,11 @@ class CalendarHeatMap: UIView, UIGestureRecognizerDelegate, POPAnimationDelegate
         //setup the gesture recognizer
         setupGestureRecognizer()
         
-        clipsToBounds = true
+        clipsToBounds = false
 
     }
 
     override func layoutSubviews() {
-        print("layout kurwa")
         currentMonth!.frame = CGRectMake(0, 0, frame.width, frame.height)
         currentMonth!.heightToFit()
         nextMonth!.frame = CGRectMake(0, frame.height, frame.width, frame.height)
@@ -88,7 +87,7 @@ class CalendarHeatMap: UIView, UIGestureRecognizerDelegate, POPAnimationDelegate
         //it is reversed otherwise
         let threshold = CGFloat(50)
         let springSpeed = CGFloat(5)
-
+        let springBounciness = CGFloat(2.0)
         
         if gestureRecognizer.state == .Changed {
             let translation = gestureRecognizer.translationInView(self)
@@ -101,7 +100,7 @@ class CalendarHeatMap: UIView, UIGestureRecognizerDelegate, POPAnimationDelegate
                 
                 //Animate the alpha of the current month
                 let currentMonthAlphaAnimation = POPBasicAnimation(propertyNamed: kPOPViewAlpha)
-                currentMonthAlphaAnimation.duration = 0.1
+                currentMonthAlphaAnimation.duration = 0.05
                 currentMonthAlphaAnimation.toValue = 0.0
                 currentMonthAlphaAnimation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseIn)
                 currentMonthAlphaAnimation.delegate = self
@@ -114,7 +113,7 @@ class CalendarHeatMap: UIView, UIGestureRecognizerDelegate, POPAnimationDelegate
                     
                     //Animate the alpha of the nextMonth
                     let nextMonthAlphaAnimation = POPBasicAnimation(propertyNamed: kPOPViewAlpha)
-                    nextMonthAlphaAnimation.duration = 0.1
+                    nextMonthAlphaAnimation.duration = 0.05
                     nextMonthAlphaAnimation.toValue = 1.0
                     nextMonthAlphaAnimation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseIn)
                     nextMonthAlphaAnimation.delegate = self
@@ -122,11 +121,10 @@ class CalendarHeatMap: UIView, UIGestureRecognizerDelegate, POPAnimationDelegate
                     
                     //Animate the position of the nextMonth
                     let nextMonthPositionAnimation = POPSpringAnimation(propertyNamed: kPOPLayerPositionY)
-                    nextMonthPositionAnimation.springSpeed = springSpeed
-                    nextMonthPositionAnimation.springBounciness = 3
                     nextMonthPositionAnimation.toValue = nextMonth!.frame.height / 2.0
                     nextMonthPositionAnimation.delegate = self
-                    nextMonthPositionAnimation.beginTime = 0.1
+                    nextMonthPositionAnimation.springSpeed = springSpeed
+                    nextMonthPositionAnimation.springBounciness = springBounciness
                     nextMonth!.pop_addAnimation(nextMonthPositionAnimation, forKey: "positionY")
                     
                     //update the current, previous, next month -> happens in pop_animationDidStop
@@ -137,7 +135,7 @@ class CalendarHeatMap: UIView, UIGestureRecognizerDelegate, POPAnimationDelegate
                     
                     //Animate the alpha of the previousMonth
                     let previousMonthAlphaAnimation = POPBasicAnimation(propertyNamed: kPOPViewAlpha)
-                    previousMonthAlphaAnimation.duration = 0.1
+                    previousMonthAlphaAnimation.duration = 0.05
                     previousMonthAlphaAnimation.toValue = 1.0
                     previousMonthAlphaAnimation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseIn)
                     previousMonthAlphaAnimation.delegate = self
@@ -146,7 +144,7 @@ class CalendarHeatMap: UIView, UIGestureRecognizerDelegate, POPAnimationDelegate
                     //Animate the position of prevousMonth
                     let previousMonthPositionAnimation = POPSpringAnimation(propertyNamed: kPOPLayerPositionY)
                     previousMonthPositionAnimation.springSpeed = springSpeed
-                    previousMonthPositionAnimation.springBounciness = 3
+                    previousMonthPositionAnimation.springBounciness = springBounciness
                     previousMonthPositionAnimation.toValue = previousMonth!.frame.height / 2.0
                     previousMonthPositionAnimation.delegate = self
                     previousMonth!.pop_addAnimation(previousMonthPositionAnimation, forKey: "positionY")
@@ -193,7 +191,6 @@ class CalendarHeatMap: UIView, UIGestureRecognizerDelegate, POPAnimationDelegate
     
         monthTransitionAnimationCount += 1
         if monthTransitionAnimationCount == 3 {
-            print("Animations STOP \(anim)")
             if monthTransitionDirection == monthTransitionUp {
                 //swipe up
                 currentMonth!.layer.position = CGPointMake(currentMonth!.layer.position.x, -1.0 * currentMonth!.frame.height / 2.0)
