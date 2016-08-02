@@ -33,8 +33,9 @@ class ProjectStatsViewController: UIViewController {
     //MARK: Setup UI Elements
 
     private func setupProjectNameLabel() {
-        projectNameLabel.font = UIFont(name: "Avenir Book", size: 16)
+        projectNameLabel.font = UIFont(name: "Avenir-Medium", size: 16)
         projectNameLabel.textColor = Colors.silver()
+        projectNameLabel.numberOfLines = 2
     }
     
     private func setupCalendarHeatMap() {

@@ -38,14 +38,14 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" placeholderIntrinsicWidth="infinite" placeholderIntrinsicHeight="419" translatesAutoresizingMaskIntoConstraints="NO" id="z40-fN-S2G" customClass="CalendarHeatMap" customModule="TimeBoxer" customModuleProvider="target">
-                                <rect key="frame" x="30" y="81" width="540" height="419"/>
+                                <rect key="frame" x="30" y="71" width="540" height="419"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="z40-fN-S2G" firstAttribute="leading" secondItem="y0t-tH-WgZ" secondAttribute="leadingMargin" constant="10" id="HBN-XP-b7M"/>
-                            <constraint firstItem="z40-fN-S2G" firstAttribute="top" secondItem="mwz-43-j4u" secondAttribute="bottom" constant="30" id="VfS-dj-WTc"/>
+                            <constraint firstItem="z40-fN-S2G" firstAttribute="top" secondItem="mwz-43-j4u" secondAttribute="bottom" constant="20" id="VfS-dj-WTc"/>
                             <constraint firstItem="mwz-43-j4u" firstAttribute="leading" secondItem="y0t-tH-WgZ" secondAttribute="leadingMargin" constant="10" id="a7z-qB-OC9"/>
                             <constraint firstItem="mwz-43-j4u" firstAttribute="top" secondItem="om9-dy-SQy" secondAttribute="bottom" constant="10" id="cUz-dp-w5e"/>
                             <constraint firstAttribute="trailingMargin" secondItem="z40-fN-S2G" secondAttribute="trailing" constant="10" id="d7Z-Qv-l9z"/>
