@@ -190,6 +190,9 @@ class MonthHeatMapView: UIView, UIGestureRecognizerDelegate {
             dayNumberCell.backgroundColor = Colors.almostBlack()
             addSubview(dayNumberCell)
             
+            
+            dayNumberCell.heat = CGFloat(arc4random_uniform(100)) / CGFloat(100)
+            
             //select the current day number
             if dayNumber == self.day {
                 dayNumberCell.select()

@@ -12,6 +12,17 @@ class HeatMapCell: UIView {
 
     let dayNumberLabel:UILabel = UILabel()
     
+    //heat is a value between 0.0 and 1.0
+    var heat = CGFloat(0) {
+        didSet {
+            if heat == 0 {
+                heatLayer.fillColor = Colors.red().CGColor
+            } else {
+                heatLayer.fillColor = Colors.green().withAlpha(heat).CGColor
+            }
+        }
+    }
+    
     private let heatLayer = CAShapeLayer()
     private let selectionLayer = CAShapeLayer()
     
@@ -40,7 +51,11 @@ class HeatMapCell: UIView {
     }
     
     private func setupHeatLayer() {
-        heatLayer.fillColor = UIColor.brownColor().CGColor
+        if heat == 0 {
+            heatLayer.fillColor = Colors.red().CGColor
+        } else {
+            heatLayer.fillColor = Colors.green().withAlpha(heat).CGColor
+        }
         heatLayer.backgroundColor = UIColor.clearColor().CGColor
         layer.addSublayer(heatLayer)
     }
