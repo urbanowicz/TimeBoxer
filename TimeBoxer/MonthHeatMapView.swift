@@ -185,7 +185,7 @@ class MonthHeatMapView: UIView, UIGestureRecognizerDelegate {
             dayLabel.text = String(dayNumber)
             dayLabel.sizeToFit()
             dayNumbers.append(dayNumberCell)
-            dayNumberCell.backgroundColor = UIColor.blueColor()
+            dayNumberCell.backgroundColor = Colors.almostBlack()
             addSubview(dayNumberCell)
         }
     }
