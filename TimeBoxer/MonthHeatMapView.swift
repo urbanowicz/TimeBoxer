@@ -215,10 +215,18 @@ class MonthHeatMapView: UIView, UIGestureRecognizerDelegate {
     
     //MARK: Handle tap gesture recognition
     func handleTapGesture(recognizer:UITapGestureRecognizer) {
+        
+        func updateCurrentDateLabel() {
+            let formatter = NSDateFormatter()
+            formatter.dateFormat = "EEEE d MMMM"
+            currentDateLabel.text = formatter.stringFromDate(currentDate!)
+            currentDateLabel.sizeToFit()
+        }
+        
         for dayNumberLabel in dayNumbers {
             if dayNumberLabel.pointInside(recognizer.locationInView(dayNumberLabel), withEvent: nil) {
-                print(dayNumberLabel.text)
                 day = Int(dayNumberLabel.text!)!
+                updateCurrentDateLabel()
                 break
             }
         }
