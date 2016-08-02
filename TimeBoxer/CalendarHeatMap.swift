@@ -36,14 +36,14 @@ class CalendarHeatMap: UIView, UIGestureRecognizerDelegate {
         
         //prepare next month view
         let calendar = NSCalendar.currentCalendar()
-        let nextMonthDate = calendar.dateByAddingUnit(NSCalendarUnit.Month, value: 1, toDate: now, options: NSCalendarOptions.WrapComponents)!
+        let nextMonthDate = calendar.dateByAddingUnit(NSCalendarUnit.Month, value: 1, toDate: now, options: NSCalendarOptions.MatchNextTime)!
         nextMonth = MonthHeatMapView(fromDate: nextMonthDate)
         nextMonth!.backgroundColor = UIColor.clearColor()
         nextMonth!.alpha = 0.0
         addSubview(nextMonth!)
         
         //prepare previeous month view
-        let previousMonthDate = calendar.dateByAddingUnit(NSCalendarUnit.Month, value: -1, toDate: now, options: NSCalendarOptions.WrapComponents)!
+        let previousMonthDate = calendar.dateByAddingUnit(NSCalendarUnit.Month, value: -1, toDate: now, options: NSCalendarOptions.MatchNextTime)!
         previousMonth = MonthHeatMapView(fromDate: previousMonthDate)
         previousMonth!.backgroundColor = UIColor.clearColor()
         previousMonth!.alpha = 0.0
@@ -129,7 +129,7 @@ class CalendarHeatMap: UIView, UIGestureRecognizerDelegate {
                     currentMonth = nextMonth
                     currentMonth!.backgroundColor = UIColor.clearColor()
                     let nextMonthDate  = NSCalendar.currentCalendar().dateFromComponents(nextMonth!.currentDateComponents)!
-                    let newNextMonthDate = NSCalendar.currentCalendar().dateByAddingUnit(NSCalendarUnit.Month, value: 1, toDate: nextMonthDate, options: NSCalendarOptions.WrapComponents)!
+                    let newNextMonthDate = NSCalendar.currentCalendar().dateByAddingUnit(NSCalendarUnit.Month, value: 1, toDate: nextMonthDate, options: NSCalendarOptions.MatchNextTime)!
                     nextMonth = MonthHeatMapView(fromDate: newNextMonthDate)
                     nextMonth!.backgroundColor = UIColor.clearColor()
                     nextMonth!.alpha = 0.0
@@ -165,7 +165,7 @@ class CalendarHeatMap: UIView, UIGestureRecognizerDelegate {
                     currentMonth!.backgroundColor = UIColor.clearColor()
                     
                     let previousMonthDate = NSCalendar.currentCalendar().dateFromComponents(previousMonth!.currentDateComponents)!
-                    let newPreviousMonthDate = NSCalendar.currentCalendar().dateByAddingUnit(NSCalendarUnit.Month, value: -1, toDate: previousMonthDate, options: NSCalendarOptions.WrapComponents)!
+                    let newPreviousMonthDate = NSCalendar.currentCalendar().dateByAddingUnit(NSCalendarUnit.Month, value: -1, toDate: previousMonthDate, options: NSCalendarOptions.MatchNextTime)!
                     previousMonth = MonthHeatMapView(fromDate: newPreviousMonthDate)
                     previousMonth!.backgroundColor = UIColor.clearColor()
                     previousMonth!.alpha = 0.0
