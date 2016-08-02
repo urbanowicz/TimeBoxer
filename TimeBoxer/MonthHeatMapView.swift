@@ -45,6 +45,8 @@ class MonthHeatMapView: UIView, UIGestureRecognizerDelegate {
     
     private var dayNumbers = [HeatMapCell]()
     
+    var currentHeatMapCell:HeatMapCell?
+    
     let currentDateLabel = UILabel()
     
     let hoursWorkedLabel = UILabel()
@@ -187,6 +189,12 @@ class MonthHeatMapView: UIView, UIGestureRecognizerDelegate {
             dayNumbers.append(dayNumberCell)
             dayNumberCell.backgroundColor = Colors.almostBlack()
             addSubview(dayNumberCell)
+            
+            //select the current day number
+            if dayNumber == self.day {
+                dayNumberCell.select()
+                currentHeatMapCell = dayNumberCell
+            }
         }
     }
     
@@ -228,6 +236,9 @@ class MonthHeatMapView: UIView, UIGestureRecognizerDelegate {
         for dayNumberCell in dayNumbers {
             if dayNumberCell.pointInside(recognizer.locationInView(dayNumberCell), withEvent: nil) {
                 day = dayNumberCell.getDayNumber()!
+                currentHeatMapCell?.deselect()
+                dayNumberCell.select()
+                currentHeatMapCell = dayNumberCell
                 updateCurrentDateLabel()
                 break
             }
