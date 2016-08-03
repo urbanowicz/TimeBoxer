@@ -81,6 +81,15 @@ class Project: NSObject, NSCoding, NSCopying {
         return totalSeconds
     }
     
+    func totalSeconds(withDate date:NSDate) -> Int {
+        let workChunks = workChunksWithDate(date)
+        var total = 0
+        for workChunk in workChunks {
+            total += workChunk.duration
+        }
+        return total
+    }
+    
     func lastWrokedOn() -> NSDate? {
         ///returns the Date and Time that this project was last worked on
         ///or nil if it hasn't been worked on yet
