@@ -9,6 +9,27 @@
 import UIKit
 
 extension NSDate {
+    
+    func isBefore(anotherDate date:NSDate, granularity:NSCalendarUnit) -> Bool {
+        let calendar = NSCalendar.currentCalendar()
+        let comparisonResult = calendar.compareDate(self, toDate: date, toUnitGranularity: granularity)
+        if comparisonResult == NSComparisonResult.OrderedAscending {
+            return true
+        } else {
+            return false
+        }
+    }
+    
+    func isAfter(anotherDate date:NSDate, granularity:NSCalendarUnit) -> Bool {
+        let calendar = NSCalendar.currentCalendar()
+        let comparisonResult = calendar.compareDate(self, toDate: date, toUnitGranularity: granularity)
+        if comparisonResult == NSComparisonResult.OrderedDescending {
+            return true
+        } else {
+            return false
+        }
+    }
+    
     func daysSince(earlierDate:NSDate) ->Int {
         let calendar = NSCalendar.currentCalendar()
         let laterDateNoTimeComponent = dateWithNoTimeComponentFromDate(self)

@@ -31,26 +31,26 @@ class MonthHeatMapView: UIView, UIGestureRecognizerDelegate {
         }
     }
     
-    let monthNameLabel = UILabel()
-    let yearLabel = UILabel()
+    private let monthNameLabel = UILabel()
+    private let yearLabel = UILabel()
     
-    let sun = UILabel()
-    let mon = UILabel()
-    let tue = UILabel()
-    let wed = UILabel()
-    let thu = UILabel()
-    let fri = UILabel()
-    let sat = UILabel()
+    private let sun = UILabel()
+    private let mon = UILabel()
+    private let tue = UILabel()
+    private let wed = UILabel()
+    private let thu = UILabel()
+    private let fri = UILabel()
+    private let sat = UILabel()
     
     private var dayNames = [UILabel]()
     
     private var dayNumbers = [HeatMapCell]()
     
-    var currentHeatMapCell:HeatMapCell?
+    private var currentHeatMapCell:HeatMapCell?
     
-    let currentDateLabel = UILabel()
+    private let currentDateLabel = UILabel()
     
-    let hoursWorkedLabel = UILabel()
+    private let hoursWorkedLabel = UILabel()
     
     let monthNameFont = UIFont(name:"Avenir-Heavy", size: 22)
     let yearFont = UIFont(name: "Menlo-Regular", size: 12)
@@ -83,7 +83,13 @@ class MonthHeatMapView: UIView, UIGestureRecognizerDelegate {
             for dayNumberCell in dayNumbers {
                 let components = currentDateComponents
                 components.day = dayNumberCell.getDayNumber()!
-                dayNumberCell.heat = dataSource!.heat(withDate: NSCalendar.currentCalendar().dateFromComponents(components)!)
+                let dayNumberDate = NSCalendar.currentCalendar().dateFromComponents(components)!
+                if dayNumberDate.isBefore(anotherDate: dataSource!.startDate(), granularity: .Day) {
+                    dayNumberCell.active = false
+                } else {
+                    dayNumberCell.active = true
+                    dayNumberCell.heat = dataSource!.heat(withDate: dayNumberDate)
+                }
             }
         }
     }

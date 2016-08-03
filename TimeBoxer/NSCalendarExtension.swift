@@ -9,11 +9,5 @@
 import UIKit
 
 extension NSCalendar {
-    public func mondayBeforeTheDate(date:NSDate) -> NSDate {
-        let components = self.components([NSCalendarUnit.Weekday], fromDate:date)
-        let numberOfDaysSinceMonday = components.weekday - 2
-        let monday = self.dateByAddingUnit(NSCalendarUnit.Day, value: -numberOfDaysSinceMonday, toDate: date, options: NSCalendarOptions.WrapComponents)!
-        return monday
-    }
     
 }

@@ -12,6 +12,18 @@ class HeatMapCell: UIView {
 
     let dayNumberLabel:UILabel = UILabel()
     
+    var active:Bool = true {
+        didSet {
+            if active == true {
+                heatLayer.hidden = false
+                dayNumberLabel.alpha = 1.0
+            } else {
+                heatLayer.hidden = true
+                dayNumberLabel.alpha = 0.3
+            }
+        }
+    }
+    
     //heat is a value between 0.0 and 1.0
     var heat = CGFloat(0) {
         didSet {
@@ -45,7 +57,7 @@ class HeatMapCell: UIView {
     private func setupSelectionLayer() {
         selectionLayer.fillColor = UIColor.clearColor().CGColor
         selectionLayer.strokeColor = UIColor.whiteColor().CGColor
-        selectionLayer.lineWidth = 1.0
+        selectionLayer.lineWidth = 2.0
         selectionLayer.opacity = 0.0
         layer.addSublayer(selectionLayer)
     }
