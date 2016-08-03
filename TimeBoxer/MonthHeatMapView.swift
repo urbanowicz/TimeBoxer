@@ -81,9 +81,7 @@ class MonthHeatMapView: UIView, UIGestureRecognizerDelegate {
     var dataSource: CalendarHeatMapDataSource? {
         didSet {
             for dayNumberCell in dayNumbers {
-                let components = currentDateComponents
-                components.day = dayNumberCell.getDayNumber()!
-                let dayNumberDate = NSCalendar.currentCalendar().dateFromComponents(components)!
+                let dayNumberDate = NSCalendar.currentCalendar().createDate(withYear: year, month: month, day: dayNumberCell.getDayNumber()!)!
                 let today = NSDate()
                 if dayNumberDate.isBefore(anotherDate: dataSource!.startDate(), granularity: .Day) ||
                 dayNumberDate.isAfter(anotherDate: today, granularity: .Day){

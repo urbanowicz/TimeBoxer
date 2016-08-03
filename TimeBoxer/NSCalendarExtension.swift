@@ -9,5 +9,12 @@
 import UIKit
 
 extension NSCalendar {
-    
+    func createDate(withYear year:Int, month:Int, day:Int) -> NSDate? {
+        let components = NSDateComponents()
+        components.year = year
+        components.month = month
+        components.day = day
+        
+        return self.dateFromComponents(components)
+    }
 }
