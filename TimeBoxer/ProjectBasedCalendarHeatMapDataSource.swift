@@ -1,0 +1,21 @@
+//
+//  ProjectBasedCalendarHeatMapDataSource.swift
+//  TimeBoxer
+//
+//  Created by Tomasz Urbanowicz on 03/08/16.
+//  Copyright © 2016 Tomasz Urbanowicz. All rights reserved.
+//
+
+import UIKit
+
+class ProjectBasedCalendarHeatMapDataSource: NSObject, CalendarHeatMapDataSource {
+    func startDate() -> NSDate {
+        let formatter = NSDateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd"
+        return formatter.dateFromString("2016-07-10")!
+    }
+    
+    func heat(withDate date: NSDate) -> CGFloat {
+        return CGFloat(arc4random_uniform(100)) / CGFloat(100)
+    }
+}

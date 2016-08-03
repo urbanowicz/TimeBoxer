@@ -10,6 +10,15 @@ import UIKit
 
 class CalendarHeatMap: UIView, UIGestureRecognizerDelegate, POPAnimationDelegate {
     
+
+    var dataSource:CalendarHeatMapDataSource? {
+        didSet {
+            previousMonth?.dataSource = dataSource
+            currentMonth?.dataSource = dataSource
+            nextMonth?.dataSource = dataSource
+        }
+    }
+    
     private var currentMonth:MonthHeatMapView?
     private var previousMonth:MonthHeatMapView?
     private var nextMonth:MonthHeatMapView?
@@ -202,6 +211,7 @@ class CalendarHeatMap: UIView, UIGestureRecognizerDelegate, POPAnimationDelegate
                 nextMonth = MonthHeatMapView(fromDate: newNextMonthDate)
                 nextMonth!.backgroundColor = UIColor.clearColor()
                 nextMonth!.alpha = 0.0
+                nextMonth!.dataSource = dataSource
                 addSubview(nextMonth!)
             } else {
                 //swipe down
@@ -214,6 +224,7 @@ class CalendarHeatMap: UIView, UIGestureRecognizerDelegate, POPAnimationDelegate
                 previousMonth = MonthHeatMapView(fromDate: newPreviousMonthDate)
                 previousMonth!.backgroundColor = UIColor.clearColor()
                 previousMonth!.alpha = 0.0
+                previousMonth!.dataSource = dataSource
                 addSubview(previousMonth!)
             }
             monthTransitionAnimationCount = 0

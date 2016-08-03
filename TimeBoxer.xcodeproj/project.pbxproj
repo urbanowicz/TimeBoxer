@@ -48,6 +48,8 @@
 		F185A0A21CBAB5A80067775D /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F185A0A01CBAB5A80067775D /* UIColorExtension.swift */; };
 		F188DA6F1C898890000E8AD2 /* ShrinkingCircleAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F188DA6E1C898890000E8AD2 /* ShrinkingCircleAnimator.swift */; };
 		F189A1B21BD8C0D3000FFC5F /* TimeSliderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F189A1B11BD8C0D3000FFC5F /* TimeSliderViewController.swift */; };
+		F18C1DB31D52159700EF014B /* CalendarHeatMapDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = F18C1DB21D52159700EF014B /* CalendarHeatMapDataSource.swift */; };
+		F18C1DBB1D52169100EF014B /* ProjectBasedCalendarHeatMapDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = F18C1DBA1D52169100EF014B /* ProjectBasedCalendarHeatMapDataSource.swift */; };
 		F18C2AD81C873A9A004A7B72 /* TimerDoneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F18C2AD71C873A9A004A7B72 /* TimerDoneViewController.swift */; };
 		F19133531CA844DD00CED170 /* NSDateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F19133521CA844DD00CED170 /* NSDateExtension.swift */; };
 		F19133551CA8478900CED170 /* NSCalendarExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F19133541CA8478900CED170 /* NSCalendarExtension.swift */; };
@@ -202,6 +204,8 @@
 		F185A0A01CBAB5A80067775D /* UIColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		F188DA6E1C898890000E8AD2 /* ShrinkingCircleAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShrinkingCircleAnimator.swift; sourceTree = "<group>"; };
 		F189A1B11BD8C0D3000FFC5F /* TimeSliderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeSliderViewController.swift; sourceTree = "<group>"; };
+		F18C1DB21D52159700EF014B /* CalendarHeatMapDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarHeatMapDataSource.swift; sourceTree = "<group>"; };
+		F18C1DBA1D52169100EF014B /* ProjectBasedCalendarHeatMapDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectBasedCalendarHeatMapDataSource.swift; sourceTree = "<group>"; };
 		F18C2AD71C873A9A004A7B72 /* TimerDoneViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerDoneViewController.swift; sourceTree = "<group>"; };
 		F19133521CA844DD00CED170 /* NSDateExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSDateExtension.swift; sourceTree = "<group>"; };
 		F19133541CA8478900CED170 /* NSCalendarExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSCalendarExtension.swift; sourceTree = "<group>"; };
@@ -483,6 +487,8 @@
 				F1D08A3D1D4773E80066C907 /* CalendarHeatMap.swift */,
 				F1F9178C1D4B65DC008A8D60 /* MonthHeatMapView.swift */,
 				F1BA0B2D1D50580F00C35AB0 /* HeatMapCell.swift */,
+				F18C1DB21D52159700EF014B /* CalendarHeatMapDataSource.swift */,
+				F18C1DBA1D52169100EF014B /* ProjectBasedCalendarHeatMapDataSource.swift */,
 			);
 			name = ProjectStatsVC;
 			sourceTree = "<group>";
@@ -694,6 +700,7 @@
 				F135A8361BE4C9F50079C9BB /* StartButton.swift in Sources */,
 				F1981B9D1C84DE7200F49454 /* SliderOutputToValueConverter.swift in Sources */,
 				F1B5FE6D1C31AF73003A5C65 /* TransitionManager.swift in Sources */,
+				F18C1DB31D52159700EF014B /* CalendarHeatMapDataSource.swift in Sources */,
 				F12C5D8C1C46FA450040969F /* KeyboardNotification.swift in Sources */,
 				F125D7D21C28496700B94849 /* CirclePathWrapper.swift in Sources */,
 				F137E9701C419A200064E15F /* Colors.swift in Sources */,
@@ -711,6 +718,7 @@
 				F1520B1B1C9049A8002F359E /* XButton.swift in Sources */,
 				F10B85181C38346D002C66F2 /* ContainerViewController.swift in Sources */,
 				F185A0A11CBAB5A80067775D /* UIColorExtension.swift in Sources */,
+				F18C1DBB1D52169100EF014B /* ProjectBasedCalendarHeatMapDataSource.swift in Sources */,
 				F188DA6F1C898890000E8AD2 /* ShrinkingCircleAnimator.swift in Sources */,
 				F17F17B71C899A72003C04AC /* FadeInAnimator.swift in Sources */,
 				F14F13071BEA87160045936F /* StopButton.swift in Sources */,

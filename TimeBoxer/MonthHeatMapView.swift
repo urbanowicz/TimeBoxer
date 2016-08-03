@@ -10,6 +10,7 @@ import UIKit
 
 class MonthHeatMapView: UIView, UIGestureRecognizerDelegate {
 
+    
     private var year:Int = 0
     private var month:Int = 0
     private var day:Int = 0
@@ -76,6 +77,16 @@ class MonthHeatMapView: UIView, UIGestureRecognizerDelegate {
     private var previousWidth:CGFloat = 0.0
     
     private let tapGestureRecognizer:UITapGestureRecognizer = UITapGestureRecognizer()
+    
+    var dataSource: CalendarHeatMapDataSource? {
+        didSet {
+            for dayNumberCell in dayNumbers {
+                let components = currentDateComponents
+                components.day = dayNumberCell.getDayNumber()!
+                dayNumberCell.heat = dataSource!.heat(withDate: NSCalendar.currentCalendar().dateFromComponents(components)!)
+            }
+        }
+    }
     
     convenience init(year:Int, month:Int, day:Int) {
         self.init(frame: CGRectZero)
@@ -189,9 +200,6 @@ class MonthHeatMapView: UIView, UIGestureRecognizerDelegate {
             dayNumbers.append(dayNumberCell)
             dayNumberCell.backgroundColor = Colors.almostBlack()
             addSubview(dayNumberCell)
-            
-            
-            dayNumberCell.heat = CGFloat(arc4random_uniform(100)) / CGFloat(100)
             
             //select the current day number
             if dayNumber == self.day {

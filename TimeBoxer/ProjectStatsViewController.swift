@@ -39,7 +39,10 @@ class ProjectStatsViewController: UIViewController {
     }
     
     private func setupCalendarHeatMap() {
+        let calendarHeatMapDataSource = ProjectBasedCalendarHeatMapDataSource()
+        calendarHeatMap.dataSource = calendarHeatMapDataSource
         calendarHeatMap.backgroundColor = Colors.almostBlack()
+        
     }
     
 }
