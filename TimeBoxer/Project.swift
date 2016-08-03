@@ -72,18 +72,6 @@ class Project: NSObject, NSCoding, NSCopying {
         return daysSinceStart
     }
     
-    func numberOfWeeksSinceStart() -> Int {
-        let calendar = NSCalendar.currentCalendar()
-        let mondayInWeekOne = calendar.mondayBeforeTheDate(startDate)
-        let today = NSDate()
-        let daysSinceFirstMonday = today.daysSince(mondayInWeekOne) + 1
-        var numberOfWeeks = daysSinceFirstMonday / 7
-        if daysSinceFirstMonday % 7 > 0 {
-            numberOfWeeks += 1
-        }
-        return numberOfWeeks
-    }
-    
     func totalSeconds() -> Int {
         ///returns the total number of seconds spent woring on the project
         var totalSeconds = 0
@@ -91,40 +79,6 @@ class Project: NSObject, NSCoding, NSCopying {
             totalSeconds += chunk.duration
         }
         return totalSeconds
-    }
-    
-    
-    func averagePaceLastSevenDays() -> Int {
-        ///Returns an average number of seconds spent working on the project in the last seven days
-        ///If the project is younger than seven days then the project's age in days is used to calculate the average.
-        if workChunks.isEmpty {
-            return 0
-        }
-        
-        let calendar = NSCalendar.currentCalendar()
-        let now = NSDate()
-        let sevenDaysAgo:NSDate =
-            calendar.dateByAddingUnit(NSCalendarUnit.Day, value: -7, toDate:now , options: NSCalendarOptions())!
-        
-        //helper inner funcion
-        func isSevenDaysOrLessOld(workChunk: WorkChunk) -> Bool {
-            let result = calendar.compareDate(sevenDaysAgo, toDate: workChunk.date, toUnitGranularity: NSCalendarUnit.Day)
-            if result == NSComparisonResult.OrderedAscending {
-                return true
-            }
-            return false
-        }
-        
-        var totalSecondsLastSevenDays = 0
-        var chunkIndex = workChunks.count - 1
-        while chunkIndex >= 0 && isSevenDaysOrLessOld(workChunks[chunkIndex]) {
-            totalSecondsLastSevenDays += workChunks[chunkIndex].duration
-            chunkIndex -= 1
-        }
-        
-        let numberOfDays = min(7, daysSinceStart())
-        let average = Int(totalSecondsLastSevenDays / (numberOfDays))
-        return average
     }
     
     func lastWrokedOn() -> NSDate? {
