@@ -81,7 +81,7 @@ class MonthHeatMapView: UIView, UIGestureRecognizerDelegate {
     var dataSource: CalendarHeatMapDataSource? {
         didSet {
             for dayNumberCell in dayNumbers {
-                let dayNumberDate = NSCalendar.currentCalendar().createDate(withYear: year, month: month, day: dayNumberCell.getDayNumber()!)!
+                let dayNumberDate = NSCalendar.currentCalendar().createDate(withYear: year, month: month, day: dayNumberCell.getDayNumber())!
                 let today = NSDate()
                 if dayNumberDate.isBefore(anotherDate: dataSource!.startDate(), granularity: .Day) ||
                 dayNumberDate.isAfter(anotherDate: today, granularity: .Day){
@@ -197,14 +197,9 @@ class MonthHeatMapView: UIView, UIGestureRecognizerDelegate {
         
         dayNumbers.removeAll(keepCapacity: true)
         for dayNumber in 1...getNumberOfDaysInTheMonth() {
-            let dayNumberCell = HeatMapCell()
-            let dayLabel = dayNumberCell.dayNumberLabel
-            dayLabel.font = dayNumberFont
-            dayLabel.textColor = fontColor
-            dayLabel.text = String(dayNumber)
-            dayLabel.sizeToFit()
-            dayNumbers.append(dayNumberCell)
+            let dayNumberCell = HeatMapCell(withYear: year, month: month, day: dayNumber)
             dayNumberCell.backgroundColor = Colors.almostBlack()
+            dayNumbers.append(dayNumberCell)
             addSubview(dayNumberCell)
             
             //select the current day number
@@ -252,7 +247,7 @@ class MonthHeatMapView: UIView, UIGestureRecognizerDelegate {
         
         for dayNumberCell in dayNumbers {
             if dayNumberCell.pointInside(recognizer.locationInView(dayNumberCell), withEvent: nil) {
-                day = dayNumberCell.getDayNumber()!
+                day = dayNumberCell.getDayNumber()
                 currentHeatMapCell?.deselect()
                 dayNumberCell.select()
                 currentHeatMapCell = dayNumberCell

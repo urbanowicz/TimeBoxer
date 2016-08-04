@@ -9,6 +9,24 @@
 import UIKit
 
 class HeatMapCell: UIView {
+    
+    private var year = 0
+    private var month = 0
+    private var day = 0
+    
+    let dayNumberFont = UIFont(name: "Menlo-Regular", size: 12)
+    let fontColor = UIColor.whiteColor()
+    
+    var date:NSDate {
+        get {
+            let calendar = NSCalendar.currentCalendar()
+            let components = NSDateComponents()
+            components.day = day
+            components.month = month
+            components.year = year
+            return calendar.dateFromComponents(components)!
+        }
+    }
 
     let dayNumberLabel:UILabel = UILabel()
     
@@ -38,19 +56,28 @@ class HeatMapCell: UIView {
     private let heatLayer = CAShapeLayer()
     private let selectionLayer = CAShapeLayer()
     
+    //MARK: Initialization
+    convenience init(withYear year:Int, month:Int, day:Int) {
+        self.init(frame:CGRectZero)
+        self.year = year
+        self.month = month
+        self.day = day
+        doBasicInit()
+    }
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
-        doBasicInit()
+        
     }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        doBasicInit()
     }
     
     private func doBasicInit() {
         setupSelectionLayer()
         setupHeatLayer()
+        setupDayNumberLabel()
         addSubview(dayNumberLabel)
     }
     
@@ -70,6 +97,14 @@ class HeatMapCell: UIView {
         }
         heatLayer.backgroundColor = UIColor.clearColor().CGColor
         layer.addSublayer(heatLayer)
+    }
+    
+    private func setupDayNumberLabel() {
+        
+        dayNumberLabel.font = dayNumberFont
+        dayNumberLabel.textColor = fontColor
+        dayNumberLabel.text = String(day)
+        dayNumberLabel.sizeToFit()
     }
     
     private func prepareHeatLayerPath() -> CGPath {
@@ -92,8 +127,8 @@ class HeatMapCell: UIView {
         dayNumberLabel.layer.position.y = frame.height / 2.0
     }
     
-    func getDayNumber() -> Int? {
-        return Int(dayNumberLabel.text!)
+    func getDayNumber() -> Int {
+        return day
     }
     
     func select() {
