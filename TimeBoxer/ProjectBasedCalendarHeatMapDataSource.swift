@@ -18,4 +18,8 @@ class ProjectBasedCalendarHeatMapDataSource: NSObject, CalendarHeatMapDataSource
     func heat(withDate date: NSDate) -> CGFloat {
         return CGFloat(arc4random_uniform(100)) / CGFloat(100)
     }
+    
+    func totalSeconds(withDate date:NSDate) -> Int {
+        return Int(arc4random_uniform(10800))
+    }
 }

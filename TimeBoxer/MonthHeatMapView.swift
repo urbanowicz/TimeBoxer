@@ -80,6 +80,8 @@ class MonthHeatMapView: UIView, UIGestureRecognizerDelegate {
     
     var dataSource: CalendarHeatMapDataSource? {
         didSet {
+            
+            //mark cells as active or inactive. Inactive are the ones in the future and before the start date
             for dayNumberCell in dayNumbers {
                 let dayNumberDate = NSCalendar.currentCalendar().createDate(withYear: year, month: month, day: dayNumberCell.getDayNumber())!
                 let today = NSDate()
@@ -91,6 +93,9 @@ class MonthHeatMapView: UIView, UIGestureRecognizerDelegate {
                     dayNumberCell.heat = dataSource!.heat(withDate: dayNumberDate)
                 }
             }
+            
+            //update the current cell hours worked label
+            updateHoursWorkedLabel(forCell: currentHeatMapCell!)
         }
     }
     
@@ -138,6 +143,16 @@ class MonthHeatMapView: UIView, UIGestureRecognizerDelegate {
             month = todayComponents.month
             day = todayComponents.day
         }
+    }
+    
+    private func setupCurrentDateLabel() {
+        let formatter = NSDateFormatter()
+        formatter.dateFormat = "EEEE d MMMM"
+        currentDateLabel.font = currentDateFont
+        currentDateLabel.textColor = fontColor
+        currentDateLabel.text = formatter.stringFromDate(currentDate!)
+        currentDateLabel.sizeToFit()
+        addSubview(currentDateLabel)
     }
     
     private func setupMonthNameLabel() {
@@ -210,20 +225,12 @@ class MonthHeatMapView: UIView, UIGestureRecognizerDelegate {
         }
     }
     
-    private func setupCurrentDateLabel() {
-        let formatter = NSDateFormatter()
-        formatter.dateFormat = "EEEE d MMMM"
-        currentDateLabel.font = currentDateFont
-        currentDateLabel.textColor = fontColor
-        currentDateLabel.text = formatter.stringFromDate(currentDate!)
-        currentDateLabel.sizeToFit()
-        addSubview(currentDateLabel)
-    }
+
     
     private func setupHoursWorkedLabel() {
         hoursWorkedLabel.font = hoursWorkedFont
         hoursWorkedLabel.textColor = fontColor
-        hoursWorkedLabel.text = "2 hours, 10 minutes"
+        hoursWorkedLabel.text = ""
         hoursWorkedLabel.sizeToFit()
         addSubview(hoursWorkedLabel)
     }
@@ -232,6 +239,20 @@ class MonthHeatMapView: UIView, UIGestureRecognizerDelegate {
         tapGestureRecognizer.addTarget(self, action: #selector(MonthHeatMapView.handleTapGesture(_:)))
         tapGestureRecognizer.delegate = self
         self.addGestureRecognizer(tapGestureRecognizer)
+    }
+    
+    private func updateHoursWorkedLabel(forCell cell: HeatMapCell) {
+        if cell.active {
+            let totalSeconds = dataSource!.totalSeconds(withDate: cell.date)
+            let workTimeFormatter = WorkTimeFormatter()
+            hoursWorkedLabel.text = workTimeFormatter.format(totalSeconds)
+            hoursWorkedLabel.sizeToFit()
+            
+        } else {
+            hoursWorkedLabel.text = "No entry for this date"
+            hoursWorkedLabel.sizeToFit()
+            hoursWorkedLabel.alpha = 0.3
+        }
     }
     
     
@@ -252,6 +273,8 @@ class MonthHeatMapView: UIView, UIGestureRecognizerDelegate {
                 dayNumberCell.select()
                 currentHeatMapCell = dayNumberCell
                 updateCurrentDateLabel()
+                
+                updateHoursWorkedLabel(forCell: dayNumberCell)
                 break
             }
         }

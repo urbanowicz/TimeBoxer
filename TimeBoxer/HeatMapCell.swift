@@ -27,6 +27,13 @@ class HeatMapCell: UIView {
             return calendar.dateFromComponents(components)!
         }
     }
+    
+    var isInFuture:Bool {
+        get {
+            let today = NSDate()
+            return date.isAfter(anotherDate: today, granularity: NSCalendarUnit.Day)
+        }
+    }
 
     let dayNumberLabel:UILabel = UILabel()
     
@@ -138,5 +145,4 @@ class HeatMapCell: UIView {
     func deselect() {
         selectionLayer.opacity = 0.0
     }
-
 }

@@ -11,4 +11,5 @@ import UIKit
 protocol CalendarHeatMapDataSource {
     func heat(withDate date:NSDate) -> CGFloat
     func startDate() -> NSDate
+    func totalSeconds(withDate date:NSDate) -> Int
 }
