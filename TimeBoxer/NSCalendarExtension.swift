@@ -17,4 +17,16 @@ extension NSCalendar {
         
         return self.dateFromComponents(components)
     }
+    
+    func firstDayOfMonth(forDate date:NSDate) -> NSDate {
+        let comps = self.components(NSCalendarUnit.Year.union(NSCalendarUnit.Month).union(NSCalendarUnit.Day), fromDate: date)
+        comps.day = 1
+        return self.dateFromComponents(comps)!
+    }
+    
+    static func gmtCalendar() -> NSCalendar {
+        let calendar = NSCalendar.currentCalendar()
+        calendar.timeZone = NSTimeZone(abbreviation: "GMT")!
+        return calendar
+    }
 }

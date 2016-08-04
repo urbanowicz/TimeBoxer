@@ -65,7 +65,7 @@ class Project: NSObject, NSCoding, NSCopying {
     func daysSinceStart() -> Int {
         ///returns number of days in the project including today
         let now = NSDate()
-        let calendar = NSCalendar.currentCalendar()
+        let calendar = NSCalendar.gmtCalendar()
         let dayDifference =
             calendar.components(NSCalendarUnit.Day, fromDate: startDate, toDate: now, options: NSCalendarOptions())
         let daysSinceStart = dayDifference.day + 1 //beacuase I want to include today in the sum
@@ -98,7 +98,7 @@ class Project: NSObject, NSCoding, NSCopying {
     }
     
     func workChunksWithDate(date:NSDate) ->[WorkChunk] {
-        let calendar = NSCalendar.currentCalendar()
+        let calendar = NSCalendar.gmtCalendar()
         var result = [WorkChunk]()
         var comparisonResult = NSComparisonResult.OrderedDescending
         for i in 0 ..< workChunks.count {
@@ -121,17 +121,3 @@ enum ProjectState {
     
     case ACTIVE, FINISHED
 }
-
-//MARK: NSDate extension
-extension NSDate
-{
-    convenience
-    init(dateString:String) {
-        let dateStringFormatter = NSDateFormatter()
-        dateStringFormatter.dateFormat = "yyyy-MM-dd"
-        dateStringFormatter.locale = NSLocale(localeIdentifier: "en_US_POSIX")
-        let d = dateStringFormatter.dateFromString(dateString)!
-        self.init(timeInterval:0, sinceDate:d)
-    }
-}
-

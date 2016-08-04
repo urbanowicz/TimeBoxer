@@ -11,7 +11,7 @@ import UIKit
 extension NSDate {
     
     func isBefore(anotherDate date:NSDate, granularity:NSCalendarUnit) -> Bool {
-        let calendar = NSCalendar.currentCalendar()
+        let calendar = NSCalendar.gmtCalendar()
         let comparisonResult = calendar.compareDate(self, toDate: date, toUnitGranularity: granularity)
         if comparisonResult == NSComparisonResult.OrderedAscending {
             return true
@@ -21,7 +21,7 @@ extension NSDate {
     }
     
     func isAfter(anotherDate date:NSDate, granularity:NSCalendarUnit) -> Bool {
-        let calendar = NSCalendar.currentCalendar()
+        let calendar = NSCalendar.gmtCalendar()
         let comparisonResult = calendar.compareDate(self, toDate: date, toUnitGranularity: granularity)
         if comparisonResult == NSComparisonResult.OrderedDescending {
             return true
@@ -31,7 +31,7 @@ extension NSDate {
     }
     
     func daysSince(earlierDate:NSDate) ->Int {
-        let calendar = NSCalendar.currentCalendar()
+        let calendar = NSCalendar.gmtCalendar()
         let laterDateNoTimeComponent = dateWithNoTimeComponentFromDate(self)
         let earlierDateNoTimeComponent = dateWithNoTimeComponentFromDate(earlierDate)
         let dayDifference =
@@ -40,7 +40,7 @@ extension NSDate {
     }
     
     private func dateWithNoTimeComponentFromDate(date: NSDate) -> NSDate {
-        let calendar = NSCalendar.currentCalendar()
+        let calendar = NSCalendar.gmtCalendar()
         var unit = NSCalendarUnit.Year
         unit.unionInPlace(NSCalendarUnit.Month)
         unit.unionInPlace(NSCalendarUnit.Day)

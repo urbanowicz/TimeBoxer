@@ -75,7 +75,7 @@ class LastWorkedOnDateFormatter: NSObject {
     
     //MARK: Helper functions
    private func dayDifferenceBetween(laterDate: NSDate, earlierDate: NSDate) -> Int {
-        let calendar = NSCalendar.currentCalendar()
+        let calendar = NSCalendar.gmtCalendar()
         
         let earlierStartOfDay = calendar.startOfDayForDate(earlierDate)
         let laterStartOfDay = calendar.startOfDayForDate(laterDate)

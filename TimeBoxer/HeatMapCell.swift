@@ -19,7 +19,7 @@ class HeatMapCell: UIView {
     
     var date:NSDate {
         get {
-            let calendar = NSCalendar.currentCalendar()
+            let calendar = NSCalendar.gmtCalendar()
             let components = NSDateComponents()
             components.day = day
             components.month = month

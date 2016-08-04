@@ -11,6 +11,7 @@ import UIKit
 class ProjectBasedCalendarHeatMapDataSource: NSObject, CalendarHeatMapDataSource {
     func startDate() -> NSDate {
         let formatter = NSDateFormatter()
+        formatter.timeZone = NSTimeZone(abbreviation: "GMT")
         formatter.dateFormat = "yyyy-MM-dd"
         return formatter.dateFromString("2016-07-10")!
     }

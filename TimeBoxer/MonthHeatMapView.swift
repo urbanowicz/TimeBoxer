@@ -9,7 +9,8 @@
 import UIKit
 
 class MonthHeatMapView: UIView, UIGestureRecognizerDelegate {
-
+    
+    private let calendar = NSCalendar.gmtCalendar()
     
     private var year:Int = 0
     private var month:Int = 0
@@ -21,13 +22,17 @@ class MonthHeatMapView: UIView, UIGestureRecognizerDelegate {
             currentDateComponents.year = year
             currentDateComponents.month = month
             currentDateComponents.day = day
+            currentDateComponents.hour = 0
+            currentDateComponents.minute = 0
+            currentDateComponents.second = 0
+            currentDateComponents.nanosecond = 0
             return currentDateComponents
         }
     }
     
     var currentDate:NSDate? {
         get {
-            return NSCalendar.currentCalendar().dateFromComponents(currentDateComponents)
+            return calendar.dateFromComponents(currentDateComponents)
         }
     }
     
@@ -72,8 +77,6 @@ class MonthHeatMapView: UIView, UIGestureRecognizerDelegate {
     //the yOoffset i set to where the next element should be positioned on the y axis.
     private var yOffset:CGFloat = 0.0
     
-    private let calendar = NSCalendar.currentCalendar()
-    
     private var previousWidth:CGFloat = 0.0
     
     private let tapGestureRecognizer:UITapGestureRecognizer = UITapGestureRecognizer()
@@ -83,7 +86,7 @@ class MonthHeatMapView: UIView, UIGestureRecognizerDelegate {
             
             //mark cells as active or inactive. Inactive are the ones in the future and before the start date
             for dayNumberCell in dayNumbers {
-                let dayNumberDate = NSCalendar.currentCalendar().createDate(withYear: year, month: month, day: dayNumberCell.getDayNumber())!
+                let dayNumberDate = calendar.createDate(withYear: year, month: month, day: dayNumberCell.getDayNumber())!
                 let today = NSDate()
                 if dayNumberDate.isBefore(anotherDate: dataSource!.startDate(), granularity: .Day) ||
                 dayNumberDate.isAfter(anotherDate: today, granularity: .Day){
@@ -99,6 +102,8 @@ class MonthHeatMapView: UIView, UIGestureRecognizerDelegate {
         }
     }
     
+    
+    
     convenience init(year:Int, month:Int, day:Int) {
         self.init(frame: CGRectZero)
         self.year = year
@@ -112,7 +117,7 @@ class MonthHeatMapView: UIView, UIGestureRecognizerDelegate {
     }
     
     convenience init(fromDate date:NSDate) {
-        let calendar = NSCalendar.currentCalendar()
+        let calendar = NSCalendar.gmtCalendar()
         self.init(fromComponents: calendar.components(NSCalendarUnit.Year.union(NSCalendarUnit.Month).union(NSCalendarUnit.Day), fromDate: date))
     }
     
