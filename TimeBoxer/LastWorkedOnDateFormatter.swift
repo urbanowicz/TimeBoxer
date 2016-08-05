@@ -52,6 +52,7 @@ class LastWorkedOnDateFormatter: NSObject {
             //2d
             if differenceInMinutes > 60 {
                 let dateFormatter = NSDateFormatter()
+                dateFormatter.timeZone = NSTimeZone(abbreviation: "GMT")
                 dateFormatter.dateStyle = NSDateFormatterStyle.NoStyle
                 dateFormatter.timeStyle = NSDateFormatterStyle.ShortStyle
                 return dateFormatter.stringFromDate(lastWorkedOn!)
@@ -65,6 +66,7 @@ class LastWorkedOnDateFormatter: NSObject {
         
         //default case, project is older than 361 days
         let dateFormatter = NSDateFormatter()
+        dateFormatter.timeZone = NSTimeZone(abbreviation: "GMT")
         dateFormatter.dateStyle = NSDateFormatterStyle.MediumStyle
         dateFormatter.timeStyle = NSDateFormatterStyle.NoStyle
         

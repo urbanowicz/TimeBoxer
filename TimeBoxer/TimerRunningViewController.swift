@@ -337,7 +337,7 @@ class TimerRunningViewController: UIViewController {
     }
     
     private func setupStopTimeBasedOnNumberOfSecondsToCountDown() {
-        stopTime = NSCalendar.currentCalendar().dateByAddingUnit(NSCalendarUnit.Second, value: numberOfSecondsToCountDown, toDate: NSDate(), options: NSCalendarOptions())
+        stopTime = NSCalendar.gmtCalendar().dateByAddingUnit(NSCalendarUnit.Second, value: numberOfSecondsToCountDown, toDate: NSDate(), options: NSCalendarOptions())
         NSUserDefaults.standardUserDefaults().setObject(stopTime, forKey: stopTimeKey)
     }
     

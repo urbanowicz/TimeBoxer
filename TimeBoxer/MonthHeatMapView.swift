@@ -152,6 +152,7 @@ class MonthHeatMapView: UIView, UIGestureRecognizerDelegate {
     
     private func setupCurrentDateLabel() {
         let formatter = NSDateFormatter()
+        formatter.timeZone = NSTimeZone(abbreviation: "GMT")
         formatter.dateFormat = "EEEE d MMMM"
         currentDateLabel.font = currentDateFont
         currentDateLabel.textColor = fontColor
@@ -163,6 +164,7 @@ class MonthHeatMapView: UIView, UIGestureRecognizerDelegate {
     private func setupMonthNameLabel() {
         monthNameLabel.font = monthNameFont
         let formatter = NSDateFormatter()
+        formatter.timeZone = NSTimeZone(abbreviation: "GMT")
         formatter.dateFormat = "MMMM"
         monthNameLabel.text = formatter.stringFromDate(currentDate!)
         monthNameLabel.textColor = fontColor
@@ -174,6 +176,7 @@ class MonthHeatMapView: UIView, UIGestureRecognizerDelegate {
         yearLabel.font = yearFont
         yearLabel.textColor = fontColor
         let formatter = NSDateFormatter()
+        formatter.timeZone = NSTimeZone(abbreviation: "GMT")
         formatter.dateFormat = "yyyy"
         let yearText = formatter.stringFromDate(currentDate!)
         yearLabel.text = ""
@@ -251,6 +254,7 @@ class MonthHeatMapView: UIView, UIGestureRecognizerDelegate {
             let totalSeconds = dataSource!.totalSeconds(withDate: cell.date)
             let workTimeFormatter = WorkTimeFormatter()
             hoursWorkedLabel.text = workTimeFormatter.format(totalSeconds)
+            hoursWorkedLabel.alpha = 1.0
             hoursWorkedLabel.sizeToFit()
             
         } else {
