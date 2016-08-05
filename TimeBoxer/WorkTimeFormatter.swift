@@ -18,7 +18,7 @@ class WorkTimeFormatter: NSObject {
         
         if hours > 0 {
             if minutes > 0 {
-                stringToReturn = "\(hours)h\(minutes)m"
+                stringToReturn = "\(hours) hours, \(minutes) minutes"
             } else {
                 stringToReturn = "\(hours)h"
             }

@@ -253,7 +253,7 @@ class MonthHeatMapView: UIView, UIGestureRecognizerDelegate {
         if cell.active {
             let totalSeconds = dataSource!.totalSeconds(withDate: cell.date)
             let workTimeFormatter = WorkTimeFormatter()
-            hoursWorkedLabel.text = workTimeFormatter.format(totalSeconds)
+            hoursWorkedLabel.text = workTimeFormatter.formatLong(totalSeconds)
             hoursWorkedLabel.alpha = 1.0
             hoursWorkedLabel.sizeToFit()
             
