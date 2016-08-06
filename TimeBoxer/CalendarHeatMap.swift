@@ -98,8 +98,8 @@ class CalendarHeatMap: UIView, UIGestureRecognizerDelegate, POPAnimationDelegate
         //if the user swipes more than the threshold the transition is comitted
         //it is reversed otherwise
         let threshold = CGFloat(50)
-        let springSpeed = CGFloat(20)
-        let springBounciness = CGFloat(0.0)
+        let springSpeed = CGFloat(5)
+        let springBounciness = CGFloat(3.0)
         
         if gestureRecognizer.state == .Began {
             if delegate != nil {
