@@ -15,10 +15,13 @@ class ProjectStatsViewController: UIViewController, CalendarHeatMapDelegate {
     @IBOutlet weak var projectNameLabel: UILabel!
     @IBOutlet weak var calendarHeatMap: CalendarHeatMap!
     
+    @IBOutlet weak var topBar: UIView!
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = Colors.almostBlack()
+        setupTopBar()
         setupProjectNameLabel()
+        
         //calendarHeatMap is set in viewWillAppear because we need to configure it per each time the view appears.
     }
     
@@ -33,6 +36,9 @@ class ProjectStatsViewController: UIViewController, CalendarHeatMapDelegate {
     
     //MARK: Setup UI Elements
     
+    private func setupTopBar() {
+        topBar.backgroundColor = Colors.almostBlack()
+    }
 
     private func setupProjectNameLabel() {
         projectNameLabel.font = UIFont(name: "Avenir-Medium", size: 16)
