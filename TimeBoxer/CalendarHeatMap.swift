@@ -10,6 +10,8 @@ import UIKit
 
 class CalendarHeatMap: UIView, UIGestureRecognizerDelegate, POPAnimationDelegate {
     
+    var delegate:CalendarHeatMapDelegate?
+    
     private let calendar = NSCalendar.gmtCalendar()
     
     var dataSource:CalendarHeatMapDataSource? {
@@ -96,10 +98,17 @@ class CalendarHeatMap: UIView, UIGestureRecognizerDelegate, POPAnimationDelegate
         //if the user swipes more than the threshold the transition is comitted
         //it is reversed otherwise
         let threshold = CGFloat(50)
-        let springSpeed = CGFloat(5)
-        let springBounciness = CGFloat(2.0)
+        let springSpeed = CGFloat(20)
+        let springBounciness = CGFloat(0.0)
+        
+        if gestureRecognizer.state == .Began {
+            if delegate != nil {
+                delegate!.transitionAnimationStarted()
+            }
+        }
         
         if gestureRecognizer.state == .Changed {
+
             let translation = gestureRecognizer.translationInView(self)
             if fabs(translation.y) < threshold {
                 currentMonth!.frame.origin.y = translation.y
@@ -178,7 +187,10 @@ class CalendarHeatMap: UIView, UIGestureRecognizerDelegate, POPAnimationDelegate
                 currentMonthPositionAnimation.springBounciness = 3
                 currentMonthPositionAnimation.toValue = currentMonth!.frame.height / 2.0
                 currentMonth!.pop_addAnimation(currentMonthPositionAnimation, forKey: "positionY")
-                
+            
+                if delegate != nil {
+                    delegate!.transitionAnimationEnded()
+                }
             } else {
                 print("GESTURE RECOGNIZER END")
                 //commit the transition
@@ -198,9 +210,14 @@ class CalendarHeatMap: UIView, UIGestureRecognizerDelegate, POPAnimationDelegate
     }
     
     func pop_animationDidStop(anim: POPAnimation!, finished: Bool) {
-    
+        
+
+        
         monthTransitionAnimationCount += 1
         if monthTransitionAnimationCount == 3 {
+            if delegate != nil {
+                delegate!.transitionAnimationEnded()
+            }
             if monthTransitionDirection == monthTransitionUp {
                 //swipe up
                 currentMonth!.layer.position = CGPointMake(currentMonth!.layer.position.x, -1.0 * currentMonth!.frame.height / 2.0)

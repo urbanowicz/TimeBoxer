@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ProjectStatsViewController: UIViewController {
+class ProjectStatsViewController: UIViewController, CalendarHeatMapDelegate {
     var project:Project?
     var segueStarted:Bool = false
     
@@ -19,7 +19,7 @@ class ProjectStatsViewController: UIViewController {
         super.viewDidLoad()
         self.view.backgroundColor = Colors.almostBlack()
         setupProjectNameLabel()
-        //setupCalendarHeatMap()
+        //calendarHeatMap is set in viewWillAppear because we need to configure it per each time the view appears.
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -32,11 +32,13 @@ class ProjectStatsViewController: UIViewController {
     }
     
     //MARK: Setup UI Elements
+    
 
     private func setupProjectNameLabel() {
         projectNameLabel.font = UIFont(name: "Avenir-Medium", size: 16)
         projectNameLabel.textColor = Colors.silver()
         projectNameLabel.numberOfLines = 2
+        projectNameLabel.backgroundColor = Colors.almostBlack()
     }
     
     private func setupCalendarHeatMap() {
@@ -44,6 +46,15 @@ class ProjectStatsViewController: UIViewController {
         let calendarHeatMapDataSource = ProjectBasedCalendarHeatMapDataSource()
         calendarHeatMapDataSource.project = project 
         calendarHeatMap.dataSource = calendarHeatMapDataSource
+        calendarHeatMap.delegate = self
+    }
+    
+    func transitionAnimationStarted() {
+
+    }
+    
+    func transitionAnimationEnded() {
+
     }
     
 }

@@ -68,6 +68,7 @@
 		F1B3B41F1C5540D80009FCF0 /* AbstractAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1B3B41E1C5540D80009FCF0 /* AbstractAnimator.swift */; };
 		F1B5FE6D1C31AF73003A5C65 /* TransitionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1B5FE6C1C31AF73003A5C65 /* TransitionManager.swift */; };
 		F1B920551BE7D7CC004A8CDB /* PauseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1B920541BE7D7CC004A8CDB /* PauseButton.swift */; };
+		F1B9A5651D5604A800932F90 /* CalendarHeatMapDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1B9A5641D5604A800932F90 /* CalendarHeatMapDelegate.swift */; };
 		F1BA0B2E1D50580F00C35AB0 /* HeatMapCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BA0B2D1D50580F00C35AB0 /* HeatMapCell.swift */; };
 		F1C3CBF01D3D2A9A00D78D07 /* pop.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1C3CBE21D3D28BA00D78D07 /* pop.framework */; };
 		F1C3CBF11D3D2A9A00D78D07 /* pop.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F1C3CBE21D3D28BA00D78D07 /* pop.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -222,6 +223,7 @@
 		F1B3B41E1C5540D80009FCF0 /* AbstractAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AbstractAnimator.swift; sourceTree = "<group>"; };
 		F1B5FE6C1C31AF73003A5C65 /* TransitionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionManager.swift; sourceTree = "<group>"; };
 		F1B920541BE7D7CC004A8CDB /* PauseButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PauseButton.swift; sourceTree = "<group>"; };
+		F1B9A5641D5604A800932F90 /* CalendarHeatMapDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarHeatMapDelegate.swift; sourceTree = "<group>"; };
 		F1BA0B2D1D50580F00C35AB0 /* HeatMapCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeatMapCell.swift; sourceTree = "<group>"; };
 		F1C3CBD51D3D28BA00D78D07 /* pop.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = pop.xcodeproj; path = "Library/pop-master/pop.xcodeproj"; sourceTree = "<group>"; };
 		F1C3CBEE1D3D2A0600D78D07 /* PopBridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopBridge.h; sourceTree = "<group>"; };
@@ -492,6 +494,7 @@
 				F18C1DB21D52159700EF014B /* CalendarHeatMapDataSource.swift */,
 				F18C1DBA1D52169100EF014B /* ProjectBasedCalendarHeatMapDataSource.swift */,
 				F15C6FDC1D550C300081DC06 /* DummyCalendarHeatMapDataSource.swift */,
+				F1B9A5641D5604A800932F90 /* CalendarHeatMapDelegate.swift */,
 			);
 			name = ProjectStatsVC;
 			sourceTree = "<group>";
@@ -733,6 +736,7 @@
 				F14F13051BEA83660045936F /* AbstractOvalButton.swift in Sources */,
 				F1FC9AD91C3EE0CC002A9F31 /* ProjectsTableViewController.swift in Sources */,
 				F1F36AD01C875F770039EF0B /* OKButton.swift in Sources */,
+				F1B9A5651D5604A800932F90 /* CalendarHeatMapDelegate.swift in Sources */,
 				F150E3B01C8ECD3000D7D502 /* TitleBar.swift in Sources */,
 				F1CA1C231CC6A66300491EC1 /* CellSwipeHandler.swift in Sources */,
 			);
