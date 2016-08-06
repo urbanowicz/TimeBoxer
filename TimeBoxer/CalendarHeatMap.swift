@@ -73,13 +73,14 @@ class CalendarHeatMap: UIView, UIGestureRecognizerDelegate, POPAnimationDelegate
     }
 
     override func layoutSubviews() {
+        let screenSize = UIScreen.mainScreen().bounds.size
         currentMonth!.frame = CGRectMake(0, 0, frame.width, frame.height)
         currentMonth!.heightToFit()
-        nextMonth!.frame = CGRectMake(0, frame.height, frame.width, frame.height)
+        nextMonth!.frame = CGRectMake(0, screenSize.height, frame.width, frame.height)
         nextMonth!.heightToFit()
-        previousMonth!.frame = CGRectMake(0, -frame.height, frame.width, frame.height)
+        previousMonth!.frame = CGRectMake(0, 0, frame.width, frame.height)
         previousMonth!.heightToFit()
-        previousMonth!.frame.origin = CGPointMake(0, -previousMonth!.frame.height)
+        previousMonth!.frame.origin = CGPointMake(0, -previousMonth!.frame.height - frame.origin.y)
         invalidateIntrinsicContentSize()
     }
     override func intrinsicContentSize() -> CGSize {
@@ -145,7 +146,6 @@ class CalendarHeatMap: UIView, UIGestureRecognizerDelegate, POPAnimationDelegate
                     nextMonthPositionAnimation.springSpeed = springSpeed
                     nextMonthPositionAnimation.springBounciness = springBounciness
                     nextMonth!.pop_addAnimation(nextMonthPositionAnimation, forKey: "positionY")
-                    
                     //update the current, previous, next month -> happens in pop_animationDidStop
 
                 } else {
@@ -167,7 +167,6 @@ class CalendarHeatMap: UIView, UIGestureRecognizerDelegate, POPAnimationDelegate
                     previousMonthPositionAnimation.toValue = previousMonth!.frame.height / 2.0
                     previousMonthPositionAnimation.delegate = self
                     previousMonth!.pop_addAnimation(previousMonthPositionAnimation, forKey: "positionY")
-                    
                     //update the current, previous and next month -> happens in pop_animationDidStop
                 }
             }
@@ -211,8 +210,6 @@ class CalendarHeatMap: UIView, UIGestureRecognizerDelegate, POPAnimationDelegate
     
     func pop_animationDidStop(anim: POPAnimation!, finished: Bool) {
         
-
-        
         monthTransitionAnimationCount += 1
         if monthTransitionAnimationCount == 3 {
             if delegate != nil {
@@ -220,12 +217,10 @@ class CalendarHeatMap: UIView, UIGestureRecognizerDelegate, POPAnimationDelegate
             }
             if monthTransitionDirection == monthTransitionUp {
                 //swipe up
-                currentMonth!.layer.position = CGPointMake(currentMonth!.layer.position.x, -1.0 * currentMonth!.frame.height / 2.0)
                 previousMonth!.removeFromSuperview()
                 previousMonth = currentMonth
                 currentMonth = nextMonth
                 let nextMonthDate  = calendar.firstDayOfMonth(forDate:nextMonth!.currentDate!)
-                
                 let newNextMonthDate = calendar.dateByAddingUnit(NSCalendarUnit.Month, value: 1, toDate: nextMonthDate, options: NSCalendarOptions.MatchStrictly)!
                 nextMonth = MonthHeatMapView(fromDate: newNextMonthDate)
                 nextMonth!.backgroundColor = UIColor.clearColor()
@@ -234,7 +229,6 @@ class CalendarHeatMap: UIView, UIGestureRecognizerDelegate, POPAnimationDelegate
                 addSubview(nextMonth!)
             } else {
                 //swipe down
-                currentMonth!.layer.position = CGPointMake(currentMonth!.layer.position.x, previousMonth!.frame.height + currentMonth!.frame.height / 2.0)
                 nextMonth!.removeFromSuperview()
                 nextMonth = currentMonth
                 currentMonth = previousMonth
