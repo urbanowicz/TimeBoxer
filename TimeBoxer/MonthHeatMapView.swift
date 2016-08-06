@@ -62,7 +62,7 @@ class MonthHeatMapView: UIView, UIGestureRecognizerDelegate {
     let dayNameFont = UIFont(name: "Avenir-Book", size: 12)
     let dayNumberFont = UIFont(name: "Menlo-Regular", size: 12)
     let currentDateFont = UIFont(name: "Avenir-Medium", size: 14)
-    let hoursWorkedFont = UIFont(name: "Avenir-Heavy", size: 18)
+    let hoursWorkedFont = UIFont(name: "Avenir-Heavy", size: 16)
     let fontColor = UIColor.whiteColor()
     
     //cellSize is the size of the bounding rectangle inside of which each element of the calendar will fit.
@@ -83,22 +83,7 @@ class MonthHeatMapView: UIView, UIGestureRecognizerDelegate {
     
     var dataSource: CalendarHeatMapDataSource? {
         didSet {
-            
-            //mark cells as active or inactive. Inactive are the ones in the future and before the start date
-            for dayNumberCell in dayNumbers {
-                let dayNumberDate = calendar.createDate(withYear: year, month: month, day: dayNumberCell.getDayNumber())!
-                let today = NSDate()
-                if dayNumberDate.isBefore(anotherDate: dataSource!.startDate(), granularity: .Day) ||
-                dayNumberDate.isAfter(anotherDate: today, granularity: .Day){
-                    dayNumberCell.active = false
-                } else {
-                    dayNumberCell.active = true
-                    dayNumberCell.heat = dataSource!.heat(withDate: dayNumberDate)
-                }
-            }
-            
-            //update the current cell hours worked label
-            updateHoursWorkedLabel(forCell: currentHeatMapCell!)
+            refreshHeatMap()
         }
     }
     
@@ -381,6 +366,25 @@ class MonthHeatMapView: UIView, UIGestureRecognizerDelegate {
     private func layoutHoursWorkedLabel() {
         hoursWorkedLabel.frame.origin = CGPointMake(0, yOffset)
         yOffset += hoursWorkedLabel.frame.size.height
+    }
+    
+    
+    
+    func refreshHeatMap() {
+        //mark cells as active or inactive. Inactive are the ones in the future and before the start date
+        for dayNumberCell in dayNumbers {
+            let dayNumberDate = calendar.createDate(withYear: year, month: month, day: dayNumberCell.getDayNumber())!
+            let today = NSDate()
+            if dayNumberDate.isBefore(anotherDate: dataSource!.startDate(), granularity: .Day) ||
+                dayNumberDate.isAfter(anotherDate: today, granularity: .Day){
+                dayNumberCell.active = false
+            } else {
+                dayNumberCell.active = true
+                dayNumberCell.heat = dataSource!.heat(withDate: dayNumberDate)
+            }
+        }
+        
+        updateHoursWorkedLabel(forCell: currentHeatMapCell!)
     }
     
     func heightToFit() {

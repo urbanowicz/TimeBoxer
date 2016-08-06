@@ -9,7 +9,7 @@
 import UIKit
 
 class ProjectStatsViewController: UIViewController {
-    var project:Project? 
+    var project:Project?
     var segueStarted:Bool = false
     
     @IBOutlet weak var projectNameLabel: UILabel!
@@ -19,11 +19,12 @@ class ProjectStatsViewController: UIViewController {
         super.viewDidLoad()
         self.view.backgroundColor = Colors.almostBlack()
         setupProjectNameLabel()
-        setupCalendarHeatMap()
+        //setupCalendarHeatMap()
     }
     
     override func viewWillAppear(animated: Bool) {
         projectNameLabel.text = project!.name
+        setupCalendarHeatMap()
     }
 
     override func didReceiveMemoryWarning() {
@@ -39,10 +40,10 @@ class ProjectStatsViewController: UIViewController {
     }
     
     private func setupCalendarHeatMap() {
-        let calendarHeatMapDataSource = ProjectBasedCalendarHeatMapDataSource()
-        calendarHeatMap.dataSource = calendarHeatMapDataSource
         calendarHeatMap.backgroundColor = Colors.almostBlack()
-        
+        let calendarHeatMapDataSource = ProjectBasedCalendarHeatMapDataSource()
+        calendarHeatMapDataSource.project = project 
+        calendarHeatMap.dataSource = calendarHeatMapDataSource
     }
     
 }

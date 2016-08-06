@@ -9,18 +9,19 @@
 import UIKit
 
 class ProjectBasedCalendarHeatMapDataSource: NSObject, CalendarHeatMapDataSource {
+    
+    var project: Project!
+    var dailyGoalInSeconds:Int = 1 * 3600 //four hours
+    
     func startDate() -> NSDate {
-        let formatter = NSDateFormatter()
-        formatter.timeZone = NSTimeZone(abbreviation: "GMT")
-        formatter.dateFormat = "yyyy-MM-dd"
-        return formatter.dateFromString("2016-07-10")!
+        return project.startDate
     }
     
     func heat(withDate date: NSDate) -> CGFloat {
-        return CGFloat(arc4random_uniform(100)) / CGFloat(100)
+        return CGFloat(project.totalSeconds(withDate: date)) / CGFloat(dailyGoalInSeconds)
     }
     
     func totalSeconds(withDate date:NSDate) -> Int {
-        return Int(arc4random_uniform(10800))
+        return project.totalSeconds(withDate: date)
     }
 }

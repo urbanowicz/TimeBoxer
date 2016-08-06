@@ -31,6 +31,7 @@
 		F150E3B01C8ECD3000D7D502 /* TitleBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = F150E3AF1C8ECD3000D7D502 /* TitleBar.swift */; };
 		F1520B1B1C9049A8002F359E /* XButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1520B1A1C9049A8002F359E /* XButton.swift */; };
 		F152EE901C5968D00090BECC /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = F152EE8F1C5968D00090BECC /* Project.swift */; };
+		F15C6FDD1D550C300081DC06 /* DummyCalendarHeatMapDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = F15C6FDC1D550C300081DC06 /* DummyCalendarHeatMapDataSource.swift */; };
 		F15F9C501BCCF376008733A3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F15F9C4F1BCCF376008733A3 /* AppDelegate.swift */; };
 		F15F9C551BCCF376008733A3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F15F9C531BCCF376008733A3 /* Main.storyboard */; };
 		F15F9C571BCCF376008733A3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F15F9C561BCCF376008733A3 /* Assets.xcassets */; };
@@ -187,6 +188,7 @@
 		F150E3AF1C8ECD3000D7D502 /* TitleBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TitleBar.swift; sourceTree = "<group>"; };
 		F1520B1A1C9049A8002F359E /* XButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XButton.swift; sourceTree = "<group>"; };
 		F152EE8F1C5968D00090BECC /* Project.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Project.swift; sourceTree = "<group>"; };
+		F15C6FDC1D550C300081DC06 /* DummyCalendarHeatMapDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DummyCalendarHeatMapDataSource.swift; sourceTree = "<group>"; };
 		F15F9C4C1BCCF376008733A3 /* TimeBoxer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TimeBoxer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F15F9C4F1BCCF376008733A3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F15F9C541BCCF376008733A3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -489,6 +491,7 @@
 				F1BA0B2D1D50580F00C35AB0 /* HeatMapCell.swift */,
 				F18C1DB21D52159700EF014B /* CalendarHeatMapDataSource.swift */,
 				F18C1DBA1D52169100EF014B /* ProjectBasedCalendarHeatMapDataSource.swift */,
+				F15C6FDC1D550C300081DC06 /* DummyCalendarHeatMapDataSource.swift */,
 			);
 			name = ProjectStatsVC;
 			sourceTree = "<group>";
@@ -702,6 +705,7 @@
 				F1B5FE6D1C31AF73003A5C65 /* TransitionManager.swift in Sources */,
 				F18C1DB31D52159700EF014B /* CalendarHeatMapDataSource.swift in Sources */,
 				F12C5D8C1C46FA450040969F /* KeyboardNotification.swift in Sources */,
+				F15C6FDD1D550C300081DC06 /* DummyCalendarHeatMapDataSource.swift in Sources */,
 				F125D7D21C28496700B94849 /* CirclePathWrapper.swift in Sources */,
 				F137E9701C419A200064E15F /* Colors.swift in Sources */,
 				F119251F1C8CB2F7002BEAC2 /* AddProjectToProjectsTableDismissAnimator.swift in Sources */,
