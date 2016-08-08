@@ -33,16 +33,7 @@ class BigSlider: UIControl {
         }
     }
     
-    var highlightedFillColor:UIColor {
-        get {
-            var red = CGFloat()
-            var green = CGFloat()
-            var blue = CGFloat()
-            var alpha = CGFloat()
-            fillColor.getRed(&red, green: &green, blue: &blue, alpha: &alpha)
-            return UIColor(red: red, green: green, blue: blue, alpha: 0.70)
-        }
-    }
+    var highlightedFillColor:UIColor = Colors.azure().withAlpha(0.7)
     
     var value:Double = 0.0
     
@@ -60,6 +51,10 @@ class BigSlider: UIControl {
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.backgroundColor = UIColor.clearColor()
+    }
+    
+    func refresh() {
+        sliderLayer.backgroundColor = Colors.azure().CGColor
     }
     
     //MARK: Touch tracking
@@ -81,6 +76,7 @@ class BigSlider: UIControl {
         //1. Calculate how much we moved in the y direction and update the current height of the slider
         let currentLocation = touch.locationInView(self)
         let dy = currentLocation.y - startLocation.y
+        
         startLocation = currentLocation
         currentHeight = currentHeight + dy
         

@@ -33,6 +33,7 @@ class TimeSliderViewController: UIViewController {
     
     override func viewWillAppear(animated: Bool) {
         setupProjectNameLabel()
+        timeSlider.refresh()
     }
 //---------------------------------------------------------------------------------------------------
     override func didReceiveMemoryWarning() {

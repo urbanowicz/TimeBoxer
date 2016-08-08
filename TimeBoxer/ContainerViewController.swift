@@ -194,10 +194,7 @@ class ContainerViewController: UIViewController, UIGestureRecognizerDelegate{
         }
         
         let location = panGestureRecognizer.locationInView(timeSliderVC!.view)
-        if timeSliderVC!.timeSlider.frame.contains(location) {
-            //swipe began inside the slider
-            return false
-        }
+        
         if timeSliderVC!.startButton.frame.contains(location) {
             //swipe began inside the start button
             return false
