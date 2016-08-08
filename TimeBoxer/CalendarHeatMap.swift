@@ -68,7 +68,7 @@ class CalendarHeatMap: UIView, UIGestureRecognizerDelegate, POPAnimationDelegate
         //setup the gesture recognizer
         setupGestureRecognizer()
         
-        clipsToBounds = false
+        clipsToBounds = true
 
     }
 

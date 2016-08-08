@@ -32,15 +32,15 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" placeholderIntrinsicWidth="infinite" placeholderIntrinsicHeight="419" translatesAutoresizingMaskIntoConstraints="NO" id="z40-fN-S2G" customClass="CalendarHeatMap" customModule="TimeBoxer" customModuleProvider="target">
-                                <rect key="frame" x="30" y="71" width="540" height="419"/>
+                                <rect key="frame" x="10" y="71" width="580" height="419"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4cX-D4-CSn" userLabel="TopBar">
-                                <rect key="frame" x="20" y="0.0" width="560" height="56"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="56"/>
                                 <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Project name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mwz-43-j4u" userLabel="Project Name Label">
-                                <rect key="frame" x="30" y="30" width="540" height="21"/>
+                                <rect key="frame" x="10" y="30" width="580" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -48,16 +48,16 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="4cX-D4-CSn" firstAttribute="leading" secondItem="y0t-tH-WgZ" secondAttribute="leadingMargin" id="2en-i3-M1U"/>
+                            <constraint firstItem="4cX-D4-CSn" firstAttribute="leading" secondItem="y0t-tH-WgZ" secondAttribute="leading" id="2en-i3-M1U"/>
                             <constraint firstItem="z40-fN-S2G" firstAttribute="top" secondItem="4cX-D4-CSn" secondAttribute="bottom" constant="15" id="3UG-DR-fEK"/>
-                            <constraint firstItem="z40-fN-S2G" firstAttribute="leading" secondItem="y0t-tH-WgZ" secondAttribute="leadingMargin" constant="10" id="HBN-XP-b7M"/>
+                            <constraint firstItem="z40-fN-S2G" firstAttribute="leading" secondItem="y0t-tH-WgZ" secondAttribute="leading" constant="10" id="HBN-XP-b7M"/>
                             <constraint firstItem="z40-fN-S2G" firstAttribute="top" secondItem="mwz-43-j4u" secondAttribute="bottom" constant="20" id="VfS-dj-WTc"/>
-                            <constraint firstItem="mwz-43-j4u" firstAttribute="leading" secondItem="y0t-tH-WgZ" secondAttribute="leadingMargin" constant="10" id="a7z-qB-OC9"/>
+                            <constraint firstItem="mwz-43-j4u" firstAttribute="leading" secondItem="y0t-tH-WgZ" secondAttribute="leading" constant="10" id="a7z-qB-OC9"/>
                             <constraint firstItem="mwz-43-j4u" firstAttribute="top" secondItem="om9-dy-SQy" secondAttribute="bottom" constant="10" id="cUz-dp-w5e"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="z40-fN-S2G" secondAttribute="trailing" constant="10" id="d7Z-Qv-l9z"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="mwz-43-j4u" secondAttribute="trailing" constant="10" id="ddG-2M-562"/>
+                            <constraint firstAttribute="trailing" secondItem="mwz-43-j4u" secondAttribute="trailing" constant="10" id="ddG-2M-562"/>
                             <constraint firstItem="4cX-D4-CSn" firstAttribute="top" secondItem="y0t-tH-WgZ" secondAttribute="topMargin" id="oop-wG-ea9"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="4cX-D4-CSn" secondAttribute="trailing" id="pXD-ci-U6A"/>
+                            <constraint firstAttribute="trailing" secondItem="4cX-D4-CSn" secondAttribute="trailing" id="pXD-ci-U6A"/>
+                            <constraint firstAttribute="trailing" secondItem="z40-fN-S2G" secondAttribute="trailing" constant="10" id="vKM-qo-CTl"/>
                         </constraints>
                     </view>
                     <connections>

@@ -87,8 +87,6 @@ class MonthHeatMapView: UIView, UIGestureRecognizerDelegate {
         }
     }
     
-    
-    
     convenience init(year:Int, month:Int, day:Int) {
         self.init(frame: CGRectZero)
         self.year = year
@@ -289,7 +287,7 @@ class MonthHeatMapView: UIView, UIGestureRecognizerDelegate {
     }
     
     private func computeCDistance() {
-        cDistance = (frame.size.width - cellSize.width) / 6.0
+        cDistance = frame.size.width / 7.0
     }
     
     //MARK: laying elements out
@@ -301,18 +299,24 @@ class MonthHeatMapView: UIView, UIGestureRecognizerDelegate {
     }
     
     private func layoutMonthNameLabel() {
-        monthNameLabel.frame.origin = CGPointMake(0, 0)
+        //Remember that cDistance is the distance between the centers of two day numbers.
+        //Hence cDistance/2.0 is the radius of the circle that goes around the day number
+        //Since we're setting frame's origin using a center coordianate, we need to shift it back
+        //by cellSize.width / 2.0
+        let x = (cDistance/2.0) - (cellSize.width / 2.0)
+        monthNameLabel.frame.origin = CGPointMake(x, 0)
         yOffset = monthNameLabel.frame.height + 5
     }
     
     private func layoutYearLabel() {
-        yearLabel.frame.origin = CGPointMake(0, yOffset)
+        let x = (cDistance/2.0) - (cellSize.width / 2.0)
+        yearLabel.frame.origin = CGPointMake(x, yOffset)
         yOffset += yearLabel.frame.height
         yOffset += 30
     }
     
     private func layoutDayNames() {
-        sun.layer.position = CGPointMake(cellSize.width/2.0, yOffset + sun.frame.height/2.0)
+        sun.layer.position = CGPointMake(cDistance/2.0, yOffset + sun.frame.height/2.0)
         mon.layer.position = CGPointMake(sun.layer.position.x + cDistance, sun.layer.position.y)
         tue.layer.position = CGPointMake(mon.layer.position.x + cDistance, sun.layer.position.y)
         wed.layer.position = CGPointMake(tue.layer.position.x + cDistance, sun.layer.position.y)
@@ -358,13 +362,15 @@ class MonthHeatMapView: UIView, UIGestureRecognizerDelegate {
     }
     
     private func layoutCurrentDateLabel() {
-        currentDateLabel.frame.origin = CGPointMake(0, yOffset)
+        let x = (cDistance/2.0) - (cellSize.width / 2.0)
+        currentDateLabel.frame.origin = CGPointMake(x, yOffset)
         yOffset += currentDateLabel.frame.size.height
         yOffset += 5
     }
     
     private func layoutHoursWorkedLabel() {
-        hoursWorkedLabel.frame.origin = CGPointMake(0, yOffset)
+        let x = (cDistance/2.0) - (cellSize.width / 2.0)
+        hoursWorkedLabel.frame.origin = CGPointMake(x, yOffset)
         yOffset += hoursWorkedLabel.frame.size.height
     }
     
