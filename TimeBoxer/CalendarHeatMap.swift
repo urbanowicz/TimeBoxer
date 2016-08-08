@@ -25,6 +25,12 @@ class CalendarHeatMap: UIView, UIGestureRecognizerDelegate, POPAnimationDelegate
     private var currentMonth:MonthHeatMapView?
     private var previousMonth:MonthHeatMapView?
     private var nextMonth:MonthHeatMapView?
+    
+    var leftMargin:CGFloat {
+        get {
+            return currentMonth!.leftMargin
+        }
+    }
 
     private let panGestureRecognizer = UIPanGestureRecognizer()
     
@@ -68,7 +74,7 @@ class CalendarHeatMap: UIView, UIGestureRecognizerDelegate, POPAnimationDelegate
         //setup the gesture recognizer
         setupGestureRecognizer()
         
-        clipsToBounds = true
+        clipsToBounds = false
 
     }
 
@@ -82,6 +88,11 @@ class CalendarHeatMap: UIView, UIGestureRecognizerDelegate, POPAnimationDelegate
         previousMonth!.heightToFit()
         previousMonth!.frame.origin = CGPointMake(0, -previousMonth!.frame.height - frame.origin.y)
         invalidateIntrinsicContentSize()
+    }
+    
+    override func updateConstraints() {
+        super.updateConstraints()
+        superview?.setNeedsUpdateConstraints()
     }
     override func intrinsicContentSize() -> CGSize {
         return currentMonth!.intrinsicContentSize()

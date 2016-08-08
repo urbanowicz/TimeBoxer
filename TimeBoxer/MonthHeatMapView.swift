@@ -71,7 +71,18 @@ class MonthHeatMapView: UIView, UIGestureRecognizerDelegate {
     //cDistance variable is key to laying out the elements of the calendar.
     //it is a distance between centers of two consecutive elements in the calendar. Both in y and x direction.
     //eg. S M T W T F S. The distance between the centers of these letters is equal to cDistance.
-    private var cDistance:CGFloat = 0.0
+    private var cDistance:CGFloat  {
+        get {
+            return frame.size.width / 7.0
+        }
+    }
+    
+    //this is a computed margin that all labels will be alligined to. i.e their x value will be set to leftMargin
+    var leftMargin:CGFloat {
+        get {
+            return (cDistance/2.0) - (cellSize.width / 2.0)
+        }
+    }
     
     //yOffset is used for laying out elements along the y axis. Eg. After the name of the month had been laid out
     //the yOoffset i set to where the next element should be positioned on the y axis.
@@ -113,6 +124,7 @@ class MonthHeatMapView: UIView, UIGestureRecognizerDelegate {
     }
     
     private func doBasicInit() {
+        computeCellSize()
         setupCurrentDate()
         setupMonthNameLabel()
         setupYearLabel()
@@ -286,10 +298,6 @@ class MonthHeatMapView: UIView, UIGestureRecognizerDelegate {
         cellSize = sampleCalendarCell.frame.size
     }
     
-    private func computeCDistance() {
-        cDistance = frame.size.width / 7.0
-    }
-    
     //MARK: laying elements out
     func preferredHeight() -> CGFloat {
         return yOffset
@@ -303,14 +311,12 @@ class MonthHeatMapView: UIView, UIGestureRecognizerDelegate {
         //Hence cDistance/2.0 is the radius of the circle that goes around the day number
         //Since we're setting frame's origin using a center coordianate, we need to shift it back
         //by cellSize.width / 2.0
-        let x = (cDistance/2.0) - (cellSize.width / 2.0)
-        monthNameLabel.frame.origin = CGPointMake(x, 0)
+        monthNameLabel.frame.origin = CGPointMake(leftMargin, 0)
         yOffset = monthNameLabel.frame.height + 5
     }
     
     private func layoutYearLabel() {
-        let x = (cDistance/2.0) - (cellSize.width / 2.0)
-        yearLabel.frame.origin = CGPointMake(x, yOffset)
+        yearLabel.frame.origin = CGPointMake(leftMargin, yOffset)
         yOffset += yearLabel.frame.height
         yOffset += 30
     }
@@ -362,18 +368,16 @@ class MonthHeatMapView: UIView, UIGestureRecognizerDelegate {
     }
     
     private func layoutCurrentDateLabel() {
-        let x = (cDistance/2.0) - (cellSize.width / 2.0)
-        currentDateLabel.frame.origin = CGPointMake(x, yOffset)
+        
+        currentDateLabel.frame.origin = CGPointMake(leftMargin, yOffset)
         yOffset += currentDateLabel.frame.size.height
         yOffset += 5
     }
     
     private func layoutHoursWorkedLabel() {
-        let x = (cDistance/2.0) - (cellSize.width / 2.0)
-        hoursWorkedLabel.frame.origin = CGPointMake(x, yOffset)
+        hoursWorkedLabel.frame.origin = CGPointMake(leftMargin, yOffset)
         yOffset += hoursWorkedLabel.frame.size.height
     }
-    
     
     
     func refreshHeatMap() {
@@ -395,9 +399,6 @@ class MonthHeatMapView: UIView, UIGestureRecognizerDelegate {
     
     func heightToFit() {
         if frame.width != previousWidth {
-            computeCellSize() //Cell size could be computed in doBasicInit but it makes sense for me to keep it here
-            computeCDistance()
-            //the order in which layout methods are called is imoirtant. Laying out from top to bottom.
             layoutMonthNameLabel()
             layoutYearLabel()
             layoutDayNames()

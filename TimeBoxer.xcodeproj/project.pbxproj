@@ -74,6 +74,7 @@
 		F1C3CBF11D3D2A9A00D78D07 /* pop.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F1C3CBE21D3D28BA00D78D07 /* pop.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		F1CA1C231CC6A66300491EC1 /* CellSwipeHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1CA1C221CC6A66300491EC1 /* CellSwipeHandler.swift */; };
 		F1D08A3E1D4773E80066C907 /* CalendarHeatMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D08A3D1D4773E80066C907 /* CalendarHeatMap.swift */; };
+		F1D187651D5871AF0080BE0D /* ProjectStatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D187641D5871AF0080BE0D /* ProjectStatsView.swift */; };
 		F1D1B2451D10359A00DC9EB8 /* RightDrawerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D1B2441D10359A00DC9EB8 /* RightDrawerView.swift */; };
 		F1D1B2461D10359A00DC9EB8 /* RightDrawerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D1B2441D10359A00DC9EB8 /* RightDrawerView.swift */; };
 		F1D2444C1BDFF8320023B994 /* TimerRunningViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D2444B1BDFF8320023B994 /* TimerRunningViewController.swift */; };
@@ -230,6 +231,7 @@
 		F1CA1C221CC6A66300491EC1 /* CellSwipeHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellSwipeHandler.swift; sourceTree = "<group>"; };
 		F1CC0EEB1C69284A0090D76D /* TimeBoxerPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = TimeBoxerPlayground.playground; sourceTree = "<group>"; };
 		F1D08A3D1D4773E80066C907 /* CalendarHeatMap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarHeatMap.swift; sourceTree = "<group>"; };
+		F1D187641D5871AF0080BE0D /* ProjectStatsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectStatsView.swift; sourceTree = "<group>"; };
 		F1D1B2441D10359A00DC9EB8 /* RightDrawerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RightDrawerView.swift; sourceTree = "<group>"; };
 		F1D2444B1BDFF8320023B994 /* TimerRunningViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerRunningViewController.swift; sourceTree = "<group>"; };
 		F1D84C8A1CC656A90066D2C0 /* SwipeHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwipeHandler.swift; sourceTree = "<group>"; };
@@ -495,6 +497,7 @@
 				F18C1DBA1D52169100EF014B /* ProjectBasedCalendarHeatMapDataSource.swift */,
 				F15C6FDC1D550C300081DC06 /* DummyCalendarHeatMapDataSource.swift */,
 				F1B9A5641D5604A800932F90 /* CalendarHeatMapDelegate.swift */,
+				F1D187641D5871AF0080BE0D /* ProjectStatsView.swift */,
 			);
 			name = ProjectStatsVC;
 			sourceTree = "<group>";
@@ -706,6 +709,7 @@
 				F135A8361BE4C9F50079C9BB /* StartButton.swift in Sources */,
 				F1981B9D1C84DE7200F49454 /* SliderOutputToValueConverter.swift in Sources */,
 				F1B5FE6D1C31AF73003A5C65 /* TransitionManager.swift in Sources */,
+				F1D187651D5871AF0080BE0D /* ProjectStatsView.swift in Sources */,
 				F18C1DB31D52159700EF014B /* CalendarHeatMapDataSource.swift in Sources */,
 				F12C5D8C1C46FA450040969F /* KeyboardNotification.swift in Sources */,
 				F15C6FDD1D550C300081DC06 /* DummyCalendarHeatMapDataSource.swift in Sources */,

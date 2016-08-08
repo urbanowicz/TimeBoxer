@@ -27,7 +27,7 @@
                         <viewControllerLayoutGuide type="top" id="om9-dy-SQy"/>
                         <viewControllerLayoutGuide type="bottom" id="30k-rV-2yN"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="y0t-tH-WgZ">
+                    <view key="view" contentMode="scaleToFill" id="y0t-tH-WgZ" customClass="ProjectStatsView" customModule="TimeBoxer" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -59,6 +59,11 @@
                             <constraint firstAttribute="trailing" secondItem="4cX-D4-CSn" secondAttribute="trailing" id="pXD-ci-U6A"/>
                             <constraint firstAttribute="trailing" secondItem="z40-fN-S2G" secondAttribute="trailing" constant="10" id="vKM-qo-CTl"/>
                         </constraints>
+                        <connections>
+                            <outlet property="calendarHeatMap" destination="z40-fN-S2G" id="Dg3-VZ-b59"/>
+                            <outlet property="projectNameTrailingConstraint" destination="ddG-2M-562" id="KBY-30-eSU"/>
+                            <outlet property="projectNamelLeadingConstraint" destination="a7z-qB-OC9" id="VQY-U8-ZF3"/>
+                        </connections>
                     </view>
                     <connections>
                         <outlet property="calendarHeatMap" destination="z40-fN-S2G" id="T0N-qg-vXp"/>
