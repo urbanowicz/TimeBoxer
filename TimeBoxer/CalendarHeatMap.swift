@@ -81,7 +81,6 @@ class CalendarHeatMap: UIView, UIGestureRecognizerDelegate, POPAnimationDelegate
 
     override func layoutSubviews() {
         let screenSize = UIScreen.mainScreen().bounds.size
-        print("LayoutSubviews regular")
         currentMonth!.frame = CGRectMake(0, 0, frame.width, frame.height)
         currentMonth!.heightToFit()
         nextMonth!.frame = CGRectMake(0, screenSize.height, frame.width, frame.height)
@@ -116,7 +115,6 @@ class CalendarHeatMap: UIView, UIGestureRecognizerDelegate, POPAnimationDelegate
         let springBounciness = CGFloat(3.0)
         
         if gestureRecognizer.state == .Began {
-            print("gesture recognzier begin")
             if delegate != nil {
                 delegate!.transitionAnimationStarted()
             }
@@ -202,7 +200,6 @@ class CalendarHeatMap: UIView, UIGestureRecognizerDelegate, POPAnimationDelegate
                     delegate!.transitionAnimationEnded()
                 }
             } else {
-                print("GESTURE RECOGNIZER END")
                 //commit the transition
             }
         }
@@ -214,7 +211,6 @@ class CalendarHeatMap: UIView, UIGestureRecognizerDelegate, POPAnimationDelegate
         }
         
         if transitionInProgress {
-            print("IN PROGRESS")
             //stop animations
             currentMonth!.pop_removeAnimationForKey("alpha")
             if monthTransitionDirection == monthTransitionUp {
@@ -239,7 +235,6 @@ class CalendarHeatMap: UIView, UIGestureRecognizerDelegate, POPAnimationDelegate
     
     func pop_animationDidStop(anim: POPAnimation!, finished: Bool) {
         if finished == true {
-            print("Animations stoped normally, finishing")
             updateViewsAfterTransition()
             if delegate != nil {
                 delegate!.transitionAnimationEnded()
