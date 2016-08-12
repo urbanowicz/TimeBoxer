@@ -39,7 +39,7 @@ class CalendarHeatMap: UIView, UIGestureRecognizerDelegate, POPAnimationDelegate
     private var monthTransitionDirection:Int = 1
     
     private var transitionInProgress = false
-    
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         doBasicInit()
@@ -81,6 +81,7 @@ class CalendarHeatMap: UIView, UIGestureRecognizerDelegate, POPAnimationDelegate
 
     override func layoutSubviews() {
         let screenSize = UIScreen.mainScreen().bounds.size
+        print("LayoutSubviews regular")
         currentMonth!.frame = CGRectMake(0, 0, frame.width, frame.height)
         currentMonth!.heightToFit()
         nextMonth!.frame = CGRectMake(0, screenSize.height, frame.width, frame.height)
@@ -115,6 +116,7 @@ class CalendarHeatMap: UIView, UIGestureRecognizerDelegate, POPAnimationDelegate
         let springBounciness = CGFloat(3.0)
         
         if gestureRecognizer.state == .Began {
+            print("gesture recognzier begin")
             if delegate != nil {
                 delegate!.transitionAnimationStarted()
             }
@@ -236,8 +238,6 @@ class CalendarHeatMap: UIView, UIGestureRecognizerDelegate, POPAnimationDelegate
     
     
     func pop_animationDidStop(anim: POPAnimation!, finished: Bool) {
-        
-        print(finished)
         if finished == true {
             print("Animations stoped normally, finishing")
             updateViewsAfterTransition()
