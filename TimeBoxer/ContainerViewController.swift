@@ -17,7 +17,7 @@ class ContainerViewController: UIViewController, UIGestureRecognizerDelegate{
     private var timeSliderToProjectsTableSwipeHandler:SwipeHandler?
     //private var toProjectStatsSwipeHandler:ProjectsTableToProjectStatsSwipeHandler?
     private var projectStatsToProjectsTableSwipeHandler:SwipeHandler?
-    private var cellSwipeHandler:CellSwipeHandler?
+    private var cellSwipeHandler:CellSwipeHandler = CellSwipeHandler()
     
     //transition directions
     let fromProjectsTableTransition = 0
@@ -113,7 +113,7 @@ class ContainerViewController: UIViewController, UIGestureRecognizerDelegate{
                 toVC.view.frame.origin.x  = view.frame.origin.x - view.frame.width
                 view.addSubview(toVC.view)
             case fromProjectsTableTransition:
-                cellSwipeHandler!.handleSwipeBegan(gestureRecognizer)
+                cellSwipeHandler.handleSwipeBegan(gestureRecognizer)
             case projectStatsToProjectsTableTransition:
                 let toVC = projectsTableVC!
                 toVC.view.frame = view.frame
@@ -128,7 +128,7 @@ class ContainerViewController: UIViewController, UIGestureRecognizerDelegate{
         if gestureRecognizer.state == .Changed {
             switch(transitionDirection) {
             case fromProjectsTableTransition:
-                cellSwipeHandler!.handleSwipeChanged(gestureRecognizer)
+                cellSwipeHandler.handleSwipeChanged(gestureRecognizer)
             case timeSliderToProjectsTableTransition:
                  timeSliderToProjectsTableSwipeHandler!.handleSwipeChanged(gestureRecognizer)
             case projectStatsToProjectsTableTransition:
@@ -141,7 +141,7 @@ class ContainerViewController: UIViewController, UIGestureRecognizerDelegate{
         if gestureRecognizer.state == .Ended {
             switch(transitionDirection) {
             case fromProjectsTableTransition:
-                cellSwipeHandler!.handleSwipeEnded(gestureRecognizer)
+                cellSwipeHandler.handleSwipeEnded(gestureRecognizer)
             case timeSliderToProjectsTableTransition:
                 timeSliderToProjectsTableSwipeHandler!.handleSwipeEnded(gestureRecognizer)
             case projectStatsToProjectsTableTransition:
@@ -224,12 +224,12 @@ class ContainerViewController: UIViewController, UIGestureRecognizerDelegate{
     }
     
     private func swipeShouldBeginOnProjectsTableVC(panGestureRecognizer: UIPanGestureRecognizer) -> Bool {
-        let translation = panGestureRecognizer.translationInView(view)
+      //  let translation = panGestureRecognizer.translationInView(view)
         let location = panGestureRecognizer.locationInView(projectsTableVC!.projectsTableView)
-        if fabs(translation.x) < fabs(translation.y) {
-            //swipe in y direction
-            return false
-        }
+//        if fabs(translation.x) < fabs(translation.y) {
+//            //swipe in y direction
+//            return false
+//        }
 
         let cell = projectsTableVC!.cellAtPoint(location)
         if cell == nil {
@@ -240,7 +240,7 @@ class ContainerViewController: UIViewController, UIGestureRecognizerDelegate{
         timeSliderVC!.project = cell!.project
         self.transitionDirection = fromProjectsTableTransition
 
-        cellSwipeHandler = CellSwipeHandler(cell: cell!, leftVC: projectStatsVC!, middleVC: projectsTableVC!, rightVC: timeSliderVC!, containerVC: self)
+        cellSwipeHandler.setup(cell!, leftVC: projectStatsVC!, middleVC: projectsTableVC!, rightVC: timeSliderVC!, containerVC: self)
         return true
     }
     

@@ -9,27 +9,31 @@
 import UIKit
 
 class CellSwipeHandler: NSObject {
-    var cell: MyTableViewCell
-    var leftView: UIView
-    var rightView: UIView
-    var middleView: UIView
-    var containerView: UIView
+    var cell: MyTableViewCell!
+    var leftView: UIView!
+    var rightView: UIView!
+    var middleView: UIView!
+    var containerView: UIView!
     
-    var leftVC:UIViewController
-    var rightVC:UIViewController
-    var middleVC:UIViewController
-    var containerVC: ContainerViewController
+    var leftVC:UIViewController!
+    var rightVC:UIViewController!
+    var middleVC:UIViewController!
+    var containerVC: ContainerViewController!
     
-    private var cellOrigin:CGPoint
-    private var leftViewOrigin:CGPoint
-    private var rightViewOrigin:CGPoint
-    private var middleViewOrigin:CGPoint
+    private var cellOrigin:CGPoint!
+    private var leftViewOrigin:CGPoint!
+    private var rightViewOrigin:CGPoint!
+    private var middleViewOrigin:CGPoint!
     
     private var drawerSize = CGFloat(50)
     private var animationDuration = 0.2
     private var negativeAcceleration = CGFloat(1000)
     
-    init(cell: MyTableViewCell, leftVC: UIViewController, middleVC: UIViewController, rightVC: UIViewController, containerVC: ContainerViewController) {
+    override init() {
+        super.init()
+    }
+    
+    func setup(cell: MyTableViewCell, leftVC: UIViewController, middleVC: UIViewController, rightVC: UIViewController, containerVC: ContainerViewController) {
         self.cell = cell
         self.cellOrigin = cell.facadeView.frame.origin
         self.leftVC = leftVC
