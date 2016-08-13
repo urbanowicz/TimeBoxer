@@ -50,7 +50,7 @@ class TimeSliderViewController: UIViewController {
     
     private func setupProjectNameLabel() {
         projectNameLabel.textColor = Colors.silver()
-        projectNameLabel.text = project!.name
+        projectNameLabel.text = project?.name
         projectNameLabel.numberOfLines = 4
         projectNameLabel.adjustsFontSizeToFitWidth = true
         projectNameLabel.sizeToFit()

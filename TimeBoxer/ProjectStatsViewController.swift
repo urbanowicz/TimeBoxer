@@ -26,8 +26,10 @@ class ProjectStatsViewController: UIViewController, CalendarHeatMapDelegate {
     }
     
     override func viewWillAppear(animated: Bool) {
-        projectNameLabel.text = project!.name
-        setupCalendarHeatMap()
+        projectNameLabel.text = project?.name
+        if project != nil {
+            setupCalendarHeatMap()
+        }
     }
 
     override func didReceiveMemoryWarning() {

@@ -20,10 +20,10 @@ class ContainerViewController: UIViewController, UIGestureRecognizerDelegate{
     private var cellSwipeHandler:CellSwipeHandler = CellSwipeHandler()
     
     //transition directions
-    let fromProjectsTableTransition = 0
-    let timeSliderToProjectsTableTransition = 1
-    let projectStatsToProjectsTableTransition = 3
-    var transitionDirection:Int = 0
+    private let fromProjectsTableTransition = 0
+    private let timeSliderToProjectsTableTransition = 1
+    private let projectStatsToProjectsTableTransition = 3
+    private var transitionDirection:Int = 0
     
     override func viewDidLoad()
     {

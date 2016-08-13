@@ -70,6 +70,7 @@
 		F1B920551BE7D7CC004A8CDB /* PauseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1B920541BE7D7CC004A8CDB /* PauseButton.swift */; };
 		F1B9A5651D5604A800932F90 /* CalendarHeatMapDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1B9A5641D5604A800932F90 /* CalendarHeatMapDelegate.swift */; };
 		F1BA0B2E1D50580F00C35AB0 /* HeatMapCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BA0B2D1D50580F00C35AB0 /* HeatMapCell.swift */; };
+		F1BF117B1D5F915300FC45A5 /* ImprovedContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BF117A1D5F915300FC45A5 /* ImprovedContainerViewController.swift */; };
 		F1C3CBF01D3D2A9A00D78D07 /* pop.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1C3CBE21D3D28BA00D78D07 /* pop.framework */; };
 		F1C3CBF11D3D2A9A00D78D07 /* pop.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F1C3CBE21D3D28BA00D78D07 /* pop.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		F1CA1C231CC6A66300491EC1 /* CellSwipeHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1CA1C221CC6A66300491EC1 /* CellSwipeHandler.swift */; };
@@ -226,6 +227,7 @@
 		F1B920541BE7D7CC004A8CDB /* PauseButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PauseButton.swift; sourceTree = "<group>"; };
 		F1B9A5641D5604A800932F90 /* CalendarHeatMapDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarHeatMapDelegate.swift; sourceTree = "<group>"; };
 		F1BA0B2D1D50580F00C35AB0 /* HeatMapCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeatMapCell.swift; sourceTree = "<group>"; };
+		F1BF117A1D5F915300FC45A5 /* ImprovedContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImprovedContainerViewController.swift; sourceTree = "<group>"; };
 		F1C3CBD51D3D28BA00D78D07 /* pop.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = pop.xcodeproj; path = "Library/pop-master/pop.xcodeproj"; sourceTree = "<group>"; };
 		F1C3CBEE1D3D2A0600D78D07 /* PopBridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopBridge.h; sourceTree = "<group>"; };
 		F1CA1C221CC6A66300491EC1 /* CellSwipeHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellSwipeHandler.swift; sourceTree = "<group>"; };
@@ -271,6 +273,7 @@
 				F1D84C8A1CC656A90066D2C0 /* SwipeHandler.swift */,
 				F1D84C8C1CC658620066D2C0 /* SwipeDirection.swift */,
 				F1CA1C221CC6A66300491EC1 /* CellSwipeHandler.swift */,
+				F1BF117A1D5F915300FC45A5 /* ImprovedContainerViewController.swift */,
 			);
 			name = ContainerVC;
 			sourceTree = "<group>";
@@ -690,6 +693,7 @@
 				F1FC9AD31C3ED73B002A9F31 /* ProjectStatsViewController.swift in Sources */,
 				F168FFF91CB15ACB00F298BE /* WorkTimeFormatter.swift in Sources */,
 				F1B3B41F1C5540D80009FCF0 /* AbstractAnimator.swift in Sources */,
+				F1BF117B1D5F915300FC45A5 /* ImprovedContainerViewController.swift in Sources */,
 				F1EBB3E31C5AB93C005A36CE /* WorkChunk.swift in Sources */,
 				F1D1B2451D10359A00DC9EB8 /* RightDrawerView.swift in Sources */,
 				F1B920551BE7D7CC004A8CDB /* PauseButton.swift in Sources */,

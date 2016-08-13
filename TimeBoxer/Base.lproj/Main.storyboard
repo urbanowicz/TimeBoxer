@@ -77,10 +77,10 @@
             </objects>
             <point key="canvasLocation" x="612" y="-1156"/>
         </scene>
-        <!--Container View Controller-->
+        <!--Improved Container View Controller-->
         <scene sceneID="SNI-pH-kmp">
             <objects>
-                <viewController storyboardIdentifier="containerViewController" id="6mA-bS-VWc" customClass="ContainerViewController" customModule="TimeBoxer" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="containerViewController" id="6mA-bS-VWc" customClass="ImprovedContainerViewController" customModule="TimeBoxer" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="I40-CH-Iuo"/>
                         <viewControllerLayoutGuide type="bottom" id="akE-zr-EAc"/>
