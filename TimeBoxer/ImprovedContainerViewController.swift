@@ -9,10 +9,12 @@
 import UIKit
 
 class ImprovedContainerViewController: UIViewController, UIGestureRecognizerDelegate {
-    
+
     private var projectStatsVC: ProjectStatsViewController!
     private var projectsTableVC: ProjectsTableViewController!
     private var timeSliderVC: TimeSliderViewController!
+    
+    private var transitionState = TransitionState()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,9 +22,11 @@ class ImprovedContainerViewController: UIViewController, UIGestureRecognizerDele
         
         let screenSize = UIScreen.mainScreen().bounds.size
         setupChildController(projectStatsVC, withSize: screenSize, origin: CGPointMake(-screenSize.width, 0))
+        transitionState.projectStatsOriginX = projectStatsVC.view.frame.origin.x
         setupChildController(projectsTableVC, withSize: screenSize, origin:CGPointMake(0,0))
+        transitionState.projectsTableOriginX = projectsTableVC.view.frame.origin.x
         setupChildController(timeSliderVC, withSize: screenSize, origin: CGPointMake(screenSize.width,0))
-        
+        transitionState.timeSliderOriginX = timeSliderVC.view.frame.origin.x
     }
     
     private func instantiateChildViewControllers() {
@@ -50,7 +54,12 @@ class ImprovedContainerViewController: UIViewController, UIGestureRecognizerDele
     }
     
     func handlePanGestureForProjectsTableView(panGestureRecognizer: UIPanGestureRecognizer) {
-        print("Handling swipe on a cell")
+        if panGestureRecognizer.state == .Changed {
+            let dx = panGestureRecognizer.translationInView(view).x
+            let cell = panGestureRecognizer.view as! MyTableViewCell
+            let facade = cell.facadeView
+            facade.frame.origin.x = transitionState.projectCellOriginX + dx
+        }
     }
     
     func handlePanGestureForTimeSliderView(panGestureRecognizer: UIPanGestureRecognizer) {
@@ -62,6 +71,19 @@ class ImprovedContainerViewController: UIViewController, UIGestureRecognizerDele
     }
     
     func gestureRecognizerShouldBegin(gestureRecognizer: UIGestureRecognizer) -> Bool {
+        let sourceView = gestureRecognizer.view
+        if  sourceView as? MyTableViewCell != nil {
+            return true
+        }
+        
+        if sourceView == projectStatsVC.view {
+           
+        }
+        
+        if sourceView == timeSliderVC.view {
+            
+        }
+        
         return true
     }
     
@@ -82,4 +104,11 @@ class ImprovedContainerViewController: UIViewController, UIGestureRecognizerDele
     override func prefersStatusBarHidden() -> Bool {
         return true
     }
+}
+
+struct TransitionState {
+    var projectStatsOriginX:CGFloat = 0
+    var projectsTableOriginX:CGFloat = 0
+    var timeSliderOriginX:CGFloat = 0
+    var projectCellOriginX:CGFloat = 0
 }

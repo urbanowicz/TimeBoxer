@@ -35,6 +35,12 @@ class TimeSliderViewController: UIViewController {
 //        setupProjectNameLabel()
 //        timeSlider.refresh()
     }
+    
+    func prepareViewForUse(withProject project:Project) {
+        self.project = project
+        setupProjectNameLabel()
+        timeSlider.refresh()
+    }
 //---------------------------------------------------------------------------------------------------
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

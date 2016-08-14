@@ -29,6 +29,12 @@ class ProjectStatsViewController: UIViewController, CalendarHeatMapDelegate {
 //        projectNameLabel.text = project?.name
 //        setupCalendarHeatMap()
     }
+    
+    func prepareViewForUse(withProject project:Project) {
+        self.project = project
+        projectNameLabel.text = project.name
+        setupCalendarHeatMap()
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
