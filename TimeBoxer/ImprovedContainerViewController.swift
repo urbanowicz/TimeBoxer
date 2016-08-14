@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ImprovedContainerViewController: UIViewController {
+class ImprovedContainerViewController: UIViewController, UIGestureRecognizerDelegate {
     
     private var projectStatsVC: ProjectStatsViewController!
     private var projectsTableVC: ProjectsTableViewController!
@@ -49,7 +49,37 @@ class ImprovedContainerViewController: UIViewController {
         super.didReceiveMemoryWarning()
     }
     
+    func handlePanGestureForProjectsTableView(panGestureRecognizer: UIPanGestureRecognizer) {
+        print("Handling swipe on a cell")
+    }
+    
+    func handlePanGestureForTimeSliderView(panGestureRecognizer: UIPanGestureRecognizer) {
+        
+    }
+    
+    func handlePanGestureForProjectStatsView(panGestureRecognizer: UIPanGestureRecognizer) {
+        
+    }
+    
+    func gestureRecognizerShouldBegin(gestureRecognizer: UIGestureRecognizer) -> Bool {
+        return true
+    }
+    
     func switchViewControllers(fromVC:UIViewController, toVC:UIViewController, animator:Animator?) {
     
+    }
+    
+    //MARK: Disable auto rotate
+    override func shouldAutorotate() -> Bool {
+        return false
+    }
+    
+    override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
+        return UIInterfaceOrientationMask.Portrait
+    }
+    
+    //MARK: Hide status bar
+    override func prefersStatusBarHidden() -> Bool {
+        return true
     }
 }

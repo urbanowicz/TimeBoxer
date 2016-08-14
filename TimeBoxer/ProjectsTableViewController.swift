@@ -41,6 +41,7 @@ class ProjectsTableViewController: UIViewController, UITableViewDelegate {
     TransitionManager(animator: ProjectsTableToAddProjectAnimator(),
         dismissAnimator:AddProjectToProjectsTableDismissAnimator())
 
+
     override func viewDidLoad() {
         super.viewDidLoad()
         //Setup UI elements
@@ -97,6 +98,12 @@ class ProjectsTableViewController: UIViewController, UITableViewDelegate {
                 withRowAnimation: UITableViewRowAnimation.Top)
             projectsTableView.endUpdates()
             newProjectAdded = false
+        }
+    }
+    
+    override func willMoveToParentViewController(parent: UIViewController?) {
+        if let containerVC = parent as? ImprovedContainerViewController {
+            projectsTableDataSource.containerVC = containerVC
         }
     }
     

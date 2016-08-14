@@ -11,6 +11,7 @@ import UIKit
 class ProjectsTableViewDataSource: NSObject, UITableViewDataSource {
     var projects = Array<Project>()
     var projectsTableViewController:ProjectsTableViewController?
+    var containerVC: ImprovedContainerViewController!
     
     let projectsDAO = ProjectsDAO()
     let projectsTableId = "ProjectCell"
@@ -52,6 +53,7 @@ class ProjectsTableViewDataSource: NSObject, UITableViewDataSource {
         setupLeftDrawerForCell(cell)
         setupRightDrawerForCell(cell)
         setupCellSeparatorForCell(cell)
+        setupPanGestureRecognizerForCell(cell)
         return cell
     }
     
@@ -68,6 +70,13 @@ class ProjectsTableViewDataSource: NSObject, UITableViewDataSource {
         }
     }
     
+    private func setupPanGestureRecognizerForCell(cell:MyTableViewCell) {
+        if cell.gestureRecognizers == nil || cell.gestureRecognizers?.count == 0 {
+            let panGestureRecognizer = UIPanGestureRecognizer(target: containerVC, action: #selector(ImprovedContainerViewController.handlePanGestureForProjectsTableView(_:)))
+            panGestureRecognizer.delegate = containerVC
+            cell.addGestureRecognizer(panGestureRecognizer)
+        }
+    }
     
     private func setupProjectNameLabelForCell(cell:MyTableViewCell, indexPath:NSIndexPath) {
         cell.projectNameLabel.text = projects[indexPath.row].name
