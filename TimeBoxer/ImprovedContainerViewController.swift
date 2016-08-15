@@ -94,17 +94,14 @@ class ImprovedContainerViewController: UIViewController, UIGestureRecognizerDele
         if panGestureRecognizer.state == .Ended {
             let dx = panGestureRecognizer.translationInView(view).x
             if fabs(dx) < 50 {
-                let facadePositionXAnimation = POPBasicAnimation(propertyNamed: kPOPLayerPositionX)
-                facadePositionXAnimation.toValue = cell.frame.width/2.0
-                facadePositionXAnimation.duration = 0.2
-                facadePositionXAnimation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
-                cell.facadeView.layer.pop_addAnimation(facadePositionXAnimation, forKey: "positionX")
+                setFacadeView(forCell: cell)
                 return
             }
             
             let projectsTableViewOriginX = projectsTableVC.view.frame.origin.x
             if projectsTableViewOriginX  > -view.frame.width/2.0 &&
                 projectsTableViewOriginX < view.frame.width/2.0 {
+                setFacadeView(forCell: cell)
                 setProjectsTableView()
                 return
             }
@@ -175,29 +172,33 @@ class ImprovedContainerViewController: UIViewController, UIGestureRecognizerDele
     
     //MARK: Private functions
     private func setProjectsTableView() {
-        installPositionXAnimation(forView: projectsTableVC.view, positionX: view.frame.width/2.0)
-        installPositionXAnimation(forView: projectStatsVC.view, positionX: -view.frame.width/2.0)
-        installPositionXAnimation(forView: timeSliderVC.view, positionX: view.frame.width/2.0 + view.frame.width)
+        installPositionXAnimation(forView: projectsTableVC.view, positionX: view.frame.width/2.0, delegate: self)
+        installPositionXAnimation(forView: projectStatsVC.view, positionX: -view.frame.width/2.0, delegate: self)
+        installPositionXAnimation(forView: timeSliderVC.view, positionX: view.frame.width/2.0 + view.frame.width, delegate:self)
     }
     
     private func setProjectStatsView() {
-        installPositionXAnimation(forView: projectsTableVC.view, positionX: view.frame.width/2.0 + view.frame.width)
-        installPositionXAnimation(forView: projectStatsVC.view, positionX: view.frame.width/2.0)
-        installPositionXAnimation(forView: timeSliderVC.view, positionX: view.frame.width/2.0 + 2*view.frame.width)
+        installPositionXAnimation(forView: projectsTableVC.view, positionX: view.frame.width/2.0 + view.frame.width, delegate: self)
+        installPositionXAnimation(forView: projectStatsVC.view, positionX: view.frame.width/2.0, delegate: self)
+        installPositionXAnimation(forView: timeSliderVC.view, positionX: view.frame.width/2.0 + 2*view.frame.width, delegate:self)
     }
     
     private func setTimeSliderView() {
-        installPositionXAnimation(forView: projectsTableVC.view, positionX: -view.frame.width/2.0)
-        installPositionXAnimation(forView: projectStatsVC.view, positionX: -view.frame.width/2.0 - view.frame.width)
-        installPositionXAnimation(forView: timeSliderVC.view, positionX: view.frame.width/2.0)
+        installPositionXAnimation(forView: projectsTableVC.view, positionX: -view.frame.width/2.0, delegate: self)
+        installPositionXAnimation(forView: projectStatsVC.view, positionX: -view.frame.width/2.0 - view.frame.width, delegate: self)
+        installPositionXAnimation(forView: timeSliderVC.view, positionX: view.frame.width/2.0, delegate:self)
     }
     
-    private func installPositionXAnimation(forView uiView: UIView, positionX: CGFloat) {
+    private func setFacadeView(forCell cell:MyTableViewCell) {
+        installPositionXAnimation(forView: cell.facadeView, positionX: cell.frame.width/2.0, delegate: nil)
+    }
+    
+    private func installPositionXAnimation(forView uiView: UIView, positionX: CGFloat, delegate: POPAnimationDelegate?) {
         let positionXAnimation = POPBasicAnimation(propertyNamed: kPOPLayerPositionX)
         positionXAnimation.toValue = positionX
         positionXAnimation.duration = 0.3
         positionXAnimation.timingFunction = CAMediaTimingFunction(name:kCAMediaTimingFunctionEaseInEaseOut)
-        positionXAnimation.delegate = self
+        positionXAnimation.delegate = delegate
         uiView.layer.pop_addAnimation(positionXAnimation, forKey: "positionX")
     }
     
