@@ -9,6 +9,7 @@
 import UIKit
 
 class MyTableViewCell: UITableViewCell {
+    
     var project:Project?
     
     @IBOutlet weak var cellSeparator: UIView!
@@ -26,6 +27,11 @@ class MyTableViewCell: UITableViewCell {
     var yesDeleteButton = UIButton(type: UIButtonType.System)
     var noDeleteButton = UIButton(type: UIButtonType.System)
     var confirmDeleteLabel = UILabel()
+    var drawerWidth:CGFloat {
+        get {
+            return leftDrawer.frame.width
+        }
+    }
     override func awakeFromNib() {
         super.awakeFromNib()
     }

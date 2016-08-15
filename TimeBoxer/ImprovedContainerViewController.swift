@@ -54,11 +54,53 @@ class ImprovedContainerViewController: UIViewController, UIGestureRecognizerDele
     }
     
     func handlePanGestureForProjectsTableView(panGestureRecognizer: UIPanGestureRecognizer) {
+        let cell = panGestureRecognizer.view as! MyTableViewCell
+        if panGestureRecognizer.state == .Began {
+
+        }
         if panGestureRecognizer.state == .Changed {
             let dx = panGestureRecognizer.translationInView(view).x
             let cell = panGestureRecognizer.view as! MyTableViewCell
             let facade = cell.facadeView
-            facade.frame.origin.x = transitionState.projectCellOriginX + dx
+            let drawerWidth = cell.drawerWidth
+            if (fabs(dx) < 50) {
+                facade.frame.origin.x = transitionState.projectCellOriginX + dx
+            } else {
+                let signOfDx = dx / fabs(dx)
+                let dxMinusDrawerWidth = signOfDx * (fabs(dx) - drawerWidth)
+                projectStatsVC.view.frame.origin.x = transitionState.projectStatsOriginX + dxMinusDrawerWidth
+                projectsTableVC.view.frame.origin.x = transitionState.projectsTableOriginX + dxMinusDrawerWidth
+                timeSliderVC.view.frame.origin.x = transitionState.timeSliderOriginX + dxMinusDrawerWidth
+            }
+        }
+        
+        if panGestureRecognizer.state == .Ended {
+            let dx = panGestureRecognizer.translationInView(view).x
+            if fabs(dx) < 50 {
+                let facadePositionXAnimation = POPBasicAnimation(propertyNamed: kPOPLayerPositionX)
+                facadePositionXAnimation.toValue = cell.frame.width/2.0
+                facadePositionXAnimation.duration = 0.2
+                facadePositionXAnimation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
+                cell.facadeView.layer.pop_addAnimation(facadePositionXAnimation, forKey: "positionX")
+                return
+            }
+            
+            let projectsTableViewOriginX = projectsTableVC.view.frame.origin.x
+            if projectsTableViewOriginX  > -view.frame.width/2.0 &&
+                projectsTableViewOriginX < view.frame.width/2.0 {
+                setProjectsTableView()
+                return
+            }
+            
+            if projectsTableViewOriginX <= -view.frame.width/2.0 {
+                setTimeSliderView()
+                return
+            }
+            
+            if projectsTableViewOriginX >= view.frame.width/2.0 {
+                setProjectStatsView()
+                return
+            }
         }
     }
     
@@ -87,6 +129,8 @@ class ImprovedContainerViewController: UIViewController, UIGestureRecognizerDele
         return true
     }
     
+    
+    
     func switchViewControllers(fromVC:UIViewController, toVC:UIViewController, animator:Animator?) {
     
     }
@@ -104,6 +148,34 @@ class ImprovedContainerViewController: UIViewController, UIGestureRecognizerDele
     override func prefersStatusBarHidden() -> Bool {
         return true
     }
+    
+    //MARK: Private functions
+    private func setProjectsTableView() {
+        installPositionXAnimation(forView: projectsTableVC.view, positionX: view.frame.width/2.0)
+        installPositionXAnimation(forView: projectStatsVC.view, positionX: -view.frame.width/2.0)
+        installPositionXAnimation(forView: timeSliderVC.view, positionX: view.frame.width/2.0 + view.frame.width)
+    }
+    
+    private func setProjectStatsView() {
+        installPositionXAnimation(forView: projectsTableVC.view, positionX: view.frame.width/2.0 + view.frame.width)
+        installPositionXAnimation(forView: projectStatsVC.view, positionX: view.frame.width/2.0)
+        installPositionXAnimation(forView: timeSliderVC.view, positionX: view.frame.width/2.0 + 2*view.frame.width)
+    }
+    
+    private func setTimeSliderView() {
+        installPositionXAnimation(forView: projectsTableVC.view, positionX: -view.frame.width/2.0)
+        installPositionXAnimation(forView: projectStatsVC.view, positionX: -view.frame.width/2.0 - view.frame.width)
+        installPositionXAnimation(forView: timeSliderVC.view, positionX: view.frame.width/2.0)
+    }
+    
+    private func installPositionXAnimation(forView uiView: UIView, positionX: CGFloat) {
+        let positionXAnimation = POPBasicAnimation(propertyNamed: kPOPLayerPositionX)
+        positionXAnimation.toValue = positionX
+        positionXAnimation.duration = 0.3
+        positionXAnimation.timingFunction = CAMediaTimingFunction(name:kCAMediaTimingFunctionEaseInEaseOut)
+        uiView.layer.pop_addAnimation(positionXAnimation, forKey: "positionX")
+    }
+    
 }
 
 struct TransitionState {
