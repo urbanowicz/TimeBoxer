@@ -17,6 +17,7 @@ class ImprovedContainerViewController: UIViewController, UIGestureRecognizerDele
     private var transitionState = TransitionState()
     
     private var animationCount = 0
+    private var selectedCell:MyTableViewCell?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -72,6 +73,7 @@ class ImprovedContainerViewController: UIViewController, UIGestureRecognizerDele
     
     func handlePanGestureForProjectsTableView(panGestureRecognizer: UIPanGestureRecognizer) {
         let cell = panGestureRecognizer.view as! MyTableViewCell
+        selectedCell = cell
         if panGestureRecognizer.state == .Began {
 
         }
@@ -85,6 +87,7 @@ class ImprovedContainerViewController: UIViewController, UIGestureRecognizerDele
             } else {
                 let signOfDx = dx / fabs(dx)
                 let dxMinusDrawerWidth = signOfDx * (fabs(dx) - drawerWidth)
+                cell.facadeView.frame.origin.x = transitionState.projectCellOriginX + drawerWidth*signOfDx
                 moveProjectStatsViewOriginX(byDelta: dxMinusDrawerWidth)
                 moveProjectsTableViewOriginX(byDelta: dxMinusDrawerWidth)
                 moveTimeSliderViewOriginX(byDelta: dxMinusDrawerWidth)
@@ -97,6 +100,8 @@ class ImprovedContainerViewController: UIViewController, UIGestureRecognizerDele
                 setFacadeView(forCell: cell)
                 return
             }
+            
+            
             
             let projectsTableViewOriginX = projectsTableVC.view.frame.origin.x
             if projectsTableViewOriginX  > -view.frame.width/2.0 &&
@@ -148,6 +153,7 @@ class ImprovedContainerViewController: UIViewController, UIGestureRecognizerDele
         animationCount += 1
         if animationCount == 3 {
             animationCount = 0
+            resetFacadeViewPosition(forCell: selectedCell!)
             recordTransitionState()
         }
     }
@@ -191,6 +197,10 @@ class ImprovedContainerViewController: UIViewController, UIGestureRecognizerDele
     
     private func setFacadeView(forCell cell:MyTableViewCell) {
         installPositionXAnimation(forView: cell.facadeView, positionX: cell.frame.width/2.0, delegate: nil)
+    }
+    
+    private func resetFacadeViewPosition(forCell cell:MyTableViewCell) {
+        cell.facadeView.frame.origin.x = cell.frame.origin.x
     }
     
     private func installPositionXAnimation(forView uiView: UIView, positionX: CGFloat, delegate: POPAnimationDelegate?) {
