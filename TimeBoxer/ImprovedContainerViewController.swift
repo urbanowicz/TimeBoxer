@@ -2,19 +2,21 @@
 //  ImprovedContainerViewController.swift
 //  TimeBoxer
 //
-//  Created by Tomasz Urbanowiczon 13/08/16.
+//  Created by Tomasz Urbanowicz on 13/08/16.
 //  Copyright © 2016 Tomasz Urbanowicz. All rights reserved.
 //
 
 import UIKit
 
-class ImprovedContainerViewController: UIViewController, UIGestureRecognizerDelegate {
+class ImprovedContainerViewController: UIViewController, UIGestureRecognizerDelegate, POPAnimationDelegate {
 
     private var projectStatsVC: ProjectStatsViewController!
     private var projectsTableVC: ProjectsTableViewController!
     private var timeSliderVC: TimeSliderViewController!
     
     private var transitionState = TransitionState()
+    
+    private var animationCount = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,6 +29,9 @@ class ImprovedContainerViewController: UIViewController, UIGestureRecognizerDele
         transitionState.projectsTableOriginX = projectsTableVC.view.frame.origin.x
         setupChildController(timeSliderVC, withSize: screenSize, origin: CGPointMake(screenSize.width,0))
         transitionState.timeSliderOriginX = timeSliderVC.view.frame.origin.x
+        
+        setupPanGestureRecognizerForProjectStatsView()
+        setupPanGestureRecognizerForTimeSliderView()
     }
     
     private func instantiateChildViewControllers() {
@@ -38,7 +43,7 @@ class ImprovedContainerViewController: UIViewController, UIGestureRecognizerDele
             storyboard!.instantiateViewControllerWithIdentifier("projectsTableViewController") as!
         ProjectsTableViewController
         
-        timeSliderVC =             storyboard!.instantiateViewControllerWithIdentifier("timeSliderViewController") as?
+        timeSliderVC = storyboard!.instantiateViewControllerWithIdentifier("timeSliderViewController") as?
         TimeSliderViewController
     }
     
@@ -47,6 +52,18 @@ class ImprovedContainerViewController: UIViewController, UIGestureRecognizerDele
         child.view.frame = CGRect(origin: origin, size: size)
         view.addSubview(child.view)
         child.didMoveToParentViewController(self)
+    }
+    
+    private func setupPanGestureRecognizerForProjectStatsView() {
+        let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(ImprovedContainerViewController.handlePanGestureForProjectStatsView(_:)))
+        panGestureRecognizer.delegate = self
+        projectStatsVC.view.addGestureRecognizer(panGestureRecognizer)
+    }
+    
+    private func setupPanGestureRecognizerForTimeSliderView() {
+        let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(ImprovedContainerViewController.handlePanGestureForTimeSliderView(_:)))
+        panGestureRecognizer.delegate = self
+        timeSliderVC.view.addGestureRecognizer(panGestureRecognizer)
     }
 
     override func didReceiveMemoryWarning() {
@@ -68,9 +85,9 @@ class ImprovedContainerViewController: UIViewController, UIGestureRecognizerDele
             } else {
                 let signOfDx = dx / fabs(dx)
                 let dxMinusDrawerWidth = signOfDx * (fabs(dx) - drawerWidth)
-                projectStatsVC.view.frame.origin.x = transitionState.projectStatsOriginX + dxMinusDrawerWidth
-                projectsTableVC.view.frame.origin.x = transitionState.projectsTableOriginX + dxMinusDrawerWidth
-                timeSliderVC.view.frame.origin.x = transitionState.timeSliderOriginX + dxMinusDrawerWidth
+                moveProjectStatsViewOriginX(byDelta: dxMinusDrawerWidth)
+                moveProjectsTableViewOriginX(byDelta: dxMinusDrawerWidth)
+                moveTimeSliderViewOriginX(byDelta: dxMinusDrawerWidth)
             }
         }
         
@@ -105,11 +122,11 @@ class ImprovedContainerViewController: UIViewController, UIGestureRecognizerDele
     }
     
     func handlePanGestureForTimeSliderView(panGestureRecognizer: UIPanGestureRecognizer) {
-        
+        handlePanGestureRecognizerCommon(panGestureRecognizer)
     }
     
     func handlePanGestureForProjectStatsView(panGestureRecognizer: UIPanGestureRecognizer) {
-        
+        handlePanGestureRecognizerCommon(panGestureRecognizer)
     }
     
     func gestureRecognizerShouldBegin(gestureRecognizer: UIGestureRecognizer) -> Bool {
@@ -129,7 +146,14 @@ class ImprovedContainerViewController: UIViewController, UIGestureRecognizerDele
         return true
     }
     
-    
+    //MARK:POP Animation delegate
+    func pop_animationDidStop(anim: POPAnimation!, finished: Bool) {
+        animationCount += 1
+        if animationCount == 3 {
+            animationCount = 0
+            recordTransitionState()
+        }
+    }
     
     func switchViewControllers(fromVC:UIViewController, toVC:UIViewController, animator:Animator?) {
     
@@ -173,9 +197,67 @@ class ImprovedContainerViewController: UIViewController, UIGestureRecognizerDele
         positionXAnimation.toValue = positionX
         positionXAnimation.duration = 0.3
         positionXAnimation.timingFunction = CAMediaTimingFunction(name:kCAMediaTimingFunctionEaseInEaseOut)
+        positionXAnimation.delegate = self
         uiView.layer.pop_addAnimation(positionXAnimation, forKey: "positionX")
     }
     
+    private func handlePanGestureRecognizerCommon(panGestureRecognizer: UIPanGestureRecognizer) {
+        if panGestureRecognizer.state == .Changed {
+            let dx = panGestureRecognizer.translationInView(view).x
+            moveProjectStatsViewOriginX(byDelta: dx)
+            moveProjectsTableViewOriginX(byDelta: dx)
+            moveTimeSliderViewOriginX(byDelta: dx)
+        }
+        
+        if panGestureRecognizer.state == .Ended {
+            let projectsTableViewOriginX = projectsTableVC.view.frame.origin.x
+            if projectsTableViewOriginX  > -view.frame.width/2.0 &&
+                projectsTableViewOriginX < view.frame.width/2.0 {
+                setProjectsTableView()
+                return
+            }
+            
+            if projectsTableViewOriginX <= -view.frame.width/2.0 {
+                setTimeSliderView()
+                return
+            }
+            
+            if projectsTableViewOriginX >= view.frame.width/2.0 {
+                setProjectStatsView()
+                return
+            }
+        }
+    }
+    
+    private func recordTransitionState() {
+        transitionState.projectsTableOriginX = projectsTableVC.view.frame.origin.x
+        transitionState.projectStatsOriginX = projectStatsVC.view.frame.origin.x
+        transitionState.timeSliderOriginX = timeSliderVC.view.frame.origin.x
+    }
+    
+    private func moveProjectStatsViewOriginX(byDelta dx:CGFloat) {
+        if dx > 0 {
+            projectStatsVC.view.frame.origin.x = min(0, transitionState.projectStatsOriginX + dx)
+        } else {
+            projectStatsVC.view.frame.origin.x = max(-2*view.frame.width, transitionState.projectStatsOriginX + dx)
+        }
+    }
+    
+    private func moveProjectsTableViewOriginX(byDelta dx:CGFloat) {
+        if dx > 0 {
+            projectsTableVC.view.frame.origin.x = min(view.frame.width, transitionState.projectsTableOriginX + dx)
+        } else {
+            projectsTableVC.view.frame.origin.x = max(-view.frame.width, transitionState.projectsTableOriginX + dx)
+        }
+    }
+    
+    private func moveTimeSliderViewOriginX(byDelta dx:CGFloat) {
+        if dx > 0 {
+            timeSliderVC.view.frame.origin.x = min(2*view.frame.width, transitionState.timeSliderOriginX + dx)
+        } else {
+            timeSliderVC.view.frame.origin.x = max(0, transitionState.timeSliderOriginX + dx)
+        }
+    }
 }
 
 struct TransitionState {
