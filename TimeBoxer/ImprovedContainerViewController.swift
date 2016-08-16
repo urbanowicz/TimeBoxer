@@ -17,6 +17,8 @@ class ImprovedContainerViewController: UIViewController, UIGestureRecognizerDele
     private var transitionState = TransitionState()
     
     private var animationCount = 0
+    private var transitionAnimationInProgress = false
+    
     private var selectedCell:MyTableViewCell?
     
     override func viewDidLoad() {
@@ -134,15 +136,16 @@ class ImprovedContainerViewController: UIViewController, UIGestureRecognizerDele
     func gestureRecognizerShouldBegin(gestureRecognizer: UIGestureRecognizer) -> Bool {
         let sourceView = gestureRecognizer.view
         if  sourceView as? MyTableViewCell != nil {
-            return true
+            if transitionAnimationInProgress {
+                return false
+            } else {
+                return true
+            }
         }
         
-        if sourceView == projectStatsVC.view {
-           
-        }
-        
-        if sourceView == timeSliderVC.view {
-            
+        if transitionAnimationInProgress {
+            stopAnimations()
+            recordTransitionState()
         }
         
         return true
@@ -153,8 +156,11 @@ class ImprovedContainerViewController: UIViewController, UIGestureRecognizerDele
         animationCount += 1
         if animationCount == 3 {
             animationCount = 0
-            resetFacadeViewPosition(forCell: selectedCell!)
-            recordTransitionState()
+            if finished == true {
+                transitionAnimationInProgress = false
+                resetFacadeViewPosition(forCell: selectedCell!)
+                recordTransitionState()
+            }
         }
     }
     
@@ -178,18 +184,21 @@ class ImprovedContainerViewController: UIViewController, UIGestureRecognizerDele
     
     //MARK: Private functions
     private func setProjectsTableView() {
+        transitionAnimationInProgress = true
         installPositionXAnimation(forView: projectsTableVC.view, positionX: view.frame.width/2.0, delegate: self)
         installPositionXAnimation(forView: projectStatsVC.view, positionX: -view.frame.width/2.0, delegate: self)
         installPositionXAnimation(forView: timeSliderVC.view, positionX: view.frame.width/2.0 + view.frame.width, delegate:self)
     }
     
     private func setProjectStatsView() {
+        transitionAnimationInProgress = true
         installPositionXAnimation(forView: projectsTableVC.view, positionX: view.frame.width/2.0 + view.frame.width, delegate: self)
         installPositionXAnimation(forView: projectStatsVC.view, positionX: view.frame.width/2.0, delegate: self)
         installPositionXAnimation(forView: timeSliderVC.view, positionX: view.frame.width/2.0 + 2*view.frame.width, delegate:self)
     }
     
     private func setTimeSliderView() {
+        transitionAnimationInProgress = true
         installPositionXAnimation(forView: projectsTableVC.view, positionX: -view.frame.width/2.0, delegate: self)
         installPositionXAnimation(forView: projectStatsVC.view, positionX: -view.frame.width/2.0 - view.frame.width, delegate: self)
         installPositionXAnimation(forView: timeSliderVC.view, positionX: view.frame.width/2.0, delegate:self)
@@ -244,6 +253,13 @@ class ImprovedContainerViewController: UIViewController, UIGestureRecognizerDele
         transitionState.projectsTableOriginX = projectsTableVC.view.frame.origin.x
         transitionState.projectStatsOriginX = projectStatsVC.view.frame.origin.x
         transitionState.timeSliderOriginX = timeSliderVC.view.frame.origin.x
+    }
+    
+    private func stopAnimations() {
+        projectsTableVC.view.layer.pop_removeAnimationForKey("positionX")
+        projectStatsVC.view.layer.pop_removeAnimationForKey("positionX")
+        timeSliderVC.view.layer.pop_removeAnimationForKey("positionX")
+        selectedCell!.facadeView.layer.pop_removeAnimationForKey("positionX")
     }
     
     private func moveProjectStatsViewOriginX(byDelta dx:CGFloat) {
