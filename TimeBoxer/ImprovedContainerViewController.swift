@@ -215,7 +215,7 @@ class ImprovedContainerViewController: UIViewController, UIGestureRecognizerDele
     private func installPositionXAnimation(forView uiView: UIView, positionX: CGFloat, delegate: POPAnimationDelegate?) {
         let positionXAnimation = POPBasicAnimation(propertyNamed: kPOPLayerPositionX)
         positionXAnimation.toValue = positionX
-        positionXAnimation.duration = 0.3
+        positionXAnimation.duration = 0.2
         positionXAnimation.timingFunction = CAMediaTimingFunction(name:kCAMediaTimingFunctionEaseInEaseOut)
         positionXAnimation.delegate = delegate
         uiView.layer.pop_addAnimation(positionXAnimation, forKey: "positionX")
@@ -230,7 +230,13 @@ class ImprovedContainerViewController: UIViewController, UIGestureRecognizerDele
         }
         
         if panGestureRecognizer.state == .Ended {
-            let projectsTableViewOriginX = projectsTableVC.view.frame.origin.x
+            
+            let panVelocityX = panGestureRecognizer.velocityInView(view).x
+            let direction = panVelocityX/fabs(panVelocityX)
+            let stoppingDistance = pow(panVelocityX, 2)/(2*PhysicsConstants.frictionCoef*PhysicsConstants.g)
+            let boundedStoppingDistance = min(stoppingDistance, view.frame.width/2.0)
+            let projectsTableViewOriginX = projectsTableVC.view.frame.origin.x + (boundedStoppingDistance * direction)
+            
             if projectsTableViewOriginX  > -view.frame.width/2.0 &&
                 projectsTableViewOriginX < view.frame.width/2.0 {
                 setProjectsTableView()
@@ -292,4 +298,9 @@ struct TransitionState {
     var projectsTableOriginX:CGFloat = 0
     var timeSliderOriginX:CGFloat = 0
     var projectCellOriginX:CGFloat = 0
+}
+
+struct PhysicsConstants {
+    static let g = CGFloat(9.8)
+    static let frictionCoef = CGFloat(10)
 }
