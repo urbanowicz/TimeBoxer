@@ -88,12 +88,7 @@ class ContainerViewController: UIViewController {
 
     override func prefersStatusBarHidden() -> Bool {
         return true
-    }
-
-
-
-
-    
+    }    
 
     
 //MARK: Disable auto rotate
