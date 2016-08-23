@@ -544,27 +544,6 @@ class ProjectsTableViewController: UIViewController, UITableViewDelegate {
         }
     }
     
-//MARK: handle table select
-    
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        let cell = tableView.cellForRowAtIndexPath(indexPath) as! MyTableViewCell
-        let facadeView = cell.facadeView
-        let shakeAnimation = CAKeyframeAnimation(keyPath: "position.x")
-        
-        shakeAnimation.values = [0, 30, 0, -30, 0]
-        shakeAnimation.keyTimes = [0.0, 1.0/4.0, 2.0/4.0 , 3.0/4.0, 1.0]
-        shakeAnimation.duration = 0.6
-        shakeAnimation.additive = true
-        shakeAnimation.removedOnCompletion = true
-        
-        facadeView.layer.addAnimation(shakeAnimation, forKey: "shake")
-    }
-
-    
-    func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath) {
-
-    }
-    
 //MARK: Navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier! == "ProjectsTableToAddProject" {

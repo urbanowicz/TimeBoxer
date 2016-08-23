@@ -15,7 +15,7 @@ class ImprovedContainerViewController: UIViewController, ScrollingCellDelegate, 
     private var timeSliderVC: TimeSliderViewController!
     private var scrollView: UIScrollView!
     
-    private var selectedCell:MyTableViewCell?
+    private var lastSelectedCell:MyTableViewCell?
     private var defaultOffset:CGFloat = 0
     
     override func viewDidLoad() {
@@ -74,7 +74,11 @@ class ImprovedContainerViewController: UIViewController, ScrollingCellDelegate, 
     
     //MARK: ScrollingCellDelegate
     func scrollingCellDidBeginPulling(cell:MyTableViewCell) {
-        
+        if cell != lastSelectedCell {
+            projectStatsVC.prepareViewForUse(withProject: cell.project!)
+            timeSliderVC.prepareViewForUse(withProject: cell.project!)
+            lastSelectedCell = cell
+        }
     }
     func scrollingCellDidChangePullOffset(offset:CGFloat) {
         scrollView.contentOffset = CGPointMake(defaultOffset + offset, 0)
@@ -90,7 +94,7 @@ class ImprovedContainerViewController: UIViewController, ScrollingCellDelegate, 
     //MARK: UIScrollViewDelegate
     func scrollViewWillEndDragging(scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
         if targetContentOffset.memory.x == defaultOffset {
-            scrollView.scrollEnabled = false 
+            scrollView.scrollEnabled = false
         }
     }
     

@@ -53,9 +53,14 @@ class MyTableViewCell: UITableViewCell, UIScrollViewDelegate {
         setupFacadeView()
         setupProjectNameLabel()
         setupCellSeparator()
+        setupTapGestureRecognizer()
         super.awakeFromNib()
     }
     
+    private func setupTapGestureRecognizer() {
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(MyTableViewCell.handleSingleTap(_:)))
+        self.addGestureRecognizer(tapGestureRecognizer)
+    }
     private func setupLeftDrawer() {
         leftDrawer.backgroundColor = Colors.green()
         leftDrawer.fillColor = Colors.almostBlack().withAlpha(0.9)
@@ -162,6 +167,19 @@ class MyTableViewCell: UITableViewCell, UIScrollViewDelegate {
             let pullOffset = max(0, fabs(offset) - pullThreshold) * direction
             decelerationDistnaceRatio = fabs(pullOffset / offset)
         }
+    }
+    
+    //MARK: Tap Gesture Recognizer
+    func handleSingleTap(tapGestureRecognizer:UITapGestureRecognizer) {
+        let shakeAnimation = CAKeyframeAnimation(keyPath: "position.x")
+        
+        shakeAnimation.values = [0, 30, 0, -30, 0]
+        shakeAnimation.keyTimes = [0.0, 1.0/4.0, 2.0/4.0 , 3.0/4.0, 1.0]
+        shakeAnimation.duration = 0.6
+        shakeAnimation.additive = true
+        shakeAnimation.removedOnCompletion = true
+        
+        facadeView.layer.addAnimation(shakeAnimation, forKey: "shake")
     }
     
     //MARK: Edit project related methods, this needs to be refactored
