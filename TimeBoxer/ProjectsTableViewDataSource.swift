@@ -48,11 +48,7 @@ class ProjectsTableViewDataSource: NSObject, UITableViewDataSource {
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier(projectsTableId) as! MyTableViewCell
         cell.project = projects[indexPath.row]
-        cell.facadeView.backgroundColor = Colors.almostBlack()
-        setupProjectNameLabelForCell(cell, indexPath: indexPath)
-        setupLeftDrawerForCell(cell)
-        setupRightDrawerForCell(cell)
-        setupCellSeparatorForCell(cell)
+        cell.projectNameLabel.text = projects[indexPath.row].name
         return cell
     }
     
@@ -67,27 +63,5 @@ class ProjectsTableViewDataSource: NSObject, UITableViewDataSource {
         if indexToDelete < projects.count {
             projects.removeAtIndex(indexToDelete)
         }
-    }
-    
-    
-    private func setupProjectNameLabelForCell(cell:MyTableViewCell, indexPath:NSIndexPath) {
-        cell.projectNameLabel.text = projects[indexPath.row].name
-        cell.projectNameLabel.textColor = Colors.silver()
-        cell.projectNameLabel.font = UIFont(name: "Avenir Medium", size: 16)
-        cell.projectNameLabel.numberOfLines = 3
-    }
-    
-    private func setupLeftDrawerForCell(cell:MyTableViewCell) {
-        cell.leftDrawer.backgroundColor = Colors.green()
-        cell.leftDrawer.fillColor = Colors.almostBlack().withAlpha(0.9)
-    }
-    
-    private func setupRightDrawerForCell(cell:MyTableViewCell) {
-        cell.rightDrawer.backgroundColor = Colors.azure()
-        cell.rightDrawer.color = Colors.almostBlack().withAlpha(0.9)
-    }
-    
-    private func setupCellSeparatorForCell(cell:MyTableViewCell) {
-        cell.cellSeparator.backgroundColor = Colors.veryLightGray().withAlpha(0.1)
     }
 }

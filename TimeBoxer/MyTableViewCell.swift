@@ -42,11 +42,23 @@ class MyTableViewCell: UITableViewCell, UIScrollViewDelegate {
     }
     private var defaultOffset:CGFloat = 0
     override func awakeFromNib() {
+        setupLeftDrawer()
+        setupRightDrawer()
         setupScrollView()
         setupFacadeView()
         setupProjectNameLabel()
         setupCellSeparator()
         super.awakeFromNib()
+    }
+    
+    private func setupLeftDrawer() {
+        leftDrawer.backgroundColor = Colors.green()
+        leftDrawer.fillColor = Colors.almostBlack().withAlpha(0.9)
+    }
+    
+    private func setupRightDrawer() {
+        rightDrawer.backgroundColor = Colors.azure()
+        rightDrawer.color = Colors.almostBlack().withAlpha(0.9)
     }
     
     private func setupScrollView() {
@@ -58,16 +70,22 @@ class MyTableViewCell: UITableViewCell, UIScrollViewDelegate {
     }
     
     private func setupFacadeView() {
+        facadeView.backgroundColor = Colors.almostBlack()
         scrollView.addSubview(facadeView)
     }
     
     private func setupProjectNameLabel() {
+        projectNameLabel.textColor = Colors.silver()
+        projectNameLabel.font = UIFont(name: "Avenir Medium", size: 16)
+        projectNameLabel.numberOfLines = 3
         facadeView.addSubview(projectNameLabel)
     }
     
     private func setupCellSeparator() {
+        cellSeparator.backgroundColor = Colors.veryLightGray().withAlpha(0.1)
         contentView.addSubview(cellSeparator)
     }
+    
     
     override func layoutSubviews() {
         super.layoutSubviews()
