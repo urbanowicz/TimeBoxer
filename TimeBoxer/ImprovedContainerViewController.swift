@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ImprovedContainerViewController: UIViewController, ScrollingCellDelegate {
+class ImprovedContainerViewController: UIViewController, ScrollingCellDelegate, UIScrollViewDelegate {
 
     private var projectStatsVC: ProjectStatsViewController!
     private var projectsTableVC: ProjectsTableViewController!
@@ -39,7 +39,8 @@ class ImprovedContainerViewController: UIViewController, ScrollingCellDelegate {
         scrollView.directionalLockEnabled = true
         scrollView.pagingEnabled = true
         scrollView.bounces = false
-        scrollView.scrollEnabled = true
+        scrollView.scrollEnabled = false
+        scrollView.delegate = self
         view.addSubview(scrollView)
     }
     
@@ -73,7 +74,7 @@ class ImprovedContainerViewController: UIViewController, ScrollingCellDelegate {
     
     //MARK: ScrollingCellDelegate
     func scrollingCellDidBeginPulling(cell:MyTableViewCell) {
-        scrollView.scrollEnabled = false
+        
     }
     func scrollingCellDidChangePullOffset(offset:CGFloat) {
         scrollView.contentOffset = CGPointMake(defaultOffset + offset, 0)
@@ -85,6 +86,14 @@ class ImprovedContainerViewController: UIViewController, ScrollingCellDelegate {
             scrollView.scrollEnabled = true
         }
     }
+    
+    //MARK: UIScrollViewDelegate
+    func scrollViewWillEndDragging(scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
+        if targetContentOffset.memory.x == defaultOffset {
+            scrollView.scrollEnabled = false 
+        }
+    }
+    
     
     //MARK: Disable auto rotate
     override func shouldAutorotate() -> Bool {
