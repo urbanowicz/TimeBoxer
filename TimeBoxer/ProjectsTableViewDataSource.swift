@@ -49,6 +49,7 @@ class ProjectsTableViewDataSource: NSObject, UITableViewDataSource {
         let cell = tableView.dequeueReusableCellWithIdentifier(projectsTableId) as! MyTableViewCell
         cell.project = projects[indexPath.row]
         cell.projectNameLabel.text = projects[indexPath.row].name
+        cell.delegate = containerVC
         return cell
     }
     

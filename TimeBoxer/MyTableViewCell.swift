@@ -42,6 +42,10 @@ class MyTableViewCell: UITableViewCell, UIScrollViewDelegate {
         }
     }
     private var defaultOffset:CGFloat = 0
+    private var pulling: Bool = false
+    private var deceleratingBackToZero: Bool = false
+    private var decelerationDistnaceRatio:CGFloat = 0
+    
     override func awakeFromNib() {
         setupLeftDrawer()
         setupRightDrawer()
@@ -110,9 +114,57 @@ class MyTableViewCell: UITableViewCell, UIScrollViewDelegate {
         super.setSelected(selected, animated: animated)
     }
     
+    //MARK: UIScrollViewDelegate
+    func scrollViewDidScroll(scrollView: UIScrollView) {
+        let offset = scrollView.contentOffset.x - defaultOffset
+        //did we just start pulling?
+        if fabs(offset) > pullThreshold && !pulling {
+            pulling = true
+            delegate?.scrollingCellDidBeginPulling(self)
+        }
+        
+        if pulling  {
+            var pullOffset = CGFloat(0)
+            if deceleratingBackToZero {
+                pullOffset = offset * decelerationDistnaceRatio
+            } else {
+                let direction = offset != 0 ? fabs(offset) / offset : 0
+                pullOffset = max(0, fabs(offset) - pullThreshold) * direction
+            }
+            delegate?.scrollingCellDidChangePullOffset(pullOffset)
+            scrollView.transform = CGAffineTransformMakeTranslation(pullOffset, 0)
+        }
+    }
+    
+    func scrollingEnded() {
+        pulling = false
+        deceleratingBackToZero = false
+        scrollView.contentOffset = CGPointMake(defaultOffset, 0)
+        scrollView.transform = CGAffineTransformIdentity
+        delegate?.scrollingCellDidEndPulling(self)
+    }
+    
+    func scrollViewDidEndDragging(scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        if !decelerate {
+            self.scrollingEnded()
+        }
+    }
+    
+    func scrollViewDidEndDecelerating(scrollView: UIScrollView) {
+        self.scrollingEnded()
+    }
+    
+    func scrollViewWillEndDragging(scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
+        let offset = scrollView.contentOffset.x - defaultOffset
+        if targetContentOffset.memory.x == defaultOffset && fabs(offset)  > 0 {
+            deceleratingBackToZero = true
+            let direction = fabs(offset) / offset
+            let pullOffset = max(0, fabs(offset) - pullThreshold) * direction
+            decelerationDistnaceRatio = fabs(pullOffset / offset)
+        }
+    }
     
     //MARK: Edit project related methods, this needs to be refactored
-    
     func setupDeleteProjectButton() {
         deleteProjectButton.layer.transform = CATransform3DIdentity
         deleteProjectButton.layer.opacity = 1.0
