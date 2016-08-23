@@ -11,6 +11,7 @@ import UIKit
 class MyTableViewCell: UITableViewCell, UIScrollViewDelegate {
     
     var project:Project?
+    var delegate:ScrollingCellDelegate?
     
     var projectNameLabel = UILabel()
     var facadeView = UIView()

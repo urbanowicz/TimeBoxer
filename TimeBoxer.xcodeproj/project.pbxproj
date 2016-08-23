@@ -59,6 +59,7 @@
 		F1981BA01C84DF8F00F49454 /* SliderOutputToValueConverterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1981B9F1C84DF8F00F49454 /* SliderOutputToValueConverterTests.swift */; };
 		F1981BA21C84E61700F49454 /* MinutesToStringConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1981BA11C84E61700F49454 /* MinutesToStringConverter.swift */; };
 		F1981BA31C84E61700F49454 /* MinutesToStringConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1981BA11C84E61700F49454 /* MinutesToStringConverter.swift */; };
+		F19AD1341D6C339D007757C7 /* ScrollingCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F19AD1331D6C339D007757C7 /* ScrollingCellDelegate.swift */; };
 		F1A0BC701C4E63FC0075ACCF /* MyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A0BC6F1C4E63FC0075ACCF /* MyTableViewCell.swift */; };
 		F1A6053D1C8212CD008EF288 /* BigSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A6053C1C8212CD008EF288 /* BigSlider.swift */; };
 		F1A95C041C6BD49000EF5204 /* LastWorkedOnDateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A95C031C6BD49000EF5204 /* LastWorkedOnDateFormatter.swift */; };
@@ -217,6 +218,7 @@
 		F1981B9C1C84DE7200F49454 /* SliderOutputToValueConverter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SliderOutputToValueConverter.swift; sourceTree = "<group>"; };
 		F1981B9F1C84DF8F00F49454 /* SliderOutputToValueConverterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SliderOutputToValueConverterTests.swift; sourceTree = "<group>"; };
 		F1981BA11C84E61700F49454 /* MinutesToStringConverter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MinutesToStringConverter.swift; sourceTree = "<group>"; };
+		F19AD1331D6C339D007757C7 /* ScrollingCellDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScrollingCellDelegate.swift; sourceTree = "<group>"; };
 		F1A0BC6F1C4E63FC0075ACCF /* MyTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyTableViewCell.swift; sourceTree = "<group>"; };
 		F1A6053C1C8212CD008EF288 /* BigSlider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BigSlider.swift; sourceTree = "<group>"; };
 		F1A95C031C6BD49000EF5204 /* LastWorkedOnDateFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LastWorkedOnDateFormatter.swift; sourceTree = "<group>"; };
@@ -523,6 +525,7 @@
 				F10C61A71C90A3500054B3FB /* ProjectsTableViewDataSource.swift */,
 				F147F2D11D0F2F53001887DA /* LeftDrawerView.swift */,
 				F1D1B2441D10359A00DC9EB8 /* RightDrawerView.swift */,
+				F19AD1331D6C339D007757C7 /* ScrollingCellDelegate.swift */,
 			);
 			name = ProjectsTableVC;
 			sourceTree = "<group>";
@@ -705,6 +708,7 @@
 				F19133551CA8478900CED170 /* NSCalendarExtension.swift in Sources */,
 				F1F9178D1D4B65DC008A8D60 /* MonthHeatMapView.swift in Sources */,
 				F137CD561C5D361B0005B51C /* ProjectsDAO.swift in Sources */,
+				F19AD1341D6C339D007757C7 /* ScrollingCellDelegate.swift in Sources */,
 				F10B851A1C384E23002C66F2 /* Animator.swift in Sources */,
 				F185A09E1CBAB2BF0067775D /* TimeLabelTextFormatter.swift in Sources */,
 				F1FC9AD61C3ED86F002A9F31 /* AddProjectViewController.swift in Sources */,

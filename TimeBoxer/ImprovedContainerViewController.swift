@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ImprovedContainerViewController: UIViewController, UIGestureRecognizerDelegate, POPAnimationDelegate {
+class ImprovedContainerViewController: UIViewController, ScrollingCellDelegate {
 
     private var projectStatsVC: ProjectStatsViewController!
     private var projectsTableVC: ProjectsTableViewController!
@@ -16,6 +16,7 @@ class ImprovedContainerViewController: UIViewController, UIGestureRecognizerDele
     private var scrollView: UIScrollView!
     
     private var selectedCell:MyTableViewCell?
+    private var defaultOffset:CGFloat = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,10 +31,11 @@ class ImprovedContainerViewController: UIViewController, UIGestureRecognizerDele
     
     private func setupScrollView() {
         let screenSize = UIScreen.mainScreen().bounds.size
+        defaultOffset = screenSize.width
         scrollView = UIScrollView()
         scrollView.frame = CGRect(origin: CGPointZero, size: screenSize)
         scrollView.contentSize = CGSizeMake(screenSize.width*3, screenSize.height)
-        scrollView.contentOffset = CGPointMake(screenSize.width,0)
+        scrollView.contentOffset = CGPointMake(defaultOffset,0)
         scrollView.directionalLockEnabled = true
         scrollView.pagingEnabled = true
         scrollView.bounces = false
@@ -67,6 +69,21 @@ class ImprovedContainerViewController: UIViewController, UIGestureRecognizerDele
     
     func switchViewControllers(fromVC:UIViewController, toVC:UIViewController, animator:Animator?) {
     
+    }
+    
+    //MARK: ScrollingCellDelegate
+    func scrollingCellDidBeginPulling(cell:MyTableViewCell) {
+        scrollView.scrollEnabled = false
+    }
+    func scrollingCellDidChangePullOffset(offset:CGFloat) {
+        scrollView.contentOffset = CGPointMake(defaultOffset + offset, 0)
+    }
+    func scrollingCellDidEndPulling(cell:MyTableViewCell) {
+        if scrollView.contentOffset.x == defaultOffset {
+            scrollView.scrollEnabled = false
+        } else {
+            scrollView.scrollEnabled = true
+        }
     }
     
     //MARK: Disable auto rotate
