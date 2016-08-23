@@ -73,6 +73,8 @@ class ProjectsTableViewDataSource: NSObject, UITableViewDataSource {
     private func setupProjectNameLabelForCell(cell:MyTableViewCell, indexPath:NSIndexPath) {
         cell.projectNameLabel.text = projects[indexPath.row].name
         cell.projectNameLabel.textColor = Colors.silver()
+        cell.projectNameLabel.font = UIFont(name: "Avenir Medium", size: 16)
+        cell.projectNameLabel.numberOfLines = 3
     }
     
     private func setupLeftDrawerForCell(cell:MyTableViewCell) {

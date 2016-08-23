@@ -37,7 +37,6 @@ class ImprovedContainerViewController: UIViewController, UIGestureRecognizerDele
         scrollView.directionalLockEnabled = true
         scrollView.pagingEnabled = true
         scrollView.bounces = false
-        scrollView.canCancelContentTouches = false
         scrollView.scrollEnabled = true
         view.addSubview(scrollView)
     }

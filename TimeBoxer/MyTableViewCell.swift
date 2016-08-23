@@ -8,15 +8,18 @@
 
 import UIKit
 
-class MyTableViewCell: UITableViewCell {
+class MyTableViewCell: UITableViewCell, UIScrollViewDelegate {
     
     var project:Project?
     
-    @IBOutlet weak var cellSeparator: UIView!
-    @IBOutlet weak var projectNameLabel: UILabel!
-    @IBOutlet weak var facadeView: UIView!
+    var projectNameLabel = UILabel()
+    var facadeView = UIView()
+    var scrollView = UIScrollView()
+    var cellSeparator = UIView()
+    
     @IBOutlet weak var leftDrawer: LeftDrawerView!
     @IBOutlet weak var rightDrawer: RightDrawerView!
+    
     @IBOutlet var projectNameLabelBottomToFacadeViewTopConstraint: NSLayoutConstraint!
     @IBOutlet var projectNameLabelTrailingSpaceToFacadeViewConstraint: NSLayoutConstraint!
     @IBOutlet var projectNameLabelTopToFacadeViewConstraint: NSLayoutConstraint!
@@ -32,19 +35,64 @@ class MyTableViewCell: UITableViewCell {
             return leftDrawer.frame.width
         }
     }
+    var pullThreshold:CGFloat {
+        get {
+            return leftDrawer.frame.width
+        }
+    }
+    private var defaultOffset:CGFloat = 0
     override func awakeFromNib() {
+        setupScrollView()
+        setupFacadeView()
+        setupProjectNameLabel()
+        setupCellSeparator()
         super.awakeFromNib()
+    }
+    
+    private func setupScrollView() {
+        scrollView.pagingEnabled = true
+        scrollView.delegate = self
+        scrollView.showsHorizontalScrollIndicator = false
+        scrollView.backgroundColor = UIColor.clearColor()
+        contentView.addSubview(scrollView)
+    }
+    
+    private func setupFacadeView() {
+        scrollView.addSubview(facadeView)
+    }
+    
+    private func setupProjectNameLabel() {
+        facadeView.addSubview(projectNameLabel)
+    }
+    
+    private func setupCellSeparator() {
+        contentView.addSubview(cellSeparator)
     }
     
     override func layoutSubviews() {
         super.layoutSubviews()
-
+        let bounds = contentView.bounds
+        let pageWidth = bounds.size.width + pullThreshold
+        defaultOffset = pageWidth
+        
+        //layout scrollView
+        scrollView.contentSize = CGSizeMake(3*pageWidth, bounds.size.height)
+        scrollView.frame = CGRectMake(0,0, pageWidth, bounds.size.height)
+        scrollView.contentOffset = CGPointMake(pageWidth, 0)
+        //layout facadeView
+        facadeView.frame = scrollView.convertRect(bounds, fromView: contentView)
+        //layout projectNameLabel
+        projectNameLabel.frame = CGRectMake(15, 2, facadeView.bounds.size.width - 30, facadeView.bounds.size.height - 4)
+        //layout cellSeparator
+        cellSeparator.frame = CGRectMake(0, bounds.size.height-1, bounds.size.width, 1)
     }
 
     override func setSelected(selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }
     
+    
+    //MARK: Edit project related methods, this needs to be refactored
     
     func setupDeleteProjectButton() {
         deleteProjectButton.layer.transform = CATransform3DIdentity

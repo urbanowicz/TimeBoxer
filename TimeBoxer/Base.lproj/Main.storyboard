@@ -154,59 +154,18 @@
                                                         <constraint firstAttribute="width" constant="50" id="kMC-Fb-66m"/>
                                                     </constraints>
                                                 </view>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TIa-hQ-MXw" userLabel="Facade">
-                                                    <rect key="frame" x="0.0" y="0.0" width="600" height="79"/>
-                                                    <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Project Name" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dzG-97-QYh">
-                                                            <rect key="frame" x="15" y="2" width="570" height="75"/>
-                                                            <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="16"/>
-                                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                    </subviews>
-                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="bottom" secondItem="dzG-97-QYh" secondAttribute="bottom" constant="2" id="Frh-ZB-bud"/>
-                                                        <constraint firstAttribute="trailing" secondItem="dzG-97-QYh" secondAttribute="trailing" constant="15" id="am8-LP-aAt"/>
-                                                        <constraint firstItem="dzG-97-QYh" firstAttribute="top" secondItem="TIa-hQ-MXw" secondAttribute="top" constant="2" id="gTt-pR-DQI"/>
-                                                        <constraint firstItem="dzG-97-QYh" firstAttribute="leading" secondItem="TIa-hQ-MXw" secondAttribute="leading" constant="15" id="sb8-D6-H8E"/>
-                                                    </constraints>
-                                                </view>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Umc-4T-xor" userLabel="Cell Separator">
-                                                    <rect key="frame" x="0.0" y="79" width="600" height="1"/>
-                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="1" id="Isw-4F-yB9"/>
-                                                    </constraints>
-                                                </view>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="bottom" secondItem="AfP-3Y-hfO" secondAttribute="bottom" id="2SA-Ir-Lns"/>
                                                 <constraint firstAttribute="bottom" secondItem="SrC-pn-XcZ" secondAttribute="bottom" id="4Vt-Qp-87N"/>
                                                 <constraint firstAttribute="trailing" secondItem="SrC-pn-XcZ" secondAttribute="trailing" id="Bla-sr-SnT"/>
-                                                <constraint firstAttribute="bottom" secondItem="TIa-hQ-MXw" secondAttribute="bottom" id="KSh-8a-k6h"/>
-                                                <constraint firstAttribute="trailing" secondItem="TIa-hQ-MXw" secondAttribute="trailing" id="LPx-Rz-ETI"/>
                                                 <constraint firstItem="AfP-3Y-hfO" firstAttribute="top" secondItem="kl5-Ye-dlE" secondAttribute="top" id="QKT-Ge-ddy"/>
                                                 <constraint firstAttribute="top" secondItem="SrC-pn-XcZ" secondAttribute="top" id="Vfl-jY-Gfg"/>
-                                                <constraint firstItem="TIa-hQ-MXw" firstAttribute="top" secondItem="kl5-Ye-dlE" secondAttribute="top" id="Xgq-im-5g7"/>
                                                 <constraint firstItem="AfP-3Y-hfO" firstAttribute="leading" secondItem="kl5-Ye-dlE" secondAttribute="leading" id="fCw-A8-8ne"/>
-                                                <constraint firstItem="TIa-hQ-MXw" firstAttribute="leading" secondItem="kl5-Ye-dlE" secondAttribute="leading" id="veR-4Z-cSy"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <constraints>
-                                            <constraint firstAttribute="bottom" secondItem="Umc-4T-xor" secondAttribute="bottom" id="BAv-he-hxt"/>
-                                            <constraint firstItem="Umc-4T-xor" firstAttribute="leading" secondItem="RJ9-tz-21q" secondAttribute="leading" id="yg2-Dy-eAL"/>
-                                            <constraint firstAttribute="trailing" secondItem="Umc-4T-xor" secondAttribute="trailing" id="yqz-hw-Q1C"/>
-                                        </constraints>
                                         <connections>
-                                            <outlet property="cellSeparator" destination="Umc-4T-xor" id="QOv-gg-XAH"/>
-                                            <outlet property="facadeView" destination="TIa-hQ-MXw" id="Ly4-GG-eEV"/>
                                             <outlet property="leftDrawer" destination="AfP-3Y-hfO" id="EZ2-54-xqZ"/>
-                                            <outlet property="projectNameLabel" destination="dzG-97-QYh" id="b0J-EX-PfI"/>
-                                            <outlet property="projectNameLabelBottomToFacadeViewTopConstraint" destination="Frh-ZB-bud" id="qex-eu-bD6"/>
-                                            <outlet property="projectNameLabelLeadingSpaceToFacadeViewConstraint" destination="sb8-D6-H8E" id="edr-tt-rcQ"/>
-                                            <outlet property="projectNameLabelTopToFacadeViewConstraint" destination="gTt-pR-DQI" id="RFh-Q5-hXJ"/>
-                                            <outlet property="projectNameLabelTrailingSpaceToFacadeViewConstraint" destination="am8-LP-aAt" id="Dfb-Mv-vdR"/>
                                             <outlet property="rightDrawer" destination="SrC-pn-XcZ" id="MSX-Ny-aNw"/>
                                         </connections>
                                     </tableViewCell>
