@@ -18,6 +18,13 @@ class ImprovedContainerViewController: UIViewController, ScrollingCellDelegate, 
     private var lastSelectedCell:MyTableViewCell?
     private var defaultOffset:CGFloat = 0
     
+    private var vcStack = [UIViewController]()
+    private var currentVC:UIViewController? {
+        get {
+            return vcStack.last
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupScrollView()
@@ -52,6 +59,7 @@ class ImprovedContainerViewController: UIViewController, ScrollingCellDelegate, 
         projectsTableVC =
             storyboard!.instantiateViewControllerWithIdentifier("projectsTableViewController") as!
         ProjectsTableViewController
+        vcStack.append(projectsTableVC)
         
         timeSliderVC = storyboard!.instantiateViewControllerWithIdentifier("timeSliderViewController") as?
         TimeSliderViewController
@@ -68,8 +76,34 @@ class ImprovedContainerViewController: UIViewController, ScrollingCellDelegate, 
         super.didReceiveMemoryWarning()
     }
     
-    func switchViewControllers(fromVC:UIViewController, toVC:UIViewController, animator:Animator?) {
+    func pushViewController(vc:UIViewController, animator:Animator?) {
+        addChildViewController(vc)
+        vc.view.frame = view.frame
+        if animator != nil {
+            animator!.animateTransition(currentVC!, toVC: vc, container: self.view, completion:
+                {
+                    self.vcStack.append(vc)
+                    vc.didMoveToParentViewController(self)
+            })
+        } else {
+            self.vcStack.append(vc)
+            view.addSubview(vc.view)
+            vc.didMoveToParentViewController(self)
+        }
+    }
     
+    func popViewController(animator:Animator?) {
+        let fromVC = vcStack.popLast()!
+        let toVC = currentVC!
+        fromVC.willMoveToParentViewController(nil)
+        if animator != nil {
+            animator!.animateTransition(fromVC, toVC: toVC, container: view, completion: {
+                fromVC.removeFromParentViewController()
+            })
+        } else {
+            fromVC.view.removeFromSuperview()
+            fromVC.removeFromParentViewController()
+        }
     }
     
     //MARK: ScrollingCellDelegate
@@ -88,6 +122,14 @@ class ImprovedContainerViewController: UIViewController, ScrollingCellDelegate, 
             scrollView.scrollEnabled = false
         } else {
             scrollView.scrollEnabled = true
+            if scrollView.contentOffset.x == defaultOffset * 2 {
+                vcStack.removeLast()
+                vcStack.append(timeSliderVC)
+            }
+            if scrollView.contentOffset.x == 0 {
+                vcStack.removeLast()
+                vcStack.append(projectStatsVC)
+            }
         }
     }
     
@@ -95,6 +137,8 @@ class ImprovedContainerViewController: UIViewController, ScrollingCellDelegate, 
     func scrollViewWillEndDragging(scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
         if targetContentOffset.memory.x == defaultOffset {
             scrollView.scrollEnabled = false
+            vcStack.removeLast()
+            vcStack.append(projectsTableVC)
         }
     }
     

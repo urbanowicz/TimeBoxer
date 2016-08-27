@@ -391,9 +391,14 @@ class TimerRunningViewController: UIViewController {
     }
 
     override func showViewController(vc: UIViewController, sender: AnyObject?) {
-        let containerVC = parentViewController as! ContainerViewController
+        let containerVC = parentViewController as! ImprovedContainerViewController
+        if vc as? TimeSliderViewController != nil {
+            containerVC.popViewController(FadeInAnimator())
+            return
+        }
+        
         if sender as? TimerRunningViewController != nil {
-            containerVC.switchViewControllers(self, toVC: vc, animator: FadeInAnimator())
+            //containerVC.switchViewControllers(self, toVC: vc, animator: FadeInAnimator())
         }
     }
 //MARK: Disable auto rotate

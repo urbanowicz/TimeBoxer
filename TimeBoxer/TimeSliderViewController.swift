@@ -103,8 +103,8 @@ class TimeSliderViewController: UIViewController {
 
 //----------------------------------------------------------------------------------------------------------------------
     override func showViewController(vc: UIViewController, sender: AnyObject?) {
-        let containerVC = parentViewController as! ContainerViewController
-        containerVC.switchViewControllers(self, toVC: vc, animator: toTimerRunningVCAnimator)
+        let containerVC = parentViewController as! ImprovedContainerViewController
+        containerVC.pushViewController(vc, animator: toTimerRunningVCAnimator)
     }
 
 //MARK: Disable auto rotate
@@ -163,7 +163,7 @@ private class ToTimerRunningAnimator:NSObject, Animator {
         }
         if animationCounter == totalAnimations {
             //this was the last animation so do the final cleanup
-            timeSliderVC!.view.removeFromSuperview()
+            animationCounter = 0
             for animationLayer in animationLayers {
                 animationLayer.removeFromSuperlayer()
             }
@@ -176,7 +176,6 @@ private class ToTimerRunningAnimator:NSObject, Animator {
 //----------------------------------------------------------------------------------------------------------------------
     private func prepareExpandingCircleAnimationLayer() -> CALayer
     {
-        
         let startButton = timeSliderVC!.startButton
         let circleCenter:CGPoint = container!.convertPoint(startButton.center, fromView: startButton.superview)
         let smallCircle = CirclePathWrapper(centerX: circleCenter.x, centerY: circleCenter.y, radius: startButton.radius)

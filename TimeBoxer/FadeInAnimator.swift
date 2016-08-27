@@ -19,10 +19,13 @@ class FadeInAnimator:NSObject, Animator {
         
         //Prepare the toVC.view to be faded in
         toVC.view.alpha = 0.0
-        container.addSubview(toVC.view)
+        if (toVC.view.superview == nil) {
+            container.addSubview(toVC.view)
+        }
         
         UIView.animateWithDuration(transitionDuration,
-            animations: { toVC.view.alpha = 1.0 } ,
+            animations: { toVC.view.alpha = 1.0
+            fromVC.view.alpha = 0.0} ,
             completion: {
                 finished in
                 fromVC.view.removeFromSuperview()
