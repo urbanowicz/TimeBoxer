@@ -397,8 +397,8 @@ class TimerRunningViewController: UIViewController {
             return
         }
         
-        if sender as? TimerRunningViewController != nil {
-            //containerVC.switchViewControllers(self, toVC: vc, animator: FadeInAnimator())
+        if vc as? TimerDoneViewController != nil {
+            containerVC.replaceViewController(withVC: vc, animator: FadeInAnimator())
         }
     }
 //MARK: Disable auto rotate

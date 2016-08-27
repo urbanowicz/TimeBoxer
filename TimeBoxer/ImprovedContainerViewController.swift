@@ -106,6 +106,26 @@ class ImprovedContainerViewController: UIViewController, ScrollingCellDelegate, 
         }
     }
     
+    func replaceViewController(withVC vc:UIViewController, animator:Animator?) {
+        let fromVC = vcStack.popLast()!
+        fromVC.willMoveToParentViewController(nil)
+        addChildViewController(vc)
+        vc.view.frame = view.frame
+        if animator != nil {
+            animator!.animateTransition(currentVC!, toVC: vc, container: self.view, completion:
+                {
+                    self.vcStack.append(vc)
+                    vc.didMoveToParentViewController(self)
+                    fromVC.removeFromParentViewController()
+            })
+        } else {
+            self.vcStack.append(vc)
+            vc.didMoveToParentViewController(self)
+            fromVC.view.removeFromSuperview()
+            fromVC.removeFromParentViewController()
+        }
+    }
+    
     //MARK: ScrollingCellDelegate
     func scrollingCellDidBeginPulling(cell:MyTableViewCell) {
         if cell != lastSelectedCell {
@@ -158,7 +178,7 @@ class ImprovedContainerViewController: UIViewController, ScrollingCellDelegate, 
     }
     
     //MARK: Private functions
-
+    
 }
 
 
