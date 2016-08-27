@@ -84,6 +84,7 @@ class ImprovedContainerViewController: UIViewController, ScrollingCellDelegate, 
                 {
                     self.vcStack.append(vc)
                     vc.didMoveToParentViewController(self)
+                    
             })
         } else {
             self.vcStack.append(vc)
@@ -112,7 +113,7 @@ class ImprovedContainerViewController: UIViewController, ScrollingCellDelegate, 
         addChildViewController(vc)
         vc.view.frame = view.frame
         if animator != nil {
-            animator!.animateTransition(currentVC!, toVC: vc, container: self.view, completion:
+            animator!.animateTransition(fromVC, toVC: vc, container: self.view, completion:
                 {
                     self.vcStack.append(vc)
                     vc.didMoveToParentViewController(self)
@@ -128,11 +129,11 @@ class ImprovedContainerViewController: UIViewController, ScrollingCellDelegate, 
     
     //MARK: ScrollingCellDelegate
     func scrollingCellDidBeginPulling(cell:MyTableViewCell) {
-        if cell != lastSelectedCell {
+        //if cell != lastSelectedCell {
             projectStatsVC.prepareViewForUse(withProject: cell.project!)
             timeSliderVC.prepareViewForUse(withProject: cell.project!)
             lastSelectedCell = cell
-        }
+        //}
     }
     func scrollingCellDidChangePullOffset(offset:CGFloat) {
         scrollView.contentOffset = CGPointMake(defaultOffset + offset, 0)

@@ -36,8 +36,9 @@ class ShrinkingCircleAnimator:NSObject, Animator {
         self.completionBlock = completion
         
         //2. Insert the toVC.view under the fromVC.view so that we can uncover it during the animation
-        container.insertSubview(toVC.view, belowSubview: fromVC.view)
-        
+        if toVC.view.superview == nil {
+            container.insertSubview(toVC.view, belowSubview: fromVC.view)
+        }
         //3. Prepare the shrinking circle layer and set it as fromVC mask layer
         let shrinkingCircleLayer = prepareShrinkingCircleAnimationLayer()
         fromVC.view.layer.mask = shrinkingCircleLayer

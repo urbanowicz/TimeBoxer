@@ -105,9 +105,9 @@ class TimerDoneViewController: UIViewController {
     }
     
     override func showViewController(vc: UIViewController, sender: AnyObject?) {
-        let containerVC = parentViewController as! ContainerViewController
-        containerVC.switchViewControllers(self, toVC: vc, animator:
-            ShrinkingCircleAnimator(circleCenter: okButton.center, parentView: okButton.superview!))
+        let containerVC = parentViewController as! ImprovedContainerViewController
+        containerVC.popViewController(ShrinkingCircleAnimator(circleCenter: okButton.center, parentView: okButton.superview!))
+
     }
 //MARK: Disable auto rotate
     override func shouldAutorotate() -> Bool {
