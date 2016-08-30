@@ -568,10 +568,6 @@ class ProjectsTableViewController: UIViewController, UITableViewDelegate {
        
     }
 
-//MARK: Status Bar
-    override func preferredStatusBarStyle() -> UIStatusBarStyle {
-        return UIStatusBarStyle.LightContent
-    }
 //MARK: Disable auto rotate
     override func shouldAutorotate() -> Bool {
         return false

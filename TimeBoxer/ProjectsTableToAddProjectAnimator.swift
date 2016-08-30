@@ -17,10 +17,10 @@ class ProjectsTableToAddProjectAnimator: AbstractAnimator {
     }
     
     override func doAnimate() {
-        let addProjectVC = toVC! as! AddProjectViewController
+        let addProjectVC = toVC! as! AddProjectPageViewController
         toView!.transform = CGAffineTransformMakeTranslation(0, container!.frame.size.height)
         container!.addSubview(toView!)
-        addProjectVC.projectNameTextField.becomeFirstResponder()
+        addProjectVC.chooseProjectNameVC.projectNameTextField.becomeFirstResponder()
     }
     
     func registerForKeyboardNotifications() {

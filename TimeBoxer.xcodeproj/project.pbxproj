@@ -80,6 +80,9 @@
 		F1D1B2461D10359A00DC9EB8 /* RightDrawerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D1B2441D10359A00DC9EB8 /* RightDrawerView.swift */; };
 		F1D2444C1BDFF8320023B994 /* TimerRunningViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D2444B1BDFF8320023B994 /* TimerRunningViewController.swift */; };
 		F1EBB3E31C5AB93C005A36CE /* WorkChunk.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1EBB3E21C5AB93C005A36CE /* WorkChunk.swift */; };
+		F1EF4F3F1D75746D00F066BC /* AddProjectPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1EF4F3E1D75746D00F066BC /* AddProjectPageViewController.swift */; };
+		F1EF4F471D757C2200F066BC /* SetDailyGoalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1EF4F461D757C2200F066BC /* SetDailyGoalViewController.swift */; };
+		F1EF4F491D757DEA00F066BC /* AddProjectPageDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1EF4F481D757DEA00F066BC /* AddProjectPageDelegate.swift */; };
 		F1F36AD01C875F770039EF0B /* OKButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F36ACF1C875F770039EF0B /* OKButton.swift */; };
 		F1F9178D1D4B65DC008A8D60 /* MonthHeatMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F9178C1D4B65DC008A8D60 /* MonthHeatMapView.swift */; };
 		F1FC9AD31C3ED73B002A9F31 /* ProjectStatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FC9AD21C3ED73B002A9F31 /* ProjectStatsViewController.swift */; };
@@ -235,6 +238,9 @@
 		F1D1B2441D10359A00DC9EB8 /* RightDrawerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RightDrawerView.swift; sourceTree = "<group>"; };
 		F1D2444B1BDFF8320023B994 /* TimerRunningViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerRunningViewController.swift; sourceTree = "<group>"; };
 		F1EBB3E21C5AB93C005A36CE /* WorkChunk.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkChunk.swift; sourceTree = "<group>"; };
+		F1EF4F3E1D75746D00F066BC /* AddProjectPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddProjectPageViewController.swift; sourceTree = "<group>"; };
+		F1EF4F461D757C2200F066BC /* SetDailyGoalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetDailyGoalViewController.swift; sourceTree = "<group>"; };
+		F1EF4F481D757DEA00F066BC /* AddProjectPageDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddProjectPageDelegate.swift; sourceTree = "<group>"; };
 		F1F36ACF1C875F770039EF0B /* OKButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OKButton.swift; sourceTree = "<group>"; };
 		F1F9178C1D4B65DC008A8D60 /* MonthHeatMapView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MonthHeatMapView.swift; sourceTree = "<group>"; };
 		F1FC9AD21C3ED73B002A9F31 /* ProjectStatsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectStatsViewController.swift; sourceTree = "<group>"; };
@@ -502,6 +508,9 @@
 			isa = PBXGroup;
 			children = (
 				F1FC9AD51C3ED86F002A9F31 /* AddProjectViewController.swift */,
+				F1EF4F3E1D75746D00F066BC /* AddProjectPageViewController.swift */,
+				F1EF4F461D757C2200F066BC /* SetDailyGoalViewController.swift */,
+				F1EF4F481D757DEA00F066BC /* AddProjectPageDelegate.swift */,
 			);
 			name = AddProjectVC;
 			sourceTree = "<group>";
@@ -725,6 +734,7 @@
 				F1D08A3E1D4773E80066C907 /* CalendarHeatMap.swift in Sources */,
 				F1520B1B1C9049A8002F359E /* XButton.swift in Sources */,
 				F10B85181C38346D002C66F2 /* ContainerViewController.swift in Sources */,
+				F1EF4F3F1D75746D00F066BC /* AddProjectPageViewController.swift in Sources */,
 				F185A0A11CBAB5A80067775D /* UIColorExtension.swift in Sources */,
 				F18C1DBB1D52169100EF014B /* ProjectBasedCalendarHeatMapDataSource.swift in Sources */,
 				F188DA6F1C898890000E8AD2 /* ShrinkingCircleAnimator.swift in Sources */,
@@ -738,6 +748,8 @@
 				F1FC9AD91C3EE0CC002A9F31 /* ProjectsTableViewController.swift in Sources */,
 				F1F36AD01C875F770039EF0B /* OKButton.swift in Sources */,
 				F1B9A5651D5604A800932F90 /* CalendarHeatMapDelegate.swift in Sources */,
+				F1EF4F471D757C2200F066BC /* SetDailyGoalViewController.swift in Sources */,
+				F1EF4F491D757DEA00F066BC /* AddProjectPageDelegate.swift in Sources */,
 				F150E3B01C8ECD3000D7D502 /* TitleBar.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

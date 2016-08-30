@@ -10,7 +10,7 @@ import UIKit
 
 class AddProjectToProjectsTableDismissAnimator: AbstractAnimator {
     
-    
+    var transitionInProgress = false
     override init() {
         super.init()
         self.duration = 0.3
@@ -18,9 +18,10 @@ class AddProjectToProjectsTableDismissAnimator: AbstractAnimator {
     }
     
     override func doAnimate() {
-        let addProjectVC = fromVC! as! AddProjectViewController
+        transitionInProgress = true
+        let addProjectVC = fromVC! as! AddProjectPageViewController
         container!.insertSubview(toView!, belowSubview: fromView!)
-        addProjectVC.projectNameTextField.resignFirstResponder()
+        addProjectVC.chooseProjectNameVC.projectNameTextField.resignFirstResponder()
     }
     
     func registerForKeyboardNotifications() {
@@ -29,6 +30,10 @@ class AddProjectToProjectsTableDismissAnimator: AbstractAnimator {
     }
     
     @objc func keyboardWillHide(notification: NSNotification) {
+        if !transitionInProgress {
+            print("Hooray")
+            return
+        }
         let keyboardNotification = KeyboardNotification(notification)
         self.duration = keyboardNotification.animationDuration
         let options = UIViewAnimationOptions(rawValue: UInt(keyboardNotification.animationCurve << 16))
@@ -40,6 +45,7 @@ class AddProjectToProjectsTableDismissAnimator: AbstractAnimator {
                 (finished:Bool)->Void in
                 self.fromView!.removeFromSuperview()
                 self.context!.completeTransition(true)
+                self.transitionInProgress = false
         })
     }
 }
