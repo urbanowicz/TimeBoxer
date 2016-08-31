@@ -16,6 +16,8 @@
 		F119251F1C8CB2F7002BEAC2 /* AddProjectToProjectsTableDismissAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F119251E1C8CB2F7002BEAC2 /* AddProjectToProjectsTableDismissAnimator.swift */; };
 		F11925211C8CB319002BEAC2 /* ProjectsTableToAddProjectAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11925201C8CB319002BEAC2 /* ProjectsTableToAddProjectAnimator.swift */; };
 		F11D5B9F1C42AD32007F2622 /* AddButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11D5B9E1C42AD32007F2622 /* AddButton.swift */; };
+		F120A1871D76BDDE00DC9E15 /* SetDailyGoalPageDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F120A1861D76BDDE00DC9E15 /* SetDailyGoalPageDelegate.swift */; };
+		F120A18F1D76C33F00DC9E15 /* AddProjectTrainDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F120A18E1D76C33F00DC9E15 /* AddProjectTrainDelegate.swift */; };
 		F125D7D21C28496700B94849 /* CirclePathWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F125D7D11C28496700B94849 /* CirclePathWrapper.swift */; };
 		F12C5D8C1C46FA450040969F /* KeyboardNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = F12C5D8B1C46FA450040969F /* KeyboardNotification.swift */; };
 		F12E2C6E1CA84A8C008DA69C /* NSCalendarExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F19133541CA8478900CED170 /* NSCalendarExtension.swift */; };
@@ -180,6 +182,8 @@
 		F119251E1C8CB2F7002BEAC2 /* AddProjectToProjectsTableDismissAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddProjectToProjectsTableDismissAnimator.swift; sourceTree = "<group>"; };
 		F11925201C8CB319002BEAC2 /* ProjectsTableToAddProjectAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectsTableToAddProjectAnimator.swift; sourceTree = "<group>"; };
 		F11D5B9E1C42AD32007F2622 /* AddButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddButton.swift; sourceTree = "<group>"; };
+		F120A1861D76BDDE00DC9E15 /* SetDailyGoalPageDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetDailyGoalPageDelegate.swift; sourceTree = "<group>"; };
+		F120A18E1D76C33F00DC9E15 /* AddProjectTrainDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddProjectTrainDelegate.swift; sourceTree = "<group>"; };
 		F125D7D11C28496700B94849 /* CirclePathWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CirclePathWrapper.swift; sourceTree = "<group>"; };
 		F12C5D8B1C46FA450040969F /* KeyboardNotification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardNotification.swift; sourceTree = "<group>"; };
 		F135A8351BE4C9F50079C9BB /* StartButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartButton.swift; sourceTree = "<group>"; };
@@ -511,6 +515,8 @@
 				F1EF4F3E1D75746D00F066BC /* AddProjectPageViewController.swift */,
 				F1EF4F461D757C2200F066BC /* SetDailyGoalViewController.swift */,
 				F1EF4F481D757DEA00F066BC /* AddProjectPageDelegate.swift */,
+				F120A1861D76BDDE00DC9E15 /* SetDailyGoalPageDelegate.swift */,
+				F120A18E1D76C33F00DC9E15 /* AddProjectTrainDelegate.swift */,
 			);
 			name = AddProjectVC;
 			sourceTree = "<group>";
@@ -697,6 +703,7 @@
 				F168FFF91CB15ACB00F298BE /* WorkTimeFormatter.swift in Sources */,
 				F1B3B41F1C5540D80009FCF0 /* AbstractAnimator.swift in Sources */,
 				F1BF117B1D5F915300FC45A5 /* ImprovedContainerViewController.swift in Sources */,
+				F120A18F1D76C33F00DC9E15 /* AddProjectTrainDelegate.swift in Sources */,
 				F1EBB3E31C5AB93C005A36CE /* WorkChunk.swift in Sources */,
 				F1D1B2451D10359A00DC9EB8 /* RightDrawerView.swift in Sources */,
 				F1B920551BE7D7CC004A8CDB /* PauseButton.swift in Sources */,
@@ -719,6 +726,7 @@
 				F1B5FE6D1C31AF73003A5C65 /* TransitionManager.swift in Sources */,
 				F1D187651D5871AF0080BE0D /* ProjectStatsView.swift in Sources */,
 				F18C1DB31D52159700EF014B /* CalendarHeatMapDataSource.swift in Sources */,
+				F120A1871D76BDDE00DC9E15 /* SetDailyGoalPageDelegate.swift in Sources */,
 				F12C5D8C1C46FA450040969F /* KeyboardNotification.swift in Sources */,
 				F15C6FDD1D550C300081DC06 /* DummyCalendarHeatMapDataSource.swift in Sources */,
 				F125D7D21C28496700B94849 /* CirclePathWrapper.swift in Sources */,

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ProjectsTableViewController: UIViewController, UITableViewDelegate {
+class ProjectsTableViewController: UIViewController, UITableViewDelegate, AddProjectTrainDelegate {
 
     @IBOutlet weak var timeBoxerLabel: UILabel!
     @IBOutlet weak var titleBarSeparator: UIView!
@@ -544,19 +544,22 @@ class ProjectsTableViewController: UIViewController, UITableViewDelegate {
         }
     }
     
+    func didAddNewProject(newProject:Project) {
+        projectsTableDataSource.projects.insert(newProject, atIndex: 0)
+        newProjectAdded = true
+    }
+    
 //MARK: Navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier! == "ProjectsTableToAddProject" {
-            segue.destinationViewController.transitioningDelegate = transitionManager
+            let addProjectPageViewController = segue.destinationViewController as! AddProjectPageViewController
+            addProjectPageViewController.trainDelegate = self
+            addProjectPageViewController.transitioningDelegate = transitionManager
         }
     }
     
     @IBAction func unwindToProjectsTableVC(unwindSegue: UIStoryboardSegue) {
-        let addProjectVC:AddProjectViewController = unwindSegue.sourceViewController as! AddProjectViewController
-        let newProjectName = addProjectVC.projectNameTextField!.text!
-        let newProject = Project(projectName: newProjectName, startDate: NSDate())
-        projectsTableDataSource.projects.insert(newProject, atIndex: 0)
-        newProjectAdded = true
+
     }
     
     

@@ -8,9 +8,13 @@
 
 import UIKit
 
-class AddProjectPageViewController: UIPageViewController, AddProjectPageDelegate {
+class AddProjectPageViewController: UIPageViewController, AddProjectPageDelegate, SetDailyGoalPageDelegate {
     var chooseProjectNameVC:AddProjectViewController!
     var setDailyGoalViewController:SetDailyGoalViewController!
+    var trainDelegate:AddProjectTrainDelegate?
+    
+    private var projectName:String?
+    private var dailyGoalSeconds:Int?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,10 +35,22 @@ class AddProjectPageViewController: UIPageViewController, AddProjectPageDelegate
     func nextButtonPressed() {
         setDailyGoalViewController = storyboard!.instantiateViewControllerWithIdentifier("setDailyGoalViewController") as!
             SetDailyGoalViewController
+        setDailyGoalViewController.delegate = self
         self.setViewControllers([setDailyGoalViewController], direction: .Forward, animated: true, completion:
             {
             finished in
         })
+    }
+    
+    func didChooseProjectName(projectName: String) {
+        self.projectName = projectName
+    }
+    
+    //MARK: SetDailyGoalPageDelegate
+    func didSetDailyGoal(dailyGoalSeconds: Int) {
+        self.dailyGoalSeconds = dailyGoalSeconds
+        let newProject = Project(projectName: self.projectName!, startDate: NSDate())
+        trainDelegate?.didAddNewProject(newProject)
     }
     
     //MARK: Disable auto rotate

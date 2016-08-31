@@ -18,7 +18,6 @@ class AddProjectViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var projectNameLabel: UILabel!
     
     @IBOutlet weak var projectNameTextFieldCenterYConstraint: NSLayoutConstraint!
-    var projectName:String?
     var delegate:AddProjectPageDelegate?
     
     override func viewDidLoad()
@@ -95,8 +94,8 @@ class AddProjectViewController: UIViewController, UITextFieldDelegate {
     {
         
         //textField.resignFirstResponder()
-        //performSegueWithIdentifier("ProjectAddedUnwind", sender: self)
-        projectName = projectNameTextField!.text
+        let projectName = projectNameTextField!.text!
+        delegate?.didChooseProjectName(projectName)
         delegate?.nextButtonPressed()
         return true
     }

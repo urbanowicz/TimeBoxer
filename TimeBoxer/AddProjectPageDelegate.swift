@@ -9,5 +9,6 @@
 import UIKit
 
 protocol AddProjectPageDelegate {
-    func nextButtonPressed() 
+    func nextButtonPressed()
+    func didChooseProjectName(projectName:String) 
 }

@@ -9,7 +9,7 @@
 import UIKit
 
 class SetDailyGoalViewController: UIViewController {
-
+    var delegate:SetDailyGoalPageDelegate?
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.yellowColor()
@@ -21,6 +21,9 @@ class SetDailyGoalViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func okButtonPressed(sender: AnyObject) {
+        delegate?.didSetDailyGoal(3600)
+    }
 
     /*
     // MARK: - Navigation

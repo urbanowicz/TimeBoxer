@@ -262,7 +262,6 @@
                                         </constraints>
                                         <connections>
                                             <action selector="xButtonPressed:" destination="vfH-4J-4Nz" eventType="touchUpInside" id="kxU-sY-7Ee"/>
-                                            <segue destination="dIy-m2-ZKe" kind="unwind" unwindAction="cancelAddProjectUnwind:" id="Yff-Yv-pZW"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -331,10 +330,25 @@
                     <view key="view" contentMode="scaleToFill" id="byi-XA-5cv">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RoF-Fy-Kbb">
+                                <rect key="frame" x="277" y="285" width="46" height="30"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="okButtonPressed:" destination="Dgw-zp-wLj" eventType="touchUpInside" id="qgQ-0v-g27"/>
+                                    <segue destination="CR0-mQ-CgT" kind="unwind" unwindAction="unwindToProjectsTableVC:" id="9GK-EY-r6Q"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="RoF-Fy-Kbb" firstAttribute="centerX" secondItem="byi-XA-5cv" secondAttribute="centerX" id="Tjb-KY-qWe"/>
+                            <constraint firstItem="RoF-Fy-Kbb" firstAttribute="centerY" secondItem="byi-XA-5cv" secondAttribute="centerY" id="dlN-bm-7k3"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="g5r-3x-kZH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="CR0-mQ-CgT" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1218" y="-1240"/>
         </scene>
