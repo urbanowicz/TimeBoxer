@@ -12,8 +12,6 @@
             <string>Avenir-Book</string>
             <string>Avenir-BookOblique</string>
             <string>Avenir-Book</string>
-            <string>Avenir-Book</string>
-            <string>Avenir-BookOblique</string>
             <string>Avenir-BookOblique</string>
             <string>Avenir-BookOblique</string>
         </mutableArray>
@@ -239,77 +237,63 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dGk-jU-whk" customClass="XButton" customModule="TimeBoxer" customModuleProvider="target">
+                                <rect key="frame" x="20" y="30" width="37" height="37"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="dGk-jU-whk" secondAttribute="height" multiplier="1:1" id="IfH-Ap-n9A"/>
+                                    <constraint firstAttribute="width" constant="37" id="hwH-YM-dLd"/>
+                                </constraints>
+                                <connections>
+                                    <action selector="xButtonPressed:" destination="vfH-4J-4Nz" eventType="touchUpInside" id="kxU-sY-7Ee"/>
+                                </connections>
+                            </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" clearsOnBeginEditing="YES" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="Lwh-CH-BOO">
-                                <rect key="frame" x="75" y="288" width="450" height="25"/>
+                                <rect key="frame" x="30" y="248" width="540" height="25"/>
                                 <color key="textColor" red="0.15294117647058825" green="0.15294117647058825" blue="0.15294117647058825" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="18"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="next" enablesReturnKeyAutomatically="YES"/>
                             </textField>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aaC-6d-cUj" customClass="TitleBar" customModule="TimeBoxer" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="60"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add Project" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y9B-SC-Ory">
-                                        <rect key="frame" x="253" y="20" width="95" height="25"/>
-                                        <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="18"/>
-                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dGk-jU-whk" customClass="XButton" customModule="TimeBoxer" customModuleProvider="target">
-                                        <rect key="frame" x="20" y="14" width="37" height="37"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" secondItem="dGk-jU-whk" secondAttribute="height" multiplier="1:1" id="IfH-Ap-n9A"/>
-                                            <constraint firstAttribute="width" constant="37" id="hwH-YM-dLd"/>
-                                        </constraints>
-                                        <connections>
-                                            <action selector="xButtonPressed:" destination="vfH-4J-4Nz" eventType="touchUpInside" id="kxU-sY-7Ee"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstItem="dGk-jU-whk" firstAttribute="leading" secondItem="aaC-6d-cUj" secondAttribute="leading" constant="20" id="2Gn-51-bgW"/>
-                                    <constraint firstAttribute="height" constant="60" id="7x7-ev-5Er"/>
-                                    <constraint firstItem="y9B-SC-Ory" firstAttribute="top" secondItem="aaC-6d-cUj" secondAttribute="top" constant="20" id="EdU-TQ-idy"/>
-                                    <constraint firstItem="y9B-SC-Ory" firstAttribute="centerX" secondItem="aaC-6d-cUj" secondAttribute="centerX" id="ZqO-fe-sGQ"/>
-                                    <constraint firstItem="dGk-jU-whk" firstAttribute="centerY" secondItem="y9B-SC-Ory" secondAttribute="centerY" id="w12-aY-hVm"/>
-                                </constraints>
-                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose Project Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZQL-dE-muf">
+                                <rect key="frame" x="30" y="127" width="167" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PROJECT NAME" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kxr-7U-l2A" userLabel="name label">
+                                <rect key="frame" x="30" y="208" width="108" height="20"/>
+                                <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="14"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7h2-pM-vcI" userLabel="Line Separator">
-                                <rect key="frame" x="75" y="313" width="450" height="1"/>
+                                <rect key="frame" x="30" y="279" width="540" height="1"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="hiC-Yd-Pz8"/>
                                 </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Project name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kxr-7U-l2A" userLabel="name label">
-                                <rect key="frame" x="75" y="320" width="82" height="20"/>
-                                <fontDescription key="fontDescription" name="Avenir-BookOblique" family="Avenir" pointSize="14"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="aaC-6d-cUj" firstAttribute="leading" secondItem="ImF-7u-4lo" secondAttribute="leading" id="66s-41-nPg"/>
-                            <constraint firstItem="Lwh-CH-BOO" firstAttribute="centerX" secondItem="ImF-7u-4lo" secondAttribute="centerX" id="9s0-hM-F0W"/>
-                            <constraint firstItem="7h2-pM-vcI" firstAttribute="leading" secondItem="Lwh-CH-BOO" secondAttribute="leading" id="BNS-yv-X1p"/>
-                            <constraint firstItem="Lwh-CH-BOO" firstAttribute="width" secondItem="ImF-7u-4lo" secondAttribute="width" multiplier="0.75" id="IMh-Z3-Ise"/>
-                            <constraint firstAttribute="trailing" secondItem="aaC-6d-cUj" secondAttribute="trailing" id="WVf-fP-Pb3"/>
-                            <constraint firstItem="aaC-6d-cUj" firstAttribute="top" secondItem="ImF-7u-4lo" secondAttribute="topMargin" id="YSn-EQ-G1R"/>
-                            <constraint firstItem="7h2-pM-vcI" firstAttribute="top" secondItem="Lwh-CH-BOO" secondAttribute="bottom" id="Yhu-gZ-zUM"/>
-                            <constraint firstItem="7h2-pM-vcI" firstAttribute="width" secondItem="Lwh-CH-BOO" secondAttribute="width" id="gte-1L-nHd"/>
-                            <constraint firstItem="Kxr-7U-l2A" firstAttribute="leading" secondItem="Lwh-CH-BOO" secondAttribute="leading" id="kfJ-EG-B5i"/>
-                            <constraint firstItem="Lwh-CH-BOO" firstAttribute="centerY" secondItem="ImF-7u-4lo" secondAttribute="centerY" id="syH-eV-b7j"/>
-                            <constraint firstItem="Kxr-7U-l2A" firstAttribute="top" secondItem="Lwh-CH-BOO" secondAttribute="bottom" constant="7" id="ze6-95-UbN"/>
+                            <constraint firstItem="Kxr-7U-l2A" firstAttribute="top" secondItem="ZQL-dE-muf" secondAttribute="bottom" constant="60" id="49U-1c-nNx"/>
+                            <constraint firstItem="Lwh-CH-BOO" firstAttribute="top" secondItem="Kxr-7U-l2A" secondAttribute="bottom" constant="20" id="A9w-ZP-qEz"/>
+                            <constraint firstItem="7h2-pM-vcI" firstAttribute="top" secondItem="Lwh-CH-BOO" secondAttribute="bottom" constant="6" id="BK2-Wn-ZTf"/>
+                            <constraint firstItem="dGk-jU-whk" firstAttribute="leading" secondItem="ImF-7u-4lo" secondAttribute="leadingMargin" id="ErR-g6-zye"/>
+                            <constraint firstItem="Lwh-CH-BOO" firstAttribute="leading" secondItem="Kxr-7U-l2A" secondAttribute="leading" id="JXO-fS-9b8"/>
+                            <constraint firstItem="ZQL-dE-muf" firstAttribute="leading" secondItem="ImF-7u-4lo" secondAttribute="leadingMargin" constant="10" id="LTE-WL-DQY"/>
+                            <constraint firstItem="ZQL-dE-muf" firstAttribute="top" secondItem="dGk-jU-whk" secondAttribute="bottom" constant="60" id="M3l-XU-dU4"/>
+                            <constraint firstItem="dGk-jU-whk" firstAttribute="top" secondItem="JJF-Le-5nA" secondAttribute="bottom" constant="10" id="Qrc-72-2Er"/>
+                            <constraint firstItem="7h2-pM-vcI" firstAttribute="leading" secondItem="Lwh-CH-BOO" secondAttribute="leading" id="cpz-fh-8lc"/>
+                            <constraint firstItem="Kxr-7U-l2A" firstAttribute="leading" secondItem="ZQL-dE-muf" secondAttribute="leading" id="hM1-fe-YXC"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Lwh-CH-BOO" secondAttribute="trailing" constant="10" id="k8Y-kk-ymB"/>
+                            <constraint firstItem="7h2-pM-vcI" firstAttribute="width" secondItem="Lwh-CH-BOO" secondAttribute="width" id="owF-pH-tyc"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="chooseProjectNameLabel" destination="ZQL-dE-muf" id="Cxj-dS-Owj"/>
                         <outlet property="lineSeparator" destination="7h2-pM-vcI" id="Qj6-0T-feQ"/>
-                        <outlet property="newProjectLabel" destination="y9B-SC-Ory" id="5MA-vf-dfs"/>
                         <outlet property="projectNameLabel" destination="Kxr-7U-l2A" id="8JQ-c7-hAL"/>
                         <outlet property="projectNameTextField" destination="Lwh-CH-BOO" id="X3M-Id-u0r"/>
-                        <outlet property="projectNameTextFieldCenterYConstraint" destination="syH-eV-b7j" id="edB-o3-b9o"/>
-                        <outlet property="titleBar" destination="aaC-6d-cUj" id="5CP-pc-ZJh"/>
                         <outlet property="xButton" destination="dGk-jU-whk" id="PMe-Qo-4eP"/>
                         <segue destination="dIy-m2-ZKe" kind="unwind" identifier="ProjectAddedUnwind" unwindAction="unwindToProjectsTableVC:" id="CEZ-l4-9fV"/>
                     </connections>

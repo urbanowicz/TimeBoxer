@@ -12,7 +12,7 @@ class AddProjectToProjectsTableDismissAnimator: AbstractAnimator {
     
     override init() {
         super.init()
-        self.duration = 5
+        self.duration = 0.3
     }
     
     override func doAnimate() {

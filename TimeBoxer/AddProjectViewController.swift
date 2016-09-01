@@ -11,11 +11,11 @@ import UIKit
 class AddProjectViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var xButton: XButton!
-    @IBOutlet weak var newProjectLabel: UILabel!
-    @IBOutlet weak var titleBar: TitleBar!
+    @IBOutlet weak var chooseProjectNameLabel: UILabel!
+    @IBOutlet weak var projectNameLabel: UILabel!
     @IBOutlet weak var projectNameTextField: UITextField!
     @IBOutlet weak var lineSeparator: UIView!
-    @IBOutlet weak var projectNameLabel: UILabel!
+    
     
     @IBOutlet weak var projectNameTextFieldCenterYConstraint: NSLayoutConstraint!
     var delegate:AddProjectPageDelegate?
@@ -23,14 +23,14 @@ class AddProjectViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad()
     {
         super.viewDidLoad()
-        registerForKeyboardNotifications()
+
         view.backgroundColor = Colors.almostBlack()
-        setupTitleBar()
-        setupNewProjectLabel()
         setupXButton()
+        setupChooseProjectNameLabel()
+        setupProjectNameLabel()
         setupProjectNameTextField()
         setupLineSeparator()
-        setupProjectNameLabel()
+
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -42,49 +42,40 @@ class AddProjectViewController: UIViewController, UITextFieldDelegate {
         super.didReceiveMemoryWarning()
     }
     
-    func registerForKeyboardNotifications() {
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(AddProjectViewController.keyboardWillShow(_:)),
-            name: UIKeyboardWillShowNotification, object: nil)
-    }
     
 //MARK: Setup UI Elements
     
-    private func setupTitleBar() {
-        titleBar.fillColor = Colors.almostBlack()
-        titleBar.cornerRadius = 0
-    }
-
-    private func setupNewProjectLabel() {
-        newProjectLabel.textColor = Colors.silver()
-    }
     
     private func setupXButton() {
         xButton.borderWidth = 0.0
         xButton.frontLayerColor = Colors.silver()
         xButton.roundLayerColor = Colors.almostBlack()
     }
+    
+    private func setupChooseProjectNameLabel() {
+        chooseProjectNameLabel.font = UIFont(name:"Avenir-Heavy", size: 22)
+        chooseProjectNameLabel.text = "Choose a project name"
+        chooseProjectNameLabel.textColor = Colors.silver()
+        chooseProjectNameLabel.backgroundColor = Colors.almostBlack()
+    }
+    
     private func setupProjectNameTextField() {
         projectNameTextField.delegate = self
         projectNameTextField.textColor = Colors.silver()
         projectNameTextField.adjustsFontSizeToFitWidth = true
     }
     private func setupLineSeparator() {
-        lineSeparator.backgroundColor = Colors.kindOfGray()
+        lineSeparator.backgroundColor = Colors.silver().withAlpha(0.4)
     }
     private func setupProjectNameLabel() {
-        projectNameLabel.textColor = Colors.kindOfGray()
+        projectNameLabel.textColor = Colors.silver().withAlpha(0.4)
+        projectNameLabel.font = UIFont(name: "Avenir Book", size: 12)
+        projectNameLabel.text = "PROJECT NAME"
     }
-//MARK: Keyboard Will Show
-    func keyboardWillShow(notification: NSNotification) {
-        let keyboardNotification = KeyboardNotification(notification)
-        let keyboardFrame = keyboardNotification.frameEndForView(self.view)
-        projectNameTextFieldCenterYConstraint.constant = projectNameTextFieldCenterYConstraint.constant -
-            keyboardFrame.height/2.0 + titleBar.frame.height/2.0
-    }
+
     
 //MARK: Actions
     
-
     @IBAction func xButtonPressed(sender: XButton) {
         
     }
