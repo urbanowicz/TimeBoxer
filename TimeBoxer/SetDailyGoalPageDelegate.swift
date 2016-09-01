@@ -9,5 +9,6 @@
 import UIKit
 
 protocol SetDailyGoalPageDelegate {
+    func didPressBackButton() 
     func didSetDailyGoal(dailyGoalSeconds:Int)
 }

@@ -47,6 +47,12 @@ class AddProjectPageViewController: UIPageViewController, AddProjectPageDelegate
     }
     
     //MARK: SetDailyGoalPageDelegate
+    func didPressBackButton() {
+        self.setViewControllers([chooseProjectNameVC], direction: .Reverse , animated: true,
+                completion: {
+                finished in
+        })
+    }
     func didSetDailyGoal(dailyGoalSeconds: Int) {
         self.dailyGoalSeconds = dailyGoalSeconds
         let newProject = Project(projectName: self.projectName!, startDate: NSDate())

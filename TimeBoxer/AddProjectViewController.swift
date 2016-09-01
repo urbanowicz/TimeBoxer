@@ -34,7 +34,7 @@ class AddProjectViewController: UIViewController, UITextFieldDelegate {
     }
     
     override func viewDidAppear(animated: Bool) {
-        projectNameTextField.becomeFirstResponder()
+        projectNameTextField.performSelector(#selector(UITextField.becomeFirstResponder), withObject: nil, afterDelay: 0)
     }
     
     override func didReceiveMemoryWarning()
@@ -77,38 +77,17 @@ class AddProjectViewController: UIViewController, UITextFieldDelegate {
 //MARK: Actions
     
     @IBAction func xButtonPressed(sender: XButton) {
-        
+        projectNameTextField.resignFirstResponder()
     }
 //MARK: UITextFieldDelegate
 
     func textFieldShouldReturn(textField: UITextField) -> Bool
     {
-        
-        //textField.resignFirstResponder()
+       
         let projectName = projectNameTextField!.text!
         delegate?.didChooseProjectName(projectName)
         delegate?.nextButtonPressed()
         return true
-    }
-
-
-
-//MARK: Status Bar
-    override func prefersStatusBarHidden() -> Bool {
-        return true
-    }
-    
-    override func preferredStatusBarStyle() -> UIStatusBarStyle
-    {
-        return UIStatusBarStyle.LightContent
-    }
-//MARK: Disable auto rotate
-    override func shouldAutorotate() -> Bool {
-        return false
-    }
-    
-    override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
-        return UIInterfaceOrientationMask.Portrait
     }
     
 }
