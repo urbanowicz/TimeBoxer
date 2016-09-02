@@ -11,7 +11,7 @@ import UIKit
 class SetDailyGoalViewController: UIViewController {
     var delegate:SetDailyGoalPageDelegate?
     
-    @IBOutlet weak var backButton: UIButton!
+    @IBOutlet weak var backButton: BackButton!
     @IBOutlet weak var setDailyGoalLabel: UILabel!
     @IBOutlet weak var dailyGoalLabel: UILabel!
     @IBOutlet weak var slider: UISlider!
@@ -32,7 +32,8 @@ class SetDailyGoalViewController: UIViewController {
     }
     
     private func setupBackButton() {
-        
+        backButton.frontLayerColor = Colors.silver()
+        backButton.roundLayerColor = Colors.almostBlack()
     }
     
     private func setupSetDailyGoalLabel() {

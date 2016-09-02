@@ -326,54 +326,58 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Set Daily Goal" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wcj-dr-ry5">
-                                <rect key="frame" x="30" y="120" width="107" height="21"/>
+                                <rect key="frame" x="30" y="124" width="107" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TIm-BO-UDq">
-                                <rect key="frame" x="30" y="30" width="34" height="30"/>
-                                <state key="normal" title="back"/>
-                                <connections>
-                                    <action selector="backButtonPressed:" destination="Dgw-zp-wLj" eventType="touchUpInside" id="RAh-rv-O1q"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DAILY GOAL" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Io0-tm-Ygh">
-                                <rect key="frame" x="30" y="201" width="95" height="21"/>
+                                <rect key="frame" x="30" y="205" width="95" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="Fqk-vg-hCw">
-                                <rect key="frame" x="28" y="256" width="544" height="31"/>
+                                <rect key="frame" x="28" y="260" width="544" height="31"/>
                             </slider>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2 hours, 15 minutes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f0A-nt-QcO">
-                                <rect key="frame" x="30" y="311" width="150" height="21"/>
+                                <rect key="frame" x="30" y="315" width="150" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GDq-C9-tQ6" customClass="BackButton" customModule="TimeBoxer" customModuleProvider="target">
+                                <rect key="frame" x="15" y="30" width="37" height="37"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="GDq-C9-tQ6" secondAttribute="height" multiplier="1:1" id="BzX-7r-Sho"/>
+                                    <constraint firstAttribute="height" constant="37" id="vZb-o8-wD6"/>
+                                </constraints>
+                                <connections>
+                                    <action selector="backButtonPressed:" destination="Dgw-zp-wLj" eventType="touchUpInside" id="MrY-ja-svt"/>
+                                </connections>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="Fqk-vg-hCw" firstAttribute="top" secondItem="Io0-tm-Ygh" secondAttribute="bottom" constant="34" id="6k3-nP-bq6"/>
-                            <constraint firstItem="Wcj-dr-ry5" firstAttribute="top" secondItem="TIm-BO-UDq" secondAttribute="bottom" constant="60" id="6n8-r4-jzU"/>
                             <constraint firstItem="f0A-nt-QcO" firstAttribute="leading" secondItem="Fqk-vg-hCw" secondAttribute="leading" id="9RV-qc-TNg"/>
                             <constraint firstItem="f0A-nt-QcO" firstAttribute="top" secondItem="Fqk-vg-hCw" secondAttribute="bottom" constant="25" id="9r1-Ay-cfp"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Fqk-vg-hCw" secondAttribute="trailing" constant="10" id="EVU-P2-XLw"/>
-                            <constraint firstItem="TIm-BO-UDq" firstAttribute="top" secondItem="hoA-2H-fEl" secondAttribute="bottom" constant="10" id="Pxt-8p-fcp"/>
+                            <constraint firstItem="GDq-C9-tQ6" firstAttribute="leading" secondItem="byi-XA-5cv" secondAttribute="leading" constant="15" id="PQd-sX-7J1"/>
                             <constraint firstItem="RoF-Fy-Kbb" firstAttribute="centerX" secondItem="byi-XA-5cv" secondAttribute="centerX" id="QXF-5B-FTI"/>
                             <constraint firstItem="Io0-tm-Ygh" firstAttribute="top" secondItem="Wcj-dr-ry5" secondAttribute="bottom" constant="60" id="QdI-2j-Dr2"/>
                             <constraint firstItem="UgE-gv-cUM" firstAttribute="top" secondItem="RoF-Fy-Kbb" secondAttribute="bottom" constant="20" id="YZZ-4K-v8q"/>
                             <constraint firstItem="RoF-Fy-Kbb" firstAttribute="width" secondItem="byi-XA-5cv" secondAttribute="width" multiplier="0.28" id="Z7o-M9-0PC"/>
                             <constraint firstItem="Fqk-vg-hCw" firstAttribute="leading" secondItem="Io0-tm-Ygh" secondAttribute="leading" id="kyc-3j-PmT"/>
-                            <constraint firstItem="Wcj-dr-ry5" firstAttribute="leading" secondItem="TIm-BO-UDq" secondAttribute="leading" id="mTC-Gm-EAY"/>
-                            <constraint firstItem="TIm-BO-UDq" firstAttribute="leading" secondItem="byi-XA-5cv" secondAttribute="leadingMargin" constant="10" id="sbx-5D-sBf"/>
+                            <constraint firstItem="Wcj-dr-ry5" firstAttribute="leading" secondItem="byi-XA-5cv" secondAttribute="leadingMargin" constant="10" id="sYQ-DG-d0M"/>
                             <constraint firstItem="Io0-tm-Ygh" firstAttribute="leading" secondItem="Wcj-dr-ry5" secondAttribute="leading" id="tXY-t6-d4F"/>
+                            <constraint firstItem="GDq-C9-tQ6" firstAttribute="top" secondItem="hoA-2H-fEl" secondAttribute="bottom" constant="10" id="xiB-q6-O7t"/>
+                            <constraint firstItem="Wcj-dr-ry5" firstAttribute="top" secondItem="GDq-C9-tQ6" secondAttribute="bottom" constant="57" id="zhA-6o-Vbl"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="backButton" destination="TIm-BO-UDq" id="Met-Bi-zV4"/>
+                        <outlet property="backButton" destination="GDq-C9-tQ6" id="fEA-64-zqm"/>
                         <outlet property="dailyGoalLabel" destination="Io0-tm-Ygh" id="qrl-Fq-N8R"/>
                         <outlet property="dailyGoalValueLabel" destination="f0A-nt-QcO" id="iDh-hv-P9n"/>
                         <outlet property="okButton" destination="RoF-Fy-Kbb" id="aAz-oW-NRw"/>

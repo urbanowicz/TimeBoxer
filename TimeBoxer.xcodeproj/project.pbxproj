@@ -81,6 +81,7 @@
 		F1D1B2451D10359A00DC9EB8 /* RightDrawerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D1B2441D10359A00DC9EB8 /* RightDrawerView.swift */; };
 		F1D1B2461D10359A00DC9EB8 /* RightDrawerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D1B2441D10359A00DC9EB8 /* RightDrawerView.swift */; };
 		F1D2444C1BDFF8320023B994 /* TimerRunningViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D2444B1BDFF8320023B994 /* TimerRunningViewController.swift */; };
+		F1E308421D79A8850018FAF9 /* BackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E308411D79A8850018FAF9 /* BackButton.swift */; };
 		F1EBB3E31C5AB93C005A36CE /* WorkChunk.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1EBB3E21C5AB93C005A36CE /* WorkChunk.swift */; };
 		F1EF4F3F1D75746D00F066BC /* AddProjectPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1EF4F3E1D75746D00F066BC /* AddProjectPageViewController.swift */; };
 		F1EF4F471D757C2200F066BC /* SetDailyGoalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1EF4F461D757C2200F066BC /* SetDailyGoalViewController.swift */; };
@@ -241,6 +242,7 @@
 		F1D187641D5871AF0080BE0D /* ProjectStatsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectStatsView.swift; sourceTree = "<group>"; };
 		F1D1B2441D10359A00DC9EB8 /* RightDrawerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RightDrawerView.swift; sourceTree = "<group>"; };
 		F1D2444B1BDFF8320023B994 /* TimerRunningViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerRunningViewController.swift; sourceTree = "<group>"; };
+		F1E308411D79A8850018FAF9 /* BackButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackButton.swift; sourceTree = "<group>"; };
 		F1EBB3E21C5AB93C005A36CE /* WorkChunk.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkChunk.swift; sourceTree = "<group>"; };
 		F1EF4F3E1D75746D00F066BC /* AddProjectPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddProjectPageViewController.swift; sourceTree = "<group>"; };
 		F1EF4F461D757C2200F066BC /* SetDailyGoalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetDailyGoalViewController.swift; sourceTree = "<group>"; };
@@ -320,6 +322,7 @@
 				F1F36ACF1C875F770039EF0B /* OKButton.swift */,
 				F1520B1A1C9049A8002F359E /* XButton.swift */,
 				F1FCB8311D414686001B3329 /* AbstractRoundButton.swift */,
+				F1E308411D79A8850018FAF9 /* BackButton.swift */,
 			);
 			name = Buttons;
 			sourceTree = "<group>";
@@ -698,6 +701,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F1E308421D79A8850018FAF9 /* BackButton.swift in Sources */,
 				F1A6053D1C8212CD008EF288 /* BigSlider.swift in Sources */,
 				F1FC9AD31C3ED73B002A9F31 /* ProjectStatsViewController.swift in Sources */,
 				F168FFF91CB15ACB00F298BE /* WorkTimeFormatter.swift in Sources */,
