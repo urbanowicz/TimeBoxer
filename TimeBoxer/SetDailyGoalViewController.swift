@@ -18,6 +18,8 @@ class SetDailyGoalViewController: UIViewController {
     @IBOutlet weak var dailyGoalValueLabel: UILabel!
     @IBOutlet weak var okButton: OKButton!
     
+    private let sliderValueConverter = SliderOutputToValueConverter(maxValue: 480, resolution: 5)
+    private let minutesToTextConverter = MinutesToStringConverter()
     
     
     override func viewDidLoad() {
@@ -49,12 +51,12 @@ class SetDailyGoalViewController: UIViewController {
     }
     
     private func setupSlider() {
-
+        slider.value = 0.0
     }
     
     private func setupDailyGoalValueLabel() {
         dailyGoalValueLabel.font = UIFont(name: "Avenir-Medium", size: 18)
-        dailyGoalValueLabel.text = "2 hours, 15 minutes"
+        dailyGoalValueLabel.text = minutesToTextConverter.convert(5)
         dailyGoalValueLabel.textColor = Colors.silver()
     }
     
@@ -74,6 +76,12 @@ class SetDailyGoalViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func sliderValueChanged(sender: UISlider) {
+        let minutes = sliderValueConverter.convert(Double(sender.value))
+        let text = minutesToTextConverter.convert(minutes)
+        updateDailyGoalValueLabel(text)
+    }
+    
     @IBAction func backButtonPressed(sender: AnyObject) {
         delegate?.didPressBackButton()
     }
@@ -81,14 +89,15 @@ class SetDailyGoalViewController: UIViewController {
         delegate?.didSetDailyGoal(3600)
     }
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    private func updateDailyGoalValueLabel(text:String) {
+        if text != dailyGoalValueLabel.text {
+            let animation: CATransition = CATransition()
+            animation.duration = 0.2
+            animation.type = kCATransitionFade
+            animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
+            dailyGoalValueLabel.layer.addAnimation(animation, forKey: "changeTextTransition")
+            dailyGoalValueLabel.text = text
+        }
     }
-    */
 
 }

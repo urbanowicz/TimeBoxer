@@ -339,6 +339,9 @@
                             </label>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="Fqk-vg-hCw">
                                 <rect key="frame" x="28" y="260" width="544" height="31"/>
+                                <connections>
+                                    <action selector="sliderValueChanged:" destination="Dgw-zp-wLj" eventType="valueChanged" id="P7y-ya-a4G"/>
+                                </connections>
                             </slider>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2 hours, 15 minutes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f0A-nt-QcO">
                                 <rect key="frame" x="30" y="315" width="150" height="21"/>
