@@ -52,10 +52,12 @@ class SetDailyGoalViewController: UIViewController {
     
     private func setupSlider() {
         slider.value = 0.0
+        slider.minimumTrackTintColor = Colors.silver()
+        slider.maximumTrackTintColor = Colors.silver()
     }
     
     private func setupDailyGoalValueLabel() {
-        dailyGoalValueLabel.font = UIFont(name: "Avenir-Medium", size: 18)
+        dailyGoalValueLabel.font = UIFont(name: "Avenir-Heavy", size: 20)
         dailyGoalValueLabel.text = minutesToTextConverter.convert(5)
         dailyGoalValueLabel.textColor = Colors.silver()
     }
