@@ -94,7 +94,7 @@ class SetDailyGoalViewController: UIViewController {
     private func updateDailyGoalValueLabel(text:String) {
         if text != dailyGoalValueLabel.text {
             let animation: CATransition = CATransition()
-            animation.duration = 0.2
+            animation.duration = 0.1
             animation.type = kCATransitionFade
             animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
             dailyGoalValueLabel.layer.addAnimation(animation, forKey: "changeTextTransition")

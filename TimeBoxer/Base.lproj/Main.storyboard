@@ -355,7 +355,7 @@
                                 </connections>
                             </view>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="Fqk-vg-hCw">
-                                <rect key="frame" x="28" y="292" width="544" height="31"/>
+                                <rect key="frame" x="28" y="302" width="544" height="31"/>
                                 <connections>
                                     <action selector="sliderValueChanged:" destination="Dgw-zp-wLj" eventType="valueChanged" id="P7y-ya-a4G"/>
                                 </connections>
@@ -369,7 +369,7 @@
                             <constraint firstItem="RoF-Fy-Kbb" firstAttribute="centerX" secondItem="byi-XA-5cv" secondAttribute="centerX" id="QXF-5B-FTI"/>
                             <constraint firstItem="UgE-gv-cUM" firstAttribute="top" secondItem="RoF-Fy-Kbb" secondAttribute="bottom" constant="20" id="YZZ-4K-v8q"/>
                             <constraint firstItem="RoF-Fy-Kbb" firstAttribute="width" secondItem="byi-XA-5cv" secondAttribute="width" multiplier="0.28" id="Z7o-M9-0PC"/>
-                            <constraint firstItem="Fqk-vg-hCw" firstAttribute="top" secondItem="f0A-nt-QcO" secondAttribute="bottom" constant="25" id="ctz-gJ-7bM"/>
+                            <constraint firstItem="Fqk-vg-hCw" firstAttribute="top" secondItem="f0A-nt-QcO" secondAttribute="bottom" constant="35" id="ctz-gJ-7bM"/>
                             <constraint firstItem="f0A-nt-QcO" firstAttribute="top" secondItem="Io0-tm-Ygh" secondAttribute="bottom" constant="20" id="dAA-n1-YO3"/>
                             <constraint firstItem="Io0-tm-Ygh" firstAttribute="top" secondItem="Wcj-dr-ry5" secondAttribute="bottom" constant="60" id="gGq-QB-hgX"/>
                             <constraint firstItem="Fqk-vg-hCw" firstAttribute="leading" secondItem="Io0-tm-Ygh" secondAttribute="leading" id="kyc-3j-PmT"/>

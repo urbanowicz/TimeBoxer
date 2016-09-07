@@ -74,7 +74,7 @@ class TimeSliderViewController: UIViewController {
         func updateTimeLabelText(text:String) {
             if text != timeLabel.text {
                 let animation: CATransition = CATransition()
-                animation.duration = 0.2
+                animation.duration = 0.1
                 animation.type = kCATransitionFade
                 animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
                 timeLabel.layer.addAnimation(animation, forKey: "changeTextTransition")
