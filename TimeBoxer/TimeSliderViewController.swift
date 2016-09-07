@@ -24,16 +24,10 @@ class TimeSliderViewController: UIViewController {
 //---------------------------------------------------------------------------------------------------
     override func viewDidLoad() {
         super.viewDidLoad()
-        //projectName = "Read \"On Intelligence\" and implement the MIDI encoder for the NUPIC platform"
         view.backgroundColor = Colors.almostBlack()
         setupStartButton()
         setupTimeLabel()
         setupTimeSlider()
-    }
-    
-    override func viewWillAppear(animated: Bool) {
-//        setupProjectNameLabel()
-//        timeSlider.refresh()
     }
     
     func prepareViewForUse(withProject project:Project) {
@@ -76,10 +70,25 @@ class TimeSliderViewController: UIViewController {
     
 //MARK: Actions
     @IBAction func timeSliderValueChanged() {
+        
+        func updateTimeLabelText(text:String) {
+            if text != timeLabel.text {
+                let animation: CATransition = CATransition()
+                animation.duration = 0.2
+                animation.type = kCATransitionFade
+                animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
+                timeLabel.layer.addAnimation(animation, forKey: "changeTextTransition")
+                timeLabel.text = text
+            }
+        }
+        
         let numberOfMinutes = sliderToMinutesConverter.convert(timeSlider.value)
-        timeLabel.text = minutesToTextConverter.convert(numberOfMinutes)
+        let text = minutesToTextConverter.convert(numberOfMinutes)
+        updateTimeLabelText(text)
         timeLabel.sizeToFit()
     }
+    
+    
     
     @IBAction func startButtonPressed(sender: StartButton) {
         performSegueWithIdentifier("TimeSliderToTimerRunning", sender: self)
