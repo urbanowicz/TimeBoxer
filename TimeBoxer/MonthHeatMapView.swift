@@ -245,15 +245,27 @@ class MonthHeatMapView: UIView, UIGestureRecognizerDelegate {
     }
     
     private func updateHoursWorkedLabel(forCell cell: HeatMapCell) {
+        
+        func updateText(text:String) {
+            if text != hoursWorkedLabel.text {
+                let animation: CATransition = CATransition()
+                animation.duration = 0.2
+                animation.type = kCATransitionFade
+                animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
+                hoursWorkedLabel.layer.addAnimation(animation, forKey: "changeTextTransition")
+                hoursWorkedLabel.text = text
+            }
+        }
+        
         if cell.active {
             let totalSeconds = dataSource!.totalSeconds(withDate: cell.date)
             let workTimeFormatter = WorkTimeFormatter()
-            hoursWorkedLabel.text = workTimeFormatter.formatLong(totalSeconds)
+            updateText(workTimeFormatter.formatLong(totalSeconds))
             hoursWorkedLabel.alpha = 1.0
             hoursWorkedLabel.sizeToFit()
             
         } else {
-            hoursWorkedLabel.text = "No entry for this date"
+            updateText("No entry for this date")
             hoursWorkedLabel.sizeToFit()
             hoursWorkedLabel.alpha = 0.3
         }
@@ -263,10 +275,21 @@ class MonthHeatMapView: UIView, UIGestureRecognizerDelegate {
     //MARK: Handle tap gesture recognition
     func handleTapGesture(recognizer:UITapGestureRecognizer) {
         
+        func updateText(text:String) {
+            if text != currentDateLabel.text {
+                let animation: CATransition = CATransition()
+                animation.duration = 0.2
+                animation.type = kCATransitionFade
+                animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
+                currentDateLabel.layer.addAnimation(animation, forKey: "changeTextTransition")
+                currentDateLabel.text = text
+            }
+        }
+        
         func updateCurrentDateLabel() {
             let formatter = NSDateFormatter()
             formatter.dateFormat = "EEEE d MMMM"
-            currentDateLabel.text = formatter.stringFromDate(currentDate!)
+            updateText(formatter.stringFromDate(currentDate!))
             currentDateLabel.sizeToFit()
         }
         
