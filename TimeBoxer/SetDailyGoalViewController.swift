@@ -14,9 +14,8 @@ class SetDailyGoalViewController: UIViewController {
     @IBOutlet weak var backButton: BackButton!
     @IBOutlet weak var setDailyGoalLabel: UILabel!
     @IBOutlet weak var dailyGoalLabel: UILabel!
-    @IBOutlet weak var slider: UISlider!
-    @IBOutlet weak var dailyGoalValueLabel: UILabel!
     @IBOutlet weak var okButton: OKButton!
+    @IBOutlet weak var durationPicker: DurationPicker!
     
     private let sliderValueConverter = SliderOutputToValueConverter(maxValue: 480, resolution: 5)
     private let minutesToTextConverter = MinutesToStringConverter()
@@ -28,9 +27,13 @@ class SetDailyGoalViewController: UIViewController {
         setupBackButton()
         setupSetDailyGoalLabel()
         setupDailyGoalLabel()
-        setupSlider()
-        setupDailyGoalValueLabel()
+        setupDurationPicker()
         setupOkButton()
+    }
+    
+    private func setupDurationPicker() {
+        durationPicker.backgroundColor = Colors.almostBlack()
+        durationPicker.scrollView.backgroundColor = Colors.almostBlack()
     }
     
     private func setupBackButton() {
@@ -50,18 +53,6 @@ class SetDailyGoalViewController: UIViewController {
         dailyGoalLabel.text = "DAILY GOAL"
     }
     
-    private func setupSlider() {
-        slider.value = 0.0
-        slider.minimumTrackTintColor = Colors.silver()
-        slider.maximumTrackTintColor = Colors.silver()
-    }
-    
-    private func setupDailyGoalValueLabel() {
-        dailyGoalValueLabel.font = UIFont(name: "Avenir-Heavy", size: 20)
-        dailyGoalValueLabel.text = minutesToTextConverter.convert(5)
-        dailyGoalValueLabel.textColor = Colors.silver()
-    }
-    
     private func setupOkButton() {
         okButton.frontLayerColor = Colors.silver()
         okButton.frontLayerStrokeColor = Colors.silver()
@@ -78,28 +69,11 @@ class SetDailyGoalViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func sliderValueChanged(sender: UISlider) {
-        let minutes = sliderValueConverter.convert(Double(sender.value))
-        let text = minutesToTextConverter.convert(minutes)
-        updateDailyGoalValueLabel(text)
-    }
-    
     @IBAction func backButtonPressed(sender: AnyObject) {
         delegate?.didPressBackButton()
     }
     @IBAction func okButtonPressed(sender: AnyObject) {
         delegate?.didSetDailyGoal(3600)
-    }
-
-    private func updateDailyGoalValueLabel(text:String) {
-        if text != dailyGoalValueLabel.text {
-            let animation: CATransition = CATransition()
-            animation.duration = 0.1
-            animation.type = kCATransitionFade
-            animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
-            dailyGoalValueLabel.layer.addAnimation(animation, forKey: "changeTextTransition")
-            dailyGoalValueLabel.text = text
-        }
     }
 
 }

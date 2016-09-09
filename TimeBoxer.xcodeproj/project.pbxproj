@@ -56,6 +56,7 @@
 		F18C2AD81C873A9A004A7B72 /* TimerDoneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F18C2AD71C873A9A004A7B72 /* TimerDoneViewController.swift */; };
 		F19133531CA844DD00CED170 /* NSDateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F19133521CA844DD00CED170 /* NSDateExtension.swift */; };
 		F19133551CA8478900CED170 /* NSCalendarExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F19133541CA8478900CED170 /* NSCalendarExtension.swift */; };
+		F1952A441D82FF6E0069F547 /* DurationPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1952A431D82FF6E0069F547 /* DurationPicker.swift */; };
 		F1981B9D1C84DE7200F49454 /* SliderOutputToValueConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1981B9C1C84DE7200F49454 /* SliderOutputToValueConverter.swift */; };
 		F1981B9E1C84DE7200F49454 /* SliderOutputToValueConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1981B9C1C84DE7200F49454 /* SliderOutputToValueConverter.swift */; };
 		F1981BA01C84DF8F00F49454 /* SliderOutputToValueConverterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1981B9F1C84DF8F00F49454 /* SliderOutputToValueConverterTests.swift */; };
@@ -220,6 +221,7 @@
 		F18C2AD71C873A9A004A7B72 /* TimerDoneViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerDoneViewController.swift; sourceTree = "<group>"; };
 		F19133521CA844DD00CED170 /* NSDateExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSDateExtension.swift; sourceTree = "<group>"; };
 		F19133541CA8478900CED170 /* NSCalendarExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSCalendarExtension.swift; sourceTree = "<group>"; };
+		F1952A431D82FF6E0069F547 /* DurationPicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DurationPicker.swift; sourceTree = "<group>"; };
 		F1981B9C1C84DE7200F49454 /* SliderOutputToValueConverter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SliderOutputToValueConverter.swift; sourceTree = "<group>"; };
 		F1981B9F1C84DF8F00F49454 /* SliderOutputToValueConverterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SliderOutputToValueConverterTests.swift; sourceTree = "<group>"; };
 		F1981BA11C84E61700F49454 /* MinutesToStringConverter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MinutesToStringConverter.swift; sourceTree = "<group>"; };
@@ -423,9 +425,18 @@
 			name = TimerDoneVC;
 			sourceTree = "<group>";
 		};
+		F1952A3C1D82FF2C0069F547 /* pickers */ = {
+			isa = PBXGroup;
+			children = (
+				F1952A431D82FF6E0069F547 /* DurationPicker.swift */,
+			);
+			name = pickers;
+			sourceTree = "<group>";
+		};
 		F1A605381C8211C7008EF288 /* CustomControls */ = {
 			isa = PBXGroup;
 			children = (
+				F1952A3C1D82FF2C0069F547 /* pickers */,
 				F150E3AE1C8ECCCF00D7D502 /* TitleBar */,
 				F1A605391C821201008EF288 /* Sliders */,
 				F14F13031BEA82C50045936F /* Buttons */,
@@ -734,6 +745,7 @@
 				F12C5D8C1C46FA450040969F /* KeyboardNotification.swift in Sources */,
 				F15C6FDD1D550C300081DC06 /* DummyCalendarHeatMapDataSource.swift in Sources */,
 				F125D7D21C28496700B94849 /* CirclePathWrapper.swift in Sources */,
+				F1952A441D82FF6E0069F547 /* DurationPicker.swift in Sources */,
 				F137E9701C419A200064E15F /* Colors.swift in Sources */,
 				F119251F1C8CB2F7002BEAC2 /* AddProjectToProjectsTableDismissAnimator.swift in Sources */,
 				F11D5B9F1C42AD32007F2622 /* AddButton.swift in Sources */,

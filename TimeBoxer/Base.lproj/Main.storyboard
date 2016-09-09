@@ -337,12 +337,6 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2 hours, 15 minutes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f0A-nt-QcO">
-                                <rect key="frame" x="30" y="246" width="150" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GDq-C9-tQ6" customClass="BackButton" customModule="TimeBoxer" customModuleProvider="target">
                                 <rect key="frame" x="15" y="30" width="37" height="37"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -354,25 +348,24 @@
                                     <action selector="backButtonPressed:" destination="Dgw-zp-wLj" eventType="touchUpInside" id="MrY-ja-svt"/>
                                 </connections>
                             </view>
-                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="Fqk-vg-hCw">
-                                <rect key="frame" x="28" y="302" width="544" height="31"/>
-                                <connections>
-                                    <action selector="sliderValueChanged:" destination="Dgw-zp-wLj" eventType="valueChanged" id="P7y-ya-a4G"/>
-                                </connections>
-                            </slider>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QpW-7D-2Nx" customClass="DurationPicker" customModule="TimeBoxer" customModuleProvider="target">
+                                <rect key="frame" x="30" y="246" width="540" height="100"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="1PT-5z-lgW"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="f0A-nt-QcO" firstAttribute="leading" secondItem="Fqk-vg-hCw" secondAttribute="leading" id="9RV-qc-TNg"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="Fqk-vg-hCw" secondAttribute="trailing" constant="10" id="EVU-P2-XLw"/>
+                            <constraint firstItem="QpW-7D-2Nx" firstAttribute="top" secondItem="Io0-tm-Ygh" secondAttribute="bottom" constant="20" id="59v-AB-0s9"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="QpW-7D-2Nx" secondAttribute="trailing" constant="10" id="Ncg-Kh-kwW"/>
                             <constraint firstItem="GDq-C9-tQ6" firstAttribute="leading" secondItem="byi-XA-5cv" secondAttribute="leading" constant="15" id="PQd-sX-7J1"/>
                             <constraint firstItem="RoF-Fy-Kbb" firstAttribute="centerX" secondItem="byi-XA-5cv" secondAttribute="centerX" id="QXF-5B-FTI"/>
+                            <constraint firstItem="QpW-7D-2Nx" firstAttribute="leading" secondItem="byi-XA-5cv" secondAttribute="leadingMargin" constant="10" id="WNC-1H-bvF"/>
                             <constraint firstItem="UgE-gv-cUM" firstAttribute="top" secondItem="RoF-Fy-Kbb" secondAttribute="bottom" constant="20" id="YZZ-4K-v8q"/>
                             <constraint firstItem="RoF-Fy-Kbb" firstAttribute="width" secondItem="byi-XA-5cv" secondAttribute="width" multiplier="0.28" id="Z7o-M9-0PC"/>
-                            <constraint firstItem="Fqk-vg-hCw" firstAttribute="top" secondItem="f0A-nt-QcO" secondAttribute="bottom" constant="35" id="ctz-gJ-7bM"/>
-                            <constraint firstItem="f0A-nt-QcO" firstAttribute="top" secondItem="Io0-tm-Ygh" secondAttribute="bottom" constant="20" id="dAA-n1-YO3"/>
                             <constraint firstItem="Io0-tm-Ygh" firstAttribute="top" secondItem="Wcj-dr-ry5" secondAttribute="bottom" constant="60" id="gGq-QB-hgX"/>
-                            <constraint firstItem="Fqk-vg-hCw" firstAttribute="leading" secondItem="Io0-tm-Ygh" secondAttribute="leading" id="kyc-3j-PmT"/>
                             <constraint firstItem="Wcj-dr-ry5" firstAttribute="leading" secondItem="byi-XA-5cv" secondAttribute="leadingMargin" constant="10" id="sYQ-DG-d0M"/>
                             <constraint firstItem="Io0-tm-Ygh" firstAttribute="leading" secondItem="Wcj-dr-ry5" secondAttribute="leading" id="tXY-t6-d4F"/>
                             <constraint firstItem="GDq-C9-tQ6" firstAttribute="top" secondItem="hoA-2H-fEl" secondAttribute="bottom" constant="10" id="xiB-q6-O7t"/>
@@ -382,10 +375,9 @@
                     <connections>
                         <outlet property="backButton" destination="GDq-C9-tQ6" id="fEA-64-zqm"/>
                         <outlet property="dailyGoalLabel" destination="Io0-tm-Ygh" id="qrl-Fq-N8R"/>
-                        <outlet property="dailyGoalValueLabel" destination="f0A-nt-QcO" id="iDh-hv-P9n"/>
+                        <outlet property="durationPicker" destination="QpW-7D-2Nx" id="OsW-l4-6ER"/>
                         <outlet property="okButton" destination="RoF-Fy-Kbb" id="aAz-oW-NRw"/>
                         <outlet property="setDailyGoalLabel" destination="Wcj-dr-ry5" id="rqk-hg-l7u"/>
-                        <outlet property="slider" destination="Fqk-vg-hCw" id="0jl-d7-LEI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="g5r-3x-kZH" userLabel="First Responder" sceneMemberID="firstResponder"/>
