@@ -10,8 +10,8 @@ import UIKit
 
 class DurationPicker: UIView, UIScrollViewDelegate {
     var scrollView = UIScrollView()
-    private var currentDurationSeconds = 5*60 // 5 minutes
-    private let maxDurationSeconds = 6*60*60 //8 hours
+    private var minDurationSeconds = 5*60 // 5 minutes
+    private let maxDurationSeconds = 6*60*60 //6 hours
     private let minutesToTextConverter = MinutesToStringConverter()
     private var durationLabels = [UILabel]()
     private let selectionRect = UIView()
@@ -21,6 +21,19 @@ class DurationPicker: UIView, UIScrollViewDelegate {
             let maxDurationMinutes = maxDurationSeconds/60
             return maxDurationMinutes / 5
         }
+    }
+    
+    var duration: Int {
+        let dy = bounds.height / 3.0
+        let rowNumber = Int(round(scrollView.contentOffset.y / dy))
+        if rowNumber < 0 {
+            return minDurationSeconds
+        }
+        if rowNumber >= durationLabels.count {
+            return maxDurationSeconds
+        }
+        
+        return (rowNumber+1) * minDurationSeconds
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -45,7 +58,7 @@ class DurationPicker: UIView, UIScrollViewDelegate {
         for labelNumber in 1...numberOfLabels {
             let durationLabel = UILabel()
             durationLabel.font = UIFont(name: "Menlo-Regular", size: 18)
-            durationLabel.textColor = Colors.silver()
+            durationLabel.textColor = Colors.silver().withAlpha(0.3)
             durationLabel.text = minutesToTextConverter.convert(5*labelNumber)
             durationLabel.sizeToFit()
             durationLabels.append(durationLabel)
@@ -70,6 +83,9 @@ class DurationPicker: UIView, UIScrollViewDelegate {
         for labelNumber in 1...numberOfLabels {
             let durationLabel = durationLabels[labelNumber-1]
             durationLabel.frame.origin = CGPointMake(xOffset, yOffset)
+            if labelNumber <= 2 {
+                updateAlphaForLabel(durationLabel)
+            }
             yOffset += dy
         }
         
@@ -84,9 +100,37 @@ class DurationPicker: UIView, UIScrollViewDelegate {
         return shapeLayer
     }
     
-    //Mark: UIScrollViewDelegate 
+    private func updateAlphaForLabel(label:UILabel) {
+        let dy = bounds.height / 3
+        let middleY = scrollView.contentOffset.y + dy + dy/2.0
+        let distanceFromTopToMiddle = dy + dy/2.0
+        let howFarOffCenter = min(fabs(label.layer.position.y - middleY), distanceFromTopToMiddle)
+        let alpha = max(1 - CGFloat(howFarOffCenter)/distanceFromTopToMiddle, 0.05)
+        label.textColor = Colors.silver().withAlpha(alpha)
+    }
+    
+    //Mark: UIScrollViewDelegate
     func scrollViewDidScroll(scrollView: UIScrollView) {
+        //Make sure the selection rect stays in place
         selectionRect.transform = CGAffineTransformMakeTranslation(0, scrollView.contentOffset.y)
+        
+        //find labels that are being displayed
+        let dy = bounds.height / 3
+        let firstVisibleRowNumber = Int(floor(scrollView.contentOffset.y / dy)) - 1
+        
+        for i in 0...3 {
+            if firstVisibleRowNumber + i < 0 {
+                continue
+            }
+            
+            if firstVisibleRowNumber + i >= durationLabels.count {
+                break
+            }
+            
+            let label = durationLabels[firstVisibleRowNumber + i]
+            updateAlphaForLabel(label)
+        }
+
     }
     
     func scrollViewWillEndDragging(scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
@@ -101,4 +145,5 @@ class DurationPicker: UIView, UIScrollViewDelegate {
             targetContentOffset.memory.y = lowerContentOffset
         }
     }
+    
 }
