@@ -349,20 +349,20 @@
                                 </connections>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QpW-7D-2Nx" customClass="DurationPicker" customModule="TimeBoxer" customModuleProvider="target">
-                                <rect key="frame" x="30" y="246" width="540" height="100"/>
+                                <rect key="frame" x="20" y="246" width="560" height="150"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="100" id="1PT-5z-lgW"/>
+                                    <constraint firstAttribute="height" constant="150" id="1PT-5z-lgW"/>
                                 </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="QpW-7D-2Nx" firstAttribute="top" secondItem="Io0-tm-Ygh" secondAttribute="bottom" constant="20" id="59v-AB-0s9"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="QpW-7D-2Nx" secondAttribute="trailing" constant="10" id="Ncg-Kh-kwW"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="QpW-7D-2Nx" secondAttribute="trailing" id="Ncg-Kh-kwW"/>
                             <constraint firstItem="GDq-C9-tQ6" firstAttribute="leading" secondItem="byi-XA-5cv" secondAttribute="leading" constant="15" id="PQd-sX-7J1"/>
                             <constraint firstItem="RoF-Fy-Kbb" firstAttribute="centerX" secondItem="byi-XA-5cv" secondAttribute="centerX" id="QXF-5B-FTI"/>
-                            <constraint firstItem="QpW-7D-2Nx" firstAttribute="leading" secondItem="byi-XA-5cv" secondAttribute="leadingMargin" constant="10" id="WNC-1H-bvF"/>
+                            <constraint firstItem="QpW-7D-2Nx" firstAttribute="leading" secondItem="byi-XA-5cv" secondAttribute="leadingMargin" id="WNC-1H-bvF"/>
                             <constraint firstItem="UgE-gv-cUM" firstAttribute="top" secondItem="RoF-Fy-Kbb" secondAttribute="bottom" constant="20" id="YZZ-4K-v8q"/>
                             <constraint firstItem="RoF-Fy-Kbb" firstAttribute="width" secondItem="byi-XA-5cv" secondAttribute="width" multiplier="0.28" id="Z7o-M9-0PC"/>
                             <constraint firstItem="Io0-tm-Ygh" firstAttribute="top" secondItem="Wcj-dr-ry5" secondAttribute="bottom" constant="60" id="gGq-QB-hgX"/>

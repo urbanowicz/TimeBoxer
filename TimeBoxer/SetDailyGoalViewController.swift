@@ -32,8 +32,8 @@ class SetDailyGoalViewController: UIViewController {
     }
     
     private func setupDurationPicker() {
-        durationPicker.backgroundColor = Colors.almostBlack()
-        durationPicker.scrollView.backgroundColor = Colors.almostBlack()
+        durationPicker.backgroundColor = UIColor.clearColor()
+        durationPicker.scrollView.backgroundColor = Colors.green().withAlpha(0.07)
     }
     
     private func setupBackButton() {

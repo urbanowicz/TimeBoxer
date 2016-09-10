@@ -15,10 +15,10 @@ class DurationPicker: UIView, UIScrollViewDelegate {
     private let minutesToTextConverter = MinutesToStringConverter()
     private var durationLabels = [UILabel]()
     
-    private var totalPages: Int {
+    private var numberOfLabels: Int {
         get {
             let maxDurationMinutes = maxDurationSeconds/60
-            return maxDurationMinutes/5
+            return maxDurationMinutes / 5
         }
     }
     
@@ -37,11 +37,11 @@ class DurationPicker: UIView, UIScrollViewDelegate {
         addSubview(scrollView)
         
         //setup the duration labels
-        for pageNumber in 1...totalPages {
+        for labelNumber in 1...numberOfLabels {
             let durationLabel = UILabel()
             durationLabel.font = UIFont(name: "Menlo-Regular", size: 18)
             durationLabel.textColor = Colors.silver()
-            durationLabel.text = minutesToTextConverter.convert(5*pageNumber)
+            durationLabel.text = minutesToTextConverter.convert(5*labelNumber)
             durationLabel.sizeToFit()
             durationLabels.append(durationLabel)
             scrollView.addSubview(durationLabel)
@@ -51,14 +51,22 @@ class DurationPicker: UIView, UIScrollViewDelegate {
     
     override func layoutSubviews() {
         scrollView.frame = bounds
-        scrollView.contentSize = CGSizeMake(CGFloat(totalPages)*bounds.width, bounds.height)
-        for pageNumber in 1...totalPages {
-            let durationLabel = durationLabels[pageNumber-1]
-            let xOffset = CGFloat(pageNumber - 1) * frame.width
-            let w = frame.width
-            let h = frame.height
-            durationLabel.frame.origin = CGPointMake((w/2.0 - durationLabel.frame.width/2.0) + xOffset, h/2.0 - durationLabel.frame.height/2.0)
-
+        layer.mask = prepareMaskingLayerWithRoundedCorners()
+        scrollView.contentSize = CGSizeMake(bounds.width, bounds.height*(CGFloat(numberOfLabels) / 3))
+        let dy = bounds.height / 3
+        var yOffset = dy / 2
+        yOffset -=  durationLabels[0].frame.height/2.0
+        let xOffset = CGFloat(10)
+        for labelNumber in 1...numberOfLabels {
+            let durationLabel = durationLabels[labelNumber-1]
+            durationLabel.frame.origin = CGPointMake(xOffset, yOffset)
+            yOffset += dy
         }
+    }
+    
+    private func prepareMaskingLayerWithRoundedCorners() -> CAShapeLayer {
+        let shapeLayer = CAShapeLayer()
+        shapeLayer.path = UIBezierPath(roundedRect: bounds, cornerRadius: 3.0).CGPath
+        return shapeLayer
     }
 }
