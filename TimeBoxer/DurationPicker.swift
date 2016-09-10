@@ -10,10 +10,11 @@ import UIKit
 
 class DurationPicker: UIView, UIScrollViewDelegate {
     var scrollView = UIScrollView()
-    private var currentDurationSeconds = 5*60
+    private var currentDurationSeconds = 5*60 // 5 minutes
     private let maxDurationSeconds = 6*60*60 //8 hours
     private let minutesToTextConverter = MinutesToStringConverter()
     private var durationLabels = [UILabel]()
+    private let selectionRect = UIView()
     
     private var numberOfLabels: Int {
         get {
@@ -36,6 +37,10 @@ class DurationPicker: UIView, UIScrollViewDelegate {
         scrollView.showsHorizontalScrollIndicator = false
         addSubview(scrollView)
         
+        //setup the selection rect
+        selectionRect.backgroundColor = Colors.green().withAlpha(0.1)
+        scrollView.addSubview(selectionRect)
+        
         //setup the duration labels
         for labelNumber in 1...numberOfLabels {
             let durationLabel = UILabel()
@@ -46,13 +51,17 @@ class DurationPicker: UIView, UIScrollViewDelegate {
             durationLabels.append(durationLabel)
             scrollView.addSubview(durationLabel)
         }
-        
     }
     
     override func layoutSubviews() {
-        scrollView.frame = bounds
+        //layout the main view
         layer.mask = prepareMaskingLayerWithRoundedCorners()
+        
+        //layout the scrollView
+        scrollView.frame = bounds
         scrollView.contentSize = CGSizeMake(bounds.width, bounds.height*(CGFloat(numberOfLabels) / 3))
+        
+        //layout the labels
         let dy = bounds.height / 3
         var yOffset = dy / 2
         yOffset -=  durationLabels[0].frame.height/2.0
@@ -62,11 +71,20 @@ class DurationPicker: UIView, UIScrollViewDelegate {
             durationLabel.frame.origin = CGPointMake(xOffset, yOffset)
             yOffset += dy
         }
+        
+        //layout the selection rect
+        selectionRect.frame = CGRectMake(0, dy, bounds.width, dy)
+
     }
     
     private func prepareMaskingLayerWithRoundedCorners() -> CAShapeLayer {
         let shapeLayer = CAShapeLayer()
         shapeLayer.path = UIBezierPath(roundedRect: bounds, cornerRadius: 3.0).CGPath
         return shapeLayer
+    }
+    
+    //Mark: UIScrollViewDelegate 
+    func scrollViewDidScroll(scrollView: UIScrollView) {
+        selectionRect.transform = CGAffineTransformMakeTranslation(0, scrollView.contentOffset.y)
     }
 }
