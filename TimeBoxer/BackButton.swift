@@ -28,8 +28,6 @@ class BackButton: AbstractRoundButton {
         let scaleFactor = CGFloat(0.33)
         let rotation = CGAffineTransformMakeRotation(0.785398)
         let scale = CGAffineTransformMakeScale(scaleFactor, scaleFactor)
-        //let translation = CGAffineTransformMakeTranslation(a, 0)
-        //let combined = CGAffineTransformConcat(rotation, scale)
         let finalTransform = CGAffineTransformConcat(rotation, scale)
         frontLayer.transform = CATransform3DMakeAffineTransform(finalTransform)
         return path

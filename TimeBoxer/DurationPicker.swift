@@ -2,8 +2,8 @@
 //  DurationPicker.swift
 //  TimeBoxer
 //
-//  Created by Tomasz on 09/09/16.
-//  Copyright © 2016 Tomasz. All rights reserved.
+//  Created by Tomasz Urbanowicz on 09/09/16.
+//  Copyright © 2016 Tomasz Urbanowicz. All rights reserved.
 //
 
 import UIKit
@@ -15,6 +15,8 @@ class DurationPicker: UIView, UIScrollViewDelegate {
     private let minutesToTextConverter = MinutesToStringConverter()
     private var durationLabels = [UILabel]()
     private let selectionRect = UIView()
+    private var swipeUpIndicator:CAShapeLayer!
+    private var swipeDownIndicator:CAShapeLayer!
     
     private var numberOfLabels: Int {
         get {
@@ -54,6 +56,18 @@ class DurationPicker: UIView, UIScrollViewDelegate {
         selectionRect.backgroundColor = Colors.green().withAlpha(0.1)
         scrollView.addSubview(selectionRect)
         
+        //setup the swipe up indicator
+        swipeUpIndicator = prepareSwipeIndicator()
+        swipeUpIndicator.fillColor = Colors.green().withAlpha(0.1).CGColor
+        swipeUpIndicator.backgroundColor = UIColor.clearColor().CGColor
+        scrollView.layer.addSublayer(swipeUpIndicator)
+        
+        //setup the swipe down indicator
+        swipeDownIndicator = prepareSwipeIndicator()
+        swipeDownIndicator.fillColor = Colors.green().withAlpha(0.5).CGColor
+        swipeDownIndicator.backgroundColor = swipeUpIndicator.backgroundColor
+        scrollView.layer.addSublayer(swipeDownIndicator)
+        
         //setup the duration labels
         for labelNumber in 1...numberOfLabels {
             let durationLabel = UILabel()
@@ -91,7 +105,16 @@ class DurationPicker: UIView, UIScrollViewDelegate {
         
         //layout the selection rect
         selectionRect.frame = CGRectMake(0, dy, bounds.width, dy)
-
+       
+        //layout the swipe up indicator
+        swipeUpIndicator.transform = CATransform3DIdentity
+        swipeUpIndicator.frame.origin = CGPointMake(bounds.width - (xOffset + swipeUpIndicator.frame.width), dy/2 - swipeUpIndicator.frame.height/2)
+        swipeUpIndicator.transform = CATransform3DMakeRotation(135.0 * CGFloat(M_PI) / 180.0, 0.0, 0.0, 1.0)
+        
+        //layout the swipe down indicator
+        swipeDownIndicator.transform = CATransform3DIdentity
+        swipeDownIndicator.frame.origin = CGPointMake(bounds.width - (xOffset + swipeDownIndicator.frame.width), bounds.height - dy/2 - swipeDownIndicator.frame.height/2)
+        swipeDownIndicator.transform = CATransform3DMakeRotation(-45 * CGFloat(M_PI) / 180.0, 0.0, 0.0, 1.0)
     }
     
     private func prepareMaskingLayerWithRoundedCorners() -> CAShapeLayer {
@@ -113,6 +136,26 @@ class DurationPicker: UIView, UIScrollViewDelegate {
     func scrollViewDidScroll(scrollView: UIScrollView) {
         //Make sure the selection rect stays in place
         selectionRect.transform = CGAffineTransformMakeTranslation(0, scrollView.contentOffset.y)
+        let translation = CATransform3DMakeTranslation(0, scrollView.contentOffset.y, 0)
+        var rotation = CATransform3DMakeRotation(135.0 * CGFloat(M_PI) / 180.0, 0.0, 0.0, 1.0)
+        CATransaction.setDisableActions(true)
+        swipeUpIndicator.transform = CATransform3DConcat(rotation, translation)
+        rotation = CATransform3DMakeRotation(-45 * CGFloat(M_PI) / 180.0, 0.0, 0.0, 1.0)
+        swipeDownIndicator.transform = CATransform3DConcat(rotation, translation)
+        CATransaction.setDisableActions(false)
+        
+        let currentDuration = duration
+        if currentDuration == minDurationSeconds {
+            swipeUpIndicator.fillColor = Colors.green().withAlpha(0.1).CGColor
+        } else {
+            swipeUpIndicator.fillColor = Colors.green().withAlpha(0.5).CGColor
+        }
+        
+        if currentDuration == maxDurationSeconds {
+            swipeDownIndicator.fillColor = Colors.green().withAlpha(0.1).CGColor
+        } else {
+            swipeDownIndicator.fillColor = Colors.green().withAlpha(0.5).CGColor
+        }
         
         //find labels that are being displayed
         let dy = bounds.height / 3
@@ -146,4 +189,40 @@ class DurationPicker: UIView, UIScrollViewDelegate {
         }
     }
     
+    //Mark: helper functions
+    private func prepareSwipeIndicator() -> CAShapeLayer {
+        let shapeLayer = CAShapeLayer()
+        let w = CGFloat(15)
+        let h = CGFloat(15)
+        shapeLayer.frame = CGRect(x: 0, y: 0, width: w, height: h)
+        let dx = CGFloat(4)
+        let path:CGMutablePathRef = CGPathCreateMutable()
+        goto(path, p(0, h))
+        arc(path, p(w, h), p(w,h - dx/2.0))
+        arc(path, p(w, h - dx), p(dx, h - dx))
+        line(path, p(dx, h - dx))
+        arc(path, p(dx, 0), p(dx/2.0, 0))
+        arc(path, p(0,0), p(0, h))
+        CGPathCloseSubpath(path)
+        shapeLayer.path = path
+        return shapeLayer
+    }
+    
+    //These methods were taken from the BackButton.swift
+    private func arc(path:CGMutablePathRef, _ p1:CGPoint, _ p2:CGPoint) {
+        let radius = CGFloat(1.5)
+        CGPathAddArcToPoint(path, nil, p1.x, p1.y, p2.x, p2.y, radius)
+    }
+    
+    private func goto(path:CGMutablePathRef, _ p:CGPoint) {
+        CGPathMoveToPoint(path, nil, p.x, p.y)
+    }
+    
+    private func line(path:CGMutablePathRef, _ p:CGPoint) {
+        CGPathAddLineToPoint(path, nil, p.x, p.y)
+    }
+    
+    private func p(x:CGFloat, _ y:CGFloat) -> CGPoint {
+        return CGPointMake(x, y)
+    }
 }
