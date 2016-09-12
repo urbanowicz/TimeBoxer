@@ -249,49 +249,59 @@
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="Lwh-CH-BOO">
-                                <rect key="frame" x="30" y="248" width="540" height="25"/>
+                                <rect key="frame" x="30" y="224" width="540" height="25"/>
                                 <color key="textColor" red="0.15294117647058825" green="0.15294117647058825" blue="0.15294117647058825" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="18"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="next" enablesReturnKeyAutomatically="YES"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose Project Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZQL-dE-muf">
-                                <rect key="frame" x="30" y="127" width="167" height="21"/>
+                                <rect key="frame" x="30" y="90" width="167" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PROJECT NAME" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kxr-7U-l2A" userLabel="name label">
-                                <rect key="frame" x="30" y="208" width="108" height="20"/>
+                                <rect key="frame" x="30" y="189" width="108" height="20"/>
                                 <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="14"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7h2-pM-vcI" userLabel="Line Separator">
-                                <rect key="frame" x="30" y="279" width="540" height="1"/>
+                                <rect key="frame" x="30" y="255" width="540" height="1"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="hiC-Yd-Pz8"/>
                                 </constraints>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tmQ-kn-zgj">
+                                <rect key="frame" x="30" y="123" width="540" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="Kxr-7U-l2A" firstAttribute="top" secondItem="ZQL-dE-muf" secondAttribute="bottom" constant="60" id="49U-1c-nNx"/>
-                            <constraint firstItem="Lwh-CH-BOO" firstAttribute="top" secondItem="Kxr-7U-l2A" secondAttribute="bottom" constant="20" id="A9w-ZP-qEz"/>
+                            <constraint firstItem="tmQ-kn-zgj" firstAttribute="top" secondItem="ZQL-dE-muf" secondAttribute="bottom" constant="12" id="6ZC-jq-EKY"/>
+                            <constraint firstItem="Lwh-CH-BOO" firstAttribute="top" secondItem="Kxr-7U-l2A" secondAttribute="bottom" constant="15" id="A9w-ZP-qEz"/>
                             <constraint firstItem="7h2-pM-vcI" firstAttribute="top" secondItem="Lwh-CH-BOO" secondAttribute="bottom" constant="6" id="BK2-Wn-ZTf"/>
                             <constraint firstItem="dGk-jU-whk" firstAttribute="leading" secondItem="ImF-7u-4lo" secondAttribute="leadingMargin" id="ErR-g6-zye"/>
+                            <constraint firstItem="tmQ-kn-zgj" firstAttribute="trailing" secondItem="Lwh-CH-BOO" secondAttribute="trailing" id="HRF-uH-gw2"/>
                             <constraint firstItem="Lwh-CH-BOO" firstAttribute="leading" secondItem="Kxr-7U-l2A" secondAttribute="leading" id="JXO-fS-9b8"/>
                             <constraint firstItem="ZQL-dE-muf" firstAttribute="leading" secondItem="ImF-7u-4lo" secondAttribute="leadingMargin" constant="10" id="LTE-WL-DQY"/>
-                            <constraint firstItem="ZQL-dE-muf" firstAttribute="top" secondItem="dGk-jU-whk" secondAttribute="bottom" constant="60" id="M3l-XU-dU4"/>
+                            <constraint firstItem="ZQL-dE-muf" firstAttribute="top" secondItem="dGk-jU-whk" secondAttribute="bottom" constant="23" id="M3l-XU-dU4"/>
                             <constraint firstItem="dGk-jU-whk" firstAttribute="top" secondItem="JJF-Le-5nA" secondAttribute="bottom" constant="10" id="Qrc-72-2Er"/>
+                            <constraint firstItem="tmQ-kn-zgj" firstAttribute="leading" secondItem="ZQL-dE-muf" secondAttribute="leading" id="VRY-9G-GmR"/>
                             <constraint firstItem="7h2-pM-vcI" firstAttribute="leading" secondItem="Lwh-CH-BOO" secondAttribute="leading" id="cpz-fh-8lc"/>
                             <constraint firstItem="Kxr-7U-l2A" firstAttribute="leading" secondItem="ZQL-dE-muf" secondAttribute="leading" id="hM1-fe-YXC"/>
+                            <constraint firstItem="Kxr-7U-l2A" firstAttribute="top" secondItem="tmQ-kn-zgj" secondAttribute="bottom" constant="45" id="iwg-Br-erN"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Lwh-CH-BOO" secondAttribute="trailing" constant="10" id="k8Y-kk-ymB"/>
                             <constraint firstItem="7h2-pM-vcI" firstAttribute="width" secondItem="Lwh-CH-BOO" secondAttribute="width" id="owF-pH-tyc"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="chooseProjectNameLabel" destination="ZQL-dE-muf" id="Cxj-dS-Owj"/>
+                        <outlet property="descriptionLabel" destination="tmQ-kn-zgj" id="Ynd-sd-62E"/>
                         <outlet property="lineSeparator" destination="7h2-pM-vcI" id="Qj6-0T-feQ"/>
                         <outlet property="projectNameLabel" destination="Kxr-7U-l2A" id="8JQ-c7-hAL"/>
                         <outlet property="projectNameTextField" destination="Lwh-CH-BOO" id="X3M-Id-u0r"/>
