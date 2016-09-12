@@ -336,13 +336,13 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Set Daily Goal" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wcj-dr-ry5">
-                                <rect key="frame" x="30" y="124" width="107" height="21"/>
+                                <rect key="frame" x="30" y="90" width="107" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DAILY GOAL" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Io0-tm-Ygh">
-                                <rect key="frame" x="30" y="205" width="95" height="21"/>
+                                <rect key="frame" x="30" y="189" width="95" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -359,32 +359,42 @@
                                 </connections>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QpW-7D-2Nx" customClass="DurationPicker" customModule="TimeBoxer" customModuleProvider="target">
-                                <rect key="frame" x="20" y="246" width="560" height="150"/>
+                                <rect key="frame" x="20" y="230" width="560" height="150"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="150" id="1PT-5z-lgW"/>
                                 </constraints>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oKU-JH-Ju6">
+                                <rect key="frame" x="30" y="123" width="540" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="QpW-7D-2Nx" firstAttribute="top" secondItem="Io0-tm-Ygh" secondAttribute="bottom" constant="20" id="59v-AB-0s9"/>
+                            <constraint firstItem="Io0-tm-Ygh" firstAttribute="top" secondItem="oKU-JH-Ju6" secondAttribute="bottom" constant="45" id="Jve-IL-OX8"/>
                             <constraint firstAttribute="trailingMargin" secondItem="QpW-7D-2Nx" secondAttribute="trailing" id="Ncg-Kh-kwW"/>
                             <constraint firstItem="GDq-C9-tQ6" firstAttribute="leading" secondItem="byi-XA-5cv" secondAttribute="leading" constant="15" id="PQd-sX-7J1"/>
                             <constraint firstItem="RoF-Fy-Kbb" firstAttribute="centerX" secondItem="byi-XA-5cv" secondAttribute="centerX" id="QXF-5B-FTI"/>
                             <constraint firstItem="QpW-7D-2Nx" firstAttribute="leading" secondItem="byi-XA-5cv" secondAttribute="leadingMargin" id="WNC-1H-bvF"/>
                             <constraint firstItem="UgE-gv-cUM" firstAttribute="top" secondItem="RoF-Fy-Kbb" secondAttribute="bottom" constant="20" id="YZZ-4K-v8q"/>
                             <constraint firstItem="RoF-Fy-Kbb" firstAttribute="width" secondItem="byi-XA-5cv" secondAttribute="width" multiplier="0.28" id="Z7o-M9-0PC"/>
-                            <constraint firstItem="Io0-tm-Ygh" firstAttribute="top" secondItem="Wcj-dr-ry5" secondAttribute="bottom" constant="60" id="gGq-QB-hgX"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="oKU-JH-Ju6" secondAttribute="trailing" constant="10" id="fDm-7E-RNa"/>
+                            <constraint firstItem="oKU-JH-Ju6" firstAttribute="top" secondItem="Wcj-dr-ry5" secondAttribute="bottom" constant="12" id="jED-cj-yuQ"/>
                             <constraint firstItem="Wcj-dr-ry5" firstAttribute="leading" secondItem="byi-XA-5cv" secondAttribute="leadingMargin" constant="10" id="sYQ-DG-d0M"/>
                             <constraint firstItem="Io0-tm-Ygh" firstAttribute="leading" secondItem="Wcj-dr-ry5" secondAttribute="leading" id="tXY-t6-d4F"/>
                             <constraint firstItem="GDq-C9-tQ6" firstAttribute="top" secondItem="hoA-2H-fEl" secondAttribute="bottom" constant="10" id="xiB-q6-O7t"/>
-                            <constraint firstItem="Wcj-dr-ry5" firstAttribute="top" secondItem="GDq-C9-tQ6" secondAttribute="bottom" constant="57" id="zhA-6o-Vbl"/>
+                            <constraint firstItem="Wcj-dr-ry5" firstAttribute="top" secondItem="GDq-C9-tQ6" secondAttribute="bottom" constant="23" id="zhA-6o-Vbl"/>
+                            <constraint firstItem="oKU-JH-Ju6" firstAttribute="leading" secondItem="byi-XA-5cv" secondAttribute="leadingMargin" constant="10" id="zi0-Xe-myb"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="backButton" destination="GDq-C9-tQ6" id="fEA-64-zqm"/>
                         <outlet property="dailyGoalLabel" destination="Io0-tm-Ygh" id="qrl-Fq-N8R"/>
+                        <outlet property="descriptionLabel" destination="oKU-JH-Ju6" id="8Rb-Td-QJt"/>
                         <outlet property="durationPicker" destination="QpW-7D-2Nx" id="OsW-l4-6ER"/>
                         <outlet property="okButton" destination="RoF-Fy-Kbb" id="aAz-oW-NRw"/>
                         <outlet property="setDailyGoalLabel" destination="Wcj-dr-ry5" id="rqk-hg-l7u"/>

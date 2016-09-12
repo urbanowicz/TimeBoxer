@@ -13,6 +13,7 @@ class SetDailyGoalViewController: UIViewController {
     
     @IBOutlet weak var backButton: BackButton!
     @IBOutlet weak var setDailyGoalLabel: UILabel!
+    @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var dailyGoalLabel: UILabel!
     @IBOutlet weak var okButton: OKButton!
     @IBOutlet weak var durationPicker: DurationPicker!
@@ -26,6 +27,7 @@ class SetDailyGoalViewController: UIViewController {
         view.backgroundColor = Colors.almostBlack()
         setupBackButton()
         setupSetDailyGoalLabel()
+        setupDescriptionLabel()
         setupDailyGoalLabel()
         setupDurationPicker()
         setupOkButton()
@@ -42,14 +44,22 @@ class SetDailyGoalViewController: UIViewController {
     }
     
     private func setupSetDailyGoalLabel() {
-        setDailyGoalLabel.font = UIFont(name:"Avenir-Heavy", size: 22)
+        setDailyGoalLabel.font = UIFont(name:"Avenir-Heavy", size: 24)
         setDailyGoalLabel.text = "Set daily goal"
         setDailyGoalLabel.textColor = Colors.silver()
     }
     
+    private func setupDescriptionLabel() {
+        descriptionLabel.font = UIFont(name:"Avenir-Medium", size:15)
+        descriptionLabel.numberOfLines = 0
+        descriptionLabel.textColor = Colors.silver().withAlpha(0.7)
+        descriptionLabel.backgroundColor = Colors.almostBlack()
+        descriptionLabel.text = "Choose how much time every day you'd like to spend working on the project. You can change this value later."
+    }
+    
     private func setupDailyGoalLabel() {
-        dailyGoalLabel.textColor = Colors.silver().withAlpha(0.4)
-        dailyGoalLabel.font = UIFont(name: "Avenir Book", size: 12)
+        dailyGoalLabel.textColor = Colors.silver().withAlpha(0.7)
+        dailyGoalLabel.font = UIFont(name: "Avenir-Medium", size: 12)
         dailyGoalLabel.text = "DAILY GOAL"
     }
     
