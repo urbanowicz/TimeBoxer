@@ -91,7 +91,163 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BcR-rm-wfo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-133" y="222"/>
+            <point key="canvasLocation" x="-145" y="418"/>
+        </scene>
+        <!--Project Settings View Controller-->
+        <scene sceneID="pay-T6-eTs">
+            <objects>
+                <viewController storyboardIdentifier="projectSettingsViewController" id="tOW-dh-kfk" customClass="ProjectSettingsViewController" customModule="TimeBoxer" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ufE-hv-MFt"/>
+                        <viewControllerLayoutGuide type="bottom" id="wrb-Qe-3SH"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="C1h-hW-yiv">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TGH-VE-0AT" customClass="XButton" customModule="TimeBoxer" customModuleProvider="target">
+                                <rect key="frame" x="20" y="30" width="37" height="37"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="TGH-VE-0AT" secondAttribute="height" multiplier="1:1" id="87T-rR-pWW"/>
+                                    <constraint firstAttribute="width" constant="37" id="TZp-bi-XeZ"/>
+                                </constraints>
+                                <connections>
+                                    <action selector="xButtonPressed:" destination="tOW-dh-kfk" eventType="touchUpInside" id="hiA-0t-KdY"/>
+                                </connections>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Project Settings" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uxm-y2-4CI">
+                                <rect key="frame" x="30" y="90" width="122" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Project Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lMO-pK-FBy">
+                                <rect key="frame" x="30" y="122" width="104" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Edit Project Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pw5-5J-Thv">
+                                <rect key="frame" x="30" y="188" width="138" height="20"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Change daily goal" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ppL-ay-YPc">
+                                <rect key="frame" x="30" y="253" width="137" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Delete project" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eaC-T2-aqt" userLabel="Delete project label">
+                                <rect key="frame" x="30" y="319" width="108" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mark as finished" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UeO-xO-BXj">
+                                <rect key="frame" x="30" y="385" width="126" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fx2-YS-COj" userLabel="editProjectNameUnderline">
+                                <rect key="frame" x="30" y="210" width="138" height="1"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="sgP-3k-I5L"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0p9-FE-pPD" userLabel="changeDailyGoalUnderline">
+                                <rect key="frame" x="30" y="276" width="137" height="1"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="srC-BX-656"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sTB-h4-PVN" userLabel="deleteProjectUnderline">
+                                <rect key="frame" x="30" y="342" width="108" height="1"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="h59-ew-RcF"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3rM-DV-C15" userLabel="markAsFinishedUnderline">
+                                <rect key="frame" x="30" y="408" width="126" height="1"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="kl2-bD-TSd"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="0p9-FE-pPD" firstAttribute="leading" secondItem="C1h-hW-yiv" secondAttribute="leadingMargin" constant="10" id="2Gf-YE-eDX"/>
+                            <constraint firstItem="pw5-5J-Thv" firstAttribute="leading" secondItem="C1h-hW-yiv" secondAttribute="leadingMargin" constant="10" id="39Q-HG-Iem"/>
+                            <constraint firstItem="UeO-xO-BXj" firstAttribute="top" secondItem="eaC-T2-aqt" secondAttribute="bottom" constant="45" id="3tL-e8-AIB"/>
+                            <constraint firstItem="sTB-h4-PVN" firstAttribute="leading" secondItem="C1h-hW-yiv" secondAttribute="leadingMargin" constant="10" id="8jT-pN-7Zb"/>
+                            <constraint firstItem="TGH-VE-0AT" firstAttribute="top" secondItem="ufE-hv-MFt" secondAttribute="bottom" constant="10" id="9rL-c7-KDL"/>
+                            <constraint firstItem="3rM-DV-C15" firstAttribute="top" secondItem="UeO-xO-BXj" secondAttribute="bottom" constant="2" id="Ah8-hz-xaz"/>
+                            <constraint firstItem="pw5-5J-Thv" firstAttribute="top" secondItem="lMO-pK-FBy" secondAttribute="bottom" constant="45" id="Bro-60-7nS"/>
+                            <constraint firstItem="ppL-ay-YPc" firstAttribute="leading" secondItem="C1h-hW-yiv" secondAttribute="leadingMargin" constant="10" id="IbJ-a9-Le7"/>
+                            <constraint firstItem="fx2-YS-COj" firstAttribute="top" secondItem="pw5-5J-Thv" secondAttribute="bottom" constant="2" id="J05-lD-7nr"/>
+                            <constraint firstItem="uxm-y2-4CI" firstAttribute="top" secondItem="TGH-VE-0AT" secondAttribute="bottom" constant="23" id="Jzd-tb-23X"/>
+                            <constraint firstItem="eaC-T2-aqt" firstAttribute="top" secondItem="ppL-ay-YPc" secondAttribute="bottom" constant="45" id="L5W-Vz-UYM"/>
+                            <constraint firstItem="3rM-DV-C15" firstAttribute="leading" secondItem="C1h-hW-yiv" secondAttribute="leadingMargin" constant="10" id="Lrx-yK-F55"/>
+                            <constraint firstItem="sTB-h4-PVN" firstAttribute="width" secondItem="eaC-T2-aqt" secondAttribute="width" id="MYO-CV-Umi"/>
+                            <constraint firstItem="lMO-pK-FBy" firstAttribute="top" secondItem="uxm-y2-4CI" secondAttribute="bottom" constant="11" id="NCf-70-OfT"/>
+                            <constraint firstItem="fx2-YS-COj" firstAttribute="leading" secondItem="C1h-hW-yiv" secondAttribute="leadingMargin" constant="10" id="OhG-wx-EuC"/>
+                            <constraint firstItem="uxm-y2-4CI" firstAttribute="leading" secondItem="C1h-hW-yiv" secondAttribute="leadingMargin" constant="10" id="PBb-Pe-dCu"/>
+                            <constraint firstItem="eaC-T2-aqt" firstAttribute="leading" secondItem="C1h-hW-yiv" secondAttribute="leadingMargin" constant="10" id="XJP-VI-JTf"/>
+                            <constraint firstItem="UeO-xO-BXj" firstAttribute="leading" secondItem="C1h-hW-yiv" secondAttribute="leadingMargin" constant="10" id="Xfq-LV-ghN"/>
+                            <constraint firstItem="fx2-YS-COj" firstAttribute="width" secondItem="pw5-5J-Thv" secondAttribute="width" id="aXB-bY-5Rs"/>
+                            <constraint firstItem="0p9-FE-pPD" firstAttribute="top" secondItem="ppL-ay-YPc" secondAttribute="bottom" constant="2" id="eZR-PM-S56"/>
+                            <constraint firstItem="ppL-ay-YPc" firstAttribute="top" secondItem="pw5-5J-Thv" secondAttribute="bottom" constant="45" id="es0-pp-7yM"/>
+                            <constraint firstItem="0p9-FE-pPD" firstAttribute="width" secondItem="ppL-ay-YPc" secondAttribute="width" id="gJX-3K-zjw"/>
+                            <constraint firstItem="lMO-pK-FBy" firstAttribute="leading" secondItem="C1h-hW-yiv" secondAttribute="leadingMargin" constant="10" id="k7j-ac-tb7"/>
+                            <constraint firstItem="TGH-VE-0AT" firstAttribute="leading" secondItem="C1h-hW-yiv" secondAttribute="leadingMargin" id="sOZ-aE-lrH"/>
+                            <constraint firstItem="3rM-DV-C15" firstAttribute="width" secondItem="UeO-xO-BXj" secondAttribute="width" id="we0-X7-mWq"/>
+                            <constraint firstItem="sTB-h4-PVN" firstAttribute="top" secondItem="eaC-T2-aqt" secondAttribute="bottom" constant="2" id="yFv-M8-MM9"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="changeDailyGoalLabel" destination="ppL-ay-YPc" id="Amq-Jg-LUl"/>
+                        <outlet property="changeDailyGoalUnderline" destination="0p9-FE-pPD" id="nEd-65-9V2"/>
+                        <outlet property="deleteProjectLabel" destination="eaC-T2-aqt" id="ZgQ-l1-6Xv"/>
+                        <outlet property="deleteProjectUnderline" destination="sTB-h4-PVN" id="dEj-Uq-MRb"/>
+                        <outlet property="editProjectNameLabel" destination="pw5-5J-Thv" id="NdK-eK-Agr"/>
+                        <outlet property="editProjectNameUnderline" destination="fx2-YS-COj" id="hdy-tY-Szp"/>
+                        <outlet property="markAsFinishedLabel" destination="UeO-xO-BXj" id="deB-jI-DkU"/>
+                        <outlet property="markAsFinishedUnderline" destination="3rM-DV-C15" id="Ka0-KB-liC"/>
+                        <outlet property="projectNameLabel" destination="lMO-pK-FBy" id="gwz-gE-0HG"/>
+                        <outlet property="projectSettingsLabel" destination="uxm-y2-4CI" id="u9O-3g-JvI"/>
+                        <outlet property="xButton" destination="TGH-VE-0AT" id="NkR-kg-11K"/>
+                        <segue destination="rE0-Zv-8Gc" kind="unwind" identifier="unwindToProjectsTable" unwindAction="editProjectUnwind:" id="FBw-3p-GtE"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XQf-F3-Bgk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="rE0-Zv-8Gc" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="-1407" y="-1750"/>
+        </scene>
+        <!--Project Settings Page View Controller-->
+        <scene sceneID="Gak-8Y-feF">
+            <objects>
+                <viewController id="Er2-Uh-TM0" customClass="ProjectSettingsPageViewController" customModule="TimeBoxer" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="074-K2-U63"/>
+                        <viewControllerLayoutGuide type="bottom" id="q6O-ZF-mz7"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Qzx-eY-v7G">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="k2v-zJ-514" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-683" y="-1750"/>
         </scene>
         <!--Projects Table View Controller-->
         <scene sceneID="rLU-Ry-5YJ">
@@ -219,11 +375,12 @@
                         <outlet property="timeBoxerLabel" destination="rVO-On-1e2" id="fbK-b8-DXi"/>
                         <outlet property="titleBarSeparator" destination="ln0-07-a9F" id="b7N-Im-DiL"/>
                         <outlet property="useAddButtonLabel" destination="jW6-zk-wqc" id="FPx-pl-unb"/>
+                        <segue destination="Er2-Uh-TM0" kind="presentation" identifier="projectsTableToProjectSettings" id="TcC-fr-0Eu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QKb-ic-GTJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-112" y="-574"/>
+            <point key="canvasLocation" x="-1072" y="-1052"/>
         </scene>
         <!--Add Project View Controller-->
         <scene sceneID="dZG-L9-nPN">
@@ -276,7 +433,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tmQ-kn-zgj">
                                 <rect key="frame" x="30" y="123" width="540" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -311,7 +468,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uuO-At-bhA" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="dIy-m2-ZKe" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="582" y="-1240"/>
+            <point key="canvasLocation" x="1344" y="-1750"/>
         </scene>
         <!--Set Daily Goal View Controller-->
         <scene sceneID="IIS-fz-nWR">
@@ -368,7 +525,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oKU-JH-Ju6">
                                 <rect key="frame" x="30" y="123" width="540" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -403,7 +560,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="g5r-3x-kZH" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="CR0-mQ-CgT" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1218" y="-1240"/>
+            <point key="canvasLocation" x="1993" y="-1750"/>
         </scene>
         <!--Add Project Page View Controller-->
         <scene sceneID="3hR-wm-iTB">
@@ -411,7 +568,7 @@
                 <pageViewController storyboardIdentifier="AddProjectPageViewController" autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="OTB-FR-gYX" customClass="AddProjectPageViewController" customModule="TimeBoxer" customModuleProvider="target" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8a3-qA-Sd7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="582" y="-574"/>
+            <point key="canvasLocation" x="698" y="-1750"/>
         </scene>
         <!--Time Slider View Controller-->
         <scene sceneID="ofa-gv-sJw">
@@ -477,7 +634,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0S7-9R-1fW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="582" y="222"/>
+            <point key="canvasLocation" x="714" y="-574"/>
         </scene>
         <!--Timer Running View Controller-->
         <scene sceneID="st3-lv-2It">
@@ -546,7 +703,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="D5S-Un-hAw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1357" y="222"/>
+            <point key="canvasLocation" x="1365" y="-574"/>
         </scene>
         <!--Timer Done View Controller-->
         <scene sceneID="cdg-rG-93R">
@@ -621,10 +778,10 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PFb-9g-FAW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1731" y="1229"/>
+            <point key="canvasLocation" x="2039" y="-574"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="5zF-Z6-lwk"/>
+        <segue reference="tj7-93-GMq"/>
     </inferredMetricsTieBreakers>
 </document>

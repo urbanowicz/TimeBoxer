@@ -11,14 +11,13 @@ import UIKit
 class ProjectBasedCalendarHeatMapDataSource: NSObject, CalendarHeatMapDataSource {
     
     var project: Project!
-    var dailyGoalInSeconds:Int = 1 * 3600 //four hours
     
     func startDate() -> NSDate {
         return project.startDate
     }
     
     func heat(withDate date: NSDate) -> CGFloat {
-        return CGFloat(project.totalSeconds(withDate: date)) / CGFloat(dailyGoalInSeconds)
+        return CGFloat(project.totalSeconds(withDate: date)) / CGFloat(project.dailyGoalSeconds)
     }
     
     func totalSeconds(withDate date:NSDate) -> Int {

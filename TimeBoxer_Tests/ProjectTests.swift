@@ -12,7 +12,7 @@ class ProjectTests: XCTestCase {
     var project:Project?
     override func setUp() {
         super.setUp()
-        project = Project(projectName: "myProject", startDate: NSDate())
+        project = Project(projectName: "myProject", startDate: NSDate(), dailyGoalSeconds: 3600)
     }
     
     override func tearDown() {
@@ -50,7 +50,7 @@ class ProjectTests: XCTestCase {
     func testDaysSinceStart() {
         XCTAssert(project!.daysSinceStart() == 1)
         let tenDaysAgo = NSCalendar.currentCalendar().dateByAddingUnit(NSCalendarUnit.Day, value: -10, toDate: NSDate(), options: NSCalendarOptions())!
-        let myProject = Project(projectName: "myProject", startDate: tenDaysAgo)
+        let myProject = Project(projectName: "myProject", startDate: tenDaysAgo, dailyGoalSeconds: 3600)
         XCTAssert(myProject.daysSinceStart() == 11)
         
     }

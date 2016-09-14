@@ -14,23 +14,31 @@ class Project: NSObject, NSCoding, NSCopying {
     //let projectStateKey = "projectStateKey"
     let endDateKey = "endDateKey"
     let workChunksKey = "workChunksKey"
+    let dailyGoalKey = "dailyGoalKey"
     
     var name:String
+    var dailyGoalSeconds:Int
     var startDate:NSDate
     //var state:ProjectState
     var endDate:NSDate?
     var workChunks = [WorkChunk]()
     
-    init(projectName:String, startDate:NSDate) {
+    init(projectName:String, startDate:NSDate, dailyGoalSeconds:Int) {
         self.name = projectName
         self.startDate = startDate
         self.endDate = nil
+        self.dailyGoalSeconds = dailyGoalSeconds
     }
     
     required init(coder aDecoder: NSCoder) {
         name = aDecoder.decodeObjectForKey(projectNameKey) as! String
         startDate = aDecoder.decodeObjectForKey(startDateKey) as! NSDate
         endDate = aDecoder.decodeObjectForKey(endDateKey) as? NSDate
+        if let dailyGoal = aDecoder.decodeObjectForKey(dailyGoalKey) as? Int {
+            dailyGoalSeconds = dailyGoal
+        } else {
+            dailyGoalSeconds = 4 * 60 * 60 //4 hours
+        }
         workChunks = aDecoder.decodeObjectForKey(workChunksKey) as! [WorkChunk]
     }
     
@@ -40,16 +48,18 @@ class Project: NSObject, NSCoding, NSCopying {
         //aCoder.encodeObject(state, forKey: projectStateKey)
         aCoder.encodeObject(endDate, forKey: endDateKey)
         aCoder.encodeObject(workChunks, forKey:workChunksKey)
+        aCoder.encodeObject(dailyGoalSeconds, forKey:dailyGoalKey)
     }
     
     func copyWithZone(zone: NSZone) -> AnyObject {
-        let copy = Project(projectName: name, startDate: startDate)
+        let copy = Project(projectName: name, startDate: startDate, dailyGoalSeconds: dailyGoalSeconds)
         copy.endDate = endDate
         var newWorkChunks = Array<WorkChunk>()
         for workChunk in workChunks {
             newWorkChunks.append(workChunk.copyWithZone(nil) as! WorkChunk)
         }
-        return newWorkChunks
+        copy.workChunks = newWorkChunks
+        return copy
     }
 //MARK:Recording work time
     func recordWork(durationInSeconds:Int) {

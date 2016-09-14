@@ -65,6 +65,12 @@
 		F19AD1341D6C339D007757C7 /* ScrollingCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F19AD1331D6C339D007757C7 /* ScrollingCellDelegate.swift */; };
 		F1A0BC701C4E63FC0075ACCF /* MyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A0BC6F1C4E63FC0075ACCF /* MyTableViewCell.swift */; };
 		F1A6053D1C8212CD008EF288 /* BigSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A6053C1C8212CD008EF288 /* BigSlider.swift */; };
+		F1A802501D89487D00C56E5F /* ProjectSettingsPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A8024F1D89487D00C56E5F /* ProjectSettingsPageViewController.swift */; };
+		F1A802521D8948DD00C56E5F /* EditProjectNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A802511D8948DD00C56E5F /* EditProjectNameViewController.swift */; };
+		F1A802541D89491300C56E5F /* ChangeDailyGoalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A802531D89491300C56E5F /* ChangeDailyGoalViewController.swift */; };
+		F1A802561D89493200C56E5F /* DeleteProjectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A802551D89493200C56E5F /* DeleteProjectViewController.swift */; };
+		F1A802581D8949DD00C56E5F /* MarkAsFinishedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A802571D8949DD00C56E5F /* MarkAsFinishedViewController.swift */; };
+		F1A8025A1D8957A400C56E5F /* ProjectSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A802591D8957A400C56E5F /* ProjectSettingsViewController.swift */; };
 		F1A95C041C6BD49000EF5204 /* LastWorkedOnDateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A95C031C6BD49000EF5204 /* LastWorkedOnDateFormatter.swift */; };
 		F1A95C061C6BD52B00EF5204 /* LastWorkedOnDateFormatterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A95C051C6BD52B00EF5204 /* LastWorkedOnDateFormatterTests.swift */; };
 		F1A95C071C6BD55B00EF5204 /* LastWorkedOnDateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A95C031C6BD49000EF5204 /* LastWorkedOnDateFormatter.swift */; };
@@ -228,6 +234,12 @@
 		F19AD1331D6C339D007757C7 /* ScrollingCellDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScrollingCellDelegate.swift; sourceTree = "<group>"; };
 		F1A0BC6F1C4E63FC0075ACCF /* MyTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyTableViewCell.swift; sourceTree = "<group>"; };
 		F1A6053C1C8212CD008EF288 /* BigSlider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BigSlider.swift; sourceTree = "<group>"; };
+		F1A8024F1D89487D00C56E5F /* ProjectSettingsPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectSettingsPageViewController.swift; sourceTree = "<group>"; };
+		F1A802511D8948DD00C56E5F /* EditProjectNameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditProjectNameViewController.swift; sourceTree = "<group>"; };
+		F1A802531D89491300C56E5F /* ChangeDailyGoalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangeDailyGoalViewController.swift; sourceTree = "<group>"; };
+		F1A802551D89493200C56E5F /* DeleteProjectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeleteProjectViewController.swift; sourceTree = "<group>"; };
+		F1A802571D8949DD00C56E5F /* MarkAsFinishedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarkAsFinishedViewController.swift; sourceTree = "<group>"; };
+		F1A802591D8957A400C56E5F /* ProjectSettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectSettingsViewController.swift; sourceTree = "<group>"; };
 		F1A95C031C6BD49000EF5204 /* LastWorkedOnDateFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LastWorkedOnDateFormatter.swift; sourceTree = "<group>"; };
 		F1A95C051C6BD52B00EF5204 /* LastWorkedOnDateFormatterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LastWorkedOnDateFormatterTests.swift; sourceTree = "<group>"; };
 		F1AF3A0F1BFBAE3900D40AE8 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
@@ -377,6 +389,7 @@
 				F1A605381C8211C7008EF288 /* CustomControls */,
 				F137E96C1C4199130064E15F /* Colors */,
 				F1FC9AD71C3EE000002A9F31 /* ProjectsTableVC */,
+				F1A802481D8947D900C56E5F /* ProjectSettingsVC */,
 				F1FC9AD41C3ED853002A9F31 /* AddProjectVC */,
 				F1FC9AD11C3ED70E002A9F31 /* ProjectStatsVC */,
 				F10B85161C383349002C66F2 /* ContainerVC */,
@@ -458,6 +471,19 @@
 				F1A6053C1C8212CD008EF288 /* BigSlider.swift */,
 			);
 			name = BigSlider;
+			sourceTree = "<group>";
+		};
+		F1A802481D8947D900C56E5F /* ProjectSettingsVC */ = {
+			isa = PBXGroup;
+			children = (
+				F1A8024F1D89487D00C56E5F /* ProjectSettingsPageViewController.swift */,
+				F1A802511D8948DD00C56E5F /* EditProjectNameViewController.swift */,
+				F1A802531D89491300C56E5F /* ChangeDailyGoalViewController.swift */,
+				F1A802551D89493200C56E5F /* DeleteProjectViewController.swift */,
+				F1A802571D8949DD00C56E5F /* MarkAsFinishedViewController.swift */,
+				F1A802591D8957A400C56E5F /* ProjectSettingsViewController.swift */,
+			);
+			name = ProjectSettingsVC;
 			sourceTree = "<group>";
 		};
 		F1B5FE6B1C31AF45003A5C65 /* Segues */ = {
@@ -725,6 +751,7 @@
 				F11925211C8CB319002BEAC2 /* ProjectsTableToAddProjectAnimator.swift in Sources */,
 				F1BA0B2E1D50580F00C35AB0 /* HeatMapCell.swift in Sources */,
 				F15F9C501BCCF376008733A3 /* AppDelegate.swift in Sources */,
+				F1A802541D89491300C56E5F /* ChangeDailyGoalViewController.swift in Sources */,
 				F18449591CB54508008939DD /* UILabelExtension.swift in Sources */,
 				F189A1B21BD8C0D3000FFC5F /* TimeSliderViewController.swift in Sources */,
 				F19133551CA8478900CED170 /* NSCalendarExtension.swift in Sources */,
@@ -738,9 +765,11 @@
 				F10C61A81C90A3500054B3FB /* ProjectsTableViewDataSource.swift in Sources */,
 				F135A8361BE4C9F50079C9BB /* StartButton.swift in Sources */,
 				F1981B9D1C84DE7200F49454 /* SliderOutputToValueConverter.swift in Sources */,
+				F1A802521D8948DD00C56E5F /* EditProjectNameViewController.swift in Sources */,
 				F1B5FE6D1C31AF73003A5C65 /* TransitionManager.swift in Sources */,
 				F1D187651D5871AF0080BE0D /* ProjectStatsView.swift in Sources */,
 				F18C1DB31D52159700EF014B /* CalendarHeatMapDataSource.swift in Sources */,
+				F1A802561D89493200C56E5F /* DeleteProjectViewController.swift in Sources */,
 				F120A1871D76BDDE00DC9E15 /* SetDailyGoalPageDelegate.swift in Sources */,
 				F12C5D8C1C46FA450040969F /* KeyboardNotification.swift in Sources */,
 				F15C6FDD1D550C300081DC06 /* DummyCalendarHeatMapDataSource.swift in Sources */,
@@ -750,8 +779,10 @@
 				F119251F1C8CB2F7002BEAC2 /* AddProjectToProjectsTableDismissAnimator.swift in Sources */,
 				F11D5B9F1C42AD32007F2622 /* AddButton.swift in Sources */,
 				F18C2AD81C873A9A004A7B72 /* TimerDoneViewController.swift in Sources */,
+				F1A802501D89487D00C56E5F /* ProjectSettingsPageViewController.swift in Sources */,
 				F137E96E1C41994A0064E15F /* ColorName.swift in Sources */,
 				F1981BA21C84E61700F49454 /* MinutesToStringConverter.swift in Sources */,
+				F1A8025A1D8957A400C56E5F /* ProjectSettingsViewController.swift in Sources */,
 				F19133531CA844DD00CED170 /* NSDateExtension.swift in Sources */,
 				F1FCB8321D414686001B3329 /* AbstractRoundButton.swift in Sources */,
 				F152EE901C5968D00090BECC /* Project.swift in Sources */,
@@ -761,6 +792,7 @@
 				F1EF4F3F1D75746D00F066BC /* AddProjectPageViewController.swift in Sources */,
 				F185A0A11CBAB5A80067775D /* UIColorExtension.swift in Sources */,
 				F18C1DBB1D52169100EF014B /* ProjectBasedCalendarHeatMapDataSource.swift in Sources */,
+				F1A802581D8949DD00C56E5F /* MarkAsFinishedViewController.swift in Sources */,
 				F188DA6F1C898890000E8AD2 /* ShrinkingCircleAnimator.swift in Sources */,
 				F17F17B71C899A72003C04AC /* FadeInAnimator.swift in Sources */,
 				F14F13071BEA87160045936F /* StopButton.swift in Sources */,

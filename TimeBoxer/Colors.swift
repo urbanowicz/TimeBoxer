@@ -50,7 +50,9 @@ class Colors: NSObject {
     
     //New Colors
     static func almostBlack() -> UIColor {
-        return UIColor(red:0.06, green:0.06, blue:0.06, alpha:1.0)
+        //return UIColor(red:0.06, green:0.06, blue:0.06, alpha:1.0)
+        return UIColor(red:0.02, green:0.05, blue:0.14, alpha:1.0)
+        return UIColor(red:0.00, green:0.06, blue:0.19, alpha:1.0)
     }
     
     static func azure() -> UIColor {
