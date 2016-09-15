@@ -10,11 +10,11 @@
     <customFonts key="customFonts">
         <mutableArray key="Avenir.ttc">
             <string>Avenir-Book</string>
+            <string>Avenir-Book</string>
             <string>Avenir-BookOblique</string>
             <string>Avenir-Book</string>
             <string>Avenir-BookOblique</string>
             <string>Avenir-BookOblique</string>
-            <string>Avenir-Book</string>
         </mutableArray>
     </customFonts>
     <scenes>
