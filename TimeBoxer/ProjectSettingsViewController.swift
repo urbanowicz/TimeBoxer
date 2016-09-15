@@ -91,6 +91,10 @@ class ProjectSettingsViewController: UIViewController{
         deleteProjectLabel.text = "Delete project"
         deleteProjectLabel.textColor = Colors.silver()
         deleteProjectLabel.backgroundColor = Colors.almostBlack()
+        let tapGestureRecognizer = UITapGestureRecognizer()
+        tapGestureRecognizer.addTarget(self, action: #selector(deleteProjectPressed(_:)))
+        deleteProjectLabel.addGestureRecognizer(tapGestureRecognizer)
+        deleteProjectLabel.userInteractionEnabled = true
     }
     
     private func setupMarkAsFinishedLabel() {
@@ -117,6 +121,10 @@ class ProjectSettingsViewController: UIViewController{
     
     func changeDailyGoalPressed(sender: UITapGestureRecognizer) {
         delegate?.didPressChangeDailyGoal()
+    }
+    
+    func deleteProjectPressed(sender: UITapGestureRecognizer) {
+        delegate?.didPressDeleteProject()
     }
     
     override func didReceiveMemoryWarning() {

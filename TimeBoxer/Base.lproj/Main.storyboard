@@ -181,6 +181,50 @@
             </objects>
             <point key="canvasLocation" x="1997" y="-2424"/>
         </scene>
+        <!--Delete Project View Controller-->
+        <scene sceneID="DPi-Ye-qTM">
+            <objects>
+                <viewController storyboardIdentifier="deleteProjectVC" id="F0d-GQ-SWv" customClass="DeleteProjectViewController" customModule="TimeBoxer" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="U4J-0B-ArX"/>
+                        <viewControllerLayoutGuide type="bottom" id="wjv-hf-PKX"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="EsG-KW-mxI">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kEu-8z-Xu8" customClass="XButton" customModule="TimeBoxer" customModuleProvider="target">
+                                <rect key="frame" x="20" y="30" width="37" height="37"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="37" id="7FX-00-TGO"/>
+                                    <constraint firstAttribute="width" secondItem="kEu-8z-Xu8" secondAttribute="height" multiplier="1:1" id="P9F-GJ-Pu1"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Delete project" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nez-9U-s1n">
+                                <rect key="frame" x="30" y="90" width="108" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Nez-9U-s1n" firstAttribute="top" secondItem="kEu-8z-Xu8" secondAttribute="bottom" constant="23" id="7y3-8K-w1Y"/>
+                            <constraint firstItem="kEu-8z-Xu8" firstAttribute="top" secondItem="U4J-0B-ArX" secondAttribute="bottom" constant="10" id="JwR-MA-H57"/>
+                            <constraint firstItem="kEu-8z-Xu8" firstAttribute="leading" secondItem="EsG-KW-mxI" secondAttribute="leadingMargin" id="MOJ-07-nla"/>
+                            <constraint firstItem="Nez-9U-s1n" firstAttribute="leading" secondItem="EsG-KW-mxI" secondAttribute="leadingMargin" constant="10" id="WSK-DZ-cIM"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="deleteProjectLabel" destination="Nez-9U-s1n" id="vZr-BO-eV5"/>
+                        <outlet property="xButton" destination="kEu-8z-Xu8" id="4Mi-HB-ll1"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Qsy-I7-t2I" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2643" y="-2424"/>
+        </scene>
         <!--Project Settings View Controller-->
         <scene sceneID="pay-T6-eTs">
             <objects>

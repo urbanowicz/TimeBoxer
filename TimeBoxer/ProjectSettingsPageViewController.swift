@@ -32,7 +32,9 @@ class ProjectSettingsPageViewController: UIPageViewController, ProjectSettingsPa
     }
     
     func didPressDeleteProject() {
-        
+        let deleteProjectVC = storyboard!.instantiateViewControllerWithIdentifier("deleteProjectVC") as!
+            DeleteProjectViewController
+        setViewControllers([deleteProjectVC], direction: .Forward, animated: true, completion: {finished in})
     }
 
     override func didReceiveMemoryWarning() {

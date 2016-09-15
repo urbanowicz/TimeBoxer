@@ -9,10 +9,15 @@
 import UIKit
 
 class DeleteProjectViewController: UIViewController {
-
+    
+    @IBOutlet weak var xButton: XButton!
+    @IBOutlet weak var deleteProjectLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        view.backgroundColor = Colors.almostBlack()
+        setupXbutton()
+        setupDeleteProjectLabel()
         // Do any additional setup after loading the view.
     }
 
@@ -22,14 +27,17 @@ class DeleteProjectViewController: UIViewController {
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    private func setupXbutton() {
+        xButton.borderWidth = 0.0
+        xButton.frontLayerColor = Colors.silver()
+        xButton.roundLayerColor = Colors.almostBlack()
     }
-    */
+    
+    private func setupDeleteProjectLabel() {
+        deleteProjectLabel.font = UIFont(name:"Avenir-Heavy", size: 24)
+        deleteProjectLabel.text = "Delete Project"
+        deleteProjectLabel.textColor = Colors.silver()
+        deleteProjectLabel.backgroundColor = Colors.almostBlack()
+    }
 
 }
