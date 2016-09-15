@@ -10,6 +10,7 @@ import UIKit
 
 class ProjectSettingsViewController: UIViewController{
     var delegate:ProjectSettingsPageDelegate?
+    var project: Project!
     
     @IBOutlet weak var xButton: XButton!
     @IBOutlet weak var projectSettingsLabel: UILabel!
@@ -57,10 +58,11 @@ class ProjectSettingsViewController: UIViewController{
     
     private func setupProjectNameLabel() {
         projectNameLabel.font = UIFont(name:"Avenir-Medium", size:16)
-        projectNameLabel.numberOfLines = 0
+        projectNameLabel.text = project.name
+        projectNameLabel.numberOfLines = 4
         projectNameLabel.textColor = Colors.silver().withAlpha(0.7)
         projectNameLabel.backgroundColor = Colors.almostBlack()
-        projectNameLabel.text = "Read On Intelligence"
+        
     }
     
     private func setupEditProjectNameLabel() {

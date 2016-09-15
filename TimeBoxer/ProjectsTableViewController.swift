@@ -166,6 +166,13 @@ class ProjectsTableViewController: UIViewController, UITableViewDelegate, AddPro
             let addProjectPageViewController = segue.destinationViewController as! AddProjectPageViewController
             addProjectPageViewController.trainDelegate = self
             addProjectPageViewController.transitioningDelegate = transitionManager
+            return
+        }
+        
+        if segue.identifier! == "projectsTableToProjectSettings" {
+            let projectSettingsPageViewController = segue.destinationViewController as!
+                ProjectSettingsPageViewController
+            projectSettingsPageViewController.project = selectedCell!.project!
         }
     }
     

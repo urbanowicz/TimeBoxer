@@ -12,10 +12,12 @@ class ProjectSettingsPageViewController: UIPageViewController, ProjectSettingsPa
     var projectSettingsVC:ProjectSettingsViewController!
     var project:Project!
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         projectSettingsVC = storyboard!.instantiateViewControllerWithIdentifier("projectSettingsViewController") as! ProjectSettingsViewController
         projectSettingsVC.delegate = self
+        projectSettingsVC.project = project
         setViewControllers([projectSettingsVC], direction: .Forward, animated: false, completion: {
             finished in
         })
