@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ProjectSettingsPageViewController: UIPageViewController, ProjectSettingsPageDelegate {
+class ProjectSettingsPageViewController: UIPageViewController, ProjectSettingsPageDelegate, SettingModifierDelegate {
     var projectSettingsVC:ProjectSettingsViewController!
     var project:Project!
     
@@ -23,18 +23,32 @@ class ProjectSettingsPageViewController: UIPageViewController, ProjectSettingsPa
     
     func didPressEditProjectName() {
         let editProjectNameVC = storyboard!.instantiateViewControllerWithIdentifier("editProjectNameVC") as! EditProjectNameViewController
+        editProjectNameVC.delegate = self
         setViewControllers([editProjectNameVC], direction: .Forward, animated: true, completion: {finished in})
+        
     }
     
     func didPressChangeDailyGoal() {
         let changeDailyGoalVC = storyboard!.instantiateViewControllerWithIdentifier("changeDailyGoalVC") as! ChangeDailyGoalViewController
+        changeDailyGoalVC.delegate = self
         setViewControllers([changeDailyGoalVC], direction: .Forward, animated: true, completion: {finished in})
     }
     
     func didPressDeleteProject() {
         let deleteProjectVC = storyboard!.instantiateViewControllerWithIdentifier("deleteProjectVC") as!
             DeleteProjectViewController
+        deleteProjectVC.delegate = self
         setViewControllers([deleteProjectVC], direction: .Forward, animated: true, completion: {finished in})
+    }
+    
+    func didCancelEditing(sender: UIViewController) {
+        setViewControllers([projectSettingsVC], direction: .Reverse, animated: true, completion: {
+            finished in
+        })
+    }
+    
+    func didCommitEditing(sender: UIViewController) {
+        
     }
 
     override func didReceiveMemoryWarning() {

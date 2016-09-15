@@ -9,9 +9,12 @@
 import UIKit
 
 class EditProjectNameViewController: UIViewController {
-
+    
+    var delegate: SettingModifierDelegate?
+    
     @IBOutlet weak var xButton: XButton!
     @IBOutlet weak var editProjectNameLabel: UILabel!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,6 +33,7 @@ class EditProjectNameViewController: UIViewController {
         xButton.borderWidth = 0.0
         xButton.frontLayerColor = Colors.silver()
         xButton.roundLayerColor = Colors.almostBlack()
+        xButton.addTarget(self, action: #selector(xButtonPressed), forControlEvents: .TouchUpInside)
     }
     
     private func setupEditProjectNameLabel() {
@@ -37,5 +41,9 @@ class EditProjectNameViewController: UIViewController {
         editProjectNameLabel.text = "Edit project name"
         editProjectNameLabel.textColor = Colors.silver()
         editProjectNameLabel.backgroundColor = Colors.almostBlack()
+    }
+    
+    func xButtonPressed() {
+        delegate?.didCancelEditing(self)
     }
 }

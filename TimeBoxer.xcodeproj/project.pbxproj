@@ -65,6 +65,7 @@
 		F1981BA31C84E61700F49454 /* MinutesToStringConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1981BA11C84E61700F49454 /* MinutesToStringConverter.swift */; };
 		F19AD1341D6C339D007757C7 /* ScrollingCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F19AD1331D6C339D007757C7 /* ScrollingCellDelegate.swift */; };
 		F1A0BC701C4E63FC0075ACCF /* MyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A0BC6F1C4E63FC0075ACCF /* MyTableViewCell.swift */; };
+		F1A558431D8AF51D003B07CC /* SettingModifierDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A558421D8AF51D003B07CC /* SettingModifierDelegate.swift */; };
 		F1A6053D1C8212CD008EF288 /* BigSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A6053C1C8212CD008EF288 /* BigSlider.swift */; };
 		F1A802501D89487D00C56E5F /* ProjectSettingsPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A8024F1D89487D00C56E5F /* ProjectSettingsPageViewController.swift */; };
 		F1A802521D8948DD00C56E5F /* EditProjectNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A802511D8948DD00C56E5F /* EditProjectNameViewController.swift */; };
@@ -235,6 +236,7 @@
 		F1981BA11C84E61700F49454 /* MinutesToStringConverter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MinutesToStringConverter.swift; sourceTree = "<group>"; };
 		F19AD1331D6C339D007757C7 /* ScrollingCellDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScrollingCellDelegate.swift; sourceTree = "<group>"; };
 		F1A0BC6F1C4E63FC0075ACCF /* MyTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyTableViewCell.swift; sourceTree = "<group>"; };
+		F1A558421D8AF51D003B07CC /* SettingModifierDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingModifierDelegate.swift; sourceTree = "<group>"; };
 		F1A6053C1C8212CD008EF288 /* BigSlider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BigSlider.swift; sourceTree = "<group>"; };
 		F1A8024F1D89487D00C56E5F /* ProjectSettingsPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectSettingsPageViewController.swift; sourceTree = "<group>"; };
 		F1A802511D8948DD00C56E5F /* EditProjectNameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditProjectNameViewController.swift; sourceTree = "<group>"; };
@@ -424,6 +426,7 @@
 			isa = PBXGroup;
 			children = (
 				F182DE661D8ABBC7008CCB43 /* ProjectSettingsPageDelegate.swift */,
+				F1A558421D8AF51D003B07CC /* SettingModifierDelegate.swift */,
 			);
 			name = DelegateProtocols;
 			sourceTree = "<group>";
@@ -794,6 +797,7 @@
 				F137E96E1C41994A0064E15F /* ColorName.swift in Sources */,
 				F1981BA21C84E61700F49454 /* MinutesToStringConverter.swift in Sources */,
 				F1A8025A1D8957A400C56E5F /* ProjectSettingsViewController.swift in Sources */,
+				F1A558431D8AF51D003B07CC /* SettingModifierDelegate.swift in Sources */,
 				F19133531CA844DD00CED170 /* NSDateExtension.swift in Sources */,
 				F1FCB8321D414686001B3329 /* AbstractRoundButton.swift in Sources */,
 				F152EE901C5968D00090BECC /* Project.swift in Sources */,
