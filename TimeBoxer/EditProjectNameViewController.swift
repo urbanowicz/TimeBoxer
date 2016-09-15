@@ -2,17 +2,22 @@
 //  EditProjectNameViewController.swift
 //  TimeBoxer
 //
-//  Created by Tomasz on 14/09/16.
-//  Copyright © 2016 Tomasz. All rights reserved.
+//  Created by Tomasz Urbanowicz on 14/09/16.
+//  Copyright © 2016 Tomasz Urbanowicz. All rights reserved.
 //
 
 import UIKit
 
 class EditProjectNameViewController: UIViewController {
 
+    @IBOutlet weak var xButton: XButton!
+    @IBOutlet weak var editProjectNameLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        view.backgroundColor = Colors.almostBlack()
+        setupXButton()
+        setupEditProjectNameLabel()
         // Do any additional setup after loading the view.
     }
 
@@ -21,15 +26,16 @@ class EditProjectNameViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    private func setupXButton() {
+        xButton.borderWidth = 0.0
+        xButton.frontLayerColor = Colors.silver()
+        xButton.roundLayerColor = Colors.almostBlack()
     }
-    */
-
+    
+    private func setupEditProjectNameLabel() {
+        editProjectNameLabel.font = UIFont(name:"Avenir-Heavy", size: 24)
+        editProjectNameLabel.text = "Edit project name"
+        editProjectNameLabel.textColor = Colors.silver()
+        editProjectNameLabel.backgroundColor = Colors.almostBlack()
+    }
 }

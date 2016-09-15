@@ -10,26 +10,32 @@ import UIKit
 
 class ChangeDailyGoalViewController: UIViewController {
 
+    @IBOutlet weak var xButton: XButton!
+    @IBOutlet weak var changeDailyGoalLabel: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        view.backgroundColor = Colors.almostBlack()
+        setupXbutton()
+        setupChangeDailyGoalLabel()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    private func setupXbutton() {
+        xButton.borderWidth = 0.0
+        xButton.frontLayerColor = Colors.silver()
+        xButton.roundLayerColor = Colors.almostBlack()
     }
-    */
+    
+    private func setupChangeDailyGoalLabel() {
+        changeDailyGoalLabel.font = UIFont(name:"Avenir-Heavy", size: 24)
+        changeDailyGoalLabel.text = "Change daily goal"
+        changeDailyGoalLabel.textColor = Colors.silver()
+        changeDailyGoalLabel.backgroundColor = Colors.almostBlack()
+    }
 
 }

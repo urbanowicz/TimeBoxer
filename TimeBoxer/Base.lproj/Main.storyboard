@@ -93,6 +93,94 @@
             </objects>
             <point key="canvasLocation" x="-145" y="418"/>
         </scene>
+        <!--Edit Project Name View Controller-->
+        <scene sceneID="W6h-cG-Ngc">
+            <objects>
+                <viewController storyboardIdentifier="editProjectNameVC" id="p4v-GX-xFq" customClass="EditProjectNameViewController" customModule="TimeBoxer" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="c4B-mh-MsV"/>
+                        <viewControllerLayoutGuide type="bottom" id="i6m-Ja-4SK"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="fPX-nU-LOH">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rOP-Vn-Ia2" customClass="XButton" customModule="TimeBoxer" customModuleProvider="target">
+                                <rect key="frame" x="20" y="30" width="37" height="37"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="rOP-Vn-Ia2" secondAttribute="height" multiplier="1:1" id="ISG-rq-HLI"/>
+                                    <constraint firstAttribute="width" constant="37" id="WcA-Dm-BMC"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Edit project name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ycj-Gf-D2r">
+                                <rect key="frame" x="30" y="90" width="135" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="rOP-Vn-Ia2" firstAttribute="top" secondItem="c4B-mh-MsV" secondAttribute="bottom" constant="10" id="M8F-wp-h3S"/>
+                            <constraint firstItem="ycj-Gf-D2r" firstAttribute="top" secondItem="rOP-Vn-Ia2" secondAttribute="bottom" constant="23" id="Wsz-4y-q1h"/>
+                            <constraint firstItem="rOP-Vn-Ia2" firstAttribute="leading" secondItem="fPX-nU-LOH" secondAttribute="leadingMargin" id="eLN-ip-Q4b"/>
+                            <constraint firstItem="ycj-Gf-D2r" firstAttribute="leading" secondItem="fPX-nU-LOH" secondAttribute="leadingMargin" constant="10" id="s3s-M5-4ep"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="editProjectNameLabel" destination="ycj-Gf-D2r" id="zJm-Cl-8M1"/>
+                        <outlet property="xButton" destination="rOP-Vn-Ia2" id="3Q2-m0-zP8"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ilc-vH-dbx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1337" y="-2429"/>
+        </scene>
+        <!--Change Daily Goal View Controller-->
+        <scene sceneID="DCI-bb-5e2">
+            <objects>
+                <viewController storyboardIdentifier="changeDailyGoalVC" id="man-PV-ZTG" customClass="ChangeDailyGoalViewController" customModule="TimeBoxer" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="s7I-au-IuE"/>
+                        <viewControllerLayoutGuide type="bottom" id="st0-Dd-A41"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="bBq-kD-k2d">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fm1-gc-i8Q" customClass="XButton" customModule="TimeBoxer" customModuleProvider="target">
+                                <rect key="frame" x="20" y="30" width="37" height="37"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="37" id="0VI-mM-OBs"/>
+                                    <constraint firstAttribute="width" secondItem="Fm1-gc-i8Q" secondAttribute="height" multiplier="1:1" id="iMY-5a-Ij2"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Change daily goal" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4CH-kj-tX4">
+                                <rect key="frame" x="30" y="90" width="137" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Fm1-gc-i8Q" firstAttribute="leading" secondItem="bBq-kD-k2d" secondAttribute="leadingMargin" id="CeC-S1-e8w"/>
+                            <constraint firstItem="4CH-kj-tX4" firstAttribute="top" secondItem="Fm1-gc-i8Q" secondAttribute="bottom" constant="23" id="Kee-h6-yYG"/>
+                            <constraint firstItem="4CH-kj-tX4" firstAttribute="leading" secondItem="bBq-kD-k2d" secondAttribute="leadingMargin" constant="10" id="SJ9-y7-CqU"/>
+                            <constraint firstItem="Fm1-gc-i8Q" firstAttribute="top" secondItem="s7I-au-IuE" secondAttribute="bottom" constant="10" id="eJh-uv-5jp"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="changeDailyGoalLabel" destination="4CH-kj-tX4" id="byg-TI-sr3"/>
+                        <outlet property="xButton" destination="Fm1-gc-i8Q" id="9HT-8d-dW8"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2u0-ym-Vdi" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1997" y="-2424"/>
+        </scene>
         <!--Project Settings View Controller-->
         <scene sceneID="pay-T6-eTs">
             <objects>
@@ -232,22 +320,12 @@
             <point key="canvasLocation" x="-1407" y="-1750"/>
         </scene>
         <!--Project Settings Page View Controller-->
-        <scene sceneID="Gak-8Y-feF">
+        <scene sceneID="hJE-LH-ZH9">
             <objects>
-                <viewController id="Er2-Uh-TM0" customClass="ProjectSettingsPageViewController" customModule="TimeBoxer" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="074-K2-U63"/>
-                        <viewControllerLayoutGuide type="bottom" id="q6O-ZF-mz7"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="Qzx-eY-v7G">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="k2v-zJ-514" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="S4O-lA-qmF" customClass="ProjectSettingsPageViewController" customModule="TimeBoxer" customModuleProvider="target" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="35L-ik-a1g" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-683" y="-1750"/>
+            <point key="canvasLocation" x="-441" y="-1760"/>
         </scene>
         <!--Projects Table View Controller-->
         <scene sceneID="rLU-Ry-5YJ">
@@ -262,13 +340,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time Boxer" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rVO-On-1e2" userLabel="Time Boxer Label">
-                                <rect key="frame" x="249" y="40" width="102" height="19"/>
-                                <fontDescription key="fontDescription" name="Copperplate-Light" family="Copperplate" pointSize="18"/>
+                                <rect key="frame" x="239" y="40" width="123" height="32"/>
+                                <fontDescription key="fontDescription" name="Avenir-HeavyOblique" family="Avenir" pointSize="23"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ln0-07-a9F" userLabel="Title Bar Separator">
-                                <rect key="frame" x="0.0" y="78" width="600" height="1"/>
+                                <rect key="frame" x="0.0" y="91" width="600" height="1"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="g8I-uZ-8CP"/>
@@ -284,7 +362,7 @@
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="80" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="P0n-w1-o3y">
-                                <rect key="frame" x="0.0" y="79" width="600" height="401"/>
+                                <rect key="frame" x="0.0" y="92" width="600" height="388"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="projects" selectionStyle="none" indentationWidth="0.0" shouldIndentWhileEditing="NO" reuseIdentifier="ProjectCell" id="RJ9-tz-21q" customClass="MyTableViewCell" customModule="TimeBoxer" customModuleProvider="target">
@@ -375,12 +453,12 @@
                         <outlet property="timeBoxerLabel" destination="rVO-On-1e2" id="fbK-b8-DXi"/>
                         <outlet property="titleBarSeparator" destination="ln0-07-a9F" id="b7N-Im-DiL"/>
                         <outlet property="useAddButtonLabel" destination="jW6-zk-wqc" id="FPx-pl-unb"/>
-                        <segue destination="Er2-Uh-TM0" kind="presentation" identifier="projectsTableToProjectSettings" id="TcC-fr-0Eu"/>
+                        <segue destination="S4O-lA-qmF" kind="presentation" identifier="projectsTableToProjectSettings" id="XZi-0c-Szk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QKb-ic-GTJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1072" y="-1052"/>
+            <point key="canvasLocation" x="-94" y="-568"/>
         </scene>
         <!--Add Project View Controller-->
         <scene sceneID="dZG-L9-nPN">

@@ -8,17 +8,31 @@
 
 import UIKit
 
-class ProjectSettingsPageViewController: UIPageViewController {
+class ProjectSettingsPageViewController: UIPageViewController, ProjectSettingsPageDelegate {
     var projectSettingsVC:ProjectSettingsViewController!
     var project:Project!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         projectSettingsVC = storyboard!.instantiateViewControllerWithIdentifier("projectSettingsViewController") as! ProjectSettingsViewController
+        projectSettingsVC.delegate = self
         setViewControllers([projectSettingsVC], direction: .Forward, animated: false, completion: {
             finished in
         })
+    }
+    
+    func didPressEditProjectName() {
+        let editProjectNameVC = storyboard!.instantiateViewControllerWithIdentifier("editProjectNameVC") as! EditProjectNameViewController
+        setViewControllers([editProjectNameVC], direction: .Forward, animated: true, completion: {finished in})
+    }
+    
+    func didPressChangeDailyGoal() {
+        let changeDailyGoalVC = storyboard!.instantiateViewControllerWithIdentifier("changeDailyGoalVC") as! ChangeDailyGoalViewController
+        setViewControllers([changeDailyGoalVC], direction: .Forward, animated: true, completion: {finished in})
+    }
+    
+    func didPressDeleteProject() {
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -26,7 +40,6 @@ class ProjectSettingsPageViewController: UIPageViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
     
     //MARK: Hide status bar
     override func prefersStatusBarHidden() -> Bool {

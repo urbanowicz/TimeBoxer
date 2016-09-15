@@ -8,8 +8,9 @@
 
 import UIKit
 
-class ProjectSettingsViewController: UIViewController {
-
+class ProjectSettingsViewController: UIViewController{
+    var delegate:ProjectSettingsPageDelegate?
+    
     @IBOutlet weak var xButton: XButton!
     @IBOutlet weak var projectSettingsLabel: UILabel!
     @IBOutlet weak var projectNameLabel: UILabel!
@@ -67,6 +68,11 @@ class ProjectSettingsViewController: UIViewController {
         editProjectNameLabel.text = "Edit project name"
         editProjectNameLabel.textColor = Colors.silver()
         editProjectNameLabel.backgroundColor = Colors.almostBlack()
+        let tapGestureRecognizer = UITapGestureRecognizer()
+        tapGestureRecognizer.addTarget(self, action: #selector(editProjectNamePressed(_:)))
+        editProjectNameLabel.addGestureRecognizer(tapGestureRecognizer)
+        editProjectNameLabel.userInteractionEnabled = true
+        
     }
     
     private func setupChangeDailyGoalLabel() {
@@ -74,6 +80,10 @@ class ProjectSettingsViewController: UIViewController {
         changeDailyGoalLabel.text = "Change daily goal"
         changeDailyGoalLabel.textColor = Colors.silver()
         changeDailyGoalLabel.backgroundColor = Colors.almostBlack()
+        let tapGestureRecognizer = UITapGestureRecognizer()
+        tapGestureRecognizer.addTarget(self, action: #selector(changeDailyGoalPressed(_:)))
+        changeDailyGoalLabel.addGestureRecognizer(tapGestureRecognizer)
+        changeDailyGoalLabel.userInteractionEnabled = true
     }
     
     private func setupDeleteProjectLabel() {
@@ -100,6 +110,15 @@ class ProjectSettingsViewController: UIViewController {
     @IBAction func xButtonPressed(sender: AnyObject) {
         performSegueWithIdentifier("unwindToProjectsTable", sender: self)
     }
+    
+    func editProjectNamePressed(sender: UITapGestureRecognizer) {
+        delegate?.didPressEditProjectName()
+    }
+    
+    func changeDailyGoalPressed(sender: UITapGestureRecognizer) {
+        delegate?.didPressChangeDailyGoal()
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

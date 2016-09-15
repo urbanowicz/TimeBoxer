@@ -43,6 +43,7 @@
 		F168FFFA1CB15ACB00F298BE /* WorkTimeFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F168FFF81CB15ACB00F298BE /* WorkTimeFormatter.swift */; };
 		F17F17B71C899A72003C04AC /* FadeInAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17F17B61C899A72003C04AC /* FadeInAnimator.swift */; };
 		F18284211D4CC50100651674 /* UIGestureRecognizerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F18284201D4CC50100651674 /* UIGestureRecognizerExtension.swift */; };
+		F182DE671D8ABBC7008CCB43 /* ProjectSettingsPageDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F182DE661D8ABBC7008CCB43 /* ProjectSettingsPageDelegate.swift */; };
 		F18449591CB54508008939DD /* UILabelExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F18449581CB54508008939DD /* UILabelExtension.swift */; };
 		F184495A1CB54508008939DD /* UILabelExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F18449581CB54508008939DD /* UILabelExtension.swift */; };
 		F185A09E1CBAB2BF0067775D /* TimeLabelTextFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F185A09D1CBAB2BF0067775D /* TimeLabelTextFormatter.swift */; };
@@ -217,6 +218,7 @@
 		F168FFF81CB15ACB00F298BE /* WorkTimeFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkTimeFormatter.swift; sourceTree = "<group>"; };
 		F17F17B61C899A72003C04AC /* FadeInAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FadeInAnimator.swift; sourceTree = "<group>"; };
 		F18284201D4CC50100651674 /* UIGestureRecognizerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIGestureRecognizerExtension.swift; sourceTree = "<group>"; };
+		F182DE661D8ABBC7008CCB43 /* ProjectSettingsPageDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectSettingsPageDelegate.swift; sourceTree = "<group>"; };
 		F18449581CB54508008939DD /* UILabelExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UILabelExtension.swift; sourceTree = "<group>"; };
 		F185A09D1CBAB2BF0067775D /* TimeLabelTextFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeLabelTextFormatter.swift; sourceTree = "<group>"; };
 		F185A0A01CBAB5A80067775D /* UIColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
@@ -418,6 +420,14 @@
 			path = TimeBoxer_Tests;
 			sourceTree = "<group>";
 		};
+		F182DE5F1D8ABBB2008CCB43 /* DelegateProtocols */ = {
+			isa = PBXGroup;
+			children = (
+				F182DE661D8ABBC7008CCB43 /* ProjectSettingsPageDelegate.swift */,
+			);
+			name = DelegateProtocols;
+			sourceTree = "<group>";
+		};
 		F18449571CB5448A008939DD /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -476,6 +486,7 @@
 		F1A802481D8947D900C56E5F /* ProjectSettingsVC */ = {
 			isa = PBXGroup;
 			children = (
+				F182DE5F1D8ABBB2008CCB43 /* DelegateProtocols */,
 				F1A8024F1D89487D00C56E5F /* ProjectSettingsPageViewController.swift */,
 				F1A802511D8948DD00C56E5F /* EditProjectNameViewController.swift */,
 				F1A802531D89491300C56E5F /* ChangeDailyGoalViewController.swift */,
@@ -803,6 +814,7 @@
 				F14F13051BEA83660045936F /* AbstractOvalButton.swift in Sources */,
 				F1FC9AD91C3EE0CC002A9F31 /* ProjectsTableViewController.swift in Sources */,
 				F1F36AD01C875F770039EF0B /* OKButton.swift in Sources */,
+				F182DE671D8ABBC7008CCB43 /* ProjectSettingsPageDelegate.swift in Sources */,
 				F1B9A5651D5604A800932F90 /* CalendarHeatMapDelegate.swift in Sources */,
 				F1EF4F471D757C2200F066BC /* SetDailyGoalViewController.swift in Sources */,
 				F1EF4F491D757DEA00F066BC /* AddProjectPageDelegate.swift in Sources */,
