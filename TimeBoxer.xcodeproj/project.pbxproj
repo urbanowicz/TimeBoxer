@@ -30,6 +30,7 @@
 		F147F2D31D0F2F53001887DA /* LeftDrawerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F147F2D11D0F2F53001887DA /* LeftDrawerView.swift */; };
 		F14F13051BEA83660045936F /* AbstractOvalButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F14F13041BEA83660045936F /* AbstractOvalButton.swift */; };
 		F14F13071BEA87160045936F /* StopButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F14F13061BEA87160045936F /* StopButton.swift */; };
+		F150A2841D8BE8CC00DBDEA5 /* TickButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F150A2831D8BE8CC00DBDEA5 /* TickButton.swift */; };
 		F150E3B01C8ECD3000D7D502 /* TitleBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = F150E3AF1C8ECD3000D7D502 /* TitleBar.swift */; };
 		F1520B1B1C9049A8002F359E /* XButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1520B1A1C9049A8002F359E /* XButton.swift */; };
 		F152EE901C5968D00090BECC /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = F152EE8F1C5968D00090BECC /* Project.swift */; };
@@ -203,6 +204,7 @@
 		F147F2D11D0F2F53001887DA /* LeftDrawerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftDrawerView.swift; sourceTree = "<group>"; };
 		F14F13041BEA83660045936F /* AbstractOvalButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AbstractOvalButton.swift; sourceTree = "<group>"; };
 		F14F13061BEA87160045936F /* StopButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StopButton.swift; sourceTree = "<group>"; };
+		F150A2831D8BE8CC00DBDEA5 /* TickButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TickButton.swift; sourceTree = "<group>"; };
 		F150E3AF1C8ECD3000D7D502 /* TitleBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TitleBar.swift; sourceTree = "<group>"; };
 		F1520B1A1C9049A8002F359E /* XButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XButton.swift; sourceTree = "<group>"; };
 		F152EE8F1C5968D00090BECC /* Project.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Project.swift; sourceTree = "<group>"; };
@@ -341,6 +343,7 @@
 				F1520B1A1C9049A8002F359E /* XButton.swift */,
 				F1FCB8311D414686001B3329 /* AbstractRoundButton.swift */,
 				F1E308411D79A8850018FAF9 /* BackButton.swift */,
+				F150A2831D8BE8CC00DBDEA5 /* TickButton.swift */,
 			);
 			name = Buttons;
 			sourceTree = "<group>";
@@ -762,6 +765,7 @@
 				F1EBB3E31C5AB93C005A36CE /* WorkChunk.swift in Sources */,
 				F1D1B2451D10359A00DC9EB8 /* RightDrawerView.swift in Sources */,
 				F1B920551BE7D7CC004A8CDB /* PauseButton.swift in Sources */,
+				F150A2841D8BE8CC00DBDEA5 /* TickButton.swift in Sources */,
 				F11925211C8CB319002BEAC2 /* ProjectsTableToAddProjectAnimator.swift in Sources */,
 				F1BA0B2E1D50580F00C35AB0 /* HeatMapCell.swift in Sources */,
 				F15F9C501BCCF376008733A3 /* AppDelegate.swift in Sources */,

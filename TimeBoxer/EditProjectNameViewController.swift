@@ -13,15 +13,18 @@ class EditProjectNameViewController: UIViewController, UITextFieldDelegate  {
     var delegate: SettingModifierDelegate?
     
     @IBOutlet weak var xButton: XButton!
+    @IBOutlet weak var tickButton: TickButton!
     @IBOutlet weak var editProjectNameLabel: UILabel!
     @IBOutlet weak var projectNameLabel: UILabel!
     @IBOutlet weak var projectNameTextField: UITextField!
     @IBOutlet weak var lineSeparator: UIView!
     
+   
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = Colors.almostBlack()
         setupXButton()
+        setupTickButton()
         setupEditProjectNameLabel()
         setupProjectNameLabel()
         setupProjectNameTextField()
@@ -44,6 +47,11 @@ class EditProjectNameViewController: UIViewController, UITextFieldDelegate  {
         xButton.frontLayerColor = Colors.silver()
         xButton.roundLayerColor = Colors.almostBlack()
         xButton.addTarget(self, action: #selector(xButtonPressed), forControlEvents: .TouchUpInside)
+    }
+    
+    private func setupTickButton() {
+        tickButton.fillColor = Colors.green()
+        tickButton.backgroundColor = Colors.almostBlack()
     }
     
     private func setupEditProjectNameLabel() {

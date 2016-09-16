@@ -139,6 +139,14 @@
                                     <constraint firstAttribute="height" constant="1" id="Q8v-a9-eHz"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pE9-Ie-YaR" customClass="TickButton" customModule="TimeBoxer" customModuleProvider="target">
+                                <rect key="frame" x="543" y="30" width="37" height="37"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="pE9-Ie-YaR" secondAttribute="height" multiplier="1:1" id="YNa-Tr-Wb0"/>
+                                    <constraint firstAttribute="width" constant="37" id="dD1-Hx-WCg"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -151,8 +159,10 @@
                             <constraint firstItem="kAQ-zj-nPv" firstAttribute="leading" secondItem="fPX-nU-LOH" secondAttribute="leadingMargin" constant="10" id="YsP-BT-hl8"/>
                             <constraint firstItem="rOP-Vn-Ia2" firstAttribute="leading" secondItem="fPX-nU-LOH" secondAttribute="leadingMargin" id="eLN-ip-Q4b"/>
                             <constraint firstItem="EUb-sN-ddc" firstAttribute="width" secondItem="bGy-kz-4Gm" secondAttribute="width" id="gVN-jE-ixX"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="pE9-Ie-YaR" secondAttribute="trailing" id="heu-nX-5t9"/>
                             <constraint firstItem="EUb-sN-ddc" firstAttribute="leading" secondItem="fPX-nU-LOH" secondAttribute="leadingMargin" constant="10" id="knb-e1-Pv6"/>
                             <constraint firstItem="bGy-kz-4Gm" firstAttribute="top" secondItem="kAQ-zj-nPv" secondAttribute="bottom" constant="15" id="l5u-IA-Xcd"/>
+                            <constraint firstItem="pE9-Ie-YaR" firstAttribute="top" secondItem="c4B-mh-MsV" secondAttribute="bottom" constant="10" id="oBB-KA-hbl"/>
                             <constraint firstItem="ycj-Gf-D2r" firstAttribute="leading" secondItem="fPX-nU-LOH" secondAttribute="leadingMargin" constant="10" id="s3s-M5-4ep"/>
                         </constraints>
                     </view>
@@ -161,12 +171,13 @@
                         <outlet property="lineSeparator" destination="EUb-sN-ddc" id="Xer-YB-cn1"/>
                         <outlet property="projectNameLabel" destination="kAQ-zj-nPv" id="Ol2-Oa-cX2"/>
                         <outlet property="projectNameTextField" destination="bGy-kz-4Gm" id="ux0-Wm-2td"/>
+                        <outlet property="tickButton" destination="pE9-Ie-YaR" id="Bum-0z-Lkq"/>
                         <outlet property="xButton" destination="rOP-Vn-Ia2" id="3Q2-m0-zP8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ilc-vH-dbx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1337" y="-2429"/>
+            <point key="canvasLocation" x="1263" y="-2519"/>
         </scene>
         <!--Change Daily Goal View Controller-->
         <scene sceneID="DCI-bb-5e2">
