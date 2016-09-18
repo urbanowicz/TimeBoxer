@@ -11,6 +11,7 @@ import UIKit
 class EditProjectNameViewController: UIViewController, UITextFieldDelegate  {
     
     var delegate: SettingModifierDelegate?
+    var project: Project!
     
     @IBOutlet weak var xButton: XButton!
     @IBOutlet weak var tickButton: TickButton!
@@ -52,6 +53,8 @@ class EditProjectNameViewController: UIViewController, UITextFieldDelegate  {
     private func setupTickButton() {
         tickButton.fillColor = Colors.green()
         tickButton.backgroundColor = Colors.almostBlack()
+        tickButton.hidden = true
+        tickButton.addTarget(self, action: #selector(tickButtonPressed(_:)), forControlEvents: .TouchUpInside)
     }
     
     private func setupEditProjectNameLabel() {
@@ -69,6 +72,7 @@ class EditProjectNameViewController: UIViewController, UITextFieldDelegate  {
         projectNameTextField.delegate = self
         projectNameTextField.textColor = Colors.silver()
         projectNameTextField.adjustsFontSizeToFitWidth = true
+        projectNameTextField.text = project.name
     }
     private func setupLineSeparator() {
         lineSeparator.backgroundColor = Colors.silver().withAlpha(0.4)
@@ -80,7 +84,31 @@ class EditProjectNameViewController: UIViewController, UITextFieldDelegate  {
     }
     func textFieldShouldReturn(textField: UITextField) -> Bool
     {
-      
+        tickButtonPressed(tickButton)
         return true
+    }
+    
+    func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
+        if string == "" && range.length == textField.text!.characters.count {
+            UIView.animateWithDuration(0.3, animations: {self.tickButton.alpha = 0 },
+                completion: { finished in self.tickButton.hidden = true})
+            return true
+        }
+        
+        if tickButton.hidden {
+            tickButton.alpha = 0
+            tickButton.hidden = false
+            let tickButtonAlphaAnimation = POPBasicAnimation(propertyNamed: kPOPViewAlpha)
+            tickButtonAlphaAnimation.duration = 0.3
+            tickButtonAlphaAnimation.toValue = 1.0
+            tickButtonAlphaAnimation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseIn)
+            tickButton.pop_addAnimation(tickButtonAlphaAnimation, forKey: "alpha")
+        }
+        return true
+    }
+    
+    func tickButtonPressed(sender:TickButton) {
+        project.name = projectNameTextField.text!
+        delegate?.didCommitEditing(self)
     }
 }

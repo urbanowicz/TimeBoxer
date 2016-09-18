@@ -26,6 +26,7 @@ class ProjectSettingsPageViewController: UIPageViewController, ProjectSettingsPa
     func didPressEditProjectName() {
         let editProjectNameVC = storyboard!.instantiateViewControllerWithIdentifier("editProjectNameVC") as! EditProjectNameViewController
         editProjectNameVC.delegate = self
+        editProjectNameVC.project = project
         setViewControllers([editProjectNameVC], direction: .Forward, animated: true, completion: {finished in})
         
     }
@@ -33,6 +34,7 @@ class ProjectSettingsPageViewController: UIPageViewController, ProjectSettingsPa
     func didPressChangeDailyGoal() {
         let changeDailyGoalVC = storyboard!.instantiateViewControllerWithIdentifier("changeDailyGoalVC") as! ChangeDailyGoalViewController
         changeDailyGoalVC.delegate = self
+        changeDailyGoalVC.project = project 
         setViewControllers([changeDailyGoalVC], direction: .Forward, animated: true, completion: {finished in})
     }
     
@@ -50,7 +52,10 @@ class ProjectSettingsPageViewController: UIPageViewController, ProjectSettingsPa
     }
     
     func didCommitEditing(sender: UIViewController) {
-        
+        projectSettingsVC.projectNameLabel.text = project.name
+        setViewControllers([projectSettingsVC], direction: .Reverse, animated: true, completion: {
+            finished in
+        })
     }
 
     override func didReceiveMemoryWarning() {

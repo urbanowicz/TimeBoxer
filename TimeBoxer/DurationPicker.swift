@@ -9,6 +9,9 @@
 import UIKit
 
 class DurationPicker: UIView, UIScrollViewDelegate {
+    
+    var delegate:DurationPickerDelegate?
+    
     var scrollView = UIScrollView()
     private var minDurationSeconds = 5*60 // 5 minutes
     private let maxDurationSeconds = 6*60*60 //6 hours
@@ -25,7 +28,7 @@ class DurationPicker: UIView, UIScrollViewDelegate {
         }
     }
     
-    var duration: Int {
+    var durationSeconds: Int {
         let dy = bounds.height / 3.0
         let rowNumber = Int(round(scrollView.contentOffset.y / dy))
         if rowNumber < 0 {
@@ -144,7 +147,7 @@ class DurationPicker: UIView, UIScrollViewDelegate {
         swipeDownIndicator.transform = CATransform3DConcat(rotation, translation)
         CATransaction.setDisableActions(false)
         
-        let currentDuration = duration
+        let currentDuration = durationSeconds
         if currentDuration == minDurationSeconds {
             swipeUpIndicator.fillColor = Colors.green().withAlpha(0.1).CGColor
         } else {
@@ -187,6 +190,20 @@ class DurationPicker: UIView, UIScrollViewDelegate {
         } else {
             targetContentOffset.memory.y = lowerContentOffset
         }
+    }
+    
+    func scrollingEnded() {
+        delegate?.durationPickerDidChangeValue(self)
+    }
+    
+    func scrollViewDidEndDragging(scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        if !decelerate {
+            self.scrollingEnded()
+        }
+    }
+    
+    func scrollViewDidEndDecelerating(scrollView: UIScrollView) {
+        self.scrollingEnded()
     }
     
     //Mark: helper functions

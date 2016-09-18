@@ -83,7 +83,7 @@ class SetDailyGoalViewController: UIViewController {
         delegate?.didPressBackButton()
     }
     @IBAction func okButtonPressed(sender: AnyObject) {
-        delegate?.didSetDailyGoal(durationPicker.duration)
+        delegate?.didSetDailyGoal(durationPicker.durationSeconds)
     }
 
 }

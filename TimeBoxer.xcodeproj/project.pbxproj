@@ -42,6 +42,7 @@
 		F15F9C651BCCF376008733A3 /* TimeBoxer_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F15F9C641BCCF376008733A3 /* TimeBoxer_Tests.swift */; };
 		F168FFF91CB15ACB00F298BE /* WorkTimeFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F168FFF81CB15ACB00F298BE /* WorkTimeFormatter.swift */; };
 		F168FFFA1CB15ACB00F298BE /* WorkTimeFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F168FFF81CB15ACB00F298BE /* WorkTimeFormatter.swift */; };
+		F1783AEC1D8DC304007D7FC5 /* DurationPickerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1783AEB1D8DC304007D7FC5 /* DurationPickerDelegate.swift */; };
 		F17F17B71C899A72003C04AC /* FadeInAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17F17B61C899A72003C04AC /* FadeInAnimator.swift */; };
 		F18284211D4CC50100651674 /* UIGestureRecognizerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F18284201D4CC50100651674 /* UIGestureRecognizerExtension.swift */; };
 		F182DE671D8ABBC7008CCB43 /* ProjectSettingsPageDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F182DE661D8ABBC7008CCB43 /* ProjectSettingsPageDelegate.swift */; };
@@ -219,6 +220,7 @@
 		F15F9C641BCCF376008733A3 /* TimeBoxer_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeBoxer_Tests.swift; sourceTree = "<group>"; };
 		F15F9C661BCCF376008733A3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F168FFF81CB15ACB00F298BE /* WorkTimeFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkTimeFormatter.swift; sourceTree = "<group>"; };
+		F1783AEB1D8DC304007D7FC5 /* DurationPickerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DurationPickerDelegate.swift; sourceTree = "<group>"; };
 		F17F17B61C899A72003C04AC /* FadeInAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FadeInAnimator.swift; sourceTree = "<group>"; };
 		F18284201D4CC50100651674 /* UIGestureRecognizerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIGestureRecognizerExtension.swift; sourceTree = "<group>"; };
 		F182DE661D8ABBC7008CCB43 /* ProjectSettingsPageDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectSettingsPageDelegate.swift; sourceTree = "<group>"; };
@@ -458,6 +460,7 @@
 			isa = PBXGroup;
 			children = (
 				F1952A431D82FF6E0069F547 /* DurationPicker.swift */,
+				F1783AEB1D8DC304007D7FC5 /* DurationPickerDelegate.swift */,
 			);
 			name = pickers;
 			sourceTree = "<group>";
@@ -790,6 +793,7 @@
 				F1A802561D89493200C56E5F /* DeleteProjectViewController.swift in Sources */,
 				F120A1871D76BDDE00DC9E15 /* SetDailyGoalPageDelegate.swift in Sources */,
 				F12C5D8C1C46FA450040969F /* KeyboardNotification.swift in Sources */,
+				F1783AEC1D8DC304007D7FC5 /* DurationPickerDelegate.swift in Sources */,
 				F15C6FDD1D550C300081DC06 /* DummyCalendarHeatMapDataSource.swift in Sources */,
 				F125D7D21C28496700B94849 /* CirclePathWrapper.swift in Sources */,
 				F1952A441D82FF6E0069F547 /* DurationPicker.swift in Sources */,

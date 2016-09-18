@@ -205,23 +205,72 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DZv-Es-yHQ" customClass="TickButton" customModule="TimeBoxer" customModuleProvider="target">
+                                <rect key="frame" x="543" y="30" width="37" height="37"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="DZv-Es-yHQ" secondAttribute="height" multiplier="1:1" id="7aS-9s-E8o"/>
+                                    <constraint firstAttribute="width" constant="37" id="pZW-CF-mBB"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CURRENT DAILY GOAL" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GFS-49-SKC">
+                                <rect key="frame" x="30" y="156" width="177" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="current daily goal value" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h9c-J7-Llf">
+                                <rect key="frame" x="30" y="180" width="177" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NEW DAILY GOAL" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hWj-i5-UXQ">
+                                <rect key="frame" x="30" y="246" width="137" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b6I-JT-gEo" customClass="DurationPicker" customModule="TimeBoxer" customModuleProvider="target">
+                                <rect key="frame" x="20" y="287" width="560" height="150"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="150" id="Ncg-ob-hti"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="hWj-i5-UXQ" firstAttribute="top" secondItem="h9c-J7-Llf" secondAttribute="bottom" constant="45" id="1vL-ZX-gtl"/>
+                            <constraint firstItem="GFS-49-SKC" firstAttribute="top" secondItem="4CH-kj-tX4" secondAttribute="bottom" constant="45" id="33Z-OA-gks"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="b6I-JT-gEo" secondAttribute="trailing" id="A5P-Ve-e1d"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="DZv-Es-yHQ" secondAttribute="trailing" id="AFI-63-qaa"/>
                             <constraint firstItem="Fm1-gc-i8Q" firstAttribute="leading" secondItem="bBq-kD-k2d" secondAttribute="leadingMargin" id="CeC-S1-e8w"/>
+                            <constraint firstItem="b6I-JT-gEo" firstAttribute="top" secondItem="hWj-i5-UXQ" secondAttribute="bottom" constant="20" id="GHB-3M-rZR"/>
                             <constraint firstItem="4CH-kj-tX4" firstAttribute="top" secondItem="Fm1-gc-i8Q" secondAttribute="bottom" constant="23" id="Kee-h6-yYG"/>
+                            <constraint firstItem="b6I-JT-gEo" firstAttribute="leading" secondItem="bBq-kD-k2d" secondAttribute="leadingMargin" id="N3n-C2-35n"/>
+                            <constraint firstItem="h9c-J7-Llf" firstAttribute="top" secondItem="GFS-49-SKC" secondAttribute="bottom" constant="3" id="QGF-2x-p6n"/>
                             <constraint firstItem="4CH-kj-tX4" firstAttribute="leading" secondItem="bBq-kD-k2d" secondAttribute="leadingMargin" constant="10" id="SJ9-y7-CqU"/>
                             <constraint firstItem="Fm1-gc-i8Q" firstAttribute="top" secondItem="s7I-au-IuE" secondAttribute="bottom" constant="10" id="eJh-uv-5jp"/>
+                            <constraint firstItem="hWj-i5-UXQ" firstAttribute="leading" secondItem="bBq-kD-k2d" secondAttribute="leadingMargin" constant="10" id="ifs-Cq-bXH"/>
+                            <constraint firstItem="DZv-Es-yHQ" firstAttribute="top" secondItem="s7I-au-IuE" secondAttribute="bottom" constant="10" id="lQV-T1-qGD"/>
+                            <constraint firstItem="h9c-J7-Llf" firstAttribute="leading" secondItem="bBq-kD-k2d" secondAttribute="leadingMargin" constant="10" id="mqm-xP-icv"/>
+                            <constraint firstItem="GFS-49-SKC" firstAttribute="leading" secondItem="bBq-kD-k2d" secondAttribute="leadingMargin" constant="10" id="ooB-oF-p0j"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="changeDailyGoalLabel" destination="4CH-kj-tX4" id="byg-TI-sr3"/>
+                        <outlet property="currentDailyGoalLabel" destination="GFS-49-SKC" id="Nik-bN-5Hq"/>
+                        <outlet property="currentDailyGoalValueLabel" destination="h9c-J7-Llf" id="e9i-sD-utf"/>
+                        <outlet property="durationPicker" destination="b6I-JT-gEo" id="YfT-DT-euy"/>
+                        <outlet property="newDailyGoalLabel" destination="hWj-i5-UXQ" id="Ahn-ed-uzz"/>
+                        <outlet property="tickButton" destination="DZv-Es-yHQ" id="cGa-Ki-Lek"/>
                         <outlet property="xButton" destination="Fm1-gc-i8Q" id="9HT-8d-dW8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2u0-ym-Vdi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1997" y="-2424"/>
+            <point key="canvasLocation" x="1913" y="-2519"/>
         </scene>
         <!--Delete Project View Controller-->
         <scene sceneID="DPi-Ye-qTM">
