@@ -20,6 +20,7 @@ class DurationPicker: UIView, UIScrollViewDelegate {
     private let selectionRect = UIView()
     private var swipeUpIndicator:CAShapeLayer!
     private var swipeDownIndicator:CAShapeLayer!
+    private var initialContentOffset = CGFloat(0)
     
     private var numberOfLabels: Int {
         get {
@@ -41,9 +42,15 @@ class DurationPicker: UIView, UIScrollViewDelegate {
         return (rowNumber+1) * minDurationSeconds
     }
     
+    func setDuration(durationSeconds: Int) {
+        let rowNumber = durationSeconds/minDurationSeconds - 1
+        let dy = bounds.height / 3.0
+        initialContentOffset = CGFloat(rowNumber)*dy
+        scrollView.setContentOffset(CGPointMake(0, initialContentOffset) , animated: false)
+    }
+    
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        
         //setup the scroll view
         scrollView.contentOffset = CGPointMake(0,0)
         scrollView.directionalLockEnabled = true
@@ -107,6 +114,7 @@ class DurationPicker: UIView, UIScrollViewDelegate {
         }
         
         //layout the selection rect
+        selectionRect.transform = CGAffineTransformIdentity
         selectionRect.frame = CGRectMake(0, dy, bounds.width, dy)
        
         //layout the swipe up indicator
@@ -118,6 +126,11 @@ class DurationPicker: UIView, UIScrollViewDelegate {
         swipeDownIndicator.transform = CATransform3DIdentity
         swipeDownIndicator.frame.origin = CGPointMake(bounds.width - (xOffset + swipeDownIndicator.frame.width), bounds.height - dy/2 - swipeDownIndicator.frame.height/2)
         swipeDownIndicator.transform = CATransform3DMakeRotation(-45 * CGFloat(M_PI) / 180.0, 0.0, 0.0, 1.0)
+        
+        scrollView.contentOffset = CGPointMake(0, initialContentOffset)
+        if initialContentOffset != 0 {
+            scrollViewDidScroll(scrollView)
+        }
     }
     
     private func prepareMaskingLayerWithRoundedCorners() -> CAShapeLayer {
@@ -176,7 +189,7 @@ class DurationPicker: UIView, UIScrollViewDelegate {
             let label = durationLabels[firstVisibleRowNumber + i]
             updateAlphaForLabel(label)
         }
-
+        delegate?.durationPickerDidScroll(self)
     }
     
     func scrollViewWillEndDragging(scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {

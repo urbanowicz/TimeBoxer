@@ -220,19 +220,19 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="current daily goal value" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h9c-J7-Llf">
-                                <rect key="frame" x="30" y="180" width="177" height="21"/>
+                                <rect key="frame" x="30" y="187" width="177" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NEW DAILY GOAL" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hWj-i5-UXQ">
-                                <rect key="frame" x="30" y="246" width="137" height="21"/>
+                                <rect key="frame" x="30" y="253" width="137" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b6I-JT-gEo" customClass="DurationPicker" customModule="TimeBoxer" customModuleProvider="target">
-                                <rect key="frame" x="20" y="287" width="560" height="150"/>
+                                <rect key="frame" x="20" y="294" width="560" height="150"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="150" id="Ncg-ob-hti"/>
@@ -249,7 +249,7 @@
                             <constraint firstItem="b6I-JT-gEo" firstAttribute="top" secondItem="hWj-i5-UXQ" secondAttribute="bottom" constant="20" id="GHB-3M-rZR"/>
                             <constraint firstItem="4CH-kj-tX4" firstAttribute="top" secondItem="Fm1-gc-i8Q" secondAttribute="bottom" constant="23" id="Kee-h6-yYG"/>
                             <constraint firstItem="b6I-JT-gEo" firstAttribute="leading" secondItem="bBq-kD-k2d" secondAttribute="leadingMargin" id="N3n-C2-35n"/>
-                            <constraint firstItem="h9c-J7-Llf" firstAttribute="top" secondItem="GFS-49-SKC" secondAttribute="bottom" constant="3" id="QGF-2x-p6n"/>
+                            <constraint firstItem="h9c-J7-Llf" firstAttribute="top" secondItem="GFS-49-SKC" secondAttribute="bottom" constant="10" id="QGF-2x-p6n"/>
                             <constraint firstItem="4CH-kj-tX4" firstAttribute="leading" secondItem="bBq-kD-k2d" secondAttribute="leadingMargin" constant="10" id="SJ9-y7-CqU"/>
                             <constraint firstItem="Fm1-gc-i8Q" firstAttribute="top" secondItem="s7I-au-IuE" secondAttribute="bottom" constant="10" id="eJh-uv-5jp"/>
                             <constraint firstItem="hWj-i5-UXQ" firstAttribute="leading" secondItem="bBq-kD-k2d" secondAttribute="leadingMargin" constant="10" id="ifs-Cq-bXH"/>

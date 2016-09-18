@@ -34,7 +34,7 @@ class ProjectSettingsPageViewController: UIPageViewController, ProjectSettingsPa
     func didPressChangeDailyGoal() {
         let changeDailyGoalVC = storyboard!.instantiateViewControllerWithIdentifier("changeDailyGoalVC") as! ChangeDailyGoalViewController
         changeDailyGoalVC.delegate = self
-        changeDailyGoalVC.project = project 
+        changeDailyGoalVC.project = project
         setViewControllers([changeDailyGoalVC], direction: .Forward, animated: true, completion: {finished in})
     }
     

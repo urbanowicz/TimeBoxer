@@ -9,5 +9,6 @@
 import UIKit
 
 protocol DurationPickerDelegate {
-   func durationPickerDidChangeValue(piecker: DurationPicker)
- }
+    func durationPickerDidChangeValue(picker: DurationPicker)
+    func durationPickerDidScroll(picker: DurationPicker)
+}

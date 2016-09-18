@@ -22,6 +22,7 @@ class ChangeDailyGoalViewController: UIViewController, DurationPickerDelegate {
     @IBOutlet weak var durationPicker: DurationPicker!
     private let minutesToTextConverter = MinutesToStringConverter()
     
+    private var hidingTickButton = false
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = Colors.almostBlack()
@@ -83,6 +84,7 @@ class ChangeDailyGoalViewController: UIViewController, DurationPickerDelegate {
         durationPicker.backgroundColor = UIColor.clearColor()
         durationPicker.scrollView.backgroundColor = Colors.green().withAlpha(0.07)
         durationPicker.delegate = self
+        durationPicker.setDuration(project.dailyGoalSeconds)
     }
     
     func xButtonPressed() {
@@ -98,6 +100,14 @@ class ChangeDailyGoalViewController: UIViewController, DurationPickerDelegate {
             tickButton.alpha = 0
             tickButton.hidden = false
             UIView.animateWithDuration(0.3, animations: {self.tickButton.alpha = 1.0}, completion: { finished in self.tickButton.alpha = 1.0 })
+        }
+    }
+    
+    func durationPickerDidScroll(picker: DurationPicker) {
+        if !tickButton.hidden && !hidingTickButton  {
+            hidingTickButton = true
+            UIView.animateWithDuration(0.3, animations: {self.tickButton.alpha = 0.0}, completion: { finished in self.tickButton.hidden = true
+                self.hidingTickButton = false})
         }
     }
 }
