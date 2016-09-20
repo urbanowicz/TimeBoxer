@@ -177,7 +177,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ilc-vH-dbx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1263" y="-2519"/>
+            <point key="canvasLocation" x="-2065" y="-2696"/>
         </scene>
         <!--Change Daily Goal View Controller-->
         <scene sceneID="DCI-bb-5e2">
@@ -270,7 +270,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2u0-ym-Vdi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1913" y="-2519"/>
+            <point key="canvasLocation" x="-2707" y="-2696"/>
         </scene>
         <!--Delete Project View Controller-->
         <scene sceneID="DPi-Ye-qTM">
@@ -298,23 +298,64 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wEw-wu-Alq">
+                                <rect key="frame" x="30" y="122" width="540" height="20"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="Are you sure you want to delete the project">
+                                        <attributes>
+                                            <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <font key="NSFont" size="17" name="HelveticaNeue"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="dxZ-fM-zXN">
+                                <rect key="frame" x="200" y="187" width="200" height="50"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iu9-0s-LqW">
+                                        <rect key="frame" x="0.0" y="0.0" width="85" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="Rqg-Mv-p1v"/>
+                                            <constraint firstAttribute="width" constant="85" id="jv2-5M-knh"/>
+                                        </constraints>
+                                        <state key="normal" title="Yes"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="slH-jL-jdL">
+                                        <rect key="frame" x="115" y="0.0" width="85" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="85" id="5lF-MX-6q8"/>
+                                            <constraint firstAttribute="height" constant="50" id="t0C-Lc-mHi"/>
+                                        </constraints>
+                                        <state key="normal" title="No"/>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="Nez-9U-s1n" firstAttribute="top" secondItem="kEu-8z-Xu8" secondAttribute="bottom" constant="23" id="7y3-8K-w1Y"/>
                             <constraint firstItem="kEu-8z-Xu8" firstAttribute="top" secondItem="U4J-0B-ArX" secondAttribute="bottom" constant="10" id="JwR-MA-H57"/>
                             <constraint firstItem="kEu-8z-Xu8" firstAttribute="leading" secondItem="EsG-KW-mxI" secondAttribute="leadingMargin" id="MOJ-07-nla"/>
+                            <constraint firstItem="dxZ-fM-zXN" firstAttribute="top" secondItem="wEw-wu-Alq" secondAttribute="bottom" constant="45" id="VFL-8d-aFh"/>
                             <constraint firstItem="Nez-9U-s1n" firstAttribute="leading" secondItem="EsG-KW-mxI" secondAttribute="leadingMargin" constant="10" id="WSK-DZ-cIM"/>
+                            <constraint firstItem="wEw-wu-Alq" firstAttribute="top" secondItem="Nez-9U-s1n" secondAttribute="bottom" constant="11" id="cFj-zd-wsl"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="wEw-wu-Alq" secondAttribute="trailing" constant="10" id="cw7-ab-gND"/>
+                            <constraint firstItem="wEw-wu-Alq" firstAttribute="leading" secondItem="EsG-KW-mxI" secondAttribute="leadingMargin" constant="10" id="gWa-jP-2NA"/>
+                            <constraint firstItem="dxZ-fM-zXN" firstAttribute="centerX" secondItem="EsG-KW-mxI" secondAttribute="centerX" id="iTd-14-b75"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="deleteConfirmationLabel" destination="wEw-wu-Alq" id="r1l-2A-s7y"/>
                         <outlet property="deleteProjectLabel" destination="Nez-9U-s1n" id="vZr-BO-eV5"/>
+                        <outlet property="noButton" destination="slH-jL-jdL" id="lRE-ce-pPf"/>
                         <outlet property="xButton" destination="kEu-8z-Xu8" id="4Mi-HB-ll1"/>
+                        <outlet property="yesButton" destination="iu9-0s-LqW" id="1hR-gJ-9fC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qsy-I7-t2I" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2643" y="-2424"/>
+            <point key="canvasLocation" x="-1413" y="-2696"/>
         </scene>
         <!--Project Settings View Controller-->
         <scene sceneID="pay-T6-eTs">
@@ -453,7 +494,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XQf-F3-Bgk" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="rE0-Zv-8Gc" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="-1407" y="-1750"/>
+            <point key="canvasLocation" x="-2713" y="-2010"/>
         </scene>
         <!--Project Settings Page View Controller-->
         <scene sceneID="hJE-LH-ZH9">
@@ -461,7 +502,7 @@
                 <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="S4O-lA-qmF" customClass="ProjectSettingsPageViewController" customModule="TimeBoxer" customModuleProvider="target" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="35L-ik-a1g" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-441" y="-1760"/>
+            <point key="canvasLocation" x="-2713" y="-1316"/>
         </scene>
         <!--Projects Table View Controller-->
         <scene sceneID="rLU-Ry-5YJ">

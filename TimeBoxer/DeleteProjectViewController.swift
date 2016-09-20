@@ -11,14 +11,20 @@ import UIKit
 class DeleteProjectViewController: UIViewController {
     
     var delegate: SettingModifierDelegate?
+    var project: Project!
     @IBOutlet weak var xButton: XButton!
     @IBOutlet weak var deleteProjectLabel: UILabel!
-    
+    @IBOutlet weak var deleteConfirmationLabel: UILabel!
+    @IBOutlet weak var yesButton: UIButton!
+    @IBOutlet weak var noButton: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = Colors.almostBlack()
         setupXbutton()
         setupDeleteProjectLabel()
+        setupDeleteConfirmationLabel()
+        setupYesButton()
+        setupNoButton()
         // Do any additional setup after loading the view.
     }
 
@@ -42,8 +48,46 @@ class DeleteProjectViewController: UIViewController {
         deleteProjectLabel.backgroundColor = Colors.almostBlack()
     }
     
+    private func setupDeleteConfirmationLabel() {
+        let attrConfirmationString = NSMutableAttributedString(string: "Are you sure you want to delete ", attributes: [NSFontAttributeName: UIFont(name:"Avenir-Medium", size: 16)!,
+            NSForegroundColorAttributeName: Colors.silver().withAlpha(0.7)])
+        
+        let attrProjectName = NSAttributedString(string: project.name, attributes: [NSFontAttributeName: UIFont(name:"Avenir-MediumOblique", size:16)!,
+            NSForegroundColorAttributeName: Colors.silver().withAlpha(0.7)])
+        
+        attrConfirmationString.appendAttributedString(attrProjectName)
+
+        deleteConfirmationLabel.numberOfLines = 0
+        deleteConfirmationLabel.backgroundColor = Colors.almostBlack()
+        deleteConfirmationLabel.attributedText = attrConfirmationString
+    }
+    
+    private func setupYesButton() {
+        yesButton.titleLabel?.font = UIFont(name:"Avenir-Medium", size: 20)
+        yesButton.titleLabel?.text = "Yes"
+        yesButton.tintColor = Colors.silver()
+        yesButton.backgroundColor = Colors.red()
+        yesButton.layer.borderColor = Colors.silver().CGColor
+        yesButton.layer.borderWidth = 1
+        yesButton.layer.cornerRadius = 4
+        yesButton.clipsToBounds = true
+    }
+    
+    private func setupNoButton() {
+        noButton.titleLabel?.font = UIFont(name:"Avenir-Medium", size: 20)
+        noButton.titleLabel?.text = "No"
+        noButton.tintColor = Colors.silver()
+        noButton.backgroundColor = Colors.almostBlack()
+        noButton.layer.borderColor = Colors.silver().CGColor
+        noButton.layer.borderWidth = 1
+        noButton.layer.cornerRadius = 4
+        noButton.clipsToBounds = true
+    }
+    
     func xButtonPressed() {
         delegate?.didCancelEditing(self)
     }
+    
+    
 
 }

@@ -42,6 +42,7 @@ class ProjectSettingsPageViewController: UIPageViewController, ProjectSettingsPa
         let deleteProjectVC = storyboard!.instantiateViewControllerWithIdentifier("deleteProjectVC") as!
             DeleteProjectViewController
         deleteProjectVC.delegate = self
+        deleteProjectVC.project = project
         setViewControllers([deleteProjectVC], direction: .Forward, animated: true, completion: {finished in})
     }
     
