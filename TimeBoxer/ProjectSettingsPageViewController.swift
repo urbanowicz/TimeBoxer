@@ -53,7 +53,16 @@ class ProjectSettingsPageViewController: UIPageViewController, ProjectSettingsPa
     }
     
     func didCommitEditing(sender: UIViewController) {
-        projectSettingsVC.projectNameLabel.text = project.name
+        
+        if sender as? DeleteProjectViewController != nil {
+            //project was deleted
+            performSegueWithIdentifier("deleteProjectUnwind", sender: self)
+            return
+        }
+        
+        if sender as? EditProjectNameViewController != nil {
+            projectSettingsVC.projectNameLabel.text = project.name
+        }
         setViewControllers([projectSettingsVC], direction: .Reverse, animated: true, completion: {
             finished in
         })

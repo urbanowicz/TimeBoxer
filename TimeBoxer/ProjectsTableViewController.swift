@@ -22,6 +22,7 @@ class ProjectsTableViewController: UIViewController, UITableViewDelegate, AddPro
     let projectsTableDataSource = ProjectsTableViewDataSource()
     private var lastWorkedOnDateFormatter = LastWorkedOnDateFormatter()
     private var newProjectAdded:Bool = false
+    private var projectDeleted:Bool = false
     
     private var originalFrames = [(view:UIView, frame:CGRect)]()
     private var originalContentOffset:CGFloat?
@@ -88,6 +89,16 @@ class ProjectsTableViewController: UIViewController, UITableViewDelegate, AddPro
                 withRowAnimation: UITableViewRowAnimation.Top)
             projectsTableView.endUpdates()
             newProjectAdded = false
+            return
+        }
+        
+        if projectDeleted {
+            self.projectsTableView.beginUpdates()
+            let selectedCellIndexPath = self.projectsTableView.indexPathForCell(self.selectedCell!)!
+            self.projectsTableView.deleteRowsAtIndexPaths([selectedCellIndexPath], withRowAnimation: .Fade)
+            self.projectsTableDataSource.deleteProject(self.selectedCell!.project!.name)
+            self.projectsTableView.endUpdates()
+            projectDeleted = false
         }
     }
     
@@ -187,6 +198,10 @@ class ProjectsTableViewController: UIViewController, UITableViewDelegate, AddPro
     
     @IBAction func editProjectUnwind(unwindSegue: UIStoryboardSegue) {
        
+    }
+    
+    @IBAction func deleteProjectUnwind(unwindSegue: UIStoryboardSegue) {
+        projectDeleted = true
     }
 
 //MARK: Disable auto rotate

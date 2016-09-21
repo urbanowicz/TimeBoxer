@@ -89,5 +89,11 @@ class DeleteProjectViewController: UIViewController {
     }
     
     
+    @IBAction func noButtonPressed(sender: UIButton) {
+        delegate?.didCancelEditing(self)
+    }
 
+    @IBAction func yesButtonPressed(sender: AnyObject) {
+        delegate?.didCommitEditing(self)
+    }
 }

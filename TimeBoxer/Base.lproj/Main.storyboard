@@ -222,7 +222,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="current daily goal value" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h9c-J7-Llf">
                                 <rect key="frame" x="30" y="187" width="177" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NEW DAILY GOAL" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hWj-i5-UXQ">
@@ -303,7 +303,7 @@
                                 <attributedString key="attributedText">
                                     <fragment content="Are you sure you want to delete the project">
                                         <attributes>
-                                            <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <font key="NSFont" size="17" name="HelveticaNeue"/>
                                         </attributes>
                                     </fragment>
@@ -320,6 +320,9 @@
                                             <constraint firstAttribute="width" constant="85" id="jv2-5M-knh"/>
                                         </constraints>
                                         <state key="normal" title="Yes"/>
+                                        <connections>
+                                            <action selector="yesButtonPressed:" destination="F0d-GQ-SWv" eventType="touchUpInside" id="NXO-9U-Ooi"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="slH-jL-jdL">
                                         <rect key="frame" x="115" y="0.0" width="85" height="50"/>
@@ -328,6 +331,9 @@
                                             <constraint firstAttribute="height" constant="50" id="t0C-Lc-mHi"/>
                                         </constraints>
                                         <state key="normal" title="No"/>
+                                        <connections>
+                                            <action selector="noButtonPressed:" destination="F0d-GQ-SWv" eventType="touchUpInside" id="kHk-LU-5e9"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -499,10 +505,15 @@
         <!--Project Settings Page View Controller-->
         <scene sceneID="hJE-LH-ZH9">
             <objects>
-                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="S4O-lA-qmF" customClass="ProjectSettingsPageViewController" customModule="TimeBoxer" customModuleProvider="target" sceneMemberID="viewController"/>
+                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="S4O-lA-qmF" customClass="ProjectSettingsPageViewController" customModule="TimeBoxer" customModuleProvider="target" sceneMemberID="viewController">
+                    <connections>
+                        <segue destination="gWk-MI-AWI" kind="unwind" identifier="deleteProjectUnwind" unwindAction="deleteProjectUnwind:" id="3qh-fX-RWx"/>
+                    </connections>
+                </pageViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="35L-ik-a1g" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="gWk-MI-AWI" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="-2713" y="-1316"/>
+            <point key="canvasLocation" x="-2713" y="-1341"/>
         </scene>
         <!--Projects Table View Controller-->
         <scene sceneID="rLU-Ry-5YJ">
