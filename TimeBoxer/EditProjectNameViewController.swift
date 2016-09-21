@@ -82,6 +82,8 @@ class EditProjectNameViewController: UIViewController, UITextFieldDelegate  {
         projectNameLabel.font = UIFont(name: "Avenir-Medium", size: 12)
         projectNameLabel.text = "PROJECT NAME"
     }
+    
+    
     func textFieldShouldReturn(textField: UITextField) -> Bool
     {
         tickButtonPressed(tickButton)
@@ -109,6 +111,38 @@ class EditProjectNameViewController: UIViewController, UITextFieldDelegate  {
     
     func tickButtonPressed(sender:TickButton) {
         project.name = projectNameTextField.text!
-        delegate?.didCommitEditing(self)
+        
+        func prepareConfirmationBox() -> UILabel {
+            let confirmationLabel = UILabel()
+            confirmationLabel.frame = CGRectMake(0, 0, view.frame.width, 50)
+            confirmationLabel.backgroundColor = Colors.green()
+            confirmationLabel.font = UIFont(name: "Avenir-Heavy", size: 20)
+            confirmationLabel.textColor = Colors.silver()
+            confirmationLabel.text = ":)"
+            confirmationLabel.transform = CGAffineTransformMakeTranslation(0, -confirmationLabel.frame.height)
+            confirmationLabel.textAlignment = .Center
+            return confirmationLabel
+        }
+        
+        let confirmationBox = prepareConfirmationBox()
+        view.addSubview(confirmationBox)
+        
+        let duration = 1.0
+        let delay = 0.0
+        let options = UIViewKeyframeAnimationOptions.CalculationModeLinear
+        UIView.animateKeyframesWithDuration(duration, delay: delay, options: options, animations: {
+            
+            UIView.addKeyframeWithRelativeStartTime(0, relativeDuration: 1/4, animations: {
+               confirmationBox.transform = CGAffineTransformIdentity
+            })
+            UIView.addKeyframeWithRelativeStartTime(1/2, relativeDuration: 1/4, animations: {
+                confirmationBox.transform = CGAffineTransformMakeTranslation(0, -confirmationBox.frame.height)
+            })
+            
+            }, completion: {finished in
+                confirmationBox.removeFromSuperview()
+                self.delegate?.didCommitEditing(self)
+                
+        })
     }
 }
