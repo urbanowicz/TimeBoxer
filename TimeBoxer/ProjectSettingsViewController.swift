@@ -104,6 +104,7 @@ class ProjectSettingsViewController: UIViewController{
         markAsFinishedLabel.text = "Mark as finished"
         markAsFinishedLabel.textColor = Colors.silver()
         markAsFinishedLabel.backgroundColor = Colors.almostBlack()
+        markAsFinishedLabel.hidden = true
     }
     
     private func setupUnderlines() {
@@ -111,6 +112,7 @@ class ProjectSettingsViewController: UIViewController{
         changeDailyGoalUnderline.backgroundColor = Colors.silver()
         deleteProjectUnderline.backgroundColor = Colors.silver()
         markAsFinishedUnderline.backgroundColor = Colors.silver()
+        markAsFinishedUnderline.hidden = true
     }
     
     @IBAction func xButtonPressed(sender: AnyObject) {
