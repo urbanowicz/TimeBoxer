@@ -78,5 +78,14 @@ class ProjectSettingsPageViewController: UIPageViewController, ProjectSettingsPa
     override func prefersStatusBarHidden() -> Bool {
         return true
     }
+    
+    //MARK: Disable auto rotate
+    override func shouldAutorotate() -> Bool {
+        return false
+    }
+    
+    override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
+        return UIInterfaceOrientationMask.Portrait
+    }
 
 }
