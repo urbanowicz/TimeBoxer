@@ -112,12 +112,15 @@ class ImprovedContainerViewController: UIViewController, ScrollingCellDelegate, 
         fromVC.willMoveToParentViewController(nil)
         addChildViewController(vc)
         vc.view.frame = view.frame
+        let blankView = createBlankView()
         if animator != nil {
+            view.insertSubview(blankView, belowSubview: fromVC.view)
             animator!.animateTransition(fromVC, toVC: vc, container: self.view, completion:
                 {
                     self.vcStack.append(vc)
                     vc.didMoveToParentViewController(self)
                     fromVC.removeFromParentViewController()
+                    blankView.removeFromSuperview()
             })
         } else {
             self.vcStack.append(vc)
@@ -125,6 +128,13 @@ class ImprovedContainerViewController: UIViewController, ScrollingCellDelegate, 
             fromVC.view.removeFromSuperview()
             fromVC.removeFromParentViewController()
         }
+    }
+    
+    private func createBlankView() -> UIView {
+        let blankView = UIView()
+        blankView.frame = view.frame
+        blankView.backgroundColor = view.backgroundColor
+        return blankView
     }
     
     //MARK: ScrollingCellDelegate

@@ -1,0 +1,73 @@
+
+.cursor {
+  cursor:;
+}
+.tb_blue_background {
+  background-color: #09062A;
+}
+
+.tb_silver_color {
+  color: #DAE6ED;
+}
+
+.tb_avenir_heavy {
+  font-family:Avenir-Heavy;
+}
+
+.tb_avenir_medium {
+  font-family: Avenir-Medium;
+}
+.tb_avenir_heavy_oblique {
+  font-family: Avenir-HeavyOblique;
+}
+
+
+.tb_time_boxer_header {
+  margin-top: 1em;
+  letter-spacing: 12px;
+  font-size: 81px;
+}
+
+.tb_short_description_text {
+  font-size: 18px;
+  letter-spacing:1.5px;
+  margin-bottom: 25px;
+}
+
+.tb_read_more_link {
+  letter-spacing: 1.5px;
+  font-size: 18px;
+  text-decoration: underline;
+  cursor: crosshair;
+}
+
+.tb_bullet_point {
+   font-size: 18px;
+   letter-spacing: 1.5px;
+   margin-bottom: 13px;
+}
+
+.cover {
+    margin-top: 100px;
+    margin-bottom: 10px;
+    width: 285px;
+    height: 595px;
+    background-image: url(/static/iPhone-black.svg);
+}
+
+.download_app_store {
+    width: 178px;
+    height: 53px;
+    background-image: url(/static/apple-white.svg);
+}
+
+.links {
+  margin-top: 80px;
+  margin-bottom: 80px;
+}
+
+.tb_video {
+  margin-left: 11px;
+  margin-top: 57px;
+  height: 467px; 
+}
