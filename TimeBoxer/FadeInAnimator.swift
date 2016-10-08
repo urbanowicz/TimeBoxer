@@ -18,8 +18,9 @@ class FadeInAnimator:NSObject, Animator {
         
         
         //Prepare the toVC.view to be faded in
-        toVC.view.alpha = 0.0
+        
         if (toVC.view.superview == nil) {
+            toVC.view.alpha = 0.0
             container.addSubview(toVC.view)
         }
         
