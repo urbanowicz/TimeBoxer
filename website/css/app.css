@@ -3,8 +3,15 @@
   cursor:;
 }
 .tb_blue_background {
-  background-color: #09062A;
+  background-image: linear-gradient(-180deg, #09062A 0%, #17062A 100%);
 }
+body {
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+/* Rectangle 4 Copy: */
+
 
 .tb_silver_color {
   color: #DAE6ED;
@@ -16,6 +23,10 @@
 
 .tb_avenir_medium {
   font-family: Avenir-Medium;
+}
+
+.tb_avenir_medium_oblique {
+  font-family: Avenir-MediumOblique;
 }
 .tb_avenir_heavy_oblique {
   font-family: Avenir-HeavyOblique;
@@ -29,21 +40,21 @@
 }
 
 .tb_short_description_text {
-  font-size: 18px;
-  letter-spacing:1.5px;
+  font-size: 16px;
+  letter-spacing:1.2px;
   margin-bottom: 25px;
 }
 
 .tb_read_more_link {
-  letter-spacing: 1.5px;
-  font-size: 18px;
+  letter-spacing: 1.2px;
+  font-size: 16px;
   text-decoration: underline;
   cursor: crosshair;
 }
 
 .tb_bullet_point {
-   font-size: 18px;
-   letter-spacing: 1.5px;
+   font-size: 16px;
+   letter-spacing: 1.2px;
    margin-bottom: 13px;
 }
 

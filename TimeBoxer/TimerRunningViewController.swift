@@ -29,7 +29,7 @@ class TimerRunningViewController: UIViewController {
     override func viewDidLoad()
     {
         super.viewDidLoad()
-        view.backgroundColor = Colors.silver()
+        view.backgroundColor = Colors.slider()
         
         registerForLocalNotifications()
         setupProjectNameLabel()
@@ -70,15 +70,15 @@ class TimerRunningViewController: UIViewController {
     private func setupPauseButton() {
         pauseButton.borderColor = Colors.almostBlack()
         pauseButton.borderWidth = 2.0
-        pauseButton.roundLayerColor = Colors.silver()
+        pauseButton.roundLayerColor = Colors.slider()
         pauseButton.frontLayerColor = Colors.almostBlack()
     }
     
     private func setupResumeButton() {
-        resumeButton.borderColor = Colors.silver()
+        resumeButton.borderColor = Colors.slider()
         resumeButton.borderWidth = 2.0
         resumeButton.roundLayerColor = Colors.almostBlack()
-        resumeButton.frontLayerColor = Colors.silver()
+        resumeButton.frontLayerColor = Colors.slider()
         resumeButton.frame = CGRectZero
         resumeButton.alpha = 0.0
         resumeButton.addTarget(self, action: #selector(TimerRunningViewController.resumeButtonPressed), forControlEvents: .TouchDown)
@@ -98,7 +98,7 @@ class TimerRunningViewController: UIViewController {
     
     private func setupXButton() {
         xButton.borderWidth = 0.0
-        xButton.roundLayerColor = Colors.silver()
+        xButton.roundLayerColor = Colors.slider()
         xButton.frontLayerColor = Colors.almostBlack()
         xButton.addTarget(self, action: #selector(TimerRunningViewController.xButtonPressed), forControlEvents: .TouchDown)
     }
@@ -286,7 +286,7 @@ class TimerRunningViewController: UIViewController {
         //Animate the x button
         let xButtonRoundLayerFillColorAnimation = POPBasicAnimation(propertyNamed: kPOPShapeLayerFillColor)
         xButtonRoundLayerFillColorAnimation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
-        xButtonRoundLayerFillColorAnimation.toValue = Colors.silver()
+        xButtonRoundLayerFillColorAnimation.toValue = Colors.slider()
         xButtonRoundLayerFillColorAnimation.duration = 0.2
         xButton.layer.pop_addAnimation(xButtonRoundLayerFillColorAnimation, forKey: "fillColor")
         
@@ -299,7 +299,7 @@ class TimerRunningViewController: UIViewController {
         //Animate the background color
         let backgroundColorAnimation = POPBasicAnimation(propertyNamed: kPOPViewBackgroundColor)
         backgroundColorAnimation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
-        backgroundColorAnimation.toValue = Colors.silver()
+        backgroundColorAnimation.toValue = Colors.slider()
         backgroundColorAnimation.duration = 0.2
         view.pop_addAnimation(backgroundColorAnimation, forKey: "backgroundColor")
         

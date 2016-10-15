@@ -63,7 +63,7 @@ class MonthHeatMapView: UIView, UIGestureRecognizerDelegate {
     let dayNumberFont = UIFont(name: "Menlo-Regular", size: 12)
     let currentDateFont = UIFont(name: "Avenir-Medium", size: 14)
     let hoursWorkedFont = UIFont(name: "Avenir-Heavy", size: 16)
-    let fontColor = UIColor.whiteColor()
+    let fontColor = Colors.silver()
     
     //cellSize is the size of the bounding rectangle inside of which each element of the calendar will fit.
     private var cellSize:CGSize = CGSizeZero

@@ -15,7 +15,7 @@ class HeatMapCell: UIView {
     private var day = 0
     
     let dayNumberFont = UIFont(name: "Menlo-Regular", size: 12)
-    let fontColor = UIColor.whiteColor()
+    let fontColor = Colors.silver()
     
     var date:NSDate {
         get {

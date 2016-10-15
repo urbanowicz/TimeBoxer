@@ -58,7 +58,7 @@ class MyTableViewCell: UITableViewCell, UIScrollViewDelegate {
     }
     
     private func setupRightDrawer() {
-        rightDrawer.backgroundColor = Colors.azure()
+        rightDrawer.backgroundColor = Colors.slider()
         rightDrawer.color = Colors.almostBlack().withAlpha(0.9)
     }
     

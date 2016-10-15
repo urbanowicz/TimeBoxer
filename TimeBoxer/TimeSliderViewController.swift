@@ -43,9 +43,9 @@ class TimeSliderViewController: UIViewController {
 //MARK: Setup UI elements
     private func setupStartButton() {
         startButton.borderWidth = 2.0
-        startButton.borderColor = Colors.silver()
+        startButton.borderColor = Colors.slider()
         startButton.roundLayerColor = Colors.almostBlack()
-        startButton.frontLayerColor = Colors.silver()
+        startButton.frontLayerColor = Colors.slider()
     }
     
     private func setupProjectNameLabel() {
@@ -64,7 +64,7 @@ class TimeSliderViewController: UIViewController {
     }
     
     private func setupTimeSlider() {
-        timeSlider.fillColor = Colors.azure()
+        timeSlider.fillColor = Colors.slider()
         timeSlider.addTarget(self, action: #selector(TimeSliderViewController.timeSliderValueChanged), forControlEvents: UIControlEvents.ValueChanged)
     }
     

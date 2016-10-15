@@ -33,7 +33,7 @@ class BigSlider: UIControl {
         }
     }
     
-    var highlightedFillColor:UIColor = Colors.azure().withAlpha(0.7)
+    var highlightedFillColor:UIColor = Colors.slider().withAlpha(0.7)
     
     var value:Double = 0.0
     
@@ -54,7 +54,7 @@ class BigSlider: UIControl {
     }
     
     func refresh() {
-        sliderLayer.backgroundColor = Colors.azure().CGColor
+        sliderLayer.backgroundColor = Colors.slider().CGColor
     }
     
     //MARK: Touch tracking

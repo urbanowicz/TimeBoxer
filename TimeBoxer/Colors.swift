@@ -51,27 +51,33 @@ class Colors: NSObject {
     //New Colors
     static func almostBlack() -> UIColor {
         //return UIColor(red:0.06, green:0.06, blue:0.06, alpha:1.0)
-        return UIColor(red:0.02, green:0.05, blue:0.14, alpha:1.0)
-        return UIColor(red:0.00, green:0.06, blue:0.19, alpha:1.0)
+                return UIColor(red:0.00, green:0.04, blue:0.11, alpha:1.0)
+
     }
     
     static func azure() -> UIColor {
-        return UIColor(red:0.58, green:1.00, blue:1.00, alpha:1.0)
+        return UIColor(red:1.00, green:0.27, blue:0.00, alpha:1.0)
     }
     
     static func silver() -> UIColor {
-        return UIColor(red:0.85, green:0.90, blue:0.93, alpha:1.0)
+        return UIColor(red:0.83, green:0.83, blue:0.83, alpha:1.0)
     }
     
     static func golden() -> UIColor {
-        return UIColor(red:0.93, green:0.93, blue:0.85, alpha:1.0)
+        return UIColor(red:1.00, green:0.98, blue:0.80, alpha:1.0)
     }
     
     static func green() -> UIColor {
-       return UIColor(red:0.00, green:0.85, blue:0.63, alpha:1.0)
+        
+
+        return UIColor(red:0.11, green:0.47, blue:0.11, alpha:1.0)
     }
     
     static func red() -> UIColor {
-        return UIColor(red:0.89, green:0.09, blue:0.09, alpha:1.0)
+        return UIColor(red:0.86, green:0.08, blue:0.24, alpha:1.0)
+    }
+    
+    static func slider() ->UIColor {
+        return UIColor(red:0.42, green:0.73, blue:0.94, alpha:1.0)
     }
 }
