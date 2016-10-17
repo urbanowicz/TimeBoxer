@@ -23,13 +23,16 @@ body {
 
 .tb_avenir_medium {
   font-family: Avenir-Medium;
+  font-family: 'Nunito', sans-serif;
 }
 
 .tb_avenir_medium_oblique {
   font-family: Avenir-MediumOblique;
+  font-family: 'Nunito', sans-serif;
 }
 .tb_avenir_heavy_oblique {
   font-family: Avenir-HeavyOblique;
+  font-family: 'Nunito', sans-serif;
 }
 
 
