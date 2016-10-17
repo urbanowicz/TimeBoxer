@@ -3,7 +3,8 @@
   cursor:;
 }
 .tb_blue_background {
-  background-image: linear-gradient(-180deg, #09062A 0%, #17062A 100%);
+  background-color: #000A1C;
+ /* background-image: linear-gradient(-90deg, #10001C  0%,  #000A1C 100%); */
 }
 body {
   background-repeat: no-repeat;
@@ -14,9 +15,8 @@ body {
 
 
 .tb_silver_color {
-  color: #DAE6ED;
+  color: #EEEEEE;
 }
-
 .tb_avenir_heavy {
   font-family:Avenir-Heavy;
 }
