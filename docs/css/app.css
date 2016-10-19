@@ -4,7 +4,7 @@
 }
 .tb_blue_background {
   background-color: #01081d;
- background-image: linear-gradient(90deg, #30003c  0%,  #000A1C 100%); 
+ /*background-image: linear-gradient(90deg, #000000 0%,  #01081d 100%); */
 }
 body {
   background-repeat: no-repeat;
@@ -15,49 +15,50 @@ body {
 
 
 .tb_silver_color {
+
   color: #EEEEEE;
 }
 .tb_avenir_heavy {
   /*font-family:Avenir-Heavy;*/
-  font-family: 'Lato', 'Nunito', sans-serif;
+  font-family: 'Lato', sans-serif;
 }
 
 .tb_avenir_medium {
   /*font-family: Avenir-Medium; */
-  font-family: 'Lato', 'Nunito', sans-serif;
+  font-family: 'Lato', sans-serif;
 }
 
 .tb_avenir_medium_oblique {
   /*font-family: Avenir-MediumOblique; */
-  font-family: 'Lato', 'Nunito', sans-serif;
+  font-family: 'Lato', sans-serif;
 }
 .tb_avenir_heavy_oblique {
   /*font-family: Avenir-HeavyOblique; */
-  font-family: 'Lato', 'Nunito', sans-serif;
+  font-family: 'Lato', sans-serif;
 }
 
 
 .tb_time_boxer_header {
   margin-top: 1em;
   letter-spacing: 12px;
-  font-size: 81px;
+  font-size: 83px;
 }
 
 .tb_short_description_text {
-  font-size: 16px;
+  font-size: 18px;
   letter-spacing:1.2px;
   margin-bottom: 25px;
 }
 
 .tb_read_more_link {
   letter-spacing: 1.2px;
-  font-size: 16px;
+  font-size: 18px;
   text-decoration: underline;
   cursor: crosshair;
 }
 
 .tb_bullet_point {
-   font-size: 16px;
+   font-size: 18px;
    letter-spacing: 1.2px;
    margin-bottom: 13px;
 }
