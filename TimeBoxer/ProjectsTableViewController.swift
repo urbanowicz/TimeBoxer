@@ -119,8 +119,8 @@ class ProjectsTableViewController: UIViewController, UITableViewDelegate, AddPro
     }
     
     private func setupAppTitleLabel() {
-        let appTitleAttributes = [NSFontAttributeName:UIFont(name: "Avenir-HeavyOblique", size: 19)!, NSKernAttributeName:2.5]
-        let appTitleString = NSAttributedString(string: "OPUS", attributes: appTitleAttributes)
+        let appTitleAttributes = [NSFontAttributeName:UIFont(name: "Avenir-Light", size: 19)!, NSKernAttributeName:2.9]
+        let appTitleString = NSAttributedString(string: "Time Boxer", attributes: appTitleAttributes)
         timeBoxerLabel.attributedText = appTitleString
         timeBoxerLabel.textColor = Colors.slider()
     }
