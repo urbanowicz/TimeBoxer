@@ -67,7 +67,6 @@
 		F1981BA31C84E61700F49454 /* MinutesToStringConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1981BA11C84E61700F49454 /* MinutesToStringConverter.swift */; };
 		F19AD1341D6C339D007757C7 /* ScrollingCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F19AD1331D6C339D007757C7 /* ScrollingCellDelegate.swift */; };
 		F1A0BC701C4E63FC0075ACCF /* MyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A0BC6F1C4E63FC0075ACCF /* MyTableViewCell.swift */; };
-		F1A38FF01DC0E95700C74C09 /* WalkthroughViewControllerOld.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A38FEF1DC0E95700C74C09 /* WalkthroughViewControllerOld.swift */; };
 		F1A558431D8AF51D003B07CC /* SettingModifierDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A558421D8AF51D003B07CC /* SettingModifierDelegate.swift */; };
 		F1A6053D1C8212CD008EF288 /* BigSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A6053C1C8212CD008EF288 /* BigSlider.swift */; };
 		F1A802501D89487D00C56E5F /* ProjectSettingsPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A8024F1D89487D00C56E5F /* ProjectSettingsPageViewController.swift */; };
@@ -86,6 +85,8 @@
 		F1B9A5651D5604A800932F90 /* CalendarHeatMapDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1B9A5641D5604A800932F90 /* CalendarHeatMapDelegate.swift */; };
 		F1B9DC6C1DC4B100004BD01C /* WalkThroughViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1B9DC6B1DC4B100004BD01C /* WalkThroughViewController.swift */; };
 		F1B9DC6E1DC4B1E4004BD01C /* WalkthroughSlideViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1B9DC6D1DC4B1E4004BD01C /* WalkthroughSlideViewController.swift */; };
+		F1B9DC701DC4B5F0004BD01C /* LastSlideViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1B9DC6F1DC4B5F0004BD01C /* LastSlideViewController.swift */; };
+		F1B9DC721DC4BBD3004BD01C /* LastSlideDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1B9DC711DC4BBD3004BD01C /* LastSlideDelegate.swift */; };
 		F1BA0B2E1D50580F00C35AB0 /* HeatMapCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BA0B2D1D50580F00C35AB0 /* HeatMapCell.swift */; };
 		F1BF117B1D5F915300FC45A5 /* ImprovedContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BF117A1D5F915300FC45A5 /* ImprovedContainerViewController.swift */; };
 		F1C3CBF01D3D2A9A00D78D07 /* pop.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1C3CBE21D3D28BA00D78D07 /* pop.framework */; };
@@ -243,7 +244,6 @@
 		F1981BA11C84E61700F49454 /* MinutesToStringConverter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MinutesToStringConverter.swift; sourceTree = "<group>"; };
 		F19AD1331D6C339D007757C7 /* ScrollingCellDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScrollingCellDelegate.swift; sourceTree = "<group>"; };
 		F1A0BC6F1C4E63FC0075ACCF /* MyTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyTableViewCell.swift; sourceTree = "<group>"; };
-		F1A38FEF1DC0E95700C74C09 /* WalkthroughViewControllerOld.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WalkthroughViewControllerOld.swift; sourceTree = "<group>"; };
 		F1A558421D8AF51D003B07CC /* SettingModifierDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingModifierDelegate.swift; sourceTree = "<group>"; };
 		F1A6053C1C8212CD008EF288 /* BigSlider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BigSlider.swift; sourceTree = "<group>"; };
 		F1A8024F1D89487D00C56E5F /* ProjectSettingsPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectSettingsPageViewController.swift; sourceTree = "<group>"; };
@@ -261,6 +261,8 @@
 		F1B9A5641D5604A800932F90 /* CalendarHeatMapDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarHeatMapDelegate.swift; sourceTree = "<group>"; };
 		F1B9DC6B1DC4B100004BD01C /* WalkThroughViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WalkThroughViewController.swift; sourceTree = "<group>"; };
 		F1B9DC6D1DC4B1E4004BD01C /* WalkthroughSlideViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WalkthroughSlideViewController.swift; sourceTree = "<group>"; };
+		F1B9DC6F1DC4B5F0004BD01C /* LastSlideViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LastSlideViewController.swift; sourceTree = "<group>"; };
+		F1B9DC711DC4BBD3004BD01C /* LastSlideDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LastSlideDelegate.swift; sourceTree = "<group>"; };
 		F1BA0B2D1D50580F00C35AB0 /* HeatMapCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeatMapCell.swift; sourceTree = "<group>"; };
 		F1BF117A1D5F915300FC45A5 /* ImprovedContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImprovedContainerViewController.swift; sourceTree = "<group>"; };
 		F1C3CBD51D3D28BA00D78D07 /* pop.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = pop.xcodeproj; path = "Library/pop-master/pop.xcodeproj"; sourceTree = "<group>"; };
@@ -475,9 +477,10 @@
 		F1A38FE81DC0E92B00C74C09 /* Walkthrough */ = {
 			isa = PBXGroup;
 			children = (
-				F1A38FEF1DC0E95700C74C09 /* WalkthroughViewControllerOld.swift */,
 				F1B9DC6B1DC4B100004BD01C /* WalkThroughViewController.swift */,
 				F1B9DC6D1DC4B1E4004BD01C /* WalkthroughSlideViewController.swift */,
+				F1B9DC6F1DC4B5F0004BD01C /* LastSlideViewController.swift */,
+				F1B9DC711DC4BBD3004BD01C /* LastSlideDelegate.swift */,
 			);
 			name = Walkthrough;
 			sourceTree = "<group>";
@@ -796,7 +799,6 @@
 				F1F9178D1D4B65DC008A8D60 /* MonthHeatMapView.swift in Sources */,
 				F137CD561C5D361B0005B51C /* ProjectsDAO.swift in Sources */,
 				F19AD1341D6C339D007757C7 /* ScrollingCellDelegate.swift in Sources */,
-				F1A38FF01DC0E95700C74C09 /* WalkthroughViewControllerOld.swift in Sources */,
 				F10B851A1C384E23002C66F2 /* Animator.swift in Sources */,
 				F185A09E1CBAB2BF0067775D /* TimeLabelTextFormatter.swift in Sources */,
 				F1FC9AD61C3ED86F002A9F31 /* AddProjectViewController.swift in Sources */,
@@ -819,6 +821,7 @@
 				F119251F1C8CB2F7002BEAC2 /* AddProjectToProjectsTableDismissAnimator.swift in Sources */,
 				F11D5B9F1C42AD32007F2622 /* AddButton.swift in Sources */,
 				F18C2AD81C873A9A004A7B72 /* TimerDoneViewController.swift in Sources */,
+				F1B9DC721DC4BBD3004BD01C /* LastSlideDelegate.swift in Sources */,
 				F1A802501D89487D00C56E5F /* ProjectSettingsPageViewController.swift in Sources */,
 				F137E96E1C41994A0064E15F /* ColorName.swift in Sources */,
 				F1981BA21C84E61700F49454 /* MinutesToStringConverter.swift in Sources */,
@@ -847,6 +850,7 @@
 				F1FC9AD91C3EE0CC002A9F31 /* ProjectsTableViewController.swift in Sources */,
 				F1F36AD01C875F770039EF0B /* OKButton.swift in Sources */,
 				F182DE671D8ABBC7008CCB43 /* ProjectSettingsPageDelegate.swift in Sources */,
+				F1B9DC701DC4B5F0004BD01C /* LastSlideViewController.swift in Sources */,
 				F1B9A5651D5604A800932F90 /* CalendarHeatMapDelegate.swift in Sources */,
 				F1EF4F471D757C2200F066BC /* SetDailyGoalViewController.swift in Sources */,
 				F1EF4F491D757DEA00F066BC /* AddProjectPageDelegate.swift in Sources */,

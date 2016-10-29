@@ -2,23 +2,26 @@
 //  WalkthroughViewController.swift
 //  Walkthrough
 //
-//  Created by Tomasz on 13/10/16.
-//  Copyright © 2016 Tomasz. All rights reserved.
+//  Created by Tomasz Urbanowicz on 13/10/16.
+//  Copyright © 2016 Tomasz Urbanowicz. All rights reserved.
 //
 
 import UIKit
 
-class WalkthroughViewController: UIPageViewController,UIPageViewControllerDataSource {
+class WalkthroughViewController: UIPageViewController,UIPageViewControllerDataSource, LastSlideDelegate {
     var slides = [UIViewController]()
     var numberOfSlides = 8
     var currentSlide = 0
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        for i in 1...numberOfSlides {
+        for i in 1...numberOfSlides - 1 {
             let slideVC = WalkthroughSlideViewController(slideName: "slide\(i)")
             slides.append(slideVC)
         }
+        let lastSlideVC = LastSlideViewController(slideName: "slide\(numberOfSlides)")
+        lastSlideVC.delegate = self
+        slides.append(lastSlideVC)
         
         dataSource = self
         setViewControllers([slides.first!], direction: .Forward, animated: true, completion: nil)
@@ -60,5 +63,10 @@ class WalkthroughViewController: UIPageViewController,UIPageViewControllerDataSo
     //    func presentationIndexForPageViewController(pageViewController: UIPageViewController) -> Int {
     //        return currentSlide
     //    }
+    
+    func okButtonPressed() {
+        let containerVC = parentViewController as! ImprovedContainerViewController
+        containerVC.popViewController(FadeInAnimator())
+    }
 }
 

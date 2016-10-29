@@ -10,7 +10,7 @@ import UIKit
 
 class WalkthroughSlideViewController: UIViewController {
     
-    private var imageView: UIImageView!
+    var imageView: UIImageView!
     var slideName:String!
     
     convenience init(slideName: String) {
