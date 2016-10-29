@@ -13,6 +13,7 @@ class ImprovedContainerViewController: UIViewController, ScrollingCellDelegate, 
     private var projectStatsVC: ProjectStatsViewController!
     private var projectsTableVC: ProjectsTableViewController!
     private var timeSliderVC: TimeSliderViewController!
+    private var walkthroughVC: WalkthroughViewController?
     private var scrollView: UIScrollView!
     
     private var lastSelectedCell:MyTableViewCell?
@@ -34,6 +35,11 @@ class ImprovedContainerViewController: UIViewController, ScrollingCellDelegate, 
         setupChildController(projectStatsVC, withSize: screenSize, origin: CGPointMake(0, 0))
         setupChildController(projectsTableVC, withSize: screenSize, origin:CGPointMake(screenSize.width,0))
         setupChildController(timeSliderVC, withSize: screenSize, origin: CGPointMake(2*screenSize.width,0))
+        
+        //if first time launch {
+        walkthroughVC =
+            storyboard?.instantiateViewControllerWithIdentifier("walkthroughViewController") as? WalkthroughViewController
+        pushViewController(walkthroughVC!, animator: nil)
     }
     
     private func setupScrollView() {

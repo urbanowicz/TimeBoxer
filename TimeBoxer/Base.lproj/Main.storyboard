@@ -75,6 +75,14 @@
             </objects>
             <point key="canvasLocation" x="-765" y="-574"/>
         </scene>
+        <!--Walkthrough View Controller-->
+        <scene sceneID="Sc1-cD-oj1">
+            <objects>
+                <pageViewController storyboardIdentifier="walkthroughViewController" autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="TIY-ef-qYN" customClass="WalkthroughViewController" customModule="TimeBoxer" customModuleProvider="target" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CGs-pZ-dGR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-816" y="310"/>
+        </scene>
         <!--Improved Container View Controller-->
         <scene sceneID="SNI-pH-kmp">
             <objects>
