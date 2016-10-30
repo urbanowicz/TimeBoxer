@@ -15,6 +15,14 @@ class WalkthroughViewController: UIPageViewController,UIPageViewControllerDataSo
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //setup background view
+        let backgroundView = UIView()
+        backgroundView.backgroundColor = UIColor(red:0.00, green:0.03, blue:0.09, alpha:1.0)
+        let screenWidth = UIScreen.mainScreen().bounds.size.width
+        let screenHeight = UIScreen.mainScreen().bounds.size.height
+        backgroundView.frame = CGRectMake(0, 0, screenWidth, screenHeight)
+        view.insertSubview(backgroundView, atIndex: 0)
+        
         for i in 1...numberOfSlides - 1 {
             let slideVC = WalkthroughSlideViewController(slideName: "slide\(i)")
             slides.append(slideVC)
