@@ -2,8 +2,8 @@
 //  FadeInAnimator.swift
 //  TimeBoxer
 //
-//  Created by Tomasz on 04/03/16.
-//  Copyright © 2016 Tomasz. All rights reserved.
+//  Created by Tomasz Urbanowicz on 04/03/16.
+//  Copyright © 2016 Tomasz Urbanowicz. All rights reserved.
 //
 
 import UIKit

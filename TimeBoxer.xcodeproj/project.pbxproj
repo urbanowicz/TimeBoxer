@@ -22,6 +22,7 @@
 		F12C5D8C1C46FA450040969F /* KeyboardNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = F12C5D8B1C46FA450040969F /* KeyboardNotification.swift */; };
 		F12E2C6E1CA84A8C008DA69C /* NSCalendarExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F19133541CA8478900CED170 /* NSCalendarExtension.swift */; };
 		F12E2C6F1CA84A90008DA69C /* NSDateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F19133521CA844DD00CED170 /* NSDateExtension.swift */; };
+		F132438D1DC6515E00C63688 /* SlideUpAndDownAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F132438C1DC6515E00C63688 /* SlideUpAndDownAnimator.swift */; };
 		F135A8361BE4C9F50079C9BB /* StartButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F135A8351BE4C9F50079C9BB /* StartButton.swift */; };
 		F137CD561C5D361B0005B51C /* ProjectsDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = F137CD551C5D361B0005B51C /* ProjectsDAO.swift */; };
 		F137E96E1C41994A0064E15F /* ColorName.swift in Sources */ = {isa = PBXBuildFile; fileRef = F137E96D1C41994A0064E15F /* ColorName.swift */; };
@@ -202,6 +203,7 @@
 		F120A18E1D76C33F00DC9E15 /* AddProjectTrainDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddProjectTrainDelegate.swift; sourceTree = "<group>"; };
 		F125D7D11C28496700B94849 /* CirclePathWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CirclePathWrapper.swift; sourceTree = "<group>"; };
 		F12C5D8B1C46FA450040969F /* KeyboardNotification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardNotification.swift; sourceTree = "<group>"; };
+		F132438C1DC6515E00C63688 /* SlideUpAndDownAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlideUpAndDownAnimator.swift; sourceTree = "<group>"; };
 		F135A8351BE4C9F50079C9BB /* StartButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartButton.swift; sourceTree = "<group>"; };
 		F137CD551C5D361B0005B51C /* ProjectsDAO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectsDAO.swift; sourceTree = "<group>"; };
 		F137E96D1C41994A0064E15F /* ColorName.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorName.swift; sourceTree = "<group>"; };
@@ -328,6 +330,7 @@
 				F125D7D11C28496700B94849 /* CirclePathWrapper.swift */,
 				F188DA6E1C898890000E8AD2 /* ShrinkingCircleAnimator.swift */,
 				F17F17B61C899A72003C04AC /* FadeInAnimator.swift */,
+				F132438C1DC6515E00C63688 /* SlideUpAndDownAnimator.swift */,
 			);
 			name = Animators;
 			sourceTree = "<group>";
@@ -845,6 +848,7 @@
 				F18284211D4CC50100651674 /* UIGestureRecognizerExtension.swift in Sources */,
 				F1A95C041C6BD49000EF5204 /* LastWorkedOnDateFormatter.swift in Sources */,
 				F1D2444C1BDFF8320023B994 /* TimerRunningViewController.swift in Sources */,
+				F132438D1DC6515E00C63688 /* SlideUpAndDownAnimator.swift in Sources */,
 				F1A0BC701C4E63FC0075ACCF /* MyTableViewCell.swift in Sources */,
 				F14F13051BEA83660045936F /* AbstractOvalButton.swift in Sources */,
 				F1FC9AD91C3EE0CC002A9F31 /* ProjectsTableViewController.swift in Sources */,

@@ -66,7 +66,7 @@ class WalkthroughViewController: UIPageViewController,UIPageViewControllerDataSo
     
     func okButtonPressed() {
         let containerVC = parentViewController as! ImprovedContainerViewController
-        containerVC.popViewController(FadeInAnimator())
+        containerVC.popViewController(SlideUpAndDownAnimator())
     }
 }
 

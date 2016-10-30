@@ -55,8 +55,8 @@ class ProjectStatsViewController: UIViewController, CalendarHeatMapDelegate {
     
     private func setupCalendarHeatMap() {
         calendarHeatMap.backgroundColor = Colors.almostBlack()
-        let calendarHeatMapDataSource = DummyCalendarHeatMapDataSource() //ProjectBasedCalendarHeatMapDataSource()
-        //calendarHeatMapDataSource.project = project
+        let calendarHeatMapDataSource = ProjectBasedCalendarHeatMapDataSource()
+        calendarHeatMapDataSource.project = project
         calendarHeatMap.dataSource = calendarHeatMapDataSource
         calendarHeatMap.delegate = self
     }

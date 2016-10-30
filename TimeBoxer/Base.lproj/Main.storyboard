@@ -81,7 +81,7 @@
                 <pageViewController storyboardIdentifier="walkthroughViewController" autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="TIY-ef-qYN" customClass="WalkthroughViewController" customModule="TimeBoxer" customModuleProvider="target" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CGs-pZ-dGR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-816" y="310"/>
+            <point key="canvasLocation" x="-909" y="388"/>
         </scene>
         <!--Improved Container View Controller-->
         <scene sceneID="SNI-pH-kmp">

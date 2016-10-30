@@ -36,10 +36,18 @@ class ImprovedContainerViewController: UIViewController, ScrollingCellDelegate, 
         setupChildController(projectsTableVC, withSize: screenSize, origin:CGPointMake(screenSize.width,0))
         setupChildController(timeSliderVC, withSize: screenSize, origin: CGPointMake(2*screenSize.width,0))
         
-        //if first time launch {
-        walkthroughVC =
-            storyboard?.instantiateViewControllerWithIdentifier("walkthroughViewController") as? WalkthroughViewController
-        pushViewController(walkthroughVC!, animator: nil)
+        let launchedBefore = NSUserDefaults.standardUserDefaults().boolForKey("launchedBefore")
+        if launchedBefore  {
+            print("Not first launch.")
+        }
+        else {
+            print("First launch, setting NSUserDefault.")
+            walkthroughVC =
+                storyboard?.instantiateViewControllerWithIdentifier("walkthroughViewController") as? WalkthroughViewController
+            pushViewController(walkthroughVC!, animator: nil)
+            NSUserDefaults.standardUserDefaults().setBool(true, forKey: "launchedBefore")
+        }
+
     }
     
     private func setupScrollView() {
