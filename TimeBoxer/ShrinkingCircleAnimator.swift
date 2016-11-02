@@ -9,7 +9,7 @@
 import UIKit
 
 
-class ShrinkingCircleAnimator:NSObject, Animator {
+class ShrinkingCircleAnimator:NSObject, Animator, CAAnimationDelegate {
     let transitionDuration = 0.25
     var fromVC:UIViewController?
     var toVC:UIViewController?
@@ -45,7 +45,7 @@ class ShrinkingCircleAnimator:NSObject, Animator {
     }
     
     
-    override func animationDidStop(anim: CAAnimation, finished flag: Bool)
+    @objc func animationDidStop(anim: CAAnimation, finished flag: Bool)
     {
         //Done with the animation. Do the cleanup.
         fromVC!.view.removeFromSuperview()

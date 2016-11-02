@@ -131,7 +131,7 @@ class TimeSliderViewController: UIViewController {
 //MARK: - ToTimerRunningAnimator
 //
 
-private class ToTimerRunningAnimator:NSObject, Animator {
+private class ToTimerRunningAnimator:NSObject, Animator, CAAnimationDelegate {
     let transitionDuration = 0.5
     var timeSliderVC:TimeSliderViewController?
     var timerRunningVC:TimerRunningViewController?
@@ -162,7 +162,7 @@ private class ToTimerRunningAnimator:NSObject, Animator {
         
     }
 //----------------------------------------------------------------------------------------------------------------------
-    override func animationDidStop(anim: CAAnimation, finished flag: Bool) {
+    @objc func animationDidStop(anim: CAAnimation, finished flag: Bool) {
         animationCounter += 1
         if animationCounter == 1 {
             //Done with the expanding circle animation. Prepare the next stage.

@@ -15,7 +15,7 @@ class TickButton: UIControl {
         let frame = rect
         
         //// General Declarations
-        let context = UIGraphicsGetCurrentContext()
+        let context = UIGraphicsGetCurrentContext()!
         
         //// Group
         //// Rectangle Drawing

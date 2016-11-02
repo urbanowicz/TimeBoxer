@@ -1014,10 +1014,11 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "-lc++";
-				PRODUCT_BUNDLE_IDENTIFIER = co.timeboxer.TimeBoxer;
+				PRODUCT_BUNDLE_IDENTIFIER = tomaszurbanowicz.yatt;
 				PRODUCT_NAME = TimeBoxer;
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = TimeBoxer/PopBridge.h;
+				SWIFT_VERSION = 2.3;
 			};
 			name = Debug;
 		};
@@ -1032,10 +1033,11 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "-lc++";
-				PRODUCT_BUNDLE_IDENTIFIER = co.timeboxer.TimeBoxer;
+				PRODUCT_BUNDLE_IDENTIFIER = tomaszurbanowicz.yatt;
 				PRODUCT_NAME = TimeBoxer;
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = TimeBoxer/PopBridge.h;
+				SWIFT_VERSION = 2.3;
 			};
 			name = Release;
 		};
@@ -1047,6 +1049,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.example.TimeBoxer-Tests";
 				PRODUCT_NAME = TimeBoxer;
+				SWIFT_VERSION = 2.3;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TimeBoxer.app/TimeBoxer";
 			};
 			name = Debug;
@@ -1059,6 +1062,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.example.TimeBoxer-Tests";
 				PRODUCT_NAME = TimeBoxer;
+				SWIFT_VERSION = 2.3;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TimeBoxer.app/TimeBoxer";
 			};
 			name = Release;
