@@ -55,7 +55,11 @@ class DeleteProjectViewController: UIViewController {
         let attrProjectName = NSAttributedString(string: project.name, attributes: [NSFontAttributeName: UIFont(name:"Avenir-MediumOblique", size:16)!,
             NSForegroundColorAttributeName: Colors.silver().withAlpha(0.7)])
         
+        let attrQuestionMark = NSMutableAttributedString(string: "?", attributes: [NSFontAttributeName: UIFont(name:"Avenir-Medium", size: 16)!,
+            NSForegroundColorAttributeName: Colors.silver().withAlpha(0.7)])
+        
         attrConfirmationString.appendAttributedString(attrProjectName)
+        attrConfirmationString.appendAttributedString(attrQuestionMark)
 
         deleteConfirmationLabel.numberOfLines = 0
         deleteConfirmationLabel.backgroundColor = Colors.almostBlack()
