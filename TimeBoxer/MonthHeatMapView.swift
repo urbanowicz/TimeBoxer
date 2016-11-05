@@ -106,15 +106,6 @@ class MonthHeatMapView: UIView, UIGestureRecognizerDelegate {
         doBasicInit()
     }
     
-    convenience init(fromComponents components:NSDateComponents) {
-        self.init(year: components.year, month: components.month, day: components.day)
-    }
-    
-    convenience init(fromDate date:NSDate) {
-        let calendar = NSCalendar.gmtCalendar()
-        self.init(fromComponents: calendar.components(NSCalendarUnit.Year.union(NSCalendarUnit.Month).union(NSCalendarUnit.Day), fromDate: date))
-    }
-    
     override init(frame: CGRect) {
         super.init(frame: frame)
     }
@@ -125,7 +116,6 @@ class MonthHeatMapView: UIView, UIGestureRecognizerDelegate {
     
     private func doBasicInit() {
         computeCellSize()
-        setupCurrentDate()
         setupMonthNameLabel()
         setupYearLabel()
         setupDayNames()
@@ -134,16 +124,7 @@ class MonthHeatMapView: UIView, UIGestureRecognizerDelegate {
         setupHoursWorkedLabel()
         setupTapGestureRecognizer()
     }
-    
-    //MARK: setting up elements
-    private func setupCurrentDate() {
-        if (year == 0 || month == 0 || day == 0) {
-            let todayComponents = calendar.components(NSCalendarUnit.Year.union(NSCalendarUnit.Month).union(NSCalendarUnit.Day), fromDate: NSDate())
-            year = todayComponents.year
-            month = todayComponents.month
-            day = todayComponents.day
-        }
-    }
+
     
     private func setupCurrentDateLabel() {
         let formatter = NSDateFormatter()
@@ -258,7 +239,8 @@ class MonthHeatMapView: UIView, UIGestureRecognizerDelegate {
         }
         
         if cell.active {
-            let totalSeconds = dataSource!.totalSeconds(withDate: cell.date)
+            
+            let totalSeconds = dataSource!.totalSeconds(cell.year, month: cell.month, day: cell.day)
             let workTimeFormatter = WorkTimeFormatter()
             updateText(workTimeFormatter.formatLong(totalSeconds))
             hoursWorkedLabel.alpha = 1.0
@@ -404,17 +386,47 @@ class MonthHeatMapView: UIView, UIGestureRecognizerDelegate {
     
     
     func refreshHeatMap() {
+        
         //mark cells as active or inactive. Inactive are the ones in the future and before the start date
+        let localCalendar = NSCalendar.currentCalendar()
+        let calendarUsedWhenProjectWasStarted = NSCalendar.currentCalendar()
+        calendarUsedWhenProjectWasStarted.timeZone = dataSource!.startDateTimeZone()
+        //start date expressed in the time zone in which the project was started
+         let startDateComps = calendarUsedWhenProjectWasStarted.components(NSCalendarUnit.Day.union(NSCalendarUnit.Month).union(NSCalendarUnit.Year), fromDate: dataSource!.startDate())
+    
+
+        //current date and time expressed in the current time zone
+        let nowComps = localCalendar.components(NSCalendarUnit.Day.union(NSCalendarUnit.Month).union(NSCalendarUnit.Year), fromDate: NSDate())
         for dayNumberCell in dayNumbers {
-            let dayNumberDate = calendar.createDate(withYear: year, month: month, day: dayNumberCell.getDayNumber())!
-            let today = NSDate()
-            if dayNumberDate.isBefore(anotherDate: dataSource!.startDate(), granularity: .Day) ||
-                dayNumberDate.isAfter(anotherDate: today, granularity: .Day){
-                dayNumberCell.active = false
+            let dayNumber = dayNumberCell.getDayNumber()
+            let startDate = localCalendar.dateFromComponents(startDateComps)!
+            let nowDate = localCalendar.dateFromComponents(nowComps)!
+            let currentDayComps = NSDateComponents()
+            currentDayComps.year = year
+            currentDayComps.month = month
+            currentDayComps.day = dayNumber
+            let currentDay = localCalendar.dateFromComponents(currentDayComps)!
+            var isAfterStartDate = true
+            var comparisonResult = localCalendar.compareDate(startDate, toDate: currentDay, toUnitGranularity: .Day)
+            if (comparisonResult == NSComparisonResult.OrderedSame || comparisonResult == NSComparisonResult.OrderedAscending) {
+                isAfterStartDate = true
             } else {
-                dayNumberCell.active = true
-                dayNumberCell.heat = dataSource!.heat(withDate: dayNumberDate)
+                isAfterStartDate = false
             }
+            
+            comparisonResult = localCalendar.compareDate(currentDay, toDate: nowDate, toUnitGranularity: .Day )
+            var isBeforeNow = true
+            if (comparisonResult == NSComparisonResult.OrderedSame || comparisonResult == NSComparisonResult.OrderedAscending) {
+                isBeforeNow = true
+            } else {
+                isBeforeNow = false
+            }
+            if isAfterStartDate && isBeforeNow {
+                dayNumberCell.active = true
+                dayNumberCell.heat = dataSource!.heat(year, month: month, day: dayNumber)
+            } else {
+                dayNumberCell.active = false
+             }
         }
         
         updateHoursWorkedLabel(forCell: currentHeatMapCell!)

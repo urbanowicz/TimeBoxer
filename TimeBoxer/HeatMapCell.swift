@@ -10,30 +10,12 @@ import UIKit
 
 class HeatMapCell: UIView {
     
-    private var year = 0
-    private var month = 0
-    private var day = 0
+    var year = 0
+    var month = 0
+    var day = 0
     
     let dayNumberFont = UIFont(name: "Menlo-Regular", size: 12)
     let fontColor = Colors.silver()
-    
-    var date:NSDate {
-        get {
-            let calendar = NSCalendar.gmtCalendar()
-            let components = NSDateComponents()
-            components.day = day
-            components.month = month
-            components.year = year
-            return calendar.dateFromComponents(components)!
-        }
-    }
-    
-    var isInFuture:Bool {
-        get {
-            let today = NSDate()
-            return date.isAfter(anotherDate: today, granularity: NSCalendarUnit.Day)
-        }
-    }
 
     let dayNumberLabel:UILabel = UILabel()
     

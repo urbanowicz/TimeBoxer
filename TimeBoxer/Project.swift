@@ -11,6 +11,7 @@ import UIKit
 class Project: NSObject, NSCoding, NSCopying {
     let projectNameKey = "projectNameKey"
     let startDateKey = "startDateKey"
+    let startDateTimeZoneKey = "startDateTimeZoneKey"
     //let projectStateKey = "projectStateKey"
     let endDateKey = "endDateKey"
     let workChunksKey = "workChunksKey"
@@ -19,13 +20,23 @@ class Project: NSObject, NSCoding, NSCopying {
     var name:String
     var dailyGoalSeconds:Int
     var startDate:NSDate
+    var startDateTimeZone:NSTimeZone
     //var state:ProjectState
     var endDate:NSDate?
     var workChunks = [WorkChunk]()
     
-    init(projectName:String, startDate:NSDate, dailyGoalSeconds:Int) {
+    init(projectName:String, dailyGoalSeconds:Int) {
+        self.name = projectName
+        self.startDate = NSDate()
+        self.startDateTimeZone = NSCalendar.currentCalendar().timeZone
+        self.endDate = nil
+        self.dailyGoalSeconds = dailyGoalSeconds
+    }
+    
+    init(projectName:String, startDate:NSDate, startDateTimeZone:NSTimeZone, dailyGoalSeconds:Int) {
         self.name = projectName
         self.startDate = startDate
+        self.startDateTimeZone = startDateTimeZone
         self.endDate = nil
         self.dailyGoalSeconds = dailyGoalSeconds
     }
@@ -33,6 +44,7 @@ class Project: NSObject, NSCoding, NSCopying {
     required init(coder aDecoder: NSCoder) {
         name = aDecoder.decodeObjectForKey(projectNameKey) as! String
         startDate = aDecoder.decodeObjectForKey(startDateKey) as! NSDate
+        startDateTimeZone = aDecoder.decodeObjectForKey(startDateTimeZoneKey) as! NSTimeZone
         endDate = aDecoder.decodeObjectForKey(endDateKey) as? NSDate
         if let dailyGoal = aDecoder.decodeObjectForKey(dailyGoalKey) as? Int {
             dailyGoalSeconds = dailyGoal
@@ -45,6 +57,7 @@ class Project: NSObject, NSCoding, NSCopying {
     func encodeWithCoder(aCoder: NSCoder) {
         aCoder.encodeObject(name, forKey: projectNameKey)
         aCoder.encodeObject(startDate, forKey: startDateKey)
+        aCoder.encodeObject(startDateTimeZone, forKey: startDateTimeZoneKey)
         //aCoder.encodeObject(state, forKey: projectStateKey)
         aCoder.encodeObject(endDate, forKey: endDateKey)
         aCoder.encodeObject(workChunks, forKey:workChunksKey)
@@ -52,7 +65,7 @@ class Project: NSObject, NSCoding, NSCopying {
     }
     
     func copyWithZone(zone: NSZone) -> AnyObject {
-        let copy = Project(projectName: name, startDate: startDate, dailyGoalSeconds: dailyGoalSeconds)
+        let copy = Project(projectName: name, startDate: startDate,startDateTimeZone: startDateTimeZone ,dailyGoalSeconds: dailyGoalSeconds)
         copy.endDate = endDate
         var newWorkChunks = Array<WorkChunk>()
         for workChunk in workChunks {
@@ -63,23 +76,14 @@ class Project: NSObject, NSCoding, NSCopying {
     }
 //MARK:Recording work time
     func recordWork(durationInSeconds:Int) {
-        let workChunk = WorkChunk(date:NSDate(), durationInSeconds: durationInSeconds)
+        let localCalendar = NSCalendar.currentCalendar()
+        let workChunk = WorkChunk(date:NSDate(), timeZone: localCalendar.timeZone, durationInSeconds: durationInSeconds)
         workChunks.append(workChunk)
     }
     
 //MARK: Stats about the project
     func startedOn() -> NSDate {
         return startDate
-    }
-    
-    func daysSinceStart() -> Int {
-        ///returns number of days in the project including today
-        let now = NSDate()
-        let calendar = NSCalendar.gmtCalendar()
-        let dayDifference =
-            calendar.components(NSCalendarUnit.Day, fromDate: startDate, toDate: now, options: NSCalendarOptions())
-        let daysSinceStart = dayDifference.day + 1 //beacuase I want to include today in the sum
-        return daysSinceStart
     }
     
     func totalSeconds() -> Int {
@@ -91,8 +95,8 @@ class Project: NSObject, NSCoding, NSCopying {
         return totalSeconds
     }
     
-    func totalSeconds(withDate date:NSDate) -> Int {
-        let workChunks = workChunksWithDate(date)
+    func totalSeconds(year: Int, month: Int, day: Int) -> Int {
+        let workChunks = workChunksWithDate(year, month: month, day: day)
         var total = 0
         for workChunk in workChunks {
             total += workChunk.duration
@@ -100,27 +104,45 @@ class Project: NSObject, NSCoding, NSCopying {
         return total
     }
     
-    func lastWrokedOn() -> NSDate? {
-        ///returns the Date and Time that this project was last worked on
-        ///or nil if it hasn't been worked on yet
-        let mostRecentWorkChunk = workChunks.last
-        return mostRecentWorkChunk?.date
-    }
     
-    func workChunksWithDate(date:NSDate) ->[WorkChunk] {
-        let calendar = NSCalendar.gmtCalendar()
+    func workChunksWithDate(year: Int, month: Int, day: Int) ->[WorkChunk] {
         var result = [WorkChunk]()
-        var comparisonResult = NSComparisonResult.OrderedDescending
         for i in 0 ..< workChunks.count {
             let workChunkDate = workChunks[i].date
-            comparisonResult = calendar.compareDate(workChunkDate, toDate: date, toUnitGranularity: .Day)
-            if comparisonResult == NSComparisonResult.OrderedSame {
+            let timeZone = workChunks[i].timeZone
+            let calendar = NSCalendar.currentCalendar()
+            calendar.timeZone = timeZone
+            let comps = calendar.components(NSCalendarUnit.Year.union(.Month).union(.Day), fromDate: workChunkDate)
+            if comps.year == year && comps.month == month && comps.day == day {
                 result.append(workChunks[i])
             }
-            if comparisonResult == NSComparisonResult.OrderedDescending {
+            var shouldStop = false
+            if comps.year > year {
+                shouldStop = true
+            } else {
+                if comps.year < year {
+                    shouldStop = false
+                } else {
+                    //same year
+                    if comps.month > month {
+                        shouldStop = true
+                    } else {
+                        if comps.month < month {
+                            shouldStop = false
+                        } else {
+                            //same year and month 
+                            if comps.day > day {
+                                shouldStop = true
+                            } else {
+                                shouldStop = false
+                            }
+                        }
+                    }
+                }
+            }
+            if shouldStop {
                 break
             }
-            
         }
         return result
     }

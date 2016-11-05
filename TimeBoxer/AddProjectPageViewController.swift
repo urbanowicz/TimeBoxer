@@ -55,7 +55,7 @@ class AddProjectPageViewController: UIPageViewController, AddProjectPageDelegate
     }
     func didSetDailyGoal(dailyGoalSeconds: Int) {
         self.dailyGoalSeconds = dailyGoalSeconds
-        let newProject = Project(projectName: self.projectName!, startDate: NSDate(), dailyGoalSeconds: dailyGoalSeconds)
+        let newProject = Project(projectName: self.projectName!, dailyGoalSeconds: dailyGoalSeconds)
         trainDelegate?.didAddNewProject(newProject)
     }
     

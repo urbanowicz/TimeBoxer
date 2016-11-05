@@ -1,4 +1,6 @@
 
 import UIKit
 
-let now = NSDate()
+let now = Date()
+
+

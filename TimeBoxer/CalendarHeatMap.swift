@@ -11,9 +11,6 @@ import UIKit
 class CalendarHeatMap: UIView, UIGestureRecognizerDelegate, POPAnimationDelegate {
     
     var delegate:CalendarHeatMapDelegate?
-    
-    private let calendar = NSCalendar.gmtCalendar()
-    
     var dataSource:CalendarHeatMapDataSource? {
         didSet {
             previousMonth?.dataSource = dataSource
@@ -51,24 +48,39 @@ class CalendarHeatMap: UIView, UIGestureRecognizerDelegate, POPAnimationDelegate
     }
     
     private func doBasicInit() {
+        func dayMonthYear(fromDate: NSDate, withTimeZone:NSTimeZone) -> NSDateComponents {
+            let calendar = NSCalendar.currentCalendar()
+            calendar.timeZone = withTimeZone
+            let comps = calendar.components(NSCalendarUnit.Day.union(NSCalendarUnit.Month).union(NSCalendarUnit.Year).union(.Hour), fromDate: fromDate)
+            return comps
+        }
         
-        let today = NSDate()
+        let localCalendar = NSCalendar.currentCalendar()
+        let todayComps = dayMonthYear(NSDate(), withTimeZone: localCalendar.timeZone)
+        let firstDayOfTheMonthComps = NSDateComponents()
+        firstDayOfTheMonthComps.year = todayComps.year
+        firstDayOfTheMonthComps.month = todayComps.month
+        firstDayOfTheMonthComps.day = 1
+        let firstDayOfTheMonth = localCalendar.dateFromComponents(firstDayOfTheMonthComps)!
+        let firstDayOfNextMonth = localCalendar.dateByAddingUnit(NSCalendarUnit.Month, value:1, toDate: firstDayOfTheMonth, options: .MatchStrictly)!
+        let nextMonthComps = dayMonthYear(firstDayOfNextMonth, withTimeZone: localCalendar.timeZone)
+        let firstDayOfPreviousMonth = localCalendar.dateByAddingUnit(NSCalendarUnit.Month, value: -1, toDate: firstDayOfTheMonth, options: .MatchStrictly)!
+        let previousMonthComps = dayMonthYear(firstDayOfPreviousMonth, withTimeZone: localCalendar.timeZone)
+        
+        
         //prepare current month view
-        currentMonth = MonthHeatMapView(fromDate: today)
+        currentMonth = MonthHeatMapView(year: todayComps.year, month: todayComps.month, day: todayComps.day)
         currentMonth!.backgroundColor = UIColor.clearColor()
         addSubview(currentMonth!)
         
-        let firstDayOfTheMonth = calendar.firstDayOfMonth(forDate: today)
         //prepare next month view
-        let nextMonthDate = calendar.dateByAddingUnit(NSCalendarUnit.Month, value: 1, toDate: firstDayOfTheMonth, options: NSCalendarOptions.MatchStrictly)!
-        nextMonth = MonthHeatMapView(fromDate: nextMonthDate)
+        nextMonth = MonthHeatMapView(year:nextMonthComps.year, month: nextMonthComps.month, day: nextMonthComps.day)
         nextMonth!.backgroundColor = UIColor.clearColor()
         nextMonth!.alpha = 0.0
         addSubview(nextMonth!)
         
         //prepare previeous month view
-        let previousMonthDate = calendar.dateByAddingUnit(NSCalendarUnit.Month, value: -1, toDate: firstDayOfTheMonth, options: NSCalendarOptions.MatchStrictly)!
-        previousMonth = MonthHeatMapView(fromDate: previousMonthDate)
+        previousMonth = MonthHeatMapView(year:previousMonthComps.year, month: previousMonthComps.month, day: previousMonthComps.day)
         previousMonth!.backgroundColor = UIColor.clearColor()
         previousMonth!.alpha = 0.0
         addSubview(previousMonth!)
@@ -248,9 +260,12 @@ class CalendarHeatMap: UIView, UIGestureRecognizerDelegate, POPAnimationDelegate
             previousMonth!.removeFromSuperview()
             previousMonth = currentMonth
             currentMonth = nextMonth
-            let nextMonthDate  = calendar.firstDayOfMonth(forDate:nextMonth!.currentDate!)
-            let newNextMonthDate = calendar.dateByAddingUnit(NSCalendarUnit.Month, value: 1, toDate: nextMonthDate, options: NSCalendarOptions.MatchStrictly)!
-            nextMonth = MonthHeatMapView(fromDate: newNextMonthDate)
+            let currentMonthComps = currentMonth!.currentDateComponents
+            currentMonthComps.day = 1
+            let firstDayOfCurrentMonth = NSCalendar.currentCalendar().dateFromComponents(currentMonthComps)!
+            let firstDayOfNextMonth = NSCalendar.currentCalendar().dateByAddingUnit(.Month, value: 1, toDate: firstDayOfCurrentMonth, options: .MatchStrictly)!
+            let nextMonthComps = NSCalendar.currentCalendar().components(NSCalendarUnit.Year.union(.Month).union(.Day), fromDate: firstDayOfNextMonth)
+            nextMonth = MonthHeatMapView(year: nextMonthComps.year, month: nextMonthComps.month, day: nextMonthComps.day)
             nextMonth!.backgroundColor = UIColor.clearColor()
             nextMonth!.alpha = 0.0
             nextMonth!.dataSource = dataSource
@@ -260,9 +275,12 @@ class CalendarHeatMap: UIView, UIGestureRecognizerDelegate, POPAnimationDelegate
             nextMonth!.removeFromSuperview()
             nextMonth = currentMonth
             currentMonth = previousMonth
-            let previousMonthDate = calendar.firstDayOfMonth(forDate:previousMonth!.currentDate!)
-            let newPreviousMonthDate = calendar.dateByAddingUnit(NSCalendarUnit.Month, value: -1, toDate: previousMonthDate, options: NSCalendarOptions.MatchStrictly)!
-            previousMonth = MonthHeatMapView(fromDate: newPreviousMonthDate)
+            let currentMonthComps = currentMonth!.currentDateComponents
+            currentMonthComps.day = 1
+            let firstDayOfCurrentMonth = NSCalendar.currentCalendar().dateFromComponents(currentMonthComps)!
+            let firstDayOfPreviousMonth = NSCalendar.currentCalendar().dateByAddingUnit(.Month, value: -1, toDate: firstDayOfCurrentMonth, options: .MatchStrictly)!
+            let previousMonthComps = NSCalendar.currentCalendar().components(NSCalendarUnit.Year.union(.Month).union(.Day), fromDate: firstDayOfPreviousMonth)
+            previousMonth = MonthHeatMapView(year: previousMonthComps.year, month: previousMonthComps.month, day: previousMonthComps.day)
             previousMonth!.backgroundColor = UIColor.clearColor()
             previousMonth!.alpha = 0.0
             previousMonth!.dataSource = dataSource

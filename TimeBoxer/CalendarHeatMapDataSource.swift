@@ -9,7 +9,8 @@
 import UIKit
 
 protocol CalendarHeatMapDataSource {
-    func heat(withDate date:NSDate) -> CGFloat
+    func heat(year:Int, month: Int, day: Int) -> CGFloat
     func startDate() -> NSDate
-    func totalSeconds(withDate date:NSDate) -> Int
+    func startDateTimeZone() -> NSTimeZone
+    func totalSeconds(year:Int, month:Int, day: Int) -> Int
 }

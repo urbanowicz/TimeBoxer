@@ -16,11 +16,15 @@ class ProjectBasedCalendarHeatMapDataSource: NSObject, CalendarHeatMapDataSource
         return project.startDate
     }
     
-    func heat(withDate date: NSDate) -> CGFloat {
-        return CGFloat(project.totalSeconds(withDate: date)) / CGFloat(project.dailyGoalSeconds)
+    func startDateTimeZone() -> NSTimeZone {
+        return project.startDateTimeZone
     }
     
-    func totalSeconds(withDate date:NSDate) -> Int {
-        return project.totalSeconds(withDate: date)
+    func heat(year: Int, month: Int, day: Int) -> CGFloat {
+        return CGFloat(project.totalSeconds(year, month: month, day: day)) / CGFloat(project.dailyGoalSeconds)
+    }
+    
+    func totalSeconds(year: Int, month: Int, day: Int) -> Int {
+        return project.totalSeconds(year, month: month, day: day)
     }
 }
