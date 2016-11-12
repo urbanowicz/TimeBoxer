@@ -30,12 +30,6 @@ class MonthHeatMapView: UIView, UIGestureRecognizerDelegate {
         }
     }
     
-    var currentDate:NSDate? {
-        get {
-            return calendar.dateFromComponents(currentDateComponents)
-        }
-    }
-    
     private let monthNameLabel = UILabel()
     private let yearLabel = UILabel()
     
@@ -127,8 +121,10 @@ class MonthHeatMapView: UIView, UIGestureRecognizerDelegate {
 
     
     private func setupCurrentDateLabel() {
+        let localCalendar = NSCalendar.currentCalendar()
+        let currentDate = localCalendar.dateFromComponents(currentDateComponents)
         let formatter = NSDateFormatter()
-        formatter.timeZone = NSTimeZone(abbreviation: "GMT")
+        formatter.timeZone = localCalendar.timeZone
         formatter.dateFormat = "EEEE d MMMM"
         currentDateLabel.font = currentDateFont
         currentDateLabel.textColor = fontColor
@@ -138,9 +134,11 @@ class MonthHeatMapView: UIView, UIGestureRecognizerDelegate {
     }
     
     private func setupMonthNameLabel() {
+        let localCalendar = NSCalendar.currentCalendar()
+        let currentDate = localCalendar.dateFromComponents(currentDateComponents)
         monthNameLabel.font = monthNameFont
         let formatter = NSDateFormatter()
-        formatter.timeZone = NSTimeZone(abbreviation: "GMT")
+        formatter.timeZone = localCalendar.timeZone
         formatter.dateFormat = "MMMM"
         monthNameLabel.text = formatter.stringFromDate(currentDate!)
         monthNameLabel.textColor = fontColor
@@ -149,10 +147,12 @@ class MonthHeatMapView: UIView, UIGestureRecognizerDelegate {
     }
     
     private func setupYearLabel() {
+        let localCalendar = NSCalendar.currentCalendar()
+        let currentDate = localCalendar.dateFromComponents(currentDateComponents)
         yearLabel.font = yearFont
         yearLabel.textColor = fontColor
         let formatter = NSDateFormatter()
-        formatter.timeZone = NSTimeZone(abbreviation: "GMT")
+        formatter.timeZone = localCalendar.timeZone
         formatter.dateFormat = "yyyy"
         let yearText = formatter.stringFromDate(currentDate!)
         yearLabel.text = ""
@@ -269,7 +269,10 @@ class MonthHeatMapView: UIView, UIGestureRecognizerDelegate {
         }
         
         func updateCurrentDateLabel() {
+            let localCalendar = NSCalendar.currentCalendar()
+            let currentDate = localCalendar.dateFromComponents(currentDateComponents)
             let formatter = NSDateFormatter()
+            formatter.timeZone = localCalendar.timeZone
             formatter.dateFormat = "EEEE d MMMM"
             updateText(formatter.stringFromDate(currentDate!))
             currentDateLabel.sizeToFit()

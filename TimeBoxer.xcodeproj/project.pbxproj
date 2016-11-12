@@ -39,7 +39,6 @@
 		F15F9C551BCCF376008733A3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F15F9C531BCCF376008733A3 /* Main.storyboard */; };
 		F15F9C571BCCF376008733A3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F15F9C561BCCF376008733A3 /* Assets.xcassets */; };
 		F15F9C5A1BCCF376008733A3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F15F9C581BCCF376008733A3 /* LaunchScreen.storyboard */; };
-		F15F9C651BCCF376008733A3 /* TimeBoxer_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F15F9C641BCCF376008733A3 /* TimeBoxer_Tests.swift */; };
 		F168FFF91CB15ACB00F298BE /* WorkTimeFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F168FFF81CB15ACB00F298BE /* WorkTimeFormatter.swift */; };
 		F168FFFA1CB15ACB00F298BE /* WorkTimeFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F168FFF81CB15ACB00F298BE /* WorkTimeFormatter.swift */; };
 		F1783AEC1D8DC304007D7FC5 /* DurationPickerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1783AEB1D8DC304007D7FC5 /* DurationPickerDelegate.swift */; };
@@ -62,7 +61,6 @@
 		F1952A441D82FF6E0069F547 /* DurationPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1952A431D82FF6E0069F547 /* DurationPicker.swift */; };
 		F1981B9D1C84DE7200F49454 /* SliderOutputToValueConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1981B9C1C84DE7200F49454 /* SliderOutputToValueConverter.swift */; };
 		F1981B9E1C84DE7200F49454 /* SliderOutputToValueConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1981B9C1C84DE7200F49454 /* SliderOutputToValueConverter.swift */; };
-		F1981BA01C84DF8F00F49454 /* SliderOutputToValueConverterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1981B9F1C84DF8F00F49454 /* SliderOutputToValueConverterTests.swift */; };
 		F1981BA21C84E61700F49454 /* MinutesToStringConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1981BA11C84E61700F49454 /* MinutesToStringConverter.swift */; };
 		F1981BA31C84E61700F49454 /* MinutesToStringConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1981BA11C84E61700F49454 /* MinutesToStringConverter.swift */; };
 		F19AD1341D6C339D007757C7 /* ScrollingCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F19AD1331D6C339D007757C7 /* ScrollingCellDelegate.swift */; };
@@ -76,7 +74,6 @@
 		F1A802581D8949DD00C56E5F /* MarkAsFinishedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A802571D8949DD00C56E5F /* MarkAsFinishedViewController.swift */; };
 		F1A8025A1D8957A400C56E5F /* ProjectSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A802591D8957A400C56E5F /* ProjectSettingsViewController.swift */; };
 		F1A95C041C6BD49000EF5204 /* LastWorkedOnDateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A95C031C6BD49000EF5204 /* LastWorkedOnDateFormatter.swift */; };
-		F1A95C061C6BD52B00EF5204 /* LastWorkedOnDateFormatterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A95C051C6BD52B00EF5204 /* LastWorkedOnDateFormatterTests.swift */; };
 		F1A95C071C6BD55B00EF5204 /* LastWorkedOnDateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A95C031C6BD49000EF5204 /* LastWorkedOnDateFormatter.swift */; };
 		F1AF3A101BFBAE3900D40AE8 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F1AF3A0F1BFBAE3900D40AE8 /* Default-568h@2x.png */; };
 		F1B3B41F1C5540D80009FCF0 /* AbstractAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1B3B41E1C5540D80009FCF0 /* AbstractAnimator.swift */; };
@@ -221,8 +218,6 @@
 		F15F9C591BCCF376008733A3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F15F9C5B1BCCF376008733A3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F15F9C601BCCF376008733A3 /* TimeBoxer.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TimeBoxer.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		F15F9C641BCCF376008733A3 /* TimeBoxer_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeBoxer_Tests.swift; sourceTree = "<group>"; };
-		F15F9C661BCCF376008733A3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F168FFF81CB15ACB00F298BE /* WorkTimeFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkTimeFormatter.swift; sourceTree = "<group>"; };
 		F1783AEB1D8DC304007D7FC5 /* DurationPickerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DurationPickerDelegate.swift; sourceTree = "<group>"; };
 		F17F17B61C899A72003C04AC /* FadeInAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FadeInAnimator.swift; sourceTree = "<group>"; };
@@ -240,7 +235,6 @@
 		F19133541CA8478900CED170 /* NSCalendarExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSCalendarExtension.swift; sourceTree = "<group>"; };
 		F1952A431D82FF6E0069F547 /* DurationPicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DurationPicker.swift; sourceTree = "<group>"; };
 		F1981B9C1C84DE7200F49454 /* SliderOutputToValueConverter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SliderOutputToValueConverter.swift; sourceTree = "<group>"; };
-		F1981B9F1C84DF8F00F49454 /* SliderOutputToValueConverterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SliderOutputToValueConverterTests.swift; sourceTree = "<group>"; };
 		F1981BA11C84E61700F49454 /* MinutesToStringConverter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MinutesToStringConverter.swift; sourceTree = "<group>"; };
 		F19AD1331D6C339D007757C7 /* ScrollingCellDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScrollingCellDelegate.swift; sourceTree = "<group>"; };
 		F1A0BC6F1C4E63FC0075ACCF /* MyTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyTableViewCell.swift; sourceTree = "<group>"; };
@@ -253,7 +247,6 @@
 		F1A802571D8949DD00C56E5F /* MarkAsFinishedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarkAsFinishedViewController.swift; sourceTree = "<group>"; };
 		F1A802591D8957A400C56E5F /* ProjectSettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectSettingsViewController.swift; sourceTree = "<group>"; };
 		F1A95C031C6BD49000EF5204 /* LastWorkedOnDateFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LastWorkedOnDateFormatter.swift; sourceTree = "<group>"; };
-		F1A95C051C6BD52B00EF5204 /* LastWorkedOnDateFormatterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LastWorkedOnDateFormatterTests.swift; sourceTree = "<group>"; };
 		F1AF3A0F1BFBAE3900D40AE8 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		F1B3B41E1C5540D80009FCF0 /* AbstractAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AbstractAnimator.swift; sourceTree = "<group>"; };
 		F1B5FE6C1C31AF73003A5C65 /* TransitionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionManager.swift; sourceTree = "<group>"; };
@@ -382,7 +375,6 @@
 				F1C3CBD51D3D28BA00D78D07 /* pop.xcodeproj */,
 				F1AF3A0F1BFBAE3900D40AE8 /* Default-568h@2x.png */,
 				F15F9C4E1BCCF376008733A3 /* TimeBoxer */,
-				F15F9C631BCCF376008733A3 /* TimeBoxer_Tests */,
 				F15F9C4D1BCCF376008733A3 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -423,17 +415,6 @@
 				F1C3CBEE1D3D2A0600D78D07 /* PopBridge.h */,
 			);
 			path = TimeBoxer;
-			sourceTree = "<group>";
-		};
-		F15F9C631BCCF376008733A3 /* TimeBoxer_Tests */ = {
-			isa = PBXGroup;
-			children = (
-				F15F9C641BCCF376008733A3 /* TimeBoxer_Tests.swift */,
-				F15F9C661BCCF376008733A3 /* Info.plist */,
-				F1A95C051C6BD52B00EF5204 /* LastWorkedOnDateFormatterTests.swift */,
-				F1981B9F1C84DF8F00F49454 /* SliderOutputToValueConverterTests.swift */,
-			);
-			path = TimeBoxer_Tests;
 			sourceTree = "<group>";
 		};
 		F182DE5F1D8ABBB2008CCB43 /* DelegateProtocols */ = {
@@ -864,12 +845,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				F1981B9E1C84DE7200F49454 /* SliderOutputToValueConverter.swift in Sources */,
-				F1981BA01C84DF8F00F49454 /* SliderOutputToValueConverterTests.swift in Sources */,
 				F185A0A21CBAB5A80067775D /* UIColorExtension.swift in Sources */,
 				F12E2C6E1CA84A8C008DA69C /* NSCalendarExtension.swift in Sources */,
 				F1981BA31C84E61700F49454 /* MinutesToStringConverter.swift in Sources */,
-				F1A95C061C6BD52B00EF5204 /* LastWorkedOnDateFormatterTests.swift in Sources */,
-				F15F9C651BCCF376008733A3 /* TimeBoxer_Tests.swift in Sources */,
 				F10CA9C11C67DEBC0062471C /* WorkChunk.swift in Sources */,
 				F10CA9C01C67DCB10062471C /* Project.swift in Sources */,
 				F168FFFA1CB15ACB00F298BE /* WorkTimeFormatter.swift in Sources */,
@@ -938,6 +916,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_BITCODE = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -954,7 +933,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -982,6 +961,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_BITCODE = NO;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -992,7 +972,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -1002,10 +982,14 @@
 		F15F9C6A1BCCF376008733A3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = RW79CPXREY;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				EMBED_ASSET_PACKS_IN_PRODUCT_BUNDLE = NO;
+				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = "$(SRCROOT)/TimeBoxer/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1015,16 +999,21 @@
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = TimeBoxer/PopBridge.h;
 				SWIFT_VERSION = 2.3;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
 		F15F9C6B1BCCF376008733A3 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = RW79CPXREY;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				EMBED_ASSET_PACKS_IN_PRODUCT_BUNDLE = NO;
+				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = "$(SRCROOT)/TimeBoxer/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1034,13 +1023,16 @@
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = TimeBoxer/PopBridge.h;
 				SWIFT_VERSION = 2.3;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
 		F15F9C6D1BCCF376008733A3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				EMBED_ASSET_PACKS_IN_PRODUCT_BUNDLE = NO;
 				INFOPLIST_FILE = TimeBoxer_Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.example.TimeBoxer-Tests";
@@ -1053,7 +1045,9 @@
 		F15F9C6E1BCCF376008733A3 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				EMBED_ASSET_PACKS_IN_PRODUCT_BUNDLE = NO;
 				INFOPLIST_FILE = TimeBoxer_Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.example.TimeBoxer-Tests";
