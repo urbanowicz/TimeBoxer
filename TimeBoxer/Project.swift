@@ -12,7 +12,6 @@ class Project: NSObject, NSCoding, NSCopying {
     let projectNameKey = "projectNameKey"
     let startDateKey = "startDateKey"
     let startDateTimeZoneKey = "startDateTimeZoneKey"
-    //let projectStateKey = "projectStateKey"
     let endDateKey = "endDateKey"
     let workChunksKey = "workChunksKey"
     let dailyGoalKey = "dailyGoalKey"
@@ -21,9 +20,8 @@ class Project: NSObject, NSCoding, NSCopying {
     var dailyGoalSeconds:Int
     var startDate:NSDate
     var startDateTimeZone:NSTimeZone
-    //var state:ProjectState
     var endDate:NSDate?
-    var workChunks = [WorkChunk]()
+    var workChunks = [String:Int]()
     
     init(projectName:String, dailyGoalSeconds:Int) {
         self.name = projectName
@@ -51,14 +49,13 @@ class Project: NSObject, NSCoding, NSCopying {
         } else {
             dailyGoalSeconds = 4 * 60 * 60 //4 hours
         }
-        workChunks = aDecoder.decodeObjectForKey(workChunksKey) as! [WorkChunk]
+        workChunks = aDecoder.decodeObjectForKey(workChunksKey) as! [String:Int]
     }
     
     func encodeWithCoder(aCoder: NSCoder) {
         aCoder.encodeObject(name, forKey: projectNameKey)
         aCoder.encodeObject(startDate, forKey: startDateKey)
         aCoder.encodeObject(startDateTimeZone, forKey: startDateTimeZoneKey)
-        //aCoder.encodeObject(state, forKey: projectStateKey)
         aCoder.encodeObject(endDate, forKey: endDateKey)
         aCoder.encodeObject(workChunks, forKey:workChunksKey)
         aCoder.encodeObject(dailyGoalSeconds, forKey:dailyGoalKey)
@@ -67,18 +64,22 @@ class Project: NSObject, NSCoding, NSCopying {
     func copyWithZone(zone: NSZone) -> AnyObject {
         let copy = Project(projectName: name, startDate: startDate,startDateTimeZone: startDateTimeZone ,dailyGoalSeconds: dailyGoalSeconds)
         copy.endDate = endDate
-        var newWorkChunks = Array<WorkChunk>()
-        for workChunk in workChunks {
-            newWorkChunks.append(workChunk.copyWithZone(nil) as! WorkChunk)
-        }
-        copy.workChunks = newWorkChunks
+        copy.workChunks = workChunks
         return copy
     }
 //MARK:Recording work time
     func recordWork(durationInSeconds:Int) {
         let localCalendar = NSCalendar.currentCalendar()
-        let workChunk = WorkChunk(date:NSDate(), timeZone: localCalendar.timeZone, durationInSeconds: durationInSeconds)
-        workChunks.append(workChunk)
+        let now = NSDate()
+        let comps = localCalendar.components(NSCalendarUnit.Year.union(.Month).union(.Day), fromDate: now)
+        let dateKey = buildDateKey(comps.year, month: comps.month, day: comps.day)
+        print(dateKey)
+        if workChunks[dateKey] == nil {
+            workChunks[dateKey] = durationInSeconds
+        } else {
+            let currentTotalWorkTime = workChunks[dateKey]!
+            workChunks[dateKey] = currentTotalWorkTime + durationInSeconds
+        }
     }
     
 //MARK: Stats about the project
@@ -86,66 +87,20 @@ class Project: NSObject, NSCoding, NSCopying {
         return startDate
     }
     
-    func totalSeconds() -> Int {
-        ///returns the total number of seconds spent woring on the project
-        var totalSeconds = 0
-        for chunk in workChunks {
-            totalSeconds += chunk.duration
-        }
-        return totalSeconds
-    }
-    
     func totalSeconds(year: Int, month: Int, day: Int) -> Int {
-        let workChunks = workChunksWithDate(year, month: month, day: day)
-        var total = 0
-        for workChunk in workChunks {
-            total += workChunk.duration
+        
+        let dateKey = buildDateKey(year, month: month, day: day)
+        if let total = workChunks[dateKey] {
+            return total
+        } else {
+            return 0
         }
-        return total
     }
     
-    
-    func workChunksWithDate(year: Int, month: Int, day: Int) ->[WorkChunk] {
-        var result = [WorkChunk]()
-        for i in 0 ..< workChunks.count {
-            let workChunkDate = workChunks[i].date
-            let timeZone = workChunks[i].timeZone
-            let calendar = NSCalendar.currentCalendar()
-            calendar.timeZone = timeZone
-            let comps = calendar.components(NSCalendarUnit.Year.union(.Month).union(.Day), fromDate: workChunkDate)
-            if comps.year == year && comps.month == month && comps.day == day {
-                result.append(workChunks[i])
-            }
-            var shouldStop = false
-            if comps.year > year {
-                shouldStop = true
-            } else {
-                if comps.year < year {
-                    shouldStop = false
-                } else {
-                    //same year
-                    if comps.month > month {
-                        shouldStop = true
-                    } else {
-                        if comps.month < month {
-                            shouldStop = false
-                        } else {
-                            //same year and month 
-                            if comps.day > day {
-                                shouldStop = true
-                            } else {
-                                shouldStop = false
-                            }
-                        }
-                    }
-                }
-            }
-            if shouldStop {
-                break
-            }
-        }
-        return result
+    private func buildDateKey(year: Int, month: Int, day: Int) ->String {
+        return "\(year)\(month)\(day)"
     }
+    
 }
 
 //MARK: ProjectState

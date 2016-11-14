@@ -7,11 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		F10B85181C38346D002C66F2 /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10B85171C38346D002C66F2 /* ContainerViewController.swift */; };
 		F10B851A1C384E23002C66F2 /* Animator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10B85191C384E23002C66F2 /* Animator.swift */; };
 		F10C61A81C90A3500054B3FB /* ProjectsTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10C61A71C90A3500054B3FB /* ProjectsTableViewDataSource.swift */; };
 		F10CA9C01C67DCB10062471C /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = F152EE8F1C5968D00090BECC /* Project.swift */; };
-		F10CA9C11C67DEBC0062471C /* WorkChunk.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1EBB3E21C5AB93C005A36CE /* WorkChunk.swift */; };
 		F119251F1C8CB2F7002BEAC2 /* AddProjectToProjectsTableDismissAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F119251E1C8CB2F7002BEAC2 /* AddProjectToProjectsTableDismissAnimator.swift */; };
 		F11925211C8CB319002BEAC2 /* ProjectsTableToAddProjectAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11925201C8CB319002BEAC2 /* ProjectsTableToAddProjectAnimator.swift */; };
 		F11D5B9F1C42AD32007F2622 /* AddButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11D5B9E1C42AD32007F2622 /* AddButton.swift */; };
@@ -94,7 +92,6 @@
 		F1D1B2461D10359A00DC9EB8 /* RightDrawerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D1B2441D10359A00DC9EB8 /* RightDrawerView.swift */; };
 		F1D2444C1BDFF8320023B994 /* TimerRunningViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D2444B1BDFF8320023B994 /* TimerRunningViewController.swift */; };
 		F1E308421D79A8850018FAF9 /* BackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E308411D79A8850018FAF9 /* BackButton.swift */; };
-		F1EBB3E31C5AB93C005A36CE /* WorkChunk.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1EBB3E21C5AB93C005A36CE /* WorkChunk.swift */; };
 		F1EF4F3F1D75746D00F066BC /* AddProjectPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1EF4F3E1D75746D00F066BC /* AddProjectPageViewController.swift */; };
 		F1EF4F471D757C2200F066BC /* SetDailyGoalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1EF4F461D757C2200F066BC /* SetDailyGoalViewController.swift */; };
 		F1EF4F491D757DEA00F066BC /* AddProjectPageDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1EF4F481D757DEA00F066BC /* AddProjectPageDelegate.swift */; };
@@ -188,7 +185,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		F10B85171C38346D002C66F2 /* ContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContainerViewController.swift; sourceTree = "<group>"; };
 		F10B85191C384E23002C66F2 /* Animator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Animator.swift; sourceTree = "<group>"; };
 		F10C61A71C90A3500054B3FB /* ProjectsTableViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectsTableViewDataSource.swift; sourceTree = "<group>"; };
 		F119251E1C8CB2F7002BEAC2 /* AddProjectToProjectsTableDismissAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddProjectToProjectsTableDismissAnimator.swift; sourceTree = "<group>"; };
@@ -266,7 +262,6 @@
 		F1D1B2441D10359A00DC9EB8 /* RightDrawerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RightDrawerView.swift; sourceTree = "<group>"; };
 		F1D2444B1BDFF8320023B994 /* TimerRunningViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerRunningViewController.swift; sourceTree = "<group>"; };
 		F1E308411D79A8850018FAF9 /* BackButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackButton.swift; sourceTree = "<group>"; };
-		F1EBB3E21C5AB93C005A36CE /* WorkChunk.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkChunk.swift; sourceTree = "<group>"; };
 		F1EF4F3E1D75746D00F066BC /* AddProjectPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddProjectPageViewController.swift; sourceTree = "<group>"; };
 		F1EF4F461D757C2200F066BC /* SetDailyGoalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetDailyGoalViewController.swift; sourceTree = "<group>"; };
 		F1EF4F481D757DEA00F066BC /* AddProjectPageDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddProjectPageDelegate.swift; sourceTree = "<group>"; };
@@ -300,7 +295,6 @@
 		F10B85161C383349002C66F2 /* ContainerVC */ = {
 			isa = PBXGroup;
 			children = (
-				F10B85171C38346D002C66F2 /* ContainerViewController.swift */,
 				F1BF117A1D5F915300FC45A5 /* ImprovedContainerViewController.swift */,
 			);
 			name = ContainerVC;
@@ -364,7 +358,6 @@
 			isa = PBXGroup;
 			children = (
 				F152EE8F1C5968D00090BECC /* Project.swift */,
-				F1EBB3E21C5AB93C005A36CE /* WorkChunk.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -766,7 +759,6 @@
 				F1B3B41F1C5540D80009FCF0 /* AbstractAnimator.swift in Sources */,
 				F1BF117B1D5F915300FC45A5 /* ImprovedContainerViewController.swift in Sources */,
 				F120A18F1D76C33F00DC9E15 /* AddProjectTrainDelegate.swift in Sources */,
-				F1EBB3E31C5AB93C005A36CE /* WorkChunk.swift in Sources */,
 				F1D1B2451D10359A00DC9EB8 /* RightDrawerView.swift in Sources */,
 				F1B920551BE7D7CC004A8CDB /* PauseButton.swift in Sources */,
 				F150A2841D8BE8CC00DBDEA5 /* TickButton.swift in Sources */,
@@ -814,7 +806,6 @@
 				F152EE901C5968D00090BECC /* Project.swift in Sources */,
 				F1D08A3E1D4773E80066C907 /* CalendarHeatMap.swift in Sources */,
 				F1520B1B1C9049A8002F359E /* XButton.swift in Sources */,
-				F10B85181C38346D002C66F2 /* ContainerViewController.swift in Sources */,
 				F1EF4F3F1D75746D00F066BC /* AddProjectPageViewController.swift in Sources */,
 				F185A0A11CBAB5A80067775D /* UIColorExtension.swift in Sources */,
 				F18C1DBB1D52169100EF014B /* ProjectBasedCalendarHeatMapDataSource.swift in Sources */,
@@ -848,7 +839,6 @@
 				F185A0A21CBAB5A80067775D /* UIColorExtension.swift in Sources */,
 				F12E2C6E1CA84A8C008DA69C /* NSCalendarExtension.swift in Sources */,
 				F1981BA31C84E61700F49454 /* MinutesToStringConverter.swift in Sources */,
-				F10CA9C11C67DEBC0062471C /* WorkChunk.swift in Sources */,
 				F10CA9C01C67DCB10062471C /* Project.swift in Sources */,
 				F168FFFA1CB15ACB00F298BE /* WorkTimeFormatter.swift in Sources */,
 				F147F2D31D0F2F53001887DA /* LeftDrawerView.swift in Sources */,
