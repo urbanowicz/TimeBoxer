@@ -16,11 +16,13 @@ body {
 
 
 .tb_silver_color {
-
-
-  color: #EEEEEE;
   color: #FFFFFF;
 }
+
+.tb_blue_color {
+  color: #59B9F3;
+}
+
 .tb_avenir_heavy {
   /*font-family:Avenir-Heavy;*/
   font-family: 'Lato', sans-serif;
