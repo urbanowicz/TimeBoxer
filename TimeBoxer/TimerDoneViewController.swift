@@ -14,6 +14,7 @@ class TimerDoneViewController: UIViewController {
     var numberOfSecondsToCountDown = 0
     var numberOfSecondsTheTimerWasSetTo = 0
     var project:Project?
+    var startTime:NSDate?
     
     @IBOutlet weak var completedLabel: UILabel!
     @IBOutlet weak var timeLabel: UILabel!
@@ -91,7 +92,7 @@ class TimerDoneViewController: UIViewController {
     }
     
     private func recordWorkDone() {
-        project?.recordWork(numberOfCompletedSeconds)
+        project?.recordWork(startTime!, durationSeconds: numberOfCompletedSeconds)
     }
     //MARK: - Navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {

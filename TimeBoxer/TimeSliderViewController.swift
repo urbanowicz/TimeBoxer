@@ -105,6 +105,7 @@ class TimeSliderViewController: UIViewController {
                     sliderToMinutesConverter.convert(timeSlider.value) * 60
                 timerRunningViewController.numberOfSecondsTheTimerWasSetTo = timerRunningViewController.numberOfSecondsToCountDown
                 timerRunningViewController.project = project
+                timerRunningViewController.startTime = NSDate()
             }
         }
     

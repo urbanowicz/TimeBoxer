@@ -19,6 +19,7 @@ class TimerRunningViewController: UIViewController {
     var numberOfSecondsToCountDown = 0 //number of seconds
     var numberOfSecondsTheTimerWasSetTo = 0
     var stopTime:NSDate?
+    var startTime:NSDate?
     var project: Project?
     
     private let stopTimeKey = "TimeBoxer_TimerRunningVC_StopTimeKey"
@@ -386,6 +387,7 @@ class TimerRunningViewController: UIViewController {
                 timerDoneVC.numberOfSecondsToCountDown = numberOfSecondsToCountDown
                 timerDoneVC.projectName = project!.name
                 timerDoneVC.project = project
+                timerDoneVC.startTime = startTime
             }
         }
     }

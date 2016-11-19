@@ -1,7 +1,4 @@
 
-.cursor {
-  cursor:;
-}
 .tb_blue_background {
   background-color: #010845;
   background-color: #010815;
@@ -91,4 +88,38 @@ body {
   margin-left: 11px;
   margin-top: 57px;
   height: 467px; 
+}
+
+
+
+.full-width {
+  max-width: 1400px;
+}
+
+.footer {
+  margin-top: 60px;
+  background-color: #010815;
+  padding: 2rem 4rem;
+  color: #fff;
+}
+
+.footer h4 {
+  color: #fff;
+  font-size: 1em;
+  font-weight: 400;
+  text-transform: uppercase;
+  margin-top: 2.5rem;
+  margin-bottom: 10px;
+}
+.footer p, .footer a {
+  font-weight: 300;
+  font-size: .8em;
+  color: #fff;
+}
+.right {
+  text-align: right;
+}
+
+.footer-links {
+  list-style-type: none;
 }

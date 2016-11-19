@@ -68,17 +68,17 @@ class Project: NSObject, NSCoding, NSCopying {
         return copy
     }
 //MARK:Recording work time
-    func recordWork(durationInSeconds:Int) {
+    
+    func recordWork(startTime:NSDate, durationSeconds:Int) {
         let localCalendar = NSCalendar.currentCalendar()
-        let now = NSDate()
-        let comps = localCalendar.components(NSCalendarUnit.Year.union(.Month).union(.Day), fromDate: now)
+        let comps = localCalendar.components(NSCalendarUnit.Year.union(.Month).union(.Day), fromDate: startTime)
         let dateKey = buildDateKey(comps.year, month: comps.month, day: comps.day)
         print(dateKey)
         if workChunks[dateKey] == nil {
-            workChunks[dateKey] = durationInSeconds
+            workChunks[dateKey] = durationSeconds
         } else {
             let currentTotalWorkTime = workChunks[dateKey]!
-            workChunks[dateKey] = currentTotalWorkTime + durationInSeconds
+            workChunks[dateKey] = currentTotalWorkTime + durationSeconds
         }
     }
     
