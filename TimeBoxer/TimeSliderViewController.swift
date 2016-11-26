@@ -91,6 +91,8 @@ class TimeSliderViewController: UIViewController {
     
     
     @IBAction func startButtonPressed(sender: StartButton) {
+        //disable the start button for the duration of the transition animation
+        startButton.enabled = false
         performSegueWithIdentifier("TimeSliderToTimerRunning", sender: self)
     }
 
@@ -180,6 +182,8 @@ private class ToTimerRunningAnimator:NSObject, Animator, CAAnimationDelegate {
             if let executeCompletionBlock = completionBlock {
                 executeCompletionBlock()
             }
+            //enable the start button so that it is ready the next time this view controller is used
+            self.timeSliderVC?.startButton.enabled = true
         }
     }
     
