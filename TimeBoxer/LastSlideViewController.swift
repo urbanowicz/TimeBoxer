@@ -41,6 +41,8 @@ class LastSlideViewController: WalkthroughSlideViewController {
     }
 
     func okButtonPressed(sender: UIButton) {
+        //prevent the ok button from being pressed multiple times
+        okButton.enabled = false
         delegate?.okButtonPressed()
     }
     /*
