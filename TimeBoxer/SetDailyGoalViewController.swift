@@ -80,6 +80,7 @@ class SetDailyGoalViewController: UIViewController {
     }
     
     @IBAction func backButtonPressed(sender: AnyObject) {
+        backButton.enabled = false 
         delegate?.didPressBackButton()
     }
     @IBAction func okButtonPressed(sender: AnyObject) {

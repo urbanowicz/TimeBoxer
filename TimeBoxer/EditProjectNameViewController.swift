@@ -65,6 +65,8 @@ class EditProjectNameViewController: UIViewController, UITextFieldDelegate  {
     }
     
     func xButtonPressed() {
+        //prevent the xButton from being pressed multiple times
+        xButton.enabled = false
         delegate?.didCancelEditing(self)
     }
     
@@ -110,6 +112,8 @@ class EditProjectNameViewController: UIViewController, UITextFieldDelegate  {
     }
     
     func tickButtonPressed(sender:TickButton) {
+        //prevent the tick button from being pressed multiple times
+        tickButton.enabled = false
         project.name = projectNameTextField.text!
         
         func prepareConfirmationBox() -> UILabel {

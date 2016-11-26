@@ -87,6 +87,8 @@ class AddProjectViewController: UIViewController, UITextFieldDelegate {
 //MARK: Actions
     
     @IBAction func xButtonPressed(sender: XButton) {
+        //don't let the xButton be tapped multiple times
+        xButton.enabled = false
         projectNameTextField.resignFirstResponder()
     }
 //MARK: UITextFieldDelegate
