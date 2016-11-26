@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TimerRunningViewController: UIViewController {
+class TimerRunningViewController: UIViewController, POPAnimationDelegate {
     @IBOutlet weak var pauseButton: PauseButton!
     var stopButton: StopButton = StopButton()
     var resumeButton: StartButton = StartButton()
@@ -43,6 +43,13 @@ class TimerRunningViewController: UIViewController {
     
 
     override func viewWillAppear(animated: Bool) {
+        //Make sure all buttons are enabled
+        self.pauseButton.enabled = true
+        self.stopButton.enabled = true
+        self.resumeButton.enabled = true
+        self.xButton.enabled = true
+        
+        
         setupStopTimeBasedOnNumberOfSecondsToCountDown()
         setupTimerDoneNotification()
         setupTimer()
@@ -106,6 +113,11 @@ class TimerRunningViewController: UIViewController {
     
 //MARK: Actions
     func xButtonPressed() {
+        //Disable buttons for the time of the animation.
+        self.xButton.enabled = false
+        self.pauseButton.enabled = false
+        self.stopButton.enabled = false
+        self.resumeButton.enabled = false
         timer.invalidate()
         removeStopTimeFromUserDefaults()
         cancelTimerDoneNotification()
@@ -117,6 +129,13 @@ class TimerRunningViewController: UIViewController {
         timer.invalidate()
         removeStopTimeFromUserDefaults()
         cancelTimerDoneNotification()
+        
+        //Disable buttons for the time of the animation.
+        //Enable them again when the animation stops
+        self.pauseButton.enabled = false
+        self.stopButton.enabled = false
+        self.resumeButton.enabled = false
+        self.xButton.enabled = false
         
         //Setup Resume button position
         let resumeButtonPositionX = pauseButton.layer.position.x - pauseButton.frame.width/2.0 - 10
@@ -147,6 +166,7 @@ class TimerRunningViewController: UIViewController {
         resumeButtonScaleUpAnimation.toValue = NSValue.init(CGSize: pauseButtonSize)
         resumeButtonScaleUpAnimation.springBounciness = 4
         resumeButtonScaleUpAnimation.springSpeed = 4
+        resumeButtonScaleUpAnimation.delegate = self
         resumeButton.layer.pop_addAnimation(resumeButtonScaleUpAnimation, forKey: "scaleUp")
         
         let resumeButtonAlphaAnimation = POPBasicAnimation(propertyNamed: kPOPViewAlpha)
@@ -217,6 +237,14 @@ class TimerRunningViewController: UIViewController {
     }
     
     func resumeButtonPressed() {
+        
+        //Disable buttons for the time of the animation.
+        //Enable them again when the animation stops
+        self.pauseButton.enabled = false
+        self.stopButton.enabled = false
+        self.resumeButton.enabled = false
+        self.xButton.enabled = false
+        
         //Animate the project name label
         let projectNameLabelColorAnimation = POPBasicAnimation(propertyNamed: kPOPLabelTextColor)
         projectNameLabelColorAnimation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
@@ -249,6 +277,7 @@ class TimerRunningViewController: UIViewController {
         pauseButtonScaleUpAnimation.toValue = NSValue.init(CGSize: originalSize)
         pauseButtonScaleUpAnimation.springBounciness = 4
         pauseButtonScaleUpAnimation.springSpeed = 4
+        pauseButtonScaleUpAnimation.delegate = self
         pauseButton.pop_addAnimation(pauseButtonScaleUpAnimation, forKey: "scaleUp")
         
         let pauseButtonAlphaAnimation = POPBasicAnimation(propertyNamed: kPOPViewAlpha)
@@ -311,6 +340,11 @@ class TimerRunningViewController: UIViewController {
     }
     
     func stopButtonPressed() {
+        //Disable buttons for the time of the animation.
+        self.pauseButton.enabled = false
+        self.stopButton.enabled = false
+        self.resumeButton.enabled = false
+        self.xButton.enabled = false
         handleTimerDone()
     }
 
@@ -366,6 +400,16 @@ class TimerRunningViewController: UIViewController {
             UIApplication.sharedApplication().cancelLocalNotification(notification)
             timerDoneNotification = nil 
         }
+    }
+    
+    func pop_animationDidStop(anim: POPAnimation!, finished: Bool) {
+        //Pause button had been pressed and the animation stopped
+        //Or the resume button had been  pressed and the animation stopped
+        //Either way, enable all th buttons now.
+        xButton.enabled = true
+        resumeButton.enabled = true
+        stopButton.enabled = true
+        pauseButton.enabled = true
     }
     
 //MARK: - Navigation
