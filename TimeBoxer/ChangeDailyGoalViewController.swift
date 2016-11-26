@@ -88,9 +88,15 @@ class ChangeDailyGoalViewController: UIViewController, DurationPickerDelegate {
     }
     
     func xButtonPressed() {
+        //prevent the xButton from being pressed multiple times
+        xButton.enabled = false
+        tickButton.enabled = false
         delegate?.didCancelEditing(self)
     }
     func tickButtonPressed(sender:TickButton) {
+        //prevent the tickButton from being pressed multiple times
+        tickButton.enabled = false
+        xButton.enabled = false
         project.dailyGoalSeconds = durationPicker.durationSeconds
         func prepareConfirmationBox() -> UILabel {
             let confirmationLabel = UILabel()
