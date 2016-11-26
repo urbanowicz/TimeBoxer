@@ -43,6 +43,7 @@ class TimerDoneViewController: UIViewController {
     }
 
     override func viewWillAppear(animated: Bool) {
+        okButton.enabled = true
         if view.frame.width > 320 {
             //Could this be done better with size classes?
             let increaseFontSizeBy = CGFloat(4.0)
@@ -87,6 +88,8 @@ class TimerDoneViewController: UIViewController {
     }
     
     @IBAction func okButtonPressed(sender: OKButton) {
+        //disable the ok button so that it can't be pressed again while the animation is running
+        okButton.enabled = false
         recordWorkDone()
         performSegueWithIdentifier("TimerDoneToTimeSlider", sender: sender)
     }
