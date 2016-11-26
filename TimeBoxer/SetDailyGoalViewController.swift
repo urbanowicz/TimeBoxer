@@ -83,6 +83,8 @@ class SetDailyGoalViewController: UIViewController {
         delegate?.didPressBackButton()
     }
     @IBAction func okButtonPressed(sender: AnyObject) {
+        //disable the ok button so that it can't be pressed multiple times
+        okButton.enabled = false
         delegate?.didSetDailyGoal(durationPicker.durationSeconds)
     }
 
