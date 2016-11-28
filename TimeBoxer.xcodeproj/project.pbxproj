@@ -10,6 +10,7 @@
 		F10B851A1C384E23002C66F2 /* Animator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10B85191C384E23002C66F2 /* Animator.swift */; };
 		F10C61A81C90A3500054B3FB /* ProjectsTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10C61A71C90A3500054B3FB /* ProjectsTableViewDataSource.swift */; };
 		F10C8B661DEC59E50011BFED /* ring.caf in Resources */ = {isa = PBXBuildFile; fileRef = F10C8B651DEC59E50011BFED /* ring.caf */; };
+		F10C8B681DEC77DE0011BFED /* AllowLocalNotificationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10C8B671DEC77DE0011BFED /* AllowLocalNotificationsViewController.swift */; };
 		F10CA9C01C67DCB10062471C /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = F152EE8F1C5968D00090BECC /* Project.swift */; };
 		F119251F1C8CB2F7002BEAC2 /* AddProjectToProjectsTableDismissAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F119251E1C8CB2F7002BEAC2 /* AddProjectToProjectsTableDismissAnimator.swift */; };
 		F11925211C8CB319002BEAC2 /* ProjectsTableToAddProjectAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11925201C8CB319002BEAC2 /* ProjectsTableToAddProjectAnimator.swift */; };
@@ -189,6 +190,7 @@
 		F10B85191C384E23002C66F2 /* Animator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Animator.swift; sourceTree = "<group>"; };
 		F10C61A71C90A3500054B3FB /* ProjectsTableViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectsTableViewDataSource.swift; sourceTree = "<group>"; };
 		F10C8B651DEC59E50011BFED /* ring.caf */ = {isa = PBXFileReference; lastKnownFileType = file; name = ring.caf; path = ../sounds/ring.caf; sourceTree = "<group>"; };
+		F10C8B671DEC77DE0011BFED /* AllowLocalNotificationsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllowLocalNotificationsViewController.swift; sourceTree = "<group>"; };
 		F119251E1C8CB2F7002BEAC2 /* AddProjectToProjectsTableDismissAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddProjectToProjectsTableDismissAnimator.swift; sourceTree = "<group>"; };
 		F11925201C8CB319002BEAC2 /* ProjectsTableToAddProjectAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectsTableToAddProjectAnimator.swift; sourceTree = "<group>"; };
 		F11D5B9E1C42AD32007F2622 /* AddButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddButton.swift; sourceTree = "<group>"; };
@@ -543,6 +545,7 @@
 			children = (
 				F1D2444B1BDFF8320023B994 /* TimerRunningViewController.swift */,
 				F185A09D1CBAB2BF0067775D /* TimeLabelTextFormatter.swift */,
+				F10C8B671DEC77DE0011BFED /* AllowLocalNotificationsViewController.swift */,
 			);
 			name = TimerRunningVC;
 			sourceTree = "<group>";
@@ -828,6 +831,7 @@
 				F1F36AD01C875F770039EF0B /* OKButton.swift in Sources */,
 				F182DE671D8ABBC7008CCB43 /* ProjectSettingsPageDelegate.swift in Sources */,
 				F1B9DC701DC4B5F0004BD01C /* LastSlideViewController.swift in Sources */,
+				F10C8B681DEC77DE0011BFED /* AllowLocalNotificationsViewController.swift in Sources */,
 				F1B9A5651D5604A800932F90 /* CalendarHeatMapDelegate.swift in Sources */,
 				F1EF4F471D757C2200F066BC /* SetDailyGoalViewController.swift in Sources */,
 				F1EF4F491D757DEA00F066BC /* AddProjectPageDelegate.swift in Sources */,

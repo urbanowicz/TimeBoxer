@@ -366,9 +366,19 @@ class TimerRunningViewController: UIViewController, POPAnimationDelegate {
     }
 
     private func registerForLocalNotifications() {
-        let types: UIUserNotificationType = [.Badge, .Sound, .Alert]
-        let settings = UIUserNotificationSettings(forTypes: types, categories: nil)
-        UIApplication.sharedApplication().registerUserNotificationSettings(settings)
+        
+        let askedForPermissionBefore = NSUserDefaults.standardUserDefaults().boolForKey("askedForLocalNotificationPermission")
+        let types: UIUserNotificationType = [.Sound, .Alert]
+        let allowedNotificationTypes = UIApplication.sharedApplication().currentUserNotificationSettings()!.types
+        
+        if !types.isSubsetOf(allowedNotificationTypes) && !askedForPermissionBefore {
+            NSUserDefaults.standardUserDefaults().setBool(true, forKey: "askedForLocalNotificationPermission")
+            let allowLocalNotificationsVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("allowLocalNotificationsVC") as! AllowLocalNotificationsViewController
+            self.addChildViewController(allowLocalNotificationsVC)
+            allowLocalNotificationsVC.view.frame = self.view.frame
+            self.view.addSubview(allowLocalNotificationsVC.view)
+            allowLocalNotificationsVC.didMoveToParentViewController(self)
+        }
     }
     
     private func setupStopTimeBasedOnNumberOfSecondsToCountDown() {
@@ -377,6 +387,8 @@ class TimerRunningViewController: UIViewController, POPAnimationDelegate {
     }
     
     private func setupTimerDoneNotification() {
+        //cancel any previous notifications:
+        UIApplication.sharedApplication().cancelAllLocalNotifications()
         //schedule Notification
         timerDoneNotification = UILocalNotification()
         timerDoneNotification!.fireDate = stopTime

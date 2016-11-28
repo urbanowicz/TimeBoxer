@@ -73,7 +73,6 @@ class Project: NSObject, NSCoding, NSCopying {
         let localCalendar = NSCalendar.currentCalendar()
         let comps = localCalendar.components(NSCalendarUnit.Year.union(.Month).union(.Day), fromDate: startTime)
         let dateKey = buildDateKey(comps.year, month: comps.month, day: comps.day)
-        print(dateKey)
         if workChunks[dateKey] == nil {
             workChunks[dateKey] = durationSeconds
         } else {

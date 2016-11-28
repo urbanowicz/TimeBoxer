@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="6mA-bS-VWc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="6mA-bS-VWc">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -909,6 +909,71 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0S7-9R-1fW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="714" y="-574"/>
+        </scene>
+        <!--Allow Local Notifications View Controller-->
+        <scene sceneID="cDm-hS-rBo">
+            <objects>
+                <viewController storyboardIdentifier="allowLocalNotificationsVC" id="g2b-E5-4C7" customClass="AllowLocalNotificationsViewController" customModule="TimeBoxer" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="nZK-19-JtZ"/>
+                        <viewControllerLayoutGuide type="bottom" id="auI-gJ-V2i"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="9Xm-tg-MFN">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PMb-FZ-Rcb">
+                                <rect key="frame" x="72" y="233" width="230" height="200"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ceb-h4-CCg">
+                                        <rect key="frame" x="100" y="146" width="30" height="34"/>
+                                        <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="16"/>
+                                        <state key="normal" title="OK">
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="closePopUp:" destination="g2b-E5-4C7" eventType="touchUpInside" id="o9m-gf-dTZ"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enable push notifications so that you can be notified when the timer completes." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fmd-iS-Gad">
+                                        <rect key="frame" x="20" y="20" width="190" height="93"/>
+                                        <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FjF-Pl-43R">
+                                        <rect key="frame" x="20" y="123" width="190" height="1"/>
+                                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="1" id="S8s-NB-bPV"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" red="0.40392156862745099" green="0.6705882352941176" blue="0.90980392156862744" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="ceb-h4-CCg" firstAttribute="centerX" secondItem="PMb-FZ-Rcb" secondAttribute="centerX" id="38d-d0-HnG"/>
+                                    <constraint firstItem="fmd-iS-Gad" firstAttribute="centerX" secondItem="PMb-FZ-Rcb" secondAttribute="centerX" id="6fp-dY-OkY"/>
+                                    <constraint firstItem="FjF-Pl-43R" firstAttribute="centerX" secondItem="PMb-FZ-Rcb" secondAttribute="centerX" id="8Cv-A6-AXX"/>
+                                    <constraint firstAttribute="trailing" secondItem="fmd-iS-Gad" secondAttribute="trailing" constant="20" id="OXR-0M-ulI"/>
+                                    <constraint firstAttribute="bottom" secondItem="ceb-h4-CCg" secondAttribute="bottom" constant="20" id="Oe1-cp-rc6"/>
+                                    <constraint firstItem="FjF-Pl-43R" firstAttribute="width" secondItem="fmd-iS-Gad" secondAttribute="width" id="ii9-dY-CUK"/>
+                                    <constraint firstItem="FjF-Pl-43R" firstAttribute="top" secondItem="fmd-iS-Gad" secondAttribute="bottom" constant="10" id="jDi-HY-zcf"/>
+                                    <constraint firstAttribute="height" constant="200" id="oRf-Ib-3fw"/>
+                                    <constraint firstItem="fmd-iS-Gad" firstAttribute="top" secondItem="PMb-FZ-Rcb" secondAttribute="top" constant="20" id="tBQ-7j-u0F"/>
+                                    <constraint firstAttribute="width" constant="230" id="wek-1N-5ah"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="PMb-FZ-Rcb" firstAttribute="centerY" secondItem="9Xm-tg-MFN" secondAttribute="centerY" id="SGk-Q7-cBZ"/>
+                            <constraint firstItem="PMb-FZ-Rcb" firstAttribute="centerX" secondItem="9Xm-tg-MFN" secondAttribute="centerX" id="n17-Ak-3BZ"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jBd-lj-9XA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1388" y="160.56971514242881"/>
         </scene>
         <!--Timer Running View Controller-->
         <scene sceneID="st3-lv-2It">
