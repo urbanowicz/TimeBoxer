@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		F10B851A1C384E23002C66F2 /* Animator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10B85191C384E23002C66F2 /* Animator.swift */; };
 		F10C61A81C90A3500054B3FB /* ProjectsTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10C61A71C90A3500054B3FB /* ProjectsTableViewDataSource.swift */; };
+		F10C8B661DEC59E50011BFED /* ring.caf in Resources */ = {isa = PBXBuildFile; fileRef = F10C8B651DEC59E50011BFED /* ring.caf */; };
 		F10CA9C01C67DCB10062471C /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = F152EE8F1C5968D00090BECC /* Project.swift */; };
 		F119251F1C8CB2F7002BEAC2 /* AddProjectToProjectsTableDismissAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F119251E1C8CB2F7002BEAC2 /* AddProjectToProjectsTableDismissAnimator.swift */; };
 		F11925211C8CB319002BEAC2 /* ProjectsTableToAddProjectAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11925201C8CB319002BEAC2 /* ProjectsTableToAddProjectAnimator.swift */; };
@@ -187,6 +188,7 @@
 /* Begin PBXFileReference section */
 		F10B85191C384E23002C66F2 /* Animator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Animator.swift; sourceTree = "<group>"; };
 		F10C61A71C90A3500054B3FB /* ProjectsTableViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectsTableViewDataSource.swift; sourceTree = "<group>"; };
+		F10C8B651DEC59E50011BFED /* ring.caf */ = {isa = PBXFileReference; lastKnownFileType = file; name = ring.caf; path = ../sounds/ring.caf; sourceTree = "<group>"; };
 		F119251E1C8CB2F7002BEAC2 /* AddProjectToProjectsTableDismissAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddProjectToProjectsTableDismissAnimator.swift; sourceTree = "<group>"; };
 		F11925201C8CB319002BEAC2 /* ProjectsTableToAddProjectAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectsTableToAddProjectAnimator.swift; sourceTree = "<group>"; };
 		F11D5B9E1C42AD32007F2622 /* AddButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddButton.swift; sourceTree = "<group>"; };
@@ -406,6 +408,7 @@
 				F15F9C581BCCF376008733A3 /* LaunchScreen.storyboard */,
 				F15F9C5B1BCCF376008733A3 /* Info.plist */,
 				F1C3CBEE1D3D2A0600D78D07 /* PopBridge.h */,
+				F10C8B651DEC59E50011BFED /* ring.caf */,
 			);
 			path = TimeBoxer;
 			sourceTree = "<group>";
@@ -734,6 +737,7 @@
 				F15F9C5A1BCCF376008733A3 /* LaunchScreen.storyboard in Resources */,
 				F1AF3A101BFBAE3900D40AE8 /* Default-568h@2x.png in Resources */,
 				F15F9C571BCCF376008733A3 /* Assets.xcassets in Resources */,
+				F10C8B661DEC59E50011BFED /* ring.caf in Resources */,
 				F15F9C551BCCF376008733A3 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

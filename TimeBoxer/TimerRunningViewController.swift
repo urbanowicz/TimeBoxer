@@ -381,7 +381,8 @@ class TimerRunningViewController: UIViewController, POPAnimationDelegate {
         timerDoneNotification = UILocalNotification()
         timerDoneNotification!.fireDate = stopTime
         timerDoneNotification!.alertBody = "Timer done."
-        timerDoneNotification!.soundName = UILocalNotificationDefaultSoundName
+        //timerDoneNotification!.soundName = UILocalNotificationDefaultSoundName
+        timerDoneNotification!.soundName = "ring.caf"
         UIApplication.sharedApplication().scheduleLocalNotification(timerDoneNotification!)
     }
     
